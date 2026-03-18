@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Solutions by Property Type | Securevision</title>
+    <meta name="description" content="Securevision provides integrated security systems engineered for Singapore's homes, condominiums, and businesses. Authorised installers of 20 global brands.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* COLOR SYSTEM */
+        :root {
+            --primary-blue: #0056b3;
+            --dark-blue: #003d82;
+            --accent-green: #25d366;
+            --text-dark: #1a1a1a;
+            --text-gray: #333333;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --border-light: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Inter', sans-serif; color: var(--text-dark); line-height: 1.6; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 600; margin: 0; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .btn { font-family: 'Montserrat', sans-serif; font-weight: 600; padding: 14px 32px; border-radius: 4px; text-decoration: none; font-size: 14px; transition: 0.3s; display: inline-block; cursor: pointer; }
+
+        /* ============================================
+           NAVIGATION WITH MEGA MENU
+        ============================================ */
+        .main-nav { 
+            background: white; 
+            border-bottom: 1px solid var(--border-light); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .nav-container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: var(--primary-blue);
+            text-decoration: none;
+            padding: 20px 0;
+        }
+        .nav-menu { 
+            display: flex; 
+            list-style: none; 
+            margin: 0; 
+            padding: 0; 
+            gap: 40px;
+        }
+        .nav-item { 
+            position: relative; 
+        }
+        .nav-link { 
+            color: var(--text-dark); 
+            text-decoration: none; 
+            font-weight: 500;
+            padding: 30px 0;
+            display: block;
+            transition: 0.3s;
+            font-size: 0.95rem;
+        }
+        .nav-link:hover { 
+            color: var(--primary-blue); 
+        }
+        .nav-link.active {
+            color: var(--primary-blue);
+            font-weight: 600;
+        }
+
+        /* MEGA MENU STRUCTURE */
+        .mega-menu {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            width: 900px;
+            padding: 40px;
+            display: none;
+            margin-top: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .nav-item:hover .mega-menu {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            opacity: 1;
+        }
+
+        /* MEGA MENU LEFT: Trust Column */
+        .mega-trust {
+            border-right: 1px solid var(--border-light);
+            padding-right: 30px;
+        }
+        .mega-trust h4 {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            color: var(--primary-blue);
+        }
+        .mega-trust p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .trust-badges {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        .trust-badge {
+            background: var(--bg-light);
+            padding: 8px;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 0.75rem;
+            border: 1px solid var(--border-light);
+        }
+        .trust-badge strong {
+            display: block;
+            color: var(--primary-blue);
+            font-size: 0.85rem;
+            margin-bottom: 2px;
+        }
+
+        /* MEGA MENU RIGHT: Property Types */
+        .mega-properties {
+            padding-left: 10px;
+        }
+        .mega-properties h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+        .property-links {
+            display: grid;
+            gap: 12px;
+        }
+        .property-link {
+            padding: 12px 16px;
+            background: var(--bg-light);
+            border-radius: 6px;
+            text-decoration: none;
+            color: var(--text-dark);
+            transition: 0.3s;
+            border: 1px solid transparent;
+            display: block;
+        }
+        .property-link:hover {
+            background: white;
+            border-color: var(--primary-blue);
+            transform: translateX(4px);
+        }
+        .property-link strong {
+            display: block;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
+            color: var(--primary-blue);
+        }
+        .property-link small {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* ============================================
+           HERO SECTION
+        ============================================ */
+        .hero {
+            background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .hero .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+        .hero .tagline {
+            font-size: 1rem;
+            opacity: 0.7;
+            margin-top: 20px;
+        }
+
+        /* ============================================
+           PATH FINDER SECTION
+        ============================================ */
+        .pathfinder {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+        .pathfinder h2 {
+            text-align: center;
+            font-size: 2.25rem;
+            margin-bottom: 16px;
+        }
+        .pathfinder .intro {
+            text-align: center;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto 60px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        /* Path Finder Grid */
+        .pathfinder-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .pathfinder-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid var(--border-light);
+            transition: 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text-dark);
+        }
+        .pathfinder-card:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0,86,179,0.15);
+        }
+        .pathfinder-card .icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .pathfinder-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+        .pathfinder-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .pathfinder-card.help-me {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            color: white;
+            border: none;
+            padding: 50px;
+        }
+        .pathfinder-card.help-me .icon {
+            font-size: 4rem;
+        }
+        .pathfinder-card.help-me h3 {
+            color: white;
+            font-size: 1.5rem;
+        }
+        .pathfinder-card.help-me p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* ============================================
+           PROPERTY TYPE DEEP DIVE SECTION
+        ============================================ */
+        .property-types {
+            padding: 100px 0;
+            background: white;
+        }
+        .property-types h2 {
+            text-align: center;
+            font-size: 2.25rem;
+            margin-bottom: 20px;
+        }
+        .property-types .intro {
+            text-align: center;
+            color: var(--text-light);
+            max-width: 650px;
+            margin: 0 auto 60px;
+            font-size: 1.05rem;
+        }
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+        .property-card {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            transition: 0.3s;
+            text-decoration: none;
+            color: var(--text-dark);
+            display: block;
+        }
+        .property-card:hover {
+            background: white;
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 16px rgba(0,86,179,0.1);
+        }
+        .property-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+        .property-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+            color: var(--primary-blue);
+        }
+        .property-card .subtitle-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 16px;
+            font-style: italic;
+        }
+        .property-card .challenge {
+            background: white;
+            padding: 16px;
+            border-radius: 6px;
+            margin-top: 16px;
+            border-left: 3px solid var(--primary-blue);
+        }
+        .property-card .challenge strong {
+            display: block;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        .property-card .challenge p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           WHY PROPERTY TYPE MATTERS SECTION
+        ============================================ */
+        .why-matters {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+        .why-matters h2 {
+            text-align: center;
+            font-size: 2.25rem;
+            margin-bottom: 60px;
+        }
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .comparison-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+        .comparison-card h4 {
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+        .comparison-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .comparison-card li {
+            padding: 8px 0;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            border-bottom: 1px solid var(--bg-light);
+        }
+        .comparison-card li:last-child {
+            border: none;
+        }
+        .comparison-card li::before {
+            content: "&check; ";
+            color: var(--accent-green);
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* ============================================
+           CTA SECTION
+        ============================================ */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(to bottom, white, var(--bg-light));
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 2.25rem;
+            margin-bottom: 20px;
+        }
+        .cta-section p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            max-width: 650px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+        .btn-primary {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+        }
+        .btn-primary:hover {
+            background: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,86,179,0.3);
+        }
+        .btn-outline {
+            border: 2px solid var(--primary-blue);
+            color: var(--primary-blue);
+            background: white;
+            margin-left: 15px;
+        }
+        .btn-outline:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        /* ============================================
+           RESPONSIVE DESIGN
+        ============================================ */
+        @media (max-width: 1024px) {
+            .mega-menu {
+                width: 700px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Mobile Navigation */
+            .mobile-toggle {
+                display: block;
+            }
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                flex-direction: column;
+                gap: 0;
+                border-top: 1px solid var(--border-light);
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .nav-link {
+                padding: 20px;
+                border-bottom: 1px solid var(--border-light);
+            }
+            .mega-menu {
+                position: static;
+                width: 100%;
+                transform: none;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+                padding: 20px;
+            }
+            .nav-item:hover .mega-menu {
+                display: block;
+            }
+
+            /* Hero */
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 80px 0 60px;
+            }
+
+            /* Grids */
+            .pathfinder-grid,
+            .property-grid,
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            .pathfinder-card.help-me {
+                grid-column: 1;
+            }
+
+            /* Sections */
+            .pathfinder,
+            .property-types,
+            .why-matters,
+            .cta-section {
+                padding: 60px 0;
+            }
+
+            h2 {
+                font-size: 1.75rem !important;
+            }
+        }
+    
+        /* ── UNIVERSAL NAV (injected) ── */
+        .main-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(14,26,43,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08);height:68px}
+        .nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+        .nav-logo-link{display:flex;align-items:center;text-decoration:none}
+        .nav-logo-img{height:40px;width:auto;display:block}
+        .nav-logo-text{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff;text-decoration:none}
+        .nav-menu{display:flex;list-style:none;gap:4px;margin:0;padding:0}
+        .nav-item{position:relative}
+        .nav-link{color:rgba(255,255,255,.8);text-decoration:none;font-size:14px;font-weight:500;padding:24px 14px;display:block;white-space:nowrap;transition:.2s}
+        .nav-link:hover,.nav-link.active{color:#fff}
+        .has-dropdown::after{content:" ▾";font-size:10px;opacity:.6}
+        .nav-cta-btn{background:#0056b3;color:#fff;padding:9px 18px;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;transition:.2s}
+        .nav-cta-btn:hover{background:#003d82}
+        .mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:8px}
+        /* Mega menus */
+        .mega-menu{position:absolute;top:100%;background:#fff;border:1px solid #E8EAED;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.15);padding:28px;display:none;opacity:0;z-index:200;min-width:280px}
+        .nav-item:hover .mega-menu{display:grid;opacity:1}
+        .mega-menu-solutions{width:820px;grid-template-columns:1fr 1.6fr;gap:28px}
+        .mega-menu-technology{width:980px;grid-template-columns:1fr 1.4fr 1.4fr;gap:0}
+        .mega-menu-technology .mega-guidance{padding-right:24px;border-right:1px solid #E8EAED}
+        .mega-menu-technology .mega-links-col{padding:0 24px;border-right:1px solid #E8EAED}
+        .mega-brands-col{padding-left:24px}
+        .mega-menu-portfolio{width:860px;grid-template-columns:1fr 1fr 1fr;gap:24px}
+        .mega-menu-resources{width:900px;grid-template-columns:repeat(4,1fr);gap:20px}
+        .mega-menu-insights{width:780px;grid-template-columns:1fr 1.8fr;gap:28px}
+        .mega-menu-about{width:340px;display:block!important}
+        .nav-item:hover .mega-menu-about{display:block;opacity:1}
+        .mega-menu-contact{width:300px;display:block!important}
+        .nav-item:hover .mega-menu-contact{display:block;opacity:1}
+        .mega-col-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#8a8f98;margin-bottom:14px}
+        .mega-guidance h4{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:#1B1F23;margin:0 0 8px}
+        .mega-guidance p{font-size:13px;color:#5F6368;margin:0 0 12px;line-height:1.5}
+        .view-all-link{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#0056b3;text-decoration:none;display:flex;align-items:center}
+        .mega-trust{margin-top:16px;padding-top:14px;border-top:1px solid #E8EAED}
+        .trust-item{font-size:11px;color:#5F6368;padding:3px 0}
+        .solution-link{display:flex;flex-direction:column;padding:10px 12px;border-radius:8px;text-decoration:none;transition:.2s}
+        .solution-link:hover{background:#F8F9FA}
+        .solution-link strong{font-size:13px;color:#1B1F23;margin-bottom:2px}
+        .solution-link small{font-size:11px;color:#8a8f98}
+        .product-link{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #E8EAED;text-decoration:none}
+        .product-link:last-child{border-bottom:none}
+        .product-link strong{display:block;font-size:13px;color:#1B1F23;margin-bottom:2px}
+        .product-link small{font-size:11px;color:#8a8f98}
+        .pl-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px}
+        .brand-cat-group{margin-bottom:12px}
+        .brand-cat-title{font-size:10px;font-weight:700;font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:1px;color:#8a8f98;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+        .bct-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+        .brand-name-links{display:flex;flex-wrap:wrap;gap:4px}
+        .brand-name-link{font-size:12px;font-weight:500;color:#5F6368;text-decoration:none;padding:3px 8px;border-radius:4px;background:#F8F9FA;border:1px solid #E8EAED;transition:.15s}
+        .brand-name-link:hover{background:#fff;color:#0056b3;border-color:#0056b3}
+        .mega-port-col{display:flex;flex-direction:column;gap:4px}
+        .port-link{display:flex;align-items:center;gap:8px;padding:7px 8px;border-radius:6px;text-decoration:none;color:#1B1F23;font-size:13px;transition:.2s}
+        .port-link:hover{background:#F8F9FA;color:#0056b3}
+        .port-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+        .port-featured{display:block;padding:10px 12px;border-radius:8px;text-decoration:none;transition:.2s;border:1px solid #E8EAED;margin-bottom:8px}
+        .port-featured:hover{border-color:#0056b3;background:#F8F9FA}
+        .pf-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#8a8f98;margin-bottom:2px}
+        .pf-title{font-size:14px;font-weight:700;color:#1B1F23;margin-bottom:2px}
+        .pf-meta{font-size:11px;color:#8a8f98}
+        .mega-res-col{display:flex;flex-direction:column;gap:4px}
+        .res-col-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid #E8EAED}
+        .res-col-header h4{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#1B1F23;margin:0}
+        .rch-icon{font-size:16px}
+        .res-link{font-size:13px;color:#5F6368;text-decoration:none;padding:5px 0;transition:.2s;display:flex;align-items:center;justify-content:space-between}
+        .res-link:hover{color:#0056b3}
+        .rl-soon{font-size:10px;background:#F8F9FA;border:1px solid #E8EAED;color:#8a8f98;padding:1px 6px;border-radius:8px;font-family:'Montserrat',sans-serif;font-weight:700}
+        .insights-featured{display:block;padding:10px 0;border-bottom:1px solid #E8EAED;text-decoration:none;margin-bottom:8px}
+        .insights-featured:last-of-type{border-bottom:none}
+        .if-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#0056b3;font-family:'Montserrat',sans-serif}
+        .if-title{font-size:13px;font-weight:600;color:#1B1F23;margin:4px 0 2px;line-height:1.4}
+        .if-meta{font-size:11px;color:#8a8f98}
+        .insights-cat{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid #E8EAED;text-decoration:none;color:#1B1F23;transition:.2s}
+        .insights-cat:last-child{border-bottom:none}
+        .insights-cat:hover{color:#0056b3}
+        .ic-icon{font-size:18px;flex-shrink:0}
+        .insights-cat strong{display:block;font-size:13px;font-family:'Montserrat',sans-serif;margin-bottom:1px}
+        .insights-cat small{font-size:11px;color:#8a8f98}
+        .about-preview-card{background:#F8F9FA;border-radius:10px;padding:16px;margin-bottom:14px;border:1px solid #E8EAED}
+        .apc-founder{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+        .apc-avatar{width:40px;height:40px;border-radius:50%;background:#0056b3;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+        .apc-name{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:#1B1F23}
+        .apc-title{font-size:11px;color:#8a8f98}
+        .apc-quote{font-size:12px;font-style:italic;color:#5F6368;border-left:2px solid #0056b3;padding-left:8px;line-height:1.5}
+        .about-links{display:flex;flex-direction:column;gap:4px}
+        .about-link{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:6px;text-decoration:none;color:#1B1F23;font-size:13px;transition:.2s}
+        .about-link:hover{background:#F8F9FA;color:#0056b3}
+        .al-icon{font-size:14px;width:18px;text-align:center}
+        .contact-channel-links{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+        .contact-ch-link{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;text-decoration:none;color:#1B1F23;border:1px solid #E8EAED;transition:.2s}
+        .contact-ch-link:hover{border-color:#0056b3}
+        .whatsapp-ch{background:#f0faf4;border-color:#c6e6d1}
+        .whatsapp-ch:hover{background:#e0f5e9;border-color:#25d366}
+        .cch-icon{font-size:20px;flex-shrink:0}
+        .cch-label{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#1B1F23;margin-bottom:1px}
+        .cch-sub{font-size:11px;color:#8a8f98}
+        .contact-hours{font-size:11px;color:#8a8f98;padding-top:10px;border-top:1px solid #E8EAED;line-height:1.6}
+        /* Mobile nav */
+        .mobile-menu{display:none;background:#0E1A2B;border-top:1px solid rgba(255,255,255,.08);padding:12px 24px 24px}
+        .mobile-menu.active{display:block}
+        .mobile-menu-item{display:block;padding:13px 0;color:rgba(255,255,255,.85);font-weight:500;font-size:15px;border-bottom:1px solid rgba(255,255,255,.08);cursor:pointer;font-family:'Inter',sans-serif}
+        a.mobile-menu-item{text-decoration:none}
+        a.mobile-menu-item:hover{color:#fff}
+        .mobile-submenu{display:none;padding-left:16px;margin:8px 0 4px}
+        .mobile-submenu a{display:block;padding:8px 0;color:rgba(255,255,255,.6);text-decoration:none;font-size:14px}
+        .mobile-submenu a:hover{color:#fff}
+        @media(max-width:768px){
+            .nav-menu{display:none}
+            .mobile-toggle{display:block}
+            .nav-logo-img{height:32px}
+        }
+                /* Floating WhatsApp */
+        .floating-wa {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #25d366;
+            color: white;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+            z-index: 1000;
+            transition: transform 0.2s;
+        }
+        .floating-wa:hover {
+            transform: scale(1.1);
+        }
+        @media (max-width: 480px) {
+            .floating-wa { width: 48px; height: 48px; bottom: 16px; right: 16px; }
+        }
+    </style>
+<style id="sv-nav-css">
+.main-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(14,26,43,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08);height:68px;font-family:'Inter',sans-serif}
+.nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;position:relative}
+.nav-logo-link{display:flex;align-items:center;text-decoration:none}
+.nav-logo-img{height:40px;width:auto;display:block}
+.nav-menu{display:flex;list-style:none;gap:2px;margin:0;padding:0;align-items:center}
+.nav-item{position:static}
+.nav-link{color:rgba(255,255,255,.8);text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;height:68px;padding:0 13px;white-space:nowrap;transition:.2s}
+.nav-link:hover,.nav-link.active{color:#fff}
+.has-dropdown::after{content:" ▾";font-size:9px;opacity:.5;margin-left:4px}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-cta-btn{background:#0056b3;color:#fff;padding:9px 16px;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;transition:.2s}
+.nav-cta-btn:hover{background:#003d82}
+.search-btn{background:none;border:none;color:rgba(255,255,255,.8);cursor:pointer;padding:8px;display:flex;align-items:center;transition:.2s}
+.search-btn:hover{color:#fff}
+.mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:8px}
+
+.mega-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #E8EAED;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.15);padding:24px;display:none;z-index:200;width:max-content;max-width:calc(100vw - 48px);overflow-x:auto}
+.nav-item:hover>.mega-menu{display:grid;opacity:1}
+
+.mega-menu-solutions{width:820px;grid-template-columns:1fr 1.6fr;gap:24px}
+.mega-menu-technology{width:960px;grid-template-columns:1fr 1.3fr 1.3fr;gap:0}
+.mega-menu-technology .mega-guidance{padding-right:20px;border-right:1px solid #E8EAED}
+.mega-menu-technology .mega-links-col{padding:0 20px;border-right:1px solid #E8EAED}
+.mega-brands-col{padding-left:20px}
+.mega-menu-portfolio{width:820px;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.mega-menu-resources{width:880px;grid-template-columns:repeat(4,1fr);gap:16px}
+.mega-menu-insights{width:720px;grid-template-columns:1fr 1.6fr;gap:24px}
+.mega-menu-contact{width:640px;grid-template-columns:1fr 1fr;gap:24px}
+
+@media (max-width: 1200px) {
+  .mega-menu{left: auto; right: 24px; transform: none; width: auto; max-width: calc(100vw - 48px);}
+  .mega-menu-technology{width: 880px; grid-template-columns: 1fr 1fr 1fr;}
+}
+@media (max-width: 1024px) {
+  .mega-menu{right: 12px; max-width: calc(100vw - 24px); padding: 20px;}
+  .mega-menu-solutions{width:700px;grid-template-columns:1fr 1fr}
+  .mega-menu-technology{width:700px;grid-template-columns:1fr 1.2fr}
+  .mega-brands-col{display:none}
+  .mega-menu-portfolio{width:700px;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .mega-menu-resources{width:700px;grid-template-columns:repeat(2,1fr)}
+  .mega-menu-contact{width:600px}
+}
+
+.mega-col-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#8a8f98;margin-bottom:12px;display:block}
+.mega-guidance h4{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:#1B1F23;margin:0 0 6px}
+.mega-guidance p{font-size:12px;color:#5F6368;margin:0 0 10px;line-height:1.5}
+.view-all-link{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#0056b3;text-decoration:none;display:inline-flex;align-items:center}
+.mega-trust{margin-top:14px;padding-top:12px;border-top:1px solid #E8EAED}
+.trust-item{font-size:11px;color:#5F6368;padding:2px 0}
+.solution-link{display:flex;flex-direction:column;padding:8px 10px;border-radius:6px;text-decoration:none;transition:.15s;margin-bottom:2px}
+.solution-link:hover{background:#F8F9FA}
+.solution-link strong{font-size:13px;color:#1B1F23;margin-bottom:1px;display:block}
+.solution-link small{font-size:11px;color:#8a8f98}
+.product-link{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid #E8EAED;text-decoration:none}
+.product-link:last-of-type{border-bottom:none}
+.product-link div strong{display:block;font-size:13px;color:#1B1F23;margin-bottom:1px}
+.product-link div small{font-size:11px;color:#8a8f98}
+.pl-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.brand-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px}
+.brand-grid a{font-size:12px;color:#5F6368;text-decoration:none;padding:4px 0;transition:.15s;display:block}
+.brand-grid a:hover{color:#0056b3}
+.port-link{display:flex;align-items:center;gap:7px;padding:6px 8px;border-radius:5px;text-decoration:none;color:#1B1F23;font-size:13px;transition:.15s}
+.port-link:hover{background:#F8F9FA;color:#0056b3}
+.port-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.port-featured{display:block;padding:8px 10px;border-radius:7px;text-decoration:none;border:1px solid #E8EAED;margin-bottom:6px;transition:.15s}
+.port-featured:hover{border-color:#0056b3;background:#F8F9FA}
+.pf-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#8a8f98}
+.pf-title{font-size:13px;font-weight:700;color:#1B1F23}
+.pf-meta{font-size:11px;color:#8a8f98}
+.res-col-header{display:flex;align-items:center;gap:6px;margin-bottom:8px;padding-bottom:7px;border-bottom:1px solid #E8EAED}
+.res-col-header h4{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#1B1F23;margin:0}
+.res-link{font-size:12px;color:#5F6368;text-decoration:none;padding:4px 0;transition:.15s;display:flex;align-items:center;justify-content:space-between}
+.res-link:hover{color:#0056b3}
+.rl-soon{font-size:10px;background:#F8F9FA;border:1px solid #E8EAED;color:#8a8f98;padding:1px 5px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:700}
+.insights-featured{display:block;padding:8px 0;border-bottom:1px solid #E8EAED;text-decoration:none;margin-bottom:6px}
+.if-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#0056b3;font-family:'Montserrat',sans-serif}
+.if-title{font-size:12px;font-weight:600;color:#1B1F23;margin:3px 0 1px;line-height:1.4}
+.if-meta{font-size:11px;color:#8a8f98}
+.insights-cat{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #E8EAED;text-decoration:none;color:#1B1F23;transition:.15s}
+.insights-cat:last-child{border-bottom:none}
+.insights-cat:hover{color:#0056b3}
+.ic-icon{font-size:16px;flex-shrink:0}
+.insights-cat strong{display:block;font-size:13px;font-family:'Montserrat',sans-serif}
+.insights-cat small{font-size:11px;color:#8a8f98}
+
+.about-preview-card{background:#F8F9FA;border-radius:8px;padding:14px;margin-bottom:12px;border:1px solid #E8EAED}
+.apc-founder{display:flex;gap:9px;align-items:center;margin-bottom:8px}
+.apc-avatar{width:36px;height:36px;border-radius:50%;background:#0056b3;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.apc-name{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#1B1F23}
+.apc-title{font-size:10px;color:#8a8f98}
+.apc-quote{font-size:11px;font-style:italic;color:#5F6368;border-left:2px solid #0056b3;padding-left:7px;line-height:1.5}
+.about-link{display:flex;align-items:center;gap:7px;padding:7px 8px;border-radius:5px;text-decoration:none;color:#1B1F23;font-size:12px;transition:.15s}
+.about-link:hover{background:#F8F9FA;color:#0056b3}
+.contact-ch-link{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:7px;text-decoration:none;color:#1B1F23;border:1px solid #E8EAED;transition:.15s;margin-bottom:8px}
+.contact-ch-link:hover{border-color:#0056b3}
+.whatsapp-ch{background:#f0faf4;border-color:#c6e6d1}
+.cch-icon{font-size:18px;flex-shrink:0}
+.cch-label{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:#1B1F23}
+.cch-sub{font-size:10px;color:#8a8f98}
+.contact-hours{font-size:10px;color:#8a8f98;padding-top:8px;border-top:1px solid #E8EAED;line-height:1.6;margin-top:8px}
+
+.mobile-menu{display:none;background:#0E1A2B;padding:10px 20px 20px}
+.mobile-menu.active{display:block}
+.mobile-menu-item{display:block;padding:12px 0;color:rgba(255,255,255,.85);font-size:14px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.08);cursor:pointer;text-decoration:none}
+a.mobile-menu-item:hover{color:#fff}
+.mobile-submenu{display:none;padding-left:14px;margin:6px 0 2px}
+.mobile-submenu a{display:block;padding:7px 0;color:rgba(255,255,255,.6);text-decoration:none;font-size:13px}
+.mobile-submenu a:hover{color:#fff}
+
+@media(max-width:992px){
+  .nav-menu{display:none}
+  .mobile-toggle{display:block}
+  .nav-logo-img{height:32px}
+}
+</style>
+<style id="sv-footer-css">
+.site-footer{background:#0a111e;padding:80px 0 40px;border-top:1px solid rgba(255,255,255,.05);font-family:'Inter',sans-serif}
+.footer-container{max-width:1200px;margin:0 auto;padding:0 24px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:60px}
+.f-social-link{width:36px;height:36px;background:rgba(255,255,255,.05);border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);transition:.2s;text-decoration:none;border:1px solid rgba(255,255,255,.1)}
+.f-social-link:hover{background:#0056b3;color:#fff;border-color:#0056b3;transform:translateY(-2px)}
+@media(max-width:992px){.footer-grid{grid-template-columns:1fr 1fr;gap:40px}}
+@media(max-width:576px){.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body style="padding-top:68px">
+<nav class="main-nav">
+<div class="nav-container">
+  <a href="index.html" class="nav-logo-link" aria-label="Securevision" style="gap: 8px;">
+    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision" class="nav-logo-img" style="height: 38px;">
+    <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#ffffff;letter-spacing:0.5px;">Securevision</span>
+  </a>
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
+      <div class="mega-menu mega-menu-solutions">
+        <div class="mega-guidance"><div class="mega-col-label">Need Help Choosing?</div><h4>Not Sure Which Solution Fits?</h4><p>Every property type has unique risks.</p><a href="solutions-hub.html" class="view-all-link">&rarr; View All Solutions</a><div class="mega-trust"><div class="trust-item">&check; Police Licensed L/PS/000267/2023P</div><div class="trust-item">&check; 19+ Years &middot; Experience</div><div class="trust-item">&check; bizSAFE Level 3 &middot; BCA Registered</div></div></div>
+        <div class="mega-links-col"><div class="mega-col-label">By Property Type</div><a href="residential.html" class="solution-link"><strong>&#127968; Private Homes</strong><small>Landed properties, bungalows, terraces</small></a><a href="condominiums.html" class="solution-link"><strong>&#127970; Condominiums</strong><small>MCSTs, managed estates, apartments</small></a><a href="commercial.html" class="solution-link"><strong>&#127978; Commercial &amp; Retail</strong><small>Shops, offices, hotels</small></a><a href="institutions.html" class="solution-link"><strong>&#127979; Institutions</strong><small>Schools, healthcare, government</small></a><a href="industrial.html" class="solution-link"><strong>&#127981; Factories &amp; Logistics</strong><small>Factories, warehouses, logistics</small></a></div>
+      </div>
+    </li>
+    <li class="nav-item"><a href="technology.html" class="nav-link has-dropdown">Technology</a>
+      <div class="mega-menu mega-menu-technology">
+        <div class="mega-guidance"><div class="mega-col-label">Our Systems</div><h4>Systems &amp; Technology</h4><p>Four subsystem groups on the SECURE&trade; framework.</p><a href="technology.html" class="view-all-link">&rarr; View All Technology</a><div class="mega-trust"><div class="trust-item">&check; SECURE&trade; Integration</div><div class="trust-item">&check; VESTA&trade; Enterprise Platform</div><div class="trust-item">&check; GantryGo&trade; Vehicle Intercom</div></div></div>
+        <div class="mega-links-col"><div class="mega-col-label">By System Type</div><a href="surveillance-systems.html" class="product-link"><span class="pl-dot" style="background:#2b6cb0"></span><div><strong>&#128247; Surveillance &amp; Detection</strong><small>IP cameras, AI analytics, NVR, alarms</small></div></a><a href="people-access.html" class="product-link"><span class="pl-dot" style="background:#319795"></span><div><strong>&#128682; People Access Systems</strong><small>Biometrics, visitor management, intercom</small></div></a><a href="vehicle-access.html" class="product-link"><span class="pl-dot" style="background:#dd6b20"></span><div><strong>&#128663; Vehicle Access Systems</strong><small>Boom gates, ANPR, GantryGo&trade;</small></div></a><a href="platform-integration.html" class="product-link"><span class="pl-dot" style="background:#38a169"></span><div><strong>&#128202; Platform &amp; Integration</strong><small>VESTA&trade; dashboard, multi-site</small></div></a></div>
+        <div class="mega-brands-col"><div class="mega-col-label">Brands We Represent</div><div class="brand-grid"><a href="hikvision-singapore.html">Hikvision</a><a href="hanwha-samsung-singapore.html">Hanwha</a><a href="uniview-singapore.html">Uniview</a><a href="milesight-singapore.html">Milesight</a><a href="ajax-alarm-singapore.html">AJAX</a><a href="risco-alarm-singapore.html">RISCO</a><a href="paradox-alarm-singapore.html">Paradox</a><a href="dsc-alarm-singapore.html">DSC</a><a href="zkteco-singapore.html">ZKTeco</a><a href="suprema-singapore.html">Suprema</a><a href="hid-singapore.html">HID</a><a href="entrypass-singapore.html">EntryPass</a><a href="akuvox-singapore.html">Akuvox</a><a href="aiphone-singapore.html">Aiphone</a><a href="faac-singapore.html">FAAC</a><a href="mag-gates-singapore.html">MAG</a></div><a href="brands.html" class="view-all-link" style="margin-top:2px;font-size:12px">&rarr; All 20 Brands</a></div>
+      </div>
+    </li>
+    <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
+      <div class="mega-menu mega-menu-portfolio">
+        <div class="mega-links-col"><div class="mega-col-label">By Property</div><a href="portfolio.html?filter=residential" class="port-link"><span class="port-dot" style="background:#38B000"></span>Private Homes</a><a href="portfolio.html?filter=condominium" class="port-link"><span class="port-dot" style="background:#4361EE"></span>Condominiums</a><a href="portfolio.html?filter=commercial" class="port-link"><span class="port-dot" style="background:#FF6D00"></span>Commercial</a><a href="portfolio.html?filter=institution" class="port-link"><span class="port-dot" style="background:#0056b3"></span>Institutions</a><a href="portfolio.html?filter=industrial" class="port-link"><span class="port-dot" style="background:#7209B7"></span>Industrial</a></div>
+        <div class="mega-links-col"><div class="mega-col-label">By System</div><a href="portfolio.html?filter=surveillance" class="port-link"><span class="port-dot" style="background:#2b6cb0"></span>Surveillance</a><a href="portfolio.html?filter=people-access" class="port-link"><span class="port-dot" style="background:#319795"></span>People Access</a><a href="portfolio.html?filter=vehicle-access" class="port-link"><span class="port-dot" style="background:#dd6b20"></span>Vehicle Access</a><a href="portfolio.html?filter=platform" class="port-link"><span class="port-dot" style="background:#38a169"></span>Platform</a><a href="portfolio.html" class="port-link"><span class="port-dot" style="background:#888"></span>All Projects</a></div>
+        <div class="mega-links-col"><div class="mega-col-label">Featured</div><a href="portfolio-lviv.html" class="port-featured"><div class="pf-label">Condominium</div><div class="pf-title">The L'viv</div><div class="pf-meta">VESTA&trade; + GantryGo&trade;</div></a><a href="portfolio-scape.html" class="port-featured"><div class="pf-label">Commercial</div><div class="pf-title">SCAPE</div><div class="pf-meta">200-camera AI system</div></a></div>
+      </div>
+    </li>
+    <li class="nav-item"><a href="resources.html" class="nav-link has-dropdown">Resources</a>
+      <div class="mega-menu mega-menu-resources">
+        <div class="mega-links-col"><div class="res-col-header"><span>&#129454;</span><h4>Planning Tools</h4></div><a href="resources.html" class="res-link">Security Calculator <span class="rl-soon">Soon</span></a><a href="resources.html" class="res-link">Risk Assessment <span class="rl-soon">Soon</span></a></div>
+        <div class="mega-links-col"><div class="res-col-header"><span>&#128218;</span><h4>Guides</h4></div><a href="resources-cctv-guide.html" class="res-link">CCTV Buyer's Guide</a><a href="resources-access-control.html" class="res-link">Access Control</a></div>
+        <div class="mega-links-col"><div class="res-col-header"><span>&#128295;</span><h4>Support</h4></div><a href="resources-troubleshoot.html" class="res-link">Troubleshooting</a><a href="resources-faq.html" class="res-link">FAQs</a></div>
+        <div class="mega-links-col"><div class="res-col-header"><span>&#128229;</span><h4>Downloads</h4></div><a href="resources.html" class="res-link">Spec Sheets <span class="rl-soon">Soon</span></a></div>
+      </div>
+    </li>
+    <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
+      <div class="mega-menu mega-menu-insights">
+        <div class="mega-guidance"><div class="mega-col-label">Latest</div><a href="insights-integrated-systems.html" class="insights-featured"><span class="if-tag">Security Planning</span><div class="if-title">Why Integrated Systems Outperform Standalone</div><div class="if-meta">6 min read</div></a><a href="insights.html" class="view-all-link" style="margin-top:10px">&rarr; All Articles</a></div>
+        <div class="mega-links-col"><div class="mega-col-label">By Topic</div><a href="insights.html?cat=planning" class="insights-cat"><span class="ic-icon">&#127959;</span><div class="ic-text"><strong>Security Planning</strong><small>Property Managers</small></div></a><a href="insights.html?cat=technology" class="insights-cat"><span class="ic-icon">&#129302;</span><div class="ic-text"><strong>Technology</strong><small>AI, ANPR, biometrics</small></div></a><a href="insights.html?cat=industry" class="insights-cat"><span class="ic-icon">&#127480;&#127468;</span><div class="ic-text"><strong>SG Industry</strong><small>Regulations, trends</small></div></a></div>
+      </div>
+    </li>
+    <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
+      <div class="mega-menu mega-menu-about">
+        <div class="mega-links-col">
+          <div class="mega-col-label">Company</div>
+          <div class="about-preview-card">
+            <div class="apc-founder"><div class="apc-avatar">&#128100;   </div><div><div class="apc-name">Ler Wee Meng</div><div class="apc-title">Founder &middot; NUS Eng + UOL Law</div></div></div>
+            <div class="apc-quote">Built on engineering. Backed by law. Since 2006.</div>
+          </div>
+          <a href="about.html#founder" class="about-link"><span class="al-icon">&#128100;</span> Founder's Story</a>
+          <a href="about.html" class="about-link"><span class="al-icon">&#128737;</span> Credentials &amp; Licences</a>
+          <a href="awards-certifications.html" class="about-link"><span class="al-icon">&#127942;</span> Awards &amp; Certs</a>
+        </div>
+        <div class="mega-links-col">
+          <div class="mega-col-label">Contact</div>
+          <a href="https://wa.me/6593860466" class="contact-ch-link whatsapp-ch"><span class="cch-icon">&#128172;</span><div class="cch-text"><div class="cch-label">WhatsApp &mdash; Fastest</div><div class="cch-sub">+65 9386 0466</div></div></a>
+          <a href="contact.html#contact-form" class="contact-ch-link"><span class="cch-icon">&#128221;</span><div class="cch-text"><div class="cch-label">Contact Form</div><div class="cch-sub">Detailed enquiries</div></div></a>
+          <div class="contact-hours">&#128344; Mon&ndash;Fri 8:00&ndash;17:00 &middot; Sat by appt<br>&#128205; Geylang East Ave 3</div>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <div class="nav-right">
+    <button class="search-btn" aria-label="Search">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </button>
+    <a href="https://wa.me/6593860466" class="nav-cta-btn">WhatsApp Us</a>
+    <button class="mobile-toggle" onclick="toggleMobileMenu()">☰</button>
+  </div>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions ▾<div class="mobile-submenu" id="solSub"><a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a><a href="residential.html">&#127968; Private Homes</a><a href="condominiums.html">&#127970; Condominiums</a><a href="commercial.html">&#127978; Commercial</a><a href="institutions.html">&#127979; Institutions</a><a href="industrial.html">&#127981; Industrial</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('techSub')">Technology ▾<div class="mobile-submenu" id="techSub"><a href="technology.html"><strong>&rarr; View All Technology</strong></a><a href="surveillance-systems.html">&#128247; Surveillance</a><a href="people-access.html">&#128682; People Access</a><a href="vehicle-access.html">&#128663; Vehicle Access</a><a href="platform-integration.html">&#128202; Platform</a><a href="brands.html">&#127991; All 20 Brands</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio ▾<div class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>&rarr; All Projects</strong></a><a href="portfolio-lviv.html">The L'viv</a><a href="portfolio-scape.html">SCAPE</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources ▾<div class="mobile-submenu" id="resSub"><a href="resources.html"><strong>&rarr; All Resources</strong></a><a href="resources-cctv-guide.html">CCTV Buyer's Guide</a><a href="resources-access-control.html">Access Control</a><a href="resources-troubleshoot.html">Troubleshooting</a><a href="resources-faq.html">FAQs</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights ▾<div class="mobile-submenu" id="insSub"><a href="insights.html"><strong>&rarr; All Articles</strong></a><a href="insights.html?cat=planning">Security Planning</a><a href="insights.html?cat=technology">Technology</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About ▾<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&#128100; About Company</strong></a><a href="about.html#founder">Founder's Story</a><a href="awards-certifications.html">Awards &amp; Certs</a><a href="https://wa.me/6593860466"><strong>&#128172; WhatsApp</strong></a><a href="contact.html#contact-form">&#128221; Contact Form</a><a href="contact.html">Office &amp; Hours</a></div></div>
+</div>
+</nav>
+
+    <!-- ============================================
+         NAVIGATION WITH MEGA MENU
+    ============================================ -->
+    
+
+    <!-- ============================================
+         HERO SECTION
+    ============================================ -->
+    <section class="hero">
+        <div class="container">
+            <h1>Find the Right Security Solution<br>For Your Property</h1>
+            <p class="subtitle">Every property type has unique security challenges. We've solved them all&mdash;from landed homes to industrial facilities. Start by telling us what you're protecting.</p>
+            <p class="tagline">Police Licensed L/PS/000267/2023P &bull; 19 Years &bull; </p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PATH FINDER SECTION (Interactive Guide)
+    ============================================ -->
+    <section class="pathfinder">
+        <div class="container">
+            <h2>Choose Your Property Type</h2>
+            <p class="intro">Your security needs depend on what you're protecting and how people use the space. Select the category that best describes your property, or use our guided assessment to help you decide.</p>
+            
+            <div class="pathfinder-grid">
+                <!-- Option 1: Residential -->
+                <a href="/residential/" class="pathfinder-card">
+                    <span class="icon">&#127968;</span>
+                    <h3>Residential Homes</h3>
+                    <p>Moving or renovating? Secure your family without complicating daily life.</p>
+                </a>
+
+                <!-- Option 2: Condominiums -->
+                <a href="/condominiums/" class="pathfinder-card">
+                    <span class="icon">&#127970;</span>
+                    <h3>Condominiums</h3>
+                    <p>High guard load? Automate access and reduce manual workload.</p>
+                </a>
+
+                <!-- Option 3: Commercial -->
+                <a href="/commercial/" class="pathfinder-card">
+                    <span class="icon">&#127978;</span>
+                    <h3>Retail & Offices</h3>
+                    <p>Multi-site access? Centralize control and monitoring.</p>
+                </a>
+
+                <!-- Option 4: Institutions -->
+                <a href="/institutions/" class="pathfinder-card">
+                    <span class="icon">&#127979;</span>
+                    <h3>Institutions</h3>
+                    <p>Public facility compliance? Meet regulations without friction.</p>
+                </a>
+
+                <!-- Option 5: Industrial -->
+                <a href="/industrial/" class="pathfinder-card">
+                    <span class="icon">&#127981;</span>
+                    <h3>Industrial Sites</h3>
+                    <p>Logistics bottlenecks? Optimize workflows with smart access.</p>
+                </a>
+
+                <!-- HELP ME CHOOSE: Guided Assessment -->
+                <a href="#" class="pathfinder-card help-me" onclick="startAssessment(); return false;">
+                    <span class="icon">&#127919;</span>
+                    <h3>Not Sure? Let Us Guide You</h3>
+                    <p>Answer 3 quick questions and we'll recommend the best starting point for your needs. Takes less than 30 seconds.</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         PROPERTY TYPE DEEP DIVE SECTION
+    ============================================ -->
+    <section class="property-types">
+        <div class="container">
+            <h2>Security Challenges by Property Type</h2>
+            <p class="intro">Each environment has specific vulnerabilities and operational requirements. Here's what we commonly solve for each property category.</p>
+
+            <div class="property-grid">
+                <!-- Residential Homes -->
+                <a href="/residential/" class="property-card">
+                    <span class="icon">&#127968;</span>
+                    <h3>Residential Homes</h3>
+                    <p class="subtitle-text">Landed properties, bungalows, and private residences</p>
+                    <div class="challenge">
+                        <strong>Common Challenge: The Renovation Dilemma</strong>
+                        <p>You're moving into a new home or renovating. Do you need to hack walls for cabling? Can you integrate with existing wiring? Will the system work when your contractor leaves?</p>
+                    </div>
+                    <div class="challenge">
+                        <strong>Our Solution</strong>
+                        <p>We assess your electrical plans early, recommend wireless where appropriate, and provide mobile control so you're never locked out by technology you don't understand.</p>
+                    </div>
+                </a>
+
+                <!-- Condominiums & Managed Estates -->
+                <a href="/condominiums/" class="property-card">
+                    <span class="icon">&#127970;</span>
+                    <h3>Condominiums & Managed Estates</h3>
+                    <p class="subtitle-text">MCSTs, property managers, multi-block developments</p>
+                    <div class="challenge">
+                        <strong>Common Challenge: Guard Workload Overload</strong>
+                        <p>450 units. 1,500 residents. Every visitor needs manual logging. Your guards are overwhelmed, response times are slow, and complaints are rising.</p>
+                    </div>
+                    <div class="challenge">
+                        <strong>Our Solution</strong>
+                        <p>VESTA&trade; mobile platform enables self-service visitor pre-registration, QR code gate access, and automated logging&mdash;reducing guard workload by 40% while improving security.</p>
+                    </div>
+                </a>
+
+                <!-- Shops, Retail & Offices -->
+                <a href="/commercial/" class="property-card">
+                    <span class="icon">&#127978;</span>
+                    <h3>Shops, Retail & Offices</h3>
+                    <p class="subtitle-text">Commercial spaces, retail outlets, business premises</p>
+                    <div class="challenge">
+                        <strong>Common Challenge: Multi-Site Blind Spots</strong>
+                        <p>You manage 5 retail locations. Each has its own CCTV system. When something happens, you're scrolling through hours of footage across different platforms.</p>
+                    </div>
+                    <div class="challenge">
+                        <strong>Our Solution</strong>
+                        <p>GantryGo&trade; unifies all locations into one cloud dashboard with AI-powered alerts. Get instant notifications for real incidents&mdash;not cats or shadows.</p>
+                    </div>
+                </a>
+
+                <!-- Large Buildings & Institutions -->
+                <a href="/institutions/" class="property-card">
+                    <span class="icon">&#127979;</span>
+                    <h3>Large Buildings & Institutions</h3>
+                    <p class="subtitle-text">Schools, healthcare, religious institutions, public facilities</p>
+                    <div class="challenge">
+                        <strong>Common Challenge: Compliance vs. Usability</strong>
+                        <p>You need to meet MHA or MOE security standards, but every new layer of "compliance" makes daily operations harder for staff and visitors.</p>
+                    </div>
+                    <div class="challenge">
+                        <strong>Our Solution</strong>
+                        <p>We design systems that satisfy regulatory requirements while maintaining smooth visitor flow. Security that protects without creating bottlenecks.</p>
+                    </div>
+                </a>
+
+                <!-- Industrial & Critical Sites -->
+                <a href="/industrial/" class="property-card">
+                    <span class="icon">&#127981;</span>
+                    <h3>Industrial & Critical Sites</h3>
+                    <p class="subtitle-text">Factories, logistics hubs, data centers, critical infrastructure</p>
+                    <div class="challenge">
+                        <strong>Common Challenge: Logistics vs. Security</strong>
+                        <p>Your loading bays need to be secure, but every gate delay costs productivity. Traditional access systems create bottlenecks during peak hours.</p>
+                    </div>
+                    <div class="challenge">
+                        <strong>Our Solution</strong>
+                        <p>AI-powered perimeter detection and automated LPR (License Plate Recognition) allow authorized vehicles to flow through while flagging unknowns&mdash;security without slowdowns.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         WHY PROPERTY TYPE MATTERS
+    ============================================ -->
+    <section class="why-matters">
+        <div class="container">
+            <h2>Why Property Type Determines Your Security Approach</h2>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h4>Access Patterns</h4>
+                    <ul>
+                        <li>Residential: 4-6 people, predictable</li>
+                        <li>Condo: 1,500 residents, high variance</li>
+                        <li>Commercial: Staff + customers, 9am-6pm</li>
+                        <li>Industrial: Shift workers, 24/7 logistics</li>
+                        <li>Institutional: Public + controlled zones</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card">
+                    <h4>Threat Profile</h4>
+                    <ul>
+                        <li>Residential: Burglary, vandalism</li>
+                        <li>Condo: Tailgating, unauthorized parking</li>
+                        <li>Commercial: Shoplifting, after-hours break-ins</li>
+                        <li>Industrial: Cargo theft, safety incidents</li>
+                        <li>Institutional: Intrusion, compliance violations</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-card">
+                    <h4>System Requirements</h4>
+                    <ul>
+                        <li>Residential: Mobile control, easy DIY</li>
+                        <li>Condo: Scalable, low guard dependency</li>
+                        <li>Commercial: Multi-site monitoring, AI alerts</li>
+                        <li>Industrial: Integration with ERP/logistics</li>
+                        <li>Institutional: MHA/MOE compliance, audit trails</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+         FINAL CTA SECTION
+    ============================================ -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Secure Your Property the Right Way?</h2>
+            <p>Book a Smart Assessment with our engineering team. We'll walk your site, identify vulnerabilities specific to your property type, and show you exactly how the SECURE&trade; Framework solves them&mdash;with no obligation.</p>
+            <a href="/contact/" class="btn btn-primary">START YOUR ASSESSMENT</a>
+            <a href="https://wa.me/6593860466" class="btn btn-outline">💬 WHATSAPP US</a>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+        }
+
+        // Guided Assessment - 3 Questions with Data Capture
+        function startAssessment() {
+            // Detect device type
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const deviceType = isMobile ? 'mobile' : 'desktop';
+
+            // QUESTION 1: Property Type
+            const propertyOptions = [
+                "Private home (landed/bungalow/terrace)",
+                "Condominium or apartment building",
+                "Office, retail shop, or commercial space",
+                "School, hospital, or public facility",
+                "Factory, warehouse, or industrial site"
+            ];
+
+            const propertyPrompt = "QUESTION 1 OF 3: What type of property are you securing?\n\n" +
+                propertyOptions.map((opt, i) => `${i + 1}. ${opt}`).join('\n') +
+                "\n\nEnter the number (1-5):";
+
+            const propertyAnswer = prompt(propertyPrompt);
+            if (!propertyAnswer || propertyAnswer < 1 || propertyAnswer > 5) return;
+
+            const propertyType = propertyOptions[propertyAnswer - 1];
+
+            // QUESTION 2: Primary Challenge
+            const challengeOptions = [
+                "Too many false alarms (alerts for non-threats)",
+                "Blind spots (can't see what's actually happening)",
+                "Visitor/access chaos (manual logs, long queues)",
+                "No remote access (need to be on-site)",
+                "Staff overwhelmed (too much manual work)",
+                "Fragmented systems (multiple platforms)",
+                "Starting fresh (new build or major renovation)"
+            ];
+
+            const challengePrompt = "QUESTION 2 OF 3: What's your biggest security challenge?\n\n" +
+                challengeOptions.map((opt, i) => `${i + 1}. ${opt}`).join('\n') +
+                "\n\nEnter the number (1-7):";
+
+            const challengeAnswer = prompt(challengePrompt);
+            if (!challengeAnswer || challengeAnswer < 1 || challengeAnswer > 7) return;
+
+            const challenge = challengeOptions[challengeAnswer - 1];
+
+            // QUESTION 3: Timeline
+            const timelineOptions = [
+                "Urgent (within 2 weeks)",
+                "Soon (1-2 months)",
+                "Planning (3-6 months)",
+                "Just exploring (no timeline yet)"
+            ];
+
+            const timelinePrompt = "QUESTION 3 OF 3: When do you need this resolved?\n\n" +
+                timelineOptions.map((opt, i) => `${i + 1}. ${opt}`).join('\n') +
+                "\n\nEnter the number (1-4):";
+
+            const timelineAnswer = prompt(timelinePrompt);
+            if (!timelineAnswer || timelineAnswer < 1 || timelineAnswer > 4) return;
+
+            const timeline = timelineOptions[timelineAnswer - 1];
+
+            // CONTACT CAPTURE (Device-Adaptive)
+            const assessmentData = {
+                propertyType: propertyType,
+                challenge: challenge,
+                timeline: timeline,
+                deviceType: deviceType,
+                timestamp: new Date().toISOString(),
+                source: 'solutions_hub_assessment'
+            };
+
+            if (isMobile) {
+                // MOBILE PATH: Direct to WhatsApp with pre-filled message
+                const name = prompt("Great! What's your name?");
+                if (!name) return;
+
+                assessmentData.name = name;
+
+                const whatsappMessage = encodeURIComponent(
+                    `Hi Securevision! I just completed your assessment:\n\n` +
+                    `&bull; Property: ${propertyType}\n` +
+                    `&bull; Challenge: ${challenge}\n` +
+                    `&bull; Timeline: ${timeline}\n\n` +
+                    `My name is ${name}. I'd like to discuss solutions for my property.`
+                );
+
+                // TODO: Send assessmentData to your backend here
+                console.log('Assessment Data:', assessmentData);
+
+                alert(`Perfect ${name}! We'll open WhatsApp now with your assessment details pre-filled. Just hit send to start the conversation.`);
+                window.open(`https://wa.me/6593860466?text=${whatsappMessage}`, '_blank');
+
+            } else {
+                // DESKTOP PATH: Capture phone for callback or SMS handoff
+                const contactPrompt = "How would you like to continue?\n\n" +
+                    "1. Call me back (we'll call within 15 minutes)\n" +
+                    "2. Send link to my phone (continue on mobile)\n" +
+                    "3. Email me details\n\n" +
+                    "Enter the number (1-3):";
+
+                const contactMethod = prompt(contactPrompt);
+                if (!contactMethod || contactMethod < 1 || contactMethod > 3) return;
+
+                if (contactMethod == 1 || contactMethod == 2) {
+                    // Request phone number
+                    const phone = prompt("What's your mobile number?\n(e.g., 9123 4567)");
+                    if (!phone) return;
+
+                    const name = prompt("And your name?");
+                    if (!name) return;
+
+                    assessmentData.name = name;
+                    assessmentData.phone = phone;
+                    assessmentData.contactMethod = contactMethod == 1 ? 'callback' : 'sms_link';
+
+                    // TODO: Send assessmentData to your backend here
+                    console.log('Assessment Data:', assessmentData);
+
+                    if (contactMethod == 1) {
+                        alert(`Thank you ${name}! We'll call you at ${phone} within the next 15 minutes to discuss your ${propertyType} security needs.`);
+                    } else {
+                        alert(`Thank you ${name}! We've sent a link to ${phone}. Open it on your mobile to continue via WhatsApp.`);
+                    }
+
+                } else {
+                    // Email path
+                    const email = prompt("What's your email address?");
+                    if (!email) return;
+
+                    const name = prompt("And your name?");
+                    if (!name) return;
+
+                    assessmentData.name = name;
+                    assessmentData.email = email;
+                    assessmentData.contactMethod = 'email';
+
+                    // TODO: Send assessmentData to your backend here
+                    console.log('Assessment Data:', assessmentData);
+
+                    alert(`Thank you ${name}! We'll email your personalized security roadmap to ${email} within the next hour.`);
+                }
+
+                // Route to relevant page
+                const routes = {
+                    "Private home (landed/bungalow/terrace)": '/residential/',
+                    "Condominium or apartment building": '/condominiums/',
+                    "Office, retail shop, or commercial space": '/commercial/',
+                    "School, hospital, or public facility": '/institutions/',
+                    "Factory, warehouse, or industrial site": '/industrial/'
+                };
+
+                setTimeout(() => {
+                    window.location.href = routes[propertyType] || '/solutions/';
+                }, 2000);
+            }
+        }
+
+        // Remove smooth scroll for anchor links since we're using dedicated pages now
+        // (keeping this commented in case you add back any on-page anchors later)
+        /*
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && href !== '#guided-assessment') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
+            });
+        });
+        */
+    </script>
+    <footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="f-logo-wrap" style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+                    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision" style="height:36px; display:block;">
+                    <span style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:20px; color:#fff; letter-spacing:0.5px;">Securevision</span>
+                </div>
+                <p style="color:rgba(255,255,255,.6); font-size:13px; line-height:1.6; margin-bottom:20px;">Singapore's trusted security systems integrator. Delivering integrated surveillance, access control, and vehicle management systems since 2006.</p>
+                <div class="f-socials" style="display:flex; gap:12px;">
+                    <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" class="f-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" class="f-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    <a href="https://wa.me/6593860466" target="_blank" rel="noopener" class="f-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Solutions</h4>
+                <ul style="list-style:none; padding:0; margin:0;">
+                    <li style="margin-bottom:10px;"><a href="residential.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Private Homes</a></li>
+                    <li style="margin-bottom:10px;"><a href="condominiums.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Condominiums</a></li>
+                    <li style="margin-bottom:10px;"><a href="commercial.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Commercial &amp; Retail</a></li>
+                    <li style="margin-bottom:10px;"><a href="institutions.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Institutions</a></li>
+                    <li style="margin-bottom:10px;"><a href="industrial.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Industrial &amp; Logistics</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Company</h4>
+                <ul style="list-style:none; padding:0; margin:0;">
+                    <li style="margin-bottom:10px;"><a href="about.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Our Story</a></li>
+                    <li style="margin-bottom:10px;"><a href="awards-certifications.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Awards &amp; Certifications</a></li>
+                    <li style="margin-bottom:10px;"><a href="portfolio.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Project Portfolio</a></li>
+                    <li style="margin-bottom:10px;"><a href="insights.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Industry Insights</a></li>
+                    <li style="margin-bottom:10px;"><a href="contact.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Get In Touch</h4>
+                <div style="margin-bottom:15px; display:flex; gap:10px; align-items:flex-start;">
+                    <span style="font-size:16px;">&#128172;</span>
+                    <div><strong style="display:block; color:#fff; font-size:13px;">WhatsApp</strong><a href="https://wa.me/6593860466" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">+65 9386 0466</a></div>
+                </div>
+                <div style="margin-bottom:15px; display:flex; gap:10px; align-items:flex-start;">
+                    <span style="font-size:16px;">&#128222;</span>
+                    <div><strong style="display:block; color:#fff; font-size:13px;">Office</strong><a href="tel:+6562864796" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">+65 6286 4796</a></div>
+                </div>
+                <div style="margin-bottom:15px; display:flex; gap:10px; align-items:flex-start;">
+                    <span style="font-size:16px;">&#9993;</span>
+                    <div><strong style="display:block; color:#fff; font-size:13px;">Email</strong><a href="mailto:enquiry@securevision.com.sg" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">enquiry@securevision.com.sg</a></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom" style="margin-top:60px; padding-top:24px; border-top:1px solid rgba(255,255,255,.08); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px;">
+            <p style="color:rgba(255,255,255,.4); font-size:11px; margin:0;">&copy; 2025 Securevision Pte Ltd &middot; Police License L/PS/000267/2023P &middot; bizSAFE Level 3 &middot; BCA Registered</p>
+            <div style="display:flex; gap:20px;">
+                <a href="privacy.html" style="color:rgba(255,255,255,.4); text-decoration:none; font-size:11px;">Privacy Policy</a>
+                <a href="terms.html" style="color:rgba(255,255,255,.4); text-decoration:none; font-size:11px;">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+
+<a href="https://wa.me/6593860466" id="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" style="position:fixed;bottom:28px;right:28px;z-index:999;background:#25d366;color:#fff;border-radius:50px;padding:13px 18px 13px 14px;display:flex;align-items:center;gap:9px;text-decoration:none;box-shadow:0 4px 20px rgba(37,211,102,.4);font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px"><svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg><span style="white-space:nowrap">Chat with us</span></a>
+<script id="sv-nav-js">
+function toggleMobileMenu(){document.getElementById('mobileMenu').classList.toggle('active');}
+function toggleSubmenu(id){var s=document.getElementById(id);var o=s.style.display==='block';document.querySelectorAll('.mobile-submenu').forEach(function(x){x.style.display='none';});if(!o)s.style.display='block';}
+</script>
+
+</body>
+</html>
+
+
+

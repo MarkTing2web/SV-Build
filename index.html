@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Securevision | Integrated Security Systems Singapore</title>
+    <meta name="description" content="Securevision provides integrated security systems engineered for Singapore's homes, condominiums, and businesses. Authorised installers of 20 global brands.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* COLOR SYSTEM */
+        :root {
+            --primary-blue: #0056b3;
+            --dark-blue: #003d82;
+            --accent-green: #25d366;
+            --text-dark: #1B1F23;
+            --text-gray: #333333;
+            --text-light: #5F6368;
+            --bg-light: #F8F9FA;
+            --white: #ffffff;
+            --border-light: #E8EAED;
+            /* subsystem colors */
+            --c-surveillance: #2b6cb0;
+            --c-people: #319795;
+            --c-vehicle: #dd6b20;
+            --c-platform: #38a169;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-dark); line-height: 1.6; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .btn {
+            font-family: 'Montserrat', sans-serif; font-weight: 600;
+            padding: 14px 32px; border-radius: 8px;
+            text-decoration: none; font-size: 13px;
+            text-transform: uppercase; letter-spacing: 0.5px;
+            transition: 0.3s; display: inline-block; cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        /* -- NAVIGATION -- */
+        .main-nav {
+            background: rgba(14,26,43,0.97);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1200px; margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 24px; height: 68px;
+        }
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px; font-weight: 700;
+            color: #fff; text-decoration: none;
+        }
+        .logo span { color: var(--primary-blue); }
+        .nav-menu { display: flex; list-style: none; gap: 0; align-items: center; }
+        .nav-item { position: relative; }
+        .nav-link {
+            color: rgba(255,255,255,0.8); text-decoration: none;
+            font-weight: 500; padding: 24px 18px;
+            display: block; transition: 0.2s; font-size: 14px;
+            letter-spacing: 0.3px;
+        }
+        .nav-link:hover, .nav-link.active { color: #fff; }
+        .nav-link.has-dropdown::after { content: ' \25be'; font-size: 10px; opacity: 0.6; }
+        .nav-cta-btn {
+            background: var(--primary-blue); color: #fff;
+            padding: 9px 20px; border-radius: 6px;
+            font-size: 13px; font-weight: 600; text-decoration: none;
+            transition: 0.3s; margin-left: 12px;
+        }
+        .nav-cta-btn:hover { background: var(--dark-blue); }
+
+        /* MEGA MENUS */
+        .mega-menu {
+            position: absolute; top: 100%; left: 50%;
+            transform: translateX(-50%);
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+            padding: 32px;
+            display: none; opacity: 0;
+            transition: opacity 0.2s;
+            z-index: 200;
+        }
+        .nav-item:hover .mega-menu { display: grid; opacity: 1; }
+
+        /* Solutions mega menu */
+        .mega-menu-solutions {
+            width: 820px;
+            grid-template-columns: 1fr 1.6fr;
+            gap: 32px;
+        }
+        /* Products mega menu &mdash; 3 columns */
+        .mega-menu-products {
+            width: 980px;
+            grid-template-columns: 1fr 1.4fr 1.4fr;
+            gap: 0;
+        }
+        .mega-menu-products .mega-guidance {
+            padding-right: 24px;
+            border-right: 1px solid var(--border-light);
+        }
+        .mega-menu-products .mega-links-col {
+            padding: 0 24px;
+            border-right: 1px solid var(--border-light);
+        }
+        /* Brands column */
+        .mega-brands-col { padding-left: 24px; }
+        .brand-cat-group { margin-bottom: 14px; }
+        .brand-cat-group:last-child { margin-bottom: 0; }
+        .brand-cat-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px; font-weight: 700;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--text-light); margin-bottom: 7px;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .brand-cat-title .bct-dot {
+            width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+        }
+        .brand-name-links { display: flex; flex-wrap: wrap; gap: 4px; }
+        .brand-name-link {
+            font-size: 12px; font-weight: 500;
+            color: var(--text-gray); text-decoration: none;
+            padding: 3px 8px; border-radius: 4px;
+            background: var(--bg-light); border: 1px solid var(--border-light);
+            transition: 0.15s; white-space: nowrap;
+        }
+        .brand-name-link:hover {
+            background: #fff; color: var(--primary-blue);
+            border-color: var(--primary-blue);
+        }
+
+        .mega-col-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px; font-weight: 700;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--text-light); margin-bottom: 16px;
+        }
+        .mega-guidance {
+            border-right: 1px solid var(--border-light);
+            padding-right: 28px;
+        }
+        .mega-guidance h4 {
+            font-size: 16px; margin-bottom: 10px; color: var(--text-dark);
+        }
+        .mega-guidance p {
+            font-size: 13px; color: var(--text-light); line-height: 1.7; margin-bottom: 18px;
+        }
+        .view-all-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            color: var(--primary-blue); text-decoration: none;
+            font-weight: 600; font-size: 14px;
+            padding: 10px 16px;
+            background: rgba(0,86,179,0.06);
+            border-radius: 6px; transition: 0.2s; border: 1px solid rgba(0,86,179,0.15);
+        }
+        .view-all-link:hover { background: rgba(0,86,179,0.12); transform: translateX(3px); }
+        .mega-trust { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border-light); }
+        .mega-trust small { display: block; color: var(--text-light); font-size: 11px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .trust-item { font-size: 13px; color: var(--text-gray); display: flex; align-items: center; gap: 6px; margin-bottom: 6px; }
+        .trust-item::before { content: "\2713"; color: var(--primary-blue); font-weight: 700; font-size: 11px; }
+
+        .mega-links-col { padding-left: 8px; }
+        .solution-links { display: grid; gap: 8px; }
+        .solution-link {
+            padding: 10px 14px;
+            background: var(--bg-light);
+            border-radius: 6px; text-decoration: none;
+            color: var(--text-dark); transition: 0.2s;
+            border: 1px solid transparent; display: block;
+        }
+        .solution-link:hover { background: #fff; border-color: var(--primary-blue); transform: translateX(3px); }
+        .solution-link strong { display: block; font-size: 14px; margin-bottom: 3px; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; }
+        .solution-link small { color: var(--text-light); font-size: 12px; line-height: 1.4; }
+
+        /* Products mega links */
+        .product-links { display: grid; gap: 8px; }
+        .product-link {
+            padding: 10px 14px;
+            border-radius: 6px; text-decoration: none;
+            color: var(--text-dark); transition: 0.2s;
+            border: 1px solid var(--border-light);
+            display: flex; align-items: center; gap: 12px;
+            background: var(--bg-light);
+        }
+        .product-link:hover { background: #fff; transform: translateX(3px); }
+        .product-link .pl-dot {
+            width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+        }
+        .product-link .pl-text strong { display: block; font-size: 13px; margin-bottom: 2px; font-family: 'Montserrat', sans-serif; }
+        .product-link .pl-text small { color: var(--text-light); font-size: 12px; }
+        .product-link:hover .pl-text strong { color: var(--primary-blue); }
+
+        /* Portfolio mega menu */
+        .mega-menu-portfolio {
+            width: 860px;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 0;
+        }
+        .mega-menu-portfolio .mega-port-col {
+            padding: 0 24px;
+            border-right: 1px solid var(--border-light);
+        }
+        .mega-menu-portfolio .mega-port-col:first-child { padding-left: 0; }
+        .mega-menu-portfolio .mega-port-col:last-child { padding-right: 0; border-right: none; }
+        .port-link {
+            display: flex; align-items: center; gap: 10px;
+            padding: 9px 12px; border-radius: 6px;
+            text-decoration: none; color: var(--text-dark);
+            transition: 0.2s; margin-bottom: 4px;
+        }
+        .port-link:hover { background: var(--bg-light); transform: translateX(3px); }
+        .port-link .port-dot {
+            width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+        }
+        .port-link span { font-size: 13px; font-weight: 500; }
+        .port-link:hover span { color: var(--primary-blue); }
+        .port-featured {
+            background: var(--bg-light); border-radius: 8px;
+            padding: 12px; margin-top: 12px;
+            text-decoration: none; color: var(--text-dark);
+            display: block; border: 1px solid var(--border-light);
+            transition: 0.2s;
+        }
+        .port-featured:hover { border-color: var(--primary-blue); background: #fff; }
+        .port-featured .pf-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-blue); margin-bottom: 4px; }
+        .port-featured .pf-title { font-size: 13px; font-weight: 600; color: var(--text-dark); font-family: 'Montserrat', sans-serif; margin-bottom: 3px; }
+        .port-featured .pf-meta { font-size: 11px; color: var(--text-light); }
+
+        /* Resources mega menu */
+        .mega-menu-resources {
+            width: 900px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+        }
+        .mega-res-col {
+            padding: 0 20px;
+            border-right: 1px solid var(--border-light);
+        }
+        .mega-res-col:first-child { padding-left: 0; }
+        .mega-res-col:last-child { padding-right: 0; border-right: none; }
+        .res-col-header {
+            display: flex; align-items: center; gap: 8px;
+            margin-bottom: 14px; padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .res-col-header .rch-icon { font-size: 18px; }
+        .res-col-header h4 { font-size: 13px; font-weight: 700; color: var(--text-dark); font-family: 'Montserrat', sans-serif; }
+        .res-link {
+            display: block; padding: 7px 8px; border-radius: 5px;
+            text-decoration: none; font-size: 13px; color: var(--text-gray);
+            transition: 0.2s; margin-bottom: 2px;
+        }
+        .res-link:hover { background: var(--bg-light); color: var(--primary-blue); transform: translateX(2px); }
+        .res-link .rl-new {
+            display: inline-block; background: #e8f5e9; color: #2e7d32;
+            font-size: 9px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.5px; padding: 1px 6px; border-radius: 8px; margin-left: 6px;
+            vertical-align: middle;
+        }
+        .res-link .rl-soon {
+            display: inline-block; background: var(--bg-light); color: var(--text-light);
+            font-size: 9px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.5px; padding: 1px 6px; border-radius: 8px; margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        /* Insights mega menu */
+        .mega-menu-insights {
+            width: 780px;
+            grid-template-columns: 1fr 1.8fr;
+            gap: 32px;
+        }
+        .insights-featured {
+            background: var(--bg-light); border-radius: 8px;
+            padding: 16px; text-decoration: none; color: var(--text-dark);
+            display: block; border: 1px solid var(--border-light);
+            transition: 0.2s; margin-bottom: 10px;
+        }
+        .insights-featured:hover { border-color: var(--primary-blue); background: #fff; }
+        .insights-featured .if-tag {
+            font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 1px; color: var(--primary-blue); margin-bottom: 6px; display: block;
+        }
+        .insights-featured .if-title { font-size: 14px; font-weight: 600; font-family: 'Montserrat', sans-serif; margin-bottom: 4px; line-height: 1.4; }
+        .insights-featured .if-meta { font-size: 11px; color: var(--text-light); }
+        .insights-cats { display: grid; gap: 6px; }
+        .insights-cat {
+            display: flex; align-items: center; gap: 10px;
+            padding: 10px 12px; border-radius: 6px;
+            text-decoration: none; color: var(--text-dark);
+            border: 1px solid var(--border-light); transition: 0.2s;
+            background: var(--bg-light);
+        }
+        .insights-cat:hover { background: #fff; border-color: var(--primary-blue); transform: translateX(3px); }
+        .insights-cat .ic-icon { font-size: 18px; }
+        .insights-cat .ic-text strong { display: block; font-size: 13px; font-family: 'Montserrat', sans-serif; margin-bottom: 1px; }
+        .insights-cat .ic-text small { font-size: 11px; color: var(--text-light); }
+
+        /* About mini-dropdown */
+        .mega-menu-about {
+            width: 600px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            left: auto; right: 0; transform: none;
+            padding: 28px;
+        }
+        .about-preview-card {
+            background: var(--bg-light); border-radius: 10px;
+            padding: 20px; margin-bottom: 16px;
+            border: 1px solid var(--border-light);
+        }
+        .apc-founder { display: flex; gap: 12px; align-items: center; margin-bottom: 12px; }
+        .apc-avatar { width: 44px; height: 44px; border-radius: 50%; background: #0056b3; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+        .apc-name { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; color: var(--text-dark); margin-bottom: 2px; }
+        .apc-title { font-size: 11px; color: var(--text-light); }
+        .apc-quote { font-size: 12px; font-style: italic; color: var(--text-gray); line-height: 1.5; border-left: 2px solid #0056b3; padding-left: 10px; }
+        .about-links { display: flex; flex-direction: column; gap: 6px; }
+        .about-link { display: flex; align-items: center; gap: 8px; padding: 8px 10px; border-radius: 6px; text-decoration: none; color: var(--text-dark); font-size: 13px; font-weight: 500; transition: 0.2s; }
+        .about-link:hover { background: var(--bg-light); color: var(--primary-blue); }
+        .about-link .al-icon { font-size: 15px; width: 20px; text-align: center; }
+
+        /* Contact mini-dropdown */
+        .mega-menu-contact {
+            width: 300px;
+            display: block !important;
+            padding: 20px;
+        }
+        .nav-item:hover .mega-menu-contact { display: block; opacity: 1; }
+        .contact-channel-links { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+        .contact-ch-link {
+            display: flex; align-items: center; gap: 10px;
+            padding: 10px 12px; border-radius: 8px;
+            text-decoration: none; color: var(--text-dark);
+            border: 1px solid var(--border-light);
+            transition: 0.2s;
+        }
+        .contact-ch-link:hover { border-color: var(--primary-blue); background: rgba(0,86,179,0.03); }
+        .contact-ch-link.whatsapp-ch { background: #f0faf4; border-color: #c6e6d1; }
+        .contact-ch-link.whatsapp-ch:hover { background: #e0f5e9; border-color: #25d366; }
+        .cch-icon { font-size: 20px; flex-shrink: 0; }
+        .cch-text .cch-label { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; color: var(--text-dark); margin-bottom: 1px; }
+        .cch-text .cch-sub { font-size: 11px; color: var(--text-light); }
+        .contact-hours { font-size: 11px; color: var(--text-light); padding-top: 12px; border-top: 1px solid var(--border-light); line-height: 1.6; }
+
+        /* Simple dropdown (About, Contact) */
+        .simple-dropdown {
+            position: absolute; top: 100%; left: 50%;
+            transform: translateX(-50%);
+            background: #fff; border: 1px solid var(--border-light);
+            border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            padding: 8px; min-width: 180px;
+            display: none; z-index: 200;
+        }
+        .nav-item:hover .simple-dropdown { display: block; }
+        .simple-dropdown a {
+            display: block; padding: 9px 14px; border-radius: 5px;
+            text-decoration: none; font-size: 13px; color: var(--text-dark); transition: 0.2s;
+        }
+        .simple-dropdown a:hover { background: var(--bg-light); color: var(--primary-blue); }
+
+        /* MOBILE MENU */
+        .mobile-toggle {
+            display: none; background: none; border: none;
+            color: #fff; cursor: pointer; padding: 8px;
+            align-items: center; justify-content: center;
+        }
+        .mobile-toggle svg {
+            display: block;
+        }
+        .mobile-menu {
+            display: none; background: #0E1A2B;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 16px 24px 24px;
+        }
+        .mobile-menu.active { display: block; }
+        .mobile-menu-item {
+            display: block; padding: 13px 0;
+            color: rgba(255,255,255,0.85); text-decoration: none;
+            font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.08);
+            font-size: 15px; cursor: pointer;
+        }
+        .mobile-menu-item:hover { color: #fff; }
+        .mobile-submenu { padding-left: 16px; margin: 8px 0 4px; display: none; }
+        .mobile-submenu a {
+            display: block; padding: 8px 0;
+            color: rgba(255,255,255,0.6); text-decoration: none; font-size: 14px;
+        }
+        .mobile-submenu a:hover { color: #fff; }
+        .mobile-submenu a strong { color: rgba(255,255,255,0.85); }
+
+        /* ── SECTIONS ── */
+        section { padding: 100px 0; }
+        .eyebrow {
+            font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--primary-blue); margin-bottom: 12px; display: block;
+        }
+
+        /* -- 1. HERO -- */
+        .hero {
+            background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
+            color: white; padding: 160px 0 120px;
+            text-align: center; position: relative; overflow: hidden;
+        }
+        .hero::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(0,86,179,0.15) 0%, transparent 70%);
+        }
+        .hero .container { position: relative; }
+        .hero h1 { font-size: clamp(36px, 5.5vw, 60px); line-height: 1.1; margin-bottom: 24px; }
+        .hero h1 em { font-style: normal; color: #5b9ee1; }
+        .hero .subtitle {
+            font-size: 20px; max-width: 700px; margin: 0 auto 40px;
+            opacity: 0.85; line-height: 1.7;
+        }
+        .btn-group { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px; }
+        .btn-primary { background: var(--primary-blue); color: white; border-color: var(--primary-blue); }
+        .btn-primary:hover { background: var(--dark-blue); transform: translateY(-2px); }
+        .btn-outline { border: 2px solid rgba(255,255,255,0.5); color: white; background: transparent; }
+        .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+        .btn-whatsapp { background: #25d366; color: white; border-color: #25d366; }
+        .btn-whatsapp:hover { background: #1da851; transform: translateY(-2px); }
+        .hero-trust-note {
+            font-size: 13px; opacity: 0.6; font-weight: 500; color: #fff;
+        }
+        /* Hero nav-section tags */
+        .hero-nav-pills {
+            display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px;
+        }
+        .hero-pill {
+            background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 24px; padding: 7px 18px; font-size: 13px;
+            color: rgba(255,255,255,0.8); font-weight: 500; text-decoration: none;
+            transition: 0.2s;
+        }
+        .hero-pill:hover { background: rgba(255,255,255,0.15); color: #fff; }
+
+        /* ── 2. TRUST BAR ── */
+        .trust-bar { background: white; padding: 20px 0; border-bottom: 1px solid var(--border-light); }
+        .trust-flex {
+            display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 16px;
+            font-size: 13px; font-weight: 500;
+        }
+        .trust-flex .label { color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; font-size: 11px; }
+        .trust-flex span:not(.label) { color: var(--text-gray); }
+
+        /* ── 3. LOGIC (Problem) ── */
+        .logic { background: var(--bg-light); padding: 100px 0; text-align: center; }
+        .logic h2 { font-size: clamp(26px, 3.5vw, 40px); margin-bottom: 20px; }
+        .logic .intro-text { max-width: 750px; margin: 0 auto 56px; color: var(--text-light); font-size: 17px; line-height: 1.8; }
+        .logic .intro-text strong { color: var(--text-dark); }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .card {
+            background: white; padding: 36px 28px; border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 1px solid var(--border-light);
+            transition: 0.3s;
+        }
+        .card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+        .card h3 { font-size: 18px; margin-bottom: 14px; color: var(--primary-blue); }
+        .card p { color: var(--text-gray); line-height: 1.7; margin: 0; font-size: 15px; }
+
+        /* ── 4. ASSURANCE ── */
+        .assurance { padding: 100px 0; background: white; }
+        .assurance-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+        .assurance h2 { font-size: clamp(24px, 3vw, 36px); margin-bottom: 20px; line-height: 1.3; }
+        .assurance h3 { font-size: 22px; margin-bottom: 18px; }
+        .assurance p { color: var(--text-gray); line-height: 1.8; margin-bottom: 14px; font-size: 15px; }
+        .badge-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 24px; }
+        .badge {
+            background: var(--bg-light); padding: 18px 14px; text-align: center;
+            border-radius: 8px; border: 1px solid var(--border-light); transition: 0.3s;
+        }
+        .badge:hover { background: white; border-color: var(--primary-blue); }
+        .badge strong { display: block; font-size: 16px; margin-bottom: 4px; color: var(--primary-blue); }
+        .badge small { color: var(--text-light); font-size: 12px; }
+        .link-arrow {
+            color: var(--primary-blue); font-weight: 600; text-decoration: none;
+            border-bottom: 2px solid var(--primary-blue); padding-bottom: 4px;
+            transition: 0.3s; display: inline-block; margin-top: 16px; font-size: 14px;
+        }
+        .link-arrow:hover { color: var(--dark-blue); }
+
+        /* ── 5. RELEVANCE (Solutions by sector) ── */
+        .relevance { background: var(--bg-light); padding: 100px 0; }
+        .relevance h2 { text-align: center; font-size: clamp(24px, 3vw, 36px); margin-bottom: 56px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .rel-card {
+            background: white; padding: 32px 28px; border-radius: 12px;
+            border: 1px solid var(--border-light); transition: 0.3s;
+            text-decoration: none; color: var(--text-dark); display: block;
+        }
+        .rel-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-color: var(--primary-blue); }
+        .rel-card h3 { font-size: 18px; margin-bottom: 10px; }
+        .rel-card strong { display: block; color: var(--primary-blue); font-size: 13px; margin-bottom: 8px; font-family: 'Montserrat', sans-serif; }
+        .rel-card p { margin: 0; color: var(--text-gray); font-size: 14px; line-height: 1.6; }
+        .rel-card-footer {
+            margin-top: 16px; padding-top: 16px;
+            border-top: 1px solid var(--border-light);
+            font-size: 13px; color: var(--primary-blue);
+            font-weight: 600; font-family: 'Montserrat', sans-serif;
+        }
+
+        /* -- PRODUCTS SECTION -- */
+        .products-section { background: white; padding: 100px 0; }
+        .products-section .section-header { text-align: center; margin-bottom: 56px; }
+        .products-section .section-header h2 { font-size: clamp(24px, 3vw, 36px); margin-bottom: 14px; }
+        .products-section .section-header p {
+            font-size: 17px; color: var(--text-light); max-width: 700px;
+            margin: 0 auto; line-height: 1.7;
+        }
+        .products-intro-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 64px; align-items: center; margin-bottom: 56px;
+        }
+        .products-intro-text p { color: var(--text-gray); line-height: 1.8; margin-bottom: 14px; font-size: 15px; }
+        .secure-callout {
+            background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
+            border-radius: 16px; padding: 36px; color: #fff;
+            position: relative; overflow: hidden;
+        }
+        .secure-callout::before {
+            content: ''; position: absolute; inset: 0;
+            background: radial-gradient(ellipse at top right, rgba(0,86,179,0.3) 0%, transparent 60%);
+        }
+        .secure-callout > * { position: relative; z-index: 1; }
+        .secure-callout .sc-label {
+            font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+            letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 6px;
+        }
+        .secure-callout .sc-title {
+            font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 700;
+            letter-spacing: 4px; color: #fff; margin-bottom: 4px;
+        }
+        .secure-callout .sc-sub { font-size: 13px; color: rgba(255,255,255,0.5); margin-bottom: 24px; }
+        .sc-steps { display: flex; flex-direction: column; gap: 10px; }
+        .sc-step {
+            display: flex; gap: 12px; align-items: flex-start;
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 6px; padding: 10px 14px;
+        }
+        .sc-letter { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; color: #5b9ee1; width: 20px; flex-shrink: 0; }
+        .sc-word { font-size: 13px; color: rgba(255,255,255,0.85); font-family: 'Montserrat', sans-serif; font-weight: 600; }
+        .sc-desc { font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 1px; }
+
+        /* Subsystem cards */
+        .subsystem-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+        }
+        .subsys-card {
+            background: var(--bg-light); border: 1px solid var(--border-light);
+            border-radius: 10px; padding: 24px 20px;
+            border-top: 3px solid; transition: 0.3s;
+            text-decoration: none; color: var(--text-dark);
+            display: flex; flex-direction: column;
+        }
+        .subsys-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.1); transform: translateY(-4px); background: #fff; }
+        .subsys-card.c-surv { border-top-color: var(--c-surveillance); }
+        .subsys-card.c-peop { border-top-color: var(--c-people); }
+        .subsys-card.c-vehi { border-top-color: var(--c-vehicle); }
+        .subsys-card.c-plat { border-top-color: var(--c-platform); }
+        .subsys-card .s-icon { font-size: 28px; margin-bottom: 12px; }
+        .subsys-card h3 { font-size: 15px; margin-bottom: 8px; }
+        .subsys-card p { font-size: 13px; color: var(--text-light); line-height: 1.5; flex: 1; }
+        .subsys-card .s-link {
+            margin-top: 16px; font-size: 12px; font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .subsys-card.c-surv .s-link { color: var(--c-surveillance); }
+        .subsys-card.c-peop .s-link { color: var(--c-people); }
+        .subsys-card.c-vehi .s-link { color: var(--c-vehicle); }
+        .subsys-card.c-plat .s-link { color: var(--c-platform); }
+        .products-cta-row {
+            text-align: center; margin-top: 40px;
+        }
+        .btn-products {
+            background: var(--primary-blue); color: #fff;
+            border-color: var(--primary-blue); margin-right: 12px;
+        }
+        .btn-products:hover { background: var(--dark-blue); transform: translateY(-2px); }
+
+        /* -- 6. PROCESS -- */
+        .process { padding: 100px 0; text-align: center; background: var(--bg-light); }
+        .process h2 { font-size: clamp(24px, 3vw, 36px); margin-bottom: 14px; }
+        .process .subtitle { color: var(--text-light); max-width: 650px; margin: 14px auto 0; line-height: 1.7; font-size: 16px; }
+        .process .subtitle strong { color: var(--primary-blue); font-weight: 600; }
+        .step-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 56px; }
+        .step-num {
+            width: 60px; height: 60px; background: var(--primary-blue);
+            color: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 18px; font-weight: 700; font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0,86,179,0.25);
+            font-family: 'Montserrat', sans-serif;
+        }
+        .step-row strong { display: block; font-size: 16px; margin-bottom: 8px; color: var(--text-dark); font-family: 'Montserrat', sans-serif; }
+        .step-row small { color: var(--text-light); line-height: 1.6; font-size: 14px; }
+
+        /* -- 7. TECH FIT -- */
+        .tech-fit {
+            background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
+            color: white; padding: 100px 0; position: relative;
+        }
+        .tech-fit h2 { text-align: center; font-size: clamp(24px, 3vw, 36px); margin-bottom: 14px; }
+        .tech-fit .subtitle { text-align: center; opacity: 0.8; max-width: 700px; margin: 0 auto 48px; font-size: 17px; line-height: 1.7; }
+        .tech-fit .subtitle strong { color: white; font-weight: 600; }
+        .infinity-box {
+            background: rgba(255,255,255,0.05); padding: 48px;
+            border-radius: 20px; display: grid;
+            grid-template-columns: 1fr 1fr; gap: 48px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .infinity-box h3 { font-size: 22px; margin-bottom: 14px; }
+        .infinity-box p { margin: 0 0 12px 0; opacity: 0.9; font-size: 15px; }
+        .infinity-box strong { font-weight: 600; letter-spacing: 0.5px; }
+        .infinity-box small { opacity: 0.75; line-height: 1.8; display: block; font-size: 14px; }
+        .system-side { border-right: 1px solid rgba(255,255,255,0.12); padding-right: 28px; }
+        .people-side { padding-left: 28px; }
+
+        /* -- 8. RESULTS -- */
+        .results { padding: 100px 0; background: white; }
+        .results h2 { text-align: center; font-size: clamp(24px, 3vw, 36px); margin-bottom: 14px; }
+        .results .subtitle { text-align: center; color: var(--text-light); margin-bottom: 56px; font-size: 16px; }
+        .results .subtitle strong { color: var(--primary-blue); }
+        .res-card {
+            border: 1px solid var(--border-light); padding: 28px; border-radius: 10px;
+            transition: 0.3s; background: white;
+        }
+        .res-card:hover { border-color: var(--primary-blue); transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,86,179,0.1); }
+        .res-card strong { display: block; font-size: 16px; margin-bottom: 10px; color: var(--text-dark); font-family: 'Montserrat', sans-serif; }
+        .res-card small { color: var(--text-gray); line-height: 1.7; font-size: 14px; }
+        .res-card small strong { display: inline; color: var(--primary-blue); font-size: inherit; margin: 0; }
+
+        /* -- 9. TESTIMONIALS -- */
+        .testimonials { padding: 100px 0; background: var(--bg-light); }
+        .testimonials h2 { text-align: center; font-size: clamp(24px, 3vw, 36px); margin-bottom: 14px; }
+        .testimonials .subtitle { text-align: center; color: var(--text-light); max-width: 700px; margin: 0 auto 56px; line-height: 1.7; font-size: 16px; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+        .testimonial-card {
+            background: white; padding: 36px 28px; border-radius: 12px;
+            border: 1px solid var(--border-light); transition: 0.3s;
+        }
+        .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+        .quote-icon { font-size: 40px; color: var(--primary-blue); line-height: 1; margin-bottom: 18px; }
+        .testimonial-card blockquote { color: var(--text-gray); font-size: 14px; line-height: 1.8; margin: 0 0 22px 0; font-style: italic; }
+        .attribution { border-top: 1px solid var(--border-light); padding-top: 14px; }
+        .attribution strong { color: var(--primary-blue); display: block; margin-bottom: 3px; font-size: 14px; }
+        .attribution span { color: var(--text-light); font-size: 13px; }
+
+        /* -- 10. WHY CHOOSE -- */
+        .why-choose { padding: 100px 0; background: white; }
+        .why-choose h2 { text-align: center; font-size: clamp(24px, 3vw, 36px); margin-bottom: 56px; }
+        .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .why-card {
+            background: var(--bg-light); padding: 32px 24px; border-radius: 12px;
+            text-align: center; border: 1px solid var(--border-light); transition: 0.3s;
+        }
+        .why-card:hover { background: white; border-color: var(--primary-blue); transform: translateY(-4px); box-shadow: 0 4px 16px rgba(0,86,179,0.1); }
+        .why-card .icon { font-size: 36px; margin-bottom: 14px; display: block; }
+        .why-card h4 { font-size: 15px; margin-bottom: 10px; color: var(--primary-blue); }
+        .why-card p { color: var(--text-gray); line-height: 1.7; margin: 0; font-size: 14px; }
+
+        /* -- 11. CLIENT LOGOS -- */
+        .client-logos { padding: 80px 0; background: var(--bg-light); }
+        .client-logos h2 { text-align: center; font-size: clamp(22px, 2.5vw, 32px); margin-bottom: 14px; }
+        .client-logos .intro { text-align: center; color: var(--text-light); max-width: 700px; margin: 0 auto 48px; font-size: 15px; }
+        .logos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .logo-box {
+            background: white; padding: 28px; border-radius: 10px;
+            text-align: center; min-height: 110px; display: flex;
+            align-items: center; justify-content: center;
+            border: 1px solid var(--border-light); transition: 0.3s;
+        }
+        .logo-box:hover { border-color: var(--primary-blue); box-shadow: 0 4px 12px rgba(0,86,179,0.1); }
+        .logo-box h4 { color: var(--primary-blue); font-size: 14px; margin-bottom: 5px; }
+        .logo-box p { margin: 0; font-size: 12px; color: var(--text-light); }
+        .logos-disclaimer { text-align: center; margin-top: 32px; color: var(--text-light); font-size: 13px; font-style: italic; }
+
+        /* -- 12. FINAL CTA -- */
+        .cta-section {
+            background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
+            padding: 100px 0; text-align: center; color: #fff;
+        }
+        .cta-section h2 { font-size: clamp(26px, 3.5vw, 44px); margin-bottom: 20px; }
+        .cta-section .subtitle {
+            margin-bottom: 40px; font-size: 17px;
+            color: rgba(255,255,255,0.8); max-width: 620px;
+            margin-left: auto; margin-right: auto; line-height: 1.8;
+        }
+        .cta-section .subtitle strong { color: white; }
+        .footer-note { margin-top: 48px; font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.9; }
+        .footer-note strong { color: rgba(255,255,255,0.6); }
+
+        /* FOOTER */
+        .site-footer {
+            background: #0E1A2B;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding: 56px 0 24px;
+            color: rgba(255,255,255,0.55);
+            font-size: 13px;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr 1fr;
+            gap: 32px; margin-bottom: 40px;
+        }
+        .footer-brand .brand-name {
+            font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700;
+            color: #fff; margin-bottom: 10px;
+        }
+        .footer-brand .brand-name span { color: var(--primary-blue); }
+        .footer-brand p { line-height: 1.7; font-size: 13px; margin-bottom: 12px; }
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700;
+            letter-spacing: 1.5px; text-transform: uppercase;
+            color: rgba(255,255,255,0.7); margin-bottom: 14px;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 8px; }
+        .footer-col a { color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.2s; font-size: 13px; }
+        .footer-col a:hover { color: #fff; }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 20px;
+            display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+            font-size: 12px;
+        }
+
+        /* ── MOBILE ── */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 16px;
+                justify-content: space-between;
+            }
+            /* Logo - smaller on mobile */
+            .nav-logo-link {
+                flex-shrink: 0;
+            }
+            .nav-logo-img {
+                height: 32px !important; /* Reduced from 40px */
+            }
+            .nav-logo-link span {
+                font-size: 18px !important; /* Reduced from 22px */
+            }
+            /* Center the hamburger menu button */
+            .nav-right {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                order: 3; /* Force to right */
+            }
+            /* Hide desktop menu */
+            .nav-menu { display: none; }
+            /* Show mobile toggle */
+            .mobile-toggle { 
+                display: flex;
+                order: 2; /* Menu in center-right */
+            }
+            /* Search button on far right */
+            .search-btn {
+                order: 3;
+            }
+            /* Hide desktop-only items */
+            .desktop-only { display: none; }
+            
+            section { padding: 64px 0; }
+            .hero { padding: 110px 0 80px; }
+            .hero h1 { font-size: 32px; }
+            .hero .subtitle { font-size: 16px; }
+            .hero-nav-pills { display: none; }
+            .grid-3, .grid-2, .assurance-grid, .step-row,
+            .infinity-box, .testimonials-grid, .why-grid,
+            .logos-grid, .products-intro-grid { grid-template-columns: 1fr; }
+            .subsystem-grid { grid-template-columns: repeat(2, 1fr); }
+            .system-side { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); padding-right: 0; padding-bottom: 28px; }
+            .people-side { padding-left: 0; padding-top: 28px; }
+            .trust-flex { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .btn-group { flex-direction: column; align-items: center; }
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+            .footer-brand { grid-column: 1 / -1; }
+        }
+        @media (min-width: 769px) {
+            .desktop-only { display: inline-block; }
+        }
+        @media (max-width: 480px) {
+            /* Even smaller logo on phones */
+            .nav-logo-img {
+                height: 28px !important;
+            }
+            .nav-logo-link span {
+                font-size: 16px !important;
+            }
+            .nav-logo-link {
+                gap: 6px !important;
+            }
+            .nav-container {
+                padding: 0 12px;
+            }
+            .subsystem-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+            /* Floating WhatsApp */
+        .floating-wa {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #25d366;
+            color: white;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+            z-index: 1000;
+            transition: transform 0.2s;
+        }
+        .floating-wa:hover {
+            transform: scale(1.1);
+        }
+        @media (max-width: 480px) {
+            .floating-wa { width: 48px; height: 48px; bottom: 16px; right: 16px; }
+        }
+    </style>
+<style id="sv-nav-css">
+.main-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(14,26,43,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08);height:68px;font-family:'Inter',sans-serif}
+.nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;position:relative}
+.nav-logo-link{display:flex;align-items:center;text-decoration:none}
+.nav-logo-img{height:40px;width:auto;display:block}
+.nav-menu{display:flex;list-style:none;gap:2px;margin:0;padding:0;align-items:center}
+.nav-item{position:static}
+.nav-link{color:rgba(255,255,255,.8);text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;height:68px;padding:0 13px;white-space:nowrap;transition:.2s}
+.nav-link:hover,.nav-link.active{color:#fff}
+.has-dropdown::after{content:" \25be";font-size:9px;opacity:.5;margin-left:4px}
+.nav-right{display:flex;align-items:center;gap:16px}
+.nav-cta-btn{background:#0056b3;color:#fff;padding:9px 16px;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;transition:.2s}
+.nav-cta-btn:hover{background:#003d82}
+.search-btn{background:none;border:none;color:rgba(255,255,255,.8);cursor:pointer;padding:8px;display:flex;align-items:center;transition:.2s}
+.search-btn:hover{color:#fff}
+.mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:8px}
+
+.mega-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #E8EAED;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.15);padding:24px;display:none;z-index:200;width:max-content;max-width:calc(100vw - 48px);overflow-x:auto}
+.nav-item:hover>.mega-menu{display:grid;opacity:1}
+
+.mega-menu-solutions{width:820px;grid-template-columns:1fr 1.6fr;gap:24px}
+.mega-menu-technology{width:960px;grid-template-columns:1fr 1.3fr 1.3fr;gap:0}
+.mega-menu-technology .mega-guidance{padding-right:20px;border-right:1px solid #E8EAED}
+.mega-menu-technology .mega-links-col{padding:0 20px;border-right:1px solid #E8EAED}
+.mega-brands-col{padding-left:20px}
+.mega-menu-portfolio{width:820px;grid-template-columns:1fr 1fr 1fr;gap:20px}
+.mega-menu-resources{width:880px;grid-template-columns:repeat(4,1fr);gap:16px}
+.mega-menu-insights{width:720px;grid-template-columns:1fr 1.6fr;gap:24px}
+.mega-menu-contact{width:640px;grid-template-columns:1fr 1fr;gap:24px}
+
+@media (max-width: 1200px) {
+  .mega-menu{left: auto; right: 24px; transform: none; width: auto; max-width: calc(100vw - 48px);}
+  .mega-menu-technology{width: 880px; grid-template-columns: 1fr 1fr 1fr;}
+}
+@media (max-width: 1024px) {
+  .mega-menu{right: 12px; max-width: calc(100vw - 24px); padding: 20px;}
+  .mega-menu-solutions{width:700px;grid-template-columns:1fr 1fr}
+  .mega-menu-technology{width:700px;grid-template-columns:1fr 1.2fr}
+  .mega-brands-col{display:none}
+  .mega-menu-portfolio{width:700px;grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .mega-menu-resources{width:700px;grid-template-columns:repeat(2,1fr)}
+  .mega-menu-contact{width:600px}
+}
+
+.mega-col-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#8a8f98;margin-bottom:12px;display:block}
+.mega-guidance h4{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:#1B1F23;margin:0 0 6px}
+.mega-guidance p{font-size:12px;color:#5F6368;margin:0 0 10px;line-height:1.5}
+.view-all-link{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#0056b3;text-decoration:none;display:inline-flex;align-items:center}
+.mega-trust{margin-top:14px;padding-top:12px;border-top:1px solid #E8EAED}
+.trust-item{font-size:11px;color:#5F6368;padding:2px 0}
+.solution-link{display:flex;flex-direction:column;padding:8px 10px;border-radius:6px;text-decoration:none;transition:.15s;margin-bottom:2px}
+.solution-link:hover{background:#F8F9FA}
+.solution-link strong{font-size:13px;color:#1B1F23;margin-bottom:1px;display:block}
+.solution-link small{font-size:11px;color:#8a8f98}
+.product-link{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid #E8EAED;text-decoration:none}
+.product-link:last-of-type{border-bottom:none}
+.product-link div strong{display:block;font-size:13px;color:#1B1F23;margin-bottom:1px}
+.product-link div small{font-size:11px;color:#8a8f98}
+.pl-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.brand-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px}
+.brand-grid a{font-size:12px;color:#5F6368;text-decoration:none;padding:4px 0;transition:.15s;display:block}
+.brand-grid a:hover{color:#0056b3}
+.port-link{display:flex;align-items:center;gap:7px;padding:6px 8px;border-radius:5px;text-decoration:none;color:#1B1F23;font-size:13px;transition:.15s}
+.port-link:hover{background:#F8F9FA;color:#0056b3}
+.port-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.port-featured{display:block;padding:8px 10px;border-radius:7px;text-decoration:none;border:1px solid #E8EAED;margin-bottom:6px;transition:.15s}
+.port-featured:hover{border-color:#0056b3;background:#F8F9FA}
+.pf-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#8a8f98}
+.pf-title{font-size:13px;font-weight:700;color:#1B1F23}
+.pf-meta{font-size:11px;color:#8a8f98}
+.res-col-header{display:flex;align-items:center;gap:6px;margin-bottom:8px;padding-bottom:7px;border-bottom:1px solid #E8EAED}
+.res-col-header h4{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#1B1F23;margin:0}
+.res-link{font-size:12px;color:#5F6368;text-decoration:none;padding:4px 0;transition:.15s;display:flex;align-items:center;justify-content:space-between}
+.res-link:hover{color:#0056b3}
+.rl-soon{font-size:10px;background:#F8F9FA;border:1px solid #E8EAED;color:#8a8f98;padding:1px 5px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:700}
+.insights-featured{display:block;padding:8px 0;border-bottom:1px solid #E8EAED;text-decoration:none;margin-bottom:6px}
+.if-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#0056b3;font-family:'Montserrat',sans-serif}
+.if-title{font-size:12px;font-weight:600;color:#1B1F23;margin:3px 0 1px;line-height:1.4}
+.if-meta{font-size:11px;color:#8a8f98}
+.insights-cat{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #E8EAED;text-decoration:none;color:#1B1F23;transition:.15s}
+.insights-cat:last-child{border-bottom:none}
+.insights-cat:hover{color:#0056b3}
+.ic-icon{font-size:16px;flex-shrink:0}
+.insights-cat strong{display:block;font-size:13px;font-family:'Montserrat',sans-serif}
+.insights-cat small{font-size:11px;color:#8a8f98}
+
+.about-preview-card{background:#F8F9FA;border-radius:8px;padding:14px;margin-bottom:12px;border:1px solid #E8EAED}
+.apc-founder{display:flex;gap:9px;align-items:center;margin-bottom:8px}
+.apc-avatar{width:36px;height:36px;border-radius:50%;background:#0056b3;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.apc-name{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#1B1F23}
+.apc-title{font-size:10px;color:#8a8f98}
+.apc-quote{font-size:11px;font-style:italic;color:#5F6368;border-left:2px solid #0056b3;padding-left:7px;line-height:1.5}
+.about-link{display:flex;align-items:center;gap:7px;padding:7px 8px;border-radius:5px;text-decoration:none;color:#1B1F23;font-size:12px;transition:.15s}
+.about-link:hover{background:#F8F9FA;color:#0056b3}
+.contact-ch-link{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:7px;text-decoration:none;color:#1B1F23;border:1px solid #E8EAED;transition:.15s;margin-bottom:8px}
+.contact-ch-link:hover{border-color:#0056b3}
+.whatsapp-ch{background:#f0faf4;border-color:#c6e6d1}
+.cch-icon{font-size:18px;flex-shrink:0}
+.cch-label{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:#1B1F23}
+.cch-sub{font-size:10px;color:#8a8f98}
+.contact-hours{font-size:10px;color:#8a8f98;padding-top:8px;border-top:1px solid #E8EAED;line-height:1.6;margin-top:8px}
+
+.mobile-menu{display:none;background:#0E1A2B;padding:10px 20px 20px}
+.mobile-menu.active{display:block}
+.mobile-menu-item{display:block;padding:12px 0;color:rgba(255,255,255,.85);font-size:14px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.08);cursor:pointer;text-decoration:none}
+a.mobile-menu-item:hover{color:#fff}
+.mobile-submenu{display:none;padding-left:14px;margin:6px 0 2px}
+.mobile-submenu a{display:block;padding:7px 0;color:rgba(255,255,255,.6);text-decoration:none;font-size:13px}
+.mobile-submenu a:hover{color:#fff}
+
+@media(max-width:992px){
+  .nav-menu{display:none}
+  .mobile-toggle{display:block}
+  .nav-logo-img{height:32px}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Securevision Pte Ltd",
+  "image": "https://www.securevision.com.sg/images/securevision-logo-light.svg",
+  "@id": "https://www.securevision.com.sg",
+  "url": "https://www.securevision.com.sg",
+  "telephone": "+65 6286 4796",
+  "email": "info@securevision.com.sg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Blk 1013 Geylang East Ave 3 #02-142",
+    "addressLocality": "Singapore",
+    "postalCode": "389728",
+    "addressCountry": "SG"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 1.3182, 
+    "longitude": 103.8893
+  },
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "08:00",
+    "closes": "17:00"
+  },
+  "sameAs": [
+    "https://www.facebook.com/securevision",
+    "https://www.linkedin.com/company/securevision-pte-ltd"
+  ]
+}
+</script>
+<style id="sv-footer-css">
+.site-footer{background:#0a111e;padding:80px 0 40px;border-top:1px solid rgba(255,255,255,.05);font-family:'Inter',sans-serif}
+.footer-container{max-width:1200px;margin:0 auto;padding:0 24px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:60px}
+.f-social-link{width:36px;height:36px;background:rgba(255,255,255,.05);border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);transition:.2s;text-decoration:none;border:1px solid rgba(255,255,255,.1)}
+.f-social-link:hover{background:#0056b3;color:#fff;border-color:#0056b3;transform:translateY(-2px)}
+@media(max-width:992px){.footer-grid{grid-template-columns:1fr 1fr;gap:40px}}
+@media(max-width:576px){.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body style="padding-top:68px">
+<nav class="main-nav">
+<div class="nav-container">
+  <a href="index.html" class="nav-logo-link" aria-label="Securevision Home" style="gap: 10px;">
+    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img" style="height: 40px;">
+    <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#ffffff;letter-spacing:0.5px;">SECUREVISION</span>
+  </a>
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
+      <div class="simple-dropdown">
+        <a href="residential.html">Residential</a>
+        <a href="condominiums.html">Condominiums</a>
+        <a href="commercial.html">Commercial</a>
+        <a href="industrial.html">Industrial</a>
+        <a href="institutions.html">Institutions</a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="systems-hub.html" class="nav-link has-dropdown">Systems</a>
+      <div class="simple-dropdown">
+        <a href="surveillance-systems.html">Surveillance & CCTV</a>
+        <a href="people-access.html">People Access Control</a>
+        <a href="vehicle-access.html">Vehicle Access & Barriers</a>
+        <a href="platform-integration.html">Platform Integration</a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="brands.html" class="nav-link has-dropdown">Brands</a>
+      <div class="simple-dropdown" style="min-width: 200px;">
+        <a href="brands.html#surveillance"><strong>Surveillance</strong></a>
+        <a href="brands.html#access-control"><strong>Access Control</strong></a>
+        <a href="brands.html#intercom"><strong>Intercom</strong></a>
+        <a href="brands.html#alarms"><strong>Alarms</strong></a>
+        <a href="brands.html#gates"><strong>Gates & Barriers</strong></a>
+        <div style="border-top: 1px solid #E8EAED; margin: 6px 0;"></div>
+        <a href="brands.html">View All Brands &rarr;</a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a>
+    <li class="nav-item"><a href="insights.html" class="nav-link">Insights</a>
+    <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
+      <div class="simple-dropdown" style="min-width: 220px;">
+        <a href="about.html">Company Story</a>
+        <a href="about.html#founder">Founder</a>
+        <a href="awards-certifications.html">Awards & Certifications</a>
+        <div style="border-top: 1px solid #E8EAED; margin: 6px 0;"></div>
+        <a href="about.html#contact"><strong>Contact Us</strong></a>
+        <a href="https://wa.me/6593860466" style="color: #25d366;">💬 WhatsApp: +65 9386 0466</a>
+      </div>
+    </li>
+  </ul>
+  <div class="nav-right">
+    <button class="search-btn" aria-label="Search">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+    </button>
+    <button class="mobile-toggle" onclick="toggleMobileMenu()">â˜°</button>
+  </div>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="solutions-hub.html" class="mobile-menu-item">Solutions</a>
+  <a href="systems-hub.html" class="mobile-menu-item">Systems</a>
+  <a href="brands.html" class="mobile-menu-item">Brands</a>
+  <a href="portfolio.html" class="mobile-menu-item">Portfolio</a>
+  <a href="insights.html" class="mobile-menu-item">Insights</a>
+  <a href="about.html" class="mobile-menu-item">About</a>
+  <a href="https://wa.me/6593860466" class="mobile-menu-item" style="color: #25d366; border-top: 1px solid rgba(255,255,255,0.15); margin-top: 8px; padding-top: 16px;">
+    💬 WhatsApp Us
+  </a>
+</div>
+</nav>
+
+    <!-- ── NAVIGATION ── -->
+    
+
+    <!-- ── 1. HERO ── -->
+    <header class="hero">
+        <div class="container">
+            <span class="eyebrow" style="color:rgba(255,255,255,0.5);">Singapore's Smart Security & Operations Partner</span>
+            <h1>Security That Powers Smarter Property Operations</h1>
+            <p class="subtitle">We design and integrate systems that reduce manpower, improve visibility, and give you full control</p>
+
+            <div class="btn-group">
+                <a href="contact.html" class="btn btn-primary">Book Smart Assessment</a>
+                <a href="solutions-hub.html" class="btn btn-outline">Explore Solutions</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── 2. TRUST BAR ── -->
+    <section class="trust-bar">
+        <div class="container">
+            <div class="trust-flex">
+                <span class="label">Vetted &amp; Certified:</span>
+                <span>&bull; Police Licensed L/PS/000267/2023P</span>
+                <span>&bull; bizSAFE Level 3</span>
+                <span>&bull; BCA Registered</span>
+                <span>&bull; <span id="years-val-2">19</span> Years in Operation</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── 3. LOGIC (The Problem) ── -->
+    <section class="logic">
+        <div class="container">
+            <span class="eyebrow">The Problem</span>
+            <h2>Why Standard Security Leaves You Blind</h2>
+            <div class="intro-text">
+                <p>Most security systems are designed to detect problems &mdash; not solve them. They beep when something moves. But they can't tell you if it's a threat or a delivery driver at the wrong gate. They record footage &mdash; but you have to scrub through hours to find what matters.</p>
+                <p><strong>We built Securevision to fix that gap.</strong></p>
+            </div>
+            <div class="grid-3">
+                <div class="card">
+                    <h3>&#127919; See &amp; Unify</h3>
+                    <p>AI-powered analytics filter false alarms and alert you only when there's a real security event &mdash; saving time, stress, and unnecessary guard callouts.</p>
+                </div>
+                <div class="card">
+                    <h3>&#128269; Control &amp; Entry</h3>
+                    <p>One unified platform manages all your gates, doors, intercoms, and cameras. No more juggling five different apps or chasing contractors for access.</p>
+                </div>
+                <div class="card">
+                    <h3>&#9889; Respond &amp; Engage</h3>
+                    <p>Connect security staff, residents, and management through intelligent mobile platforms. Everyone knows what's happening, in real time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── 4. ASSURANCE ── -->
+    <section class="assurance">
+        <div class="container">
+            <div class="assurance-grid">
+                <div class="card" style="background: var(--bg-light); border: none; border-radius: 12px; padding: 40px;">
+                    <h3>Built on Engineering, Backed by Law</h3>
+                    <p>Securevision isn't run by salespeople. Our founder, Ler Wee Meng, holds degrees in <strong>Engineering (NUS)</strong> and <strong>Law (UOL)</strong>, with <strong>35+ years</strong> of hands-on industry experience.</p>
+                    <p style="margin-top: 12px;">We don't just install equipment. We architect systems that work the way you actually live and operate.</p>
+                    <div class="badge-grid">
+                        <div class="badge"><strong>SPF</strong><small>Police Licensed</small></div>
+                        <div class="badge"><strong>bizSAFE 3</strong><small>Workplace Safety</small></div>
+                        <div class="badge"><strong>BCA</strong><small>Registered Contractor</small></div>
+                        <div class="badge"><strong>Est. 2006</strong><small>19+ Years</small></div>
+                    </div>
+                </div>
+                <div>
+                    <span class="eyebrow">Our Foundation</span>
+                    <h2>Why We Built the SECURE&trade; Framework</h2>
+                    <p>In 2006, our founder noticed a fatal flaw: <strong>security systems could detect problems but couldn't show you what was wrong.</strong></p>
+                    <p>An alarm goes off. You get a call. But no one can tell you if it's a break-in, a system glitch, or a delivery driver at the wrong gate.</p>
+                    <p>That's the <strong>"Blind Alarm Problem."</strong> We started Securevision to solve it. Today, we combine AI-powered visual intelligence with unified control platforms &mdash; so you always see what's happening and can act on it instantly.</p>
+                    <a href="about.html" class="link-arrow">Read Our Founder's Story &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- -- 5. RELEVANCE (Solutions by Sector) -- -->
+    <section class="relevance">
+        <div class="container">
+            <span class="eyebrow" style="text-align:center; display:block;">Solutions by Property Type</span>
+            <h2>We've Secured Every Type of Site in Singapore</h2>
+            <div class="grid-2">
+                <a href="condominiums.html" class="rel-card">
+                    <h3>&#127970; Condominiums &amp; Estates</h3>
+                    <strong>Resident Management &middot; GantryGo&trade; &middot; MCST Compliance</strong>
+                    <p>450+ residents at The L'viv use our VESTA&trade; app for seamless visitor management and self-service gate access.</p>
+                    <div class="rel-card-footer">View Condominium Solutions &rarr;</div>
+                </a>
+                <a href="commercial.html" class="rel-card">
+                    <h3>&#127980; Offices &amp; Retail</h3>
+                    <strong>AI Surveillance &middot; Access Control &middot; Loss Prevention</strong>
+                    <p>200-camera AI system at SCAPE monitors crowds and delivers real-time safety intelligence for management.</p>
+                    <div class="rel-card-footer">View Commercial Solutions &rarr;</div>
+                </a>
+                <a href="industrial.html" class="rel-card">
+                    <h3>&#127981; Industrial &amp; Logistics</h3>
+                    <strong>Perimeter Security &middot; ANPR &middot; Hazardous Zone Control</strong>
+                    <p>Perimeter AI detection at Cyrus Tech eliminated false alarms and cut guard callouts by 85%.</p>
+                    <div class="rel-card-footer">View Industrial Solutions &rarr;</div>
+                </a>
+                <a href="residential.html" class="rel-card">
+                    <h3>&#127968; Private Homes</h3>
+                    <strong>Smart Gates &middot; CCTV &middot; Mobile Control &middot; Intercom</strong>
+                    <p>Total mobile control for landed properties &mdash; unlock gates, view cameras, and manage access from anywhere.</p>
+                    <div class="rel-card-footer">View Residential Solutions &rarr;</div>
+                </a>
+            </div>
+            <div style="text-align: center; margin-top: 32px;">
+                <a href="solutions-hub.html" class="btn btn-products">View All Solutions &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- -- NEW: PRODUCTS SECTION -- -->
+    <section class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="eyebrow">Products &amp; Systems</span>
+                <h2>Four Integrated Subsystem Groups</h2>
+                <p>Securevision doesn't sell individual products &mdash; we engineer complete, layered security infrastructure using the SECURE&trade; framework. Every subsystem connects to every other.</p>
+            </div>
+
+            <div class="products-intro-grid">
+                <div class="products-intro-text">
+                    <h3 style="font-size:22px; margin-bottom:16px;">Systems, Not Just Products</h3>
+                    <p>Most vendors sell you cameras, access readers, or boom gates in isolation. Securevision designs the entire system architecture first &mdash; then specifies hardware that integrates natively across all four subsystem groups.</p>
+                    <p>The result: your cameras trigger access events, your ANPR opens barriers automatically, and your security dashboard shows everything in one screen &mdash; in real time.</p>
+                    <p>This is the SECURE&trade; difference.</p>
+                    <a href="technology.html" class="btn btn-products" style="margin-top: 8px;">Explore All Systems &rarr;</a>
+                </div>
+                <div class="secure-callout">
+                    <div class="sc-label">Securevision Methodology</div>
+                    <div class="sc-title">SECURE&trade;</div>
+                    <div class="sc-sub">Site-Engineered Controls for Unified Risk Elimination</div>
+                    <div class="sc-steps">
+                        <div class="sc-step"><span class="sc-letter">S</span><div><div class="sc-word">Survey &amp; Site Assessment</div><div class="sc-desc">Risk mapping, coverage planning, site walkthrough</div></div></div>
+                        <div class="sc-step"><span class="sc-letter">E</span><div><div class="sc-word">Engineer the System Design</div><div class="sc-desc">Custom architecture for your property and risk profile</div></div></div>
+                        <div class="sc-step"><span class="sc-letter">C</span><div><div class="sc-word">Configure &amp; Commission</div><div class="sc-desc">Installation, integration testing, staff handover</div></div></div>
+                        <div class="sc-step"><span class="sc-letter">U</span><div><div class="sc-word">Unify All Subsystems</div><div class="sc-desc">CCTV, access, barriers, alarms &mdash; one coherent system</div></div></div>
+                        <div class="sc-step"><span class="sc-letter">R</span><div><div class="sc-word">Review &amp; Optimise</div><div class="sc-desc">Quarterly health checks, firmware, coverage audits</div></div></div>
+                        <div class="sc-step"><span class="sc-letter">E</span><div><div class="sc-word">Evolve &amp; Scale</div><div class="sc-desc">Add sites, upgrade tech, expand as you grow</div></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 Subsystem Cards -->
+            <div class="subsystem-grid">
+                <a href="surveillance-systems.html" class="subsys-card c-surv">
+                    <div class="s-icon">&#128247;</div>
+                    <h3>Surveillance &amp; Detection</h3>
+                    <p>IP cameras, AI analytics, 4K resolution, thermal imaging, NVR infrastructure, and VMS platform.</p>
+                    <div class="s-link">Explore &rarr;</div>
+                </a>
+                <a href="people-access.html" class="subsys-card c-peop">
+                    <div class="s-icon">&#128682;</div>
+                    <h3>People Access Systems</h3>
+                    <p>Turnstiles, biometric readers, electric locks, visitor management, and video intercom stations.</p>
+                    <div class="s-link">Explore &rarr;</div>
+                </a>
+                <a href="vehicle-access.html" class="subsys-card c-vehi">
+                    <div class="s-icon">&#128663;</div>
+                    <h3>Vehicle Access Systems</h3>
+                    <p>Boom gates, ANPR, UHF long-range, road blockers, GantryGo&trade; intercom, and parking management.</p>
+                    <div class="s-link">Explore &rarr;</div>
+                </a>
+                <a href="platform-integration.html" class="subsys-card c-plat">
+                    <div class="s-icon">&#128202;</div>
+                    <h3>Platform &amp; Integration</h3>
+                    <p>VESTA&trade; unified dashboard, multi-site management, incident management, and API integrations.</p>
+                    <div class="s-link">Explore &rarr;</div>
+                </a>
+            </div>
+
+            <div class="products-cta-row">
+                <a href="technology.html" class="btn btn-products">View Full Product Range</a>
+                <a href="https://wa.me/6593860466" class="btn btn-whatsapp" style="display:inline-block;">&#128172; Ask a Product Specialist</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- -- 6. PROCESS -- -->
+    <section class="process">
+        <div class="container">
+            <span class="eyebrow" style="text-align:center; display:block;">How We Work</span>
+            <h2>Our Proven 4-Stage Implementation Framework</h2>
+            <p class="subtitle">We don't install equipment and walk away. We follow an engineering-led process refined over <strong>19 years and 2,000+ projects</strong> &mdash; so your system works from Day 1 and keeps working.</p>
+            <div class="step-row">
+                <div>
+                    <div class="step-num">1</div>
+                    <strong>Assessment</strong>
+                    <p><small>We conduct a Threat &amp; Vulnerability Assessment &mdash; not a sales pitch.</small></p>
+                </div>
+                <div>
+                    <div class="step-num">2</div>
+                    <strong>Architecture</strong>
+                    <p><small>Custom system design using our SECURE&trade; Integration Framework.</small></p>
+                </div>
+                <div>
+                    <div class="step-num">3</div>
+                    <strong>Implementation</strong>
+                    <p><small>Phased rollout with minimal disruption to your operations.</small></p>
+                </div>
+                <div>
+                    <div class="step-num">4</div>
+                    <strong>Support</strong>
+                    <p><small>24/7 remote diagnostics and maintenance &mdash; not "call us if it breaks."</small></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- -- 7. TECH FIT -- -->
+    <section class="tech-fit">
+        <div class="container">
+            <span class="eyebrow" style="text-align:center; display:block; color:rgba(255,255,255,0.5);">Our Technology</span>
+            <h2>The SECURE&trade; Integration Framework</h2>
+            <p class="subtitle">Most security companies sell you products. We build you a <strong>unified operating system</strong> that connects every camera, sensor, gate, and access point into one intelligent platform.</p>
+            <div class="infinity-box">
+                <div class="system-side">
+                    <h3 style="color: #5b9ee1;">SYSTEMS (GantryGo&trade;)</h3>
+                    <p><strong>SEE &middot; CONTROL &middot; UNIFY</strong></p>
+                    <small>
+                        &check; AI-powered video analytics filter false alarms<br>
+                        &check; ANPR-integrated boom gates &mdash; no manual intervention<br>
+                        &check; Unified dashboards replace fragmented systems<br>
+                        &check; Cloud-based control means access from anywhere
+                    </small>
+                </div>
+                <div class="people-side">
+                    <h3 style="color: var(--accent-green);">PEOPLE (VESTA&trade;)</h3>
+                    <p><strong>ENTRY &middot; RESPOND &middot; ENGAGE</strong></p>
+                    <small>
+                        &check; Mobile apps for residents, guards, and staff<br>
+                        &check; Self-service visitor registration and QR entry<br>
+                        &check; Real-time alerts and two-way communication<br>
+                        &check; Multi-site dashboard with incident management
+                    </small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- -- 8. RESULTS -- -->
+    <section class="results">
+        <div class="container">
+            <span class="eyebrow" style="text-align:center; display:block;">Case Studies</span>
+            <h2>Real Sites. Real Results.</h2>
+            <p class="subtitle">We've secured over <strong>2,000 sites</strong> across Singapore &mdash; from 450-unit condominiums to government facilities.</p>
+            <div class="grid-2">
+                <div class="res-card">
+                    <strong>The L'viv (Residential)</strong>
+                    <small><strong>450+ residents</strong> now use VESTA&trade; for self-service gate access, eliminating manual logbooks and reducing security guard workload by 40%.</small>
+                </div>
+                <div class="res-card">
+                    <strong>SCAPE (Commercial)</strong>
+                    <small><strong>200-camera AI system</strong> provides real-time crowd monitoring, reducing incident response time from 15 minutes to under 2 minutes.</small>
+                </div>
+                <div class="res-card">
+                    <strong>STA Vehicle Inspection (Institutional)</strong>
+                    <small><strong>24/7 remote diagnostics</strong> ensure mission-critical operations stay online, with 99.7% uptime across two facilities.</small>
+                </div>
+                <div class="res-card">
+                    <strong>Cyrus Tech (Industrial)</strong>
+                    <small><strong>AI perimeter detection</strong> eliminated false alarms from wildlife and weather, cutting guard callouts by 85%.</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- -- 9. TESTIMONIALS -- -->
+    <section class="testimonials">
+        <div class="container">
+            <span class="eyebrow" style="text-align:center; display:block;">Client Feedback</span>
+            <h2>What Our Clients Say</h2>
+            <p class="subtitle">Trusted by architects, property managers, and business owners across Singapore.</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <blockquote>[Request quote from Hyla Architects &mdash; focus on technical competence, coordination during projects, reliability as a long-term partner]</blockquote>
+                    <div class="attribution">
+                        <strong>Han Loke Kwang</strong>
+                        <span>Principal Architect, Hyla Architects</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <blockquote style="font-style: italic; color: var(--text-light);">[PLACEHOLDER &mdash; Request quote from MCST managing agent about smooth upgrade, resident satisfaction, minimal disruption]</blockquote>
+                    <div class="attribution">
+                        <strong>Managing Agent</strong>
+                        <span>MCST Property Management</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <blockquote style="font-style: italic; color: var(--text-light);">[PLACEHOLDER &mdash; Request quote from commercial/industrial client about operational improvement, AI detection, reduced overhead]</blockquote>
+                    <div class="attribution">
+                        <strong>Operations Director</strong>
+                        <span>Industrial Facility, Jurong</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── 10. WHY CHOOSE ── -->
+    <section class="why-choose">
+        <div class="container">
+            <span class="eyebrow" style="text-align:center; display:block;">Why Securevision</span>
+            <h2>Why Choose Securevision</h2>
+            <div class="why-grid">
+                <div class="why-card">
+                    <span class="icon">&#128737;</span>
+                    <h4>Police-Licensed &amp; Certified</h4>
+                    <p>License L/PS/000267/2023P ensures we meet Singapore Police Force standards for professionalism and technical competence.</p>
+                </div>
+                <div class="why-card">
+                    <span class="icon">&#127942;</span>
+                    <h4>19+ Years of Experience</h4>
+                    <p>Established in 2006, we've served thousands of clients across residential, commercial, and industrial sectors.</p>
+                </div>
+                <div class="why-card">
+                    <span class="icon">&#128279;</span>
+                    <h4>Integrated Solutions</h4>
+                    <p>Systems that talk to each other. CCTV + access control + vehicle barriers + platform &mdash; one coherent infrastructure.</p>
+                </div>
+                <div class="why-card">
+                    <span class="icon">&#11088;</span>
+                    <h4>Authorised Partners</h4>
+                    <p>Hikvision, Hanwha, Akuvox, AJAX, RISCO, ZKTeco. No generic imports &mdash; premium brands, full manufacturer warranties.</p>
+                </div>
+                <div class="why-card">
+                    <span class="icon">&#128295;</span>
+                    <h4>Post-Installation Support</h4>
+                    <p>We answer the phone. Maintenance contracts, spare parts stocked, rapid response. We're not disappearing after handover.</p>
+                </div>
+                <div class="why-card">
+                    <span class="icon">&#128176;</span>
+                    <h4>You Own the Equipment</h4>
+                    <p>Unlike subscription models, you purchase outright. Lower total cost of ownership for long-term deployments at any scale.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- -- 11. CLIENT LOGOS -- -->
+    <section class="client-logos">
+        <div class="container">
+            <h2>Trusted by Industry Leaders</h2>
+            <p class="intro">Delivering security solutions for Singapore's leading architects, developers, and businesses.</p>
+            <div class="logos-grid">
+                <div class="logo-box"><div><h4>HYLA ARCHITECTS</h4><p>Architecture Partner</p></div></div>
+                <div class="logo-box"><div><h4>DI+ ARCHITECTS</h4><p>Architecture Partner</p></div></div>
+                <div class="logo-box"><div><h4>[CONDO NAME]</h4><p>Condominium Client</p></div></div>
+                <div class="logo-box"><div><h4>[CLIENT NAME]</h4><p>Commercial Client</p></div></div>
+            </div>
+            <p class="logos-disclaimer">Client logos displayed with permission. Thousands of additional projects across residential, commercial, and industrial sectors.</p>
+        </div>
+    </section>
+
+    <!-- -- 12. FINAL CTA -- -->
+    <section class="cta-section">
+        <div class="container">
+            <span class="eyebrow" style="color:rgba(255,255,255,0.5); text-align:center; display:block;">Get Started</span>
+            <h2>Ready to Explore?</h2>
+            <p class="subtitle">Let's discuss how we can upgrade your property's safety and operational efficiency with our SECURE&trade; framework.</p>
+            <div class="btn-group">
+                <a href="solutions-hub.html" class="btn btn-outline">Explore Solutions</a>
+                <a href="contact.html" class="btn btn-primary">Book A Slot</a>
+            </div>
+            <p class="footer-note">
+                <strong>Police Licensed:</strong> L/PS/000267/2023P &nbsp;|&nbsp; <strong>bizSAFE Level 3</strong> &nbsp;|&nbsp; <strong>BCA Registered</strong><br>
+                Serving Singapore Since 2006
+            </p>
+        </div>
+    </section>
+
+                <footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="f-logo-wrap" style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+                    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision" style="height:36px; display:block;">
+                    <span style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:20px; color:#fff; letter-spacing:0.5px;">Securevision</span>
+                </div>
+                <p style="color:rgba(255,255,255,.6); font-size:13px; line-height:1.6; margin-bottom:20px;">Singapore's trusted security systems integrator. Delivering integrated surveillance, access control, and vehicle management systems since 2006.</p>
+                <div class="f-socials" style="display:flex; gap:12px;">
+                    <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" class="f-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" class="f-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    <a href="https://wa.me/6593860466" target="_blank" rel="noopener" class="f-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Solutions</h4>
+                <ul style="list-style:none; padding:0; margin:0;">
+                    <li style="margin-bottom:10px;"><a href="residential.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Private Homes</a></li>
+                    <li style="margin-bottom:10px;"><a href="condominiums.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Condominiums</a></li>
+                    <li style="margin-bottom:10px;"><a href="commercial.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Commercial &amp; Retail</a></li>
+                    <li style="margin-bottom:10px;"><a href="institutions.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Institutions</a></li>
+                    <li style="margin-bottom:10px;"><a href="industrial.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Industrial &amp; Logistics</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Company</h4>
+                <ul style="list-style:none; padding:0; margin:0;">
+                    <li style="margin-bottom:10px;"><a href="about.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Our Story</a></li>
+                    <li style="margin-bottom:10px;"><a href="awards-certifications.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Awards &amp; Certifications</a></li>
+                    <li style="margin-bottom:10px;"><a href="portfolio.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Project Portfolio</a></li>
+                    <li style="margin-bottom:10px;"><a href="insights.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Industry Insights</a></li>
+                    <li style="margin-bottom:10px;"><a href="contact.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Get In Touch</h4>
+                <div style="margin-bottom:15px; display:flex; gap:10px; align-items:flex-start;">
+                    <span style="font-size:16px;">&#128172;</span>
+                    <div><strong style="display:block; color:#fff; font-size:13px;">WhatsApp</strong><a href="https://wa.me/6593860466" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">+65 9386 0466</a></div>
+                </div>
+                <div style="margin-bottom:15px; display:flex; gap:10px; align-items:flex-start;">
+                    <span style="font-size:16px;">&#128222;</span>
+                    <div><strong style="display:block; color:#fff; font-size:13px;">Office</strong><a href="tel:+6562864796" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">+65 6286 4796</a></div>
+                </div>
+                <div style="margin-bottom:15px; display:flex; gap:10px; align-items:flex-start;">
+                    <span style="font-size:16px;">&#9993;</span>
+                    <div><strong style="display:block; color:#fff; font-size:13px;">Email</strong><a href="mailto:enquiry@securevision.com.sg" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">enquiry@securevision.com.sg</a></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom" style="margin-top:60px; padding-top:24px; border-top:1px solid rgba(255,255,255,.08); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px;">
+            <p style="color:rgba(255,255,255,.4); font-size:11px; margin:0;">&copy; 2025 Securevision Pte Ltd &middot; Police License L/PS/000267/2023P &middot; bizSAFE Level 3 &middot; BCA Registered</p>
+            <div style="display:flex; gap:20px;">
+                <a href="privacy.html" style="color:rgba(255,255,255,.4); text-decoration:none; font-size:11px;">Privacy Policy</a>
+                <a href="terms.html" style="color:rgba(255,255,255,.4); text-decoration:none; font-size:11px;">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    
+
+<script>
+// Mobile menu toggle
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('active');
+}
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.mobile-menu-item').forEach(item => {
+    item.addEventListener('click', () => {
+        document.getElementById('mobileMenu').classList.remove('active');
+    });
+});
+</script>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+</body>
+</html>
+
+

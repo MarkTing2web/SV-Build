@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surveillance & Detection Systems | Securevision Singapore</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --accent: #2b6cb0;
+    --accent-dark: #1a4f8a;
+    --charcoal: #1B1F23;
+    --medium-gray: #5F6368;
+    --light-gray: #F8F9FA;
+    --white: #FFFFFF;
+    --border-color: #E8EAED;
+    --border-radius: 8px;
+    --container-width: 1200px;
+    --transition: all 0.3s ease;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: var(--charcoal); line-height: 1.6; }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(14,26,43,0.97); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-inner {
+    max-width: var(--container-width); margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between; height: 68px;
+  }
+  .nav-logo { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 22px; color: #fff; text-decoration: none; }
+  .nav-logo span { color: #2b6cb0; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta { background: #2b6cb0; color: #fff; padding: 9px 20px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none; }
+  .container { max-width: var(--container-width); margin: 0 auto; padding: 0 24px; }
+  section { padding: 64px 0; }
+  .eyebrow { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; display: block; }
+  .eyebrow-light { color: rgba(255,255,255,0.5); }
+  h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; line-height: 1.25; }
+  h1 { font-size: clamp(30px, 4.5vw, 48px); font-weight: 700; }
+  h2 { font-size: clamp(24px, 3.5vw, 36px); font-weight: 700; }
+  h3 { font-size: 19px; font-weight: 600; }
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-header p { font-size: 17px; color: var(--medium-gray); max-width: 680px; margin: 14px auto 0; line-height: 1.7; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 28px; border-radius: var(--border-radius); font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; border: 2px solid transparent; cursor: pointer; transition: var(--transition); }
+  .btn-accent { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn-accent:hover { background: var(--accent-dark); border-color: var(--accent-dark); transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: var(--accent); border-color: var(--accent); }
+  .btn-outline:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
+  .btn-whatsapp { background: #25d366; color: #fff; border-color: #25d366; }
+  .btn-whatsapp:hover { background: #1da851; transform: translateY(-2px); }
+  .btn-outline-white { background: transparent; color: #fff; border-color: rgba(255,255,255,0.5); }
+  .btn-outline-white:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+
+  /* HERO */
+  #hero {
+    background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
+    padding: calc(68px + 72px) 0 72px;
+    position: relative; overflow: hidden;
+  }
+  #hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse 50% 70% at 70% 50%, rgba(43,108,176,0.2) 0%, transparent 70%);
+  }
+  .hero-inner { position: relative; text-align: center; color: #fff; }
+  .hero-inner h1 { margin-bottom: 20px; }
+  .hero-inner .hero-lead { font-size: 18px; color: rgba(255,255,255,0.8); max-width: 760px; margin: 0 auto 32px; line-height: 1.7; }
+  .hero-tags { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 36px; }
+  .hero-tag { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15); border-radius: 24px; padding: 7px 18px; font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 500; }
+  .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+  /* OVERVIEW — 2-col */
+  #overview { background: var(--white); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .overview-text p { color: var(--medium-gray); line-height: 1.7; margin-bottom: 16px; font-size: 15px; }
+  .check-list { list-style: none; margin-top: 20px; }
+  .check-list li { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--border-color); font-size: 14px; }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list li::before { content: '✓'; width: 20px; height: 20px; background: var(--accent); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .spec-card {
+    background: var(--light-gray);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 36px;
+    border-top: 4px solid var(--accent);
+  }
+  .spec-card h3 { margin-bottom: 20px; color: var(--accent); }
+  .spec-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border-color); font-size: 14px; }
+  .spec-row:last-child { border-bottom: none; }
+  .spec-label { color: var(--medium-gray); }
+  .spec-value { font-weight: 600; color: var(--charcoal); }
+
+  /* PRODUCT CATEGORIES GRID */
+  #categories { background: var(--light-gray); }
+  .cat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .cat-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 28px;
+    transition: var(--transition);
+    border-top: 3px solid var(--accent);
+  }
+  .cat-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.1); transform: translateY(-3px); }
+  .cat-icon { font-size: 32px; margin-bottom: 14px; }
+  .cat-card h3 { font-size: 17px; margin-bottom: 10px; }
+  .cat-card p { font-size: 14px; color: var(--medium-gray); line-height: 1.6; margin-bottom: 16px; }
+  .cat-specs { list-style: none; }
+  .cat-specs li { font-size: 13px; color: var(--charcoal); padding: 5px 0; border-bottom: 1px solid var(--border-color); display: flex; gap: 8px; }
+  .cat-specs li:last-child { border-bottom: none; }
+  .cat-specs li::before { content: '·'; color: var(--accent); font-weight: 700; font-size: 18px; line-height: 1; }
+
+  /* USE CASES */
+  #use-cases { background: var(--white); }
+  .use-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .use-card {
+    background: var(--light-gray);
+    border-radius: var(--border-radius);
+    padding: 28px;
+    border-left: 3px solid var(--accent);
+  }
+  .use-card h3 { font-size: 16px; margin-bottom: 10px; }
+  .use-card p { font-size: 14px; color: var(--medium-gray); line-height: 1.6; }
+  .use-badge { display: inline-block; background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px; }
+
+  /* METHODOLOGY */
+  #methodology { background: var(--light-gray); }
+  .method-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 40px; }
+  .method-step { text-align: center; }
+  .step-num {
+    width: 56px; height: 56px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px; font-weight: 700;
+    margin: 0 auto 16px;
+  }
+  .method-step h3 { font-size: 16px; margin-bottom: 8px; }
+  .method-step p { font-size: 13px; color: var(--medium-gray); line-height: 1.6; }
+
+  /* BRANDS */
+  #brands { background: var(--white); }
+  .brands-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
+  .brand-chip {
+    background: var(--light-gray);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px 28px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--charcoal);
+    text-align: center;
+    min-width: 140px;
+  }
+  .brand-chip .brand-type { font-size: 11px; font-weight: 400; color: var(--medium-gray); margin-top: 4px; }
+
+  /* APPLICATIONS */
+  #applications { background: var(--light-gray); }
+  .app-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .app-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 20px 16px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--charcoal);
+  }
+  .app-card .app-icon { font-size: 28px; margin-bottom: 8px; }
+
+  /* CTA */
+  #cta { background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%); }
+  .cta-inner { text-align: center; color: #fff; }
+  .cta-inner h2 { margin-bottom: 16px; }
+  .cta-inner p { font-size: 17px; color: rgba(255,255,255,0.75); max-width: 600px; margin: 0 auto 36px; line-height: 1.7; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+  /* FOOTER */
+  footer { background: #0E1A2B; color: rgba(255,255,255,0.6); padding: 40px 0 20px; font-size: 13px; }
+  .footer-bottom { max-width: var(--container-width); margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+
+  @media (max-width: 768px) {
+    section { padding: 48px 0; }
+    .two-col, .cat-grid, .use-grid, .method-steps { grid-template-columns: 1fr; gap: 24px; }
+    .app-grid { grid-template-columns: repeat(2, 1fr); }
+    .nav-links { display: none; }
+  }
+</style>
+<style id="sv-nav-css">
+.main-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(14,26,43,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08);height:68px;font-family:'Inter',sans-serif}
+.nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo-link{display:flex;align-items:center;text-decoration:none}
+.nav-logo-img{height:40px;width:auto;display:block}
+.nav-menu{display:flex;list-style:none;gap:2px;margin:0;padding:0}
+.nav-item{position:relative}
+.nav-link{color:rgba(255,255,255,.8);text-decoration:none;font-size:14px;font-weight:500;padding:22px 13px;display:block;white-space:nowrap;transition:.2s}
+.nav-link:hover,.nav-link.active{color:#fff}
+.has-dropdown::after{content:" ▾";font-size:9px;opacity:.5}
+.nav-cta-btn{background:#0056b3;color:#fff;padding:9px 16px;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;transition:.2s;flex-shrink:0}
+.nav-cta-btn:hover{background:#003d82}
+.mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:8px}
+.mega-menu{position:absolute;top:100%;background:#fff;border:1px solid #E8EAED;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.15);padding:24px;display:none;z-index:200}
+.nav-item:hover>.mega-menu{display:grid;opacity:1}
+.mega-menu-solutions{width:820px;grid-template-columns:1fr 1.6fr;gap:24px;left:50%;transform:translateX(-50%)}
+.mega-menu-technology{width:960px;grid-template-columns:1fr 1.3fr 1.3fr;gap:0;left:50%;transform:translateX(-50%)}
+.mega-menu-technology .mega-guidance{padding-right:20px;border-right:1px solid #E8EAED}
+.mega-menu-technology .mega-links-col{padding:0 20px;border-right:1px solid #E8EAED}
+.mega-brands-col{padding-left:20px}
+.mega-menu-portfolio{width:820px;grid-template-columns:1fr 1fr 1fr;gap:20px;left:50%;transform:translateX(-50%)}
+.mega-menu-resources{width:880px;grid-template-columns:repeat(4,1fr);gap:16px;left:50%;transform:translateX(-50%)}
+.mega-menu-insights{width:720px;grid-template-columns:1fr 1.6fr;gap:24px;right:0}
+.mega-menu-about{width:320px;right:0;display:block!important;padding:20px}
+.nav-item:hover>.mega-menu-about{display:block!important}
+.mega-menu-contact{width:280px;right:0;display:block!important;padding:18px}
+.nav-item:hover>.mega-menu-contact{display:block!important}
+.mega-col-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#8a8f98;margin-bottom:12px;display:block}
+.mega-guidance h4{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:#1B1F23;margin:0 0 6px}
+.mega-guidance p{font-size:12px;color:#5F6368;margin:0 0 10px;line-height:1.5}
+.view-all-link{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#0056b3;text-decoration:none;display:inline-flex;align-items:center}
+.mega-trust{margin-top:14px;padding-top:12px;border-top:1px solid #E8EAED}
+.trust-item{font-size:11px;color:#5F6368;padding:2px 0}
+.solution-link{display:flex;flex-direction:column;padding:8px 10px;border-radius:6px;text-decoration:none;transition:.15s;margin-bottom:2px}
+.solution-link:hover{background:#F8F9FA}
+.solution-link strong{font-size:13px;color:#1B1F23;margin-bottom:1px;display:block}
+.solution-link small{font-size:11px;color:#8a8f98}
+.product-link{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid #E8EAED;text-decoration:none}
+.product-link:last-of-type{border-bottom:none}
+.product-link div strong{display:block;font-size:13px;color:#1B1F23;margin-bottom:1px}
+.product-link div small{font-size:11px;color:#8a8f98}
+.pl-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.brand-cat-group{margin-bottom:10px}
+.brand-cat-title{font-size:10px;font-weight:700;font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:1px;color:#8a8f98;margin-bottom:5px;display:flex;align-items:center;gap:5px}
+.bct-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.brand-name-links{display:flex;flex-wrap:wrap;gap:3px}
+.brand-name-link{font-size:11px;font-weight:500;color:#5F6368;text-decoration:none;padding:2px 7px;border-radius:4px;background:#F8F9FA;border:1px solid #E8EAED;transition:.15s}
+.brand-name-link:hover{color:#0056b3;border-color:#0056b3;background:#fff}
+.mega-port-col{display:flex;flex-direction:column;gap:2px}
+.port-link{display:flex;align-items:center;gap:7px;padding:6px 8px;border-radius:5px;text-decoration:none;color:#1B1F23;font-size:13px;transition:.15s}
+.port-link:hover{background:#F8F9FA;color:#0056b3}
+.port-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.port-featured{display:block;padding:8px 10px;border-radius:7px;text-decoration:none;border:1px solid #E8EAED;margin-bottom:6px;transition:.15s}
+.port-featured:hover{border-color:#0056b3;background:#F8F9FA}
+.pf-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#8a8f98}
+.pf-title{font-size:13px;font-weight:700;color:#1B1F23}
+.pf-meta{font-size:11px;color:#8a8f98}
+.mega-res-col{display:flex;flex-direction:column}
+.res-col-header{display:flex;align-items:center;gap:6px;margin-bottom:8px;padding-bottom:7px;border-bottom:1px solid #E8EAED}
+.res-col-header h4{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#1B1F23;margin:0}
+.res-link{font-size:12px;color:#5F6368;text-decoration:none;padding:4px 0;transition:.15s;display:flex;align-items:center;justify-content:space-between}
+.res-link:hover{color:#0056b3}
+.rl-soon{font-size:10px;background:#F8F9FA;border:1px solid #E8EAED;color:#8a8f98;padding:1px 5px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:700}
+.insights-featured{display:block;padding:8px 0;border-bottom:1px solid #E8EAED;text-decoration:none;margin-bottom:6px}
+.if-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#0056b3;font-family:'Montserrat',sans-serif}
+.if-title{font-size:12px;font-weight:600;color:#1B1F23;margin:3px 0 1px;line-height:1.4}
+.if-meta{font-size:11px;color:#8a8f98}
+.insights-cat{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #E8EAED;text-decoration:none;color:#1B1F23;transition:.15s}
+.insights-cat:last-child{border-bottom:none}
+.insights-cat:hover{color:#0056b3}
+.ic-icon{font-size:16px;flex-shrink:0}
+.insights-cat strong{display:block;font-size:13px;font-family:'Montserrat',sans-serif}
+.insights-cat small{font-size:11px;color:#8a8f98}
+.about-preview-card{background:#F8F9FA;border-radius:8px;padding:14px;margin-bottom:12px;border:1px solid #E8EAED}
+.apc-founder{display:flex;gap:9px;align-items:center;margin-bottom:8px}
+.apc-avatar{width:36px;height:36px;border-radius:50%;background:#0056b3;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.apc-name{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#1B1F23}
+.apc-title{font-size:10px;color:#8a8f98}
+.apc-quote{font-size:11px;font-style:italic;color:#5F6368;border-left:2px solid #0056b3;padding-left:7px;line-height:1.5}
+.about-links{display:flex;flex-direction:column;gap:3px}
+.about-link{display:flex;align-items:center;gap:7px;padding:7px 8px;border-radius:5px;text-decoration:none;color:#1B1F23;font-size:12px;transition:.15s}
+.about-link:hover{background:#F8F9FA;color:#0056b3}
+.contact-channel-links{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
+.contact-ch-link{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:7px;text-decoration:none;color:#1B1F23;border:1px solid #E8EAED;transition:.15s}
+.contact-ch-link:hover{border-color:#0056b3}
+.whatsapp-ch{background:#f0faf4;border-color:#c6e6d1}
+.cch-icon{font-size:18px;flex-shrink:0}
+.cch-label{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:#1B1F23}
+.cch-sub{font-size:10px;color:#8a8f98}
+.contact-hours{font-size:10px;color:#8a8f98;padding-top:8px;border-top:1px solid #E8EAED;line-height:1.6}
+.mobile-menu{display:none;background:#0E1A2B;padding:10px 20px 20px}
+.mobile-menu.active{display:block}
+.mobile-menu-item{display:block;padding:12px 0;color:rgba(255,255,255,.85);font-size:14px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.08);cursor:pointer;text-decoration:none}
+a.mobile-menu-item:hover{color:#fff}
+.mobile-submenu{display:none;padding-left:14px;margin:6px 0 2px}
+.mobile-submenu a{display:block;padding:7px 0;color:rgba(255,255,255,.6);text-decoration:none;font-size:13px}
+.mobile-submenu a:hover{color:#fff}
+@media(max-width:768px){.nav-menu{display:none}.mobile-toggle{display:block}.nav-logo-img{height:32px}}
+</style>
+</head>
+<body>
+<nav class="main-nav">
+<div class="nav-container">
+  <a href="index.html" class="nav-logo-link" aria-label="Securevision">
+    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span style="display:none;font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff">Securevision</span>
+  </a>
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+    <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
+      <div class="mega-menu mega-menu-solutions">
+        <div class="mega-guidance"><div class="mega-col-label">Need Help Choosing?</div><h4>Not Sure Which Solution Fits?</h4><p>Every property type has unique risks.</p><a href="solutions-hub.html" class="view-all-link">→ View All Solutions</a><div class="mega-trust"><div class="trust-item">✓ Police Licensed L/PS/000267/2023P</div><div class="trust-item">✓ 19+ Years · 2,000+ Sites</div><div class="trust-item">✓ bizSAFE Level 4 · BCA Registered</div></div></div>
+        <div class="mega-links-col"><div class="mega-col-label">By Property Type</div><a href="residential.html" class="solution-link"><strong>🏠 Private Homes</strong><small>Landed properties, bungalows, terraces</small></a><a href="condominiums.html" class="solution-link"><strong>🏘️ Condominiums</strong><small>MCSTs, managed estates, apartments</small></a><a href="commercial.html" class="solution-link"><strong>🏪 Commercial &amp; Retail</strong><small>Shops, offices, hotels</small></a><a href="institutions.html" class="solution-link"><strong>🏫 Institutions</strong><small>Schools, healthcare, government</small></a><a href="industrial.html" class="solution-link"><strong>🏭 Industrial &amp; Logistics</strong><small>Factories, warehouses, logistics</small></a></div>
+      </div>
+    </li>
+    <li class="nav-item"><a href="technology.html" class="nav-link has-dropdown active">Technology</a>
+      <div class="mega-menu mega-menu-technology">
+        <div class="mega-guidance"><div class="mega-col-label">Our Systems</div><h4>Security Systems &amp; Technology</h4><p>Four subsystem groups on the SECURE™ framework.</p><a href="technology.html" class="view-all-link">→ View All Technology</a><div class="mega-trust"><div class="trust-item">✓ SECURE™ Integration Methodology</div><div class="trust-item">✓ VESTA™ Enterprise Platform</div><div class="trust-item">✓ GantryGo™ Vehicle Intercom</div></div></div>
+        <div class="mega-links-col"><div class="mega-col-label">By System Type</div><a href="surveillance-systems.html" class="product-link"><span class="pl-dot" style="background:#2b6cb0"></span><div><strong>📹 Surveillance &amp; Detection</strong><small>IP cameras, AI analytics, NVR, alarms</small></div></a><a href="people-access.html" class="product-link"><span class="pl-dot" style="background:#319795"></span><div><strong>🚪 People Access Systems</strong><small>Biometrics, visitor management, intercom</small></div></a><a href="vehicle-access.html" class="product-link"><span class="pl-dot" style="background:#dd6b20"></span><div><strong>🚗 Vehicle Access Systems</strong><small>Boom gates, ANPR, GantryGo™</small></div></a><a href="platform-integration.html" class="product-link"><span class="pl-dot" style="background:#38a169"></span><div><strong>📊 Platform &amp; Integration</strong><small>VESTA™ dashboard, multi-site</small></div></a></div>
+        <div class="mega-brands-col"><div class="mega-col-label">Brands We Install</div><div class="brand-cat-group"><div class="brand-cat-title"><span class="bct-dot" style="background:#2b6cb0"></span>Surveillance</div><div class="brand-name-links"><a href="hikvision-singapore.html" class="brand-name-link">Hikvision</a><a href="hanwha-samsung-singapore.html" class="brand-name-link">Hanwha</a><a href="uniview-singapore.html" class="brand-name-link">Uniview</a><a href="milesight-singapore.html" class="brand-name-link">Milesight</a></div></div><div class="brand-cat-group"><div class="brand-cat-title"><span class="bct-dot" style="background:#e53e3e"></span>Alarm</div><div class="brand-name-links"><a href="ajax-alarm-singapore.html" class="brand-name-link">AJAX</a><a href="risco-alarm-singapore.html" class="brand-name-link">RISCO</a><a href="paradox-alarm-singapore.html" class="brand-name-link">Paradox</a><a href="dsc-alarm-singapore.html" class="brand-name-link">DSC</a><a href="ge-caddx-alarm-singapore.html" class="brand-name-link">GE Caddx</a></div></div><div class="brand-cat-group"><div class="brand-cat-title"><span class="bct-dot" style="background:#319795"></span>Access</div><div class="brand-name-links"><a href="zkteco-singapore.html" class="brand-name-link">ZKTeco</a><a href="suprema-singapore.html" class="brand-name-link">Suprema</a><a href="hid-singapore.html" class="brand-name-link">HID</a><a href="entrypass-singapore.html" class="brand-name-link">EntryPass</a><a href="microengine-singapore.html" class="brand-name-link">MicroEngine</a></div></div><div class="brand-cat-group"><div class="brand-cat-title"><span class="bct-dot" style="background:#2b6cb0"></span>Intercom</div><div class="brand-name-links"><a href="akuvox-singapore.html" class="brand-name-link">Akuvox</a><a href="aiphone-singapore.html" class="brand-name-link">Aiphone</a><a href="kocom-singapore.html" class="brand-name-link">Kocom</a></div></div><div class="brand-cat-group"><div class="brand-cat-title"><span class="bct-dot" style="background:#dd6b20"></span>Gates</div><div class="brand-name-links"><a href="faac-singapore.html" class="brand-name-link">FAAC</a><a href="mag-gates-singapore.html" class="brand-name-link">MAG</a><a href="dormer-singapore.html" class="brand-name-link">Dormer</a></div></div><a href="brands.html" class="view-all-link" style="margin-top:12px;font-size:12px">→ All 20 Brands</a></div>
+      </div>
+    </li>
+    <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
+      <div class="mega-menu mega-menu-portfolio">
+        <div class="mega-port-col"><div class="mega-col-label">By Property</div><a href="portfolio.html?filter=residential" class="port-link"><span class="port-dot" style="background:#38B000"></span>Private Homes</a><a href="portfolio.html?filter=condominium" class="port-link"><span class="port-dot" style="background:#4361EE"></span>Condominiums</a><a href="portfolio.html?filter=commercial" class="port-link"><span class="port-dot" style="background:#FF6D00"></span>Commercial</a><a href="portfolio.html?filter=institution" class="port-link"><span class="port-dot" style="background:#0056b3"></span>Institutions</a><a href="portfolio.html?filter=industrial" class="port-link"><span class="port-dot" style="background:#7209B7"></span>Industrial</a></div>
+        <div class="mega-port-col"><div class="mega-col-label">By System</div><a href="portfolio.html?filter=surveillance" class="port-link"><span class="port-dot" style="background:#2b6cb0"></span>Surveillance</a><a href="portfolio.html?filter=people-access" class="port-link"><span class="port-dot" style="background:#319795"></span>People Access</a><a href="portfolio.html?filter=vehicle-access" class="port-link"><span class="port-dot" style="background:#dd6b20"></span>Vehicle Access</a><a href="portfolio.html?filter=platform" class="port-link"><span class="port-dot" style="background:#38a169"></span>Platform</a><a href="portfolio.html" class="port-link"><span class="port-dot" style="background:#888"></span>All Projects</a></div>
+        <div class="mega-port-col"><div class="mega-col-label">Featured</div><a href="portfolio-lviv.html" class="port-featured"><div class="pf-label">Condominium</div><div class="pf-title">The L'viv</div><div class="pf-meta">VESTA™ + GantryGo™</div></a><a href="portfolio-scape.html" class="port-featured"><div class="pf-label">Commercial</div><div class="pf-title">SCAPE</div><div class="pf-meta">200-camera AI system</div></a><a href="portfolio-sta.html" class="port-featured"><div class="pf-label">Institution</div><div class="pf-title">STA</div><div class="pf-meta">99.7% uptime</div></a><a href="portfolio-cyrus.html" class="port-featured"><div class="pf-label">Industrial</div><div class="pf-title">Cyrus Tech</div><div class="pf-meta">–85% callouts</div></a></div>
+      </div>
+    </li>
+    <li class="nav-item"><a href="resources.html" class="nav-link has-dropdown">Resources</a>
+      <div class="mega-menu mega-menu-resources"><div class="mega-res-col"><div class="res-col-header"><span>🧮</span><h4>Planning Tools</h4></div><a href="resources.html" class="res-link">Security Calculator <span class="rl-soon">Soon</span></a><a href="resources.html" class="res-link">Risk Assessment <span class="rl-soon">Soon</span></a></div><div class="mega-res-col"><div class="res-col-header"><span>📚</span><h4>Guides</h4></div><a href="resources-cctv-guide.html" class="res-link">CCTV Buyer's Guide</a><a href="resources-access-control.html" class="res-link">Access Control</a><a href="resources-anpr.html" class="res-link">How ANPR Works</a><a href="resources-integrated-systems.html" class="res-link">Integrated vs Standalone</a></div><div class="mega-res-col"><div class="res-col-header"><span>🔧</span><h4>Support</h4></div><a href="resources-troubleshoot.html" class="res-link">Troubleshooting</a><a href="resources-maintenance.html" class="res-link">Maintenance</a><a href="resources-faq.html" class="res-link">FAQs</a><a href="contact.html" class="res-link">Contact Support</a></div><div class="mega-res-col"><div class="res-col-header"><span>📥</span><h4>Downloads</h4></div><a href="resources.html" class="res-link">Spec Sheets <span class="rl-soon">Soon</span></a><a href="resources.html" class="res-link">Wiring Guides <span class="rl-soon">Soon</span></a></div></div>
+    </li>
+    <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
+      <div class="mega-menu mega-menu-insights"><div class="mega-guidance"><div class="mega-col-label">Latest</div><a href="insights-integrated-systems.html" class="insights-featured"><span class="if-tag">Security Planning</span><div class="if-title">Why Integrated Systems Outperform Standalone</div><div class="if-meta">6 min read</div></a><a href="insights.html" class="view-all-link" style="margin-top:10px">→ All Articles</a></div><div class="mega-links-col"><div class="mega-col-label">By Topic</div><a href="insights.html?cat=planning" class="insights-cat"><span class="ic-icon">🏗️</span><div class="ic-text"><strong>Security Planning</strong><small>Guides for property managers</small></div></a><a href="insights.html?cat=technology" class="insights-cat"><span class="ic-icon">🤖</span><div class="ic-text"><strong>Technology</strong><small>AI, ANPR, biometrics</small></div></a><a href="insights.html?cat=casestudy" class="insights-cat"><span class="ic-icon">📊</span><div class="ic-text"><strong>Case Studies</strong><small>Real projects, real outcomes</small></div></a><a href="insights.html?cat=industry" class="insights-cat"><span class="ic-icon">🇸🇬</span><div class="ic-text"><strong>SG Industry</strong><small>Regulations, trends</small></div></a></div></div>
+    </li>
+    <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
+      <div class="mega-menu mega-menu-about"><div class="mega-col-label" style="margin-bottom:10px">About Securevision</div><div class="about-preview-card"><div class="apc-founder"><div class="apc-avatar">👤</div><div><div class="apc-name">Ler Wee Meng</div><div class="apc-title">Founder · NUS Eng + UOL Law</div></div></div><div class="apc-quote">Built on engineering. Backed by law. Since 2006.</div></div><div class="about-links"><a href="about.html#founder" class="about-link"><span>👤</span> Founder's Story</a><a href="about.html" class="about-link"><span>🛡️</span> Credentials</a><a href="awards-certifications.html" class="about-link"><span>🏆</span> Awards</a></div></div>
+    </li>
+    <li class="nav-item"><a href="contact.html" class="nav-link has-dropdown">Contact</a>
+      <div class="mega-menu mega-menu-contact"><div class="mega-col-label" style="margin-bottom:10px">Get In Touch</div><div class="contact-channel-links"><a href="https://wa.me/6593860466" class="contact-ch-link whatsapp-ch"><span class="cch-icon">💬</span><div class="cch-text"><div class="cch-label">WhatsApp — Fastest</div><div class="cch-sub">+65 9386 0466</div></div></a><a href="contact.html#contact-form" class="contact-ch-link"><span class="cch-icon">📋</span><div class="cch-text"><div class="cch-label">Contact Form</div><div class="cch-sub">1 business day</div></div></a><a href="contact.html#callback" class="contact-ch-link"><span class="cch-icon">📞</span><div class="cch-text"><div class="cch-label">Request Callback</div><div class="cch-sub">+65 6286 4796</div></div></a></div><div class="contact-hours">🕐 Mon–Fri 8:00–17:00 · Sat by appt</div></div>
+    </li>
+  </ul>
+  <a href="https://wa.me/6593860466" class="nav-cta-btn">WhatsApp Us</a>
+  <button class="mobile-toggle" onclick="toggleMobileMenu()">☰</button>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="mobile-menu-item">Home</a>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions ▾<div class="mobile-submenu" id="solSub"><a href="solutions-hub.html"><strong>→ View All Solutions</strong></a><a href="residential.html">🏠 Private Homes</a><a href="condominiums.html">🏘️ Condominiums</a><a href="commercial.html">🏪 Commercial</a><a href="institutions.html">🏫 Institutions</a><a href="industrial.html">🏭 Industrial</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('techSub')">Technology ▾<div class="mobile-submenu" id="techSub"><a href="technology.html"><strong>→ View All Technology</strong></a><a href="surveillance-systems.html">📹 Surveillance</a><a href="people-access.html">🚪 People Access</a><a href="vehicle-access.html">🚗 Vehicle Access</a><a href="platform-integration.html">📊 Platform</a><a href="brands.html">🏷️ All 20 Brands</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio ▾<div class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>→ All Projects</strong></a><a href="portfolio-lviv.html">The L'viv</a><a href="portfolio-scape.html">SCAPE</a><a href="portfolio-sta.html">STA</a><a href="portfolio-cyrus.html">Cyrus Tech</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources ▾<div class="mobile-submenu" id="resSub"><a href="resources.html"><strong>→ All Resources</strong></a><a href="resources-cctv-guide.html">CCTV Guide</a><a href="resources-troubleshoot.html">Troubleshooting</a><a href="resources-faq.html">FAQs</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights ▾<div class="mobile-submenu" id="insSub"><a href="insights.html"><strong>→ All Articles</strong></a><a href="insights.html?cat=planning">Security Planning</a><a href="insights.html?cat=technology">Technology</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About ▾<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>→ About Securevision</strong></a><a href="about.html#founder">Founder's Story</a><a href="awards-certifications.html">Awards</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('conSub')">Contact ▾<div class="mobile-submenu" id="conSub"><a href="https://wa.me/6593860466"><strong>💬 WhatsApp</strong></a><a href="contact.html#contact-form">Contact Form</a><a href="contact.html">Office &amp; Hours</a></div></div>
+</div>
+</nav>
+
+
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <span class="eyebrow eyebrow-light">Products · Surveillance</span>
+      <h1>Surveillance &amp; Detection Systems</h1>
+      <p class="hero-lead">Full-spectrum visual monitoring with AI-powered analytics — designed, installed, and maintained by Securevision for every property type in Singapore.</p>
+<div style="display:flex;gap:8px;margin-top:12px">
+<a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook" style="width:32px;height:32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+<a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:32px;height:32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+<a href="https://wa.me/6593860466" target="_blank" rel="noopener" aria-label="WhatsApp" style="width:32px;height:32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+</div>
+      <div class="hero-tags">
+        <span class="hero-tag">📹 IP Cameras</span>
+        <span class="hero-tag">🤖 AI Analytics</span>
+        <span class="hero-tag">🌡️ Thermal Imaging</span>
+        <span class="hero-tag">🗄️ NVR Storage</span>
+        <span class="hero-tag">📊 VMS Software</span>
+        <span class="hero-tag">🌙 Low-Light</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#categories" class="btn btn-accent">View Camera Systems</a>
+        <a href="https://wa.me/6593860466" class="btn btn-outline-white">Get a Quote</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="container">
+    <div class="two-col">
+      <div class="overview-text">
+        <span class="eyebrow">Why It Matters</span>
+        <h2>Surveillance That Detects, Not Just Records</h2>
+        <p>Most CCTV installations are designed for retrospective review — you look back at footage after an incident. Securevision designs surveillance systems for <strong>real-time detection</strong>: systems that identify threats as they emerge and trigger the right response immediately.</p>
+        <p>We assess every zone for lighting conditions, coverage angles, blind spots, and integration requirements before specifying a single camera. The result is a system with no gaps and no wasted hardware.</p>
+        <ul class="check-list">
+          <li>AI behaviour analytics for intrusion, loitering, crowd detection</li>
+          <li>4K resolution with intelligent compression — no storage waste</li>
+          <li>Seamless integration with access control and alarm systems</li>
+          <li>Centralised VMS for multi-site management and remote review</li>
+          <li>Thermal imaging for perimeter and low-light environments</li>
+          <li>SPF-compliant footage retention and evidence management</li>
+        </ul>
+      </div>
+      <div class="spec-card">
+        <h3>System Capabilities at a Glance</h3>
+        <div class="spec-row"><span class="spec-label">Resolution Range</span><span class="spec-value">2MP → 32MP+</span></div>
+        <div class="spec-row"><span class="spec-label">Analytics</span><span class="spec-value">AI-Powered, Real-time</span></div>
+        <div class="spec-row"><span class="spec-label">Low-Light</span><span class="spec-value">0.001 Lux (Thermal)</span></div>
+        <div class="spec-row"><span class="spec-label">Storage</span><span class="spec-value">NVR / Cloud Hybrid</span></div>
+        <div class="spec-row"><span class="spec-label">Retention</span><span class="spec-value">30–90 Days Standard</span></div>
+        <div class="spec-row"><span class="spec-label">Viewing</span><span class="spec-value">Web / Mobile / Workstation</span></div>
+        <div class="spec-row"><span class="spec-label">Integration</span><span class="spec-value">Access, Alarm, BMS</span></div>
+        <div class="spec-row"><span class="spec-label">Brands</span><span class="spec-value">Hikvision, Dahua, Axis</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT CATEGORIES -->
+<section id="categories">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Camera Systems</span>
+      <h2>The Right Camera for Every Zone</h2>
+      <p>We don't specify cameras from a catalogue — we match camera type, resolution, and analytics capability to the specific demands of each coverage zone in your property.</p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card">
+        <div class="cat-icon">📹</div>
+        <h3>Fixed IP Dome & Bullet Cameras</h3>
+        <p>The backbone of any installation. High-resolution fixed cameras for lobbies, corridors, car parks, and perimeters with consistent frame coverage.</p>
+        <ul class="cat-specs">
+          <li>2MP to 8MP resolution options</li>
+          <li>IR night vision up to 60m</li>
+          <li>Vandal-resistant rated (IK10)</li>
+          <li>IP66/67 weatherproof housing</li>
+          <li>WDR for high-contrast scenes</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon">🔭</div>
+        <h3>PTZ Cameras</h3>
+        <p>Pan-tilt-zoom cameras that follow activity automatically. Ideal for large open areas — car parks, recreational facilities, building exteriors, and industrial yards.</p>
+        <ul class="cat-specs">
+          <li>Optical zoom up to 40x</li>
+          <li>Auto-tracking of detected subjects</li>
+          <li>Preset tours and guard positions</li>
+          <li>360° continuous rotation</li>
+          <li>Long-range IR illumination</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon">🌐</div>
+        <h3>Panoramic & Multi-sensor Cameras</h3>
+        <p>Single-unit cameras delivering 180° or 360° situational awareness. Eliminate blind spots in large open spaces with one device instead of four.</p>
+        <ul class="cat-specs">
+          <li>Up to 32MP multi-sensor</li>
+          <li>Full 360° dewarped view</li>
+          <li>Replace 4-camera installations</li>
+          <li>Deep learning people counting</li>
+          <li>Ideal for lobbies and retail</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon">🤖</div>
+        <h3>AI Behaviour Analytics Cameras</h3>
+        <p>Cameras with embedded deep-learning — detecting loitering, perimeter crossing, crowd gathering, abandoned objects, and fall detection in real time.</p>
+        <ul class="cat-specs">
+          <li>Perimeter intrusion detection</li>
+          <li>Loitering & crowd alert</li>
+          <li>Abandoned object detection</li>
+          <li>Face detection & search</li>
+          <li>False alarm suppression</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon">🌡️</div>
+        <h3>Thermal Imaging Systems</h3>
+        <p>Heat-signature detection for complete darkness, fog, smoke, and camouflage scenarios. Critical for perimeter security and industrial monitoring.</p>
+        <ul class="cat-specs">
+          <li>Detection in total darkness</li>
+          <li>Temperature measurement</li>
+          <li>Perimeter fence integration</li>
+          <li>Fire/heat anomaly alerts</li>
+          <li>No illumination required</li>
+        </ul>
+      </div>
+      <div class="cat-card">
+        <div class="cat-icon">🗄️</div>
+        <h3>NVR Storage & VMS Platform</h3>
+        <p>The intelligence backbone. Scalable NVR infrastructure with enterprise VMS — centralised management, remote viewing, and AI-assisted incident search.</p>
+        <ul class="cat-specs">
+          <li>Scalable from 4 to 256+ channels</li>
+          <li>RAID redundancy for uptime</li>
+          <li>Smart playback & AI search</li>
+          <li>Multi-site central management</li>
+          <li>Mobile & web viewer included</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section id="use-cases">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Applications</span>
+      <h2>Designed for Real-World Scenarios</h2>
+      <p>Our surveillance designs address the specific threat profiles and coverage requirements of each property type — not generic templates.</p>
+    </div>
+    <div class="use-grid">
+      <div class="use-card">
+        <div class="use-badge">Residential</div>
+        <h3>Lobby & Lift Lobby Coverage</h3>
+        <p>Wide-angle panoramic cameras covering every entry point with face-detection capability. Footage retained 30 days minimum for resident disputes and security reviews.</p>
+      </div>
+      <div class="use-card">
+        <div class="use-badge">Commercial</div>
+        <h3>Retail Loss Prevention</h3>
+        <p>AI analytics for dwell time, queue management, and behaviour anomaly detection. Covers blind spots at shelf ends and cash counters with tamper-proof housings.</p>
+      </div>
+      <div class="use-card">
+        <div class="use-badge">Industrial</div>
+        <h3>Perimeter & Yard Security</h3>
+        <p>Thermal + visible cameras on fences and yard perimeters. Automatic intrusion alerts trigger PTZ auto-tracking and security team notification simultaneously.</p>
+      </div>
+      <div class="use-card">
+        <div class="use-badge">Car Parks</div>
+        <h3>Multi-Level Car Park Monitoring</h3>
+        <p>Low-light cameras optimised for dim parking environments, integrated with ANPR at entry/exit. Covers every bay level with centralised overview on VMS dashboard.</p>
+      </div>
+      <div class="use-card">
+        <div class="use-badge">Institutions</div>
+        <h3>Campus & Facility Surveillance</h3>
+        <p>Wide-area PTZ cameras with scheduled patrol routes cover open campuses. Integration with access control provides visual verification at every access event.</p>
+      </div>
+      <div class="use-card">
+        <div class="use-badge">Critical Infrastructure</div>
+        <h3>Server Room & High-Security Zones</h3>
+        <p>Dual-verification surveillance — camera + access card — for sensitive areas. Tamper alerts, motion detection, and immediate security team escalation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODOLOGY -->
+<section id="methodology">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Our Process</span>
+      <h2>How We Design Your Surveillance System</h2>
+      <p>Every installation follows a rigorous design process — no guesswork, no gaps.</p>
+    </div>
+    <div class="method-steps">
+      <div class="method-step">
+        <div class="step-num">1</div>
+        <h3>Site Survey & Risk Map</h3>
+        <p>Walk every zone, identify blind spots, assess lighting conditions and threat entry points.</p>
+      </div>
+      <div class="method-step">
+        <div class="step-num">2</div>
+        <h3>Camera Specification</h3>
+        <p>Match camera type, resolution, and analytics to each zone's specific requirements.</p>
+      </div>
+      <div class="method-step">
+        <div class="step-num">3</div>
+        <h3>System Design & Integration</h3>
+        <p>Design NVR architecture, network topology, and integration with access and alarm systems.</p>
+      </div>
+      <div class="method-step">
+        <div class="step-num">4</div>
+        <h3>Commission & Handover</h3>
+        <p>Test every camera, configure analytics, train staff, and deliver full system documentation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section id="brands">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Technology Partners</span>
+      <h2>Authorised Partners for Leading Brands</h2>
+      <p>We work with globally proven manufacturers and provide full manufacturer warranties with all installations.</p>
+    </div>
+    <div class="brands-row">
+      <div class="brand-chip">Hikvision<div class="brand-type">Authorised Partner</div></div>
+      <div class="brand-chip">Dahua<div class="brand-type">Authorised Reseller</div></div>
+      <div class="brand-chip">Axis<div class="brand-type">Reseller</div></div>
+      <div class="brand-chip">Hanwha<div class="brand-type">Reseller</div></div>
+      <div class="brand-chip">Bosch<div class="brand-type">Certified Installer</div></div>
+      <div class="brand-chip">Uniview<div class="brand-type">Reseller</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROPERTY APPLICATIONS -->
+<section id="applications">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Who We Serve</span>
+      <h2>Surveillance for Every Property Type</h2>
+    </div>
+    <div class="app-grid">
+      <a href="residential.html" class="app-card" style="text-decoration:none; color:inherit;">
+        <div class="app-icon">🏠</div>Private Homes
+      </a>
+      <a href="condominiums.html" class="app-card" style="text-decoration:none; color:inherit;">
+        <div class="app-icon">🏢</div>Condominiums
+      </a>
+      <a href="commercial.html" class="app-card" style="text-decoration:none; color:inherit;">
+        <div class="app-icon">🏬</div>Commercial
+      </a>
+      <a href="institutions.html" class="app-card" style="text-decoration:none; color:inherit;">
+        <div class="app-icon">🏛️</div>Institutions
+      </a>
+      <a href="industrial.html" class="app-card" style="text-decoration:none; color:inherit;">
+        <div class="app-icon">🏭</div>Industrial
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- BRANDS WE INSTALL -->
+<section class="brands-we-install" style="background:var(--light-gray,#F8F9FA); padding:64px 0;">
+  <div class="container">
+    <span style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent,#2b6cb0);margin-bottom:12px;display:block;">Brands We Install</span>
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:40px;">
+      <div>
+        <h2 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(22px,3vw,32px);margin-bottom:10px;">Brands We Install — Surveillance &amp; Alarm</h2>
+        <p style="font-size:15px;color:#5F6368;max-width:660px;line-height:1.7;margin:0;">We carry leading brands across cameras, NVRs, and alarm systems. Every brand we list is one we install, warrant, and maintain in Singapore.</p>
+      </div>
+      <a href="brands.html" style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:8px;background:var(--accent,#2b6cb0);color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-decoration:none;white-space:nowrap;flex-shrink:0;">View All 20 Brands →</a>
+    </div>
+    <style>
+      .bwi-group { margin-bottom: 36px; }
+      .bwi-group:last-child { margin-bottom: 0; }
+      .bwi-group-header { display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #E8EAED; }
+      .bwi-group-icon { font-size:18px; }
+      .bwi-group-title { font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:#1B1F23; }
+      .bwi-group-bar { width:32px;height:3px;border-radius:2px;flex-shrink:0; }
+      .bwi-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px; }
+      .bwi-card { background:#fff;border:1px solid #E8EAED;border-radius:8px;padding:16px 14px;text-decoration:none;color:#1B1F23;transition:all .2s;display:flex;flex-direction:column;gap:6px; }
+      .bwi-card:hover { box-shadow:0 6px 20px rgba(0,0,0,.1);transform:translateY(-2px);border-color:var(--accent,#2b6cb0); }
+      .bwi-name { font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700; }
+      .bwi-desc { font-size:11px;color:#5F6368;line-height:1.4;flex:1; }
+      .bwi-tier { display:inline-block;padding:2px 8px;border-radius:8px;font-size:10px;font-weight:700;color:#fff;align-self:flex-start; }
+      @media(max-width:600px){ .bwi-grid { grid-template-columns:repeat(2,1fr); } }
+    </style>
+    
+      <div class="bwi-group">
+        <div class="bwi-group-header">
+          <span class="bwi-group-icon">📹</span>
+          <span class="bwi-group-title">Surveillance & CCTV</span>
+          <span class="bwi-group-bar" style="background:#2b6cb0;"></span>
+        </div>
+        <div class="bwi-grid">
+          <a href="hikvision-singapore.html" class="bwi-card">
+            <div class="bwi-name">Hikvision</div>
+            <div class="bwi-desc">World #1 · Authorised Partner</div>
+            <div class="bwi-tier" style="background:#2b6cb0;">Mid–Premium</div>
+          </a>
+          <a href="hanwha-samsung-singapore.html" class="bwi-card">
+            <div class="bwi-name">Hanwha Vision</div>
+            <div class="bwi-desc">Korean enterprise AI</div>
+            <div class="bwi-tier" style="background:#7209B7;">Premium</div>
+          </a>
+          <a href="uniview-singapore.html" class="bwi-card">
+            <div class="bwi-name">Uniview</div>
+            <div class="bwi-desc">IP pioneer · value range</div>
+            <div class="bwi-tier" style="background:#38a169;">Budget–Mid</div>
+          </a>
+          <a href="milesight-singapore.html" class="bwi-card">
+            <div class="bwi-name">Milesight</div>
+            <div class="bwi-desc">IoT-native · people counting</div>
+            <div class="bwi-tier" style="background:#2b6cb0;">Mid–Premium</div>
+          </a>
+        </div>
+      </div>
+      <div class="bwi-group">
+        <div class="bwi-group-header">
+          <span class="bwi-group-icon">🔔</span>
+          <span class="bwi-group-title">Alarm & Intruder Detection</span>
+          <span class="bwi-group-bar" style="background:#e53e3e;"></span>
+        </div>
+        <div class="bwi-grid">
+          <a href="ajax-alarm-singapore.html" class="bwi-card">
+            <div class="bwi-name">AJAX Systems</div>
+            <div class="bwi-desc">Wireless · best app · EU #1</div>
+            <div class="bwi-tier" style="background:#2b6cb0;">Mid–Premium</div>
+          </a>
+          <a href="risco-alarm-singapore.html" class="bwi-card">
+            <div class="bwi-name">RISCO Group</div>
+            <div class="bwi-desc">Hybrid · commercial grade</div>
+            <div class="bwi-tier" style="background:#2b6cb0;">Mid–Premium</div>
+          </a>
+          <a href="paradox-alarm-singapore.html" class="bwi-card">
+            <div class="bwi-name">Paradox Security</div>
+            <div class="bwi-desc">Canadian · residential specialist</div>
+            <div class="bwi-tier" style="background:#38a169;">Budget–Mid</div>
+          </a>
+          <a href="dsc-alarm-singapore.html" class="bwi-card">
+            <div class="bwi-name">DSC</div>
+            <div class="bwi-desc">Johnson Controls · widely installed</div>
+            <div class="bwi-tier" style="background:#38a169;">Budget–Mid</div>
+          </a>
+          <a href="ge-caddx-alarm-singapore.html" class="bwi-card">
+            <div class="bwi-name">GE Caddx</div>
+            <div class="bwi-desc">Entry-level · budget residential</div>
+            <div class="bwi-tier" style="background:#38a169;">Budget</div>
+          </a>
+        </div>
+      </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-inner">
+      <span class="eyebrow eyebrow-light">Get Started</span>
+      <h2>Design Your Surveillance System</h2>
+      <p>Tell us about your property and we'll recommend the right camera types, coverage design, and analytics configuration — no obligation.</p>
+      <div class="cta-btns">
+        <a href="https://wa.me/6593860466" class="btn btn-whatsapp">💬 WhatsApp a Specialist</a>
+        <a href="contact.html" class="btn btn-outline-white">Book a Site Survey</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-bottom">
+    <p>© 2025 Securevision Pte Ltd &nbsp;|&nbsp; Police License L/PS/000267/2023P &nbsp;|&nbsp; <a href="technology.html" style="color:rgba(255,255,255,0.4); text-decoration:none;">← Back to Products</a></p>
+    <p>+65 9386 0466 &nbsp;|&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-c

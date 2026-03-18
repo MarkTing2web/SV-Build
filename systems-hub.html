@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security Systems & Technology Singapore | Securevision</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary-accent: #0056b3;
+    --primary-dark: #003d80;
+    --charcoal: #1B1F23;
+    --medium-gray: #5F6368;
+    --light-gray: #F8F9FA;
+    --white: #FFFFFF;
+    --border-color: #E8EAED;
+    --spacing-sm: 16px;
+    --spacing-md: 32px;
+    --spacing-lg: 64px;
+    --spacing-xl: 96px;
+    --border-radius: 8px;
+    --container-width: 1200px;
+    --transition: all 0.3s ease;
+    /* subsystem colors */
+    --surveillance: #2b6cb0;
+    --people: #319795;
+    --vehicle: #dd6b20;
+    --platform: #38a169;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    color: var(--charcoal);
+    line-height: 1.6;
+    font-size: 16px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(14,26,43,0.97);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-inner {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 68px;
+  }
+  .nav-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+  }
+  .nav-logo span { color: var(--primary-accent); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: #fff; }
+  .nav-cta {
+    background: var(--primary-accent);
+    color: #fff;
+    padding: 9px 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  .nav-cta:hover { background: var(--primary-dark); }
+
+  /* ── CONTAINERS ── */
+  .container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  section { padding: var(--spacing-lg) 0; }
+
+  /* ── EYEBROW ── */
+  .eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--primary-accent);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .eyebrow-light { color: rgba(255,255,255,0.6); }
+
+  /* ── HEADINGS ── */
+  h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; line-height: 1.25; }
+  h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; }
+  h2 { font-size: clamp(26px, 4vw, 40px); font-weight: 700; }
+  h3 { font-size: 20px; font-weight: 600; }
+  h4 { font-size: 16px; font-weight: 600; }
+
+  /* ── BUTTONS ── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 32px;
+    border-radius: var(--border-radius);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+  }
+  .btn-primary {
+    background: var(--primary-accent);
+    color: #fff;
+    border-color: var(--primary-accent);
+  }
+  .btn-primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); transform: translateY(-2px); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--primary-accent);
+    border-color: var(--primary-accent);
+  }
+  .btn-secondary:hover { background: var(--primary-accent); color: #fff; transform: translateY(-2px); }
+  .btn-white {
+    background: #fff;
+    color: var(--primary-accent);
+    border-color: #fff;
+  }
+  .btn-white:hover { background: transparent; color: #fff; border-color: #fff; }
+  .btn-outline-white {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,0.5);
+  }
+  .btn-outline-white:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
+  .btn-whatsapp { background: #25d366; color: #fff; border-color: #25d366; }
+  .btn-whatsapp:hover { background: #1da851; border-color: #1da851; transform: translateY(-2px); }
+  .btn-sm { padding: 10px 20px; font-size: 12px; }
+
+  /* ── SECTION HEADERS ── */
+  .section-header { text-align: center; margin-bottom: 48px; }
+  .section-header p {
+    font-size: 18px;
+    color: var(--medium-gray);
+    max-width: 700px;
+    margin: 16px auto 0;
+    line-height: 1.7;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 28px;
+    transition: var(--transition);
+  }
+  .card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.1); transform: translateY(-3px); }
+
+  /* ── ①  HERO &mdash; SPLIT LAYOUT ── */
+  #hero {
+    background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
+    padding: calc(68px + 80px) 0 80px;
+    min-height: 100vh;
+    display: flex; align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(0,86,179,0.15) 0%, transparent 70%);
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+  }
+  .hero-content { color: #fff; }
+  .hero-content h1 { margin-bottom: 20px; line-height: 1.15; }
+  .hero-content h1 em { font-style: normal; color: #5b9ee1; }
+  .hero-lead {
+    font-size: 18px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+  .hero-highlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  .hero-highlight {
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+  }
+  .hero-highlight .icon { font-size: 20px; }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+  /* Hero visual */
+  .hero-visual {
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .hero-visual-box {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-visual-box::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(0,86,179,0.2) 0%, rgba(43,108,176,0.1) 100%);
+  }
+  .system-diagram {
+    position: relative; z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 24px;
+    width: 100%;
+  }
+  .sd-node {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 12px 8px;
+    text-align: center;
+    font-size: 11px;
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+  }
+  .sd-node .sd-icon { font-size: 22px; margin-bottom: 4px; }
+  .sd-center {
+    background: rgba(0,86,179,0.5);
+    border-color: rgba(91,158,225,0.4);
+    color: #fff;
+  }
+  .secure-badge {
+    position: absolute; bottom: 20px; right: 20px;
+    background: var(--primary-accent);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    z-index: 2;
+  }
+
+  /* ── ② PAIN SECTION ── */
+  #pain { background: var(--light-gray); }
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 40px 0;
+  }
+  .pain-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 28px;
+    border-top: 3px solid var(--primary-accent);
+  }
+  .pain-icon { font-size: 32px; margin-bottom: 14px; }
+  .pain-card h3 { font-size: 17px; margin-bottom: 10px; color: var(--charcoal); }
+  .pain-card p { font-size: 14px; color: var(--medium-gray); line-height: 1.6; }
+  .pain-quote {
+    background: var(--primary-accent);
+    color: #fff;
+    padding: 28px 40px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+  }
+
+  /* ── ③ FEATURED: INTEGRATED SYSTEMS ── */
+  #integrated { background: var(--white); }
+  .featured-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .featured-text h2 { margin-bottom: 20px; }
+  .featured-text p { color: var(--medium-gray); line-height: 1.7; margin-bottom: 16px; }
+  .feature-list { list-style: none; margin: 24px 0 32px; }
+  .feature-list li {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 15px;
+  }
+  .feature-list li:last-child { border-bottom: none; }
+  .feature-list li::before {
+    content: '&check;';
+    width: 22px; height: 22px;
+    background: var(--primary-accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .secure-framework-card {
+    background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .secure-framework-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 80% 20%, rgba(0,86,179,0.3) 0%, transparent 70%);
+  }
+  .secure-framework-card > * { position: relative; z-index: 1; }
+  .framework-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 8px;
+  }
+  .framework-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+    color: #fff;
+  }
+  .framework-subtitle {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 28px;
+  }
+  .framework-steps { display: flex; flex-direction: column; gap: 16px; }
+  .framework-step {
+    display: flex; align-items: flex-start; gap: 14px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 14px 16px;
+  }
+  .step-letter {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #5b9ee1;
+    width: 28px;
+    flex-shrink: 0;
+  }
+  .step-content .step-word {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 2px;
+  }
+  .step-content .step-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ── ④ SUBSYSTEM GROUPS ── */
+  #subsystems { background: var(--light-gray); }
+  .subsystem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .subsystem-card {
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 32px;
+    border-top: 4px solid;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+  }
+  .subsystem-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.1); transform: translateY(-4px); }
+  .subsystem-card.surveillance { border-top-color: var(--surveillance); }
+  .subsystem-card.people { border-top-color: var(--people); }
+  .subsystem-card.vehicle { border-top-color: var(--vehicle); }
+  .subsystem-card.platform { border-top-color: var(--platform); }
+  .subsystem-icon { font-size: 36px; margin-bottom: 14px; }
+  .subsystem-card h3 { font-size: 20px; margin-bottom: 10px; }
+  .subsystem-card .sub-desc { font-size: 14px; color: var(--medium-gray); line-height: 1.6; margin-bottom: 20px; }
+  .products-list {
+    list-style: none;
+    margin-bottom: 24px;
+    flex: 1;
+  }
+  .products-list li {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px;
+    color: var(--charcoal);
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .products-list li:last-child { border-bottom: none; }
+  .products-list li::before { content: '&rarr;'; color: var(--medium-gray); font-size: 12px; }
+  .btn-surveillance { background: var(--surveillance); color: #fff; border-color: var(--surveillance); }
+  .btn-surveillance:hover { background: #1a4f8a; border-color: #1a4f8a; transform: translateY(-2px); }
+  .btn-people { background: var(--people); color: #fff; border-color: var(--people); }
+  .btn-people:hover { background: #226564; border-color: #226564; transform: translateY(-2px); }
+  .btn-vehicle { background: var(--vehicle); color: #fff; border-color: var(--vehicle); }
+  .btn-vehicle:hover { background: #b85618; border-color: #b85618; transform: translateY(-2px); }
+  .btn-platform { background: var(--platform); color: #fff; border-color: var(--platform); }
+  .btn-platform:hover { background: #276748; border-color: #276748; transform: translateY(-2px); }
+
+  /* ── ⑤ SECURE CALLOUT ── */
+  #secure-callout { background: var(--white); }
+  .secure-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .secure-diagram {
+    background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
+    border-radius: 16px;
+    padding: 48px 40px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    min-height: 360px;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column;
+  }
+  .secure-diagram::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(0,86,179,0.3) 0%, transparent 70%);
+  }
+  .secure-diagram > * { position: relative; z-index: 1; }
+  .big-secure {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    color: #fff;
+    text-shadow: 0 0 40px rgba(91,158,225,0.4);
+    margin-bottom: 8px;
+  }
+  .big-secure-sub {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 32px;
+  }
+  .secure-nodes {
+    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+  }
+  .secure-node {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    font-weight: 500;
+  }
+  .secure-content h2 { margin-bottom: 20px; }
+  .secure-content p { color: var(--medium-gray); line-height: 1.7; margin-bottom: 20px; }
+  .secure-bullets { list-style: none; }
+  .secure-bullets li {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 0;
+    font-size: 15px;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .secure-bullets li:last-child { border-bottom: none; }
+  .bullet-icon {
+    width: 8px; height: 8px;
+    background: var(--primary-accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 7px;
+  }
+
+  /* ── ⑥ ROUTE BY PROPERTY ── */
+  #property-routing { background: var(--light-gray); }
+  .property-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+  }
+  .property-card {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 28px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--charcoal);
+    transition: var(--transition);
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+  }
+  .property-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.1); transform: translateY(-4px); border-color: var(--primary-accent); }
+  .property-card .prop-icon { font-size: 40px; }
+  .property-card h4 { font-size: 14px; margin: 0; }
+  .property-card .prop-link {
+    font-size: 12px;
+    color: var(--primary-accent);
+    font-weight: 600;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .property-card .prop-color {
+    width: 32px; height: 3px;
+    border-radius: 2px;
+  }
+
+  /* ── ⑦ TRUST & CREDENTIALS ── */
+  #trust { background: var(--white); }
+  .trust-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  .trust-badge {
+    background: var(--light-gray);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 20px 28px;
+    text-align: center;
+    min-width: 160px;
+  }
+  .trust-badge .badge-icon { font-size: 28px; margin-bottom: 8px; }
+  .trust-badge h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .trust-badge p { font-size: 11px; color: var(--medium-gray); }
+  .trust-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+    padding-top: 48px;
+    border-top: 1px solid var(--border-color);
+  }
+  .stat-item { text-align: center; }
+  .stat-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--primary-accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label { font-size: 13px; color: var(--medium-gray); font-weight: 500; }
+
+  /* ── ⑧ FINAL CTA ── */
+  #final-cta { background: var(--light-gray); }
+  .cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .cta-panel {
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    text-align: center;
+  }
+  .cta-panel.featured {
+    background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
+    color: #fff;
+    border-color: transparent;
+  }
+  .cta-panel .cta-icon { font-size: 40px; margin-bottom: 16px; }
+  .cta-panel h3 { font-size: 22px; margin-bottom: 12px; }
+  .cta-panel p { font-size: 15px; color: var(--medium-gray); margin-bottom: 24px; line-height: 1.6; }
+  .cta-panel.featured p { color: rgba(255,255,255,0.7); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0E1A2B;
+    color: rgba(255,255,255,0.7);
+    padding: 48px 0 24px;
+    font-size: 14px;
+  }
+  .footer-inner {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 40px;
+  }
+  .footer-brand .brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 12px;
+  }
+  .footer-brand .brand-name span { color: var(--primary-accent); }
+  .footer-brand p { line-height: 1.7; margin-bottom: 16px; font-size: 13px; }
+  .footer-col h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: 8px; }
+  .footer-col a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+  .footer-col a:hover { color: #fff; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .footer-bottom p { font-size: 12px; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 768px) {
+    section { padding: 56px 0; }
+    .hero-grid,
+    .featured-grid,
+    .secure-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual { display: none; }
+    .hero-highlights { grid-template-columns: 1fr; }
+    .pain-grid { grid-template-columns: 1fr; }
+    .subsystem-grid { grid-template-columns: 1fr; }
+    .property-grid { grid-template-columns: repeat(2, 1fr); }
+    .cta-grid { grid-template-columns: 1fr; }
+    .trust-stats { grid-template-columns: repeat(2, 1fr); }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .nav-links { display: none; }
+    .nav-cta { font-size: 12px; padding: 8px 14px; }
+  }
+</style>
+<style id="sv-nav-css">
+.main-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(14,26,43,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08);height:68px;font-family:'Inter',sans-serif}
+.nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-logo-link{display:flex;align-items:center;text-decoration:none}
+.nav-logo-img{height:40px;width:auto;display:block}
+.nav-menu{display:flex;list-style:none;gap:2px;margin:0;padding:0}
+.nav-item{position:relative}
+.nav-link{color:rgba(255,255,255,.8);text-decoration:none;font-size:14px;font-weight:500;padding:22px 13px;display:block;white-space:nowrap;transition:.2s}
+.nav-link:hover,.nav-link.active{color:#fff}
+.has-dropdown::after{content:" ▾";font-size:9px;opacity:.5}
+.nav-cta-btn{background:#0056b3;color:#fff;padding:9px 16px;border-radius:6px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap;transition:.2s;flex-shrink:0}
+.nav-cta-btn:hover{background:#003d82}
+.mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:8px}
+.mega-menu{position:absolute;top:100%;background:#fff;border:1px solid #E8EAED;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.15);padding:24px;display:none;z-index:200}
+.nav-item:hover>.mega-menu{display:grid;opacity:1}
+.mega-menu-solutions{width:820px;grid-template-columns:1fr 1.6fr;gap:24px;left:50%;transform:translateX(-50%)}
+.mega-menu-technology{width:960px;grid-template-columns:1fr 1.3fr 1.3fr;gap:0;left:50%;transform:translateX(-50%)}
+.mega-menu-technology .mega-guidance{padding-right:20px;border-right:1px solid #E8EAED}
+.mega-menu-technology .mega-links-col{padding:0 20px;border-right:1px solid #E8EAED}
+.mega-brands-col{padding-left:20px}
+.mega-menu-portfolio{width:820px;grid-template-columns:1fr 1fr 1fr;gap:20px;left:50%;transform:translateX(-50%)}
+.mega-menu-resources{width:880px;grid-template-columns:repeat(4,1fr);gap:16px;left:50%;transform:translateX(-50%)}
+.mega-menu-insights{width:720px;grid-template-columns:1fr 1.6fr;gap:24px;right:0}
+.mega-menu-about{width:320px;right:0;display:block!important;padding:20px}
+.nav-item:hover>.mega-menu-about{display:block!important}
+.mega-menu-contact{width:280px;right:0;display:block!important;padding:18px}
+.nav-item:hover>.mega-menu-contact{display:block!important}
+.mega-col-label{font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#8a8f98;margin-bottom:12px;display:block}
+.mega-guidance h4{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:#1B1F23;margin:0 0 6px}
+.mega-guidance p{font-size:12px;color:#5F6368;margin:0 0 10px;line-height:1.5}
+.view-all-link{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#0056b3;text-decoration:none;display:inline-flex;align-items:center}
+.mega-trust{margin-top:14px;padding-top:12px;border-top:1px solid #E8EAED}
+.trust-item{font-size:11px;color:#5F6368;padding:2px 0}
+.solution-link{display:flex;flex-direction:column;padding:8px 10px;border-radius:6px;text-decoration:none;transition:.15s;margin-bottom:2px}
+.solution-link:hover{background:#F8F9FA}
+.solution-link strong{font-size:13px;color:#1B1F23;margin-bottom:1px;display:block}
+.solution-link small{font-size:11px;color:#8a8f98}
+.product-link{display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid #E8EAED;text-decoration:none}
+.product-link:last-of-type{border-bottom:none}
+.product-link div strong{display:block;font-size:13px;color:#1B1F23;margin-bottom:1px}
+.product-link div small{font-size:11px;color:#8a8f98}
+.pl-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.brand-cat-group{margin-bottom:10px}
+.brand-cat-title{font-size:10px;font-weight:700;font-family:'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:1px;color:#8a8f98;margin-bottom:5px;display:flex;align-items:center;gap:5px}
+.bct-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0}
+.brand-name-links{display:flex;flex-wrap:wrap;gap:3px}
+.brand-name-link{font-size:11px;font-weight:500;color:#5F6368;text-decoration:none;padding:2px 7px;border-radius:4px;background:#F8F9FA;border:1px solid #E8EAED;transition:.15s}
+.brand-name-link:hover{color:#0056b3;border-color:#0056b3;background:#fff}
+.mega-port-col{display:flex;flex-direction:column;gap:2px}
+.port-link{display:flex;align-items:center;gap:7px;padding:6px 8px;border-radius:5px;text-decoration:none;color:#1B1F23;font-size:13px;transition:.15s}
+.port-link:hover{background:#F8F9FA;color:#0056b3}
+.port-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.port-featured{display:block;padding:8px 10px;border-radius:7px;text-decoration:none;border:1px solid #E8EAED;margin-bottom:6px;transition:.15s}
+.port-featured:hover{border-color:#0056b3;background:#F8F9FA}
+.pf-label{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#8a8f98}
+.pf-title{font-size:13px;font-weight:700;color:#1B1F23}
+.pf-meta{font-size:11px;color:#8a8f98}
+.mega-res-col{display:flex;flex-direction:column}
+.res-col-header{display:flex;align-items:center;gap:6px;margin-bottom:8px;padding-bottom:7px;border-bottom:1px solid #E8EAED}
+.res-col-header h4{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#1B1F23;margin:0}
+.res-link{font-size:12px;color:#5F6368;text-decoration:none;padding:4px 0;transition:.15s;display:flex;align-items:center;justify-content:space-between}
+.res-link:hover{color:#0056b3}
+.rl-soon{font-size:10px;background:#F8F9FA;border:1px solid #E8EAED;color:#8a8f98;padding:1px 5px;border-radius:6px;font-family:'Montserrat',sans-serif;font-weight:700}
+.insights-featured{display:block;padding:8px 0;border-bottom:1px solid #E8EAED;text-decoration:none;margin-bottom:6px}
+.if-tag{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#0056b3;font-family:'Montserrat',sans-serif}
+.if-title{font-size:12px;font-weight:600;color:#1B1F23;margin:3px 0 1px;line-height:1.4}
+.if-meta{font-size:11px;color:#8a8f98}
+.insights-cat{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid #E8EAED;text-decoration:none;color:#1B1F23;transition:.15s}
+.insights-cat:last-child{border-bottom:none}
+.insights-cat:hover{color:#0056b3}
+.ic-icon{font-size:16px;flex-shrink:0}
+.insights-cat strong{display:block;font-size:13px;font-family:'Montserrat',sans-serif}
+.insights-cat small{font-size:11px;color:#8a8f98}
+.about-preview-card{background:#F8F9FA;border-radius:8px;padding:14px;margin-bottom:12px;border:1px solid #E8EAED}
+.apc-founder{display:flex;gap:9px;align-items:center;margin-bottom:8px}
+.apc-avatar{width:36px;height:36px;border-radius:50%;background:#0056b3;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.apc-name{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;color:#1B1F23}
+.apc-title{font-size:10px;color:#8a8f98}
+.apc-quote{font-size:11px;font-style:italic;color:#5F6368;border-left:2px solid #0056b3;padding-left:7px;line-height:1.5}
+.about-links{display:flex;flex-direction:column;gap:3px}
+.about-link{display:flex;align-items:center;gap:7px;padding:7px 8px;border-radius:5px;text-decoration:none;color:#1B1F23;font-size:12px;transition:.15s}
+.about-link:hover{background:#F8F9FA;color:#0056b3}
+.contact-channel-links{display:flex;flex-direction:column;gap:7px;margin-bottom:10px}
+.contact-ch-link{display:flex;align-items:center;gap:9px;padding:9px 11px;border-radius:7px;text-decoration:none;color:#1B1F23;border:1px solid #E8EAED;transition:.15s}
+.contact-ch-link:hover{border-color:#0056b3}
+.whatsapp-ch{background:#f0faf4;border-color:#c6e6d1}
+.cch-icon{font-size:18px;flex-shrink:0}
+.cch-label{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:#1B1F23}
+.cch-sub{font-size:10px;color:#8a8f98}
+.contact-hours{font-size:10px;color:#8a8f98;padding-top:8px;border-top:1px solid #E8EAED;line-height:1.6}
+.mobile-menu{display:none;background:#0E1A2B;padding:10px 20px 20px}
+.mobile-menu.active{display:block}
+.mobile-menu-item{display:block;padding:12px 0;color:rgba(255,255,255,.85);font-size:14px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.08);cursor:pointer;text-decoration:none}
+a.mobile-menu-item:hover{color:#fff}
+.mobile-submenu{display:none;padding-left:14px;margin:6px 0 2px}
+.mobile-submenu a{display:block;padding:7px 0;color:rgba(255,255,255,.6);text-decoration:none;font-size:13px}
+.mobile-submenu a:hover{color:#fff}
+@media(max-width:768px){.nav-menu{display:none}.mobile-toggle{display:block}.nav-logo-img{height:32px}}
+</style>
+</head>
+<body>
+<nav class="main-nav">
+<div class="nav-container">
+  <a href="index.html" class="nav-logo-link" aria-label="Securevision">
+    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+    <span style="display:none;font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff">Securevision</span>
+  </a>
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+    <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
+      <div class="mega-menu mega-menu-solutions">
+        <div class="mega-guidance"><div class="mega-col-label">Need Help Choosing?</div><h4>Not Sure Which Solution Fits?</h4><p>Every property type has unique risks.</p><a href="solutions-hub.html" class="view-all-link">&rarr; View All Solutions</a><div class="mega-trust"><div class="trust-item">&check; Police Licensed L/PS/000267/2023P</div><div class="trust-item">&check; 19+ Years &middot; 2,000+ Sites</div><div class="trust-item">&check; bizSAFE Level 4 &middot; BCA Registered</div></div></div>
+        <div class="mega-links-col"><div class="mega-col-label">By Property Type</div><a href="residential.html" class="solution-link"><strong>🏠 Private Homes</strong><small>Landed properties, bungalows, terraces</small></a><a href="condominiums.html" class="solution-link"><strong>🏘️ Condominiums</strong><small>MCSTs, managed estates, apartments</small></a><a href="commercial.html" class="solution-link"><strong>🏪 Commercial &amp; Retail</strong><small>Shops, offices, hotels</small></a><a href="institutions.html" class="solution-link"><strong>🏫 Institutions</strong><small>Schools, healthcare, government</small></a><a href="industrial.html" class="solution-link"><strong>🏭 Industrial &amp; Logistics</strong><small>Factories, warehouses, logistics</small></a></div>
+      </div>
+    </li>
+    <li class="nav-item"><a href="technology.html" class="nav-link has-dropdown active">Technology</a>
+      <div class="mega-menu mega-menu-technology">
+        <div class="mega-guidance"><div class="mega-col-label">Our Systems</div><h4>Security Systems &amp; Technology</h4><p>Four subsystem groups on the SECURE&trade; framework.</p><a href="technology.html" class="view-all-link">&rarr; View All Technology</a><div class="mega-trust"><div class="trust-item">&check; SECURE&trade; Integration Methodology</div><div class="trust-item">&check; VESTA&trade; Enterprise Platform</div><div class="trust-item">&check; GantryGo&trade; Vehicle Intercom</div></div></div>
+        <div class="mega-links-col"><div class="mega-col-label">By System Type</div><a href="surveillance-systems.html" class="product-link"><span class="pl-dot" style="background:#2b6cb0"></span><div><strong>📹 Surveillance &amp; Detection</strong><small>IP cameras, AI analytics, NVR, alarms</small></div></a><a href="people-access.html" class="product-link"><span class="pl-dot" style="background:#319795"></span><div><strong>🚪 People Access Systems</strong><small>Biometrics, visitor management, intercom</small></div></a><a href="vehicle-access.html" class="product-link"><span class="pl-dot" style="background:#dd6b20"></span><div><strong>🚗 Vehicle Access Systems</strong><small>Boom gates, ANPR, GantryGo&trade;</small></div></a><a href="platform-integration.html" class="product-link"><span class="pl-dot" style="background:#38a169"></span><div><strong>📊 Platform &amp; Integration</strong><small>VESTA&trade; dashboard, multi-site</small></div></a></div>
+        <div class="mega-brands-col"><div class="mega-col-label">Brands We Install</div><div class="brand-cat-group"><div class="brand-cat-title"><span class="bct-dot" style="background:#2b6cb0"></span>Surveillance</div><div class="brand-name-links"><a href="hikvision-singapore.html" class="brand-name-link">Hikvision</a><a href="hanwha-samsung-singapore.html" class="brand-name-link">Hanwha</a><a href="uniview-singapore.html" class="brand-name-link">Uniview</a><a href="milesight-singapore.html" class="brand-name-link">Milesight</a></div></div><div class="brand-cat-group"><div class="brand-cat-title"><span class="bct-dot" style="background:#e53e3e"></span>Alarm</div><div class="brand-name-links"><a href="ajax-alarm-singapore.html" class="brand-name-link">AJAX</a><a href="risco-alarm-singapore.html" class="brand-name-link">RISCO</a><a href="paradox-alarm-singapore.html" class="brand-name-link">Paradox</a><a href="dsc-alarm-singapore.html" class="brand-name-link">DSC</a><a href="ge-caddx-alarm-singapore.html" class="brand-name-link">GE Caddx</a></div></div><div class="brand-cat-group"><div class="brand-cat-title"><span class="bct-dot" style="background:#319795"></span>Access</div><div class="brand-name-links"><a href="zkteco-singapore.html" class="brand-name-link">ZKTeco</a><a href="suprema-singapore.html" class="brand-name-link">Suprema</a><a href="hid-singapore.html" class="brand-name-link">HID</a><a href="entrypass-singapore.html" class="brand-name-link">EntryPass</a><a href="microengine-singapore.html" class="brand-name-link">MicroEngine</a></div></div><div class="brand-cat-group"><div class="brand-cat-title"><span class="bct-dot" style="background:#2b6cb0"></span>Intercom</div><div class="brand-name-links"><a href="akuvox-singapore.html" class="brand-name-link">Akuvox</a><a href="aiphone-singapore.html" class="brand-name-link">Aiphone</a><a href="kocom-singapore.html" class="brand-name-link">Kocom</a></div></div><div class="brand-cat-group"><div class="brand-cat-title"><span class="bct-dot" style="background:#dd6b20"></span>Gates</div><div class="brand-name-links"><a href="faac-singapore.html" class="brand-name-link">FAAC</a><a href="mag-gates-singapore.html" class="brand-name-link">MAG</a><a href="dormer-singapore.html" class="brand-name-link">Dormer</a></div></div><a href="brands.html" class="view-all-link" style="margin-top:12px;font-size:12px">&rarr; All 20 Brands</a></div>
+      </div>
+    </li>
+    <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
+      <div class="mega-menu mega-menu-portfolio">
+        <div class="mega-port-col"><div class="mega-col-label">By Property</div><a href="portfolio.html?filter=residential" class="port-link"><span class="port-dot" style="background:#38B000"></span>Private Homes</a><a href="portfolio.html?filter=condominium" class="port-link"><span class="port-dot" style="background:#4361EE"></span>Condominiums</a><a href="portfolio.html?filter=commercial" class="port-link"><span class="port-dot" style="background:#FF6D00"></span>Commercial</a><a href="portfolio.html?filter=institution" class="port-link"><span class="port-dot" style="background:#0056b3"></span>Institutions</a><a href="portfolio.html?filter=industrial" class="port-link"><span class="port-dot" style="background:#7209B7"></span>Industrial</a></div>
+        <div class="mega-port-col"><div class="mega-col-label">By System</div><a href="portfolio.html?filter=surveillance" class="port-link"><span class="port-dot" style="background:#2b6cb0"></span>Surveillance</a><a href="portfolio.html?filter=people-access" class="port-link"><span class="port-dot" style="background:#319795"></span>People Access</a><a href="portfolio.html?filter=vehicle-access" class="port-link"><span class="port-dot" style="background:#dd6b20"></span>Vehicle Access</a><a href="portfolio.html?filter=platform" class="port-link"><span class="port-dot" style="background:#38a169"></span>Platform</a><a href="portfolio.html" class="port-link"><span class="port-dot" style="background:#888"></span>All Projects</a></div>
+        <div class="mega-port-col"><div class="mega-col-label">Featured</div><a href="portfolio-lviv.html" class="port-featured"><div class="pf-label">Condominium</div><div class="pf-title">The L'viv</div><div class="pf-meta">VESTA&trade; + GantryGo&trade;</div></a><a href="portfolio-scape.html" class="port-featured"><div class="pf-label">Commercial</div><div class="pf-title">SCAPE</div><div class="pf-meta">200-camera AI system</div></a><a href="portfolio-sta.html" class="port-featured"><div class="pf-label">Institution</div><div class="pf-title">STA</div><div class="pf-meta">99.7% uptime</div></a><a href="portfolio-cyrus.html" class="port-featured"><div class="pf-label">Industrial</div><div class="pf-title">Cyrus Tech</div><div class="pf-meta">–85% callouts</div></a></div>
+      </div>
+    </li>
+    <li class="nav-item"><a href="resources.html" class="nav-link has-dropdown">Resources</a>
+      <div class="mega-menu mega-menu-resources"><div class="mega-res-col"><div class="res-col-header"><span>🧮</span><h4>Planning Tools</h4></div><a href="resources.html" class="res-link">Security Calculator <span class="rl-soon">Soon</span></a><a href="resources.html" class="res-link">Risk Assessment <span class="rl-soon">Soon</span></a></div><div class="mega-res-col"><div class="res-col-header"><span>📚</span><h4>Guides</h4></div><a href="resources-cctv-guide.html" class="res-link">CCTV Buyer's Guide</a><a href="resources-access-control.html" class="res-link">Access Control</a><a href="resources-anpr.html" class="res-link">How ANPR Works</a><a href="resources-integrated-systems.html" class="res-link">Integrated vs Standalone</a></div><div class="mega-res-col"><div class="res-col-header"><span>🔧</span><h4>Support</h4></div><a href="resources-troubleshoot.html" class="res-link">Troubleshooting</a><a href="resources-maintenance.html" class="res-link">Maintenance</a><a href="resources-faq.html" class="res-link">FAQs</a><a href="contact.html" class="res-link">Contact Support</a></div><div class="mega-res-col"><div class="res-col-header"><span>📥</span><h4>Downloads</h4></div><a href="resources.html" class="res-link">Spec Sheets <span class="rl-soon">Soon</span></a><a href="resources.html" class="res-link">Wiring Guides <span class="rl-soon">Soon</span></a></div></div>
+    </li>
+    <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
+      <div class="mega-menu mega-menu-insights"><div class="mega-guidance"><div class="mega-col-label">Latest</div><a href="insights-integrated-systems.html" class="insights-featured"><span class="if-tag">Security Planning</span><div class="if-title">Why Integrated Systems Outperform Standalone</div><div class="if-meta">6 min read</div></a><a href="insights.html" class="view-all-link" style="margin-top:10px">&rarr; All Articles</a></div><div class="mega-links-col"><div class="mega-col-label">By Topic</div><a href="insights.html?cat=planning" class="insights-cat"><span class="ic-icon">🏗️</span><div class="ic-text"><strong>Security Planning</strong><small>Guides for property managers</small></div></a><a href="insights.html?cat=technology" class="insights-cat"><span class="ic-icon">🤖</span><div class="ic-text"><strong>Technology</strong><small>AI, ANPR, biometrics</small></div></a><a href="insights.html?cat=casestudy" class="insights-cat"><span class="ic-icon">📊</span><div class="ic-text"><strong>Case Studies</strong><small>Real projects, real outcomes</small></div></a><a href="insights.html?cat=industry" class="insights-cat"><span class="ic-icon">🇸🇬</span><div class="ic-text"><strong>SG Industry</strong><small>Regulations, trends</small></div></a></div></div>
+    </li>
+    <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
+      <div class="mega-menu mega-menu-about"><div class="mega-col-label" style="margin-bottom:10px">About Securevision</div><div class="about-preview-card"><div class="apc-founder"><div class="apc-avatar">👤</div><div><div class="apc-name">Ler Wee Meng</div><div class="apc-title">Founder &middot; NUS Eng + UOL Law</div></div></div><div class="apc-quote">Built on engineering. Backed by law. Since 2006.</div></div><div class="about-links"><a href="about.html#founder" class="about-link"><span>👤</span> Founder's Story</a><a href="about.html" class="about-link"><span>🛡️</span> Credentials</a><a href="awards-certifications.html" class="about-link"><span>🏆</span> Awards</a></div></div>
+    </li>
+    <li class="nav-item"><a href="contact.html" class="nav-link has-dropdown">Contact</a>
+      <div class="mega-menu mega-menu-contact"><div class="mega-col-label" style="margin-bottom:10px">Get In Touch</div><div class="contact-channel-links"><a href="https://wa.me/6593860466" class="contact-ch-link whatsapp-ch"><span class="cch-icon">💬</span><div class="cch-text"><div class="cch-label">WhatsApp &mdash; Fastest</div><div class="cch-sub">+65 9386 0466</div></div></a><a href="contact.html#contact-form" class="contact-ch-link"><span class="cch-icon">📋</span><div class="cch-text"><div class="cch-label">Contact Form</div><div class="cch-sub">1 business day</div></div></a><a href="contact.html#callback" class="contact-ch-link"><span class="cch-icon">📞</span><div class="cch-text"><div class="cch-label">Request Callback</div><div class="cch-sub">+65 6286 4796</div></div></a></div><div class="contact-hours">🕐 Mon–Fri 8:00–17:00 &middot; Sat by appt</div></div>
+    </li>
+  </ul>
+  <a href="https://wa.me/6593860466" class="nav-cta-btn">WhatsApp Us</a>
+  <button class="mobile-toggle" onclick="toggleMobileMenu()">☰</button>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html" class="mobile-menu-item">Home</a>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions ▾<div class="mobile-submenu" id="solSub"><a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a><a href="residential.html">🏠 Private Homes</a><a href="condominiums.html">🏘️ Condominiums</a><a href="commercial.html">🏪 Commercial</a><a href="institutions.html">🏫 Institutions</a><a href="industrial.html">🏭 Industrial</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('techSub')">Technology ▾<div class="mobile-submenu" id="techSub"><a href="technology.html"><strong>&rarr; View All Technology</strong></a><a href="surveillance-systems.html">📹 Surveillance</a><a href="people-access.html">🚪 People Access</a><a href="vehicle-access.html">🚗 Vehicle Access</a><a href="platform-integration.html">📊 Platform</a><a href="brands.html">🏷️ All 20 Brands</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio ▾<div class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>&rarr; All Projects</strong></a><a href="portfolio-lviv.html">The L'viv</a><a href="portfolio-scape.html">SCAPE</a><a href="portfolio-sta.html">STA</a><a href="portfolio-cyrus.html">Cyrus Tech</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources ▾<div class="mobile-submenu" id="resSub"><a href="resources.html"><strong>&rarr; All Resources</strong></a><a href="resources-cctv-guide.html">CCTV Guide</a><a href="resources-troubleshoot.html">Troubleshooting</a><a href="resources-faq.html">FAQs</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights ▾<div class="mobile-submenu" id="insSub"><a href="insights.html"><strong>&rarr; All Articles</strong></a><a href="insights.html?cat=planning">Security Planning</a><a href="insights.html?cat=technology">Technology</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About ▾<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a href="about.html#founder">Founder's Story</a><a href="awards-certifications.html">Awards</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('conSub')">Contact ▾<div class="mobile-submenu" id="conSub"><a href="https://wa.me/6593860466"><strong>💬 WhatsApp</strong></a><a href="contact.html#contact-form">Contact Form</a><a href="contact.html">Office &amp; Hours</a></div></div>
+</div>
+</nav>
+
+<!-- NAV -->
+
+
+<!-- ① HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span class="eyebrow eyebrow-light">Products & Systems</span>
+        <h1>Security Systems &amp; <em>Technology</em></h1>
+        <p class="hero-lead">Securevision designs, supplies, and maintains enterprise-grade security systems across Singapore. Not off-the-shelf products &mdash; intelligent, layered systems engineered for your property type.</p>
+<div style="display:flex;gap:8px;margin-top:12px">
+<a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook" style="width:32px;height:32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+<a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:32px;height:32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+<a href="https://wa.me/6593860466" target="_blank" rel="noopener" aria-label="WhatsApp" style="width:32px;height:32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+</div>
+        <div class="hero-highlights">
+          <div class="hero-highlight"><span class="icon">👁️</span> Surveillance & Detection</div>
+          <div class="hero-highlight"><span class="icon">👥</span> People Access Control</div>
+          <div class="hero-highlight"><span class="icon">🚗</span> Vehicle Access Systems</div>
+          <div class="hero-highlight"><span class="icon">📱</span> Platform & Integration</div>
+        </div>
+        <div class="hero-btns">
+          <a href="#subsystems" class="btn btn-white">Explore Systems</a>
+          <a href="https://wa.me/6593860466" class="btn btn-outline-white">Get a Quote</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-visual-box">
+          <div class="system-diagram">
+            <div class="sd-node"><div class="sd-icon">📹</div>CCTV</div>
+            <div class="sd-node sd-center"><div class="sd-icon">🛡️</div>SECURE&trade; Core</div>
+            <div class="sd-node"><div class="sd-icon">🔒</div>Access</div>
+            <div class="sd-node"><div class="sd-icon">⚡</div>Alarm</div>
+            <div class="sd-node sd-center"><div class="sd-icon">📊</div>Dashboard</div>
+            <div class="sd-node"><div class="sd-icon">🚗</div>ANPR</div>
+            <div class="sd-node"><div class="sd-icon">👁️</div>Analytics</div>
+            <div class="sd-node sd-center"><div class="sd-icon">🔗</div>Integration</div>
+            <div class="sd-node"><div class="sd-icon">📱</div>Mobile</div>
+          </div>
+          <div class="secure-badge">SECURE&trade; Framework</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ② PAIN / PROBLEM -->
+<section id="pain">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">The Challenge</span>
+      <h2>Why Most Security Setups Fall Short</h2>
+      <p>Facilities that buy security products without a system design end up with isolated devices, blind spots, and zero accountability when incidents occur.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain-card">
+        <div class="pain-icon">🔌</div>
+        <h3>Isolated, Incompatible Systems</h3>
+        <p>Cameras that can't talk to access control. Alarms that don't trigger video review. Siloed data that makes investigations impossible.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📉</div>
+        <h3>Reactive, Not Preventive</h3>
+        <p>Most installations are designed for recording &mdash; not detection. By the time an incident is reviewed, the damage is done and evidence is incomplete.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">🔧</div>
+        <h3>No System Ownership After Handover</h3>
+        <p>Hardware vendors disappear after installation. No SLA, no maintenance schedule, no one accountable when cameras go offline at night.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📐</div>
+        <h3>Wrong Spec for the Property Type</h3>
+        <p>A condominium's needs are fundamentally different from a logistics hub. Generic installations miss critical coverage zones unique to your facility.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📊</div>
+        <h3>No Visibility, No Control</h3>
+        <p>Security managers have no real-time view of system health. Faults are discovered only after an incident exposes the gap &mdash; often months later.</p>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📋</div>
+        <h3>Compliance &amp; Audit Risk</h3>
+        <p>Institutions and industrial sites face regulatory scrutiny. Systems without audit logs, access reports, or retention policies create legal exposure.</p>
+      </div>
+    </div>
+    <div class="pain-quote">
+      "The question isn't whether you have cameras &mdash; it's whether your system can detect, respond, and prove what happened."
+    </div>
+  </div>
+</section>
+
+<!-- ③ FEATURED: INTEGRATED SYSTEMS -->
+<section id="integrated">
+  <div class="container">
+    <div class="featured-grid">
+      <div class="featured-text">
+        <span class="eyebrow">Our Approach</span>
+        <h2>Systems, Not Just Products</h2>
+        <p>Every Securevision installation begins with a site assessment and system design &mdash; not a product catalogue. We engineer the right combination of hardware, software, and processes for your specific property, risk profile, and operational needs.</p>
+        <p>This means your CCTV talks to your access control, your vehicle barrier is ANPR-integrated, and your security dashboard gives you real-time oversight across all systems.</p>
+        <ul class="feature-list">
+          <li>Single-source accountability &mdash; one vendor for design, supply, installation & maintenance</li>
+          <li>Layered security architecture across all entry points and risk zones</li>
+          <li>Scalable from single-site to multi-property enterprise deployments</li>
+          <li>Governed by our SECURE&trade; methodology for consistent outcomes</li>
+          <li>MAS TRM, BCA, and Singapore Police Force compliant configurations</li>
+        </ul>
+        <a href="#subsystems" class="btn btn-primary">Explore All Systems</a>
+      </div>
+      <div class="secure-framework-card">
+        <div class="framework-label">Securevision Methodology</div>
+        <div class="framework-title">SECURE&trade;</div>
+        <div class="framework-subtitle">Site-Engineered Controls for Unified Risk Elimination</div>
+        <div class="framework-steps">
+          <div class="framework-step">
+            <div class="step-letter">S</div>
+            <div class="step-content">
+              <div class="step-word">Survey & Site Assessment</div>
+              <div class="step-desc">Physical walkthrough, risk mapping, coverage planning</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <div class="step-letter">E</div>
+            <div class="step-content">
+              <div class="step-word">Engineer the System Design</div>
+              <div class="step-desc">Custom architecture for your property type and risk profile</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <div class="step-letter">C</div>
+            <div class="step-content">
+              <div class="step-word">Configure & Commission</div>
+              <div class="step-desc">Precise installation, integration testing, staff handover</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <div class="step-letter">U</div>
+            <div class="step-content">
+              <div class="step-word">Unify Subsystems</div>
+              <div class="step-desc">CCTV, access control, barriers, alarms &mdash; one coherent system</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <div class="step-letter">R</div>
+            <div class="step-content">
+              <div class="step-word">Review & Optimise</div>
+              <div class="step-desc">Quarterly health checks, firmware updates, coverage audits</div>
+            </div>
+          </div>
+          <div class="framework-step">
+            <div class="step-letter">E</div>
+            <div class="step-content">
+              <div class="step-word">Evolve & Scale</div>
+              <div class="step-desc">Add new sites, upgrade technology, expand as you grow</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ④ FOUR SUBSYSTEM GROUPS -->
+<section id="subsystems">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Product Categories</span>
+      <h2>Four Integrated Subsystem Groups</h2>
+      <p>Each group is a complete discipline &mdash; with its own technology stack, integration points, and specialist team. Together, they form a unified security infrastructure.</p>
+    </div>
+    <div class="subsystem-grid">
+
+      <!-- Surveillance -->
+      <div class="subsystem-card surveillance">
+        <div class="subsystem-icon">📹</div>
+        <h3>Surveillance &amp; Detection Systems</h3>
+        <p class="sub-desc">Full-spectrum visual monitoring with AI-powered analytics. From ultra-wide lobbies to narrow corridors and dark car parks &mdash; the right camera for every zone.</p>
+        <ul class="products-list">
+          <li>Fixed & PTZ IP Cameras (Hikvision, Dahua, Axis)</li>
+          <li>4K & Multi-sensor Panoramic Cameras</li>
+          <li>AI Behaviour & Intrusion Detection</li>
+          <li>Thermal & Low-Light Imaging Systems</li>
+          <li>NVR / DVR Storage Infrastructure</li>
+          <li>Video Management Software (VMS)</li>
+        </ul>
+        <a href="surveillance-systems.html" class="btn btn-surveillance btn-sm">Explore Surveillance &rarr;</a>
+      </div>
+
+      <!-- People Access -->
+      <div class="subsystem-card people">
+        <div class="subsystem-icon">🚪</div>
+        <h3>People Access Systems</h3>
+        <p class="sub-desc">Control who enters, where they go, and when &mdash; with a complete audit trail. Card, biometric, mobile credential, and visitor management integrated in one platform.</p>
+        <ul class="products-list">
+          <li>Flap, Tripod & Swing Turnstiles</li>
+          <li>Card Readers & Biometric Terminals</li>
+          <li>Electric Locks & Electromagnetic Locks</li>
+          <li>Visitor Management Systems</li>
+          <li>Intercom & Video Door Stations</li>
+          <li>Access Control Management Software</li>
+        </ul>
+        <a href="people-access.html" class="btn btn-people btn-sm">Explore People Access &rarr;</a>
+      </div>
+
+      <!-- Vehicle Access -->
+      <div class="subsystem-card vehicle">
+        <div class="subsystem-icon">🚗</div>
+        <h3>Vehicle Access Systems</h3>
+        <p class="sub-desc">ANPR-enabled, barrier-integrated vehicle management from entry to exit. Built for condominiums, commercial buildings, logistics hubs, and gated developments.</p>
+        <ul class="products-list">
+          <li>Boom Gates & Road Blockers</li>
+          <li>Automatic Number Plate Recognition (ANPR)</li>
+          <li>Tyre Killers & Bollards</li>
+          <li>GantryGo&trade; Intercom & UHF Systems</li>
+          <li>Parking Guidance & Management</li>
+          <li>Vehicle Access Management Software</li>
+        </ul>
+        <a href="vehicle-access.html" class="btn btn-vehicle btn-sm">Explore Vehicle Access &rarr;</a>
+      </div>
+
+      <!-- Platform -->
+      <div class="subsystem-card platform">
+        <div class="subsystem-icon">📊</div>
+        <h3>Platform &amp; Integration</h3>
+        <p class="sub-desc">The intelligence layer that unifies all subsystems. Real-time dashboards, incident workflows, API integrations, and centralised management across multiple sites.</p>
+        <ul class="products-list">
+          <li>Centralised Security Management Platform</li>
+          <li>Real-time Incident & Alert Management</li>
+          <li>Multi-site Dashboard & Reporting</li>
+          <li>BMS & Building System Integration</li>
+          <li>API / Third-party System Connectors</li>
+          <li>Remote Monitoring & Health Alerts</li>
+        </ul>
+        <a href="platform-integration.html" class="btn btn-platform btn-sm">Explore Platform &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ⑤ SECURE CALLOUT -->
+<section id="secure-callout">
+  <div class="container">
+    <div class="secure-grid">
+      <div class="secure-diagram">
+        <div class="big-secure">SECURE&trade;</div>
+        <div class="big-secure-sub">Integrated System Framework</div>
+        <div class="secure-nodes">
+          <div class="secure-node">📹 Surveillance</div>
+          <div class="secure-node">🚪 People Access</div>
+          <div class="secure-node">🚗 Vehicle Access</div>
+          <div class="secure-node">📊 Platform</div>
+          <div class="secure-node">⚡ Alarms</div>
+          <div class="secure-node">🔗 BMS Integration</div>
+        </div>
+      </div>
+      <div class="secure-content">
+        <span class="eyebrow">Why Integration Matters</span>
+        <h2>Your Systems Should Work Together</h2>
+        <p>A camera that records is useful. A camera that triggers an access lockdown when it detects intrusion &mdash; while alerting your security team and logging the incident &mdash; is a security system.</p>
+        <p>SECURE&trade; is our methodology for designing this coherence into every project from day one.</p>
+        <ul class="secure-bullets">
+          <li><span class="bullet-icon"></span>Cameras integrate with access control for visual verification at every entry</li>
+          <li><span class="bullet-icon"></span>ANPR triggers boom gate release &mdash; no manual intervention required</li>
+          <li><span class="bullet-icon"></span>Alarm events generate automatic video clip and incident report</li>
+          <li><span class="bullet-icon"></span>Visitor check-in syncs with access credentials in real time</li>
+          <li><span class="bullet-icon"></span>Security dashboard gives one-screen oversight of all systems</li>
+          <li><span class="bullet-icon"></span>All events logged for audit, compliance, and incident investigation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑥ ROUTE BY PROPERTY TYPE -->
+<section id="property-routing">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Find Your Solution</span>
+      <h2>Security Systems by Property Type</h2>
+      <p>Each property category has unique risks, regulations, and resident expectations. Find your sector for tailored system recommendations.</p>
+    </div>
+    <div class="property-grid">
+      <a href="residential.html" class="property-card">
+        <div class="prop-icon">🏠</div>
+        <div class="prop-color" style="background:#38B000;"></div>
+        <h4>Private Homes</h4>
+        <div class="prop-link">View Solutions &rarr;</div>
+      </a>
+      <a href="condominiums.html" class="property-card">
+        <div class="prop-icon">🏢</div>
+        <div class="prop-color" style="background:#4361EE;"></div>
+        <h4>Condominiums</h4>
+        <div class="prop-link">View Solutions &rarr;</div>
+      </a>
+      <a href="commercial.html" class="property-card">
+        <div class="prop-icon">🏬</div>
+        <div class="prop-color" style="background:#FF6D00;"></div>
+        <h4>Commercial</h4>
+        <div class="prop-link">View Solutions &rarr;</div>
+      </a>
+      <a href="institutions.html" class="property-card">
+        <div class="prop-icon">🏛️</div>
+        <div class="prop-color" style="background:#0056b3;"></div>
+        <h4>Institutions</h4>
+        <div class="prop-link">View Solutions &rarr;</div>
+      </a>
+      <a href="industrial.html" class="property-card">
+        <div class="prop-icon">🏭</div>
+        <div class="prop-color" style="background:#7209B7;"></div>
+        <h4>Industrial</h4>
+        <div class="prop-link">View Solutions &rarr;</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ⑦ TRUST & CREDENTIALS -->
+<section id="trust">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Credentials</span>
+      <h2>Licensed, Certified, and Accountable</h2>
+      <p>Securevision operates with full regulatory compliance across all Singapore security licensing requirements.</p>
+    </div>
+    <div class="trust-row">
+      <div class="trust-badge">
+        <div class="badge-icon">🛡️</div>
+        <h4>Police License</h4>
+        <p>L/PS/000267/2023P</p>
+      </div>
+      <div class="trust-badge">
+        <div class="badge-icon">🏆</div>
+        <h4>bizSAFE Level 4</h4>
+        <p>Workplace Safety Certified</p>
+      </div>
+      <div class="trust-badge">
+        <div class="badge-icon">🏗️</div>
+        <h4>BCA Registered</h4>
+        <p>Building & Construction Authority</p>
+      </div>
+      <div class="trust-badge">
+        <div class="badge-icon">⭐</div>
+        <h4>19+ Years</h4>
+        <p>Established 2006</p>
+      </div>
+      <div class="trust-badge">
+        <div class="badge-icon">🔑</div>
+        <h4>Hikvision</h4>
+        <p>Authorised Partner</p>
+      </div>
+      <div class="trust-badge">
+        <div class="badge-icon">📹</div>
+        <h4>Dahua</h4>
+        <p>Authorised Reseller</p>
+      </div>
+    </div>
+    <div class="trust-stats">
+      <div class="stat-item">
+        <div class="stat-number">2,000+</div>
+        <div class="stat-label">Sites Protected</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">19+</div>
+        <div class="stat-label">Years in Singapore</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Integrated System Groups</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">5</div>
+        <div class="stat-label">Property Sectors Served</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑧ FINAL CTA -->
+<section id="final-cta">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Get Started</span>
+      <h2>Ready to Design Your System?</h2>
+    </div>
+    <div class="cta-grid">
+      <div class="cta-panel featured">
+        <div class="cta-icon">💬</div>
+        <h3>WhatsApp a Specialist</h3>
+        <p>Describe your property and we'll recommend the right system combination &mdash; usually within the same business day.</p>
+        <a href="https://wa.me/6593860466" class="btn btn-whatsapp">WhatsApp +65 9386 0466</a>
+      </div>
+      <div class="cta-panel">
+        <div class="cta-icon">📋</div>
+        <h3>Request a Site Assessment</h3>
+        <p>Our engineers will visit your property, map risk zones, and deliver a detailed system design proposal at no obligation.</p>
+        <a href="contact.html" class="btn btn-primary">Book a Site Visit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-name">Secure<span>vision</span></div>
+        <p>Singapore's integrated security systems specialist since 2006. Licensed, certified, and trusted by 2,000+ sites across every property sector.</p>
+        <p>📞 +65 9386 0466 &nbsp;|&nbsp; ✉️ <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ff96919990bf8c9a9c8a8d9a89968c969091d19c9092d18c98">[email&#160;protected]</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="residential.html">Private Homes</a></li>
+          <li><a href="condominiums.html">Condominiums</a></li>
+          <li><a href="commercial.html">Commercial</a></li>
+          <li><a href="institutions.html">Institutions</a></li>
+          <li><a href="industrial.html">Industrial</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Technology</h4>
+        <ul>
+          <li><a href="surveillance-systems.html">Surveillance</a></li>
+          <li><a href="people-access.html">People Access</a></li>
+          <li><a href="vehicle-access.html">Vehicle Access</a></li>
+          <li><a href="platform-integration.html">Platform</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="awards-certifications.html">Awards</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://wa.me/6593860466">WhatsApp</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Securevision Pte Ltd &nbsp;|&nbsp; Police License L/PS/000
