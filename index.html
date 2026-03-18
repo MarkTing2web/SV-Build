@@ -81,8 +81,7 @@
 
         /* MEGA MENUS */
         .mega-menu {
-            position: absolute; top: 100%; left: 50%;
-            transform: translateX(-50%);
+            position: absolute; top: 100%; left: 0;
             background: #fff;
             border: 1px solid var(--border-light);
             border-radius: 12px;
@@ -356,8 +355,7 @@
 
         /* Simple dropdown (About, Contact) */
         .simple-dropdown {
-            position: absolute; top: 100%; left: 50%;
-            transform: translateX(-50%);
+            position: absolute; top: 100%; left: 0;
             background: #fff; border: 1px solid var(--border-light);
             border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.12);
             padding: 8px; min-width: 180px;
@@ -755,22 +753,24 @@
                 font-size: 18px !important; /* Reduced from 22px */
             }
             /* Center the hamburger menu button */
+            .mobile-toggle { 
+                display: flex;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1001;
+            }
+            /* Style for nav-right to hold search on the right */
             .nav-right {
                 display: flex;
                 align-items: center;
                 gap: 8px;
-                order: 3; /* Force to right */
+                margin-left: auto;
             }
-            /* Hide desktop menu */
-            .nav-menu { display: none; }
-            /* Show mobile toggle */
-            .mobile-toggle { 
-                display: flex;
-                order: 2; /* Menu in center-right */
-            }
-            /* Search button on far right */
+            /* Search button on right */
             .search-btn {
-                order: 3;
+                display: flex;
             }
             /* Hide desktop-only items */
             .desktop-only { display: none; }
@@ -841,7 +841,7 @@
 .nav-logo-link{display:flex;align-items:center;text-decoration:none}
 .nav-logo-img{height:40px;width:auto;display:block}
 .nav-menu{display:flex;list-style:none;gap:2px;margin:0;padding:0;align-items:center}
-.nav-item{position:static}
+.nav-item{position:relative}
 .nav-link{color:rgba(255,255,255,.8);text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;height:68px;padding:0 13px;white-space:nowrap;transition:.2s}
 .nav-link:hover,.nav-link.active{color:#fff}
 .has-dropdown::after{content:" \25be";font-size:9px;opacity:.5;margin-left:4px}
@@ -852,7 +852,7 @@
 .search-btn:hover{color:#fff}
 .mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:8px}
 
-.mega-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #E8EAED;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.15);padding:24px;display:none;z-index:200;width:max-content;max-width:calc(100vw - 48px);overflow-x:auto}
+.mega-menu{position:absolute;top:100%;left:0;background:#fff;border:1px solid #E8EAED;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.15);padding:24px;display:none;z-index:200;width:max-content;max-width:calc(100vw - 48px);overflow-x:auto}
 .nav-item:hover>.mega-menu{display:grid;opacity:1}
 
 .mega-menu-solutions{width:820px;grid-template-columns:1fr 1.6fr;gap:24px}
@@ -1050,6 +1050,13 @@ a.mobile-menu-item:hover{color:#fff}
       </div>
     </li>
   </ul>
+  <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
   <div class="nav-right">
     <button class="search-btn" aria-label="Search">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1057,7 +1064,6 @@ a.mobile-menu-item:hover{color:#fff}
         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
       </svg>
     </button>
-    <button class="mobile-toggle" onclick="toggleMobileMenu()">â˜°</button>
   </div>
 </div>
 <div class="mobile-menu" id="mobileMenu">

@@ -144,7 +144,7 @@
 </style>
 <style id="sv-nav-css">
 .main-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(14,26,43,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08);height:68px;font-family:'Inter',sans-serif}
-.nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+.nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;position:relative}
 .nav-logo-link{display:flex;align-items:center;text-decoration:none}
 .nav-logo-img{height:40px;width:auto;display:block}
 .nav-menu{display:flex;list-style:none;gap:2px;margin:0;padding:0}
@@ -157,13 +157,13 @@
 .mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:8px}
 .mega-menu{position:absolute;top:100%;background:#fff;border:1px solid #E8EAED;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.15);padding:24px;display:none;z-index:200}
 .nav-item:hover>.mega-menu{display:grid;opacity:1}
-.mega-menu-solutions{width:820px;grid-template-columns:1fr 1.6fr;gap:24px;left:50%;transform:translateX(-50%)}
-.mega-menu-technology{width:960px;grid-template-columns:1fr 1.3fr 1.3fr;gap:0;left:50%;transform:translateX(-50%)}
+.mega-menu-solutions{width:820px;grid-template-columns:1fr 1.6fr;gap:24px;left:0;transform:none}
+.mega-menu-technology{width:960px;grid-template-columns:1fr 1.3fr 1.3fr;gap:0;left:0;transform:none}
 .mega-menu-technology .mega-guidance{padding-right:20px;border-right:1px solid #E8EAED}
 .mega-menu-technology .mega-links-col{padding:0 20px;border-right:1px solid #E8EAED}
 .mega-brands-col{padding-left:20px}
-.mega-menu-portfolio{width:820px;grid-template-columns:1fr 1fr 1fr;gap:20px;left:50%;transform:translateX(-50%)}
-.mega-menu-resources{width:880px;grid-template-columns:repeat(4,1fr);gap:16px;left:50%;transform:translateX(-50%)}
+.mega-menu-portfolio{width:820px;grid-template-columns:1fr 1fr 1fr;gap:20px;left:0;transform:none}
+.mega-menu-resources{width:880px;grid-template-columns:repeat(4,1fr);gap:16px;left:0;transform:none}
 .mega-menu-insights{width:720px;grid-template-columns:1fr 1.6fr;gap:24px;right:0}
 .mega-menu-about{width:320px;right:0;display:block!important;padding:20px}
 .nav-item:hover>.mega-menu-about{display:block!important}
@@ -239,7 +239,7 @@ a.mobile-menu-item:hover{color:#fff}
 .mobile-submenu{display:none;padding-left:14px;margin:6px 0 2px}
 .mobile-submenu a{display:block;padding:7px 0;color:rgba(255,255,255,.6);text-decoration:none;font-size:13px}
 .mobile-submenu a:hover{color:#fff}
-@media(max-width:768px){.nav-menu{display:none}.mobile-toggle{display:block}.nav-logo-img{height:32px}}
+.nav-container{position:relative}@media(max-width:768px){.nav-menu{display:none}.mobile-toggle{display:flex;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1001}.nav-logo-img{height:32px}.nav-cta-btn,.nav-right{margin-left:auto;position:relative;z-index:1002}}
 </style>
 </head>
 <body>
@@ -249,6 +249,7 @@ a.mobile-menu-item:hover{color:#fff}
     <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision" class="nav-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
     <span style="display:none;font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff">Securevision</span>
   </a>
+  <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
   <ul class="nav-menu">
     <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
     <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
@@ -285,7 +286,7 @@ a.mobile-menu-item:hover{color:#fff}
     </li>
   </ul>
   <a href="https://wa.me/6593860466" class="nav-cta-btn">WhatsApp Us</a>
-  <button class="mobile-toggle" onclick="toggleMobileMenu()">☰</button>
+  
 </div>
 <div class="mobile-menu" id="mobileMenu">
   <a href="index.html" class="mobile-menu-item">Home</a>

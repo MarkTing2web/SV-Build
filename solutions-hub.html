@@ -85,8 +85,7 @@
         .mega-menu {
             position: absolute;
             top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0; transform: none;
             background: white;
             border: 1px solid var(--border-light);
             border-radius: 8px;
@@ -539,7 +538,7 @@
     
         /* ── UNIVERSAL NAV (injected) ── */
         .main-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(14,26,43,.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08);height:68px}
-        .nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px}
+        .nav-container{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:68px;position:relative}
         .nav-logo-link{display:flex;align-items:center;text-decoration:none}
         .nav-logo-img{height:40px;width:auto;display:block}
         .nav-logo-text{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff;text-decoration:none}
@@ -642,11 +641,7 @@
         .mobile-submenu{display:none;padding-left:16px;margin:8px 0 4px}
         .mobile-submenu a{display:block;padding:8px 0;color:rgba(255,255,255,.6);text-decoration:none;font-size:14px}
         .mobile-submenu a:hover{color:#fff}
-        @media(max-width:768px){
-            .nav-menu{display:none}
-            .mobile-toggle{display:block}
-            .nav-logo-img{height:32px}
-        }
+        @media (max-width: 768px) { .nav-menu{display:none}.mobile-toggle{display:flex;position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);z-index:1001}.nav-logo-img{height:32px}.nav-cta-btn,.nav-right{margin-left:auto;position:relative;z-index:1002} }
                 /* Floating WhatsApp */
         .floating-wa {
             position: fixed;
@@ -677,7 +672,7 @@
 .nav-logo-link{display:flex;align-items:center;text-decoration:none}
 .nav-logo-img{height:40px;width:auto;display:block}
 .nav-menu{display:flex;list-style:none;gap:2px;margin:0;padding:0;align-items:center}
-.nav-item{position:static}
+.nav-item{position:relative}
 .nav-link{color:rgba(255,255,255,.8);text-decoration:none;font-size:14px;font-weight:500;display:flex;align-items:center;height:68px;padding:0 13px;white-space:nowrap;transition:.2s}
 .nav-link:hover,.nav-link.active{color:#fff}
 .has-dropdown::after{content:" ▾";font-size:9px;opacity:.5;margin-left:4px}
@@ -688,7 +683,7 @@
 .search-btn:hover{color:#fff}
 .mobile-toggle{display:none;background:none;border:none;color:#fff;font-size:22px;cursor:pointer;padding:8px}
 
-.mega-menu{position:absolute;top:100%;left:50%;transform:translateX(-50%);background:#fff;border:1px solid #E8EAED;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.15);padding:24px;display:none;z-index:200;width:max-content;max-width:calc(100vw - 48px);overflow-x:auto}
+.mega-menu{position:absolute;top:100%;left:0;transform:none;background:#fff;border:1px solid #E8EAED;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.15);padding:24px;display:none;z-index:200;width:max-content;max-width:calc(100vw - 48px);overflow-x:auto}
 .nav-item:hover>.mega-menu{display:grid;opacity:1}
 
 .mega-menu-solutions{width:820px;grid-template-columns:1fr 1.6fr;gap:24px}
@@ -804,6 +799,7 @@ a.mobile-menu-item:hover{color:#fff}
     <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision" class="nav-logo-img" style="height: 38px;">
     <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#ffffff;letter-spacing:0.5px;">Securevision</span>
   </a>
+  <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
   <ul class="nav-menu">
     <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
       <div class="mega-menu mega-menu-solutions">
@@ -868,7 +864,7 @@ a.mobile-menu-item:hover{color:#fff}
       </svg>
     </button>
     <a href="https://wa.me/6593860466" class="nav-cta-btn">WhatsApp Us</a>
-    <button class="mobile-toggle" onclick="toggleMobileMenu()">☰</button>
+    
   </div>
 </div>
 <div class="mobile-menu" id="mobileMenu">
