@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Gateway | Securevision Singapore</title>
+    <meta name="description" content="Connect with Securevision for expert security advice, formal proposals, or urgent support.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sv-shared.css">
+    
+    <!-- Supabase JS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <style>
+        .contact-gateway-page { padding: 160px 0 100px; background: #fff; }
+        .gateway-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 80px; }
+        .gateway-card { 
+            background: #F8F9FA; border: 1px solid #E8EAED; border-radius: 12px; padding: 40px; text-align: center;
+            transition: 0.3s; display: flex; flex-direction: column; align-items: center;
+        }
+        .gateway-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-color: #0056b3; }
+        .gateway-card .icon { font-size: 40px; margin-bottom: 24px; }
+        .gateway-card h3 { font-family: 'Montserrat', sans-serif; font-size: 20px; margin-bottom: 12px; color: #1B1F23; }
+        .gateway-card p { font-family: 'Inter', sans-serif; font-size: 14px; color: #5F6368; line-height: 1.6; margin-bottom: 24px; flex-grow: 1; }
+        
+        .proposal-form-wrap { max-width: 900px; margin: 0 auto; background: #fff; border: 1px solid #E8EAED; border-radius: 16px; padding: 48px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .proposal-form { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group.full-width { grid-column: span 2; }
+        .form-group label { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #1B1F23; }
+        .form-group input, .form-group select, .form-group textarea { 
+            font-family: 'Inter', sans-serif; padding: 12px 16px; border: 1px solid #D1D5DB; border-radius: 8px; font-size: 15px; outline: none; transition: 0.2s;
+        }
+        .form-section { grid-column: span 2; margin-top: 32px; border-top: 1px solid #E8EAED; padding-top: 32px; }
+        .form-section:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
+        .form-section h3 { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; color: #1B1F23; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; }
+        .form-section h3::before { content: ''; display: inline-block; width: 4px; height: 16px; background: #25D366; border-radius: 2px; }
+        
+        .checkbox-group { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 8px; }
+        .checkbox-item { display: flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 14px; color: #1B1F23; cursor: pointer; }
+        .checkbox-item input { width: 18px; height: 18px; cursor: pointer; }
+
+        @media (max-width: 992px) {
+            .gateway-grid { grid-template-columns: 1fr; max-width: 500px; margin-left: auto; margin-right: auto; }
+            .checkbox-group { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .contact-gateway-page { padding-top: 120px; }
+            .proposal-form { grid-template-columns: 1fr; }
+            .form-group.full-width { grid-column: span 1; }
+            .btn-submit { grid-column: span 1; }
+            .proposal-form-wrap { padding: 32px 24px; }
+            .checkbox-group { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body style="padding-top:68px">
+
+<nav class="main-nav">
+<div class="nav-container">
+  <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
+    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
+    <span class="wordmark nav-wordmark">SECUREVISION</span>
+  </a>
+  <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
+      <div class="simple-dropdown">
+        <a href="residential.html">Private Homes</a>
+        <a href="condominiums.html">Condominiums</a>
+        <a href="commercial.html">Commercial &amp; Retail</a>
+        <a href="institutions.html">Institutions</a>
+        <a href="industrial.html">Industrial &amp; Logistics</a>
+        <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="systems.html" class="nav-link has-dropdown">Systems</a>
+      <div class="simple-dropdown">
+        <a href="surveillance-systems.html">Surveillance &amp; Detection</a>
+        <a href="people-access.html">People Access</a>
+        <a href="vehicle-access.html">Vehicle Access</a>
+        <a href="platform-integration.html">Platform &amp; Integration</a>
+        <a href="systems.html"><strong>&rarr; View All Systems</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="brands.html" class="nav-link has-dropdown">Brands</a>
+      <div class="simple-dropdown">
+        <a href="hikvision-singapore.html">Hikvision</a>
+        <a href="hanwha-samsung-singapore.html">Hanwha</a>
+        <a href="ajax-alarm-singapore.html">AJAX</a>
+        <a href="zkteco-singapore.html">ZKTeco</a>
+        <a href="akuvox-singapore.html">Akuvox</a>
+        <a href="faac-singapore.html">FAAC</a>
+        <a href="brands.html"><strong>&rarr; View All Brands</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
+      <div class="simple-dropdown">
+        <a href="portfolio.html">Private Homes</a>
+        <a href="portfolio.html">Condominiums</a>
+        <a href="commercial.html">Commercial &amp; Retail</a>
+        <a href="institutions.html">Institutions</a>
+        <a href="industrial.html">Industrial &amp; Logistics</a>
+        <a href="portfolio.html"><strong>&rarr; View All Portfolio</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
+      <div class="simple-dropdown">
+        <a href="insights.html?cat=planning">Security Planning</a>
+        <a href="insights.html?cat=technology">Technology</a>
+        <a href="insights.html?cat=casestudy">Case Studies</a>
+        <a href="insights.html?cat=industry">SG Industry</a>
+        <a href="insights.html"><strong>&rarr; All Articles</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
+      <div class="simple-dropdown">
+        <a href="about.html">Our Story</a>
+        <a href="about.html#founder">Founder&rsquo;s Story</a>
+        <a href="awards-certifications.html">Awards &amp; Certifications</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  </div>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a><a href="residential.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a href="commercial.html">Commercial</a><a href="institutions.html">Institutions</a><a href="industrial.html">Industrial</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu" id="sysSub"><a href="systems.html"><strong>&rarr; View All Systems</strong></a><a href="surveillance-systems.html">Surveillance</a><a href="people-access.html">People Access</a><a href="vehicle-access.html">Vehicle Access</a><a href="platform-integration.html">Platform</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;<div class="mobile-submenu" id="brdSub"><a href="brands.html"><strong>&rarr; View All Brands</strong></a><a href="hikvision-singapore.html">Hikvision</a><a href="ajax-alarm-singapore.html">AJAX</a><a href="zkteco-singapore.html">ZKTeco</a><a href="akuvox-singapore.html">Akuvox</a><a href="faac-singapore.html">FAAC</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;<div class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>&rarr; View All Portfolio</strong></a><a href="portfolio.html">Private Homes</a><a href="portfolio.html">Condominiums</a><a href="portfolio.html">Commercial &amp; Retail</a><a href="portfolio.html">Institutions</a><a href="portfolio.html">Industrial</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights &#9662;<div class="mobile-submenu" id="insSub"><a href="insights.html"><strong>&rarr; All Articles</strong></a><a href="insights.html?cat=planning">Security Planning</a><a href="insights.html?cat=technology">Technology</a><a href="insights.html?cat=casestudy">Case Studies</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a><a href="contact.html">Contact Us</a></div></div>
+</div>
+</nav>
+
+<main class="contact-gateway-page">
+    <div class="container">
+        <div class="section-header" style="text-align: center; margin-bottom: 64px;">
+            <span class="eyebrow" style="color:#0056b3; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;">Connect With Us</span>
+            <h1 style="font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 700; margin-top: 12px; color: #1B1F23;">The Contact Gateway</h1>
+            <p style="font-family: 'Inter', sans-serif; color: #5F6368; max-width: 600px; margin: 20px auto 0; font-size: 17px; line-height: 1.6;">How can we help you today? Choose the path that matches your needs for the fastest response.</p>
+        </div>
+
+        <div class="gateway-grid">
+            <!-- Box 1: Direct Chat -->
+            <div class="gateway-card">
+                <div class="icon" style="background: rgba(37, 211, 102, 0.1); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                </div>
+                <h3>Direct Chat</h3>
+                <p>Best for residential quotes and quick technical questions.</p>
+                <a href="https://wa.me/6593860466" target="_blank" rel="noopener" class="btn btn-primary" style="background:#25D366; border-color:#25D366; width:100%;">Chat on WhatsApp</a>
+            </div>
+
+            <!-- Box 2: Proposal Request -->
+            <div class="gateway-card">
+                <div class="icon" style="background: rgba(37, 211, 102, 0.1); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                </div>
+                <h3>Proposal Request</h3>
+                <p>Best for formal tenders, MCST requirements, and detailed system designs.</p>
+                <a href="#proposal-form-wrap" class="btn btn-primary btn-proposal" style="width:100%;" onclick="document.getElementById('proposal-form-wrap').scrollIntoView({behavior:'smooth'}); return false;">Request Proposal</a>
+            </div>
+
+            <!-- Box 3: Priority Hotline -->
+            <div class="gateway-card">
+                <div class="icon" style="background: rgba(248, 113, 113, 0.1); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"></path><path d="M3 22l18-18"></path><path d="M10.5 14.5c2.23 2.23 5.4 3.03 8.35 2.1l1.75 3.15c.14.24.06.55-.18.69l-3.15 1.75c-2.95.93-6.12.13-8.35-2.1l-1.42 1.42c-.2.2-.52.2-.72 0l-3.18-3.18c-.2-.2-.2-.52 0-.72l1.42-1.42c-2.23-2.23-3.03-5.4-2.1-8.35L3.3 2.55C3.16 2.31 3.24 2 3.48 1.86l3.15-1.75c2.95-.93 6.12-.13 8.35 2.1l1.42-1.42c.2-.2.52-.2.72 0l3.18 3.18c.2.2.2.52 0 .72l-1.42 1.42z"></path></svg>
+                </div>
+                <h3>Priority Hotline</h3>
+                <p>Immediate help for emergencies or critical system failures.</p>
+                <a href="tel:+6593860466" class="btn btn-primary btn-hotline" style="width:100%;">Call Specialist Now</a>
+            </div>
+        </div>
+
+        <!-- Routing Note -->
+        <div style="text-align: center; margin-top: -40px; margin-bottom: 80px;">
+            <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: #5F6368; font-style: italic;">Not sure? Any channel will get you to an expert. We'll route you internally.</p>
+        </div>
+
+        <!-- Proposal Form -->
+        <div id="proposal-form-wrap" class="proposal-form-wrap">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2 style="font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 700; color: #1B1F23;">Request a Technical Proposal</h2>
+                <p style="font-family: 'Inter', sans-serif; color: #5F6368; font-size: 15px; margin-top: 10px;">Our projects team will review your requirements and respond within 24 hours.</p>
+            </div>
+            <form id="proposalForm" class="proposal-form" action="contact-success.html" method="POST" onsubmit="return handleProposalSubmit(event)">
+                <!-- Honeypot -->
+                <input type="text" name="sv_human_verify" style="display:none;">
+
+                <!-- Section 1: Contact -->
+                <div class="form-section">
+                    <h3>Contact</h3>
+                </div>
+                
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Full Name">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+65 .... ....">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="name@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="company">Company Name (If applicable)</label>
+                    <input type="text" id="company" name="company" placeholder="e.g. Acme Corp / MCST ....">
+                </div>
+
+                <!-- Section 2: Property -->
+                <div class="form-section">
+                    <h3>Property</h3>
+                </div>
+
+                <div class="form-group">
+                    <label for="prop_type">Property Type</label>
+                    <select id="prop_type" name="prop_type" required>
+                        <option value="" disabled selected>Select property type...</option>
+                        <option value="Private Home">Private Home</option>
+                        <option value="Condominium">Condominium</option>
+                        <option value="Commercial/Retail">Commercial / Retail</option>
+                        <option value="Industrial">Industrial</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="project_nature">Project Nature</label>
+                    <select id="project_nature" name="project_nature" required>
+                        <option value="" disabled selected>Select project nature...</option>
+                        <option value="New Installation">New Installation</option>
+                        <option value="System Upgrade">System Upgrade</option>
+                        <option value="Repair/Maintenance">Repair / Maintenance</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Location (Area/Postal Code)</label>
+                    <input type="text" id="location" name="location" required placeholder="e.g. Sentosa Cove / 123456">
+                </div>
+
+                <div class="form-group">
+                    <label for="timeline">Estimated Timeline</label>
+                    <select id="timeline" name="timeline" required>
+                        <option value="" disabled selected>Select timeline...</option>
+                        <option value="Urgent">Urgent</option>
+                        <option value="1-3 Months">1-3 Months</option>
+                        <option value="Planning/Researching">Planning / Researching</option>
+                    </select>
+                </div>
+
+                <!-- Section 3: Systems -->
+                <div class="form-section">
+                    <h3>Systems</h3>
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Primary Security Concerns (Select at least one)</label>
+                    <div class="checkbox-group" id="systemsCheckboxGroup">
+                        <label class="checkbox-item"><input type="checkbox" name="interests" value="Alarms"> Alarms</label>
+                        <label class="checkbox-item"><input type="checkbox" name="interests" value="CCTV"> CCTV</label>
+                        <label class="checkbox-item"><input type="checkbox" name="interests" value="Access"> Access</label>
+                        <label class="checkbox-item"><input type="checkbox" name="interests" value="Intercom"> Intercom</label>
+                        <label class="checkbox-item"><input type="checkbox" name="interests" value="Autogate"> Autogate</label>
+                        <label class="checkbox-item"><input type="checkbox" name="interests" value="IP Phone"> IP Phone</label>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="budget">Estimated Investment Range (Optional)</label>
+                    <select id="budget" name="budget">
+                        <option value="" selected>Select your estimated range...</option>
+                        <option value="Under $3,000">Under $3,000 (Typical for small residential/repairs)</option>
+                        <option value="$3,000 – $10,000">$3,000 – $10,000 (Typical for landed homes/small offices)</option>
+                        <option value="$10,000 – $50,000">$10,000 – $50,000 (Typical for MCST upgrades/commercial)</option>
+                        <option value="Above $50,000">Above $50,000 (Industrial/Large-scale integration)</option>
+                        <option value="Advice">I'm looking for professional advice on budgeting.</option>
+                    </select>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="site_details">Tell us about your site</label>
+                    <textarea id="site_details" name="site_details" rows="5" required placeholder="Describe your site, security goals, or any specific pain points."></textarea>
+                </div>
+
+                <div class="form-group full-width" style="text-align: center; margin-top: 48px;">
+                    <button type="submit" class="btn-submit" style="width: auto; padding: 20px 60px; font-size: 18px; display: inline-flex; align-items: center; gap: 12px; margin: 0 auto;">
+                        <span>Submit Proposal Request</span>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer class="site-footer" style="background:#0E1A2B; padding:80px 0 30px; border-top:1px solid rgba(255,255,255,.05);">
+    <div class="footer-container">
+        <div class="footer-grid" style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1.5fr; gap:40px;">
+            <div class="footer-brand">
+                <div class="footer-logo-wrap" style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+                    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision" style="height:36px; display:block;">
+                    <span class="wordmark footer-wordmark" style="color:#fff; font-size:22px; font-weight:700;">Securevision</span>
+                </div>
+                <p style="color:rgba(255,255,255,.6); font-size:13px; line-height:1.6; margin-bottom:20px;">Your partner in building smart, secure, and connected communities — powered by intelligent security systems since 2006.</p>
+                <div class="f-socials" style="display:flex; gap:12px;">
+                    <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" style="color:rgba(255,255,255,.6);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" style="color:rgba(255,255,255,.6);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    <a href="https://wa.me/6593860466" target="_blank" rel="noopener" style="color:rgba(255,255,255,.6);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Solutions</h4>
+                <ul style="list-style:none; padding:0; margin:0;">
+                    <li style="margin-bottom:10px;"><a href="residential.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Private Homes</a></li>
+                    <li style="margin-bottom:10px;"><a href="condominiums.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Condominiums</a></li>
+                    <li style="margin-bottom:10px;"><a href="commercial.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Commercial &amp; Retail</a></li>
+                    <li style="margin-bottom:10px;"><a href="institutions.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Institutions</a></li>
+                    <li style="margin-bottom:10px;"><a href="industrial.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Industrial &amp; Logistics</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Systems</h4>
+                <ul style="list-style:none; padding:0; margin:0;">
+                    <li style="margin-bottom:10px;"><a href="surveillance-systems.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Surveillance &amp; Detection</a></li>
+                    <li style="margin-bottom:10px;"><a href="people-access.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">People Access</a></li>
+                    <li style="margin-bottom:10px;"><a href="vehicle-access.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Vehicle Access</a></li>
+                    <li style="margin-bottom:10px;"><a href="platform-integration.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Platform &amp; Integration</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Company</h4>
+                <ul style="list-style:none; padding:0; margin:0;">
+                    <li style="margin-bottom:10px;"><a href="about.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Our Story</a></li>
+                    <li style="margin-bottom:10px;"><a href="awards-certifications.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Awards &amp; Certifications</a></li>
+                    <li style="margin-bottom:10px;"><a href="portfolio.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Project Portfolio</a></li>
+                    <li style="margin-bottom:10px;"><a href="insights.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Industry Insights</a></li>
+                    <li style="margin-bottom:10px;"><a href="contact.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Get In Touch</h4>
+                <div style="margin-bottom:15px; display:flex; gap:10px; align-items:flex-start;">
+                    <span style="font-size:16px;">&#128172;</span>
+                    <div><strong style="display:block; color:#fff; font-size:13px;">WhatsApp</strong><a href="https://wa.me/6593860466" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">WhatsApp Us</a></div>
+                </div>
+                <div style="margin-bottom:15px; display:flex; gap:10px; align-items:flex-start;">
+                    <span style="font-size:16px;">&#128222;</span>
+                    <div><strong style="display:block; color:#fff; font-size:13px;">Office</strong><a href="tel:+6562864796" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">+65 6286 4796</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom" style="margin-top:60px; padding-top:24px; border-top:1px solid rgba(255,255,255,.08); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px;">
+            <p style="color:rgba(255,255,255,.4); font-size:11px; margin:0;">&copy; <span id="current-year">2026</span> Securevision Pte Ltd &middot; Police License L/PS/000267/2023P &middot; bizSAFE Level 3 &middot; BCA Registered</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // --- SUPABASE CONFIGURATION ---
+    const SUPABASE_URL = 'https://ckrtlrxopltjpfkkywhf.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_uyPaCF6vbR7JlyDkrm6u3w_L75xmokg';
+    
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    function toggleMobileMenu() {
+        document.getElementById('mobileMenu').classList.toggle('active');
+    }
+    function toggleSubmenu(id) {
+        const sub = document.getElementById(id);
+        const isOpen = sub.style.display === 'block';
+        document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
+        if (!isOpen) sub.style.display = 'block';
+    }
+
+    async function handleProposalSubmit(event) {
+        event.preventDefault();
+        const form = event.target;
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        
+        const honeypot = form.querySelector('input[name="sv_human_verify"]').value;
+        if (honeypot !== "") return false;
+
+        const selectedSystems = Array.from(form.querySelectorAll('input[name="interests"]:checked')).map(cb => cb.value);
+        if (selectedSystems.length === 0) {
+            alert("Please select at least one system interest under the 'Systems' section.");
+            return false;
+        }
+
+        // --- SUBMIT TO SUPABASE WITH 10s TIMEOUT ---
+        try {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = "<span>Sending Request...</span>";
+
+            // Timeout promise
+            const timeoutPromise = new Promise((_, reject) => 
+                setTimeout(() => reject(new Error('timeout')), 10000)
+            );
+
+            // Supabase insert promise
+            const insertPromise = supabaseClient
+                .from('proposal_requests')
+                .insert([{
+                    name: form.name.value,
+                    phone: form.phone.value,
+                    email: form.email.value,
+                    company_name: form.company.value,
+                    property_type: form.prop_type.value,
+                    project_nature: form.project_nature.value,
+                    location: form.location.value,
+                    timeline: form.timeline.value,
+                    systems: selectedSystems,
+                    budget: form.budget.value,
+                    site_details: form.site_details.value
+                }]);
+
+            // Race the insert against the timeout
+            const { error } = await Promise.race([insertPromise, timeoutPromise]);
+
+            if (error) throw error;
+
+            // Redirect on success
+            window.location.href = "contact-success.html";
+
+        } catch (err) {
+            console.error('Error submitting proposal:', err.message);
+            const msg = (err.message === 'timeout') 
+                ? "Sorry, the connection is taking longer than expected." 
+                : "Sorry, there was an unknown error sending your request.";
+            alert(`${msg}\n\nPlease try again or feel free to contact us over WhatsApp for an immediate response.`);
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        }
+        
+        return false;
+    }
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

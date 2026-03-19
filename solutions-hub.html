@@ -3,1118 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security Solutions by Property Type | Securevision</title>
+    <title>Security Solutions by Property Type | Securevision Singapore</title>
     <meta name="description" content="Securevision provides integrated security systems engineered for Singapore's homes, condominiums, and businesses. Authorised installers of 20 global brands.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="sv-shared.css">
-    
     <style>
-        /* COLOR SYSTEM */
-        :root {
-            --primary-blue: #0056b3;
-            --dark-blue: #003d82;
-            --accent-green: #25d366;
-            --text-dark: #1a1a1a;
-            --text-gray: #333333;
-            --text-light: #64748b;
-            --bg-light: #f8fafc;
-            --white: #ffffff;
-            --border-light: #e2e8f0;
-        }
-
-        * { box-sizing: border-box; }
-        body { margin: 0; font-family: 'Inter', sans-serif; color: var(--text-dark); line-height: 1.6; }
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 600; margin: 0; }
-    <link rel="stylesheet" href="sv-shared.css">
-    
-    <style>
-        /* COLOR SYSTEM */
-        :root {
-            --primary-blue: #0056b3;
-            --dark-blue: #003d82;
-            --accent-green: #25d366;
-            --text-dark: #1a1a1a;
-            --text-gray: #333333;
-            --text-light: #64748b;
-            --bg-light: #f8fafc;
-            --white: #ffffff;
-            --border-light: #e2e8f0;
-        }
-
-        * { box-sizing: border-box; }
-        body { margin: 0; font-family: 'Inter', sans-serif; color: var(--text-dark); line-height: 1.6; }
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 600; margin: 0; }
-        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-        .btn { font-family: 'Montserrat', sans-serif; font-weight: 600; padding: 14px 32px; border-radius: 4px; text-decoration: none; font-size: 14px; transition: 0.3s; display: inline-block; cursor: pointer; }
-
-        /* ============================================
-           NAVIGATION WITH MEGA MENU
-        ============================================ */
-        /* Header and Footer styles moved to sv-shared.css */
-
-        /* ============================================
-           HERO SECTION
-        ============================================ */
-        .hero {
-            background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
-            color: white;
-            padding: 100px 0 80px;
-            text-align: center;
-        }
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-        .hero .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            line-height: 1.7;
-        }
-        .hero .tagline {
-            font-size: 1rem;
-            opacity: 0.7;
-            margin-top: 20px;
-        }
-
-        /* ============================================
-           PATH FINDER SECTION
-        ============================================ */
-        .pathfinder {
-            padding: 100px 0;
-            background: var(--bg-light);
-        }
-        .pathfinder h2 {
-            text-align: center;
-            font-size: 2.25rem;
-            margin-bottom: 16px;
-        }
-        .pathfinder .intro {
-            text-align: center;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto 60px;
-            font-size: 1.05rem;
-            line-height: 1.8;
-        }
-
-        /* Path Finder Grid */
-        .pathfinder-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-        .pathfinder-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 12px;
-            text-align: center;
-            border: 2px solid var(--border-light);
-            transition: 0.3s;
-            cursor: pointer;
-            text-decoration: none;
-            color: var(--text-dark);
-        }
-        .pathfinder-card:hover {
-            border-color: var(--primary-blue);
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,86,179,0.15);
-        }
-        .pathfinder-card .icon {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-        .pathfinder-card h3 {
-            font-size: 1.25rem;
+        .eyebrow-light { 
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.9) !important;
             margin-bottom: 12px;
-            color: var(--text-dark);
-        }
-        .pathfinder-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-            line-height: 1.6;
-            margin: 0;
-        }
-        .pathfinder-card.help-me {
-            grid-column: 1 / -1;
-            background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
-            color: white;
-            border: none;
-            padding: 50px;
-        }
-        .pathfinder-card.help-me .icon {
-            font-size: 4rem;
-        }
-        .pathfinder-card.help-me h3 {
-            color: white;
-            font-size: 1.5rem;
-        }
-        .pathfinder-card.help-me p {
-            color: rgba(255,255,255,0.9);
-        }
-
-        /* ============================================
-           PROPERTY TYPE DEEP DIVE SECTION
-        ============================================ */
-        .property-types {
-            padding: 100px 0;
-            background: white;
-        }
-        .property-types h2 {
-            text-align: center;
-            font-size: 2.25rem;
-            margin-bottom: 20px;
-        }
-        .property-types .intro {
-            text-align: center;
-            color: var(--text-light);
-            max-width: 650px;
-            margin: 0 auto 60px;
-            font-size: 1.05rem;
-        }
-        .property-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-        .property-card {
-            background: var(--bg-light);
-            padding: 40px;
-            border-radius: 12px;
-            border: 1px solid var(--border-light);
-            transition: 0.3s;
-            text-decoration: none;
-            color: var(--text-dark);
             display: block;
         }
-        .property-card:hover {
-            background: white;
-            border-color: var(--primary-blue);
-            box-shadow: 0 4px 16px rgba(0,86,179,0.1);
+        .hero-solid {
+            background: linear-gradient(rgba(14, 26, 43, 0.7), rgba(14, 26, 43, 0.7)), url('images/Expert%20Security%20Solutions%20For%20Every%20Property%20Type.png');
+            background-size: cover;
+            background-position: center;
+            padding: 180px 0 120px;
+            position: relative;
+            overflow: hidden;
         }
-        .property-card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            display: block;
+        .hero-solid::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(0, 86, 179, 0.15) 0%, transparent 70%);
+            pointer-events: none;
         }
-        .property-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-            color: var(--primary-blue);
-        }
-        .property-card .subtitle-text {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-bottom: 16px;
-            font-style: italic;
-        }
-        .property-card .challenge {
-            background: white;
-            padding: 16px;
-            border-radius: 6px;
-            margin-top: 16px;
-            border-left: 3px solid var(--primary-blue);
-        }
-        .property-card .challenge strong {
-            display: block;
-            color: var(--text-dark);
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-        }
-        .property-card .challenge p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: var(--text-gray);
-            line-height: 1.6;
-        }
-
-        /* ============================================
-           WHY PROPERTY TYPE MATTERS SECTION
-        ============================================ */
-        .why-matters {
-            padding: 100px 0;
-            background: var(--bg-light);
-        }
-        .why-matters h2 {
-            text-align: center;
-            font-size: 2.25rem;
-            margin-bottom: 60px;
-        }
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-        .comparison-card {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            border: 1px solid var(--border-light);
-        }
-        .comparison-card h4 {
-            color: var(--primary-blue);
-            font-size: 1.1rem;
-            margin-bottom: 16px;
-        }
-        .comparison-card ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .comparison-card li {
-            padding: 8px 0;
-            font-size: 0.9rem;
-            color: var(--text-gray);
-            border-bottom: 1px solid var(--bg-light);
-        }
-        .comparison-card li:last-child {
-            border: none;
-        }
-        .comparison-card li::before {
-            content: "&check; ";
-            color: var(--accent-green);
-            font-weight: bold;
-            margin-right: 8px;
-        }
-
-        /* ============================================
-           CTA SECTION
-        ============================================ */
-        .cta-section {
-            padding: 100px 0;
-            background: linear-gradient(to bottom, white, var(--bg-light));
-            text-align: center;
-        }
-        .cta-section h2 {
-            font-size: 2.25rem;
-            margin-bottom: 20px;
-        }
-        .cta-section p {
-            font-size: 1.05rem;
-            color: var(--text-light);
-            max-width: 650px;
-            margin: 0 auto 40px;
-            line-height: 1.8;
-        }
-        .btn-primary {
-            background: var(--primary-blue);
-            color: white;
-            border: none;
-        }
-        .btn-primary:hover {
-            background: var(--dark-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,86,179,0.3);
-        }
-        .btn-outline {
-            border: 2px solid var(--primary-blue);
-            color: var(--primary-blue);
-            background: white;
-            margin-left: 15px;
-        }
-        .btn-outline:hover {
-            background: var(--primary-blue);
-            color: white;
-        }
-
-        /* ============================================
-           RESPONSIVE DESIGN
-        ============================================ */
-        @media (max-width: 1024px) {
-            .mega-menu {
-                width: 700px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            /* Mobile Navigation */
-            .mobile-toggle {
-                display: block;
-            }
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                gap: 0;
-                border-top: 1px solid var(--border-light);
-            }
-            .nav-menu.active {
-                display: flex;
-            }
-            .nav-link {
-                padding: 20px;
-                border-bottom: 1px solid var(--border-light);
-            }
-            .mega-menu {
-                position: static;
-                width: 100%;
-                transform: none;
-                border: none;
-                border-radius: 0;
-                box-shadow: none;
-                padding: 20px;
-            }
-            .nav-item:hover .mega-menu {
-                display: block;
-            }
-
-            /* Hero */
-            .hero h1 {
-                font-size: 2rem;
-            }
-            .hero {
-                padding: 80px 0 60px;
-            }
-
-            /* Grids */
-            .pathfinder-grid,
-            .property-grid,
-            .comparison-grid {
-                grid-template-columns: 1fr;
-            }
-            .pathfinder-card.help-me {
-                grid-column: 1;
-            }
-
-            /* Sections */
-            .pathfinder,
-            .property-types,
-            .why-matters,
-            .cta-section {
-                padding: 60px 0;
-            }
-
-            h2 {
-                font-size: 1.75rem !important;
-            }
-        }
-    </style>
-
-
-</head>
+    </style></head>
 <body style="padding-top:68px">
-<nav class="main-nav">
-  <div class="nav-container">
-    <!-- Logo + Wordmark -->
-    <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
-      <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
-      <span class="nav-logo-text">SECUREVISION</span>
-    </a>
 
-    <!-- Hamburger -->
-    <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-    </button>
-
-    <!-- Desktop nav links -->
-    <ul class="nav-menu" id="navMenu">
-      <li class="nav-item">
-        <a href="solutions-hub.html" class="nav-link has-dropdown active">Solutions</a>
-        <div class="mega-menu mega-menu-solutions">
-          <div class="mega-guidance">
-            <div class="mega-col-label">Start Here</div>
-            <h4>Find the right solution for your property type.</h4>
-            <p>Every property has unique security challenges. We've solved them all—from landed homes to industrial facilities.</p>
-            <a href="solutions-hub.html" class="view-all-link">View All Solutions &rarr;</a>
-            <div class="mega-trust">
-              <div class="mega-col-label">Why Trust Securevision?</div>
-              <div class="trust-item">Police Licensed L/PS/000267/2023P</div>
-              <div class="trust-item">19 Years of Experience</div>
-              <div class="trust-item">bizSAFE Level 3 Certified</div>
-            </div>
-          </div>
-          <div class="mega-links">
-            <div class="mega-col-label">Property Types</div>
-            <a href="residential.html" class="solution-link">
-              <strong>&#127968; Private Homes</strong>
-              <small>Landed, bungalows, apartments</small>
-            </a>
-            <a href="condominiums.html" class="solution-link">
-              <strong>&#127970; Condominiums & Managed Estates</strong>
-              <small>MCSTs, multi-block developments</small>
-            </a>
-            <a href="commercial.html" class="solution-link">
-              <strong>&#127978; Commercial & Retail</strong>
-              <small>Shops, offices, business premises</small>
-            </a>
-            <a href="institutions.html" class="solution-link">
-              <strong>&#127979; Institutions</strong>
-              <small>Schools, hospitals, public facilities</small>
-            </a>
-            <a href="industrial.html" class="solution-link">
-              <strong>&#127981; Industrial & Logistics</strong>
-              <small>Factories, warehouses, data centers</small>
-            </a>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="systems-hub.html" class="nav-link has-dropdown">Technology</a>
-        <div class="mega-menu mega-menu-technology">
-          <div class="mega-guidance">
-            <div class="mega-col-label">Explore Systems</div>
-            <h4>Integrated systems for comprehensive security.</h4>
-            <p>From advanced surveillance to smart access control, we engineer solutions that work seamlessly together.</p>
-            <a href="systems-hub.html" class="view-all-link">View All Systems &rarr;</a>
-            <div class="mega-trust">
-              <div class="mega-col-label">Our Expertise</div>
-              <div class="trust-item">Custom System Design</div>
-              <div class="trust-item">Professional Installation</div>
-              <div class="trust-item">Maintenance & Support</div>
-            </div>
-          </div>
-          <div class="mega-links-col">
-            <div class="mega-col-label">Core Systems</div>
-            <a href="surveillance-systems.html" class="product-link">
-              <span class="pl-dot" style="background:#0056b3;"></span>
-              <div>
-                <strong>&#128249; Surveillance & Detection</strong>
-                <small>CCTV, AI analytics, perimeter security</small>
-              </div>
-            </a>
-            <a href="people-access.html" class="product-link">
-              <span class="pl-dot" style="background:#28a745;"></span>
-              <div>
-                <strong>&#128682; People Access</strong>
-                <small>Biometrics, card readers, intercoms</small>
-              </div>
-            </a>
-            <a href="vehicle-access.html" class="product-link">
-              <span class="pl-dot" style="background:#ffc107;"></span>
-              <div>
-                <strong>&#128663; Vehicle Access</strong>
-                <small>Barrier gates, LPR, parking management</small>
-              </div>
-            </a>
-            <a href="platform-integration.html" class="product-link">
-              <span class="pl-dot" style="background:#dc3545;"></span>
-              <div>
-                <strong>&#128202; Platform & Integration</strong>
-                <small>VMS, PSIM, smart home integration</small>
-              </div>
-            </a>
-          </div>
-          <div class="mega-brands-col">
-            <div class="mega-col-label">Featured Brands</div>
-            <div class="brand-cat-group">
-              <div class="brand-cat-title"><span class="bct-dot" style="background:#0056b3;"></span> Surveillance</div>
-              <div class="brand-name-links">
-                <a href="hikvision-singapore.html" class="brand-name-link">Hikvision</a>
-                <a href="hanwha-samsung-singapore.html" class="brand-name-link">Hanwha Techwin</a>
-                <a href="axis-singapore.html" class="brand-name-link">Axis</a>
-                <a href="dahua-singapore.html" class="brand-name-link">Dahua</a>
-              </div>
-            </div>
-            <div class="brand-cat-group">
-              <div class="brand-cat-title"><span class="bct-dot" style="background:#28a745;"></span> Access Control</div>
-              <div class="brand-name-links">
-                <a href="zkteco-singapore.html" class="brand-name-link">ZKTeco</a>
-                <a href="ajax-alarm-singapore.html" class="brand-name-link">AJAX</a>
-                <a href="akuvox-singapore.html" class="brand-name-link">Akuvox</a>
-                <a href="suprema-singapore.html" class="brand-name-link">Suprema</a>
-              </div>
-            </div>
-            <div class="brand-cat-group">
-              <div class="brand-cat-title"><span class="bct-dot" style="background:#ffc107;"></span> Vehicle Access</div>
-              <div class="brand-name-links">
-                <a href="faac-singapore.html" class="brand-name-link">FAAC</a>
-                <a href="came-singapore.html" class="brand-name-link">CAME</a>
-              </div>
-            </div>
-            <a href="brands.html" class="view-all-link" style="margin-top:12px;">View All 20+ Brands &rarr;</a>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
-        <div class="mega-menu mega-menu-portfolio">
-          <div class="mega-col-label">Featured Projects</div>
-          <a href="portfolio-lviv.html" class="port-featured">
-            <div class="pf-label">Residential</div>
-            <div class="pf-title">The L&rsquo;viv</div>
-            <div class="pf-meta">Smart Home Integration</div>
-          </a>
-          <a href="portfolio-scape.html" class="port-featured">
-            <div class="pf-label">Institutional</div>
-            <div class="pf-title">SCAPE</div>
-            <div class="pf-meta">Perimeter & Access Control</div>
-          </a>
-          <a href="portfolio-sta.html" class="port-featured">
-            <div class="pf-label">Commercial</div>
-            <div class="pf-title">STA</div>
-            <div class="pf-meta">Multi-site CCTV Upgrade</div>
-          </a>
-          <div class="mega-port-col">
-            <div class="mega-col-label">More Projects</div>
-            <a href="portfolio-cyrus.html" class="port-link"><span class="port-dot" style="background:#0056b3;"></span> Cyrus Tech</a>
-            <a href="portfolio-sats.html" class="port-link"><span class="port-dot" style="background:#28a745;"></span> SATS</a>
-            <a href="portfolio-kew.html" class="port-link"><span class="port-dot" style="background:#ffc107;"></span> Kewalram House</a>
-            <a href="portfolio-suntec.html" class="port-link"><span class="port-dot" style="background:#dc3545;"></span> Suntec City</a>
-            <a href="portfolio.html" class="view-all-link" style="margin-top:8px;">View All Projects &rarr;</a>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="resources.html" class="nav-link has-dropdown">Resources</a>
-        <div class="mega-menu mega-menu-resources">
-          <div class="mega-res-col">
-            <div class="res-col-header"><span class="rch-icon">&#128218;</span><h4>Guides</h4></div>
-            <a href="resources-cctv-guide.html" class="res-link">CCTV Buyer's Guide</a>
-            <a href="resources-access-guide.html" class="res-link">Access Control Guide</a>
-            <a href="resources-ai-guide.html" class="res-link">AI Security Guide <span class="rl-soon">Soon</span></a>
-          </div>
-          <div class="mega-res-col">
-            <div class="res-col-header"><span class="rch-icon">&#128295;</span><h4>Support</h4></div>
-            <a href="resources-troubleshoot.html" class="res-link">Troubleshooting</a>
-            <a href="resources-faq.html" class="res-link">FAQs</a>
-            <a href="resources-downloads.html" class="res-link">Downloads</a>
-          </div>
-          <div class="mega-res-col">
-            <div class="res-col-header"><span class="rch-icon">&#128196;</span><h4>Compliance</h4></div>
-            <a href="resources-pdpa.html" class="res-link">PDPA Guidelines</a>
-            <a href="resources-mha.html" class="res-link">MHA Security Standards</a>
-            <a href="resources-bca.html" class="res-link">BCA Regulations</a>
-          </div>
-          <div class="mega-res-col">
-            <div class="res-col-header"><span class="rch-icon">&#128270;</span><h4>Tools</h4></div>
-            <a href="resources-roi-calculator.html" class="res-link">ROI Calculator <span class="rl-soon">Soon</span></a>
-            <a href="resources-system-builder.html" class="res-link">System Builder <span class="rl-soon">Soon</span></a>
-            <a href="resources.html" class="view-all-link" style="margin-top:8px;">View All Resources &rarr;</a>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="insights.html" class="nav-link has-dropdown">Insights</a>
-        <div class="mega-menu mega-menu-insights">
-          <div class="mega-guidance">
-            <div class="mega-col-label">Latest Insights</div>
-            <a href="insights-article-1.html" class="insights-featured">
-              <div class="if-tag">Technology</div>
-              <div class="if-title">The Rise of AI in Perimeter Security</div>
-              <div class="if-meta">May 15, 2024 &bull; 5 min read</div>
-            </a>
-            <a href="insights-article-2.html" class="insights-featured">
-              <div class="if-tag">Case Study</div>
-              <div class="if-title">How VESTA™ Reduced Guard Workload by 40%</div>
-              <div class="if-meta">May 10, 2024 &bull; 7 min read</div>
-            </a>
-            <a href="insights.html" class="view-all-link" style="margin-top:12px;">View All Articles &rarr;</a>
-          </div>
-          <div class="mega-links">
-            <div class="mega-col-label">Categories</div>
-            <a href="insights.html?cat=planning" class="insights-cat">
-              <span class="ic-icon">&#128202;</span>
-              <div><strong>Security Planning</strong><small>Strategy & Best Practices</small></div>
-            </a>
-            <a href="insights.html?cat=technology" class="insights-cat">
-              <span class="ic-icon">&#128240;</span>
-              <div><strong>Technology Deep Dives</strong><small>New innovations & systems</small></div>
-            </a>
-            <a href="insights.html?cat=casestudy" class="insights-cat">
-              <span class="ic-icon">&#128172;</span>
-              <div><strong>Case Studies</strong><small>Real-world applications</small></div>
-            </a>
-            <a href="insights.html?cat=industry" class="insights-cat">
-              <span class="ic-icon">&#127978;</span>
-              <div><strong>SG Industry News</strong><small>Local regulations & trends</small></div>
-            </a>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="about.html" class="nav-link has-dropdown">About</a>
-        <div class="mega-menu mega-menu-about">
-          <div class="about-preview-card">
-            <div class="apc-founder">
-              <div class="apc-avatar">&#128100;</div>
-              <div>
-                <div class="apc-name">John Tan</div>
-                <div class="apc-title">Founder & CEO</div>
-              </div>
-            </div>
-            <p class="apc-quote">"Our mission is to empower businesses and homeowners with peace of mind through intelligent, reliable security solutions."</p>
-          </div>
-          <div class="about-links">
-            <a href="about.html" class="about-link"><span class="al-icon">&#127969;</span> Our Story</a>
-            <a href="about.html#founder" class="about-link"><span class="al-icon">&#128100;</span> Founder&rsquo;s Story</a>
-            <a href="awards-certifications.html" class="about-link"><span class="al-icon">&#127891;</span> Awards & Certifications</a>
-            <a href="careers.html" class="about-link"><span class="al-icon">&#128188;</span> Careers <span class="rl-soon">Soon</span></a>
-          </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a href="contact.html" class="nav-link has-dropdown">Contact</a>
-        <div class="mega-menu mega-menu-contact">
-          <div class="contact-channel-links">
-            <a href="https://wa.me/6593860466" class="contact-ch-link whatsapp-ch" target="_blank" rel="noopener">
-              <span class="cch-icon">&#128172;</span>
-              <div>
-                <div class="cch-label">WhatsApp Us</div>
-                <div class="cch-sub">Fastest response (24/7)</div>
-              </div>
-            </a>
-            <a href="contact.html#contact-form" class="contact-ch-link">
-              <span class="cch-icon">&#9993;</span>
-              <div>
-                <div class="cch-label">Email Us</div>
-                <div class="cch-sub">We'll reply within 1 business day</div>
-              </div>
-            </a>
-            <a href="tel:+6562864796" class="contact-ch-link">
-              <span class="cch-icon">&#128222;</span>
-              <div>
-                <div class="cch-label">Call Our Office</div>
-                <div class="cch-sub">+65 6286 4796</div>
-              </div>
-            </a>
-          </div>
-          <div class="contact-hours">
-            <strong>Office Hours:</strong><br>
-            Mon-Fri: 9:00 AM - 6:00 PM<br>
-            Sat, Sun, PH: Closed
-          </div>
-        </div>
-      </li>
-    </ul>
-
-    <!-- Desktop CTA & Search -->
-    <div class="nav-right">
-      <a href="https://wa.me/6593860466" class="nav-cta-btn" target="_blank" rel="noopener">WhatsApp Us</a>
-      <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      </button>
-    </div>
-
-    <!-- Mobile search icon (always right end on mobile) -->
-    <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-    </button>
+    <nav class="main-nav">
+<div class="nav-container">
+  <!-- Logo + Wordmark — always left -->
+  <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
+    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
+    <span class="wordmark nav-wordmark">SECUREVISION</span>
+  </a>
+  <!-- Hamburger — centred absolutely on mobile (via CSS) -->
+  <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+  <!-- Desktop nav links -->
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown active">Solutions</a>
+      <div class="simple-dropdown">
+        <a href="residential.html">Private Homes</a>
+        <a href="condominiums.html">Condominiums</a>
+        <a href="commercial.html">Commercial &amp; Retail</a>
+        <a href="institutions.html">Institutions</a>
+        <a href="industrial.html">Industrial &amp; Logistics</a>
+        <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="systems.html" class="nav-link has-dropdown">Systems</a>
+      <div class="simple-dropdown">
+        <a href="surveillance-systems.html">Surveillance &amp; Detection</a>
+        <a href="people-access.html">People Access</a>
+        <a href="vehicle-access.html">Vehicle Access</a>
+        <a href="platform-integration.html">Platform &amp; Integration</a>
+        <a href="systems.html"><strong>&rarr; View All Systems</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="brands.html" class="nav-link has-dropdown">Brands</a>
+      <div class="simple-dropdown">
+        <a href="hikvision-singapore.html">Hikvision</a>
+        <a href="hanwha-samsung-singapore.html">Hanwha</a>
+        <a href="ajax-alarm-singapore.html">AJAX</a>
+        <a href="zkteco-singapore.html">ZKTeco</a>
+        <a href="akuvox-singapore.html">Akuvox</a>
+        <a href="faac-singapore.html">FAAC</a>
+        <a href="brands.html"><strong>&rarr; View All Brands</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
+      <div class="simple-dropdown">
+        <a href="portfolio.html">Private Homes</a>
+        <a href="portfolio.html">Condominiums</a>
+        <a href="commercial.html">Commercial &amp; Retail</a>
+        <a href="institutions.html">Institutions</a>
+        <a href="industrial.html">Industrial &amp; Logistics</a>
+        <a href="portfolio.html"><strong>&rarr; View All Portfolio</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
+      <div class="simple-dropdown">
+        <a href="insights.html?cat=planning">Security Planning</a>
+        <a href="insights.html?cat=technology">Technology</a>
+        <a href="insights.html?cat=casestudy">Case Studies</a>
+        <a href="insights.html?cat=industry">SG Industry</a>
+        <a href="insights.html"><strong>&rarr; All Articles</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
+      <div class="simple-dropdown">
+        <a href="about.html">Our Story</a>
+        <a href="about.html#founder">Founder&rsquo;s Story</a>
+        <a href="awards-certifications.html">Awards &amp; Certifications</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </li>
+  </ul>
+  <!-- Desktop search icon -->
+  <div class="nav-right">
+    <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
   </div>
-
-  <!-- Mobile Menu Panel -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="index.html" class="mobile-menu-item">Home</a>
-    <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a><a href="residential.html">&#127968; Private Homes</a><a href="condominiums.html">&#127970; Condominiums</a><a href="commercial.html">&#127978; Commercial</a><a href="institutions.html">&#127979; Institutions</a><a href="industrial.html">&#127981; Industrial</a></div></div>
-    <div class="mobile-menu-item" onclick="toggleSubmenu('techSub')">Technology &#9662;<div class="mobile-submenu" id="techSub"><a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a><a href="surveillance-systems.html">&#128249; Surveillance</a><a href="people-access.html">&#128682; People Access</a><a href="vehicle-access.html">&#128663; Vehicle Access</a><a href="platform-integration.html">&#128202; Platform</a><a href="brands.html">&#127991;&#65039; All 20 Brands</a></div></div>
-    <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;<div class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>&rarr; All Projects</strong></a><a href="portfolio-lviv.html">The L&rsquo;viv</a><a href="portfolio-scape.html">SCAPE</a><a href="portfolio-sta.html">STA</a><a href="portfolio-cyrus.html">Cyrus Tech</a></div></div>
-    <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources &#9662;<div class="mobile-submenu" id="resSub"><a href="resources.html"><strong>&rarr; All Resources</strong></a><a href="resources-cctv-guide.html">CCTV Guide</a><a href="resources-troubleshoot.html">Troubleshooting</a><a href="resources-faq.html">FAQs</a></div></div>
-    <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights &#9662;<div class="mobile-submenu" id="insSub"><a href="insights.html"><strong>&rarr; All Articles</strong></a><a href="insights.html?cat=planning">Security Planning</a><a href="insights.html?cat=technology">Technology</a><a href="insights.html?cat=casestudy">Case Studies</a></div></div>
-    <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a></div></div>
-    <div class="mobile-menu-item" onclick="toggleSubmenu('conSub')">Contact &#9662;<div class="mobile-submenu" id="conSub"><a href="https://wa.me/6593860466"><strong>&#128172; WhatsApp</strong></a><a href="contact.html#contact-form">Contact Form</a><a href="contact.html">Office &amp; Hours</a></div></div>
-  </div>
+  <!-- Mobile search icon — always right end on mobile -->
+  <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a><a href="residential.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a href="commercial.html">Commercial</a><a href="institutions.html">Institutions</a><a href="industrial.html">Industrial</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu" id="sysSub"><a href="systems.html"><strong>&rarr; View All Systems</strong></a><a href="surveillance-systems.html">Surveillance</a><a href="people-access.html">People Access</a><a href="vehicle-access.html">Vehicle Access</a><a href="platform-integration.html">Platform</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;<div class="mobile-submenu" id="brdSub"><a href="brands.html"><strong>&rarr; View All Brands</strong></a><a href="hikvision-singapore.html">Hikvision</a><a href="ajax-alarm-singapore.html">AJAX</a><a href="zkteco-singapore.html">ZKTeco</a><a href="akuvox-singapore.html">Akuvox</a><a href="faac-singapore.html">FAAC</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;<div class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>&rarr; View All Portfolio</strong></a><a href="portfolio.html">Private Homes</a><a href="portfolio.html">Condominiums</a><a href="portfolio.html">Commercial &amp; Retail</a><a href="portfolio.html">Institutions</a><a href="portfolio.html">Industrial</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights &#9662;<div class="mobile-submenu" id="insSub"><a href="insights.html"><strong>&rarr; All Articles</strong></a><a href="insights.html?cat=planning">Security Planning</a><a href="insights.html?cat=technology">Technology</a><a href="insights.html?cat=casestudy">Case Studies</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a><a href="contact.html">Contact Us</a></div></div>
+</div>
 </nav>
 
-    <!-- ============================================
-         HERO SECTION
-    ============================================ -->
-    <section class="hero">
-        <div class="container">
-            <h1>Find the Right Security Solution<br>For Your Property</h1>
-            <p class="subtitle">Every property type has unique security challenges. We've solved them all&mdash;from landed homes to industrial facilities. Start by telling us what you're protecting.</p>
-            <p class="tagline">Police Licensed L/PS/000267/2023P &bull; 19 Years &bull; </p>
+    <!-- -- HERO SECTION -- -->
+    <header class="hero-solid">
+        <div class="container pos-relative z-2" style="text-align:center;">
+            <span class="eyebrow-light">Integrated Solutions</span>
+            <h1 style="color:white; margin-bottom:20px;">Expert Security Solutions<br>For Every Property Type</h1>
+            <p class="subtitle" style="color: rgba(255,255,255,0.85); max-width: 800px; margin: 0 auto 32px; font-size: 18px; line-height: 1.7;">
+                Intelligent security systems designed for homes, businesses, and communities.
+            </p>
+            <div class="btn-group" style="justify-content:center;">
+                <a href="contact-gateway.html" class="btn btn-primary">Get Expert Advice</a>
+                <a href="#property-grid" class="btn btn-outline">View All Solutions</a>
+            </div>
+            <p class="tagline" style="font-size: 14px; color:rgba(255,255,255,0.7); margin-top: 40px; font-weight:600; letter-spacing:1px; text-transform:uppercase;">
+                Serving Singapore Since 2006
+            </p>
         </div>
-    </section>
+    </header>
 
-    <!-- ============================================
-         PATH FINDER SECTION (Interactive Guide)
-    ============================================ -->
-    <section class="pathfinder">
+    <!-- -- BREADCRUMBS -- -->
+    <nav class="sv-breadcrumb" aria-label="Breadcrumb" style="background:#F8F9FA; border-bottom:1px solid #E8EAED; padding:12px 0;">
         <div class="container">
-            <h2>Choose Your Property Type</h2>
-            <p class="intro">Your security needs depend on what you're protecting and how people use the space. Select the category that best describes your property, or use our guided assessment to help you decide.</p>
+            <ul style="list-style:none; padding:0; margin:0; display:flex; gap:8px; font-size:13px; color:#5F6368;">
+                <li><a href="index.html" style="color:#0056b3; text-decoration:none;">Home</a></li>
+                <li>&nbsp;&rarr;&nbsp;</li>
+                <li style="color:#1B1F23; font-weight:600;">Solutions</li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- -- PATH FINDER SECTION -- -->
+    <section id="pathfinder" class="pathfinder">
+        <div class="container">
+            <span class="eyebrow text-center display-block">Quick Route</span>
+            <h2 id="path-finder">The Path Finder</h2>
+            <p class="intro">Not sure where to start? Choose the category that best describes your current project or property type.</p>
             
             <div class="pathfinder-grid">
-                <!-- Option 1: Residential -->
-                <a href="/residential/" class="pathfinder-card">
-                    <span class="icon">&#127968;</span>
-                    <h3>Residential Homes</h3>
-                    <p>Moving or renovating? Secure your family without complicating daily life.</p>
+                <a href="residential.html" class="pathfinder-card">
+                    <span class="icon">🏠</span>
+                    <h3>Private Homes</h3>
+                    <p>Landed properties, GCBs, and luxury villas requiring discreet but powerful protection.</p>
                 </a>
-
-                <!-- Option 2: Condominiums -->
-                <a href="/condominiums/" class="pathfinder-card">
-                    <span class="icon">&#127970;</span>
+                <a href="condominiums.html" class="pathfinder-card">
+                    <span class="icon">🏢</span>
                     <h3>Condominiums</h3>
-                    <p>High guard load? Automate access and reduce manual workload.</p>
+                    <p>MCST-managed residential complexes requiring integrated access and surveillance.</p>
                 </a>
-
-                <!-- Option 3: Commercial -->
-                <a href="/commercial/" class="pathfinder-card">
-                    <span class="icon">&#127978;</span>
-                    <h3>Retail & Offices</h3>
-                    <p>Multi-site access? Centralize control and monitoring.</p>
+                <a href="commercial.html" class="pathfinder-card">
+                    <span class="icon">🏬</span>
+                    <h3>Commercial</h3>
+                    <p>Retail malls, office buildings, and hotels requiring high-traffic management.</p>
                 </a>
-
-                <!-- Option 4: Institutions -->
-                <a href="/institutions/" class="pathfinder-card">
-                    <span class="icon">&#127979;</span>
-                    <h3>Institutions</h3>
-                    <p>Public facility compliance? Meet regulations without friction.</p>
-                </a>
-
-                <!-- Option 5: Industrial -->
-                <a href="/industrial/" class="pathfinder-card">
-                    <span class="icon">&#127981;</span>
-                    <h3>Industrial Sites</h3>
-                    <p>Logistics bottlenecks? Optimize workflows with smart access.</p>
-                </a>
-
-                <!-- HELP ME CHOOSE: Guided Assessment -->
-                <a href="#" class="pathfinder-card help-me" onclick="startAssessment(); return false;">
-                    <span class="icon">&#127919;</span>
-                    <h3>Not Sure? Let Us Guide You</h3>
-                    <p>Answer 3 quick questions and we'll recommend the best starting point for your needs. Takes less than 30 seconds.</p>
-                </a>
+                <div class="pathfinder-card help-me" onclick="alert('This will open our guided assessment tool.')">
+                    <span class="icon">🔍</span>
+                    <h3>Help Me Choose</h3>
+                    <p>Let our SECURE™ framework guide you to the ideal system configuration based on your property layout and security requirements.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         PROPERTY TYPE DEEP DIVE SECTION
-    ============================================ -->
-    <section class="property-types">
+    <!-- -- PROPERTY TYPES DEEP DIVE -- -->
+    <section id="property-grid" class="property-types">
         <div class="container">
-            <h2>Security Challenges by Property Type</h2>
-            <p class="intro">Each environment has specific vulnerabilities and operational requirements. Here's what we commonly solve for each property category.</p>
+            <span class="eyebrow text-center display-block">Property Deep Dive</span>
+            <h2>Solutions by Property Type</h2>
+            <p class="intro">Explore how we tailor our SECURE™ framework to the specific operational needs of different environments.</p>
 
             <div class="property-grid">
-                <!-- Residential Homes -->
-                <a href="/residential/" class="property-card">
-                    <span class="icon">&#127968;</span>
-                    <h3>Residential Homes</h3>
-                    <p class="subtitle-text">Landed properties, bungalows, and private residences</p>
+                <!-- Private Homes -->
+                <a href="residential.html" class="property-card">
+                    <span class="icon">🏡</span>
+                    <h3>Private Homes</h3>
+                    <p class="subtitle-text">GCBs, Landed Properties, Terraces</p>
                     <div class="challenge">
-                        <strong>Common Challenge: The Renovation Dilemma</strong>
-                        <p>You're moving into a new home or renovating. Do you need to hack walls for cabling? Can you integrate with existing wiring? Will the system work when your contractor leaves?</p>
-                    </div>
-                    <div class="challenge">
-                        <strong>Our Solution</strong>
-                        <p>We assess your electrical plans early, recommend wireless where appropriate, and provide mobile control so you're never locked out by technology you don't understand.</p>
+                        <strong>The Challenge:</strong> Balancing 24/7 exterior perimeter protection with interior privacy and ease of use for family members.
                     </div>
                 </a>
 
-                <!-- Condominiums & Managed Estates -->
-                <a href="/condominiums/" class="property-card">
-                    <span class="icon">&#127970;</span>
-                    <h3>Condominiums & Managed Estates</h3>
-                    <p class="subtitle-text">MCSTs, property managers, multi-block developments</p>
+                <!-- Condominiums -->
+                <a href="condominiums.html" class="property-card">
+                    <span class="icon">🏙️</span>
+                    <h3>Condominiums</h3>
+                    <p class="subtitle-text">MCSTs, Residences, Mixed use</p>
                     <div class="challenge">
-                        <strong>Common Challenge: Guard Workload Overload</strong>
-                        <p>450 units. 1,500 residents. Every visitor needs manual logging. Your guards are overwhelmed, response times are slow, and complaints are rising.</p>
-                    </div>
-                    <div class="challenge">
-                        <strong>Our Solution</strong>
-                        <p>VESTA&trade; mobile platform enables self-service visitor pre-registration, QR code gate access, and automated logging&mdash;reducing guard workload by 40% while improving security.</p>
+                        <strong>The Challenge:</strong> Unified access control for residents and visitors across multiple entry points and shared facility management.
                     </div>
                 </a>
 
-                <!-- Shops, Retail & Offices -->
-                <a href="/commercial/" class="property-card">
-                    <span class="icon">&#127978;</span>
-                    <h3>Shops, Retail & Offices</h3>
-                    <p class="subtitle-text">Commercial spaces, retail outlets, business premises</p>
+                <!-- Commercial -->
+                <a href="commercial.html" class="property-card">
+                    <span class="icon">🏬</span>
+                    <h3>Commercial &amp; Retail</h3>
+                    <p class="subtitle-text">Shopping Malls, Shopfronts, F&amp;B</p>
                     <div class="challenge">
-                        <strong>Common Challenge: Multi-Site Blind Spots</strong>
-                        <p>You manage 5 retail locations. Each has its own CCTV system. When something happens, you're scrolling through hours of footage across different platforms.</p>
-                    </div>
-                    <div class="challenge">
-                        <strong>Our Solution</strong>
-                        <p>GantryGo&trade; unifies all locations into one cloud dashboard with AI-powered alerts. Get instant notifications for real incidents&mdash;not cats or shadows.</p>
+                        <strong>The Challenge:</strong> High-traffic visitor management and loss prevention while maintaining an open, welcoming environment.
                     </div>
                 </a>
 
-                <!-- Large Buildings & Institutions -->
-                <a href="/institutions/" class="property-card">
-                    <span class="icon">&#127979;</span>
-                    <h3>Large Buildings & Institutions</h3>
-                    <p class="subtitle-text">Schools, healthcare, religious institutions, public facilities</p>
+                <!-- Industrial -->
+                <a href="industrial.html" class="property-card">
+                    <span class="icon">🏗️</span>
+                    <h3>Industrial &amp; Logistics</h3>
+                    <p class="subtitle-text">Warehouses, Factories, Data Centres</p>
                     <div class="challenge">
-                        <strong>Common Challenge: Compliance vs. Usability</strong>
-                        <p>You need to meet MHA or MOE security standards, but every new layer of "compliance" makes daily operations harder for staff and visitors.</p>
-                    </div>
-                    <div class="challenge">
-                        <strong>Our Solution</strong>
-                        <p>We design systems that satisfy regulatory requirements while maintaining smooth visitor flow. Security that protects without creating bottlenecks.</p>
+                        <strong>The Challenge:</strong> Large-scale perimeter surveillance and strict vehicle/personnel tracking in utility-heavy environments.
                     </div>
                 </a>
-
-                <!-- Industrial & Critical Sites -->
-                <a href="/industrial/" class="property-card">
-                    <span class="icon">&#127981;</span>
-                    <h3>Industrial & Critical Sites</h3>
-                    <p class="subtitle-text">Factories, logistics hubs, data centers, critical infrastructure</p>
+                
+                <!-- Institutions -->
+                <a href="institutions.html" class="property-card">
+                    <span class="icon">🏫</span>
+                    <h3>Institutions</h3>
+                    <p class="subtitle-text">Schools, Religious Sites, Healthcare</p>
                     <div class="challenge">
-                        <strong>Common Challenge: Logistics vs. Security</strong>
-                        <p>Your loading bays need to be secure, but every gate delay costs productivity. Traditional access systems create bottlenecks during peak hours.</p>
-                    </div>
-                    <div class="challenge">
-                        <strong>Our Solution</strong>
-                        <p>AI-powered perimeter detection and automated LPR (License Plate Recognition) allow authorized vehicles to flow through while flagging unknowns&mdash;security without slowdowns.</p>
+                        <strong>The Challenge:</strong> Ensuring a safe environment for students or worshippers with simple, scalable emergency lockdown capabilities.
                     </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         WHY PROPERTY TYPE MATTERS
-    ============================================ -->
+    <!-- -- WHY PROPERTY TYPE MATTERS -- -->
     <section class="why-matters">
         <div class="container">
-            <h2>Why Property Type Determines Your Security Approach</h2>
+            <span class="eyebrow text-center display-block">Our Approach</span>
+            <h2>Why Property Type Matters</h2>
+            <p class="intro" style="margin-bottom: 40px;">A camera is a camera, but a system design for a warehouse is fundamentally different from one for a luxury home.</p>
             
             <div class="comparison-grid">
                 <div class="comparison-card">
-                    <h4>Access Patterns</h4>
+                    <h4>Residential Focus</h4>
                     <ul>
-                        <li>Residential: 4-6 people, predictable</li>
-                        <li>Condo: 1,500 residents, high variance</li>
-                        <li>Commercial: Staff + customers, 9am-6pm</li>
-                        <li>Industrial: Shift workers, 24/7 logistics</li>
-                        <li>Institutional: Public + controlled zones</li>
+                        <li>AI Human Detection for garden perimeters</li>
+                        <li>Mobile alerts with zero false positives</li>
+                        <li>Video intercoms with smartphone routing</li>
+                        <li>Minimal cabling and discreet hardware</li>
                     </ul>
                 </div>
-
                 <div class="comparison-card">
-                    <h4>Threat Profile</h4>
+                    <h4>Condominium Focus</h4>
                     <ul>
-                        <li>Residential: Burglary, vandalism</li>
-                        <li>Condo: Tailgating, unauthorized parking</li>
-                        <li>Commercial: Shoplifting, after-hours break-ins</li>
-                        <li>Industrial: Cargo theft, safety incidents</li>
-                        <li>Institutional: Intrusion, compliance violations</li>
+                        <li>Centralized Server (VMS) architecture</li>
+                        <li>Lift integration & floor access control</li>
+                        <li>Visitor Management (VMS) with QR codes</li>
+                        <li>Maintenance SLAs for guardhouse uptime</li>
                     </ul>
                 </div>
-
                 <div class="comparison-card">
-                    <h4>System Requirements</h4>
+                    <h4>Commercial Focus</h4>
                     <ul>
-                        <li>Residential: Mobile control, easy DIY</li>
-                        <li>Condo: Scalable, low guard dependency</li>
-                        <li>Commercial: Multi-site monitoring, AI alerts</li>
-                        <li>Industrial: Integration with ERP/logistics</li>
-                        <li>Institutional: MHA/MOE compliance, audit trails</li>
+                        <li>Cloud-based remote management</li>
+                        <li>Heatmaps and visitor analytics</li>
+                        <li>Integration with building management</li>
+                        <li>24/7 cloud backup of critical footage</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ============================================
-         FINAL CTA SECTION
-    ============================================ -->
-    <section class="cta-section">
+    <section class="cta-section" style="background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%); color: white; padding: 100px 0; text-align: center;">
         <div class="container">
-            <h2>Ready to Secure Your Property the Right Way?</h2>
-            <p>Book a Smart Assessment with our engineering team. We'll walk your site, identify vulnerabilities specific to your property type, and show you exactly how the SECURE&trade; Framework solves them&mdash;with no obligation.</p>
-            <a href="/contact/" class="btn btn-primary">START YOUR ASSESSMENT</a>
-            <a href="https://wa.me/6593860466" class="btn btn-outline">💬 WHATSAPP US</a>
+            <span class="eyebrow-light text-center">Get Started</span>
+            <h2>Ready to Explore?</h2>
+            <p class="subtitle" style="color: rgba(255,255,255,0.7); max-width: 700px; margin: 0 auto 32px;">Let's discuss how we can upgrade your property's safety and operational efficiency with our SECURE&trade; framework.</p>
+            <div class="btn-group" style="justify-content:center;">
+                <a href="contact.html" class="btn btn-primary">Book A Slot</a>
+                <a href="https://wa.me/6593860466" class="btn btn-outline">WhatsApp Us</a>
+            </div>
+            <p class="footer-note" style="margin-top:40px; font-size:12px; opacity:0.6;">
+                <strong>Police Licensed:</strong> L/PS/000267/2023P &nbsp;|&nbsp; <strong>bizSAFE Level 3</strong> &nbsp;|&nbsp; <strong>BCA Registered</strong><br>
+                Serving Singapore Since 2006
+            </p>
         </div>
     </section>
 
-    <script>
-        // Mobile menu toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('navMenu');
-            menu.classList.toggle('active');
-        }
-
-        // Guided Assessment - 3 Questions with Data Capture
-        function startAssessment() {
-            // Detect device type
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            const deviceType = isMobile ? 'mobile' : 'desktop';
-
-            // QUESTION 1: Property Type
-            const propertyOptions = [
-                "Private home (landed/bungalow/terrace)",
-                "Condominium or apartment building",
-                "Office, retail shop, or commercial space",
-                "School, hospital, or public facility",
-                "Factory, warehouse, or industrial site"
-            ];
-
-            const propertyPrompt = "QUESTION 1 OF 3: What type of property are you securing?\n\n" +
-                propertyOptions.map((opt, i) => `${i + 1}. ${opt}`).join('\n') +
-                "\n\nEnter the number (1-5):";
-
-            const propertyAnswer = prompt(propertyPrompt);
-            if (!propertyAnswer || propertyAnswer < 1 || propertyAnswer > 5) return;
-
-            const propertyType = propertyOptions[propertyAnswer - 1];
-
-            // QUESTION 2: Primary Challenge
-            const challengeOptions = [
-                "Too many false alarms (alerts for non-threats)",
-                "Blind spots (can't see what's actually happening)",
-                "Visitor/access chaos (manual logs, long queues)",
-                "No remote access (need to be on-site)",
-                "Staff overwhelmed (too much manual work)",
-                "Fragmented systems (multiple platforms)",
-                "Starting fresh (new build or major renovation)"
-            ];
-
-            const challengePrompt = "QUESTION 2 OF 3: What's your biggest security challenge?\n\n" +
-                challengeOptions.map((opt, i) => `${i + 1}. ${opt}`).join('\n') +
-                "\n\nEnter the number (1-7):";
-
-            const challengeAnswer = prompt(challengePrompt);
-            if (!challengeAnswer || challengeAnswer < 1 || challengeAnswer > 7) return;
-
-            const challenge = challengeOptions[challengeAnswer - 1];
-
-            // QUESTION 3: Timeline
-            const timelineOptions = [
-                "Urgent (within 2 weeks)",
-                "Soon (1-2 months)",
-                "Planning (3-6 months)",
-                "Just exploring (no timeline yet)"
-            ];
-
-            const timelinePrompt = "QUESTION 3 OF 3: When do you need this resolved?\n\n" +
-                timelineOptions.map((opt, i) => `${i + 1}. ${opt}`).join('\n') +
-                "\n\nEnter the number (1-4):";
-
-            const timelineAnswer = prompt(timelinePrompt);
-            if (!timelineAnswer || timelineAnswer < 1 || timelineAnswer > 4) return;
-
-            const timeline = timelineOptions[timelineAnswer - 1];
-
-            // CONTACT CAPTURE (Device-Adaptive)
-            const assessmentData = {
-                propertyType: propertyType,
-                challenge: challenge,
-                timeline: timeline,
-                deviceType: deviceType,
-                timestamp: new Date().toISOString(),
-                source: 'solutions_hub_assessment'
-            };
-
-            if (isMobile) {
-                // MOBILE PATH: Direct to WhatsApp with pre-filled message
-                const name = prompt("Great! What's your name?");
-                if (!name) return;
-
-                assessmentData.name = name;
-
-                const whatsappMessage = encodeURIComponent(
-                    `Hi Securevision! I just completed your assessment:\n\n` +
-                    `&bull; Property: ${propertyType}\n` +
-                    `&bull; Challenge: ${challenge}\n` +
-                    `&bull; Timeline: ${timeline}\n\n` +
-                    `My name is ${name}. I'd like to discuss solutions for my property.`
-                );
-
-                // TODO: Send assessmentData to your backend here
-                console.log('Assessment Data:', assessmentData);
-
-                alert(`Perfect ${name}! We'll open WhatsApp now with your assessment details pre-filled. Just hit send to start the conversation.`);
-                window.open(`https://wa.me/6593860466?text=${whatsappMessage}`, '_blank');
-
-            } else {
-                // DESKTOP PATH: Capture phone for callback or SMS handoff
-                const contactPrompt = "How would you like to continue?\n\n" +
-                    "1. Call me back (we'll call within 15 minutes)\n" +
-                    "2. Send link to my phone (continue on mobile)\n" +
-                    "3. Email me details\n\n" +
-                    "Enter the number (1-3):";
-
-                const contactMethod = prompt(contactPrompt);
-                if (!contactMethod || contactMethod < 1 || contactMethod > 3) return;
-
-                if (contactMethod == 1 || contactMethod == 2) {
-                    // Request phone number
-                    const phone = prompt("What's your mobile number?\n(e.g., 9123 4567)");
-                    if (!phone) return;
-
-                    const name = prompt("And your name?");
-                    if (!name) return;
-
-                    assessmentData.name = name;
-                    assessmentData.phone = phone;
-                    assessmentData.contactMethod = contactMethod == 1 ? 'callback' : 'sms_link';
-
-                    // TODO: Send assessmentData to your backend here
-                    console.log('Assessment Data:', assessmentData);
-
-                    if (contactMethod == 1) {
-                        alert(`Thank you ${name}! We'll call you at ${phone} within the next 15 minutes to discuss your ${propertyType} security needs.`);
-                    } else {
-                        alert(`Thank you ${name}! We've sent a link to ${phone}. Open it on your mobile to continue via WhatsApp.`);
-                    }
-
-                } else {
-                    // Email path
-                    const email = prompt("What's your email address?");
-                    if (!email) return;
-
-                    const name = prompt("And your name?");
-                    if (!name) return;
-
-                    assessmentData.name = name;
-                    assessmentData.email = email;
-                    assessmentData.contactMethod = 'email';
-
-                    // TODO: Send assessmentData to your backend here
-                    console.log('Assessment Data:', assessmentData);
-
-                    alert(`Thank you ${name}! We'll email your personalized security roadmap to ${email} within the next hour.`);
-                }
-
-                // Route to relevant page
-                const routes = {
-                    "Private home (landed/bungalow/terrace)": '/residential/',
-                    "Condominium or apartment building": '/condominiums/',
-                    "Office, retail shop, or commercial space": '/commercial/',
-                    "School, hospital, or public facility": '/institutions/',
-                    "Factory, warehouse, or industrial site": '/industrial/'
-                };
-
-                setTimeout(() => {
-                    window.location.href = routes[propertyType] || '/solutions/';
-                }, 2000);
-            }
-        }
-
-        // Remove smooth scroll for anchor links since we're using dedicated pages now
-        // (keeping this commented in case you add back any on-page anchors later)
-        /*
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && href !== '#guided-assessment') {
-                    e.preventDefault();
-                    const target = document.querySelector(href);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                }
-            });
-        });
-        */
-    </script>
-    <footer class="site-footer">
+<footer class="site-footer" style="background:#0E1A2B; padding:80px 0 30px; border-top:1px solid rgba(255,255,255,.05);">
     <div class="footer-container">
-        <div class="footer-grid">
+        <div class="footer-grid" style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1.5fr; gap:40px;">
             <div class="footer-brand">
-                <div class="f-logo-wrap" style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+                <div class="footer-logo-wrap" style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
                     <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision" style="height:36px; display:block;">
-                    <span style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:20px; color:#fff; letter-spacing:0.5px;">Securevision</span>
+                    <span class="wordmark footer-wordmark" style="color:#fff; font-size:22px; font-weight:700;">Securevision</span>
                 </div>
-                <p style="color:rgba(255,255,255,.6); font-size:13px; line-height:1.6; margin-bottom:20px;">Singapore's trusted security systems integrator. Delivering integrated surveillance, access control, and vehicle management systems since 2006.</p>
+                <p style="color:rgba(255,255,255,.6); font-size:13px; line-height:1.6; margin-bottom:20px;">Your partner in building smart, secure, and connected communities — powered by intelligent security systems since 2006.</p>
                 <div class="f-socials" style="display:flex; gap:12px;">
-                    <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" class="f-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                    <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" class="f-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-                    <a href="https://wa.me/6593860466" target="_blank" rel="noopener" class="f-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+                    <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" style="color:rgba(255,255,255,.6);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" style="color:rgba(255,255,255,.6);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    <a href="https://wa.me/6593860466" target="_blank" rel="noopener" style="color:rgba(255,255,255,.6);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
                 </div>
             </div>
             
@@ -1126,6 +326,16 @@
                     <li style="margin-bottom:10px;"><a href="commercial.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Commercial &amp; Retail</a></li>
                     <li style="margin-bottom:10px;"><a href="institutions.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Institutions</a></li>
                     <li style="margin-bottom:10px;"><a href="industrial.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Industrial &amp; Logistics</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Systems</h4>
+                <ul style="list-style:none; padding:0; margin:0;">
+                    <li style="margin-bottom:10px;"><a href="surveillance-systems.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Surveillance &amp; Detection</a></li>
+                    <li style="margin-bottom:10px;"><a href="people-access.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">People Access</a></li>
+                    <li style="margin-bottom:10px;"><a href="vehicle-access.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Vehicle Access</a></li>
+                    <li style="margin-bottom:10px;"><a href="platform-integration.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Platform &amp; Integration</a></li>
                 </ul>
             </div>
             
@@ -1144,7 +354,7 @@
                 <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Get In Touch</h4>
                 <div style="margin-bottom:15px; display:flex; gap:10px; align-items:flex-start;">
                     <span style="font-size:16px;">&#128172;</span>
-                    <div><strong style="display:block; color:#fff; font-size:13px;">WhatsApp</strong><a href="https://wa.me/6593860466" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">+65 9386 0466</a></div>
+                    <div><strong style="display:block; color:#fff; font-size:13px;">WhatsApp</strong><a href="https://wa.me/6593860466" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">WhatsApp Us</a></div>
                 </div>
                 <div style="margin-bottom:15px; display:flex; gap:10px; align-items:flex-start;">
                     <span style="font-size:16px;">&#128222;</span>
@@ -1152,62 +362,38 @@
                 </div>
                 <div style="margin-bottom:15px; display:flex; gap:10px; align-items:flex-start;">
                     <span style="font-size:16px;">&#9993;</span>
-                    <div><strong style="display:block; color:#fff; font-size:13px;">Email</strong><a href="mailto:enquiry@securevision.com.sg" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">enquiry@securevision.com.sg</a></div>
+                    <div><strong style="display:block; color:#fff; font-size:13px;">Email</strong><a href="mailto:enquiry@securevision.com.sg" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">Email Us</a></div>
                 </div>
             </div>
         </div>
         
         <div class="footer-bottom" style="margin-top:60px; padding-top:24px; border-top:1px solid rgba(255,255,255,.08); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px;">
-            <p style="color:rgba(255,255,255,.4); font-size:11px; margin:0;">&copy; 2025 Securevision Pte Ltd &middot; Police License L/PS/000267/2023P &middot; bizSAFE Level 3 &middot; BCA Registered</p>
+            <p style="color:rgba(255,255,255,.4); font-size:11px; margin:0;">&copy; <span id="current-year">2026</span> Securevision Pte Ltd &middot; Police License L/PS/000267/2023P &middot; bizSAFE Level 3 &middot; BCA Registered</p>
             <div style="display:flex; gap:20px;">
+                <a href="sitemap.html" style="color:rgba(255,255,255,.4); text-decoration:none; font-size:11px;">Sitemap</a>
                 <a href="privacy.html" style="color:rgba(255,255,255,.4); text-decoration:none; font-size:11px;">Privacy Policy</a>
                 <a href="terms.html" style="color:rgba(255,255,255,.4); text-decoration:none; font-size:11px;">Terms of Service</a>
             </div>
         </div>
     </div>
 </footer>
-<script>
-// ── Mobile submenu toggle ──
-function toggleSubmenu(id) {
-    const sub = document.getElementById(id);
-    const isOpen = sub.style.display === 'block';
-    // Close all open submenus first
-    document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
-    if (!isOpen) sub.style.display = 'block';
-}
 
-// ── Mobile menu panel open/close ──
-function toggleMobileMenu() {
-    const menu = document.getElementById('mobileMenu');
-    const isOpen = menu.classList.toggle('active');
-    if (!isOpen) {
-        // Reset all submenus when the panel closes
-        document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
-    }
-}
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    </a>
 
-// ── Tap/click OUTSIDE the nav → close everything ──
-document.addEventListener('click', function(e) {
-    const nav = document.querySelector('.main-nav');
-    if (!nav.contains(e.target)) {
-        // Close mobile menu panel
-        const menu = document.getElementById('mobileMenu');
-        if (menu.classList.contains('active')) {
-            menu.classList.remove('active');
-            document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
         }
-        // Collapse any open desktop simple-dropdown (CSS :hover can't handle touch)
-        document.querySelectorAll('.nav-item').forEach(item => item.blur());
-    }
-});
-
-// ── Desktop: close open simple-dropdown when another nav-item is entered ──
-document.querySelectorAll('.nav-item').forEach(item => {
-    item.setAttribute('tabindex', '-1');
-});
-</script>
-
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-
+        function toggleSubmenu(id) {
+            const sub = document.getElementById(id);
+            const isOpen = sub.style.display === 'block';
+            document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
+            if (!isOpen) sub.style.display = 'block';
+        }
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

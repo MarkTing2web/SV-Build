@@ -417,7 +417,7 @@ nav {
 | **Brands** | Surveillance, Access Control, Intercom, Alarms, Gates & Barriers, View All Brands → | Simple dropdown with categories |
 | **Portfolio** | (none) | Direct link to portfolio.html |
 | **Insights** | (none) | Direct link to insights.html |
-| **About** | Company Story, Founder, Awards & Certifications, ─────, Contact Us, WhatsApp | Simple dropdown with contact |
+| **About** | Company Story, Founder, bizSAFE Level 3, BCA certifications, ─────, Contact Us, WhatsApp | Simple dropdown with contact |
 
 ### Mobile Menu
 ```css
@@ -768,11 +768,11 @@ About          → about.html
 
 **Resources & Insights:** All Resources · CCTV Guide · All Insights · Security Planning · Case Studies
 
-**Company:** About Us · Awards · Contact · WhatsApp
+**Company:** About Us · Contact · WhatsApp
 
 ### Footer Bottom Bar
 ```
-© 2025 Securevision Pte Ltd  |  Police License L/PS/000267/2023P  |  bizSAFE Level 4  |  BCA Registered
+© 2026 Securevision Pte Ltd  |  Police License L/PS/000267/2023P  |  bizSAFE Level 3  |  BCA Registered
 Serving Singapore Since 2006  |  info@securevision.com.sg
 ```
 
@@ -915,7 +915,7 @@ footer {
     dormer.png
   /badges/
     badge-spf.png                ← Singapore Police Force licence
-    badge-bizsafe.png            ← bizSAFE Level 4
+    badge-bizsafe.png            ← bizSAFE Level 3
     badge-bca.png                ← BCA Registered
   /portfolio/
     lviv-hero.jpg
@@ -1099,7 +1099,7 @@ Founder:          Ler Wee Meng
 Founder quals:    Bachelor of Engineering, NUS · Bachelor of Laws (LLB), UOL
 Founder exp:      35+ years in the security industry
 Police Licence:   L/PS/000267/2023P
-bizSAFE:          Level 4
+bizSAFE:          Level 3
 BCA:              Registered Contractor
 Sites protected:  2,000+
 WhatsApp:         +65 9386 0466
@@ -1131,7 +1131,7 @@ GantryGo™ — Vehicle Gantry Intercom System
 |---|---|---|
 | Homepage | CLARITY (13 sections) | index.html only |
 | Solution pages | Structure B (9 sections) | 13 solution pages |
-| Technology landing | Tech Landing (8 sections) | technology.html |
+| Systems landing | Tech Landing (8 sections) | systems.html |
 | Subsystem pages | Subsystem (8 sections) | 4 subsystem pages |
 | Brand pages | Brand (5 sections) | 20 brand pages |
 | Portfolio landing | Portfolio Hub | portfolio.html |

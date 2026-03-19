@@ -261,7 +261,7 @@ SECUREVISION.COM.SG
     │
     └── ✅ awards-certifications.html - Awards & Certifications
         - Police License L/PS/000267/2023P
-        - bizSAFE 4
+        - bizSAFE Level 3
         - BCA Registered
         - Partner awards (ADV, ZKTeco, etc.)
         - Linked from About page
@@ -527,7 +527,7 @@ Taps WhatsApp button (sticky on mobile)
 3. **Trust Elements:** 
    - Police License L/PS/000267/2023P
    - 19+ years experience
-   - bizSAFE 4, BCA certifications
+   - bizSAFE Level 3, BCA certifications
    - Client logos/testimonials (where relevant)
 
 ### **Contact Accessibility:**
@@ -548,7 +548,7 @@ Taps WhatsApp button (sticky on mobile)
 │                                                         │
 │  📞 [Phone]  |  ✉️ [Email]  |  📍 [Address]             │
 │                                                         │
-│  Police License: L/PS/000267/2023P  |  bizSAFE 4       │
+│  Police License: L/PS/000267/2023P  |  bizSAFE Level 3   │
 └─────────────────────────────────────────────────────────┘
 ```
 
@@ -768,7 +768,7 @@ All HTML pages built with full structure
 ### **Company Information:**
 - **Founded:** 2006 (19+ years experience)
 - **License:** Police License L/PS/000267/2023P
-- **Certifications:** bizSAFE 4, BCA Registered
+- **Certifications:** bizSAFE Level 3, BCA Registered
 - **Founder:** Ler Wee Meng
 - **Service Area:** Singapore
 - **Installations:** 2,000+ sites
