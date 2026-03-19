@@ -1,651 +1,552 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>People Access Systems | Securevision Singapore</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="sv-shared.css">
-<style>
-    :root {
-        --primary-accent: #319795; /* Teal for Access */
-        --charcoal: #1B1F23;
-        --medium-gray: #5F6368;
-        --light-gray: #F8F9FA;
-        --border-color: #E8EAED;
-        --container-width: 1200px;
-    }
-
-    /* HERO Section */
-    #hero {
-        background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
-        padding: 120px 0 80px;
-        position: relative;
-        overflow: hidden;
-        text-align: center;
-        color: white;
-    }
-    #hero::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: radial-gradient(ellipse 50% 70% at 70% 50%, rgba(49, 151, 149, 0.2) 0%, transparent 70%);
-        pointer-events: none;
-    }
-    .hero-inner { position: relative; z-index: 1; }
-    .hero-lead {
-        font-size: 1.25rem;
-        color: rgba(255, 255, 255, 0.8);
-        max-width: 760px;
-        margin: 0 auto 32px;
-        line-height: 1.7;
-    }
-    .hero-tags {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 36px;
-    }
-    .hero-tag {
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.15);
-        border-radius: 24px;
-        padding: 7px 18px;
-        font-size: 13px;
-        color: rgba(255, 255, 255, 0.85);
-        font-weight: 500;
-    }
-    .hero-btns {
-        display: flex;
-        gap: 12px;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    /* Page-Specific Sections */
-    section { padding: 80px 0; }
-    
-    .two-col {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 64px;
-        align-items: center;
-    }
-
-    .spec-card {
-        background: var(--light-gray);
-        border: 1px solid var(--border-color);
-        border-radius: 12px;
-        padding: 40px;
-        border-top: 4px solid var(--primary-accent);
-    }
-    .spec-card h3 { margin-bottom: 24px; color: var(--primary-accent); }
-    .spec-row {
-        display: flex;
-        justify-content: space-between;
-        padding: 12px 0;
-        border-bottom: 1px solid var(--border-color);
-        font-size: 14px;
-    }
-    .spec-row:last-child { border-bottom: none; }
-    .spec-label { color: var(--medium-gray); }
-    .spec-value { font-weight: 600; color: var(--charcoal); }
-
-    .cat-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-    }
-    .cat-card {
-        background: white;
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        padding: 32px;
-        transition: all 0.3s ease;
-        border-top: 3px solid var(--primary-accent);
-    }
-    .cat-card:hover {
-        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-        transform: translateY(-4px);
-    }
-    .cat-icon { font-size: 32px; margin-bottom: 16px; }
-
-    .cred-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 20px;
-    }
-    .cred-card {
-        background: var(--light-gray);
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        padding: 32px 24px;
-        text-align: center;
-    }
-    .cred-badge {
-        display: inline-block;
-        background: var(--primary-accent);
-        color: white;
-        font-size: 10px;
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        padding: 4px 12px;
-        border-radius: 20px;
-        margin-bottom: 12px;
-    }
-
-    .use-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-    }
-    .use-card {
-        background: white;
-        border: 1px solid var(--border-color);
-        border-radius: 8px;
-        padding: 32px;
-        border-left: 4px solid var(--primary-accent);
-    }
-    .use-badge {
-        display: inline-block;
-        background: var(--primary-accent);
-        color: white;
-        font-size: 11px;
-        font-weight: 700;
-        padding: 4px 12px;
-        border-radius: 4px;
-        margin-bottom: 12px;
-    }
-
-    .method-steps {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 32px;
-    }
-    .method-step { text-align: center; }
-    .step-num {
-        width: 60px;
-        height: 60px;
-        background: var(--primary-accent);
-        color: white;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 24px;
-        font-weight: 700;
-        margin: 0 auto 20px;
-    }
-
-    /* Final CTA */
-    #cta {
-        background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
-        color: white;
-        text-align: center;
-        padding: 100px 0;
-    }
-
-    @media (max-width: 992px) {
-        .cat-grid, .use-grid { grid-template-columns: repeat(2, 1fr); }
-        .method-steps, .cred-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 768px) {
-        .two-col, .cat-grid, .use-grid, .method-steps, .cred-grid {
-            grid-template-columns: 1fr;
-        }
-        #hero { padding: 100px 0 60px; }
-        section { padding: 60px 0; }
-    }
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>People Access Systems | Securevision Singapore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="sv-shared.css">
 </head>
-<body>
-<nav class="main-nav">
-<div class="nav-container">
-  <!-- Logo + Wordmark — always left -->
-  <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
-    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
-    <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#ffffff;letter-spacing:0.5px;">SECUREVISION</span>
-  </a>
 
-  <!-- Hamburger — centred absolutely on mobile (via CSS) -->
-  <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
-
-  <!-- Desktop nav links -->
-  <ul class="nav-menu">
-    <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
-      <div class="simple-dropdown">
-        <a href="residential.html">&#127968; Private Homes</a>
-        <a href="condominiums.html">&#127960;&#65039; Condominiums</a>
-        <a href="commercial.html">&#127978; Commercial &amp; Retail</a>
-        <a href="institutions.html">&#127979; Institutions</a>
-        <a href="industrial.html">&#127981; Industrial &amp; Logistics</a>
-        <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
+<body style="padding-top:68px">
+  <nav class="main-nav">
+    <div class="nav-container">
+      <!-- Logo + Wordmark â€” always left -->
+      <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
+        <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
+        <span class="wordmark nav-wordmark">SECUREVISION</span>
+      </a>
+      <!-- Hamburger â€” centred absolutely on mobile (via CSS) -->
+      <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg
+          width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" x1="12" x2="21" y2="12"></line>
+          <line x1="3" x1="6" x2="21" y2="6"></line>
+          <line x1="3" x1="18" x2="21" y2="18"></line>
+        </svg></button>
+      <!-- Desktop nav links -->
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
+          <div class="simple-dropdown">
+            <a href="residential.html">Private Homes</a>
+            <a href="condominiums.html">Condominiums</a>
+            <a href="commercial.html">Commercial &amp; Retail</a>
+            <a href="institutions.html">Institutions</a>
+            <a href="industrial.html">Industrial &amp; Logistics</a>
+            <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="systems.html" class="nav-link has-dropdown active">Systems</a>
+          <div class="simple-dropdown">
+            <a href="surveillance-systems.html">Surveillance &amp; Detection</a>
+            <a href="people-access.html">People Access</a>
+            <a href="vehicle-access.html">Vehicle Access</a>
+            <a href="platform-integration.html">Platform &amp; Integration</a>
+            <a href="systems.html"><strong>&rarr; View All Systems</strong></a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="brands.html" class="nav-link has-dropdown">Brands</a>
+          <div class="simple-dropdown">
+            <a href="hikvision-singapore.html">Hikvision</a>
+            <a href="hanwha-samsung-singapore.html">Hanwha</a>
+            <a href="ajax-alarm-singapore.html">AJAX</a>
+            <a href="zkteco-singapore.html">ZKTeco</a>
+            <a href="akuvox-singapore.html">Akuvox</a>
+            <a href="faac-singapore.html">FAAC</a>
+            <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
+          <div class="simple-dropdown">
+            <a href="portfolio.html">Private Homes</a>
+            <a href="portfolio.html">Condominiums</a>
+            <a href="commercial.html">Commercial &amp; Retail</a>
+            <a href="institutions.html">Institutions</a>
+            <a href="industrial.html">Industrial &amp; Logistics</a>
+            <a href="portfolio.html"><strong>&rarr; All Projects</strong></a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
+          <div class="simple-dropdown">
+            <a href="insights.html?cat=planning">Security Planning</a>
+            <a href="insights.html?cat=technology">Technology</a>
+            <a href="insights.html?cat=casestudy">Case Studies</a>
+            <a href="insights.html?cat=industry">SG Industry</a>
+            <a href="insights.html"><strong>&rarr; All Articles</strong></a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
+          <div class="simple-dropdown">
+            <a href="about.html">Our Story</a>
+            <a href="about.html#founder">Founder&rsquo;s Story</a>
+            <a href="awards-certifications.html">Awards &amp; Certifications</a>
+            <a href="contact.html">Contact Us</a>
+          </div>
+        </li>
+      </ul>
+      <!-- Desktop search icon -->
+      <div class="nav-right">
+        <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search"
+          onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" x1="21" x2="16.65" y2="16.65" />
+          </svg></button>
       </div>
-    </li>
-    <li class="nav-item"><a href="systems.html" class="nav-link has-dropdown active">Systems</a>
-      <div class="simple-dropdown">
-        <a href="surveillance-systems.html">&#128249; Surveillance &amp; Detection</a>
-        <a href="people-access.html">&#128682; People Access</a>
-        <a href="vehicle-access.html">&#128663; Vehicle Access</a>
-        <a href="platform-integration.html">&#128202; Platform &amp; Integration</a>
-        <a href="systems.html"><strong>&rarr; View All Systems</strong></a>
+      <!-- Mobile search icon â€” always right end on mobile -->
+      <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search"
+        onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" x1="21" x2="16.65" y2="16.65" />
+        </svg></button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu"
+          id="solSub"><a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a><a
+            href="residential.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a
+            href="commercial.html">Commercial</a><a href="institutions.html">Institutions</a><a
+            href="industrial.html">Industrial</a></div>
       </div>
-    </li>
-    <li class="nav-item"><a href="brands.html" class="nav-link has-dropdown">Brands</a>
-      <div class="simple-dropdown">
-        <a href="hikvision-singapore.html">Hikvision</a>
-        <a href="hanwha-samsung-singapore.html">Hanwha</a>
-        <a href="ajax-alarm-singapore.html">AJAX</a>
-        <a href="zkteco-singapore.html">ZKTeco</a>
-        <a href="akuvox-singapore.html">Akuvox</a>
-        <a href="faac-singapore.html">FAAC</a>
-        <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
+      <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu"
+          id="sysSub"><a href="systems.html"><strong>&rarr; View All Systems</strong></a><a
+            href="surveillance-systems.html">Surveillance</a><a href="people-access.html">People Access</a><a
+            href="vehicle-access.html">Vehicle Access</a><a href="platform-integration.html">Platform</a></div>
       </div>
-    </li>
-    <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
-      <div class="simple-dropdown">
-        <a href="portfolio-lviv.html">The L&rsquo;viv</a>
-        <a href="portfolio-scape.html">SCAPE</a>
-        <a href="portfolio-sta.html">STA</a>
-        <a href="portfolio-cyrus.html">Cyrus Tech</a>
-        <a href="portfolio.html"><strong>&rarr; All Projects</strong></a>
+      <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;<div class="mobile-submenu"
+          id="brdSub"><a href="brands.html"><strong>&rarr; All 20 Brands</strong></a><a
+            href="hikvision-singapore.html">Hikvision</a><a href="ajax-alarm-singapore.html">AJAX</a><a
+            href="zkteco-singapore.html">ZKTeco</a><a href="akuvox-singapore.html">Akuvox</a><a
+            href="faac-singapore.html">FAAC</a></div>
       </div>
-    </li>
-    <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
-      <div class="simple-dropdown">
-        <a href="insights.html?cat=planning">Security Planning</a>
-        <a href="insights.html?cat=technology">Technology</a>
-        <a href="insights.html?cat=casestudy">Case Studies</a>
-        <a href="insights.html?cat=industry">SG Industry</a>
-        <a href="insights.html"><strong>&rarr; All Articles</strong></a>
+      <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;<div class="mobile-submenu"
+          id="portSub"><a href="portfolio.html"><strong>&rarr; All Projects</strong></a><a href="portfolio.html">Private
+            Homes</a><a href="portfolio.html">Condominiums</a><a href="portfolio.html">Commercial &amp; Retail</a><a
+            href="portfolio.html">Institutions</a><a href="industrial.html">Industrial</a></div>
       </div>
-    </li>
-    <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
-      <div class="simple-dropdown">
-        <a href="about.html">Our Story</a>
-        <a href="about.html#founder">Founder&rsquo;s Story</a>
-        <a href="awards-certifications.html">Awards &amp; Certifications</a>
-        <a href="contact.html">Contact Us</a>
+      <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights &#9662;<div class="mobile-submenu"
+          id="insSub"><a href="insights.html"><strong>&rarr; All Articles</strong></a><a
+            href="insights.html?cat=planning">Security Planning</a><a
+            href="insights.html?cat=technology">Technology</a><a href="insights.html?cat=casestudy">Case Studies</a>
+        </div>
       </div>
-    </li>
-  </ul>
-
-  <!-- Desktop search icon -->
-  <div class="nav-right">
-    <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
-  </div>
-
-  <!-- Mobile search icon — always right end on mobile -->
-  <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
-</div>
-
-<!-- Mobile menu panel -->
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;
-    <div class="mobile-submenu" id="solSub">
-      <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
-      <a href="residential.html">&#127968; Private Homes</a>
-      <a href="condominiums.html">&#127960;&#65039; Condominiums</a>
-      <a href="commercial.html">&#127978; Commercial</a>
-      <a href="institutions.html">&#127979; Institutions</a>
-      <a href="industrial.html">&#127981; Industrial</a>
+      <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu"
+          id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a
+            href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a><a
+            href="contact.html">Contact Us</a></div>
+      </div>
     </div>
-  </div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;
-    <div class="mobile-submenu" id="sysSub">
-      <a href="systems.html"><strong>&rarr; View All Systems</strong></a>
-      <a href="surveillance-systems.html">&#128249; Surveillance</a>
-      <a href="people-access.html">&#128682; People Access</a>
-      <a href="vehicle-access.html">&#128663; Vehicle Access</a>
-      <a href="platform-integration.html">&#128202; Platform</a>
-    </div>
-  </div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;
-    <div class="mobile-submenu" id="brdSub">
-      <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
-      <a href="hikvision-singapore.html">Hikvision</a>
-      <a href="ajax-alarm-singapore.html">AJAX</a>
-      <a href="zkteco-singapore.html">ZKTeco</a>
-      <a href="akuvox-singapore.html">Akuvox</a>
-      <a href="faac-singapore.html">FAAC</a>
-    </div>
-  </div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;
-    <div class="mobile-submenu" id="portSub">
-      <a href="portfolio.html"><strong>&rarr; All Projects</strong></a>
-      <a href="portfolio-lviv.html">The L&rsquo;viv</a>
-      <a href="portfolio-scape.html">SCAPE</a>
-      <a href="portfolio-sta.html">STA</a>
-      <a href="portfolio-cyrus.html">Cyrus Tech</a>
-    </div>
-  </div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights &#9662;
-    <div class="mobile-submenu" id="insSub">
-      <a href="insights.html"><strong>&rarr; All Articles</strong></a>
-      <a href="insights.html?cat=planning">Security Planning</a>
-      <a href="insights.html?cat=technology">Technology</a>
-      <a href="insights.html?cat=casestudy">Case Studies</a>
-    </div>
-  </div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;
-    <div class="mobile-submenu" id="abtSub">
-      <a href="about.html"><strong>&rarr; About Securevision</strong></a>
-      <a href="about.html#founder">Founder&rsquo;s Story</a>
-      <a href="awards-certifications.html">Awards</a>
-      <a href="contact.html">Contact Us</a>
-    </div>
-  </div>
-</div>
-</nav>
+  </nav>
 
 
-
-<!-- HERO -->
-<section id="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <span class="eyebrow eyebrow-light">Products · People Access</span>
-      <h1>People Access Systems</h1>
-      <p class="hero-lead">Control who enters, where they go, and when — with a complete audit trail. Card, biometric, mobile credential, and visitor management in one integrated platform.</p>
-<div style="display:flex;gap:8px;margin-top:12px">
-<a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook" style="width:32px;height:32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-<a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:32px;height:32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-<a href="https://wa.me/6593860466" target="_blank" rel="noopener" aria-label="WhatsApp" style="width:32px;height:32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
-</div>
-      <div class="hero-tags">
-        <span class="hero-tag">🚪 Turnstiles</span>
-        <span class="hero-tag">🔒 Access Control</span>
-        <span class="hero-tag">👆 Biometrics</span>
-        <span class="hero-tag">📱 Mobile Credentials</span>
-        <span class="hero-tag">👤 Visitor Management</span>
-        <span class="hero-tag">🔔 Intercom</span>
-      </div>
-      <div class="hero-btns">
-        <a href="#categories" class="btn btn-accent">View Access Systems</a>
-        <a href="https://wa.me/6593860466" class="btn btn-outline-white">Get a Quote</a>
-      </div>
+  <nav class="sv-breadcrumb">
+    <div class="container">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="systems.html">Systems</a></li>
+        <li>People Access & Authentication</li>
+      </ul>
     </div>
-  </div>
-</section>
-
-<!-- OVERVIEW -->
-<section id="overview">
-  <div class="container">
-    <div class="two-col">
-      <div class="overview-text">
-        <span class="eyebrow">Why It Matters</span>
-        <h2>Know Exactly Who Is in Your Building</h2>
-        <p>Traditional locks and keys give you no audit trail, no revocation control, and no way to know who accessed what and when. Modern access control transforms your building's entry points into intelligent, managed checkpoints.</p>
-        <p>Securevision designs people access systems that scale — from a single front door to a 500-unit condominium with multiple zones, resident access levels, and visitor pre-registration. Every entry is logged, every credential can be revoked remotely.</p>
-        <ul class="check-list">
-          <li>Complete access event log for audit, compliance, and investigations</li>
-          <li>Multi-factor options: card + PIN, card + biometric, mobile</li>
-          <li>Visitor management with time-limited credential issuance</li>
-          <li>Zone-based access levels — restrict areas by role or time</li>
-          <li>Integration with CCTV for visual verification at every access point</li>
-          <li>Remote management — add, modify, or revoke access instantly</li>
-        </ul>
-      </div>
-      <div class="spec-card">
-        <h3>System Capabilities at a Glance</h3>
-        <div class="spec-row"><span class="spec-label">Credential Types</span><span class="spec-value">Card, PIN, Bio, Mobile</span></div>
-        <div class="spec-row"><span class="spec-label">Users per System</span><span class="spec-value">Up to 100,000+</span></div>
-        <div class="spec-row"><span class="spec-label">Door Controllers</span><span class="spec-value">2 to 128+ doors</span></div>
-        <div class="spec-row"><span class="spec-label">Access Levels</span><span class="spec-value">Unlimited zones/times</span></div>
-        <div class="spec-row"><span class="spec-label">Audit Log</span><span class="spec-value">12 months+ retention</span></div>
-        <div class="spec-row"><span class="spec-label">CCTV Integration</span><span class="spec-value">Linked to camera events</span></div>
-        <div class="spec-row"><span class="spec-label">Remote Management</span><span class="spec-value">Cloud / On-premise</span></div>
-        <div class="spec-row"><span class="spec-label">Visitor Pre-reg</span><span class="spec-value">QR code / App</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCT CATEGORIES -->
-<section id="categories">
-  <div class="container">
-    <div class="section-header">
-      <span class="eyebrow">Access Hardware</span>
-      <h2>Every Access Point, Engineered</h2>
-      <p>From pedestrian turnstiles and biometric readers to intercom stations and visitor kiosks — we specify and install the right hardware for every entry scenario.</p>
-    </div>
-    <div class="cat-grid">
-      <div class="cat-card">
-        <div class="cat-icon">🚪</div>
-        <h3>Turnstiles & Entry Barriers</h3>
-        <p>High-throughput pedestrian barriers for lobbies, transit hubs, and facility entrances. Options from basic tripod to full-height security turnstiles.</p>
-        <ul class="cat-specs">
-          <li>Flap, swing & tripod types</li>
-          <li>Full-height security turnstiles</li>
-          <li>Speed gate for high traffic</li>
-          <li>ADA-compliant wide lanes</li>
-          <li>Bi-directional control</li>
-        </ul>
-      </div>
-      <div class="cat-card">
-        <div class="cat-icon">💳</div>
-        <h3>Card Readers & Keypads</h3>
-        <p>RFID and smart card readers for standard door access. Proximity, Mifare, DESFire, and multi-technology options for interoperability.</p>
-        <ul class="cat-specs">
-          <li>Mifare & DESFire encrypted</li>
-          <li>Multi-technology readers</li>
-          <li>Indoor & outdoor rated</li>
-          <li>Card + PIN combination</li>
-          <li>Tamper detection built-in</li>
-        </ul>
-      </div>
-      <div class="cat-card">
-        <div class="cat-icon">👆</div>
-        <h3>Biometric Terminals</h3>
-        <p>Fingerprint, facial recognition, and palm vein readers for high-security access points. Eliminates credential sharing and buddy punching.</p>
-        <ul class="cat-specs">
-          <li>Fingerprint (1:N matching)</li>
-          <li>Facial recognition (AI-based)</li>
-          <li>Palm vein scanners</li>
-          <li>Liveness detection</li>
-          <li>Mask-compliant face recognition</li>
-        </ul>
-      </div>
-      <div class="cat-card">
-        <div class="cat-icon">🔐</div>
-        <h3>Electric & EM Locks</h3>
-        <p>Fail-safe and fail-secure locking mechanisms for every door type — glass, timber, metal frames. Integrated with fire alarm for emergency release.</p>
-        <ul class="cat-specs">
-          <li>Electromagnetic locks (EM)</li>
-          <li>Electric strikes & drop bolts</li>
-          <li>Fail-safe / fail-secure options</li>
-          <li>Fire alarm integration</li>
-          <li>Door position sensors</li>
-        </ul>
-      </div>
-      <div class="cat-card">
-        <div class="cat-icon">👤</div>
-        <h3>Visitor Management Systems</h3>
-        <p>Digitise the visitor journey from pre-registration to badge printing to access credential issuance — replacing paper logbooks with a secure digital trail.</p>
-        <ul class="cat-specs">
-          <li>Web & mobile pre-registration</li>
-          <li>QR code visitor passes</li>
-          <li>ID document scanning</li>
-          <li>Time-limited access credentials</li>
-          <li>Host notification via SMS/email</li>
-        </ul>
-      </div>
-      <div class="cat-card">
-        <div class="cat-icon">📞</div>
-        <h3>Intercom & Video Door Stations</h3>
-        <p>Audio and video communication between visitors and residents or security. Integrated with access control for remote door release from any device.</p>
-        <ul class="cat-specs">
-          <li>IP video door stations</li>
-          <li>Indoor monitor units</li>
-          <li>Mobile app door release</li>
-          <li>Multi-tenant support</li>
-          <li>CCTV snapshot on call</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CREDENTIAL TYPES -->
-<section id="credentials">
-  <div class="container">
-    <div class="section-header">
-      <span class="eyebrow">Credential Options</span>
-      <h2>The Right Credential for Every Context</h2>
-      <p>We design access systems around how your users actually operate — balancing security with convenience at every access point.</p>
-    </div>
-    <div class="cred-grid">
-      <div class="cred-card">
-        <div class="cred-icon">💳</div>
-        <div class="cred-badge">Standard</div>
-        <h3>RFID / Smart Card</h3>
-        <p>Durable, cost-effective credentials for large user populations. Encrypted Mifare or DESFire cards prevent cloning.</p>
-      </div>
-      <div class="cred-card">
-        <div class="cred-icon">📱</div>
-        <div class="cred-badge">Modern</div>
-        <h3>Mobile / BLE</h3>
-        <p>Smartphone-based credentials via Bluetooth or NFC. No physical card required — ideal for tech-forward developments.</p>
-      </div>
-      <div class="cred-card">
-        <div class="cred-icon">👆</div>
-        <div class="cred-badge">High Security</div>
-        <h3>Biometric</h3>
-        <p>Fingerprint or face — the credential is the person. Eliminates card loss, credential sharing, and buddy punching.</p>
-      </div>
-      <div class="cred-card">
-        <div class="cred-icon">🔢</div>
-        <div class="cred-badge">Backup</div>
-        <h3>PIN Code</h3>
-        <p>Keypad entry as a standalone or second-factor. Ideal for after-hours access, visitor PIN codes, or emergency override.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- USE CASES -->
-<section id="use-cases">
-  <div class="container">
-    <div class="section-header">
-      <span class="eyebrow">Applications</span>
-      <h2>Access Control for Every Property Type</h2>
-    </div>
-    <div class="use-grid">
-      <div class="use-card">
-        <div class="use-badge">Condominium</div>
-        <h3>Multi-Zone Resident Access</h3>
-        <p>Card or mobile access for unit doors, lift lobbies, gym, pool, and carpark. Visitor intercom with remote release from resident smartphones.</p>
-      </div>
-      <div class="use-card">
-        <div class="use-badge">Office</div>
-        <h3>Corporate Office Access</h3>
-        <p>Role-based access levels — reception open, server room restricted, executive floor multi-factor. Full audit log for compliance and HR investigation.</p>
-      </div>
-      <div class="use-card">
-        <div class="use-badge">Industrial</div>
-        <h3>Hazardous Zone Control</h3>
-        <p>Biometric access to restricted production areas. Shift-based time zones, contractor credential management, and automated headcount reporting.</p>
-      </div>
-      <div class="use-card">
-        <div class="use-badge">Institution</div>
-        <h3>School & Campus Control</h3>
-        <p>Student, staff, and visitor credentials with time-based zoning. Automatically lock classrooms outside school hours. Integration with attendance systems.</p>
-      </div>
-      <div class="use-card">
-        <div class="use-badge">Healthcare</div>
-        <h3>Clinical Zone Management</h3>
-        <p>Ward access restricted to credentialed staff. Pharmacy and drug storage with biometric + PIN dual verification. Patient protection zones logged.</p>
-      </div>
-      <div class="use-card">
-        <div class="use-badge">Multi-tenancy</div>
-        <h3>Mixed-Use Buildings</h3>
-        <p>Separate access domains for each tenant while sharing infrastructure. Building management retains override — tenant admins manage their own staff.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- METHODOLOGY -->
-<section id="methodology">
-  <div class="container">
-    <div class="section-header">
-      <span class="eyebrow">Our Process</span>
-      <h2>How We Design Your Access System</h2>
-    </div>
-    <div class="method-steps">
-      <div class="method-step">
-        <div class="step-num">1</div>
-        <h3>Access Requirement Mapping</h3>
-        <p>Define user groups, access zones, and time-based restrictions before any hardware is specified.</p>
-      </div>
-      <div class="method-step">
-        <div class="step-num">2</div>
-        <h3>Hardware Specification</h3>
-        <p>Select reader type, lock mechanism, and controller architecture for each door and zone.</p>
-      </div>
-      <div class="method-step">
-        <div class="step-num">3</div>
-        <h3>System Integration</h3>
-        <p>Link access events to CCTV, visitor management, and alarm systems for a unified response.</p>
-      </div>
-      <div class="method-step">
-        <div class="step-num">4</div>
-        <h3>Commission & Training</h3>
-        <p>Configure access levels, enrol users, train administrators, and deliver full system documentation.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  </nav>
 
 
-<!-- BRANDS WE INSTALL -->
-<section class="brands-we-install" style="background:var(--light-gray,#F8F9FA); padding:64px 0;">
-  <div class="container">
-    <span style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent,#319795);margin-bottom:12px;display:block;">Brands We Install</span>
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:40px;">
-      <div>
-        <h2 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(22px,3vw,32px);margin-bottom:10px;">Brands We Install — Access Control &amp; Intercom</h2>
-        <p style="font-size:15px;color:#5F6368;max-width:660px;line-height:1.7;margin:0;">We carry leading access control and intercom brands across every budget tier. Specified to match your property type, user population, and credential requirements.</p>
+
+
+  <!-- BREADCRUMBS -->
+
+
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <div class="container">
+      <div class="two-col">
+        <div class="overview-text">
+          <span class="eyebrow">Why It Matters</span>
+          <h2>Know Exactly Who Is in Your Building</h2>
+          <p>Traditional locks and keys give you no audit trail, no revocation control, and no way to know who accessed
+            what and when. Modern access control transforms your building's entry points into intelligent, managed
+            checkpoints.</p>
+          <p>Securevision designs people access systems that scale â€” from a single front door to a 500-unit
+            condominium with multiple zones, resident access levels, and visitor pre-registration. Every entry is
+            logged, every credential can be revoked remotely.</p>
+          <ul class="check-list">
+            <li>Complete access event log for audit, compliance, and investigations</li>
+            <li>Multi-factor options: card + PIN, card + biometric, mobile</li>
+            <li>Visitor management with time-limited credential issuance</li>
+            <li>Zone-based access levels â€” restrict areas by role or time</li>
+            <li>Integration with CCTV for visual verification at every access point</li>
+            <li>Remote management â€” add, modify, or revoke access instantly</li>
+          </ul>
+        </div>
+        <div class="spec-card">
+          <h3>System Capabilities at a Glance</h3>
+          <div class="spec-row"><span class="spec-label">Credential Types</span><span class="spec-value">Card, PIN, Bio,
+              Mobile</span></div>
+          <div class="spec-row"><span class="spec-label">Users per System</span><span class="spec-value">Up to
+              100,000+</span></div>
+          <div class="spec-row"><span class="spec-label">Door Controllers</span><span class="spec-value">2 to 128+
+              doors</span></div>
+          <div class="spec-row"><span class="spec-label">Access Levels</span><span class="spec-value">Unlimited
+              zones/times</span></div>
+          <div class="spec-row"><span class="spec-label">Audit Log</span><span class="spec-value">12 months+
+              retention</span></div>
+          <div class="spec-row"><span class="spec-label">CCTV Integration</span><span class="spec-value">Linked to
+              camera events</span></div>
+          <div class="spec-row"><span class="spec-label">Remote Management</span><span class="spec-value">Cloud /
+              On-premise</span></div>
+          <div class="spec-row"><span class="spec-label">Visitor Pre-reg</span><span class="spec-value">QR code /
+              App</span></div>
+        </div>
       </div>
-      <a href="brands.html" style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:8px;background:var(--accent,#319795);color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-decoration:none;white-space:nowrap;flex-shrink:0;">View All 20 Brands →</a>
     </div>
-    <style>
-      .bwi-group { margin-bottom: 36px; }
-      .bwi-group:last-child { margin-bottom: 0; }
-      .bwi-group-header { display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #E8EAED; }
-      .bwi-group-icon { font-size:18px; }
-      .bwi-group-title { font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:#1B1F23; }
-      .bwi-group-bar { width:32px;height:3px;border-radius:2px;flex-shrink:0; }
-      .bwi-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px; }
-      .bwi-card { background:#fff;border:1px solid #E8EAED;border-radius:8px;padding:16px 14px;text-decoration:none;color:#1B1F23;transition:all .2s;display:flex;flex-direction:column;gap:6px; }
-      .bwi-card:hover { box-shadow:0 6px 20px rgba(0,0,0,.1);transform:translateY(-2px);border-color:var(--accent,#319795); }
-      .bwi-name { font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700; }
-      .bwi-desc { font-size:11px;color:#5F6368;line-height:1.4;flex:1; }
-      .bwi-tier { display:inline-block;padding:2px 8px;border-radius:8px;font-size:10px;font-weight:700;color:#fff;align-self:flex-start; }
-      @media(max-width:600px){ .bwi-grid { grid-template-columns:repeat(2,1fr); } }
-    </style>
-    
+  </section>
+
+  <!-- PRODUCT CATEGORIES -->
+  <section id="categories">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Access Hardware</span>
+        <h2>Every Access Point, Engineered</h2>
+        <p>From pedestrian turnstiles and biometric readers to intercom stations and visitor kiosks â€” we specify and
+          install the right hardware for every entry scenario.</p>
+      </div>
+      <div class="cat-grid">
+        <div class="cat-card">
+          <div class="cat-icon">ðŸšª</div>
+          <h3>Turnstiles & Entry Barriers</h3>
+          <p>High-throughput pedestrian barriers for lobbies, transit hubs, and facility entrances. Options from basic
+            tripod to full-height security turnstiles.</p>
+          <ul class="cat-specs">
+            <li>Flap, swing & tripod types</li>
+            <li>Full-height security turnstiles</li>
+            <li>Speed gate for high traffic</li>
+            <li>ADA-compliant wide lanes</li>
+            <li>Bi-directional control</li>
+          </ul>
+        </div>
+        <div class="cat-card">
+          <div class="cat-icon">ðŸ’³</div>
+          <h3>Card Readers & Keypads</h3>
+          <p>RFID and smart card readers for standard door access. Proximity, Mifare, DESFire, and multi-technology
+            options for interoperability.</p>
+          <ul class="cat-specs">
+            <li>Mifare & DESFire encrypted</li>
+            <li>Multi-technology readers</li>
+            <li>Indoor & outdoor rated</li>
+            <li>Card + PIN combination</li>
+            <li>Tamper detection built-in</li>
+          </ul>
+        </div>
+        <div class="cat-card">
+          <div class="cat-icon">ðŸ‘†</div>
+          <h3>Biometric Terminals</h3>
+          <p>Fingerprint, facial recognition, and palm vein readers for high-security access points. Eliminates
+            credential sharing and buddy punching.</p>
+          <ul class="cat-specs">
+            <li>Fingerprint (1:N matching)</li>
+            <li>Facial recognition (AI-based)</li>
+            <li>Palm vein scanners</li>
+            <li>Liveness detection</li>
+            <li>Mask-compliant face recognition</li>
+          </ul>
+        </div>
+        <div class="cat-card">
+          <div class="cat-icon">ðŸ”</div>
+          <h3>Electric & EM Locks</h3>
+          <p>Fail-safe and fail-secure locking mechanisms for every door type â€” glass, timber, metal frames.
+            Integrated with fire alarm for emergency release.</p>
+          <ul class="cat-specs">
+            <li>Electromagnetic locks (EM)</li>
+            <li>Electric strikes & drop bolts</li>
+            <li>Fail-safe / fail-secure options</li>
+            <li>Fire alarm integration</li>
+            <li>Door position sensors</li>
+          </ul>
+        </div>
+        <div class="cat-card">
+          <div class="cat-icon">ðŸ‘¤</div>
+          <h3>Visitor Management Systems</h3>
+          <p>Digitise the visitor journey from pre-registration to badge printing to access credential issuance â€”
+            replacing paper logbooks with a secure digital trail.</p>
+          <ul class="cat-specs">
+            <li>Web & mobile pre-registration</li>
+            <li>QR code visitor passes</li>
+            <li>ID document scanning</li>
+            <li>Time-limited access credentials</li>
+            <li>Host notification via SMS/email</li>
+          </ul>
+        </div>
+        <div class="cat-card">
+          <div class="cat-icon">ðŸ“ž</div>
+          <h3>Intercom & Video Door Stations</h3>
+          <p>Audio and video communication between visitors and residents or security. Integrated with access control
+            for remote door release from any device.</p>
+          <ul class="cat-specs">
+            <li>IP video door stations</li>
+            <li>Indoor monitor units</li>
+            <li>Mobile app door release</li>
+            <li>Multi-tenant support</li>
+            <li>CCTV snapshot on call</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIAL TYPES -->
+  <section id="credentials">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Credential Options</span>
+        <h2>The Right Credential for Every Context</h2>
+        <p>We design access systems around how your users actually operate â€” balancing security with convenience at
+          every access point.</p>
+      </div>
+      <div class="cred-grid">
+        <div class="cred-card">
+          <div class="cred-icon">ðŸ’³</div>
+          <div class="cred-badge">Standard</div>
+          <h3>RFID / Smart Card</h3>
+          <p>Durable, cost-effective credentials for large user populations. Encrypted Mifare or DESFire cards prevent
+            cloning.</p>
+        </div>
+        <div class="cred-card">
+          <div class="cred-icon">ðŸ“±</div>
+          <div class="cred-badge">Modern</div>
+          <h3>Mobile / BLE</h3>
+          <p>Smartphone-based credentials via Bluetooth or NFC. No physical card required â€” ideal for tech-forward
+            developments.</p>
+        </div>
+        <div class="cred-card">
+          <div class="cred-icon">ðŸ‘†</div>
+          <div class="cred-badge">High Security</div>
+          <h3>Biometric</h3>
+          <p>Fingerprint or face â€” the credential is the person. Eliminates card loss, credential sharing, and buddy
+            punching.</p>
+        </div>
+        <div class="cred-card">
+          <div class="cred-icon">ðŸ”¢</div>
+          <div class="cred-badge">Backup</div>
+          <h3>PIN Code</h3>
+          <p>Keypad entry as a standalone or second-factor. Ideal for after-hours access, visitor PIN codes, or
+            emergency override.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section id="use-cases">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Applications</span>
+        <h2>Access Control for Every Property Type</h2>
+      </div>
+      <div class="use-grid">
+        <div class="use-card">
+          <div class="use-badge">Condominium</div>
+          <h3>Multi-Zone Resident Access</h3>
+          <p>Card or mobile access for unit doors, lift lobbies, gym, pool, and carpark. Visitor intercom with remote
+            release from resident smartphones.</p>
+        </div>
+        <div class="use-card">
+          <div class="use-badge">Office</div>
+          <h3>Corporate Office Access</h3>
+          <p>Role-based access levels â€” reception open, server room restricted, executive floor multi-factor. Full
+            audit log for compliance and HR investigation.</p>
+        </div>
+        <div class="use-card">
+          <div class="use-badge">Industrial</div>
+          <h3>Hazardous Zone Control</h3>
+          <p>Biometric access to restricted production areas. Shift-based time zones, contractor credential management,
+            and automated headcount reporting.</p>
+        </div>
+        <div class="use-card">
+          <div class="use-badge">Institution</div>
+          <h3>School & Campus Control</h3>
+          <p>Student, staff, and visitor credentials with time-based zoning. Automatically lock classrooms outside
+            school hours. Integration with attendance systems.</p>
+        </div>
+        <div class="use-card">
+          <div class="use-badge">Healthcare</div>
+          <h3>Clinical Zone Management</h3>
+          <p>Ward access restricted to credentialed staff. Pharmacy and drug storage with biometric + PIN dual
+            verification. Patient protection zones logged.</p>
+        </div>
+        <div class="use-card">
+          <div class="use-badge">Multi-tenancy</div>
+          <h3>Mixed-Use Buildings</h3>
+          <p>Separate access domains for each tenant while sharing infrastructure. Building management retains override
+            â€” tenant admins manage their own staff.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- METHODOLOGY -->
+  <section id="methodology">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Our Process</span>
+        <h2>How We Design Your Access System</h2>
+      </div>
+      <div class="method-steps">
+        <div class="method-step">
+          <div class="step-num">1</div>
+          <h3>Access Requirement Mapping</h3>
+          <p>Define user groups, access zones, and time-based restrictions before any hardware is specified.</p>
+        </div>
+        <div class="method-step">
+          <div class="step-num">2</div>
+          <h3>Hardware Specification</h3>
+          <p>Select reader type, lock mechanism, and controller architecture for each door and zone.</p>
+        </div>
+        <div class="method-step">
+          <div class="step-num">3</div>
+          <h3>System Integration</h3>
+          <p>Link access events to CCTV, visitor management, and alarm systems for a unified response.</p>
+        </div>
+        <div class="method-step">
+          <div class="step-num">4</div>
+          <h3>Commission & Training</h3>
+          <p>Configure access levels, enrol users, train administrators, and deliver full system documentation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BRANDS WE INSTALL -->
+  <section class="brands-we-install" style="background:var(--light-gray,#F8F9FA); padding:64px 0;">
+    <div class="container">
+      <span
+        style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent,#319795);margin-bottom:12px;display:block;">Brands
+        We Install</span>
+      <div
+        style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:40px;">
+        <div>
+          <h2
+            style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(22px,3vw,32px);margin-bottom:10px;">
+            Brands We Install â€” Access Control &amp; Intercom</h2>
+          <p style="font-size:15px;color:#5F6368;max-width:660px;line-height:1.7;margin:0;">We carry leading access
+            control and intercom brands across every budget tier. Specified to match your property type, user
+            population, and credential requirements.</p>
+        </div>
+        <a href="brands.html"
+          style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:8px;background:var(--accent,#319795);color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-decoration:none;white-space:nowrap;flex-shrink:0;">View
+          All 20 Brands â†’</a>
+      </div>
+      <style>
+        .bwi-group {
+          margin-bottom: 36px;
+        }
+
+        .bwi-group:last-child {
+          margin-bottom: 0;
+        }
+
+        .bwi-group-header {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 16px;
+          padding-bottom: 12px;
+          border-bottom: 2px solid #E8EAED;
+        }
+
+        .bwi-group-icon {
+          font-size: 18px;
+        }
+
+        .bwi-group-title {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 13px;
+          font-weight: 700;
+          color: #1B1F23;
+        }
+
+        .bwi-group-bar {
+          width: 32px;
+          height: 3px;
+          border-radius: 2px;
+          flex-shrink: 0;
+        }
+
+        .bwi-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+          gap: 12px;
+        }
+
+        .bwi-card {
+          background: #fff;
+          border: 1px solid #E8EAED;
+          border-radius: 8px;
+          padding: 16px 14px;
+          text-decoration: none;
+          color: #1B1F23;
+          transition: all .2s;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+
+        .bwi-card:hover {
+          box-shadow: 0 6px 20px rgba(0, 0, 0, .1);
+          transform: translateY(-2px);
+          border-color: var(--accent, #319795);
+        }
+
+        .bwi-name {
+          font-family: 'Montserrat', sans-serif;
+          font-size: 14px;
+          font-weight: 700;
+        }
+
+        .bwi-desc {
+          font-size: 11px;
+          color: #5F6368;
+          line-height: 1.4;
+          flex: 1;
+        }
+
+        .bwi-tier {
+          display: inline-block;
+          padding: 2px 8px;
+          border-radius: 8px;
+          font-size: 10px;
+          font-weight: 700;
+          color: #fff;
+          align-self: flex-start;
+        }
+
+        @media(max-width:600px) {
+          .bwi-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+      </style>
+
       <div class="bwi-group">
         <div class="bwi-group-header">
-          <span class="bwi-group-icon">👆</span>
+          <span class="bwi-group-icon">ðŸ‘†</span>
           <span class="bwi-group-title">Access Control</span>
           <span class="bwi-group-bar" style="background:#319795;"></span>
         </div>
         <div class="bwi-grid">
           <a href="zkteco-singapore.html" class="bwi-card">
             <div class="bwi-name">ZKTeco</div>
-            <div class="bwi-desc">World #1 biometric · budget–mid</div>
-            <div class="bwi-tier" style="background:#38a169;">Budget–Mid</div>
+            <div class="bwi-desc">World #1 biometric Â· budgetâ€“mid</div>
+            <div class="bwi-tier" style="background:#38a169;">Budgetâ€“Mid</div>
           </a>
           <a href="suprema-singapore.html" class="bwi-card">
             <div class="bwi-name">Suprema</div>
-            <div class="bwi-desc">NIST #1 accuracy · enterprise</div>
+            <div class="bwi-desc">NIST #1 accuracy Â· enterprise</div>
             <div class="bwi-tier" style="background:#7209B7;">Premium</div>
           </a>
           <a href="hid-singapore.html" class="bwi-card">
@@ -655,154 +556,166 @@
           </a>
           <a href="entrypass-singapore.html" class="bwi-card">
             <div class="bwi-name">EntryPass</div>
-            <div class="bwi-desc">SEA-built · tropical rated</div>
-            <div class="bwi-tier" style="background:#38a169;">Budget–Mid</div>
+            <div class="bwi-desc">SEA-built Â· tropical rated</div>
+            <div class="bwi-tier" style="background:#38a169;">Budgetâ€“Mid</div>
           </a>
           <a href="microengine-singapore.html" class="bwi-card">
             <div class="bwi-name">MicroEngine</div>
-            <div class="bwi-desc">Singapore-designed · MOM T&amp;A</div>
-            <div class="bwi-tier" style="background:#38a169;">Budget–Mid</div>
+            <div class="bwi-desc">Singapore-designed Â· MOM T&amp;A</div>
+            <div class="bwi-tier" style="background:#38a169;">Budgetâ€“Mid</div>
           </a>
         </div>
       </div>
       <div class="bwi-group">
         <div class="bwi-group-header">
-          <span class="bwi-group-icon">📞</span>
+          <span class="bwi-group-icon">ðŸ“ž</span>
           <span class="bwi-group-title">Video Intercom</span>
           <span class="bwi-group-bar" style="background:#2b6cb0;"></span>
         </div>
         <div class="bwi-grid">
           <a href="akuvox-singapore.html" class="bwi-card">
             <div class="bwi-name">Akuvox</div>
-            <div class="bwi-desc">Smart IP · face recognition · app</div>
-            <div class="bwi-tier" style="background:#2b6cb0;">Mid–Premium</div>
+            <div class="bwi-desc">Smart IP Â· face recognition Â· app</div>
+            <div class="bwi-tier" style="background:#2b6cb0;">Midâ€“Premium</div>
           </a>
           <a href="aiphone-singapore.html" class="bwi-card">
             <div class="bwi-name">Aiphone</div>
-            <div class="bwi-desc">Japanese gold standard · 70yr heritage</div>
-            <div class="bwi-tier" style="background:#2b6cb0;">Mid–Premium</div>
+            <div class="bwi-desc">Japanese gold standard Â· 70yr heritage</div>
+            <div class="bwi-tier" style="background:#2b6cb0;">Midâ€“Premium</div>
           </a>
           <a href="kocom-singapore.html" class="bwi-card">
             <div class="bwi-name">Kocom</div>
-            <div class="bwi-desc">Korean value · residential budget</div>
+            <div class="bwi-desc">Korean value Â· residential budget</div>
             <div class="bwi-tier" style="background:#38a169;">Budget</div>
           </a>
         </div>
       </div>
-  </div>
-</section>
+    </div>
+  </section>
 
-<!-- CTA -->
-<section id="cta">
-  <div class="container">
-    <div class="cta-inner">
-      <span class="eyebrow eyebrow-light">Get Started</span>
-      <h2>Design Your Access Control System</h2>
-      <p>Tell us about your property type, user population, and access zones — we'll design the right credential and hardware architecture.</p>
-      <div class="cta-btns">
-        <a href="https://wa.me/6593860466" class="btn btn-whatsapp">💬 WhatsApp a Specialist</a>
-        <a hr<!-- FOOTER -->
-<footer class="main-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <!-- Col 1: Brand & Basic Info -->
-      <div class="footer-col footer-brand">
-        <a href="index.html" class="footer-logo">
-          <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
-          <span>SECUREVISION</span>
-        </a>
-        <p class="footer-tagline">Engineering security solutions across Singapore since 2006. NUS engineering-led and police-licensed.</p>
-        <div class="footer-contact-info">
-          <p><strong>Securevision Pte Ltd</strong></p>
-          <p>Police License: L/PS/000267/2023P</p>
-          <p>bizSAFE Level 3</p>
-        </div>
-      </div>
-
-      <!-- Col 2: Solutions -->
-      <div class="footer-col">
-        <h4 class="footer-title">Solutions</h4>
-        <ul class="footer-links">
-          <li><a href="residential.html">Private Homes</a></li>
-          <li><a href="condominiums.html">Condominiums (MCST)</a></li>
-          <li><a href="commercial.html">Commercial & Retail</a></li>
-          <li><a href="institutions.html">Institutions</a></li>
-          <li><a href="industrial.html">Industrial & Logistics</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 3: Systems -->
-      <div class="footer-col">
-        <h4 class="footer-title">Systems</h4>
-        <ul class="footer-links">
-          <li><a href="surveillance-systems.html">Surveillance & Detection</a></li>
-          <li><a href="people-access.html">People Access Systems</a></li>
-          <li><a href="vehicle-access.html">Vehicle Access Systems</a></li>
-          <li><a href="platform-integration.html">Platform & Integration</a></li>
-          <li><a href="brands.html">Hardware Brands</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 4: Reach Us -->
-      <div class="footer-col">
-        <h4 class="footer-title">Reach Us</h4>
-        <ul class="footer-links">
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="about.html">Our Story</a></li>
-          <li><a href="portfolio.html">Project Portfolio</a></li>
-          <li><a href="insights.html">Security Insights</a></li>
-          <li><a href="https://wa.me/6593860466" class="footer-whatsapp"><strong>WhatsApp: +65 9386 0466</strong></a></li>
-        </ul>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/securevision" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="https://www.linkedin.com/company/securevision-pte-ltd" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+  <!-- CTA -->
+  <section id="cta">
+    <div class="container">
+      <div class="cta-inner">
+        <span class="eyebrow eyebrow-light">Get Started</span>
+        <h2>Design Your Access Control System</h2>
+        <p>Tell us about your property type, user population, and access zones â€” we'll design the right credential and
+          hardware architecture.</p>
+        <div class="cta-btns">
+          <a href="https://wa.me/6593860466" class="btn btn-whatsapp">ðŸ’¬ WhatsApp a Specialist</a>
+          <a href="contact.html" class="btn btn-outline-white">Book a Site Survey</a>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="footer-bottom">
-      <div class="footer-bottom-inner">
-        <p>&copy; 2025 Securevision Pte Ltd. All rights reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms of Service</a>
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Basic Info -->
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="footer-logo">
+            <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
+            <span class="wordmark footer-wordmark">SECUREVISION</span>
+          </a>
+          <p class="footer-tagline">Engineering security solutions across Singapore since 2006. NUS engineering-led and
+            police-licensed.</p>
+          <div class="footer-contact-info">
+            <p><strong>Securevision Pte Ltd</strong></p>
+            <p>Police License: L/PS/000267/2023P</p>
+            <p>bizSAFE Level 3</p>
+          </div>
+        </div>
+
+        <!-- Col 2: Solutions -->
+        <div class="footer-col">
+          <h4 class="footer-title">Solutions</h4>
+          <ul class="footer-links">
+            <li><a href="residential.html">Private Homes</a></li>
+            <li><a href="condominiums.html">Condominiums (MCST)</a></li>
+            <li><a href="commercial.html">Commercial & Retail</a></li>
+            <li><a href="institutions.html">Institutions</a></li>
+            <li><a href="industrial.html">Industrial & Logistics</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Systems -->
+        <div class="footer-col">
+          <h4 class="footer-title">Systems</h4>
+          <ul class="footer-links">
+            <li><a href="surveillance-systems.html">Surveillance & Detection</a></li>
+            <li><a href="people-access.html">People Access Systems</a></li>
+            <li><a href="vehicle-access.html">Vehicle Access Systems</a></li>
+            <li><a href="platform-integration.html">Platform & Integration</a></li>
+            <li><a href="brands.html">Hardware Brands</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Reach Us -->
+        <div class="footer-col">
+          <h4 class="footer-title">Reach Us</h4>
+          <ul class="footer-links">
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="portfolio.html">Project Portfolio</a></li>
+            <li><a href="insights.html">Security Insights</a></li>
+            <li><a href="https://wa.me/6593860466" class="footer-whatsapp"><strong>WhatsApp: +65 9386 0466</strong></a>
+            </li>
+          </ul>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/securevision" aria-label="Facebook"><svg width="20" height="20"
+                viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg></a>
+            <a href="https://www.linkedin.com/company/securevision-pte-ltd" aria-label="LinkedIn"><svg width="20"
+                height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-bottom-inner">
+          <p>&copy; 2025 Securevision Pte Ltd. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.03a11.782 11.782 0 001.583 5.867L0 24l6.117-1.605a11.772 11.772 0 005.925 1.603h.005c6.635 0 12.022-5.392 12.026-12.033a11.742 11.742 0 00-3.504-8.508z"/></svg>
-</a>
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.03a11.782 11.782 0 001.583 5.867L0 24l6.117-1.605a11.772 11.772 0 005.925 1.603h.005c6.635 0 12.022-5.392 12.026-12.033a11.742 11.742 0 00-3.504-8.508z" />
+    </svg>
+  </a>
 
-<script>
-// Main Nav Functionality
-function toggleMobileMenu() {
-  const mobileMenu = document.getElementById('mobileMenu');
-  mobileMenu.classList.toggle('active');
-}
+  <script>
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
+    }
+    function toggleSubmenu(id) {
+      const sub = document.getElementById(id);
+      const isOpen = sub.style.display === 'block';
+      document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
+      if (!isOpen) sub.style.display = 'block';
+    }
+    document.addEventListener('click', function (e) {
+      const nav = document.querySelector('.main-nav');
+      const menu = document.getElementById('mobileMenu');
+      if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
+        menu.classList.remove('active');
+      }
+    });
+  </script>
+</body>
 
-function toggleSubmenu(id) {
-  const submenu = document.getElementById(id);
-  const isOpen = submenu.style.display === 'block';
-  // Close all submenus first
-  document.querySelectorAll('.mobile-submenu').forEach(sub => {
-    sub.style.display = 'none';
-  });
-  // Toggle the clicked one
-  if (!isOpen) {
-    submenu.style.display = 'block';
-  }
-}
-
-// Close mobile menu when clicking outside
-document.addEventListener('click', function(event) {
-  const mainNav = document.querySelector('.main-nav');
-  const mobileMenu = document.getElementById('mobileMenu');
-  if (mainNav && !mainNav.contains(event.target)) {
-    if (mobileMenu) mobileMenu.classList.remove('active');
-  }
-});
-</script>
+</html>

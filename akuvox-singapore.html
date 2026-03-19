@@ -161,96 +161,102 @@
 </head>
 <body style="padding-top:68px">
 
-<header class="main-header">
-  <nav class="main-nav">
-    <div class="nav-container">
-      <a href="index.html" class="nav-logo" aria-label="Securevision Home">
-        <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
-        <span>SECUREVISION</span>
-      </a>
-
-      <button class="mobile-toggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-      </button>
-
-      <ul class="nav-menu" id="navMenu">
-        <li class="nav-item">
-          <a href="solutions-hub.html" class="nav-link">Solutions</a>
-          <div class="dropdown">
-            <a href="residential.html">Private Homes</a>
-            <a href="condominiums.html">Condominiums (MCST)</a>
-            <a href="commercial.html">Commercial & Retail</a>
-            <a href="institutions.html">Institutions</a>
-            <a href="industrial.html">Industrial & Logistics</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a href="systems.html" class="nav-link">Systems</a>
-          <div class="dropdown">
-            <a href="surveillance-systems.html">Surveillance & Detection</a>
-            <a href="people-access.html">People Access Systems</a>
-            <a href="vehicle-access.html">Vehicle Access Systems</a>
-            <a href="platform-integration.html">Platform & Integration</a>
-            <a href="brands.html">Hardware Brands</a>
-          </div>
-        </li>
-        <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-        <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
-        <li class="nav-item"><a href="insights.html" class="nav-link">Insights</a></li>
-        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-        <li class="nav-item mobile-only"><a href="contact.html" class="nav-link">Contact</a></li>
-      </ul>
-
-      <div class="nav-actions">
-        <a href="search.html" class="nav-search-trigger" aria-label="Search">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        </a>
-        <a href="contact.html" class="nav-cta-desktop">Contact Us</a>
+<nav class="main-nav">
+<div class="nav-container">
+  <!-- Logo + Wordmark — always left -->
+  <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
+    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
+    <span class="wordmark nav-wordmark">SECUREVISION</span>
+  </a>
+  <!-- Hamburger — centred absolutely on mobile (via CSS) -->
+  <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+  <!-- Desktop nav links -->
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
+      <div class="simple-dropdown">
+        <a href="residential.html">Private Homes</a>
+        <a href="condominiums.html">Condominiums</a>
+        <a href="commercial.html">Commercial &amp; Retail</a>
+        <a href="institutions.html">Institutions</a>
+        <a href="industrial.html">Industrial &amp; Logistics</a>
+        <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
       </div>
-    </div>
-  </nav>
-
-  <div class="mobile-menu-overlay" id="mobileMenu">
-    <div class="mobile-menu-content">
-      <div class="mobile-menu-header">
-        <a href="index.html" class="mobile-logo">
-          <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
-        </a>
-        <button class="close-menu" onclick="toggleMobileMenu()">×</button>
+    </li>
+    <li class="nav-item"><a href="systems.html" class="nav-link has-dropdown">Systems</a>
+      <div class="simple-dropdown">
+        <a href="surveillance-systems.html">Surveillance &amp; Detection</a>
+        <a href="people-access.html">People Access</a>
+        <a href="vehicle-access.html">Vehicle Access</a>
+        <a href="platform-integration.html">Platform &amp; Integration</a>
+        <a href="systems.html"><strong>&rarr; View All Systems</strong></a>
       </div>
-      <div class="mobile-menu-links">
-        <div class="mobile-nav-group">
-          <button class="mobile-group-trigger" onclick="toggleSubmenu('mob-sol')">Solutions <span>+</span></button>
-          <div class="mobile-submenu" id="mob-sol">
-            <a href="residential.html">Private Homes</a>
-            <a href="condominiums.html">Condominiums (MCST)</a>
-            <a href="commercial.html">Commercial & Retail</a>
-            <a href="institutions.html">Institutions</a>
-            <a href="industrial.html">Industrial & Logistics</a>
-          </div>
-        </div>
-        <div class="mobile-nav-group">
-          <button class="mobile-group-trigger" onclick="toggleSubmenu('mob-sys')">Systems <span>+</span></button>
-          <div class="mobile-submenu" id="mob-sys">
-            <a href="surveillance-systems.html">Surveillance & Detection</a>
-            <a href="people-access.html">People Access Systems</a>
-            <a href="vehicle-access.html">Vehicle Access Systems</a>
-            <a href="platform-integration.html">Platform & Integration</a>
-            <a href="brands.html">Hardware Brands</a>
-          </div>
-        </div>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="resources.html">Resources</a>
-        <a href="insights.html">Insights</a>
-        <a href="about.html">About</a>
+    </li>
+    <li class="nav-item"><a href="brands.html" class="nav-link has-dropdown active">Brands</a>
+      <div class="simple-dropdown">
+        <a href="hikvision-singapore.html">Hikvision</a>
+        <a href="hanwha-samsung-singapore.html">Hanwha</a>
+        <a href="ajax-alarm-singapore.html">AJAX</a>
+        <a href="zkteco-singapore.html">ZKTeco</a>
+        <a href="akuvox-singapore.html">Akuvox</a>
+        <a href="faac-singapore.html">FAAC</a>
+        <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
+      <div class="simple-dropdown">
+        <a href="portfolio.html">Private Homes</a>
+        <a href="portfolio.html">Condominiums</a>
+        <a href="commercial.html">Commercial &amp; Retail</a>
+        <a href="institutions.html">Institutions</a>
+        <a href="industrial.html">Industrial &amp; Logistics</a>
+        <a href="portfolio.html"><strong>&rarr; All Projects</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
+      <div class="simple-dropdown">
+        <a href="insights.html?cat=planning">Security Planning</a>
+        <a href="insights.html?cat=technology">Technology</a>
+        <a href="insights.html?cat=casestudy">Case Studies</a>
+        <a href="insights.html?cat=industry">SG Industry</a>
+        <a href="insights.html"><strong>&rarr; All Articles</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
+      <div class="simple-dropdown">
+        <a href="about.html">Our Story</a>
+        <a href="about.html#founder">Founder&rsquo;s Story</a>
+        <a href="awards-certifications.html">Awards &amp; Certifications</a>
         <a href="contact.html">Contact Us</a>
       </div>
-      <div class="mobile-menu-footer">
-        <a href="https://wa.me/6593860466" class="mobile-whatsapp-btn">WhatsApp Us</a>
-      </div>
-    </div>
+    </li>
+  </ul>
+  <!-- Desktop search icon -->
+  <div class="nav-right">
+    <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
   </div>
-</header>
+  <!-- Mobile search icon — always right end on mobile -->
+  <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a><a href="residential.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a href="commercial.html">Commercial</a><a href="institutions.html">Institutions</a><a href="industrial.html">Industrial</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu" id="sysSub"><a href="systems.html"><strong>&rarr; View All Systems</strong></a><a href="surveillance-systems.html">Surveillance</a><a href="people-access.html">People Access</a><a href="vehicle-access.html">Vehicle Access</a><a href="platform-integration.html">Platform</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;<div class="mobile-submenu" id="brdSub"><a href="brands.html"><strong>&rarr; All 20 Brands</strong></a><a href="hikvision-singapore.html">Hikvision</a><a href="ajax-alarm-singapore.html">AJAX</a><a href="zkteco-singapore.html">ZKTeco</a><a href="akuvox-singapore.html">Akuvox</a><a href="faac-singapore.html">FAAC</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;<div class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>&rarr; All Projects</strong></a><a href="portfolio.html">Private Homes</a><a href="portfolio.html">Condominiums</a><a href="portfolio.html">Commercial &amp; Retail</a><a href="portfolio.html">Institutions</a><a href="industrial.html">Industrial</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights &#9662;<div class="mobile-submenu" id="insSub"><a href="insights.html"><strong>&rarr; All Articles</strong></a><a href="insights.html?cat=planning">Security Planning</a><a href="insights.html?cat=technology">Technology</a><a href="insights.html?cat=casestudy">Case Studies</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a><a href="contact.html">Contact Us</a></div></div>
+</div>
+</nav>
+
+<!-- BREADCRUMBS -->
+<nav class="sv-breadcrumb">
+    <div class="container">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="brands.html">Brands</a></li>
+            <li>Akuvox</li>
+        </ul>
+    </div>
+</nav>
 
 <section class="hero">
     <div class="container">
@@ -387,54 +393,70 @@
 </section>
 
 <footer class="main-footer">
-  <div class="footer-container">
-    <div class="footer-col">
-      <div class="footer-logo">
-        <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
-        <span>SECUREVISION</span>
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Col 1: Brand & Basic Info -->
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="footer-logo">
+          <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
+          <span class="wordmark footer-wordmark">SECUREVISION</span>
+        </a>
+        <p class="footer-tagline">Engineering security solutions across Singapore since 2006. NUS engineering-led and police-licensed.</p>
+        <div class="footer-contact-info">
+          <p><strong>Securevision Pte Ltd</strong></p>
+          <p>Police License: L/PS/000267/2023P</p>
+          <p>bizSAFE Level 3</p>
+        </div>
       </div>
-      <p class="footer-about">Singapore's trusted security systems integrator since 2006. Engineering-led solutions for premium properties.</p>
-      <div class="footer-social">
-        <a href="https://wa.me/6593860466" aria-label="WhatsApp"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
-        <a href="https://www.facebook.com/securevision" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-        <a href="https://www.linkedin.com/company/securevision-pte-ltd" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+
+      <!-- Col 2: Solutions -->
+      <div class="footer-col">
+        <h4 class="footer-title">Solutions</h4>
+        <ul class="footer-links">
+          <li><a href="residential.html">Private Homes</a></li>
+          <li><a href="condominiums.html">Condominiums (MCST)</a></li>
+          <li><a href="commercial.html">Commercial & Retail</a></li>
+          <li><a href="institutions.html">Institutions</a></li>
+          <li><a href="industrial.html">Industrial & Logistics</a></li>
+        </ul>
       </div>
-    </div>
-    
-    <div class="footer-col">
-      <h4>Solutions</h4>
-      <ul>
-        <li><a href="residential.html">Private Homes</a></li>
-        <li><a href="condominiums.html">Condominiums (MCST)</a></li>
-        <li><a href="commercial.html">Commercial & Retail</a></li>
-        <li><a href="industrial.html">Industrial & Logistics</a></li>
-      </ul>
+
+      <!-- Col 3: Systems -->
+      <div class="footer-col">
+        <h4 class="footer-title">Systems</h4>
+        <ul class="footer-links">
+          <li><a href="surveillance-systems.html">Surveillance & Detection</a></li>
+          <li><a href="people-access.html">People Access Systems</a></li>
+          <li><a href="vehicle-access.html">Vehicle Access Systems</a></li>
+          <li><a href="platform-integration.html">Platform & Integration</a></li>
+          <li><a href="brands.html">Hardware Brands</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Reach Us -->
+      <div class="footer-col">
+        <h4 class="footer-title">Reach Us</h4>
+        <ul class="footer-links">
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="portfolio.html">Project Portfolio</a></li>
+          <li><a href="insights.html">Security Insights</a></li>
+          <li><a href="https://wa.me/6593860466" class="footer-whatsapp"><strong>WhatsApp: +65 9386 0466</strong></a></li>
+        </ul>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/securevision" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.linkedin.com/company/securevision-pte-ltd" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
     </div>
 
-    <div class="footer-col">
-      <h4>Systems</h4>
-      <ul>
-        <li><a href="surveillance-systems.html">Surveillance Systems</a></li>
-        <li><a href="people-access.html">People Access</a></li>
-        <li><a href="vehicle-access.html">Vehicle Access</a></li>
-        <li><a href="platform-integration.html">Platform Integration</a></li>
-      </ul>
-    </div>
-
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <p>10 Admiralty St, #06-83 North Link Building, Singapore 757695</p>
-      <p>+65 6286 4796</p>
-      <p>sales@securevision.com.sg</p>
-    </div>
-  </div>
-  
-  <div class="footer-bottom">
-    <div class="footer-bottom-container">
-      <p>&copy; 2025 Securevision Pte Ltd. All Rights Reserved.</p>
-      <div class="footer-legal">
-        <span class="police-license">Police License: L/PS/000267/2023P</span>
-        <a href="privacy.html">Privacy Policy</a>
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p>&copy; 2025 Securevision Pte Ltd. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
       </div>
     </div>
   </div>
@@ -448,28 +470,18 @@
 function toggleMobileMenu() {
   const menu = document.getElementById('mobileMenu');
   menu.classList.toggle('active');
-  document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
 }
-
 function toggleSubmenu(id) {
   const sub = document.getElementById(id);
-  const trigger = sub.previousElementSibling;
-  const isOpen = sub.classList.contains('active');
-  
-  document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.mobile-group-trigger span').forEach(s => s.textContent = '+');
-  
-  if (!isOpen) {
-    sub.classList.add('active');
-    trigger.querySelector('span').textContent = '-';
-  }
+  const isOpen = sub.style.display === 'block';
+  document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
+  if (!isOpen) sub.style.display = 'block';
 }
-
-window.addEventListener('resize', () => {
-  if (window.innerWidth > 768) {
-    const menu = document.getElementById('mobileMenu');
-    if (menu) menu.classList.remove('active');
-    document.body.style.overflow = '';
+document.addEventListener('click', function(e) {
+  const nav = document.querySelector('.main-nav');
+  const menu = document.getElementById('mobileMenu');
+  if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
+    menu.classList.remove('active');
   }
 });
 </script>
