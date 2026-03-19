@@ -11,30 +11,132 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="sv-shared.css">
     <style>
-        .eyebrow-light { 
-            font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.9) !important;
-            margin-bottom: 12px;
-            display: block;
+        :root {
+            --bg-gray: #f2f4f7;
+            --accent-blue-light: #e6f0ff;
+            --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --card-hover-shadow: 0 12px 40px rgba(0, 86, 179, 0.12);
         }
+
+        /* --- Global Enhancements --- */
+        section { padding: 100px 0; }
+        .bg-white { background: #fff; }
+        .bg-light-gray { background: var(--bg-gray); }
+
+        /* --- Hero Updates --- */
         .hero-solid {
-            background: linear-gradient(rgba(14, 26, 43, 0.7), rgba(14, 26, 43, 0.7)), url('images/Expert%20Security%20Solutions%20For%20Every%20Property%20Type.png');
+            background: linear-gradient(rgba(14, 26, 43, 0.75), rgba(14, 26, 43, 0.75)), url('images/Expert%20Security%20Solutions%20For%20Every%20Property%20Type.png');
             background-size: cover;
             background-position: center;
-            padding: 180px 0 120px;
+            padding: 200px 0 140px;
+            text-align: center;
             position: relative;
-            overflow: hidden;
         }
-        .hero-solid::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(circle at 70% 30%, rgba(0, 86, 179, 0.15) 0%, transparent 70%);
-            pointer-events: none;
+        .hero-solid .eyebrow-light { color: var(--accent-blue-light) !important; font-size: 14px; margin-bottom: 24px; }
+        .hero-solid h1 { font-size: clamp(32px, 5vw, 56px); line-height: 1.1; margin-bottom: 24px; }
+        .hero-solid .subtitle { font-size: 20px; color: rgba(255,255,255,0.9); max-width: 800px; margin: 0 auto 40px; }
+
+        /* --- Grouped Layout Styles --- */
+        .category-group { margin-bottom: 80px; }
+        .category-group:last-child { margin-bottom: 0; }
+        .category-header { text-align: center; margin-bottom: 40px; }
+        .category-eyebrow { 
+            display: block; font-size: 12px; font-weight: 700; color: #0056b3; 
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; 
+        }
+        .category-h3 { font-size: 28px; font-weight: 700; color: var(--text-dark); margin: 0; }
+
+        .group-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+        .group-grid-1 { display: grid; grid-template-columns: 1fr; gap: 30px; }
+
+        /* --- Section 2: 4 Questions --- */
+        .factors-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+        .factor-card { 
+            padding: 48px 32px 32px; border-radius: 12px; background: #fff; border: 1px solid var(--border-light); 
+            transition: 0.3s; display: flex; flex-direction: column; position: relative;
+        }
+        .factor-card:hover { transform: translateY(-4px); box-shadow: var(--card-shadow); border-color: \#cc0000; }
+        .factor-num { 
+            position: absolute; top: 16px; left: 16px; font-size: 24px; font-weight: 800; color: \#cc0000; font-family: 'Outfit', sans-serif;
+        }
+        .factor-card h3 { 
+            font-size: 18px; margin-bottom: 24px; color: var(--text-dark); text-align: center; line-height: 1.3; 
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .question-list { list-style: disc; padding-left: 20px; margin-bottom: 24px; font-size: 14px; color: var(--text-dark); flex-grow: 0; }
+        .question-list li { margin-bottom: 8px; }
+        .explanation { 
+            font-size: 13px; color: var(--text-light); line-height: 1.6; padding-top: 20px; 
+            border-top: 1px dashed var(--border-light); margin-top: auto; font-style: italic;
+        }
+
+        /* --- Section 3: Property Comparison --- */
+        .property-comparison-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 48px; }
+        .prop-compare-card { 
+            background: #fff; border-radius: 12px; border: 1px solid var(--border-light); 
+            display: flex; flex-direction: column; transition: 0.3s; height: 100%;
+            text-decoration: none; color: inherit;
+        }
+        .prop-compare-card:hover { transform: translateY(-8px); box-shadow: var(--card-hover-shadow); border-color: var(--primary-blue); }
+        .prop-card-img { width: 100%; height: 160px; object-fit: cover; border-bottom: 1px solid var(--border-light); transition: 0.3s; }
+        .prop-compare-card:hover .prop-card-img { transform: scale(1.05); }
+        .prop-header { padding: 16px; text-align: center; border-bottom: 1px solid var(--border-light); }
+        .prop-icon { display: none; }
+        .prop-header h3 { font-size: 18px; margin-bottom: 4px; color: var(--primary-blue); text-transform: uppercase; letter-spacing: 1px; }
+        .prop-header .subtypes { font-size: 13px; color: var(--text-light); font-style: italic; }
+        
+        .prop-details { padding: 20px; flex-grow: 1; }
+        .prop-group { margin-bottom: 16px; }
+        .prop-group strong { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dark); margin-bottom: 8px; }
+        .prop-group ul { list-style: none; padding: 0; margin: 0; }
+        .prop-group li { font-size: 14px; color: var(--text-light); margin-bottom: 4px; padding-left: 18px; position: relative; }
+        .prop-group li::before { content: '•'; position: absolute; left: 0; color: var(--primary-blue); }
+        
+        .prop-stats { padding: 16px 20px; background: var(--bg-light); border-top: 1px solid var(--border-light); border-radius: 0 0 12px 12px; }
+        .stat-line { font-size: 14px; color: var(--text-dark); margin-bottom: 4px; font-weight: 600; }
+        .stat-line span { font-weight: 400; color: var(--text-light); }
+        
+        .view-btn-wrap { padding: 16px 20px; border-top: 1px dashed var(--border-light); }
+        .view-prop-btn { width: 100%; border: 2px solid var(--primary-blue); color: var(--primary-blue); padding: 10px; border-radius: 6px; font-size: 14px; font-weight: 700; text-align: center; display: block; transition: 0.2s; }
+        .prop-compare-card:hover .view-prop-btn { background: var(--primary-blue); color: #fff; }
+
+        /* --- Section 5: Case Study Grouped --- */
+        .project-card { 
+            background: #fff; border-radius: 12px; border: 1px solid var(--border-light); 
+            display: flex; flex-direction: column; transition: 0.3s; height: 100%; overflow: hidden;
+        }
+        .project-img { 
+            height: 200px; width: 100%; object-fit: cover; border-bottom: 1px solid var(--border-light);
+        }
+        .project-card-body { padding: 30px; }
+        .project-card-body h3 { font-size: 20px; color: var(--text-dark); margin-bottom: 4px; }
+        .project-card-body .project-detail { font-size: 14px; color: var(--text-light); margin-bottom: 24px; display: block; }
+        .project-card-body p { margin-bottom: 16px; font-size: 14px; line-height: 1.6; color: var(--text-light); }
+        .project-card-body p strong { color: var(--text-dark); display: block; margin-bottom: 4px; }
+        .project-card-body .project-result { color: var(--primary-blue); font-weight: 600; border-top: 1px solid var(--border-light); padding-top: 16px; margin-top: 16px; }
+
+        /* --- Section 3: Property Comparison (Centered 3+2) --- */
+        .property-hub-grid { 
+            display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 30px; margin-top: 56px; 
+        }
+        .property-hub-grid .prop-compare-card,
+        .property-hub-grid .project-card { 
+            width: calc(33.333% - 20px); min-width: 320px; max-width: 400px; 
+            display: flex; flex-direction: column;
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 1199px) {
+            .property-hub-grid .prop-compare-card,
+            .property-hub-grid .project-card { width: calc(50% - 15px); }
+            .factors-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 767px) {
+            .property-hub-grid .prop-compare-card,
+            .property-hub-grid .project-card { width: 100%; }
+            .factors-grid { grid-template-columns: 1fr; }
+            .cta-grid-3 { grid-template-columns: 1fr; }
+            section { padding: 60px 0; }
         }
     </style></head>
 <body style="padding-top:68px">
@@ -125,180 +227,400 @@
 </div>
 </nav>
 
-    <!-- -- HERO SECTION -- -->
+    <!-- SECTION 1: HERO -->
     <header class="hero-solid">
-        <div class="container pos-relative z-2" style="text-align:center;">
-            <span class="eyebrow-light">Integrated Solutions</span>
+        <div class="container pos-relative z-2">
+            <span class="eyebrow-light">Security Strategy</span>
             <h1 style="color:white; margin-bottom:20px;">Expert Security Solutions<br>For Every Property Type</h1>
-            <p class="subtitle" style="color: rgba(255,255,255,0.85); max-width: 800px; margin: 0 auto 32px; font-size: 18px; line-height: 1.7;">
-                Intelligent security systems designed for homes, businesses, and communities.
-            </p>
-            <div class="btn-group" style="justify-content:center;">
+            <p class="subtitle">Intelligent security systems engineered for homes, communities, and high-stakes business operations.</p>
+            <div class="btn-group">
                 <a href="contact-gateway.html" class="btn btn-primary">Get Expert Advice</a>
-                <a href="#property-grid" class="btn btn-outline">View All Solutions</a>
+                <a href="#property-comparison" class="btn btn-outline">See Property Type</a>
             </div>
             <p class="tagline" style="font-size: 14px; color:rgba(255,255,255,0.7); margin-top: 40px; font-weight:600; letter-spacing:1px; text-transform:uppercase;">
-                Serving Singapore Since 2006
+                Helping People Compare, Understand, and Secure since 2006
             </p>
         </div>
     </header>
 
-    <!-- -- BREADCRUMBS -- -->
-    <nav class="sv-breadcrumb" aria-label="Breadcrumb" style="background:#F8F9FA; border-bottom:1px solid #E8EAED; padding:12px 0;">
+    <!-- BREADCRUMBS -->
+    <nav class="sv-breadcrumb">
         <div class="container">
-            <ul style="list-style:none; padding:0; margin:0; display:flex; gap:8px; font-size:13px; color:#5F6368;">
-                <li><a href="index.html" style="color:#0056b3; text-decoration:none;">Home</a></li>
-                <li>&nbsp;&rarr;&nbsp;</li>
-                <li style="color:#1B1F23; font-weight:600;">Solutions</li>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>Solutions</li>
             </ul>
         </div>
     </nav>
 
-    <!-- -- PATH FINDER SECTION -- -->
-    <section id="pathfinder" class="pathfinder">
+    <!-- SECTION 2: 4 QUESTIONS BEFORE YOU CHOOSE (White) -->
+    <section class="bg-white">
         <div class="container">
-            <span class="eyebrow text-center display-block">Quick Route</span>
-            <h2 id="path-finder">The Path Finder</h2>
-            <p class="intro">Not sure where to start? Choose the category that best describes your current project or property type.</p>
+            <span class="eyebrow text-center">Self-Diagnostic Guide</span>
+            <h2 class="text-center">4 Questions Before You Choose</h2>
+            <p class="text-center" style="max-width: 800px; margin: 0 auto 56px; color: var(--text-light); font-size: 18px;">Answer these honestly. They&rsquo;ll tell you exactly what you need.</p>
             
-            <div class="pathfinder-grid">
-                <a href="residential.html" class="pathfinder-card">
-                    <span class="icon">🏠</span>
-                    <h3>Private Homes</h3>
-                    <p>Landed properties, GCBs, and luxury villas requiring discreet but powerful protection.</p>
-                </a>
-                <a href="condominiums.html" class="pathfinder-card">
-                    <span class="icon">🏢</span>
-                    <h3>Condominiums</h3>
-                    <p>MCST-managed residential complexes requiring integrated access and surveillance.</p>
-                </a>
-                <a href="commercial.html" class="pathfinder-card">
-                    <span class="icon">🏬</span>
-                    <h3>Commercial</h3>
-                    <p>Retail malls, office buildings, and hotels requiring high-traffic management.</p>
-                </a>
-                <div class="pathfinder-card help-me" onclick="alert('This will open our guided assessment tool.')">
-                    <span class="icon">🔍</span>
-                    <h3>Help Me Choose</h3>
-                    <p>Let our SECURE™ framework guide you to the ideal system configuration based on your property layout and security requirements.</p>
+            <div class="factors-grid">
+                <!-- Question 1 -->
+                <div class="factor-card">
+                    <span class="factor-num">1</span>
+                    <h3>What are you protecting?</h3>
+                    <ul class="question-list">
+                        <li>People (family, staff)</li>
+                        <li>Assets (inventory, data)</li>
+                        <li>Operations (reputation, compliance)</li>
+                    </ul>
+                    <div class="explanation">
+                        "Protecting people? Access control first. Protecting assets? Surveillance + perimeter."
+                    </div>
+                </div>
+                
+                <!-- Question 2 -->
+                <div class="factor-card">
+                    <span class="factor-num">2</span>
+                    <h3>WHERE ARE THE VULNERABILITIES?</h3>
+                    <ul class="question-list">
+                        <li>Entry points (gates, doors, loading bays)</li>
+                        <li>Blind spots (no cameras, no coverage)</li>
+                        <li>Weak controls (lost cards, shared codes)</li>
+                    </ul>
+                    <div class="explanation">
+                        "Walk your property. Where can someone get in undetected?"
+                    </div>
+                </div>
+                
+                <!-- Question 3 -->
+                <div class="factor-card">
+                    <span class="factor-num">3</span>
+                    <h3>WHO MANAGES SECURITY?</h3>
+                    <ul class="question-list">
+                        <li>You (owner decides, fast implementation)</li>
+                        <li>MCST/Committee (AGM approval, 3-6 months)</li>
+                        <li>Security company (guard integration needed)</li>
+                    </ul>
+                    <div class="explanation">
+                        "This determines timeline and approval process."
+                    </div>
+                </div>
+                
+                <!-- Question 4 -->
+                <div class="factor-card">
+                    <span class="factor-num">4</span>
+                    <h3>WHAT&rsquo;S YOUR BUDGET & TIMELINE?</h3>
+                    <ul class="question-list">
+                        <li>Budget ($10K? $50K? $500K?)</li>
+                        <li>Urgency (broken system vs planned upgrade)</li>
+                        <li>Phasing (start critical, expand later)</li>
+                    </ul>
+                    <div class="explanation">
+                        "You don't need everything at once. You can build in phases."
+                    </div>
                 </div>
             </div>
+            
+            <p class="text-center" style="margin-top: 64px; font-weight: 600; color: var(--text-dark); border-top: 1px solid var(--border-light); padding-top: 40px;">
+                Now choose your property type below to see typical systems and investment.
+            </p>
         </div>
     </section>
 
-    <!-- -- PROPERTY TYPES DEEP DIVE -- -->
-    <section id="property-grid" class="property-types">
+    <!-- SECTION 3: 5 PROPERTY TYPES COMPARISON (Light Gray) -->
+    <section id="property-comparison" class="bg-light-gray">
         <div class="container">
-            <span class="eyebrow text-center display-block">Property Deep Dive</span>
-            <h2>Solutions by Property Type</h2>
-            <p class="intro">Explore how we tailor our SECURE™ framework to the specific operational needs of different environments.</p>
-
-            <div class="property-grid">
+            <h2 class="text-center">Security Solutions by Property Type</h2>
+            
+            <div class="property-hub-grid">
                 <!-- Private Homes -->
-                <a href="residential.html" class="property-card">
-                    <span class="icon">🏡</span>
-                    <h3>Private Homes</h3>
-                    <p class="subtitle-text">GCBs, Landed Properties, Terraces</p>
-                    <div class="challenge">
-                        <strong>The Challenge:</strong> Balancing 24/7 exterior perimeter protection with interior privacy and ease of use for family members.
+                <a href="residential.html" class="prop-compare-card">
+                    <img src="images/prop-landed.png" alt="Private Landed Property" class="prop-card-img">
+                    <div class="prop-header">
+                        <h3>Private Homes</h3>
+                        <span class="subtypes">GCBs, Semi-D, Terraces</span>
                     </div>
+                    <div class="prop-details">
+                        <div class="prop-group">
+                            <strong>Typical Systems</strong>
+                            <ul>
+                                <li>CCTV Cameras</li>
+                                <li>Video Intercom</li>
+                                <li>Burglar Alarm</li>
+                                <li>Auto Gate</li>
+                            </ul>
+                        </div>
+                        <div class="prop-group">
+                            <strong>Common Pain Points</strong>
+                            <ul>
+                                <li>Break-in</li>
+                                <li>Unauthorised intrusion</li>
+                                <li>Privacy within garden</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="view-btn-wrap"><div class="view-prop-btn">View Private Home Solutions</div></div>
                 </a>
 
                 <!-- Condominiums -->
-                <a href="condominiums.html" class="property-card">
-                    <span class="icon">🏙️</span>
-                    <h3>Condominiums</h3>
-                    <p class="subtitle-text">MCSTs, Residences, Mixed use</p>
-                    <div class="challenge">
-                        <strong>The Challenge:</strong> Unified access control for residents and visitors across multiple entry points and shared facility management.
+                <a href="condominiums.html" class="prop-compare-card">
+                    <img src="images/prop-condo.png" alt="Luxury Condominium" class="prop-card-img">
+                    <div class="prop-header">
+                        <h3>Condominiums</h3>
+                        <span class="subtypes">Clustered Housing, Apartments, Condos</span>
                     </div>
+                    <div class="prop-details">
+                        <div class="prop-group">
+                            <strong>Typical Systems</strong>
+                            <ul>
+                                <li>CCTV Cameras</li>
+                                <li>Video Intercom</li>
+                                <li>Access Control</li>
+                                <li>Licence Plate Recognition Cameras</li>
+                            </ul>
+                        </div>
+                        <div class="prop-group">
+                            <strong>Common Pain Points</strong>
+                            <ul>
+                                <li>Faulty Intercom</li>
+                                <li>Visitor Traffic hurdles</li>
+                                <li>Ageing Analog systems</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="view-btn-wrap"><div class="view-prop-btn">View Condo Solutions</div></div>
                 </a>
 
                 <!-- Commercial -->
-                <a href="commercial.html" class="property-card">
-                    <span class="icon">🏬</span>
-                    <h3>Commercial &amp; Retail</h3>
-                    <p class="subtitle-text">Shopping Malls, Shopfronts, F&amp;B</p>
-                    <div class="challenge">
-                        <strong>The Challenge:</strong> High-traffic visitor management and loss prevention while maintaining an open, welcoming environment.
+                <a href="commercial.html" class="prop-compare-card">
+                    <img src="images/prop-commercial.png" alt="Commercial Building" class="prop-card-img">
+                    <div class="prop-header">
+                        <h3>Commercial & Retail</h3>
+                        <span class="subtypes">Buildings, Offices, Malls</span>
                     </div>
+                    <div class="prop-details">
+                        <div class="prop-group">
+                            <strong>Typical Systems</strong>
+                            <ul>
+                                <li>CCTV Cameras</li>
+                                <li>Access Control</li>
+                                <li>Visitor Management</li>
+                                <li>Licence Plate Recognition</li>
+                            </ul>
+                        </div>
+                        <div class="prop-group">
+                            <strong>Common Pain Points</strong>
+                            <ul>
+                                <li>Loss prevention</li>
+                                <li>After-hours visibility</li>
+                                <li>Multi-site management</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="view-btn-wrap"><div class="view-prop-btn">View Commercial Solutions</div></div>
+                </a>
+
+                <!-- Institutions -->
+                <a href="institutions.html" class="prop-compare-card">
+                    <img src="images/prop-school.png" alt="School Campus" class="prop-card-img">
+                    <div class="prop-header">
+                        <h3>Institutions</h3>
+                        <span class="subtypes">Schools, Hospitals, Religious Bldgs</span>
+                    </div>
+                    <div class="prop-details">
+                        <div class="prop-group">
+                            <strong>Typical Systems</strong>
+                            <ul>
+                                <li>CCTV Cameras</li>
+                                <li>Access Control</li>
+                                <li>Smart Attendance</li>
+                            </ul>
+                        </div>
+                        <div class="prop-group">
+                            <strong>Common Pain Points</strong>
+                            <ul>
+                                <li>Vast coverage areas</li>
+                                <li>Student/Visitor safety</li>
+                                <li>Crisis communication</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="view-btn-wrap"><div class="view-prop-btn">View Institution Solutions</div></div>
                 </a>
 
                 <!-- Industrial -->
-                <a href="industrial.html" class="property-card">
-                    <span class="icon">🏗️</span>
-                    <h3>Industrial &amp; Logistics</h3>
-                    <p class="subtitle-text">Warehouses, Factories, Data Centres</p>
-                    <div class="challenge">
-                        <strong>The Challenge:</strong> Large-scale perimeter surveillance and strict vehicle/personnel tracking in utility-heavy environments.
+                <a href="industrial.html" class="prop-compare-card">
+                    <img src="images/prop-industrial.png" alt="Industrial Factory" class="prop-card-img">
+                    <div class="prop-header">
+                        <h3>Industrial & Logistics</h3>
+                        <span class="subtypes">Factories, Logistics</span>
                     </div>
-                </a>
-                
-                <!-- Institutions -->
-                <a href="institutions.html" class="property-card">
-                    <span class="icon">🏫</span>
-                    <h3>Institutions</h3>
-                    <p class="subtitle-text">Schools, Religious Sites, Healthcare</p>
-                    <div class="challenge">
-                        <strong>The Challenge:</strong> Ensuring a safe environment for students or worshippers with simple, scalable emergency lockdown capabilities.
+                    <div class="prop-details">
+                        <div class="prop-group">
+                            <strong>Typical Systems</strong>
+                            <ul>
+                                <li>Hazardous Zone Detection</li>
+                                <li>Heavy Vehicle ANPR</li>
+                                <li>Fence Sensor Alarms</li>
+                            </ul>
+                        </div>
+                        <div class="prop-group">
+                            <strong>Common Pain Points</strong>
+                            <ul>
+                                <li>Theft of bulk assets</li>
+                                <li>Safety audit compliance</li>
+                                <li>Large-scale perimeters</li>
+                            </ul>
+                        </div>
                     </div>
+                    <div class="view-btn-wrap"><div class="view-prop-btn">View Industrial Solutions</div></div>
                 </a>
             </div>
         </div>
     </section>
+        </div>
+    </section>
 
-    <!-- -- WHY PROPERTY TYPE MATTERS -- -->
-    <section class="why-matters">
+    <!-- SECTION 4: 4-STEP PROCESS (White) -->
+    <section class="bg-white">
         <div class="container">
-            <span class="eyebrow text-center display-block">Our Approach</span>
-            <h2>Why Property Type Matters</h2>
-            <p class="intro" style="margin-bottom: 40px;">A camera is a camera, but a system design for a warehouse is fundamentally different from one for a luxury home.</p>
+            <span class="eyebrow text-center">The Journey</span>
+            <h2 class="text-center">From First Contact to Fully Secured</h2>
             
-            <div class="comparison-grid">
-                <div class="comparison-card">
-                    <h4>Residential Focus</h4>
-                    <ul>
-                        <li>AI Human Detection for garden perimeters</li>
-                        <li>Mobile alerts with zero false positives</li>
-                        <li>Video intercoms with smartphone routing</li>
-                        <li>Minimal cabling and discreet hardware</li>
-                    </ul>
+            <div class="step-row" style="margin-top: 56px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; text-align: center;">
+                <div class="step-item">
+                    <div class="step-num" style="background:var(--primary-blue); color:#fff; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-weight:700; font-size:24px;">1</div>
+                    <h3>Discovery Call</h3>
+                    <p style="font-size:14px; color:var(--text-light);">We discuss your specific needs, property type, and security hurdles.</p>
                 </div>
-                <div class="comparison-card">
-                    <h4>Condominium Focus</h4>
-                    <ul>
-                        <li>Centralized Server (VMS) architecture</li>
-                        <li>Lift integration & floor access control</li>
-                        <li>Visitor Management (VMS) with QR codes</li>
-                        <li>Maintenance SLAs for guardhouse uptime</li>
-                    </ul>
+                <div class="step-item">
+                    <div class="step-num" style="background:var(--primary-blue); color:#fff; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-weight:700; font-size:24px;">2</div>
+                    <h3>Site Survey</h3>
+                    <p style="font-size:14px; color:var(--text-light);">Hands-on mapping of vulnerabilities and engineering constraints.</p>
                 </div>
-                <div class="comparison-card">
-                    <h4>Commercial Focus</h4>
-                    <ul>
-                        <li>Cloud-based remote management</li>
-                        <li>Heatmaps and visitor analytics</li>
-                        <li>Integration with building management</li>
-                        <li>24/7 cloud backup of critical footage</li>
-                    </ul>
+                <div class="step-item">
+                    <div class="step-num" style="background:var(--primary-blue); color:#fff; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-weight:700; font-size:24px;">3</div>
+                    <h3>Proposal</h3>
+                    <p style="font-size:14px; color:var(--text-light);">A transparent, fixed-price plan using the SECURE™ framework.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num" style="background:var(--primary-blue); color:#fff; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 20px; font-weight:700; font-size:24px;">4</div>
+                    <h3>Implementation</h3>
+                    <p style="font-size:14px; color:var(--text-light);">Professional installation, system integration, and staff handover.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-section" style="background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%); color: white; padding: 100px 0; text-align: center;">
+    <!-- SECTION 5: FEATURED PROJECTS (Light Gray) -->
+    <section class="bg-light-gray">
         <div class="container">
-            <span class="eyebrow-light text-center">Get Started</span>
-            <h2>Ready to Explore?</h2>
-            <p class="subtitle" style="color: rgba(255,255,255,0.7); max-width: 700px; margin: 0 auto 32px;">Let's discuss how we can upgrade your property's safety and operational efficiency with our SECURE&trade; framework.</p>
-            <div class="btn-group" style="justify-content:center;">
-                <a href="contact.html" class="btn btn-primary">Book A Slot</a>
-                <a href="https://wa.me/6593860466" class="btn btn-outline">WhatsApp Us</a>
+            <h2 class="text-center" style="margin-bottom: 60px;">Real Projects - See What We've Delivered</h2>
+            
+            <div class="property-hub-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <img src="images/project-bt-semi-d.png" alt="Bukit Timah Semi-D" class="project-img">
+                    <div class="project-card-body">
+                        <h3>Private Home: Bukit Timah Semi-D</h3>
+                        <span class="project-detail">Bukit Timah, 4,000 sqft</span>
+                        <p><strong>Challenge:</strong> Large garden perimeters were vulnerable to undetected intrusion at night.</p>
+                        <p><strong>Solution:</strong> Installed AI-powered thermal sensors and perimeter human/vehicle detection.</p>
+                        <div class="project-result">Zero false alarms from pets or moving foliage since installation.</div>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <img src="images/project-lviv.png" alt="The L'viv Condo" class="project-img">
+                    <div class="project-card-body">
+                        <h3>Condominium: The L'viv (130 units)</h3>
+                        <span class="project-detail">Newton, High-Rise Residences</span>
+                        <p><strong>Challenge:</strong> Security guards were overwhelmed by manual visitor registration and slow gate entry.</p>
+                        <p><strong>Solution:</strong> Implemented GantryGo ANPR and Vesta visitor management with QR codes.</p>
+                        <div class="project-result">Reduced visitor queue times by 70% and cut manual paperwork entirely.</div>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <img src="images/project-scape.png" alt="SCAPE Singapore" class="project-img">
+                    <div class="project-card-body">
+                        <h3>Commercial: SCAPE Singapore</h3>
+                        <span class="project-detail">Somerset, Major Youth Hub</span>
+                        <p><strong>Challenge:</strong> Managing crowd safety and potential theft during high-traffic youth events.</p>
+                        <p><strong>Solution:</strong> Deployed a 200-camera AI surveillance grid with centralized VMS monitoring.</p>
+                        <div class="project-result">Real-time incident detection and simplified floor-by-floor management.</div>
+                    </div>
+                </div>
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <img src="images/project-school.png" alt="International School" class="project-img">
+                    <div class="project-card-body">
+                        <h3>Institution: International School</h3>
+                        <span class="project-detail">Central SG, 4.5 Hectares</span>
+                        <p><strong>Challenge:</strong> Needed a reliable campus-wide emergency lockdown system for student safety.</p>
+                        <p><strong>Solution:</strong> Integrated a one-tap IP-PA lockdown system with automated gate locking.</p>
+                        <div class="project-result">Achieved campus-wide lockdown in under 45 seconds during drills.</div>
+                    </div>
+                </div>
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <img src="images/project-factory.png" alt="Manufacturing Plant" class="project-img">
+                    <div class="project-card-body">
+                        <h3>Industrial: Manufacturing Plant</h3>
+                        <span class="project-detail">Tuas, Heavy Industry Zone</span>
+                        <p><strong>Challenge:</strong> Frequent theft of bulk metal assets stored in open yard perimeters.</p>
+                        <p><strong>Solution:</strong> Active fence sensors combined with PTZ cameras targeting breach zones.</p>
+                        <div class="project-result">90% reduction in asset loss and full SPF-compliance for site security.</div>
+                    </div>
+                </div>
             </div>
-            <p class="footer-note" style="margin-top:40px; font-size:12px; opacity:0.6;">
-                <strong>Police Licensed:</strong> L/PS/000267/2023P &nbsp;|&nbsp; <strong>bizSAFE Level 3</strong> &nbsp;|&nbsp; <strong>BCA Registered</strong><br>
-                Serving Singapore Since 2006
-            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 6: WHY CHOOSE SECUREVISION (White) -->
+    <section class="bg-white">
+        <div class="container">
+            <span class="eyebrow text-center">Differentiation</span>
+            <h2 class="text-center">Why 1,000+ Properties Trust Securevision</h2>
+            
+            <div class="why-grid" style="margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+                <div class="why-card">
+                    <span class="icon">🏘️</span>
+                    <h4>Property-Specific Expertise</h4>
+                    <p>We don't do generic. Our systems are engineered for the specific physics and flow of your property type.</p>
+                </div>
+                <div class="why-card">
+                    <span class="icon">🧩</span>
+                    <h4>Systems Thinking</h4>
+                    <p>We don't just sell products; we architect layers of protection that talk to each other for total control.</p>
+                </div>
+                <div class="why-card">
+                    <span class="icon">🔓</span>
+                    <h4>You Own Everything</h4>
+                    <p>No mandatory monthly cloud fees. You own the hardware, the data, and the software licenses outright.</p>
+                </div>
+                <div class="why-card">
+                    <span class="icon">👮</span>
+                    <h4>Police-Licensed & Certified</h4>
+                    <p>SPF Licensed & bizSAFE 3 certified. We operate to the highest standards of safety and law.</p>
+                </div>
+                <div class="why-card">
+                    <span class="icon">💎</span>
+                    <h4>Premium Tech, Fair Pricing</h4>
+                    <p>Access to world-class brands with transparent, engineering-based pricing that delivers ROI.</p>
+                </div>
+                <div class="why-card">
+                    <span class="icon">🤝</span>
+                    <h4>Partnership Mindset</h4>
+                    <p>We are your long-term advisors. From site survey to maintenance, we stay by your side as you grow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: FINAL CTA (Light Gray) -->
+    <section class="bg-light-gray">
+        <div class="container text-center">
+            <h2 style="margin-bottom: 20px;">Ready to Secure Your Property?</h2>
+            <p style="margin-bottom: 30px; color:var(--text-light);">Schedule a diagnostic call with our security experts today.</p>
+            <a href="contact-gateway.html" class="btn btn-primary" style="display: inline-block; padding: 16px 40px; font-size: 18px;">Book A Slot</a>
         </div>
     </section>
 
