@@ -15,32 +15,47 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     
     <style>
-        .contact-gateway-page { padding: 160px 0 100px; background: #fff; }
+        :root {
+            --primary: var(--primary-blue);
+            --primary-dark: var(--dark-blue);
+            --text-dark: var(--text-dark);
+            --text-gray: var(--text-light);
+            --bg-light: var(--bg-light);
+            --border: var(--border-light);
+        }
+
+        .contact-gateway-page { padding: 120px 0 100px; background: #fff; }
+        
         .gateway-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 80px; }
         .gateway-card { 
-            background: #F8F9FA; border: 1px solid #E8EAED; border-radius: 12px; padding: 40px; text-align: center;
+            background: var(--bg-light); border: 1px solid var(--border); border-radius: 12px; padding: 40px; text-align: center;
             transition: 0.3s; display: flex; flex-direction: column; align-items: center;
         }
-        .gateway-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-color: #0056b3; }
-        .gateway-card .icon { font-size: 40px; margin-bottom: 24px; }
-        .gateway-card h3 { font-family: 'Montserrat', sans-serif; font-size: 20px; margin-bottom: 12px; color: #1B1F23; }
-        .gateway-card p { font-family: 'Inter', sans-serif; font-size: 14px; color: #5F6368; line-height: 1.6; margin-bottom: 24px; flex-grow: 1; }
+        .gateway-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-color: var(--primary); }
+        .gateway-card .icon-box { 
+            width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;
+        }
+        .gateway-card h3 { font-family: 'Montserrat', sans-serif; font-size: 20px; margin-bottom: 12px; color: var(--text-dark); }
+        .gateway-card p { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-gray); line-height: 1.6; margin-bottom: 24px; flex-grow: 1; }
         
-        .proposal-form-wrap { max-width: 900px; margin: 0 auto; background: #fff; border: 1px solid #E8EAED; border-radius: 16px; padding: 48px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .proposal-form-wrap { max-width: 900px; margin: 0 auto; background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 48px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
         .proposal-form { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
         .form-group { display: flex; flex-direction: column; gap: 8px; }
         .form-group.full-width { grid-column: span 2; }
-        .form-group label { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #1B1F23; }
+        .form-group label { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-dark); }
         .form-group input, .form-group select, .form-group textarea { 
             font-family: 'Inter', sans-serif; padding: 12px 16px; border: 1px solid #D1D5DB; border-radius: 8px; font-size: 15px; outline: none; transition: 0.2s;
         }
-        .form-section { grid-column: span 2; margin-top: 32px; border-top: 1px solid #E8EAED; padding-top: 32px; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(0,86,179,0.1); }
+        
+        .form-section { grid-column: span 2; margin-top: 32px; border-top: 1px solid var(--border); padding-top: 32px; }
         .form-section:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
-        .form-section h3 { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; color: #1B1F23; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; }
-        .form-section h3::before { content: ''; display: inline-block; width: 4px; height: 16px; background: #25D366; border-radius: 2px; }
+        .form-section h3 { font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 700; color: var(--text-dark); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; }
+        .form-section h3::before { content: ''; display: inline-block; width: 4px; height: 16px; background: var(--accent-green); border-radius: 2px; }
         
         .checkbox-group { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 8px; }
-        .checkbox-item { display: flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 14px; color: #1B1F23; cursor: pointer; }
+        .checkbox-item { display: flex; align-items: center; gap: 8px; font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-dark); cursor: pointer; padding: 8px 12px; background: var(--bg-light); border-radius: 6px; transition: 0.2s; }
+        .checkbox-item:hover { background: #E8EAED; }
         .checkbox-item input { width: 18px; height: 18px; cursor: pointer; }
 
         @media (max-width: 992px) {
@@ -48,10 +63,9 @@
             .checkbox-group { grid-template-columns: 1fr 1fr; }
         }
         @media (max-width: 768px) {
-            .contact-gateway-page { padding-top: 120px; }
+            .contact-gateway-page { padding-top: 100px; }
             .proposal-form { grid-template-columns: 1fr; }
             .form-group.full-width { grid-column: span 1; }
-            .btn-submit { grid-column: span 1; }
             .proposal-form-wrap { padding: 32px 24px; }
             .checkbox-group { grid-template-columns: 1fr; }
         }
@@ -94,7 +108,7 @@
         <a href="zkteco-singapore.html">ZKTeco</a>
         <a href="akuvox-singapore.html">Akuvox</a>
         <a href="faac-singapore.html">FAAC</a>
-        <a href="brands.html"><strong>&rarr; View All Brands</strong></a>
+        <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
       </div>
     </li>
     <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
@@ -104,7 +118,7 @@
         <a href="commercial.html">Commercial &amp; Retail</a>
         <a href="institutions.html">Institutions</a>
         <a href="industrial.html">Industrial &amp; Logistics</a>
-        <a href="portfolio.html"><strong>&rarr; View All Portfolio</strong></a>
+        <a href="portfolio.html"><strong>&rarr; All Projects</strong></a>
       </div>
     </li>
     <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
@@ -128,15 +142,25 @@
   <div class="nav-right">
     <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
   </div>
+  <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
 </div>
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a><a href="residential.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a href="commercial.html">Commercial</a><a href="institutions.html">Institutions</a><a href="industrial.html">Industrial</a></div></div>
   <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu" id="sysSub"><a href="systems.html"><strong>&rarr; View All Systems</strong></a><a href="surveillance-systems.html">Surveillance</a><a href="people-access.html">People Access</a><a href="vehicle-access.html">Vehicle Access</a><a href="platform-integration.html">Platform</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;<div class="mobile-submenu" id="brdSub"><a href="brands.html"><strong>&rarr; View All Brands</strong></a><a href="hikvision-singapore.html">Hikvision</a><a href="ajax-alarm-singapore.html">AJAX</a><a href="zkteco-singapore.html">ZKTeco</a><a href="akuvox-singapore.html">Akuvox</a><a href="faac-singapore.html">FAAC</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;<div class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>&rarr; View All Portfolio</strong></a><a href="portfolio.html">Private Homes</a><a href="portfolio.html">Condominiums</a><a href="portfolio.html">Commercial &amp; Retail</a><a href="portfolio.html">Institutions</a><a href="portfolio.html">Industrial</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;<div class="mobile-submenu" id="brdSub"><a href="brands.html"><strong>&rarr; All 20 Brands</strong></a><a href="hikvision-singapore.html">Hikvision</a><a href="ajax-alarm-singapore.html">AJAX</a><a href="zkteco-singapore.html">ZKTeco</a><a href="akuvox-singapore.html">Akuvox</a><a href="faac-singapore.html">FAAC</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;<div class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>&rarr; All Projects</strong></a><a href="portfolio.html">Private Homes</a><a href="portfolio.html">Condominiums</a><a href="portfolio.html">Commercial &amp; Retail</a><a href="portfolio.html">Institutions</a><a href="industrial.html">Industrial</a></div></div>
   <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights &#9662;<div class="mobile-submenu" id="insSub"><a href="insights.html"><strong>&rarr; All Articles</strong></a><a href="insights.html?cat=planning">Security Planning</a><a href="insights.html?cat=technology">Technology</a><a href="insights.html?cat=casestudy">Case Studies</a></div></div>
   <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a><a href="contact.html">Contact Us</a></div></div>
 </div>
+</nav>
+
+<nav class="sv-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>Contact Gateway</li>
+    </ul>
+  </div>
 </nav>
 
 <main class="contact-gateway-page">
@@ -150,47 +174,47 @@
         <div class="gateway-grid">
             <!-- Box 1: Direct Chat -->
             <div class="gateway-card">
-                <div class="icon" style="background: rgba(37, 211, 102, 0.1); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                <div class="icon-box" style="background: rgba(37, 211, 102, 0.1);">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
                 </div>
                 <h3>Direct Chat</h3>
                 <p>Best for residential quotes and quick technical questions.</p>
-                <a href="https://wa.me/6593860466" target="_blank" rel="noopener" class="btn btn-primary" style="background:#25D366; border-color:#25D366; width:100%;">Chat on WhatsApp</a>
+                <a href="https://wa.me/6593860466" target="_blank" rel="noopener" class="btn btn-whatsapp" style="width:100%;">Chat on WhatsApp</a>
             </div>
 
             <!-- Box 2: Proposal Request -->
             <div class="gateway-card">
-                <div class="icon" style="background: rgba(37, 211, 102, 0.1); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#25D366" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <div class="icon-box" style="background: rgba(0, 86, 179, 0.1);">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0056b3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                 </div>
                 <h3>Proposal Request</h3>
                 <p>Best for formal tenders, MCST requirements, and detailed system designs.</p>
-                <a href="#proposal-form-wrap" class="btn btn-primary btn-proposal" style="width:100%;" onclick="document.getElementById('proposal-form-wrap').scrollIntoView({behavior:'smooth'}); return false;">Request Proposal</a>
+                <a href="#proposal-form-wrap" class="btn btn-primary" style="width:100%;" onclick="document.getElementById('proposal-form-wrap').scrollIntoView({behavior:'smooth'}); return false;">Request Proposal</a>
             </div>
 
             <!-- Box 3: Priority Hotline -->
             <div class="gateway-card">
-                <div class="icon" style="background: rgba(248, 113, 113, 0.1); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 24px;">
+                <div class="icon-box" style="background: rgba(248, 113, 113, 0.1);">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#F87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 18h8"></path><path d="M3 22l18-18"></path><path d="M10.5 14.5c2.23 2.23 5.4 3.03 8.35 2.1l1.75 3.15c.14.24.06.55-.18.69l-3.15 1.75c-2.95.93-6.12.13-8.35-2.1l-1.42 1.42c-.2.2-.52.2-.72 0l-3.18-3.18c-.2-.2-.2-.52 0-.72l1.42-1.42c-2.23-2.23-3.03-5.4-2.1-8.35L3.3 2.55C3.16 2.31 3.24 2 3.48 1.86l3.15-1.75c2.95-.93 6.12-.13 8.35 2.1l1.42-1.42c.2-.2.52-.2.72 0l3.18 3.18c.2.2.2.52 0 .72l-1.42 1.42z"></path></svg>
                 </div>
                 <h3>Priority Hotline</h3>
                 <p>Immediate help for emergencies or critical system failures.</p>
-                <a href="tel:+6593860466" class="btn btn-primary btn-hotline" style="width:100%;">Call Specialist Now</a>
+                <a href="tel:+6593860466" class="btn btn-primary" style="width:100%; background: #F87171; border-color: #F87171;">Call Specialist Now</a>
             </div>
         </div>
 
         <!-- Routing Note -->
         <div style="text-align: center; margin-top: -40px; margin-bottom: 80px;">
-            <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: #5F6368; font-style: italic;">Not sure? Any channel will get you to an expert. We'll route you internally.</p>
+            <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text-gray); font-style: italic;">Not sure? Any channel will get you to an expert. We'll route you internally.</p>
         </div>
 
         <!-- Proposal Form -->
         <div id="proposal-form-wrap" class="proposal-form-wrap">
             <div style="text-align: center; margin-bottom: 40px;">
-                <h2 style="font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 700; color: #1B1F23;">Request a Technical Proposal</h2>
-                <p style="font-family: 'Inter', sans-serif; color: #5F6368; font-size: 15px; margin-top: 10px;">Our projects team will review your requirements and respond within 24 hours.</p>
+                <h2 style="font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 700; color: var(--text-dark);">Request a Technical Proposal</h2>
+                <p style="font-family: 'Inter', sans-serif; color: var(--text-gray); font-size: 15px; margin-top: 10px;">Our projects team will review your requirements and respond within 24 hours.</p>
             </div>
-            <form id="proposalForm" class="proposal-form" action="contact-success.html" method="POST" onsubmit="return handleProposalSubmit(event)">
+            <form id="proposalForm" class="proposal-form" onsubmit="return handleProposalSubmit(event)">
                 <!-- Honeypot -->
                 <input type="text" name="sv_human_verify" style="display:none;">
 
@@ -295,7 +319,7 @@
                 </div>
 
                 <div class="form-group full-width" style="text-align: center; margin-top: 48px;">
-                    <button type="submit" class="btn-submit" style="width: auto; padding: 20px 60px; font-size: 18px; display: inline-flex; align-items: center; gap: 12px; margin: 0 auto;">
+                    <button type="submit" class="btn btn-primary" style="width: auto; padding: 20px 60px; font-size: 18px; display: inline-flex; align-items: center; gap: 12px; margin: 0 auto; text-transform: uppercase;">
                         <span>Submit Proposal Request</span>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </button>
@@ -305,21 +329,22 @@
     </div>
 </main>
 
-<footer class="site-footer" style="background:#0E1A2B; padding:80px 0 30px; border-top:1px solid rgba(255,255,255,.05);">
+<footer class="site-footer">
     <div class="footer-container">
-        <div class="footer-grid" style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1.5fr; gap:40px;">
+        <div class="footer-grid" style="display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 32px;">
             <div class="footer-brand">
-                <div class="footer-logo-wrap" style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+                <div class="f-logo-wrap" style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
                     <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision" style="height:36px; display:block;">
-                    <span class="wordmark footer-wordmark" style="color:#fff; font-size:22px; font-weight:700;">Securevision</span>
+                    <span style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:20px; color:#fff; letter-spacing:0.5px;">Securevision</span>
                 </div>
                 <p style="color:rgba(255,255,255,.6); font-size:13px; line-height:1.6; margin-bottom:20px;">Your partner in building smart, secure, and connected communities — powered by intelligent security systems since 2006.</p>
                 <div class="f-socials" style="display:flex; gap:12px;">
-                    <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" style="color:rgba(255,255,255,.6);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                    <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" style="color:rgba(255,255,255,.6);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-                    <a href="https://wa.me/6593860466" target="_blank" rel="noopener" style="color:rgba(255,255,255,.6);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+                    <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                    <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+                    <a href="https://wa.me/6593860466" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
                 </div>
             </div>
+            
             <div class="footer-links">
                 <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Solutions</h4>
                 <ul style="list-style:none; padding:0; margin:0;">
@@ -330,15 +355,7 @@
                     <li style="margin-bottom:10px;"><a href="industrial.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Industrial &amp; Logistics</a></li>
                 </ul>
             </div>
-            <div class="footer-links">
-                <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Systems</h4>
-                <ul style="list-style:none; padding:0; margin:0;">
-                    <li style="margin-bottom:10px;"><a href="surveillance-systems.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Surveillance &amp; Detection</a></li>
-                    <li style="margin-bottom:10px;"><a href="people-access.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">People Access</a></li>
-                    <li style="margin-bottom:10px;"><a href="vehicle-access.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Vehicle Access</a></li>
-                    <li style="margin-bottom:10px;"><a href="platform-integration.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Platform &amp; Integration</a></li>
-                </ul>
-            </div>
+            
             <div class="footer-links">
                 <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Company</h4>
                 <ul style="list-style:none; padding:0; margin:0;">
@@ -349,23 +366,38 @@
                     <li style="margin-bottom:10px;"><a href="contact.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Contact Us</a></li>
                 </ul>
             </div>
+            
             <div class="footer-contact">
                 <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Get In Touch</h4>
                 <div style="margin-bottom:15px; display:flex; gap:10px; align-items:flex-start;">
                     <span style="font-size:16px;">&#128172;</span>
-                    <div><strong style="display:block; color:#fff; font-size:13px;">WhatsApp</strong><a href="https://wa.me/6593860466" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">WhatsApp Us</a></div>
+                    <div><strong style="display:block; color:#fff; font-size:13px;">WhatsApp</strong><a href="https://wa.me/6593860466" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">+65 9386 0466</a></div>
                 </div>
                 <div style="margin-bottom:15px; display:flex; gap:10px; align-items:flex-start;">
                     <span style="font-size:16px;">&#128222;</span>
                     <div><strong style="display:block; color:#fff; font-size:13px;">Office</strong><a href="tel:+6562864796" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">+65 6286 4796</a></div>
                 </div>
+                <div style="margin-bottom:15px; display:flex; gap:10px; align-items:flex-start;">
+                    <span style="font-size:16px;">&#9993;</span>
+                    <div><strong style="display:block; color:#fff; font-size:13px;">Email</strong><a href="mailto:enquiry@securevision.com.sg" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">enquiry@securevision.com.sg</a></div>
+                </div>
             </div>
         </div>
+        
         <div class="footer-bottom" style="margin-top:60px; padding-top:24px; border-top:1px solid rgba(255,255,255,.08); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px;">
-            <p style="color:rgba(255,255,255,.4); font-size:11px; margin:0;">&copy; <span id="current-year">2026</span> Securevision Pte Ltd &middot; Police License L/PS/000267/2023P &middot; bizSAFE Level 3 &middot; BCA Registered</p>
+            <p style="color:rgba(255,255,255,.4); font-size:11px; margin:0;">&copy; 2025 Securevision Pte Ltd &middot; Police License L/PS/000267/2023P &middot; bizSAFE Level 3 &middot; BCA Registered</p>
+            <div style="display:flex; gap:20px;">
+                <a href="privacy.html" style="color:rgba(255,255,255,.4); text-decoration:none; font-size:11px;">Privacy Policy</a>
+                <a href="terms.html" style="color:rgba(255,255,255,.4); text-decoration:none; font-size:11px;">Terms of Service</a>
+            </div>
         </div>
     </div>
 </footer>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+</a>
 
 <script>
     // --- SUPABASE CONFIGURATION ---
@@ -446,6 +478,24 @@
         
         return false;
     }
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('active');
+    }
+    function toggleSubmenu(id) {
+      const sub = document.getElementById(id);
+      const isOpen = sub.style.display === 'block';
+      document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
+      if (!isOpen) sub.style.display = 'block';
+    }
+    document.addEventListener('click', function(e) {
+      const nav = document.querySelector('.main-nav');
+      const menu = document.getElementById('mobileMenu');
+      if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
+        menu.classList.remove('active');
+      }
+    });
+
     document.getElementById('current-year').textContent = new Date().getFullYear();
 </script>
 </body>
