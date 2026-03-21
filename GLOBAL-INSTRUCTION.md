@@ -1113,7 +1113,7 @@ Sites protected:  2,000+
 WhatsApp:         +65 9386 0466
 WhatsApp URL:     https://wa.me/6593860466
 Phone:            +65 6286 4796
-Email:            info@securevision.com.sg
+Email:            enquiry@securevision.com.sg
 Address line 1:   Blk 1013 Geylang East Avenue 3 #02-142
 Address line 2:   Singapore 389728
 Near:             Opposite Paya Lebar MRT
@@ -1123,6 +1123,45 @@ Hours:            Monday–Friday 8:00am–5:00pm
 Facebook:         https://www.facebook.com/securevision
 LinkedIn:         https://www.linkedin.com/company/securevision-pte-ltd
 YouTube:          http://www.youtube.com/@securevision
+```
+
+### 6-Sector Solution Architecture (New Order)
+1. **Private Homes** (residential.html)
+2. **Condominiums** (condominiums.html)
+3. **Commercial & Retail** (commercial.html)
+4. **Industrial & Logistics** (industrial.html)
+5. **Institutions & Government** (institutions.html)
+6. **Healthcare & Managed Living** (healthcare.html)
+
+### Standard Footer Structure
+```html
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="f-logo-wrap">
+                    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision">
+                    <span class="brand-name">Securevision</span>
+                </div>
+                <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since 2006.</p>
+                <!-- Social links ... -->
+            </div>
+            
+            <div class="footer-links">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="residential.html">Private Homes</a></li>
+                    <li><a href="condominiums.html">Condominiums</a></li>
+                    <li><a href="commercial.html">Commercial &amp; Retail</a></li>
+                    <li><a href="industrial.html">Industrial &amp; Logistics</a></li>
+                    <li><a href="institutions.html">Institutions &amp; Government</a></li>
+                    <li><a href="healthcare.html">Healthcare &amp; Managed Living</a></li>
+                </ul>
+            </div>
+            <!-- Other columns ... -->
+        </div>
+    </div>
+</footer>
 ```
 
 ### Proprietary Frameworks
