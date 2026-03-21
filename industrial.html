@@ -1,392 +1,378 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-SG">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Industrial Security Systems Singapore | Securevision</title>
-    <meta name="description" content="Security solutions for factories, warehouses, manufacturing, and logistics. Asset protection, perimeter security, loading bay monitoring, workforce safety.">
+    <title>Industrial & Logistics Security Solutions | Securevision Singapore</title>
+    <meta name="description" content="Engineering resilience for factories, warehouses, and logistics hubs. Multi-site surveillance, perimeter protection, and bizSAFE Level 4 compliance.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="sv-shared.css">
+    
+    <style>
+        :root {
+            --primary-navy: #0e1a2b;
+            --accent-blue: #0056b3;
+            --trust-bg: #8c8c8c;
+            --pillar-bg: #ffffff;
+            --warm-bg: #f8f9fa;
+        }
+
+        /* --- Hero Section --- */
+        .hero-industrial {
+            position: relative;
+            background: linear-gradient(rgba(14, 26, 43, 0.45), rgba(14, 26, 43, 0.45)), url('images/industrial-hero.png');
+            background-size: cover;
+            background-position: center;
+            height: 85vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-industrial h1 {
+            font-size: clamp(36px, 6vw, 64px);
+            margin-bottom: 24px;
+            line-height: 1.1;
+            font-weight: 700;
+        }
+
+        .hero-industrial .subtitle {
+            font-size: clamp(18px, 2vw, 22px);
+            margin-bottom: 40px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        /* --- Trust Bar (bottom) --- */
+        .trust-bar-industrial {
+            background: #8c8c8c;
+            color: #ffffff;
+            padding: 24px 0;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .trust-bar-industrial .container {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        /* --- Pillars --- */
+        .pillar-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pillar-card {
+            background: var(--pillar-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pillar-icon {
+            font-size: 32px;
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .pillar-card h3 {
+            font-size: 22px;
+            margin-bottom: 16px;
+            color: var(--primary-navy);
+        }
+
+        .pillar-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* --- Project/Social Proof Cards --- */
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .proof-card {
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .proof-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: #eee;
+        }
+
+        .proof-info {
+            padding: 24px;
+        }
+
+        .proof-info h4 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--primary-navy);
+        }
+
+        .proof-info .category {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        @media (max-width: 991px) {
+            .pillar-grid, .proof-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body style="padding-top:68px">
+
+<!-- --- MAIN NAV --- -->
 <nav class="main-nav">
-<div class="nav-container">
-  <!-- Logo + Wordmark — always left -->
-  <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
-    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
-    <span class="wordmark nav-wordmark">SECUREVISION</span>
-  </a>
-  <!-- Hamburger — centred absolutely on mobile (via CSS) -->
-  <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
-  <!-- Desktop nav links -->
-  <ul class="nav-menu">
-    <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown active">Solutions</a>
-      <div class="simple-dropdown">
-        <a href="residential.html">Private Homes</a>
-        <a href="condominiums.html">Condominiums</a>
-        <a href="commercial.html">Commercial &amp; Retail</a>
-        <a href="institutions.html">Institutions</a>
-        <a href="industrial.html">Industrial &amp; Logistics</a>
-        <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="systems.html" class="nav-link has-dropdown">Systems</a>
-      <div class="simple-dropdown">
-        <a href="surveillance-systems.html">Surveillance &amp; Detection</a>
-        <a href="people-access.html">People Access</a>
-        <a href="vehicle-access.html">Vehicle Access</a>
-        <a href="platform-integration.html">Platform &amp; Integration</a>
-        <a href="systems.html"><strong>&rarr; View All Systems</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="brands.html" class="nav-link has-dropdown">Brands</a>
-      <div class="simple-dropdown">
-        <a href="hikvision-singapore.html">Hikvision</a>
-        <a href="hanwha-samsung-singapore.html">Hanwha</a>
-        <a href="ajax-alarm-singapore.html">AJAX</a>
-        <a href="zkteco-singapore.html">ZKTeco</a>
-        <a href="akuvox-singapore.html">Akuvox</a>
-        <a href="faac-singapore.html">FAAC</a>
-        <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
-      <div class="simple-dropdown">
-        <a href="portfolio.html">Private Homes</a>
-        <a href="portfolio.html">Condominiums</a>
-        <a href="commercial.html">Commercial &amp; Retail</a>
-        <a href="institutions.html">Institutions</a>
-        <a href="industrial.html">Industrial &amp; Logistics</a>
-        <a href="portfolio.html"><strong>&rarr; All Projects</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
-      <div class="simple-dropdown">
-        <a href="insights.html?cat=planning">Security Planning</a>
-        <a href="insights.html?cat=technology">Technology</a>
-        <a href="insights.html?cat=casestudy">Case Studies</a>
-        <a href="insights.html?cat=industry">SG Industry</a>
-        <a href="insights.html"><strong>&rarr; All Articles</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
-      <div class="simple-dropdown">
-        <a href="about.html">Our Story</a>
-        <a href="about.html#founder">Founder&rsquo;s Story</a>
-        <a href="awards-certifications.html">Awards &amp; Certifications</a>
-        <a href="contact.html">Contact Us</a>
-      </div>
-    </li>
-  </ul>
-  <!-- Desktop search icon -->
-  <div class="nav-right">
-    <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
+      <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
+      <span class="wordmark nav-wordmark">SECUREVISION</span>
+    </a>
+    <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+    
+    <ul class="nav-menu">
+      <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown active">Solutions</a>
+        <div class="simple-dropdown">
+          <a href="residential.html">Private Homes</a>
+          <a href="condominiums.html">Condominiums</a>
+          <a href="commercial.html">Commercial &amp; Retail</a>
+          <a href="industrial.html">Industrial &amp; Logistics</a>
+          <a href="institutions.html">Institutions &amp; Government</a>
+          <a href="healthcare.html">Healthcare &amp; Managed Living</a>
+          <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="systems.html" class="nav-link has-dropdown">Systems</a>
+        <div class="simple-dropdown">
+          <a href="surveillance-systems.html">Surveillance &amp; Detection</a>
+          <a href="people-access.html">People Access</a>
+          <a href="vehicle-access.html">Vehicle Access</a>
+          <a href="platform-integration.html">Platform &amp; Integration</a>
+          <a href="systems.html"><strong>&rarr; View All Systems</strong></a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="brands.html" class="nav-link has-dropdown">Brands</a>
+        <div class="simple-dropdown">
+          <a href="hikvision-singapore.html">Hikvision</a>
+          <a href="hanwha-samsung-singapore.html">Hanwha</a>
+          <a href="ajax-alarm-singapore.html">AJAX</a>
+          <a href="zkteco-singapore.html">ZKTeco</a>
+          <a href="akuvox-singapore.html">Akuvox</a>
+          <a href="faac-singapore.html">FAAC</a>
+          <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
+        <div class="simple-dropdown">
+          <a href="portfolio.html">Private Homes</a>
+          <a href="portfolio.html">Condominiums</a>
+          <a href="portfolio.html">Commercial &amp; Retail</a>
+          <a href="industrial.html">Industrial &amp; Logistics</a>
+          <a href="institutions.html">Institutions &amp; Government</a>
+          <a href="healthcare.html">Healthcare &amp; Managed Living</a>
+          <a href="portfolio.html"><strong>&rarr; All Projects</strong></a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
+        <div class="simple-dropdown">
+          <a href="insights.html?cat=planning">Security Planning</a>
+          <a href="insights.html?cat=technology">Technology</a>
+          <a href="insights.html?cat=casestudy">Case Studies</a>
+          <a href="insights.html?cat=industry">SG Industry</a>
+          <a href="insights.html"><strong>&rarr; All Articles</strong></a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
+        <div class="simple-dropdown">
+          <a href="about.html">Our Story</a>
+          <a href="about.html#founder">Founder&rsquo;s Story</a>
+          <a href="awards-certifications.html">Awards &amp; Certifications</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </li>
+    </ul>
+    
+    <div class="nav-right">
+      <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+    </div>
+    
+    <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
   </div>
-  <!-- Mobile search icon — always right end on mobile -->
-  <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
-</div>
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a><a href="residential.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a href="commercial.html">Commercial</a><a href="institutions.html">Institutions</a><a href="industrial.html">Industrial</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu" id="sysSub"><a href="systems.html"><strong>&rarr; View All Systems</strong></a><a href="surveillance-systems.html">Surveillance</a><a href="people-access.html">People Access</a><a href="vehicle-access.html">Vehicle Access</a><a href="platform-integration.html">Platform</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;<div class="mobile-submenu" id="brdSub"><a href="brands.html"><strong>&rarr; All 20 Brands</strong></a><a href="hikvision-singapore.html">Hikvision</a><a href="ajax-alarm-singapore.html">AJAX</a><a href="zkteco-singapore.html">ZKTeco</a><a href="akuvox-singapore.html">Akuvox</a><a href="faac-singapore.html">FAAC</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;<div class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>&rarr; All Projects</strong></a><a href="portfolio.html">Private Homes</a><a href="portfolio.html">Condominiums</a><a href="portfolio.html">Commercial &amp; Retail</a><a href="portfolio.html">Institutions</a><a href="portfolio.html">Industrial</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights &#9662;<div class="mobile-submenu" id="insSub"><a href="insights.html"><strong>&rarr; All Articles</strong></a><a href="insights.html?cat=planning">Security Planning</a><a href="insights.html?cat=technology">Technology</a><a href="insights.html?cat=casestudy">Case Studies</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a><a href="contact.html">Contact Us</a></div></div>
-</div>
+  
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a><a href="residential.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a href="commercial.html">Commercial &amp; Retail</a><a href="industrial.html">Industrial &amp; Logistics</a><a href="institutions.html">Institutions &amp; Government</a><a href="healthcare.html">Healthcare &amp; Managed Living</a></div></div>
+    <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu" id="sysSub"><a href="systems.html"><strong>&rarr; View All Systems</strong></a><a href="surveillance-systems.html">Surveillance</a><a href="people-access.html">People Access</a><a href="vehicle-access.html">Vehicle Access</a><a href="platform-integration.html">Platform</a></div></div>
+    <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;<div class="mobile-submenu" id="brdSub"><a href="brands.html"><strong>&rarr; All 20 Brands</strong></a><a href="hikvision-singapore.html">Hikvision</a><a href="ajax-alarm-singapore.html">AJAX</a><a href="zkteco-singapore.html">ZKTeco</a><a href="akuvox-singapore.html">Akuvox</a><a href="faac-singapore.html">FAAC</a></div></div>
+    <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;<div class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>&rarr; All Projects</strong></a><a href="portfolio.html">Private Homes</a><a href="portfolio.html">Condominiums</a><a href="portfolio.html">Commercial &amp; Retail</a><a href="industrial.html">Industrial &amp; Logistics</a><a href="institutions.html">Institutions &amp; Government</a><a href="healthcare.html">Healthcare &amp; Managed Living</a></div></div>
+    <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights &#9662;<div class="mobile-submenu" id="insSub"><a href="insights.html"><strong>&rarr; All Articles</strong></a><a href="insights.html?cat=planning">Security Planning</a><a href="insights.html?cat=technology">Technology</a><a href="insights.html?cat=casestudy">Case Studies</a></div></div>
+    <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a><a href="contact.html">Contact Us</a></div></div>
+  </div>
 </nav>
 
-
-
-<!-- HERO -->
-<section id="hero" class="hero">
+<!-- --- HERO --- -->
+<section class="hero-industrial">
   <div class="container">
-    <div class="hero-inner">
-      <h1>Protect Assets, Secure Perimeters, Ensure Safety</h1>
-      <p class="subtitle">Security for factories, warehouses, manufacturing, and logistics. From perimeter protection to inventory monitoring and workforce safety.</p>
+    <div class="hero-content">
+      <span class="eyebrow-light" style="color:rgba(255,255,255,0.8); display:block; margin-bottom:16px; font-weight:600; letter-spacing:1px; text-transform:uppercase;">Industrial &amp; Logistics Security</span>
+      <h1>Engineering Resilience.</h1>
+      <p class="subtitle">Securevision provides specialised security infrastructure for Singapore&rsquo;s manufacturing floors, logistics hubs, and data centres. Modernising asset protection through intelligent surveillance and seamless compliance.</p>
       <div class="hero-btns">
-        <a href="https://wa.me/6593860466" class="btn btn-primary">Request Assessment</a>
-        <a href="#systems-thinking" class="btn btn-secondary" style="border-color:white;color:white">See Our Approach</a>
+        <a href="https://wa.me/6593860466" class="btn btn-primary" style="padding: 16px 32px; font-weight: 600;">Request Assessment</a>
+        <a href="#pillars" class="btn btn-outline" style="border: 1px solid #fff; color: #fff; padding: 16px 32px; margin-left: 12px; font-weight: 600;">Our Approach</a>
       </div>
-      <p style="margin-top:20px;font-size:13px;opacity:0.8;color:white">Serving industrial facilities and logistics operations across Singapore with 24/7 protection.</p>
     </div>
   </div>
 </section>
 
-    <!-- BREADCRUMBS -->
-    <nav class="sv-breadcrumb">
-        <div class="container">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="solutions-hub.html">Solutions</a></li>
-                <li>Industrial & Logistics</li>
-            </ul>
+<!-- --- BREADCRUMBS --- -->
+<nav class="sv-breadcrumb" style="background:var(--warm-bg); padding:16px 0; border-bottom:1px solid #eee;">
+    <div class="container">
+        <ul style="list-style:none; padding:0; display:flex; gap:8px; font-size:14px; color:#666;">
+            <li><a href="index.html" style="color:var(--accent-blue);">Home</a></li>
+            <li>/</li>
+            <li><a href="solutions-hub.html" style="color:var(--accent-blue);">Solutions</a></li>
+            <li>/</li>
+            <li style="font-weight:600; color:var(--primary-navy);">Industrial &amp; Logistics</li>
+        </ul>
+    </div>
+</nav>
+
+<!-- --- PILLARS --- -->
+<section id="pillars" style="padding:100px 0; background:var(--warm-bg);">
+    <div class="container">
+        <div style="text-align:center; max-width:800px; margin:0 auto 60px;">
+            <h2 style="font-size:36px; color:var(--primary-navy); margin-bottom:16px;">The Foundations of Industrial Security</h2>
+            <p style="font-size:18px; color:#666; line-height:1.7;">We move beyond basic surveillance to build integrated systems that protect your perimeter, harvest intelligence, and ensure regulatory compliance.</p>
         </div>
-    </nav>
-
-
-    <!-- SYSTEMS VS PRODUCTS SECTION -->
-    <section id="systems-thinking" style="background-color:var(--white);padding:var(--spacing-lg) 0">
-        <div class="container">
-            <div style="max-width:900px;margin:0 auto;text-align:center">
-                <h2 style="font-size:36px;margin-bottom:24px">We Design Industrial Security Systems — Not Just Install Cameras</h2>
-                <p style="font-size:18px;color:var(--medium-gray);margin-bottom:var(--spacing-lg);line-height:1.7">Your facility doesn't need "cameras on a fence." It needs layered perimeter security, inventory protection, loading bay monitoring, and workforce safety — all integrated into one intelligent system.</p>
-                
-                <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--spacing-md);margin-top:var(--spacing-lg)">
-                    <div style="background-color:var(--light-gray);border:2px solid var(--border-color);border-radius:var(--border-radius);padding:var(--spacing-md);text-align:left">
-                        <h3 style="font-size:20px;margin-bottom:16px;color:#dc3545">❌ Basic Camera Thinking</h3>
-                        <ul style="list-style:none;padding:0">
-                            <li style="margin-bottom:12px;font-size:15px">• "Put cameras on the fence"</li>
-                            <li style="margin-bottom:12px;font-size:15px">• "Add some floodlights"</li>
-                            <li style="margin-bottom:12px;font-size:15px">• "Get a guard to watch screens"</li>
-                            <li style="margin-bottom:12px;font-size:15px">• No perimeter intrusion detection</li>
-                            <li style="margin-bottom:12px;font-size:15px">• No inventory monitoring, no analytics</li>
-                        </ul>
-                    </div>
-                    
-                    <div style="background-color:#f3e6ff;border:2px solid var(--primary-accent);border-radius:var(--border-radius);padding:var(--spacing-md);text-align:left">
-                        <h3 style="font-size:20px;margin-bottom:16px;color:var(--primary-accent)">✅ Layered Security Strategy</h3>
-                        <ul style="list-style:none;padding:0">
-                            <li style="margin-bottom:12px;font-size:15px">• <strong>Perimeter intrusion detection</strong> (AI alerts)</li>
-                            <li style="margin-bottom:12px;font-size:15px">• <strong>Loading bay monitoring</strong> (prevent theft)</li>
-                            <li style="margin-bottom:12px;font-size:15px">• <strong>Inventory protection</strong> (high-value areas)</li>
-                            <li style="margin-bottom:12px;font-size:15px">• <strong>Workforce safety</strong> (restricted zones, incidents)</li>
-                            <li style="margin-bottom:12px;font-size:15px">• <strong>24/7 remote monitoring</strong> with instant alerts</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <p style="font-size:16px;color:var(--medium-gray);margin-top:var(--spacing-md);font-style:italic">That's why we conduct site surveys to understand your operations — not just count how many cameras you need.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="facility-types">
-        <div class="container">
-            <div class="section-header">
-                <h2 style="font-size:36px;margin-bottom:16px">Industrial Facilities We Secure</h2>
-                <p style="font-size:18px;color:var(--medium-gray)">From manufacturing floors to logistics hubs — we understand the unique security needs of each operation type.</p>
+        
+        <div class="pillar-grid">
+            <div class="pillar-card">
+                <span class="pillar-icon">🛡️</span>
+                <h3>Perimeter Protection</h3>
+                <p>Deploying AI-powered intrusion detection and autonomous thermal sensing to secure multi-acre facilities 24/7. Hardening boundaries while facilitating smooth vehicle flow through integrated LPR systems.</p>
             </div>
             
-            <div class="facility-grid">
-                <div class="facility-card">
-                    <div class="facility-icon">🏭</div>
-                    <h3 style="font-size:20px;margin-bottom:8px">Manufacturing Plants</h3>
-                    <p style="font-size:14px;color:var(--medium-gray)">Production lines, quality control areas, raw material storage. Workforce safety, inventory monitoring, perimeter security.</p>
+            <div class="pillar-card">
+                <span class="pillar-icon">🧠</span>
+                <h3>Operational Intelligence</h3>
+                <p>Synchronising real-time video analytics with your inventory management systems. Use your security data to monitor loading bay efficiency, track high-value assets, and mitigate internal slippage.</p>
+            </div>
+            
+            <div class="pillar-card">
+                <span class="pillar-icon">📜</span>
+                <h3>Regulatory Compliance</h3>
+                <p>Ensuring your facility meets strict industrial safety standards. From WSH incident documentation to bizSAFE Level 4 infrastructure, we engineer systems that keep your operations auditable and licenced.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- --- SOCIAL PROOF / PROJECTS --- -->
+<section style="padding:100px 0; background:#fff;">
+    <div class="container">
+        <div style="margin-bottom:60px;">
+            <h2 style="font-size:32px; color:var(--primary-navy);">Proven Industrial Implementations</h2>
+            <p style="color:#666; font-size:16px;">Trusted by Singapore&rsquo;s leading manufacturing and logistics operators.</p>
+        </div>
+        
+        <div class="proof-grid">
+            <div class="proof-card">
+                <img src="images/project-factory.png" alt="Cyrus Tech Manufacturing Facility" class="proof-img">
+                <div class="proof-info">
+                    <span class="category">Manufacturing</span>
+                    <h4>Cyrus Tech Facility</h4>
+                    <p style="font-size:14px; color:#666; line-height:1.6;">Full-scale security overhaul for specialised manufacturing floors. Integrated access control tablets and AI-perimeter fencing.</p>
                 </div>
-                
-                <div class="facility-card">
-                    <div class="facility-icon">📦</div>
-                    <h3 style="font-size:20px;margin-bottom:8px">Warehouses</h3>
-                    <p style="font-size:14px;color:var(--medium-gray)">Storage facilities, distribution centers. High-value inventory protection, loading bay monitoring, 24/7 surveillance.</p>
+            </div>
+            
+            <div class="proof-card">
+                <img src="images/project-industrial.png" alt="Regional Logistics Hub" class="proof-img">
+                <div class="proof-info">
+                    <span class="category">Logistics</span>
+                    <h4>Regional Logistics Hub</h4>
+                    <p style="font-size:14px; color:#666; line-height:1.6;">Automated vehicle entry with high-speed LPR cameras and 200+ camera multi-site monitoring via centralised dashboard.</p>
                 </div>
-                
-                <div class="facility-card">
-                    <div class="facility-icon">🚚</div>
-                    <h3 style="font-size:20px;margin-bottom:8px">Logistics Hubs</h3>
-                    <p style="font-size:14px;color:var(--medium-gray)">Distribution centers, freight terminals. Vehicle tracking (LPR), loading dock security, driver verification.</p>
-                </div>
-                
-                <div class="facility-card">
-                    <div class="facility-icon">⚙️</div>
-                    <h3 style="font-size:20px;margin-bottom:8px">Industrial Yards</h3>
-                    <p style="font-size:14px;color:var(--medium-gray)">Equipment yards, storage depots. Heavy machinery protection, after-hours monitoring, perimeter intrusion detection.</p>
+            </div>
+            
+            <div class="proof-card">
+                <img src="images/modern-cbd-office.png" alt="CBD Data Centre" class="proof-img">
+                <div class="proof-info">
+                    <span class="category">Mission Critical</span>
+                    <h4>CBD Data Centre</h4>
+                    <p style="font-size:14px; color:#666; line-height:1.6;">Ultra-high security dual-factor authentication and thermal fire-risk detection for sensitive server environments.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="challenges">
-        <div class="container">
-            <div class="section-header">
-                <h2 style="font-size:36px;margin-bottom:16px">Common Industrial Security Challenges</h2>
-                <p style="font-size:18px;color:var(--medium-gray)">Large facilities, high-value inventory, and 24/7 operations create unique security requirements.</p>
-            </div>
-            <div class="challenges-grid">
-                <div class="challenge-card">
-                    <div class="challenge-icon">🚧</div>
-                    <h3 style="font-size:20px;margin-bottom:8px">Perimeter Security</h3>
-                    <p>Large fenced areas (acres). Need to detect intrusions instantly. After-hours trespassing. Theft over fences.</p>
-                </div>
-                <div class="challenge-card">
-                    <div class="challenge-icon">📦</div>
-                    <h3 style="font-size:20px;margin-bottom:8px">Inventory Theft</h3>
-                    <p>High-value goods, raw materials, finished products. Internal theft (employees, contractors). Loading bay blind spots.</p>
-                </div>
-                <div class="challenge-card">
-                    <div class="challenge-icon">🚚</div>
-                    <h3 style="font-size:20px;margin-bottom:8px">Loading Bay Monitoring</h3>
-                    <p>Can't see what's being loaded/unloaded. Driver verification needed. Prevent unauthorized pickups.</p>
-                </div>
-                <div class="challenge-card">
-                    <div class="challenge-icon">⚠️</div>
-                    <h3 style="font-size:20px;margin-bottom:8px">Workforce Safety</h3>
-                    <p>Restricted areas (machinery, chemicals). Incident documentation. Lone worker safety. Emergency response.</p>
-                </div>
-                <div class="challenge-card">
-                    <div class="challenge-icon">🌙</div>
-                    <h3 style="font-size:20px;margin-bottom:8px">24/7 Operations</h3>
-                    <p>Facilities run around the clock. Need constant monitoring. Can't staff guards everywhere.</p>
-                </div>
-                <div class="challenge-card">
-                    <div class="challenge-icon">🔍</div>
-                    <h3 style="font-size:20px;margin-bottom:8px">Large Area Coverage</h3>
-                    <p>Acres of land to monitor. Multiple buildings, yards, outdoor storage. Camera blind spots.</p>
-                </div>
-            </div>
+<!-- --- FINAL CTA --- -->
+<section style="background:var(--primary-navy); padding:100px 0; color:#ffffff; text-align:center;">
+    <div class="container">
+        <h2 style="font-size:40px; margin-bottom:24px;">Prepare Your Facility for the Future.</h2>
+        <p style="font-size:20px; max-width:700px; margin:0 auto 40px; opacity:0.9;">Securevision combines NUS engineering expertise with 19+ years of industrial security experience. Let us modernise your resilience.</p>
+        <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+            <a href="https://wa.me/6593860466" class="btn btn-whatsapp" style="background:#25D366; color:#fff; padding:18px 40px; font-weight:700; border-radius:30px;">💬 Engineering Consultation</a>
+            <a href="contact.html" class="btn btn-secondary" style="border:1px solid #fff; color:#fff; padding:18px 40px; font-weight:700; border-radius:30px;">📧 Request Detailed Quote</a>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="solutions">
-        <div class="container">
-            <div class="section-header">
-                <h2 style="font-size:36px;margin-bottom:16px">Industrial Security Solutions</h2>
-                <p style="font-size:18px;color:var(--medium-gray)">Scalable, intelligent systems designed for large facilities and 24/7 operations.</p>
-            </div>
-            <div class="solutions-grid">
-                <div class="solution-card">
-                    <div class="challenge-icon">🚧</div>
-                    <h3 style="font-size:20px;margin-bottom:8px">Perimeter Intrusion Detection</h3>
-                    <p>AI-powered cameras detect fence climbing, loitering. Instant alerts to security/management. Thermal cameras for night.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="challenge-icon">📹</div>
-                    <h3 style="font-size:20px;margin-bottom:8px">360° Facility Surveillance</h3>
-                    <p>Wide-area coverage. Production floors, warehouses, yards. 60-90 day storage. Remote viewing.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="challenge-icon">🚚</div>
-                    <h3 style="font-size:20px;margin-bottom:8px">Loading Bay Monitoring</h3>
-                    <p>Cameras on every dock. LPR for truck tracking. Record all loading/unloading. Driver verification.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="challenge-icon">🔐</div>
-                    <h3 style="font-size:20px;margin-bottom:8px">Access Control for Zones</h3>
-                    <p>Different access by role (production vs office vs restricted). Time-based access. Contractor tracking.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="challenge-icon">🚨</div>
-                    <h3 style="font-size:20px;margin-bottom:8px">Emergency Response</h3>
-                    <p>Panic buttons. Emergency notification. Incident recording. Integration with fire/medical systems.</p>
-                </div>
-                <div class="solution-card">
-                    <div class="challenge-icon">📱</div>
-                    <h3 style="font-size:20px;margin-bottom:8px">Remote Monitoring 24/7</h3>
-                    <p>Cloud-based VMS. Mobile alerts for intrusions. Management dashboard. Multi-site monitoring.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- --- TRUST BAR (BOTTOM) --- -->
+<div class="trust-bar-industrial">
+    <div class="container">
+        <span>Police Licenced L/PS/000267/2023P</span>
+        <span style="opacity:0.4;">|</span>
+        <span>BCA Registered</span>
+        <span style="opacity:0.4;">|</span>
+        <span>bizSAFE Level 4</span>
+    </div>
+</div>
 
-    <section class="methodology">
-        <div class="container">
-            <div class="section-header">
-                <h2 style="font-size:36px;margin-bottom:16px">Our Industrial Security Process</h2>
-            </div>
-            <div class="methodology-grid">
-                <div class="method-step">
-                    <div class="step-number">1</div>
-                    <h3 style="font-size:18px;margin-bottom:8px">Site Survey</h3>
-                    <p>Walk entire facility. Map perimeter. Identify high-value areas. Assess blind spots.</p>
-                </div>
-                <div class="method-step">
-                    <div class="step-number">2</div>
-                    <h3 style="font-size:18px;margin-bottom:8px">Security Design</h3>
-                    <p>Layered perimeter plan. Camera placement strategy. Integration with operations.</p>
-                </div>
-                <div class="method-step">
-                    <div class="step-number">3</div>
-                    <h3 style="font-size:18px;margin-bottom:8px">Installation</h3>
-                    <p>Minimal disruption to production. After-hours work if needed. Testing all zones.</p>
-                </div>
-                <div class="method-step">
-                    <div class="step-number">4</div>
-                    <h3 style="font-size:18px;margin-bottom:8px">Training & Support</h3>
-                    <p>Security team training. Management dashboards. 24/7 ongoing support.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="why-choose">
-        <div class="container">
-            <div class="section-header">
-                <h2 style="font-size:36px;margin-bottom:16px">Why Industrial Facilities Choose Securevision</h2>
-            </div>
-            <div class="why-grid">
-                <div class="why-card">
-                    <div class="challenge-icon">🛡️</div>
-                    <h3 style="font-size:18px;margin-bottom:8px">Police-Licensed</h3>
-                    <p>License L/PS/000267/2023P. Industrial-grade compliance.</p>
-                </div>
-                <div class="why-card">
-                    <div class="challenge-icon">🏆</div>
-                    <h3 style="font-size:18px;margin-bottom:8px">19+ Years Industrial Experience</h3>
-                    <p>Factories, warehouses, logistics since 2006.</p>
-                </div>
-                <div class="why-card">
-                    <div class="challenge-icon">📈</div>
-                    <h3 style="font-size:18px;margin-bottom:8px">Scalable Systems</h3>
-                    <p>From 1-acre yards to multi-acre facilities. Systems grow with you.</p>
-                </div>
-                <div class="why-card">
-                    <div class="challenge-icon">🤖</div>
-                    <h3 style="font-size:18px;margin-bottom:8px">AI-Powered Detection</h3>
-                    <p>Perimeter intrusion alerts. Loitering detection. Reduces false alarms.</p>
-                </div>
-                <div class="why-card">
-                    <div class="challenge-icon">🌙</div>
-                    <h3 style="font-size:18px;margin-bottom:8px">24/7 Support</h3>
-                    <p>Your facility runs 24/7. So does our support.</p>
-                </div>
-                <div class="why-card">
-                    <div class="challenge-icon">⭐</div>
-                    <h3 style="font-size:18px;margin-bottom:8px">Industrial-Grade Tech</h3>
-                    <p>Hikvision commercial series. Built for harsh environments.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="proof">
-        <div class="container">
-            <div class="section-header">
-                <h2 style="font-size:36px;margin-bottom:16px">Featured Industrial Projects</h2>
-            </div>
-            <div class="proof-grid">
-                <div class="proof-card">
-                    <div class="proof-placeholder">🏭</div>
-                    <h3 style="font-size:18px;margin-bottom:8px">Manufacturing Plant</h3>
-                    <p style="font-size:14px;color:var(--medium-gray);margin-bottom:8px"><strong>Production Floor • Perimeter Security</strong></p>
-                    <p style="font-size:14px;line-height:1.5">Complete surveillance of production lines. Perimeter intrusion detection. High-value inventory protection.</p>
-                </div>
-                <div class="proof-card">
-                    <div class="proof-placeholder">📦</div>
-                    <h3 style="font-size:18px;margin-bottom:8px">Warehouse & Distribution</h3>
-                    <p style="font-size:14px;color:var(--medium-gray);margin-bottom:8px"><strong>24/7 Operations</strong></p>
-                    <p style="font-size:14px;line-height:1.5">Loading bay monitoring. Inventory tracking. Multi-site remote monitoring. LPR for truck verification.</p>
-                </div>
-                <div class="proof-card">
-                    <div class="proof-placeholder">⚙️</div>
-                    <h3 style="font-size:18px;margin-bottom:8px">Industrial Yard</h3>
-                    <p style="font-size:14px;color:var(--medium-gray);margin-bottom:8px"><strong>Equipment Protection</strong></p>
-                    <p style="font-size:14px;line-height:1.5">Large outdoor area. Heavy machinery protection. After-hours perimeter security with thermal cameras.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="final-cta">
-        <div class="container">
-            <h2 style="font-size:36px;margin-bottom:16px">Ready to Secure Your Industrial Facility?</h2>
-            <p style="font-size:18px;max-width:700px;margin:0 auto 32px">Request a comprehensive facility assessment and we'll design a layered security strategy for your operations.</p>
-            <div class="cta-buttons">
-                <a href="https://wa.me/6593860466" class="btn btn-whatsapp" target="_blank">💬 WhatsApp Us</a>
-                <a href="/cdn-cgi/l/email-protection#2f464149406f5c4a4c5a5d4a59465c464041014c4042015c48" class="btn btn-secondary" style="border-color:white;color:white">📧 Request Assessment</a>
-            </div>
-            <footer class="main-footer">
+<!-- --- FOOTER --- -->
+<footer class="main-footer">
   <div class="container">
     <div class="footer-grid">
-      <!-- Col 1: Brand & Basic Info -->
       <div class="footer-col footer-brand">
         <a href="index.html" class="footer-logo">
           <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
@@ -395,36 +381,34 @@
         <p class="footer-tagline">Engineering security solutions across Singapore since 2006. NUS engineering-led and police-licensed.</p>
         <div class="footer-contact-info">
           <p><strong>Securevision Pte Ltd</strong></p>
-          <p>Police License: L/PS/000267/2023P</p>
-          <p>bizSAFE Level 3</p>
+          <p>Police Licence: L/PS/000267/2023P</p>
+          <p>bizSAFE Level 4</p>
         </div>
       </div>
 
-      <!-- Col 2: Solutions -->
       <div class="footer-col">
         <h4 class="footer-title">Solutions</h4>
         <ul class="footer-links">
           <li><a href="residential.html">Private Homes</a></li>
           <li><a href="condominiums.html">Condominiums (MCST)</a></li>
-          <li><a href="commercial.html">Commercial & Retail</a></li>
-          <li><a href="institutions.html">Institutions</a></li>
-          <li><a href="industrial.html">Industrial & Logistics</a></li>
+          <li><a href="commercial.html">Commercial &amp; Retail</a></li>
+          <li><a href="industrial.html">Industrial &amp; Logistics</a></li>
+          <li><a href="institutions.html">Institutions &amp; Government</a></li>
+          <li><a href="healthcare.html">Healthcare &amp; Managed Living</a></li>
         </ul>
       </div>
 
-      <!-- Col 3: Systems -->
       <div class="footer-col">
         <h4 class="footer-title">Systems</h4>
         <ul class="footer-links">
-          <li><a href="surveillance-systems.html">Surveillance & Detection</a></li>
+          <li><a href="surveillance-systems.html">Surveillance &amp; Detection</a></li>
           <li><a href="people-access.html">People Access Systems</a></li>
           <li><a href="vehicle-access.html">Vehicle Access Systems</a></li>
-          <li><a href="platform-integration.html">Platform & Integration</a></li>
+          <li><a href="platform-integration.html">Platform &amp; Integration</a></li>
           <li><a href="brands.html">Hardware Brands</a></li>
         </ul>
       </div>
 
-      <!-- Col 4: Reach Us -->
       <div class="footer-col">
         <h4 class="footer-title">Reach Us</h4>
         <ul class="footer-links">
@@ -453,7 +437,6 @@
   </div>
 </footer>
 
-<!-- Floating WhatsApp Button -->
 <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.03a11.782 11.782 0 001.583 5.867L0 24l6.117-1.605a11.772 11.772 0 005.925 1.603h.005c6.635 0 12.022-5.392 12.026-12.033a11.742 11.742 0 00-3.504-8.508z"/></svg>
 </a>
@@ -477,7 +460,5 @@ document.addEventListener('click', function(e) {
   }
 });
 </script>
-</body>
-</html>
 </body>
 </html>

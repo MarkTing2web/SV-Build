@@ -1107,7 +1107,7 @@ Founder:          Ler Wee Meng
 Founder quals:    Bachelor of Engineering, NUS · Bachelor of Laws (LLB), UOL
 Founder exp:      35+ years in the security industry
 Police Licence:   L/PS/000267/2023P
-bizSAFE:          Level 3
+bizSAFE:          Level 4
 BCA:              Registered Contractor
 Sites protected:  2,000+
 WhatsApp:         +65 9386 0466
