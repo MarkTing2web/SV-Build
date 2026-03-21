@@ -94,6 +94,7 @@
   --c-condos:         #4361EE;
   --c-commercial:     #FF6D00;
   --c-institutions:   #0056b3;
+  --c-healthcare:     #0056b3;
   --c-industrial:     #7209B7;
 
   /* Technology subsystem accents */
@@ -417,7 +418,7 @@ nav {
 ### Dropdown Content by Menu Item
 | Menu Item | Dropdown Content | Behavior |
 |-----------|------------------|----------|
-| **Solutions** | Residential, Condominiums, Commercial, Industrial, Institutions | Simple dropdown |
+| **Solutions** | Private Homes, Condominiums, Commercial, Industrial, Institutions, Healthcare & Dormitories | Simple dropdown |
 | **Systems** | Surveillance & CCTV, People Access Control, Vehicle Access & Barriers, Platform Integration | Simple dropdown |
 | **Brands** | Surveillance, Access Control, Intercom, Alarms, Gates & Barriers, View All Brands → | Simple dropdown with categories |
 | **Portfolio** | (none) | Direct link to portfolio.html |
@@ -470,7 +471,7 @@ nav {
 Logo + Wordmark → index.html (click to go home)
 
 Desktop Menu Items:
-Solutions      → solutions-hub.html    (dropdown: 5 property types)
+Solutions      → solutions-hub.html    (dropdown: 6 property types)
 Systems        → systems.html          (dropdown: 4 system types)
 Brands         → brands.html           (dropdown: 6 categories)
 Portfolio      → portfolio.html        (no dropdown)
@@ -525,6 +526,7 @@ About          → about.html
 - Condominium pages: `rgba(67,97,238,0.18)` (blue)
 - Commercial pages: `rgba(255,109,0,0.18)` (orange)
 - Industrial pages: `rgba(114,9,183,0.18)` (purple)
+- Healthcare & Dormitories pages: `rgba(0,86,179,0.18)` (primary blue)
 - Surveillance pages: `rgba(43,108,176,0.2)`
 - People Access pages: `rgba(49,151,149,0.2)`
 - Vehicle Access pages: `rgba(221,107,32,0.2)`
