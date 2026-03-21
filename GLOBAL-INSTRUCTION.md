@@ -12,6 +12,11 @@
 **Domain:** www.securevision.com.sg
 **Primary CTA:** WhatsApp +65 9386 0466 (https://wa.me/6593860466)
 
+**Language & Spelling Standards:**
+- All copy must follow **British English (UK)** spelling conventions.
+- **Key Examples**: `optimisation` (not optimization), `labour` (not labour), `centre` (not centre), `programme` (not program), `defence` (not defense), `licence` (noun), `licensing` (verb), `modelling` (not modeling).
+- Use Singapore-specific terminology: "estate", "MCST", "Managing Agent", "GCB", "bizSAFE".
+
 **Tone of voice:**
 - Professional but not cold
 - Engineering-led — specific, precise, evidence-based
@@ -768,7 +773,10 @@ About          → about.html
 
 **Resources & Insights:** All Resources · CCTV Guide · All Insights · Security Planning · Case Studies
 
-**Company:** About Us · Contact · WhatsApp
+**Company:**
+- Our Story · Awards & Certifications · Portfolio · Insights · Contact Us
+- Contact row format: `<a><span>📞</span> +65 6286 4796</a>`
+- WhatsApp/Email: Embed links in "WhatsApp Us" and "Email Us" to avoid spam. Avoid exposing raw numbers/addresses in the footer.
 
 ### Footer Bottom Bar
 ```
@@ -833,7 +841,7 @@ footer {
 ### Confirmed Profiles
 - Facebook: `https://www.facebook.com/securevision`
 - LinkedIn: `https://www.linkedin.com/company/securevision-pte-ltd`
-- WhatsApp: `https://wa.me/6593860466`
+- YouTube: `http://www.youtube.com/@securevision`
 
 ### Social Icons Row (in footer brand block)
 ```html
@@ -849,10 +857,8 @@ footer {
       <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
     </svg>
   </a>
-  <a href="https://wa.me/6593860466" target="_blank" rel="noopener" aria-label="WhatsApp Securevision" class="social-icon">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-    </svg>
+  <a href="http://www.youtube.com/@securevision" target="_blank" rel="noopener" aria-label="YouTube Securevision" class="social-icon">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
   </a>
 </div>
 ```
@@ -1114,6 +1120,7 @@ Hours:            Monday–Friday 8:00am–5:00pm
                   Sunday closed
 Facebook:         https://www.facebook.com/securevision
 LinkedIn:         https://www.linkedin.com/company/securevision-pte-ltd
+YouTube:          http://www.youtube.com/@securevision
 ```
 
 ### Proprietary Frameworks
