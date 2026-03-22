@@ -1265,5 +1265,31 @@ The global instruction provides the rules. The page instruction provides the con
 
 ---
 
+## 13. SECUREVISION DESIGN FRAMEWORK (4-Pillar Architectural Standard)
+
+The Securevision Design Framework is a 4-pillar architectural standard for technical authority in security systems. All system pages (Surveillance, Access Control, etc.) must follow this structure to transform visitors into informed stakeholders.
+
+### The 4 Pillars:
+1.  **Surveillance & Detection**: Proactive awareness. CCTV, Video Analytics (AI), and Perimeter Security (heat/vibration sensors).
+2.  **Controlling People Access**: Boundary integrity. Access Control, Biometrics (Fingerprint/Facial/RFID), and Video Intercoms (Visitor/Delivery).
+3.  **Controlling Vehicle Access**: Asset boundary management. Auto Gates, Barrier Systems (Hydraulic/Electro-mechanical), and LPR (License Plate Recognition).
+4.  **Platform Management**: The central nervous system. Integration Software (VESTA), Response Automation (Central Monitoring, push alerts), and Documentation (Audit logs).
+
+### 5-Part Page Structure:
+1.  **Conceptual Logic (The "Why")**: High-level security objectives (e.g., Alarms buy response time).
+2.  **Anatomy of the Tech (The "How")**: Deconstructing hardware into its mechanical or scientific components.
+3.  **Securevision Design Standard (The "Expertise")**: Singapore-specific engineering (SCDF compliance, IP67 tropicalization, MAS TRM compliance).
+4.  **System Integration (The "Unification")**: Building "If-This-Then-That" logic between physical devices (S, P, V) and human actions.
+5.  **Architect’s Checklist (The "Action")**: A consultative self-audit for stakeholders to assess their own liability.
+
+### Styling & Visuals:
+-   **Blueprint Theme**: Use grid backgrounds (`--tech-grid`) and technical diagrams.
+-   **Tone**: Engineering-led, precise, and tropical-redundant. No salesy/hyperbolic copy.
+-   **Visuals over Lifestyle**: Prioritize schematics and technical hardware deconstructions.
+
+---
+
+---
+
 *Securevision Global Design Instruction v1.0 — March 2026*
 *Do not modify without updating all dependent page prompts*
