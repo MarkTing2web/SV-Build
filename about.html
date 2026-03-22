@@ -1,634 +1,493 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-GB">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About Securevision | Security Specialists Since 2006</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Securevision | Security Specialists Since 2006</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="sv-shared.css">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --accent:#0056b3;--dark:#003d82;
-  --charcoal:#1B1F23;--gray:#5F6368;
-  --light:#F8F9FA;--white:#fff;--border:#E8EAED;
-  --radius:10px;--container:1200px;--tr:all .25s ease
-}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;color:var(--charcoal);line-height:1.6}
-h1,h2,h3,h4{font-family:'Montserrat',sans-serif;font-weight:700}
-.container{max-width:var(--container);margin:0 auto;padding:0 24px}
+    
+    <style>
+        /* ABOUT SPECIFIC STYLES */
+        :root {
+            --accent: #0056b3;
+            --dark: #003d82;
+            --radius: 10px;
+            --tr: all .25s ease;
+        }
 
+        section { padding: 72px 0; }
+        .eyebrow { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; display: block; }
+        
+        /* HERO */
+        .hero-about { background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%); padding: 160px 0 80px; color: #fff; position: relative; overflow: hidden; }
+        .hero-about::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 60% 40%, rgba(0, 86, 179, 0.18) 0%, transparent 70%); }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; position: relative; }
+        .hero-about h1 { font-size: clamp(30px, 4.5vw, 50px); margin-bottom: 16px; line-height: 1.15; color: #fff; }
+        .hero-about h1 em { font-style: normal; color: #5b9ee1; }
+        .hero-lead { font-size: 18px; color: rgba(255, 255, 255, 0.78); line-height: 1.7; margin-bottom: 28px; }
+        
+        /* Founder card */
+        .founder-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 36px; position: relative; overflow: hidden; }
+        .founder-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at top right, rgba(0,86,179,0.2) 0%, transparent 60%); }
+        .founder-card > * { position: relative; z-index: 1; }
+        .founder-photo { width: 80px; height: 80px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.15); display: flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 16px; }
+        .founder-name { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 4px; }
+        .founder-title { font-size: 13px; color: rgba(255, 255, 255, 0.5); margin-bottom: 20px; }
+        .founder-quals { display: flex; flex-direction: column; gap: 8px; }
+        .qual { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: rgba(255, 255, 255, 0.75); }
+        .qual::before { content: '🎓'; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
 
+        /* STORY GRID */
+        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+        .story-callout { background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%); border-radius: 16px; padding: 36px; color: #fff; position: relative; overflow: hidden; }
+        .sc-quote { font-size: 40px; color: var(--accent); line-height: 1; margin-bottom: 10px; }
+        .sc-text { font-size: 17px; font-style: italic; color: rgba(255, 255, 255, 0.88); line-height: 1.7; margin-bottom: 20px; }
+        .sc-attr strong { color: #fff; display: block; font-size: 14px; }
+        
+        /* PHILOSOPHY GRID */
+        .phil-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+        .phil-card { background: #fff; border: 1px solid var(--border-light); border-radius: var(--radius); padding: 28px; border-top: 3px solid var(--accent); transition: var(--tr); }
+        .phil-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); transform: translateY(-3px); }
+        .phil-icon { font-size: 32px; margin-bottom: 14px; }
+        
+        /* CREDENTIALS */
+        .creds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+        .cred-card { background: #fff; border: 1px solid var(--border-light); border-radius: var(--radius); padding: 28px; text-align: center; transition: var(--tr); }
+        .cred-icon { font-size: 36px; margin-bottom: 14px; }
+        
+        /* BRAND PARTNERSHIPS */
+        .brands-intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-bottom: 48px; }
+        .brand-cats { display: flex; flex-direction: column; gap: 20px; }
+        .brand-cat { background: var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius); padding: 20px 24px; }
+        .brand-cat-hdr { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .bc-icon { font-size: 18px; }
+        .bc-label { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dark); }
+        .brand-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+        .brand-chip { padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; background: #fff; border: 1.5px solid var(--border-light); color: var(--text-dark); text-decoration: none; transition: var(--tr); }
+        .brand-chip:hover { border-color: var(--accent); color: var(--accent); }
 
+        .key-facts { list-style: none; padding: 0; margin-top: 24px; }
+        .key-facts li { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border-light); font-size: 14px; }
+        .key-facts li::before { content: '✓'; color: var(--accent); font-weight: 700; }
 
-
-
-
-
-
-section{padding:72px 0}
-.eyebrow{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:block}
-h2{font-size:clamp(24px,3vw,36px);margin-bottom:16px;line-height:1.25}
-h3{font-size:19px;margin-bottom:10px}
-p{color:var(--gray);line-height:1.8;margin-bottom:14px;font-size:15px}
-strong{color:var(--charcoal)}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:8px;font-family:'Montserrat',sans-serif;font-weight:600;font-size:13px;text-transform:uppercase;letter-spacing:.5px;text-decoration:none;border:2px solid transparent;transition:var(--tr)}
-.btn-primary{background:var(--accent);color:#fff;border-color:var(--accent)}.btn-primary:hover{background:var(--dark);transform:translateY(-2px)}
-.btn-whatsapp{background:#25d366;color:#fff;border-color:#25d366}.btn-whatsapp:hover{background:#1da851;transform:translateY(-2px)}
-.btn-outline{background:transparent;color:var(--accent);border-color:var(--accent)}.btn-outline:hover{background:var(--accent);color:#fff;transform:translateY(-2px)}
-.btn-outline-white{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}.btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,.1)}
-.btn-group{display:flex;gap:12px;flex-wrap:wrap}
-
-/* HERO */
-.hero{background:linear-gradient(135deg,#0E1A2B 0%,#1a2942 100%);padding:calc(68px + 72px) 0 72px;color:#fff;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 60% 40%,rgba(0,86,179,.18) 0%,transparent 70%)}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative}
-.hero h1{font-size:clamp(30px,4.5vw,50px);margin-bottom:16px;line-height:1.15}
-.hero h1 em{font-style:normal;color:#5b9ee1}
-.hero-lead{font-size:18px;color:rgba(255,255,255,.78);line-height:1.7;margin-bottom:28px}
-.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:28px}
-.h-stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:16px;text-align:center}
-.h-stat .hs-num{font-family:'Montserrat',sans-serif;font-size:26px;font-weight:700;color:#fff;line-height:1}
-.h-stat .hs-lbl{font-size:11px;color:rgba(255,255,255,.45);margin-top:4px}
-/* Founder card */
-.founder-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:36px;position:relative;overflow:hidden}
-.founder-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(0,86,179,.2) 0%,transparent 60%)}
-.founder-card>*{position:relative;z-index:1}
-.founder-photo{width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-size:36px;margin-bottom:16px}
-.founder-name{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:4px}
-.founder-title{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:20px}
-.founder-quals{display:flex;flex-direction:column;gap:8px}
-.qual{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,.75)}
-.qual::before{content:'ðŸŽ“';font-size:14px;flex-shrink:0;margin-top:1px}
-
-/* FOUNDER STORY */
-.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
-.story-text h2{margin-bottom:20px}
-.story-callout{background:linear-gradient(135deg,#0E1A2B 0%,#1a2942 100%);border-radius:16px;padding:36px;color:#fff;position:relative;overflow:hidden}
-.story-callout::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(0,86,179,.25) 0%,transparent 60%)}
-.story-callout>*{position:relative;z-index:1}
-.sc-quote{font-size:40px;color:var(--accent);line-height:1;margin-bottom:10px}
-.sc-text{font-size:17px;font-style:italic;color:rgba(255,255,255,.88);line-height:1.7;margin-bottom:20px}
-.sc-attr strong{color:#fff;display:block;font-size:14px}
-.sc-attr span{font-size:12px;color:rgba(255,255,255,.45)}
-.key-facts{list-style:none;margin-top:20px}
-.key-facts li{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);font-size:14px;color:var(--charcoal)}
-.key-facts li:last-child{border-bottom:none}
-.key-facts li::before{content:'&check;';color:var(--accent);font-weight:700;font-size:12px;margin-top:2px;flex-shrink:0;width:16px}
-
-/* PHILOSOPHY */
-.philosophy-section{background:var(--light)}
-.phil-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px}
-.phil-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px;border-top:3px solid var(--accent);transition:var(--tr)}
-.phil-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.08);transform:translateY(-3px)}
-.phil-icon{font-size:32px;margin-bottom:14px}
-.phil-card h3{font-size:16px;margin-bottom:10px}
-.phil-card p{font-size:14px;line-height:1.6;margin:0}
-
-/* TIMELINE */
-.timeline-section{background:var(--white)}
-.timeline{position:relative;margin-top:40px}
-.timeline::before{content:'';position:absolute;left:120px;top:0;bottom:0;width:2px;background:var(--border)}
-.tl-item{display:flex;gap:32px;margin-bottom:36px;position:relative}
-.tl-year{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:var(--accent);min-width:80px;text-align:right;padding-top:4px;flex-shrink:0}
-.tl-dot{width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid var(--white);box-shadow:0 0 0 2px var(--accent);flex-shrink:0;margin-top:6px;margin-left:-5px;position:relative;z-index:1}
-.tl-content{padding-top:0}
-.tl-content h4{font-size:15px;margin-bottom:4px;color:var(--charcoal)}
-.tl-content p{font-size:13px;margin:0;color:var(--gray);line-height:1.5}
-
-/* CREDENTIALS */
-.creds-section{background:var(--light)}
-.creds-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
-.cred-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px;text-align:center;transition:var(--tr)}
-.cred-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.08);transform:translateY(-3px);border-color:var(--accent)}
-.cred-icon{font-size:36px;margin-bottom:14px}
-.cred-card h3{font-size:16px;margin-bottom:8px;color:var(--accent)}
-.cred-number{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--charcoal);margin-bottom:8px}
-.cred-card p{font-size:13px;margin:0;line-height:1.6}
-
-/* BRAND PARTNERSHIPS */
-.brands-section{background:var(--white)}
-.brands-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:48px}
-.brand-cats{display:flex;flex-direction:column;gap:20px}
-.brand-cat{background:var(--light);border:1px solid var(--border);border-radius:var(--radius);padding:20px 24px}
-.brand-cat-hdr{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.bc-icon{font-size:18px}
-.bc-label{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--charcoal)}
-.bc-dot-bar{width:28px;height:3px;border-radius:2px;margin-left:auto}
-.brand-chips{display:flex;flex-wrap:wrap;gap:8px}
-.brand-chip{padding:5px 14px;border-radius:20px;font-size:12px;font-weight:600;background:var(--white);border:1.5px solid var(--border);color:var(--charcoal);text-decoration:none;transition:var(--tr)}
-.brand-chip:hover{border-color:var(--accent);color:var(--accent);background:#fff}
-.brands-philosophy p{font-size:15px;margin-bottom:16px}
-.why-brands-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.wb-card{background:var(--light);border:1px solid var(--border);border-radius:var(--radius);padding:24px}
-.wb-icon{font-size:24px;margin-bottom:10px}
-.wb-card h4{font-size:14px;margin-bottom:8px}
-.wb-card p{font-size:13px;margin:0;line-height:1.5}
-
-/* CTA */
-.cta-section{background:linear-gradient(135deg,#0E1A2B 0%,#1a2942 100%);text-align:center;color:#fff}
-.cta-section h2{margin-bottom:14px}
-.cta-section p{font-size:17px;color:rgba(255,255,255,.75);max-width:580px;margin:0 auto 32px;line-height:1.7}
-.btn-group-c{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-
-footer{background:#0E1A2B;color:rgba(255,255,255,.5);padding:40px 0 24px;font-size:13px}
-.footer-grid{max-width:var(--container);margin:0 auto;padding:0 24px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
-.footer-brand .fn{font-family:'Montserrat',sans-serif;font-size:19px;font-weight:700;color:#fff;margin-bottom:10px}
-.footer-brand .fn span{color:var(--accent)}
-.footer-brand p{font-size:13px;line-height:1.7;margin-bottom:8px}
-.footer-col h4{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:14px}
-.footer-col ul{list-style:none}
-.footer-col li{margin-bottom:8px}
-.footer-col a{color:rgba(255,255,255,.45);text-decoration:none;font-size:13px;transition:color .2s}
-.footer-col a:hover{color:#fff}
-.footer-bottom{max-width:var(--container);margin:0 auto;padding:20px 24px 0;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12px}
-
-@media(max-width:768px){
-  section{padding:56px 0}
-  .hero-grid,.story-grid,.brands-intro-grid{grid-template-columns:1fr;gap:36px}
-  .founder-card,.hero-stats{display:none}
-  .phil-grid,.creds-grid,.why-brands-grid{grid-template-columns:1fr}
-  .timeline::before{left:0}
-  .tl-year{display:none}
-  .tl-dot{margin-left:0}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
-  
-}
-</style>
-
+        @media (max-width: 992px) {
+            .hero-grid, .story-grid, .phil-grid, .creds-grid, .brands-intro-grid { grid-template-columns: 1fr; gap: 40px; }
+            .founder-card { max-width: 500px; margin: 0 auto; }
+        }
+    </style>
 </head>
 <body>
-<nav class="main-nav">
-<div class="nav-container">
-  <!-- Logo + Wordmark â€” always left -->
-  <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
-    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
-    <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#ffffff;letter-spacing:0.5px;">SECUREVISION</span>
-  </a>
-  <!-- Hamburger â€” centred absolutely on mobile (via CSS) -->
-  <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
-  <!-- Desktop nav links -->
-  <ul class="nav-menu">
-    <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
-      <div class="simple-dropdown">
-        <a href="residential.html">&#127968; Private Homes</a>
-        <a href="condominiums.html">&#127960;&#65039; Condominiums</a>
-        <a href="commercial.html">&#127978; Commercial &amp; Retail</a>
-        <a href="institutions.html">&#127979; Institutions</a>
-        <a href="industrial.html">&#127981; Industrial &amp; Logistics</a>
-        <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="systems-hub.html" class="nav-link has-dropdown">Systems</a>
-      <div class="simple-dropdown">
-        <a href="surveillance-systems.html">&#128249; Surveillance &amp; Detection</a>
-        <a href="people-access.html">&#128682; People Access</a>
-        <a href="vehicle-access.html">&#128663; Vehicle Access</a>
-        <a href="platform-integration.html">&#128202; Platform &amp; Integration</a>
-        <a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="brands.html" class="nav-link has-dropdown">Brands</a>
-      <div class="simple-dropdown">
-        <a href="hikvision-singapore.html">Hikvision</a>
-        <a href="hanwha-samsung-singapore.html">Hanwha</a>
-        <a href="ajax-alarm-singapore.html">AJAX</a>
-        <a href="zkteco-singapore.html">ZKTeco</a>
-        <a href="akuvox-singapore.html">Akuvox</a>
-        <a href="faac-singapore.html">FAAC</a>
-        <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
-      <div class="simple-dropdown">
-        <a href="portfolio-lviv.html">The L&rsquo;viv</a>
-        <a href="portfolio-scape.html">SCAPE</a>
-        <a href="portfolio-sta.html">STA</a>
-        <a href="portfolio-cyrus.html">Cyrus Tech</a>
-        <a href="portfolio.html"><strong>&rarr; All Projects</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
-      <div class="simple-dropdown">
-        <a href="insights.html?cat=planning">Security Planning</a>
-        <a href="insights.html?cat=technology">Technology</a>
-        <a href="insights.html?cat=casestudy">Case Studies</a>
-        <a href="insights.html?cat=industry">SG Industry</a>
-        <a href="insights.html"><strong>&rarr; All Articles</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="about.html" class="nav-link has-dropdown active">About</a>
-      <div class="simple-dropdown">
-        <a href="about.html">Our Story</a>
-        <a href="about.html#founder">Founder&rsquo;s Story</a>
-        <a href="awards-certifications.html">Awards &amp; Certifications</a>
-        <a href="contact.html">Contact Us</a>
-      </div>
-    </li>
-  </ul>
-  <!-- Desktop search icon -->
-  <div class="nav-right">
-    <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
-  </div>
-  <!-- Mobile search icon â€” always right end on mobile -->
-  <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
-</div>
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a><a href="residential.html">&#127968; Private Homes</a><a href="condominiums.html">&#127960;&#65039; Condominiums</a><a href="commercial.html">&#127978; Commercial</a><a href="institutions.html">&#127979; Institutions</a><a href="industrial.html">&#127981; Industrial</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu" id="sysSub"><a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a><a href="surveillance-systems.html">&#128249; Surveillance</a><a href="people-access.html">&#128682; People Access</a><a href="vehicle-access.html">&#128663; Vehicle Access</a><a href="platform-integration.html">&#128202; Platform</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;<div class="mobile-submenu" id="brdSub"><a href="brands.html"><strong>&rarr; All 20 Brands</strong></a><a href="hikvision-singapore.html">Hikvision</a><a href="ajax-alarm-singapore.html">AJAX</a><a href="zkteco-singapore.html">ZKTeco</a><a href="akuvox-singapore.html">Akuvox</a><a href="faac-singapore.html">FAAC</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;<div class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>&rarr; All Projects</strong></a><a href="portfolio-lviv.html">The L&rsquo;viv</a><a href="portfolio-scape.html">SCAPE</a><a href="portfolio-sta.html">STA</a><a href="portfolio-cyrus.html">Cyrus Tech</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights &#9662;<div class="mobile-submenu" id="insSub"><a href="insights.html"><strong>&rarr; All Articles</strong></a><a href="insights.html?cat=planning">Security Planning</a><a href="insights.html?cat=technology">Technology</a><a href="insights.html?cat=casestudy">Case Studies</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a><a href="contact.html">Contact Us</a></div></div>
-</div>
-</nav>
 
-
-
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-grid">
-      <div>
-        <span class="eyebrow" style="color:rgba(255,255,255,.45)">About Securevision</span>
-        <h1>Built on <em>Engineering.</em><br>Backed by Law.</h1>
-        <p class="hero-lead">Since 2006, Securevision has protected Singapore's homes, businesses, and institutions &mdash; not with off-the-shelf products, but with security systems designed from first principles by engineers who understand both the technology and the legal framework it operates within.</p>
-<div style="display:flex;gap:8px;margin-top:12px">
-<a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook" style="width:32px;height:32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-<a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:32px;height:32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-<a href="https://wa.me/6593860466" target="_blank" rel="noopener" aria-label="WhatsApp" style="width:32px;height:32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
-</div>
-        <div class="btn-group">
-          <a href="#founder" class="btn btn-primary">Our Story</a>
-          <a href="contact.html" class="btn btn-outline-white">Work With Us</a>
-        </div>
-      </div>
-      <div class="founder-card">
-        <div class="founder-photo">ðŸ‘¤</div>
-        <div class="founder-name">Ler Wee Meng</div>
-        <div class="founder-title">Founder & Managing Director, Securevision Pte Ltd</div>
-        <div class="founder-quals">
-          <div class="qual">Bachelor of Engineering &mdash; National University of Singapore (NUS)</div>
-          <div class="qual">Bachelor of Laws (LLB) &mdash; University of London (UOL)</div>
-          <div class="qual">35+ years in the security systems industry</div>
-          <div class="qual">Licensed under Singapore Police Force &mdash; L/PS/000267/2023P</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOUNDER STORY -->
-<section id="founder" style="background:var(--white)">
-  <div class="container">
-    <div class="story-grid">
-      <div class="story-text">
-        <span class="eyebrow">The Founder's Story</span>
-        <h2>Why Ler Wee Meng Started Securevision</h2>
-        <p>Most security companies are started by salespeople. Securevision was started by an engineer with a law degree &mdash; and that difference shapes everything we do.</p>
-        <p>After more than a decade working across Singapore's security systems industry, our founder Ler Wee Meng saw the same problem repeating: <strong>security systems that detected problems but couldn't tell you what was wrong.</strong> An alarm fires. Someone gets a call. But nobody knows if it's a break-in, a sensor fault, or a cat crossing the yard.</p>
-        <p>He called it the <strong>"Blind Alarm Problem"</strong> &mdash; and in 2006, he founded Securevision specifically to solve it. The approach was different from the start: assess the site like an engineer, design the system like an architect, and stand behind it like a professional with something to lose.</p>
-        <p>His engineering background means every system we design is specified for how it actually needs to work &mdash; not what's easiest to install. His legal background means we understand the regulatory framework, the liability implications, and the compliance requirements our clients operate under.</p>
-        <ul class="key-facts">
-          <li>Every system proposal is signed off by a qualified engineer &mdash; not a sales rep</li>
-          <li>We hold a Police Licence under the Private Security Industry Act &mdash; legally required, not optional</li>
-          <li>Our contracts are clear on what we deliver, when, and what happens if we don't</li>
-          <li>We answer the phone after handover &mdash; because our reputation depends on it</li>
-        </ul>
-      </div>
-      <div>
-        <div class="story-callout">
-          <div class="sc-quote">"</div>
-          <div class="sc-text">Security isn't a product you buy. It's a system you design, implement, and maintain. The moment you treat it as a one-time purchase, you've already lost.</div>
-          <div class="sc-attr">
-            <strong>Ler Wee Meng</strong>
-            <span>Founder, Securevision Pte Ltd</span>
-          </div>
-        </div>
-        <div style="margin-top:24px">
-          <div class="hero-stats" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-            <div class="h-stat" style="background:var(--light);border:1px solid var(--border);border-radius:8px;padding:20px;text-align:center">
-              <div class="hs-num" style="color:var(--accent)">2006</div>
-              <div class="hs-lbl" style="color:var(--gray)">Year Founded</div>
+    <!-- NAVIGATION (Standard Master) -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo-link">
+                <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
+                <span class="wordmark nav-wordmark">SECUREVISION</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
+                    <div class="simple-dropdown">
+                        <a href="residential.html">Private Homes</a>
+                        <a href="condominiums.html">Condominiums</a>
+                        <a href="commercial.html">Commercial &amp; Retail</a>
+                        <a href="industrial.html">Industrial &amp; Logistics</a>
+                        <a href="institutions.html">Institutions &amp; Government</a>
+                        <a href="healthcare.html">Healthcare &amp; Managed Living</a>
+                        <hr>
+                        <a href="solutions-hub.html"><strong>View All Solutions</strong></a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="systems-hub.html" class="nav-link">Systems</a></li>
+                <li class="nav-item"><a href="brands.html" class="nav-link">Brands</a></li>
+                <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li class="nav-item"><a href="insights.html" class="nav-link">Insights</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link active">About</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="nav-search-btn" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
             </div>
-            <div class="h-stat" style="background:var(--light);border:1px solid var(--border);border-radius:8px;padding:20px;text-align:center">
-              <div class="hs-num" style="color:var(--accent)">19+</div>
-              <div class="hs-lbl" style="color:var(--gray)">Years Operating</div>
-            </div>
-            <div class="h-stat" style="background:var(--light);border:1px solid var(--border);border-radius:8px;padding:20px;text-align:center">
-              <div class="hs-num" style="color:var(--accent)">2,000+</div>
-              <div class="hs-lbl" style="color:var(--gray)">Sites Protected</div>
-            </div>
-            <div class="h-stat" style="background:var(--light);border:1px solid var(--border);border-radius:8px;padding:20px;text-align:center">
-              <div class="hs-num" style="color:var(--accent)">5</div>
-              <div class="hs-lbl" style="color:var(--gray)">Property Sectors</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PHILOSOPHY -->
-<section class="philosophy-section">
-  <div class="container">
-    <span class="eyebrow">Our Approach</span>
-    <h2>The Securevision Philosophy</h2>
-    <p style="max-width:700px;font-size:17px">Three principles that have governed every project since 2006 &mdash; and the reason clients come back, and refer others.</p>
-    <div class="phil-grid">
-      <div class="phil-card">
-        <div class="phil-icon">ðŸ”¬</div>
-        <h3>Engineer First, Sell Second</h3>
-        <p>Every engagement starts with a site assessment and risk analysis &mdash; not a product catalogue. We specify what your property actually needs, even if that means recommending a smaller scope than you expected.</p>
-      </div>
-      <div class="phil-card">
-        <div class="phil-icon">ðŸ”—</div>
-        <h3>Systems, Not Products</h3>
-        <p>A camera that doesn't talk to your access control isn't a security system &mdash; it's surveillance theatre. We design systems where every component serves a defined role and integrates with every other. No silos. No gaps.</p>
-      </div>
-      <div class="phil-card">
-        <div class="phil-icon">ðŸ“ž</div>
-        <h3>Accountable After Handover</h3>
-        <p>We answer the phone. Maintenance contracts, spare parts stocked, rapid response. The system we install is one we're prepared to maintain for the next decade &mdash; which means we install it properly the first time.</p>
-      </div>
-      <div class="phil-card">
-        <div class="phil-icon">âš–ï¸</div>
-        <h3>Legal & Regulatory Clarity</h3>
-        <p>Our founder's legal background means we understand the compliance obligations our clients operate under &mdash; PDPA, MAS TRM, BCA requirements, and SPF regulations. We design systems that hold up to scrutiny.</p>
-      </div>
-      <div class="phil-card">
-        <div class="phil-icon">ðŸ’°</div>
-        <h3>You Own Everything</h3>
-        <p>No subscription lock-ins. No proprietary cloud you lose access to if you stop paying. Every system we install is fully owned by you &mdash; hardware, software licences, and documentation included.</p>
-      </div>
-      <div class="phil-card">
-        <div class="phil-icon">ðŸ“</div>
-        <h3>Right-Sized for Your Property</h3>
-        <p>A private home doesn't need an enterprise platform. An industrial facility doesn't need a residential intercom. We match the complexity and cost of the system to what your property genuinely requires.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CREDENTIALS -->
-<section class="creds-section">
-  <div class="container">
-    <span class="eyebrow">Credentials</span>
-    <h2>Licensed, Certified, and Accountable</h2>
-    <p style="max-width:680px;font-size:16px">Operating in Singapore's regulated security industry requires formal licensing and certification. We hold every credential required &mdash; and maintain them.</p>
-    <div class="creds-grid">
-      <div class="cred-card">
-        <div class="cred-icon">ðŸ›¡ï¸</div>
-        <h3>Singapore Police Force</h3>
-        <div class="cred-number">Licence L/PS/000267/2023P</div>
-        <p>Licensed under the Private Security Industry Act (Chapter 250A). This licence is legally required to provide security systems installation services in Singapore &mdash; not optional, and not easily obtained.</p>
-      </div>
-      <div class="cred-card">
-        <div class="cred-icon">ðŸ†</div>
-        <h3>bizSAFE Level 3</h3>
-        <div class="cred-number">Workplace Safety Certified</div>
-        <p>bizSAFE Level 3 certification demonstrates a robust Workplace Safety & Health management system. Required for many government and institutional project tenders in Singapore.</p>
-      </div>
-      <div class="cred-card">
-        <div class="cred-icon">ðŸ—ï¸</div>
-        <h3>BCA Registered Contractor</h3>
-        <div class="cred-number">Building & Construction Authority</div>
-        <p>Registration with Singapore's Building and Construction Authority confirms our technical competence for building-integrated security systems across commercial and institutional properties.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BRAND PARTNERSHIPS -->
-<section class="brands-section">
-  <div class="container">
-    <div class="brands-intro-grid">
-      <div class="brands-philosophy">
-        <span class="eyebrow">Brand Partnerships</span>
-        <h2>Why We're Selective About the Brands We Carry</h2>
-        <p>We carry 20 brands across five system categories. That's a deliberate decision &mdash; not a catalogue. Every brand we list is one we've evaluated, installed at scale, and are prepared to maintain and warrant.</p>
-        <p>We don't carry brands because of margin. We carry brands because we can stand behind them when a client calls at 11pm and their system isn't working.</p>
-        <p>We hold authorised partner or authorised installer status with our primary brands &mdash; which means we access manufacturer technical support, hold genuine spare parts, and provide legitimate warranties rather than grey-market substitutes.</p>
-        <div class="why-brands-grid" style="margin-top:24px">
-          <div class="wb-card">
-            <div class="wb-icon">ðŸ”‘</div>
-            <h4>Authorised Status</h4>
-            <p>We hold formal partner or installer authorisation with key brands &mdash; accessing manufacturer support channels unavailable to generic resellers.</p>
-          </div>
-          <div class="wb-card">
-            <div class="wb-icon">ðŸ”§</div>
-            <h4>Spare Parts Stocked</h4>
-            <p>We hold local spare parts for every brand we install &mdash; meaning faster repairs and no waiting for international freight when something fails.</p>
-          </div>
-          <div class="wb-card">
-            <div class="wb-icon">ðŸ“‹</div>
-            <h4>Full Warranty</h4>
-            <p>Every installation comes with full manufacturer warranty through an authorised installer channel &mdash; not voided by grey-market supply.</p>
-          </div>
-        </div>
-      </div>
-      <div class="brand-cats">
-        <div class="brand-cat">
-          <div class="brand-cat-hdr">
-            <span class="bc-icon">ðŸ“¹</span>
-            <span class="bc-label">Surveillance & CCTV</span>
-            <span class="bc-dot-bar" style="background:#2b6cb0"></span>
-          </div>
-          <div class="brand-chips">
-            <a href="hikvision-singapore.html" class="brand-chip">Hikvision</a>
-            <a href="hanwha-samsung-singapore.html" class="brand-chip">Hanwha Vision</a>
-            <a href="uniview-singapore.html" class="brand-chip">Uniview</a>
-            <a href="milesight-singapore.html" class="brand-chip">Milesight</a>
-          </div>
-        </div>
-        <div class="brand-cat">
-          <div class="brand-cat-hdr">
-            <span class="bc-icon">ðŸ””</span>
-            <span class="bc-label">Alarm Systems</span>
-            <span class="bc-dot-bar" style="background:#e53e3e"></span>
-          </div>
-          <div class="brand-chips">
-            <a href="ajax-alarm-singapore.html" class="brand-chip">AJAX</a>
-            <a href="risco-alarm-singapore.html" class="brand-chip">RISCO</a>
-            <a href="paradox-alarm-singapore.html" class="brand-chip">Paradox</a>
-            <a href="dsc-alarm-singapore.html" class="brand-chip">DSC</a>
-            <a href="ge-caddx-alarm-singapore.html" class="brand-chip">GE Caddx</a>
-          </div>
-        </div>
-        <div class="brand-cat">
-          <div class="brand-cat-hdr">
-            <span class="bc-icon">ðŸ‘†</span>
-            <span class="bc-label">Access Control</span>
-            <span class="bc-dot-bar" style="background:#319795"></span>
-          </div>
-          <div class="brand-chips">
-            <a href="zkteco-singapore.html" class="brand-chip">ZKTeco</a>
-            <a href="suprema-singapore.html" class="brand-chip">Suprema</a>
-            <a href="hid-singapore.html" class="brand-chip">HID Global</a>
-            <a href="entrypass-singapore.html" class="brand-chip">EntryPass</a>
-            <a href="microengine-singapore.html" class="brand-chip">MicroEngine</a>
-          </div>
-        </div>
-        <div class="brand-cat">
-          <div class="brand-cat-hdr">
-            <span class="bc-icon">ðŸ“ž</span>
-            <span class="bc-label">Intercom</span>
-            <span class="bc-dot-bar" style="background:#2b6cb0"></span>
-          </div>
-          <div class="brand-chips">
-            <a href="akuvox-singapore.html" class="brand-chip">Akuvox</a>
-            <a href="aiphone-singapore.html" class="brand-chip">Aiphone</a>
-            <a href="kocom-singapore.html" class="brand-chip">Kocom</a>
-          </div>
-        </div>
-        <div class="brand-cat">
-          <div class="brand-cat-hdr">
-            <span class="bc-icon">ðŸš§</span>
-            <span class="bc-label">Gates & Barriers</span>
-            <span class="bc-dot-bar" style="background:#dd6b20"></span>
-          </div>
-          <div class="brand-chips">
-            <a href="faac-singapore.html" class="brand-chip">FAAC</a>
-            <a href="mag-gates-singapore.html" class="brand-chip">MAG</a>
-            <a href="dormer-singapore.html" class="brand-chip">Dormer</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:8px">
-      <a href="brands.html" class="btn btn-outline">View All 20 Brands &rarr;</a>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container">
-    <span class="eyebrow" style="color:rgba(255,255,255,.4)">Work With Us</span>
-    <h2>19 Years. 2,000+ Sites. Still Answering the Phone.</h2>
-    <p>If you want a security system designed by engineers, installed by licensed specialists, and supported for the long term &mdash; let's talk.</p>
-    <div class="btn-group-c">
-      <a href="https://wa.me/6593860466" class="btn btn-whatsapp">ðŸ’¬ WhatsApp Us Now</a>
-      <a href="contact.html" class="btn btn-primary">Book a Site Assessment</a>
-      <a href="portfolio.html" class="btn btn-outline-white">View Our Work</a>
-    </div>
-  </div>
-</section>
-
-<footer class="site-footer">
-    <div class="footer-container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="f-logo-wrap" style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
-                    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision" style="height:36px; display:block;">
-                    <span style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:20px; color:#fff; letter-spacing:0.5px;">Securevision</span>
-                </div>
-                <p style="color:rgba(255,255,255,.6); font-size:13px; line-height:1.6; margin-bottom:20px;">Your partner in building smart, secure, and connected communities â€” powered by intelligent security systems since 2006.</p>
-                <div class="f-socials" style="display:flex; gap:12px;">
-                    <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" class="f-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-                    <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" class="f-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-                    <a href="https://wa.me/6593860466" target="_blank" rel="noopener" class="f-social-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
-                </div>
-            </div>
-            
-            <div class="footer-links">
-                <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Solutions</h4>
-                <ul style="list-style:none; padding:0; margin:0;">
-                    <li style="margin-bottom:10px;"><a href="residential.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Private Homes</a></li>
-                    <li style="margin-bottom:10px;"><a href="condominiums.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Condominiums</a></li>
-                    <li style="margin-bottom:10px;"><a href="commercial.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Commercial &amp; Retail</a></li>
-                    <li style="margin-bottom:10px;"><a href="institutions.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Institutions</a></li>
-                    <li style="margin-bottom:10px;"><a href="industrial.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Industrial &amp; Logistics</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links">
-                <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Company</h4>
-                <ul style="list-style:none; padding:0; margin:0;">
-                    <li style="margin-bottom:10px;"><a href="about.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Our Story</a></li>
-                    <li style="margin-bottom:10px;"><a href="awards-certifications.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Awards &amp; Certifications</a></li>
-                    <li style="margin-bottom:10px;"><a href="portfolio.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Project Portfolio</a></li>
-                    <li style="margin-bottom:10px;"><a href="insights.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Industry Insights</a></li>
-                    <li style="margin-bottom:10px;"><a href="contact.html" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px; transition:.2s">Contact Us</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-contact">
-                <h4 style="color:#fff; font-family:'Montserrat',sans-serif; font-size:14px; margin-bottom:20px; text-transform:uppercase; letter-spacing:1px;">Get In Touch</h4>
-                <div style="margin-bottom:15px; display:flex; gap:10px; align-items:flex-start;">
-                    <span style="font-size:16px;">&#128172;</span>
-                    <div><strong style="display:block; color:#fff; font-size:13px;">WhatsApp</strong><a href="https://wa.me/6593860466" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">+65 9386 0466</a></div>
-                </div>
-                <div style="margin-bottom:15px; display:flex; gap:10px; align-items:flex-start;">
-                    <span style="font-size:16px;">&#128222;</span>
-                    <div><strong style="display:block; color:#fff; font-size:13px;">Office</strong><a href="tel:+6562864796" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">+65 6286 4796</a></div>
-                </div>
-                <div style="margin-bottom:15px; display:flex; gap:10px; align-items:flex-start;">
-                    <span style="font-size:16px;">&#9993;</span>
-                    <div><strong style="display:block; color:#fff; font-size:13px;">Email</strong><a href="mailto:enquiry@securevision.com.sg" style="color:rgba(255,255,255,.6); text-decoration:none; font-size:13px;">enquiry@securevision.com.sg</a></div>
-                </div>
-            </div>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
         </div>
         
-        <div class="footer-bottom" style="margin-top:60px; padding-top:24px; border-top:1px solid rgba(255,255,255,.08); display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:20px;">
-            <p style="color:rgba(255,255,255,.4); font-size:11px; margin:0;">&copy; 2025 Securevision Pte Ltd &middot; Police License L/PS/000267/2023P &middot; bizSAFE Level 3 &middot; BCA Registered</p>
-            <div style="display:flex; gap:20px;">
-                <a href="sitemap.html" style="color:rgba(255,255,255,.4); text-decoration:none; font-size:11px;">Sitemap</a>
-                <a href="privacy.html" style="color:rgba(255,255,255,.4); text-decoration:none; font-size:11px;">Privacy Policy</a>
-                <a href="terms.html" style="color:rgba(255,255,255,.4); text-decoration:none; font-size:11px;">Terms of Service</a>
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions ▾
+                <div class="mobile-submenu" id="solSub">
+                    <a href="solutions-hub.html"><strong>View All Solutions</strong></a>
+                    <a href="residential.html">Private Homes</a>
+                    <a href="condominiums.html">Condominiums</a>
+                    <a href="commercial.html">Commercial &amp; Retail</a>
+                    <a href="industrial.html">Industrial &amp; Logistics</a>
+                    <a href="institutions.html">Institutions &amp; Government</a>
+                    <a href="healthcare.html">Healthcare &amp; Managed Living</a>
+                </div>
+            </div>
+            <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems ▾
+                <div class="mobile-submenu" id="sysSub">
+                    <a href="systems-hub.html"><strong>View All Systems</strong></a>
+                    <a href="surveillance-systems.html">Surveillance</a>
+                    <a href="people-access.html">People Access</a>
+                </div>
+            </div>
+            <div class="mobile-menu-item"><a href="brands.html">Brands</a></div>
+            <div class="mobile-menu-item"><a href="portfolio.html">Portfolio</a></div>
+            <div class="mobile-menu-item"><a href="about.html">About</a></div>
+            <div class="mobile-menu-item"><a href="contact.html">Contact Us</a></div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero-about">
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <span class="eyebrow" style="color:rgba(255,255,255,0.45)">About Securevision</span>
+                    <h1>Built on <em>Engineering.</em><br>Backed by Law.</h1>
+                    <p class="hero-lead">Since 2006, Securevision has protected Singapore's homes, businesses, and institutions &mdash; not with off-the-shelf products, but with security systems designed from first principles by engineers who understand both the technology and the legal framework it operates within.</p>
+                    <div class="btn-group">
+                        <a href="#founder" class="btn btn-primary">Our Story</a>
+                        <a href="contact.html" class="btn btn-outline-light">Work With Us</a>
+                    </div>
+                </div>
+                <div class="founder-card">
+                    <div class="founder-photo">👤</div>
+                    <div class="founder-name">Ler Wee Meng</div>
+                    <div class="founder-title">Founder & Managing Director, Securevision Pte Ltd</div>
+                    <div class="founder-quals">
+                        <div class="qual">Bachelor of Engineering &mdash; National University of Singapore (NUS)</div>
+                        <div class="qual">Bachelor of Laws (LLB) &mdash; University of London (UOL)</div>
+                        <div class="qual">35+ years in the security systems industry</div>
+                        <div class="qual">Licensed under Singapore Police Force &mdash; L/PS/000267/2023P</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </header>
 
-<script>
-// â”€â”€ Mobile submenu toggle â”€â”€
-function toggleSubmenu(id) {
-    const sub = document.getElementById(id);
-    const isOpen = sub.style.display === 'block';
-    // Close all open submenus first
-    document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
-    if (!isOpen) sub.style.display = 'block';
-}
+    <!-- FOUNDER STORY -->
+    <section id="founder" class="bg-white">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-text">
+                    <span class="eyebrow">The Founder's Story</span>
+                    <h2>Why Ler Wee Meng Started Securevision</h2>
+                    <p>Most security companies are started by salespeople. Securevision was started by an engineer with a law degree &mdash; and that difference shapes everything we do.</p>
+                    <p>After more than a decade working across Singapore's security systems industry, our founder Ler Wee Meng saw the same problem repeating: <strong>security systems that detected problems but couldn't tell you what was wrong.</strong> An alarm fires. Someone gets a call. But nobody knows if it's a break-in, a sensor fault, or a cat crossing the yard.</p>
+                    <p>He called it the <strong>"Blind Alarm Problem"</strong> &mdash; and in 2006, he founded Securevision specifically to solve it. The approach was different from the start: assess the site like an engineer, design the system like an architect, and stand behind it like a professional with something to lose.</p>
+                    <p>His engineering background means every system we design is specified for how it actually needs to work &mdash; not what's easiest to install. His legal background means we understand the regulatory framework, the liability implications, and the compliance requirements our clients operate under.</p>
+                    <ul class="key-facts">
+                        <li>Every system proposal is signed off by a qualified engineer &mdash; not a sales rep</li>
+                        <li>We hold a Police Licence under the Private Security Industry Act &mdash; legally required, not optional</li>
+                        <li>Our contracts are clear on what we deliver, when, and what happens if we don't</li>
+                        <li>We answer the phone after handover &mdash; because our reputation depends on it</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="story-callout">
+                        <div class="sc-quote">"</div>
+                        <div class="sc-text">Security isn't a product you buy. It's a system you design, implement, and maintain. The moment you treat it as a one-time purchase, you've already lost.</div>
+                        <div class="sc-attr">
+                            <strong>Ler Wee Meng</strong>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 13px;">Founder, Securevision Pte Ltd</p>
+                        </div>
+                    </div>
+                    <div class="grid-2 mt-48">
+                        <div class="card bg-light" style="padding: 24px; text-align: center; border-radius: 12px;">
+                            <div style="font-size: 24px; font-weight: 700; color: var(--primary-blue);">2006</div>
+                            <div style="font-size: 11px; text-transform: uppercase; color: var(--text-light);">Year Founded</div>
+                        </div>
+                        <div class="card bg-light" style="padding: 24px; text-align: center; border-radius: 12px;">
+                            <div style="font-size: 24px; font-weight: 700; color: var(--primary-blue);">19+</div>
+                            <div style="font-size: 11px; text-transform: uppercase; color: var(--text-light);">Years Operating</div>
+                        </div>
+                        <div class="card bg-light" style="padding: 24px; text-align: center; border-radius: 12px;">
+                            <div style="font-size: 24px; font-weight: 700; color: var(--primary-blue);">2,000+</div>
+                            <div style="font-size: 11px; text-transform: uppercase; color: var(--text-light);">Sites Protected</div>
+                        </div>
+                        <div class="card bg-light" style="padding: 24px; text-align: center; border-radius: 12px;">
+                            <div style="font-size: 24px; font-weight: 700; color: var(--primary-blue);">5</div>
+                            <div style="font-size: 11px; text-transform: uppercase; color: var(--text-light);">Sectors</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-// â”€â”€ Mobile menu panel open/close â”€â”€
-function toggleMobileMenu() {
-    const menu = document.getElementById('mobileMenu');
-    const isOpen = menu.classList.toggle('active');
-    if (!isOpen) {
-        // Reset all submenus when the panel closes
-        document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
-    }
-}
+    <!-- PHILOSOPHY -->
+    <section class="bg-light">
+        <div class="container">
+            <span class="eyebrow">Our Approach</span>
+            <h2>The Securevision Philosophy</h2>
+            <p class="subtitle">Three principles that have governed every project since 2006 &mdash; and the reason clients come back, and refer others.</p>
+            <div class="phil-grid">
+                <div class="phil-card">
+                    <div class="phil-icon">🔬</div>
+                    <h3>Engineer First, Sell Second</h3>
+                    <p>Every engagement starts with a site assessment and risk analysis &mdash; not a product catalogue. We specify what your property actually needs.</p>
+                </div>
+                <div class="phil-card">
+                    <div class="phil-icon">🔗</div>
+                    <h3>Systems, Not Products</h3>
+                    <p>A camera that doesn't talk to your access control isn't a security system. We design systems where every component serves a defined role.</p>
+                </div>
+                <div class="phil-card">
+                    <div class="phil-icon">📞</div>
+                    <h3>Accountable After Handover</h3>
+                    <p>We answer the phone. Maintenance contracts, spare parts stocked, rapid response. We install it properly the first time.</p>
+                </div>
+                <div class="phil-card">
+                    <div class="phil-icon">⚖️</div>
+                    <h3>Legal & Regulatory Clarity</h3>
+                    <p>Our founder's legal background means we understand compliance: PDPA, MAS TRM, BCA requirements, and SPF regulations.</p>
+                </div>
+                <div class="phil-card">
+                    <div class="phil-icon">💰</div>
+                    <h3>You Own Everything</h3>
+                    <p>No subscription lock-ins. No proprietary cloud you lose access to. Every system we install is fully owned by you.</p>
+                </div>
+                <div class="phil-card">
+                    <div class="phil-icon">📍</div>
+                    <h3>Right-Sized for Your Property</h3>
+                    <p>A private home doesn't need an enterprise platform. We match the complexity and cost of the system to your genuinely needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-// â”€â”€ Tap/click OUTSIDE the nav â†’ close everything â”€â”€
-document.addEventListener('click', function(e) {
-    const nav = document.querySelector('.main-nav');
-    if (!nav.contains(e.target)) {
-        // Close mobile menu panel
-        const menu = document.getElementById('mobileMenu');
-        if (menu.classList.contains('active')) {
-            menu.classList.remove('active');
-            document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
+    <!-- CREDENTIALS -->
+    <section class="bg-white">
+        <div class="container">
+            <span class="eyebrow">Credentials</span>
+            <h2>Licensed, Certified, and Accountable</h2>
+            <p class="subtitle">Operating in Singapore's regulated security industry requires formal licensing. We hold every credential required.</p>
+            <div class="creds-grid">
+                <div class="cred-card">
+                    <div class="cred-icon">🛡️</div>
+                    <h3>Singapore Police Force</h3>
+                    <p><strong>Licence L/PS/000267/2023P</strong></p>
+                    <p>Licensed under the Private Security Industry Act. This licence is legally required to provide security systems installation services in Singapore.</p>
+                </div>
+                <div class="cred-card">
+                    <div class="cred-icon">🏆</div>
+                    <h3>bizSAFE Level 3</h3>
+                    <p><strong>Workplace Safety Certified</strong></p>
+                    <p>bizSAFE Level 3 certification demonstrates a robust Workplace Safety & Health management system required for institutional projects.</p>
+                </div>
+                <div class="cred-card">
+                    <div class="cred-icon">🏗️</div>
+                    <h3>BCA Registered Contractor</h3>
+                    <p><strong>Building & Construction Authority</strong></p>
+                    <p>Registration with Singapore's BCA confirms our technical competence for building-integrated security systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRAND PARTNERSHIPS -->
+    <section class="bg-light">
+        <div class="container">
+            <div class="brands-intro-grid">
+                <div class="brands-philosophy">
+                    <span class="eyebrow">Brand Partnerships</span>
+                    <h2>Why We're Selective About our Brands</h2>
+                    <p>We carry 20 brands across five system categories. Every brand we list is one we've evaluated, installed at scale, and are prepared to maintain and warrant.</p>
+                    <p>We don't carry brands because of margin. We carry brands because we can stand behind them when a client calls at 11pm.</p>
+                    <div class="grid-3 mt-48">
+                        <div class="card bg-white" style="padding: 24px; border-radius: 12px; border: 1px solid var(--border-light);">
+                            <div style="font-size: 24px; margin-bottom: 8px;">🔑</div>
+                            <h4 style="font-size: 14px;">Authorised Status</h4>
+                            <p style="font-size: 12px;">Formal manufacturer authorisation ensures technical support and genuine parts.</p>
+                        </div>
+                        <div class="card bg-white" style="padding: 24px; border-radius: 12px; border: 1px solid var(--border-light);">
+                            <div style="font-size: 24px; margin-bottom: 8px;">🔧</div>
+                            <h4 style="font-size: 14px;">Spare Parts</h4>
+                            <p style="font-size: 12px;">We hold local spare parts for faster repairs and no waiting for freight.</p>
+                        </div>
+                        <div class="card bg-white" style="padding: 24px; border-radius: 12px; border: 1px solid var(--border-light);">
+                            <div style="font-size: 24px; margin-bottom: 8px;">📋</div>
+                            <h4 style="font-size: 14px;">Full Warranty</h4>
+                            <p style="font-size: 12px;">Installations come with full manufacturer warranty via authorised channels.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="brand-cats">
+                    <div class="brand-cat">
+                        <div class="brand-cat-hdr">
+                            <span class="bc-icon">🎬</span>
+                            <span class="bc-label">Surveillance & CCTV</span>
+                        </div>
+                        <div class="brand-chips">
+                            <a href="hikvision-singapore.html" class="brand-chip">Hikvision</a>
+                            <a href="hanwha-samsung-singapore.html" class="brand-chip">Hanwha Vision</a>
+                            <a href="uniview-singapore.html" class="brand-chip">Uniview</a>
+                            <a href="milesight-singapore.html" class="brand-chip">Milesight</a>
+                        </div>
+                    </div>
+                    <div class="brand-cat">
+                        <div class="brand-cat-hdr">
+                            <span class="bc-icon">🔔</span>
+                            <span class="bc-label">Alarm Systems</span>
+                        </div>
+                        <div class="brand-chips">
+                            <a href="ajax-alarm-singapore.html" class="brand-chip">AJAX</a>
+                            <a href="risco-alarm-singapore.html" class="brand-chip">RISCO</a>
+                            <a href="paradox-alarm-singapore.html" class="brand-chip">Paradox</a>
+                            <a href="dsc-alarm-singapore.html" class="brand-chip">DSC</a>
+                            <a href="ge-caddx-alarm-singapore.html" class="brand-chip">GE Caddx</a>
+                        </div>
+                    </div>
+                    <div class="brand-cat">
+                        <div class="brand-cat-hdr">
+                            <span class="bc-icon">👆</span>
+                            <span class="bc-label">Access Control</span>
+                        </div>
+                        <div class="brand-chips">
+                            <a href="zkteco-singapore.html" class="brand-chip">ZKTeco</a>
+                            <a href="suprema-singapore.html" class="brand-chip">Suprema</a>
+                            <a href="hid-singapore.html" class="brand-chip">HID Global</a>
+                            <a href="entrypass-singapore.html" class="brand-chip">EntryPass</a>
+                            <a href="microengine-singapore.html" class="brand-chip">MicroEngine</a>
+                        </div>
+                    </div>
+                    <div class="brand-cat">
+                        <div class="brand-cat-hdr">
+                            <span class="bc-icon">📞</span>
+                            <span class="bc-label">Intercom</span>
+                        </div>
+                        <div class="brand-chips">
+                            <a href="akuvox-singapore.html" class="brand-chip">Akuvox</a>
+                            <a href="aiphone-singapore.html" class="brand-chip">Aiphone</a>
+                            <a href="kocom-singapore.html" class="brand-chip">Kocom</a>
+                        </div>
+                    </div>
+                    <div class="brand-cat">
+                        <div class="brand-cat-hdr">
+                            <span class="bc-icon">🚧</span>
+                            <span class="bc-label">Gates & Barriers</span>
+                        </div>
+                        <div class="brand-chips">
+                            <a href="faac-singapore.html" class="brand-chip">FAAC</a>
+                            <a href="mag-gates-singapore.html" class="brand-chip">MAG</a>
+                            <a href="dormer-singapore.html" class="brand-chip">Dormer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align:center;margin-top:24px">
+                <a href="brands.html" class="btn btn-primary">View All 20 Brands &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-section" style="background: linear-gradient(rgba(14, 26, 43, 0.8), rgba(14, 26, 43, 0.9)), url('images/cta-singapore-skyline.png'); background-size: cover;">
+        <div class="container text-center">
+            <h2 style="color: #fff;">19 Years. 2,000+ Sites. Still Answering the Phone.</h2>
+            <p style="color: rgba(255,255,255,0.9); margin-bottom: 48px;">If you want a security system designed by engineers, installed by licensed specialists, and supported for the long term &mdash; let's talk.</p>
+            <div class="btn-group" style="justify-content: center;">
+                <a href="https://wa.me/6593860466" class="btn btn-whatsapp">💬 WhatsApp Us Now</a>
+                <a href="contact.html" class="btn btn-primary">Book a Site Assessment</a>
+                <a href="portfolio.html" class="btn btn-outline-light">View Our Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (Standard Master) -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="f-logo-wrap">
+                        <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
+                        <span class="brand-name">Securevision</span>
+                    </div>
+                    <p>Your partner in building smart, secure, and connected communities &mdash; powered by intelligent security systems since 2006.</p>
+                    <div class="f-socials">
+                        <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@securevision" target="_blank" rel="noopener" aria-label="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="residential.html">Private Homes</a></li>
+                        <li><a href="condominiums.html">Condominiums</a></li>
+                        <li><a href="commercial.html">Commercial & Retail</a></li>
+                        <li><a href="industrial.html">Industrial & Logistics</a></li>
+                        <li><a href="institutions.html">Institutions & Government</a></li>
+                        <li><a href="healthcare.html">Healthcare & Managed Living</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="awards-certifications.html">Awards & Certifications</a></li>
+                        <li><a href="portfolio.html">Project Portfolio</a></li>
+                        <li><a href="insights.html">Industry Insights</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <div class="footer-contact-item">
+                        <span>💬</span>
+                        <a href="https://wa.me/6593860466">WhatsApp Us</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>✉️</span>
+                        <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>📞</span>
+                        <a href="tel:+6562864796">+65 6286 4796</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Securevision Pte Ltd · Police Licence L/PS/000267/2023P · bizSAFE Level 3 · BCA Registered</p>
+                <div class="footer-bottom-links">
+                    <a href="sitemap.html">Sitemap</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) menu.classList.toggle('active');
         }
-        // Collapse any open desktop simple-dropdown (CSS :hover can't handle touch)
-        document.querySelectorAll('.nav-item').forEach(item => item.blur());
-    }
-});
-
-// â”€â”€ Desktop: close open simple-dropdown when another nav-item is entered â”€â”€
-document.querySelectorAll('.nav-item').forEach(item => {
-    item.setAttribute('tabindex', '-1');
-});
-</script>
-
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-</a>
+        function toggleSubmenu(id) {
+            const sub = document.getElementById(id);
+            const isOpen = sub.style.display === 'block';
+            document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
+            if (!isOpen) sub.style.display = 'block';
+        }
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.main-nav');
+            if (window.scrollY > 20) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+    </script>
 </body>
 </html>
-

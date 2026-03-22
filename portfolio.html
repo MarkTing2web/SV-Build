@@ -1,604 +1,501 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-GB">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Project Portfolio | Securevision Singapore</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="sv-shared.css">
-    <style>
-  /* PROJECT SPECIFIC STYLES */
-  :root {
-    /* property colours */
-    --c-home: #38B000;
-    --c-condo: #4361EE;
-    --c-comm: #FF6D00;
-    --c-inst: #0056b3;
-    --c-indu: #7209B7;
-  }
-
-  /* FILTER BAR */
-  .filter-section { background: #fff; border-bottom: 1px solid #E8EAED; padding: 28px 0; position: sticky; top: 68px; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-  .filter-inner { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
-  .filter-group { display: flex; flex-direction: column; gap: 10px; }
-  .filter-group-label { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #5F6368; }
-  .filter-pills { display: flex; gap: 8px; flex-wrap: wrap; }
-  .pill {
-    padding: 7px 16px; border-radius: 20px; font-size: 13px; font-weight: 500;
-    border: 1.5px solid #E8EAED; background: #fff; color: #5F6368;
-    cursor: pointer; transition: 0.25s ease; font-family: 'Inter', sans-serif;
-    white-space: nowrap;
-  }
-  .pill:hover { border-color: #0056b3; color: #0056b3; background: rgba(0,86,179,0.04); }
-  .pill.active { background: #0056b3; color: #fff; border-color: #0056b3; }
-  /* Property type pill colours when active */
-  .pill[data-solution="residential"].active { background: var(--c-home); border-color: var(--c-home); }
-  .pill[data-solution="condominium"].active { background: var(--c-condo); border-color: var(--c-condo); }
-  .pill[data-solution="commercial"].active { background: var(--c-comm); border-color: var(--c-comm); }
-  .pill[data-solution="institution"].active { background: var(--c-inst); border-color: var(--c-inst); }
-  .pill[data-solution="industrial"].active { background: var(--c-indu); border-color: var(--c-indu); }
-  .pill[data-system="surveillance"].active { background: var(--c-surveillance); border-color: var(--c-surveillance); }
-  .pill[data-system="people-access"].active { background: var(--c-people); border-color: var(--c-people); }
-  .pill[data-system="vehicle-access"].active { background: var(--c-vehicle); border-color: var(--c-vehicle); }
-  .pill[data-system="platform"].active { background: var(--c-platform); border-color: var(--c-platform); }
-
-  /* RESULTS COUNT */
-  .results-bar { padding: 20px 0 0; }
-  .results-count { font-size: 13px; color: #5F6368; font-weight: 500; }
-  .results-count span { color: #0056b3; font-weight: 700; }
-
-  /* PROJECT GRID */
-  .projects-section { background: #F8F9FA; padding: 48px 0 96px; }
-  .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; grid-auto-rows: 1fr; }
-
-  /* PROJECT CARD */
-  .project-card {
-    background: #fff; border: 1px solid #E8EAED; border-radius: 14px;
-    overflow: hidden; transition: 0.25s ease;
-    display: flex; flex-direction: column; text-decoration: none; color: #1B1F23;
-  }
-  .project-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.12); transform: translateY(-5px); }
-  .project-card.hidden { display: none; }
-
-  .card-visual { aspect-ratio: 16/9; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-  .card-visual .cv-bg { position: absolute; inset: 0; background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%); }
-  .card-visual .cv-content { position: relative; z-index: 1; text-align: center; color: #fff; padding: 20px; }
-  .card-visual .cv-icon { font-size: 48px; margin-bottom: 8px; }
-  .card-visual .cv-name { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; }
-  .card-visual .cv-loc { font-size: 12px; color: rgba(255,255,255,0.5); }
-  .card-visual .cv-glow { position: absolute; inset: 0; z-index: 0; opacity: 0.3; }
-
-  .card-type-badge { position: absolute; top: 14px; left: 14px; z-index: 2; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #fff; }
-
-  .card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
-  .card-body h3 { font-size: 18px; margin-bottom: 6px; }
-  .card-body .card-location { font-size: 13px; color: #5F6368; margin-bottom: 14px; display: flex; align-items: center; gap: 5px; }
-  .card-body p { font-size: 14px; color: #5F6368; line-height: 1.6; flex: 1; margin-bottom: 16px; }
-
-  .system-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
-  .sys-tag { padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 600; color: #fff; }
-
-  .card-metric { background: #F8F9FA; border-radius: 8px; padding: 12px 14px; display: flex; align-items: center; gap: 10px; border: 1px solid #E8EAED; }
-  .metric-num { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 700; color: #0056b3; line-height: 1; white-space: nowrap; }
-  .metric-desc { font-size: 12px; color: #5F6368; line-height: 1.4; }
-
-  .card-footer { padding: 16px 22px; border-top: 1px solid #E8EAED; display: flex; align-items: center; justify-content: space-between; }
-  .card-footer .cf-testimonial { font-size: 12px; font-style: italic; color: #5F6368; max-width: 240px; line-height: 1.4; }
-  .card-footer .cf-link { font-size: 12px; font-weight: 700; font-family: 'Montserrat', sans-serif; color: #0056b3; text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
-
-  /* NO RESULTS */
-  .no-results { text-align: center; padding: 80px 20px; display: none; }
-  .no-results h3 { font-size: 22px; margin-bottom: 12px; color: #5F6368; }
-  .no-results p { font-size: 15px; color: #5F6368; }
-
-  @media (max-width: 900px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 600px) {
-    .projects-grid { grid-template-columns: 1fr; }
-    .filter-inner { gap: 20px; }
-  }
-</style>
-</head>
-<body style="padding-top:68px">
-<nav class="main-nav">
-<div class="nav-container">
-  <!-- Logo + Wordmark Ã¢â‚¬â€ always left -->
-  <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
-    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
-    <span class="wordmark nav-wordmark">SECUREVISION</span>
-  </a>
-  <!-- Hamburger Ã¢â‚¬â€ centred absolutely on mobile (via CSS) -->
-  <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x1="12" x2="21" y2="12"></line><line x1="3" x1="6" x2="21" y2="6"></line><line x1="3" x1="18" x2="21" y2="18"></line></svg></button>
-  <!-- Desktop nav links -->
-  <ul class="nav-menu">
-    <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
-      <div class="simple-dropdown">
-        <a href="residential.html">Private Homes</a>
-        <a href="condominiums.html">Condominiums</a>
-        <a href="commercial.html">Commercial &amp; Retail</a>
-        <a href="institutions.html">Institutions</a>
-        <a href="industrial.html">Industrial &amp; Logistics</a>
-        <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="systems-hub.html" class="nav-link has-dropdown">Systems</a>
-      <div class="simple-dropdown">
-        <a href="surveillance-systems.html">Surveillance &amp; Detection</a>
-        <a href="people-access.html">People Access</a>
-        <a href="vehicle-access.html">Vehicle Access</a>
-        <a href="platform-integration.html">Platform &amp; Integration</a>
-        <a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="brands.html" class="nav-link has-dropdown">Brands</a>
-      <div class="simple-dropdown">
-        <a href="hikvision-singapore.html">Hikvision</a>
-        <a href="hanwha-samsung-singapore.html">Hanwha</a>
-        <a href="ajax-alarm-singapore.html">AJAX</a>
-        <a href="zkteco-singapore.html">ZKTeco</a>
-        <a href="akuvox-singapore.html">Akuvox</a>
-        <a href="faac-singapore.html">FAAC</a>
-        <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown active">Portfolio</a>
-      <div class="simple-dropdown">
-        <a href="portfolio.html">Private Homes</a>
-        <a href="portfolio.html">Condominiums</a>
-        <a href="commercial.html">Commercial &amp; Retail</a>
-        <a href="institutions.html">Institutions</a>
-        <a href="industrial.html">Industrial &amp; Logistics</a>
-        <a href="portfolio.html"><strong>&rarr; All Projects</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
-      <div class="simple-dropdown">
-        <a href="insights.html?cat=planning">Security Planning</a>
-        <a href="insights.html?cat=technology">Technology</a>
-        <a href="insights.html?cat=casestudy">Case Studies</a>
-        <a href="insights.html?cat=industry">SG Industry</a>
-        <a href="insights.html"><strong>&rarr; All Articles</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
-      <div class="simple-dropdown">
-        <a href="about.html">Our Story</a>
-        <a href="about.html#founder">Founder&rsquo;s Story</a>
-        <a href="awards-certifications.html">Awards &amp; Certifications</a>
-        <a href="contact.html">Contact Us</a>
-      </div>
-    </li>
-  </ul>
-  <!-- Desktop search icon -->
-  <div class="nav-right">
-    <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x1="21" x2="16.65" x2="16.65"/></svg></button>
-  </div>
-  <!-- Mobile search icon Ã¢â‚¬â€ always right end on mobile -->
-  <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x1="21" x2="16.65" x2="16.65"/></svg></button>
-</div>
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a><a href="residential.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a href="commercial.html">Commercial</a><a href="institutions.html">Institutions</a><a href="industrial.html">Industrial</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu" id="sysSub"><a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a><a href="surveillance-systems.html">Surveillance</a><a href="people-access.html">People Access</a><a href="vehicle-access.html">Vehicle Access</a><a href="platform-integration.html">Platform</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;<div class="mobile-submenu" id="brdSub"><a href="brands.html"><strong>&rarr; All 20 Brands</strong></a><a href="hikvision-singapore.html">Hikvision</a><a href="ajax-alarm-singapore.html">AJAX</a><a href="zkteco-singapore.html">ZKTeco</a><a href="akuvox-singapore.html">Akuvox</a><a href="faac-singapore.html">FAAC</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;<div class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>&rarr; All Projects</strong></a><a href="portfolio.html">Private Homes</a><a href="portfolio.html">Condominiums</a><a href="portfolio.html">Commercial &amp; Retail</a><a href="portfolio.html">Institutions</a><a href="industrial.html">Industrial</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights &#9662;<div class="mobile-submenu" id="insSub"><a href="insights.html"><strong>&rarr; All Articles</strong></a><a href="insights.html?cat=planning">Security Planning</a><a href="insights.html?cat=technology">Technology</a><a href="insights.html?cat=casestudy">Case Studies</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a><a href="contact.html">Contact Us</a></div></div>
-</div>
-</nav>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Portfolio | Securevision Singapore</title>
+    <meta name="description" content="Explore Securevision's portfolio of 2,000+ security installations across Singapore. Real projects, real outcomes in residential, commercial, and industrial sectors.">
     
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sv-shared.css">
+    
+    <style>
+        /* PROJECT SPECIFIC STYLES */
+        :root {
+            --c-home: #38a169;
+            --c-condo: #3182ce;
+            --c-comm: #dd6b20;
+            --c-inst: #2c5282;
+            --c-indu: #805ad5;
+        }
 
-<!-- HERO -->
-<section id="hero" class="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <h1>2,000+ Sites. <em>Every Story Matters.</em></h1>
-      <p class="subtitle">Real installations. Real outcomes. Browse our featured projects by property type or security system &mdash; and see how Securevision designs security that actually works.</p>
-      
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <span class="hero-stat-num">2,000+</span>
-          <span class="hero-stat-label">Sites Protected</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-num">5</span>
-          <span class="hero-stat-label">Property Sectors</span>
-        </div>
-        <div class="hero-stat">
-          <span class="hero-stat-num">19+</span>
-          <span class="hero-stat-label">Years Experience</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        /* FILTER BAR */
+        .filter-section { background: #fff; border-bottom: 1px solid var(--border-light); padding: 28px 0; position: sticky; top: 68px; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .filter-inner { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
+        .filter-group { display: flex; flex-direction: column; gap: 10px; }
+        .filter-group-label { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
+        .filter-pills { display: flex; gap: 8px; flex-wrap: wrap; }
+        .pill {
+            padding: 7px 16px; border-radius: 20px; font-size: 13px; font-weight: 500;
+            border: 1.5px solid var(--border-light); background: #fff; color: var(--text-gray);
+            cursor: pointer; transition: 0.25s ease; font-family: 'Inter', sans-serif;
+            white-space: nowrap;
+        }
+        .pill:hover { border-color: var(--primary-blue); color: var(--primary-blue); background: var(--bg-light); }
+        .pill.active { background: var(--primary-blue); color: #fff; border-color: var(--primary-blue); }
+        
+        /* Property type pill colours when active */
+        .pill[data-solution="residential"].active { background: var(--c-home); border-color: var(--c-home); }
+        .pill[data-solution="condominium"].active { background: var(--c-condo); border-color: var(--c-condo); }
+        .pill[data-solution="commercial"].active { background: var(--c-comm); border-color: var(--c-comm); }
+        .pill[data-solution="institution"].active { background: var(--c-inst); border-color: var(--c-inst); }
+        .pill[data-solution="industrial"].active { background: var(--c-indu); border-color: var(--c-indu); }
 
-<!-- BREADCRUMBS -->
+        /* RESULTS COUNT */
+        .results-bar { padding: 20px 0 0; }
+        .results-count { font-size: 13px; color: var(--text-light); font-weight: 500; }
+        .results-count span { color: var(--primary-blue); font-weight: 700; }
+
+        /* PROJECT GRID */
+        .projects-section { background: var(--bg-light); padding: 48px 0 96px; }
+        .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+
+        /* PROJECT CARD */
+        .project-card {
+            background: #fff; border: 1px solid var(--border-light); border-radius: 14px;
+            overflow: hidden; transition: 0.25s ease;
+            display: flex; flex-direction: column; text-decoration: none; color: var(--text-dark);
+        }
+        .project-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.12); transform: translateY(-5px); }
+        .project-card.hidden { display: none; }
+
+        .card-visual { aspect-ratio: 16/9; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #0E1A2B; }
+        .cv-content { position: relative; z-index: 1; text-align: center; color: #fff; padding: 20px; }
+        .cv-icon { font-size: 48px; margin-bottom: 8px; }
+        .cv-name { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+        .cv-loc { font-size: 12px; color: rgba(255,255,255,0.5); }
+
+        .card-type-badge { position: absolute; top: 14px; left: 14px; z-index: 2; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #fff; }
+
+        .card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+        .card-body h3 { font-size: 18px; margin-bottom: 6px; }
+        .card-body .card-location { font-size: 13px; color: var(--text-light); margin-bottom: 14px; display: flex; align-items: center; gap: 5px; }
+        .card-body p { font-size: 14px; color: var(--text-gray); line-height: 1.6; flex: 1; margin-bottom: 16px; }
+
+        .system-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
+        .sys-tag { padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 600; color: #fff; background: var(--primary-blue); }
+
+        .card-metric { background: var(--bg-light); border-radius: 8px; padding: 12px 14px; display: flex; align-items: center; gap: 10px; border: 1px solid var(--border-light); }
+        .metric-num { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 700; color: var(--primary-blue); line-height: 1; white-space: nowrap; }
+        .metric-desc { font-size: 12px; color: var(--text-light); line-height: 1.4; }
+
+        .card-footer { padding: 16px 22px; border-top: 1px solid var(--border-light); display: flex; align-items: center; justify-content: space-between; }
+        .cf-testimonial { font-size: 12px; font-style: italic; color: var(--text-light); max-width: 240px; line-height: 1.4; }
+        .cf-link { font-size: 12px; font-weight: 700; font-family: 'Montserrat', sans-serif; color: var(--primary-blue); text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+
+        .no-results { text-align: center; padding: 80px 20px; display: none; }
+
+        @media (max-width: 992px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 600px) {
+            .projects-grid { grid-template-columns: 1fr; }
+            .filter-inner { gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo-link">
+                <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
+                <span class="wordmark nav-wordmark">SECUREVISION</span>
+            </a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
+                    <div class="simple-dropdown">
+                        <a href="residential.html">Private Homes</a>
+                        <a href="condominiums.html">Condominiums</a>
+                        <a href="commercial.html">Commercial &amp; Retail</a>
+                        <a href="industrial.html">Industrial &amp; Logistics</a>
+                        <a href="institutions.html">Institutions &amp; Government</a>
+                        <a href="healthcare.html">Healthcare &amp; Managed Living</a>
+                        <hr>
+                        <a href="solutions-hub.html"><strong>View All Solutions</strong></a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="systems-hub.html" class="nav-link">Systems</a></li>
+                <li class="nav-item"><a href="brands.html" class="nav-link">Brands</a></li>
+                <li class="nav-item"><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
+                <li class="nav-item"><a href="insights.html" class="nav-link">Insights</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="nav-search-btn" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+            </div>
+            <button class="mobile-toggle" onclick="toggleMobileMenu()"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions ▾
+                <div class="mobile-submenu" id="solSub">
+                    <a href="solutions-hub.html"><strong>View All Solutions</strong></a>
+                    <a href="residential.html">Private Homes</a>
+                    <a href="condominiums.html">Condominiums</a>
+                    <a href="commercial.html">Commercial &amp; Retail</a>
+                    <a href="industrial.html">Industrial &amp; Logistics</a>
+                    <a href="institutions.html">Institutions &amp; Government</a>
+                    <a href="healthcare.html">Healthcare &amp; Managed Living</a>
+                </div>
+            </div>
+            <div class="mobile-menu-item"><a href="systems-hub.html">Systems</a></div>
+            <div class="mobile-menu-item"><a href="portfolio.html">Portfolio</a></div>
+            <div class="mobile-menu-item"><a href="about.html">About</a></div>
+            <div class="mobile-menu-item"><a href="contact.html">Contact Us</a></div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container z-2">
+            <span class="eyebrow-light">Proven Results</span>
+            <h1>2,000+ Sites. <em>Every Story Matters.</em></h1>
+            <p class="subtitle">Real installations. Real outcomes. Browse our featured projects by property type or security system &mdash; and see how Securevision designs security that actually works.</p>
+            
+            <div class="btn-group">
+                <div class="hero-stats" style="display: flex; gap: 48px; justify-content: center; margin-top: 24px;">
+                    <div class="hero-stat">
+                        <span class="hero-stat-num" style="display: block; font-size: 32px; font-weight: 700; color: #fff;">2,000+</span>
+                        <span class="hero-stat-label" style="font-size: 13px; opacity: 0.6; text-transform: uppercase;">Sites Protected</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-num" style="display: block; font-size: 32px; font-weight: 700; color: #fff;">19+</span>
+                        <span class="hero-stat-label" style="font-size: 13px; opacity: 0.6; text-transform: uppercase;">Years Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
     <nav class="sv-breadcrumb">
         <div class="container">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li>Portfolio</li>
+                <li>Project Portfolio</li>
             </ul>
         </div>
     </nav>
 
-<!-- FILTER BAR -->
-<div class="filter-section">
-  <div class="container">
-    <div class="filter-inner">
-      <div class="filter-group">
-        <div class="filter-group-label">Filter by Property Type</div>
-        <div class="filter-pills" id="solutionFilters">
-          <button class="pill active" data-solution="all">All Projects</button>
-          <button class="pill" data-solution="residential">Ã°Å¸ÂÂ  Private Homes</button>
-          <button class="pill" data-solution="condominium">Ã°Å¸ÂËœÃ¯Â¸Â Condominiums</button>
-          <button class="pill" data-solution="commercial">Ã°Å¸ÂÂª Commercial</button>
-          <button class="pill" data-solution="institution">Ã°Å¸ÂÂ« Institutions</button>
-          <button class="pill" data-solution="industrial">Ã°Å¸ÂÂ­ Industrial</button>
+    <!-- FILTER BAR -->
+    <div class="filter-section">
+        <div class="container">
+            <div class="filter-inner">
+                <div class="filter-group">
+                    <div class="filter-group-label">Filter by Property Type</div>
+                    <div class="filter-pills" id="solutionFilters">
+                        <button class="pill active" data-solution="all">All Projects</button>
+                        <button class="pill" data-solution="residential">🏠 Private Homes</button>
+                        <button class="pill" data-solution="condominium">🏢 Condominiums</button>
+                        <button class="pill" data-solution="commercial">🏬 Commercial</button>
+                        <button class="pill" data-solution="institution">🏛️ Institutions</button>
+                        <button class="pill" data-solution="industrial">🏭 Industrial</button>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <div class="filter-group-label">Filter by System</div>
+                    <div class="filter-pills" id="systemFilters">
+                        <button class="pill active" data-system="all">All Systems</button>
+                        <button class="pill" data-system="surveillance">📷 Surveillance</button>
+                        <button class="pill" data-system="people-access">🚪 People Access</button>
+                        <button class="pill" data-system="vehicle-access">🚗 Vehicle Access</button>
+                        <button class="pill" data-system="platform">📊 Platform</button>
+                    </div>
+                </div>
+            </div>
+            <div class="results-bar">
+                <span class="results-count">Showing <span id="visibleCount">4</span> of <span id="totalCount">4</span> projects</span>
+            </div>
         </div>
-      </div>
-      <div class="filter-group">
-        <div class="filter-group-label">Filter by System</div>
-        <div class="filter-pills" id="systemFilters">
-          <button class="pill active" data-system="all">All Systems</button>
-          <button class="pill" data-system="surveillance">Ã°Å¸â€œÂ¹ Surveillance</button>
-          <button class="pill" data-system="people-access">Ã°Å¸Å¡Âª People Access</button>
-          <button class="pill" data-system="vehicle-access">Ã°Å¸Å¡â€” Vehicle Access</button>
-          <button class="pill" data-system="platform">Ã°Å¸â€œÅ  Platform</button>
-        </div>
-      </div>
-    </div>
-    <div class="results-bar">
-      <span class="results-count">Showing <span id="visibleCount">4</span> of <span id="totalCount">4</span> projects</span>
-    </div>
-  </div>
-</div>
-
-<!-- PROJECTS -->
-<section class="projects-section">
-  <div class="container">
-    <div class="projects-grid" id="projectsGrid">
-
-      <!-- PROJECT 1: THE L'VIV -->
-      <a href="portfolio-lviv.html" class="project-card"
-         data-solution="condominium"
-         data-systems="surveillance people-access vehicle-access platform">
-        <div class="card-visual">
-          <div class="cv-bg"></div>
-          <div class="cv-glow" style="background: radial-gradient(ellipse at center, rgba(67,97,238,0.6) 0%, transparent 70%);"></div>
-          <div class="cv-content">
-            <div class="cv-icon">Ã°Å¸ÂËœÃ¯Â¸Â</div>
-            <div class="cv-name">The L'viv</div>
-            <div class="cv-loc">Buona Vista, Singapore</div>
-          </div>
-          <span class="card-type-badge" style="background: var(--c-condo);">Condominium</span>
-        </div>
-        <div class="card-body">
-          <h3>The L'viv</h3>
-          <div class="card-location">Ã°Å¸â€œÂ Buona Vista &middot; 450-unit development</div>
-          <p>Full estate security upgrade for a 450-unit private condominium &mdash; from fragmented legacy systems to a unified VESTA&trade;-managed platform with GantryGo&trade; vehicle intercom and resident mobile app.</p>
-          <div class="system-tags">
-            <span class="sys-tag" style="background:var(--c-surv);">Surveillance</span>
-            <span class="sys-tag" style="background:var(--c-peop);">People Access</span>
-            <span class="sys-tag" style="background:var(--c-vehi);">Vehicle Access</span>
-            <span class="sys-tag" style="background:var(--c-plat);">VESTA&trade; Platform</span>
-          </div>
-          <div class="card-metric">
-            <div class="metric-num">40%</div>
-            <div class="metric-desc">Reduction in security guard workload through self-service resident access</div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="cf-testimonial">"Residents love the mobile gate release &mdash; support calls to the guardhouse dropped overnight."</div>
-          <div class="cf-link">View Project &rarr;</div>
-        </div>
-      </a>
-
-      <!-- PROJECT 2: SCAPE -->
-      <a href="portfolio-scape.html" class="project-card"
-         data-solution="commercial"
-         data-systems="surveillance platform">
-        <div class="card-visual">
-          <div class="cv-bg"></div>
-          <div class="cv-glow" style="background: radial-gradient(ellipse at center, rgba(255,109,0,0.5) 0%, transparent 70%);"></div>
-          <div class="cv-content">
-            <div class="cv-icon">Ã°Å¸ÂÂª</div>
-            <div class="cv-name">SCAPE</div>
-            <div class="cv-loc">Orchard Road, Singapore</div>
-          </div>
-          <span class="card-type-badge" style="background: var(--c-comm);">Commercial</span>
-        </div>
-        <div class="card-body">
-          <h3>SCAPE</h3>
-          <div class="card-location">Ã°Å¸â€œÂ Orchard Road &middot; Youth hub, multi-level</div>
-          <p>200-camera AI surveillance system with real-time crowd analytics, behaviour detection, and centralised monitoring. Designed to protect high foot-traffic public spaces without obtrusive security presence.</p>
-          <div class="system-tags">
-            <span class="sys-tag" style="background:var(--c-surv);">AI Surveillance</span>
-            <span class="sys-tag" style="background:var(--c-plat);">Platform</span>
-          </div>
-          <div class="card-metric">
-            <div class="metric-num">87%</div>
-            <div class="metric-desc">Faster incident response &mdash; from 15 minutes to under 2 minutes</div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="cf-testimonial">"The AI analytics changed how our ops team responds to incidents &mdash; we act before things escalate."</div>
-          <div class="cf-link">View Project &rarr;</div>
-        </div>
-      </a>
-
-      <!-- PROJECT 3: STA -->
-      <a href="portfolio-sta.html" class="project-card"
-         data-solution="institution"
-         data-systems="surveillance vehicle-access platform">
-        <div class="card-visual">
-          <div class="cv-bg"></div>
-          <div class="cv-glow" style="background: radial-gradient(ellipse at center, rgba(0,86,179,0.5) 0%, transparent 70%);"></div>
-          <div class="cv-content">
-            <div class="cv-icon">Ã°Å¸ÂÂ«</div>
-            <div class="cv-name">STA Vehicle Inspection</div>
-            <div class="cv-loc">Multi-site, Singapore</div>
-          </div>
-          <span class="card-type-badge" style="background: var(--c-inst);">Institution</span>
-        </div>
-        <div class="card-body">
-          <h3>STA Vehicle Inspection</h3>
-          <div class="card-location">Ã°Å¸â€œÂ Multi-site &middot; Mission-critical operations</div>
-          <p>Integrated security and vehicle management system across two STA inspection centres &mdash; ANPR-triggered lane management, 24/7 remote diagnostics, and tamper-proof CCTV evidence retention for regulatory compliance.</p>
-          <div class="system-tags">
-            <span class="sys-tag" style="background:var(--c-surv);">Surveillance</span>
-            <span class="sys-tag" style="background:var(--c-vehi);">Vehicle Access</span>
-            <span class="sys-tag" style="background:var(--c-plat);">Remote Monitoring</span>
-          </div>
-          <div class="card-metric">
-            <div class="metric-num">99.7%</div>
-            <div class="metric-desc">System uptime across both facilities with 24/7 remote diagnostics</div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="cf-testimonial">"Regulatory compliance requires our footage to be available at any time. Securevision's remote monitoring means we always know the system is running."</div>
-          <div class="cf-link">View Project &rarr;</div>
-        </div>
-      </a>
-
-      <!-- PROJECT 4: CYRUS TECH -->
-      <a href="portfolio-cyrus.html" class="project-card"
-         data-solution="industrial"
-         data-systems="surveillance people-access vehicle-access">
-        <div class="card-visual">
-          <div class="cv-bg"></div>
-          <div class="cv-glow" style="background: radial-gradient(ellipse at center, rgba(114,9,183,0.5) 0%, transparent 70%);"></div>
-          <div class="cv-content">
-            <div class="cv-icon">Ã°Å¸ÂÂ­</div>
-            <div class="cv-name">Cyrus Tech</div>
-            <div class="cv-loc">Jurong Industrial Estate</div>
-          </div>
-          <span class="card-type-badge" style="background: var(--c-indu);">Industrial</span>
-        </div>
-        <div class="card-body">
-          <h3>Cyrus Tech</h3>
-          <div class="card-location">Ã°Å¸â€œÂ Jurong Industrial Estate &middot; Manufacturing facility</div>
-          <p>AI-powered perimeter security for a high-value manufacturing site &mdash; thermal + visible cameras on perimeter fencing, biometric zone access for production areas, and ANPR fleet management at all entry points.</p>
-          <div class="system-tags">
-            <span class="sys-tag" style="background:var(--c-surv);">AI + Thermal</span>
-            <span class="sys-tag" style="background:var(--c-peop);">Biometric Access</span>
-            <span class="sys-tag" style="background:var(--c-vehi);">ANPR Fleet</span>
-          </div>
-          <div class="card-metric">
-            <div class="metric-num">85%</div>
-            <div class="metric-desc">Reduction in guard callouts &mdash; AI eliminated wildlife and weather false alarms</div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <div class="cf-testimonial">"Before Securevision, our guards were responding to false alarms every night. The AI perimeter system changed everything."</div>
-          <div class="cf-link">View Project &rarr;</div>
-        </div>
-      </a>
-
     </div>
 
-    <div class="no-results" id="noResults">
-      <h3>No matching projects</h3>
-      <p>Try a different filter combination, or <a href="contact.html" style="color:var(--primary);">contact us</a> &mdash; we may have unlisted projects in your sector.</p>
-    </div>
+    <!-- PROJECTS -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="projects-grid" id="projectsGrid">
 
-    <!-- Add More Projects CTA -->
-    <div style="text-align:center; margin-top: 56px; padding-top: 48px; border-top: 1px solid var(--border);">
-      <p style="font-size:15px; color:var(--gray); margin-bottom:8px;">More projects available across all sectors.</p>
-      <p style="font-size:14px; color:var(--gray); margin-bottom:28px;">Many clients prefer privacy &mdash; ask us about unlisted work in your property type.</p>
-      <a href="contact.html" class="btn btn-primary" style="display:inline-flex;">Enquire About Specific Projects</a>
-    </div>
-  </div>
-</section>
+                <!-- PROJECT 1: THE L'VIV -->
+                <a href="portfolio-lviv.html" class="project-card" data-solution="condominium" data-systems="surveillance people-access vehicle-access platform">
+                    <div class="card-visual">
+                        <div class="cv-content">
+                            <div class="cv-icon">🏢</div>
+                            <div class="cv-name">The L'viv</div>
+                            <div class="cv-loc">Buona Vista, Singapore</div>
+                        </div>
+                        <span class="card-type-badge" style="background: var(--c-condo);">Condominium</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>The L'viv</h3>
+                        <div class="card-location">📍 Buona Vista &middot; 450-unit development</div>
+                        <p>Full estate security upgrade for a 450-unit private condominium &mdash; from fragmented legacy systems to a unified VESTA&trade;-managed platform with GantryGo&trade; vehicle intercom and resident mobile app.</p>
+                        <div class="system-tags">
+                            <span class="sys-tag">Surveillance</span>
+                            <span class="sys-tag">People Access</span>
+                            <span class="sys-tag">Vehicle Access</span>
+                            <span class="sys-tag">VESTA&trade; Platform</span>
+                        </div>
+                        <div class="card-metric">
+                            <div class="metric-num">40%</div>
+                            <div class="metric-desc">Reduction in security guard workload through self-service resident access</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="cf-testimonial">"Residents love the mobile gate release &mdash; support calls to the guardhouse dropped overnight."</div>
+                        <div class="cf-link">View Project &rarr;</div>
+                    </div>
+                </a>
 
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container">
-    <span class="eyebrow" style="color:rgba(255,255,255,0.4);">Start Your Project</span>
-    <h2>Want Results Like These?</h2>
-    <p>Every project starts with a site assessment &mdash; no obligation, no sales pressure. Just an honest look at what your property needs.</p>
-    <div class="btn-group">
-      <a href="contact.html" class="btn btn-primary">Book a Site Assessment</a>
-      <a href="https://wa.me/6593860466" class="btn btn-whatsapp">Ã°Å¸â€™Â¬ WhatsApp Us</a>
-      <a href="solutions-hub.html" class="btn btn-outline-white">Find My Solution</a>
-    </div>
-  </div>
-</section>
+                <!-- PROJECT 2: SCAPE -->
+                <a href="portfolio-scape.html" class="project-card" data-solution="commercial" data-systems="surveillance platform">
+                    <div class="card-visual">
+                        <div class="cv-content">
+                            <div class="cv-icon">🏬</div>
+                            <div class="cv-name">SCAPE</div>
+                            <div class="cv-loc">Orchard Road, Singapore</div>
+                        </div>
+                        <span class="card-type-badge" style="background: var(--c-comm);">Commercial</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>SCAPE</h3>
+                        <div class="card-location">📍 Orchard Road &middot; Youth hub</div>
+                        <p>200-camera AI surveillance system with real-time crowd analytics, behaviour detection, and centralised monitoring. Designed to protect high foot-traffic public spaces without obtrusive presence.</p>
+                        <div class="system-tags">
+                            <span class="sys-tag">AI Surveillance</span>
+                            <span class="sys-tag">Centralised Platform</span>
+                        </div>
+                        <div class="card-metric">
+                            <div class="metric-num">87%</div>
+                            <div class="metric-desc">Faster incident response &mdash; from 15 minutes to under 2 minutes</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="cf-testimonial">"The AI analytics changed how our ops team responds to incidents &mdash; we act before things escalate."</div>
+                        <div class="cf-link">View Project &rarr;</div>
+                    </div>
+                </a>
 
-<footer class="main-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <!-- Col 1: Brand & Basic Info -->
-      <div class="footer-col footer-brand">
-        <a href="index.html" class="footer-logo">
-          <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
-          <span class="wordmark footer-wordmark">SECUREVISION</span>
-        </a>
-        <p class="footer-tagline">Engineering security solutions across Singapore since 2006. NUS engineering-led and police-licensed.</p>
-        <div class="footer-contact-info">
-          <p><strong>Securevision Pte Ltd</strong></p>
-          <p>Police License: L/PS/000267/2023P</p>
-          <p>bizSAFE Level 3</p>
+                <!-- PROJECT 3: STA -->
+                <a href="portfolio-sta.html" class="project-card" data-solution="institution" data-systems="surveillance vehicle-access platform">
+                    <div class="card-visual">
+                        <div class="cv-content">
+                            <div class="cv-icon">🏛️</div>
+                            <div class="cv-name">STA Vehicle Inspection</div>
+                            <div class="cv-loc">Multi-site, Singapore</div>
+                        </div>
+                        <span class="card-type-badge" style="background: var(--c-inst);">Institution</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>STA Vehicle Inspection</h3>
+                        <div class="card-location">📍 Multi-site &middot; Mission-critical</div>
+                        <p>Integrated security and vehicle management system across two STA inspection centres &mdash; ANPR-triggered lane management and 24/7 remote diagnostics for regulatory compliance.</p>
+                        <div class="system-tags">
+                            <span class="sys-tag">Surveillance</span>
+                            <span class="sys-tag">Vehicle Access</span>
+                            <span class="sys-tag">Remote Monitoring</span>
+                        </div>
+                        <div class="card-metric">
+                            <div class="metric-num">99.7%</div>
+                            <div class="metric-desc">System uptime across both facilities with 24/7 remote diagnostics</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="cf-testimonial">"Regulatory compliance requires our footage to be available at any time. Securevision's remote monitoring means we always know it's running."</div>
+                        <div class="cf-link">View Project &rarr;</div>
+                    </div>
+                </a>
+
+                <!-- PROJECT 4: CYRUS TECH -->
+                <a href="portfolio-cyrus.html" class="project-card" data-solution="industrial" data-systems="surveillance people-access vehicle-access">
+                    <div class="card-visual">
+                        <div class="cv-content">
+                            <div class="cv-icon">🏭</div>
+                            <div class="cv-name">Cyrus Tech</div>
+                            <div class="cv-loc">Jurong Industrial Estate</div>
+                        </div>
+                        <span class="card-type-badge" style="background: var(--c-indu);">Industrial</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Cyrus Tech</h3>
+                        <div class="card-location">📍 Jurong Industrial Estate &middot; Manufacturing</div>
+                        <p>AI-powered perimeter security for a high-value manufacturing site &mdash; thermal + visible cameras, biometric zone access, and ANPR fleet management at entry points.</p>
+                        <div class="system-tags">
+                            <span class="sys-tag">AI + Thermal</span>
+                            <span class="sys-tag">Biometric Access</span>
+                            <span class="sys-tag">ANPR Fleet</span>
+                        </div>
+                        <div class="card-metric">
+                            <div class="metric-num">85%</div>
+                            <div class="metric-desc">Reduction in guard callouts &mdash; AI eliminated wildlife false alarms</div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="cf-testimonial">"Before Securevision, our guards were responding to false alarms every night. The AI perimeter system changed everything."</div>
+                        <div class="cf-link">View Project &rarr;</div>
+                    </div>
+                </a>
+
+            </div>
+
+            <div class="no-results" id="noResults">
+                <h3>No matching projects</h3>
+                <p>Try a different filter combination, or <a href="contact.html">contact us</a> &mdash; we may have unlisted projects in your sector.</p>
+            </div>
+
+            <div style="text-align:center; margin-top: 56px; padding-top: 48px; border-top: 1px solid var(--border-light);">
+                <p style="font-size:15px; color:var(--text-light); margin-bottom:8px;">Many more projects available across all sectors.</p>
+                <p style="font-size:14px; color:var(--text-light); margin-bottom:28px;">Some clients prefer privacy &mdash; ask us about unlisted work in your property type.</p>
+                <a href="contact.html" class="btn btn-primary">Enquire About Specific Projects</a>
+            </div>
         </div>
-      </div>
+    </section>
 
-      <!-- Col 2: Solutions -->
-      <div class="footer-col">
-        <h4 class="footer-title">Solutions</h4>
-        <ul class="footer-links">
-          <li><a href="residential.html">Private Homes</a></li>
-          <li><a href="condominiums.html">Condominiums</a></li>
-          <li><a href="commercial.html">Commercial &amp; Retail</a></li>
-          <li><a href="institutions.html">Institutions</a></li>
-          <li><a href="industrial.html">Industrial &amp; Logistics</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 3: Systems -->
-      <div class="footer-col">
-        <h4 class="footer-title">Systems</h4>
-        <ul class="footer-links">
-          <li><a href="surveillance-systems.html">Surveillance &amp; Detection</a></li>
-          <li><a href="people-access.html">People Access</a></li>
-          <li><a href="vehicle-access.html">Vehicle Access</a></li>
-          <li><a href="platform-integration.html">Platform &amp; Integration</a></li>
-          <li><a href="brands.html">Hardware Brands</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 4: Reach Us -->
-      <div class="footer-col">
-        <h4 class="footer-title">Reach Us</h4>
-        <ul class="footer-links">
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="about.html">Our Story</a></li>
-          <li><a href="portfolio.html">Project Portfolio</a></li>
-          <li><a href="insights.html">Security Insights</a></li>
-          <li><a href="https://wa.me/6593860466" class="footer-whatsapp"><strong>WhatsApp: +65 9386 0466</strong></a></li>
-        </ul>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/securevision" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="https://www.linkedin.com/company/securevision-pte-ltd" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+    <!-- FINAL CTA -->
+    <section class="cta-section" style="background: linear-gradient(rgba(14, 26, 43, 0.8), rgba(14, 26, 43, 0.8)), url('images/Expert Security Solutions For Every Property Type.png'); background-size: cover; background-position: center;">
+        <div class="container text-center">
+            <h2 style="color: #fff;">Want Results Like These?</h2>
+            <p class="subtitle" style="color: #fff; opacity: 0.9; margin-bottom: 48px;">Every project starts with a site assessment &mdash; no obligation, just an honest look at what your property needs.</p>
+            <div class="btn-group" style="justify-content: center;">
+                <a href="contact.html" class="btn btn-primary">Book a Site Assessment</a>
+                <a href="https://wa.me/6593860466" class="btn btn-whatsapp">💬 WhatsApp Us Now</a>
+            </div>
         </div>
-      </div>
-    </div>
+    </section>
 
-    <div class="footer-bottom">
-      <div class="footer-bottom-inner">
-        <p>&copy; 2025 Securevision Pte Ltd. All rights reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms of Service</a>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="f-logo-wrap">
+                        <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
+                        <span class="brand-name">Securevision</span>
+                    </div>
+                    <p>Your partner in building smart, secure, and connected communities &mdash; powered by intelligent security systems since 2006.</p>
+                    <div class="f-socials">
+                        <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/@securevision" target="_blank" rel="noopener" aria-label="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="residential.html">Private Homes</a></li>
+                        <li><a href="condominiums.html">Condominiums</a></li>
+                        <li><a href="commercial.html">Commercial & Retail</a></li>
+                        <li><a href="industrial.html">Industrial & Logistics</a></li>
+                        <li><a href="institutions.html">Institutions & Government</a></li>
+                        <li><a href="healthcare.html">Healthcare & Managed Living</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="awards-certifications.html">Awards & Certifications</a></li>
+                        <li><a href="portfolio.html">Project Portfolio</a></li>
+                        <li><a href="insights.html">Industry Insights</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <div class="footer-contact-item">
+                        <span>💬</span>
+                        <a href="https://wa.me/6593860466">WhatsApp Us</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>✉️</span>
+                        <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>📞</span>
+                        <a href="tel:+6562864796">+65 6286 4796</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Securevision Pte Ltd · Police Licence L/PS/000267/2023P · bizSAFE Level 3 · BCA Registered</p>
+                <div class="footer-bottom-links">
+                    <a href="sitemap.html">Sitemap</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</footer>
+    </footer>
 
-<script>
-  // Read URL param for initial filter (from mega menu links)
-  const urlParams = new URLSearchParams(window.location.search);
-  const initFilter = urlParams.get('filter');
-
-  let activeSolution = 'all';
-  let activeSystem = 'all';
-
-  function applyFilters() {
-    const cards = document.querySelectorAll('.project-card');
-    let visible = 0;
-    cards.forEach(card => {
-      const sol = card.dataset.solution;
-      const sys = card.dataset.systems.split(' ');
-      const solMatch = activeSolution === 'all' || sol === activeSolution;
-      const sysMatch = activeSystem === 'all' || sys.includes(activeSystem);
-      if (solMatch && sysMatch) {
-        card.classList.remove('hidden');
-        visible++;
-      } else {
-        card.classList.add('hidden');
-      }
-    });
-    document.getElementById('visibleCount').textContent = visible;
-    document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
-  }
-
-  // Solution filter pills
-  document.querySelectorAll('#solutionFilters .pill').forEach(pill => {
-    pill.addEventListener('click', () => {
-      document.querySelectorAll('#solutionFilters .pill').forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      activeSolution = pill.dataset.solution;
-      applyFilters();
-    });
-  });
-
-  // System filter pills
-  document.querySelectorAll('#systemFilters .pill').forEach(pill => {
-    pill.addEventListener('click', () => {
-      document.querySelectorAll('#systemFilters .pill').forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      activeSystem = pill.dataset.system;
-      applyFilters();
-    });
-  });
-
-  // Apply URL param filter on load
-  if (initFilter) {
-    // Try solution filter first
-    const solPill = document.querySelector(`[data-solution="${initFilter}"]`);
-    const sysPill = document.querySelector(`[data-system="${initFilter}"]`);
-    if (solPill) {
-      document.querySelectorAll('#solutionFilters .pill').forEach(p => p.classList.remove('active'));
-      solPill.classList.add('active');
-      activeSolution = initFilter;
-    } else if (sysPill) {
-      document.querySelectorAll('#systemFilters .pill').forEach(p => p.classList.remove('active'));
-      sysPill.classList.add('active');
-      activeSystem = initFilter;
-    }
-    applyFilters();
-  }
-</script>
-
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.03a11.782 11.782 0 001.583 5.867L0 24l6.117-1.605a11.772 11.772 0 005.925 1.603h.005c6.635 0 12.022-5.392 12.026-12.033a11.742 11.742 0 00-3.504-8.508z"/></svg>
-</a>
-<script>
-// Ã¢â€â‚¬Ã¢â€â‚¬ Mobile submenu toggle Ã¢â€â‚¬Ã¢â€â‚¬
-function toggleSubmenu(id) {
-    const sub = document.getElementById(id);
-    const isOpen = sub.style.display === 'block';
-    // Close all open submenus first
-    document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
-    if (!isOpen) sub.style.display = 'block';
-}
-
-// Ã¢â€â‚¬Ã¢â€â‚¬ Mobile menu panel open/close Ã¢â€â‚¬Ã¢â€â‚¬
-function toggleMobileMenu() {
-    const menu = document.getElementById('mobileMenu');
-    if (!menu) return;
-    const isOpen = menu.classList.toggle('active');
-    if (!isOpen) {
-        // Reset all submenus when the panel closes
-        document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
-    }
-}
-
-// Ã¢â€â‚¬Ã¢â€â‚¬ Tap/click OUTSIDE the nav Ã¢â€ â€™ close everything Ã¢â€â‚¬Ã¢â€â‚¬
-document.addEventListener('click', function(e) {
-    const nav = document.querySelector('.main-nav');
-    if (nav && !nav.contains(e.target)) {
-        // Close mobile menu panel
-        const menu = document.getElementById('mobileMenu');
-        if (menu && menu.classList.contains('active')) {
-            menu.classList.remove('active');
-            document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) menu.classList.toggle('active');
         }
-    }
-});
-</script>
+        function toggleSubmenu(id) {
+            const sub = document.getElementById(id);
+            const isOpen = sub.style.display === 'block';
+            document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
+            if (!isOpen) sub.style.display = 'block';
+        }
 
+        let activeSolution = 'all';
+        let activeSystem = 'all';
 
+        function applyFilters() {
+            const cards = document.querySelectorAll('.project-card');
+            let visible = 0;
+            cards.forEach(card => {
+                const sol = card.dataset.solution;
+                const sys = card.dataset.systems.split(' ');
+                const solMatch = activeSolution === 'all' || sol === activeSolution;
+                const sysMatch = activeSystem === 'all' || sys.includes(activeSystem);
+                if (solMatch && sysMatch) {
+                    card.classList.remove('hidden');
+                    visible++;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+            document.getElementById('visibleCount').textContent = visible;
+            document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+        }
+
+        document.querySelectorAll('#solutionFilters .pill').forEach(pill => {
+            pill.addEventListener('click', () => {
+                document.querySelectorAll('#solutionFilters .pill').forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                activeSolution = pill.dataset.solution;
+                applyFilters();
+            });
+        });
+
+        document.querySelectorAll('#systemFilters .pill').forEach(pill => {
+            pill.addEventListener('click', () => {
+                document.querySelectorAll('#systemFilters .pill').forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                activeSystem = pill.dataset.system;
+                applyFilters();
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.main-nav');
+            if (window.scrollY > 20) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+        });
+    </script>
+</body>
+</html>
