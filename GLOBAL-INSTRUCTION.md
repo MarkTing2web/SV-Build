@@ -161,8 +161,10 @@
 ### Container
 ```css
 .container {
+  width: 100%;
   max-width: var(--container); /* 1200px */
-  margin: 0 auto;
+  margin-left: auto !important;
+  margin-right: auto !important;
   padding: 0 24px;
 }
 ```
@@ -176,33 +178,31 @@
 | Mobile (480px) | 48px |
 
 ### Grid System
-| Use case | Desktop | Tablet | Mobile |
+| Use case | Desktop (1200px+) | Tablet (992px) | Mobile (768px) |
 |---|---|---|---|
 | 4-column | repeat(4,1fr) | repeat(2,1fr) | 1fr |
 | 3-column | repeat(3,1fr) | repeat(2,1fr) | 1fr |
 | 2-column | 1fr 1fr | 1fr 1fr | 1fr |
-| 2-column featured | 1fr 1.2fr | 1fr | 1fr |
 | Subsystem cards | repeat(4,1fr) | repeat(2,1fr) | 1fr |
 
 ### Grid Gaps
-- Standard card grids: 24px
-- Featured 2-column layouts: 56–64px
-- Nav item gaps: 4px
+- Standard card grids: 28px (Desktop), 24px (Mobile)
+- Featured 2-column layouts: 56–72px
 - Button groups: 12–14px
 
 ### Card Internal Padding
-- Standard card: 28px
-- Large feature card: 36–40px
+- Standard card: 28–32px
+- Persona / Feature card: 32–40px
 - Compact card: 20px
-- Brand chip: 5px 14px
 
-### Spacing Between Elements
+### Spacing Between Elements (Utility Classes)
+- .mt-32 (Margin Top 32px)
+- .mt-40 (Margin Top 40px)
+- .mt-56 (Margin Top 56px)
 - Eyebrow → H2: 12px
-- H2 → lead paragraph: 16px
-- Lead paragraph → content: 24px
-- Section header → grid: 48px
-- Card content stack gap: 12–14px
-- Button group gap: 12px
+- H2 → .subtitle: 16px
+- .subtitle → Grid: 40px (Desktop), 32px (Mobile)
+- .section-divider: 64px margin-top, 40px padding-top.
 
 ---
 
@@ -579,15 +579,16 @@ About          → about.html
   transform: translateY(-2px);
 }
 
-/* White outline (on dark backgrounds) */
-.btn-outline-white {
+/* White outline (on dark backgrounds) - Use .btn-outline-light for CTA sections */
+.btn-outline-light {
   background: transparent;
   color: #ffffff;
-  border-color: rgba(255,255,255,0.5);
+  border: 2px solid rgba(255,255,255,0.6);
 }
-.btn-outline-white:hover {
+.btn-outline-light:hover {
   border-color: #ffffff;
   background: rgba(255,255,255,0.1);
+  transform: translateY(-2px);
 }
 
 /* WhatsApp */
