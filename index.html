@@ -735,13 +735,23 @@ function toggleSubmenu(id) {
   document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
   if (!isOpen) sub.style.display = 'block';
 }
-document.addEventListener('click', function(e) {
-  const nav = document.querySelector('.main-nav');
-  const menu = document.getElementById('mobileMenu');
-  if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
-    menu.classList.remove('active');
-  }
-});
+        document.addEventListener('click', function (e) {
+            const nav = document.querySelector('.main-nav');
+            const menu = document.getElementById('mobileMenu');
+            if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
+                menu.classList.remove('active');
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.main-nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
 </script>
 </body>
 </html>

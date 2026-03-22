@@ -164,7 +164,9 @@
     </nav>
 
     <!-- SECTION 1: HERO -->
-    <header class="hero-solid">
+    <header class="hero">
+        <img src="images/Expert Security Solutions For Every Property Type.png" class="hero-video" alt="Premium Security Solutions For Properties">
+        <div class="hero-overlay"></div>
         <div class="container pos-relative z-2">
             <span class="eyebrow-light">Security Strategy</span>
             <h1>Expert Security Solutions<br>For Every Property Type</h1>
@@ -610,7 +612,7 @@
     </section>
 
     <!-- --- Section 11: Final CTA --- -->
-    <section class="cta-section">
+    <section class="cta-section cta-skyline">
         <div class="container">
             <h2>Ready to Secure Your Property?</h2>
             <p class="subtitle">Schedule a diagnostic call with our security experts today.</p>
@@ -717,6 +719,16 @@
             const menu = document.getElementById('mobileMenu');
             if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
                 menu.classList.remove('active');
+            }
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.main-nav');
+            if (window.scrollY > 20) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
             }
         });
     </script>

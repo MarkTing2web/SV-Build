@@ -21,10 +21,8 @@
             --primary-dark: var(--dark-blue);
         }
 
-        .contact-gateway-page { padding: 120px 0 100px; background: #fff; }
-        
-        /* Gateway Cards */
-        .gateway-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-bottom: 80px; }
+        /* Gateway Cards (Unique Layout) */
+        .gateway-grid { margin-bottom: 80px; }
         .gateway-card { 
             background: var(--bg-light); border: 1px solid var(--border-light); border-radius: 12px; padding: 40px; text-align: center;
             transition: 0.3s; display: flex; flex-direction: column; align-items: center;
@@ -142,7 +140,7 @@
   </div>
 </nav>
 
-<main class="contact-gateway-page">
+<section class="contact-gateway-section section">
     <div class="container">
         <div class="section-header text-center" style="margin-bottom: 64px;">
             <span class="eyebrow">Connect With Us</span>
@@ -150,7 +148,7 @@
             <p class="subtitle" style="margin: 20px auto 0; max-width: 700px;">How can we help you today? Choose the path that matches your needs for the fastest response.</p>
         </div>
 
-        <div class="gateway-grid">
+        <div class="gateway-grid grid-3" style="margin-bottom: 80px;">
             <!-- Box 1: Direct Chat -->
             <div class="gateway-card">
                 <div class="icon-box" style="background: rgba(37, 211, 102, 0.1);">
@@ -312,7 +310,7 @@
             </form>
         </div>
     </div>
-</main>
+</section>
 
 <footer class="site-footer">
     <div class="footer-container">
@@ -479,6 +477,16 @@ document.addEventListener('click', function(e) {
   const menu = document.getElementById('mobileMenu');
   if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
     menu.classList.remove('active');
+  }
+});
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('.main-nav');
+  if (window.scrollY > 20) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
   }
 });
 </script>
