@@ -1,553 +1,870 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Surveillance & Detection Systems | Securevision Singapore</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surveillance & Detection Systems | Securevision Singapore</title>
+    <meta name="description" content="Proactive AI-powered surveillance and visual detection systems engineered for Singapore estates. Specialist systems integration by Securevision.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="sv-shared.css">
+    
+    <style>
+        :root {
+            --primary:          #0056b3;
+            --primary-dark:     #003d82;
+            --c-surveillance:   #2b6cb0;
+            --text-dark:        #1B1F23;
+            --text-gray:        #5F6368;
+            --bg-dark:          #0E1A2B;
+            --bg-dark-mid:      #1a2942;
+            --nav-height:       68px;
+            --radius:           8px;
+            --transition:       all 0.25s ease;
+        }
+
+        /* Hero Specific for Surveillance */
+        .hero-surveillance::before {
+            background: radial-gradient(ellipse 60% 70% at 65% 50%, rgba(43, 108, 176, 0.2) 0%, transparent 70%);
+        }
+
+        /* Placeholder for main content while starting fresh */
+        .construction-placeholder {
+            padding: 120px 0;
+            text-align: center;
+            background: #fff;
+        }
+        .construction-placeholder h2 {
+            font-size: 24px;
+            color: var(--text-dark);
+            margin-bottom: 16px;
+        }
+        .construction-placeholder p {
+            color: var(--text-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
 </head>
-<body style="padding-top:68px">
+<body>
+
+<!-- Navigation -->
 <nav class="main-nav">
-<div class="nav-container">
-  <!-- Logo + Wordmark â€” always left -->
-  <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
-    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
-    <span class="wordmark nav-wordmark">SECUREVISION</span>
-  </a>
-  <!-- Hamburger â€” centred absolutely on mobile (via CSS) -->
-  <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x1="12" x2="21" y2="12"></line><line x1="3" x1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
-  <!-- Desktop nav links -->
-  <ul class="nav-menu">
-    <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
-      <div class="simple-dropdown">
-        <a href="residential.html">Private Homes</a>
-        <a href="condominiums.html">Condominiums</a>
-        <a href="commercial.html">Commercial &amp; Retail</a>
-        <a href="institutions.html">Institutions</a>
-        <a href="industrial.html">Industrial &amp; Logistics</a>
-        <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="systems-hub.html" class="nav-link has-dropdown active">Systems</a>
-      <div class="simple-dropdown">
-        <a href="surveillance-systems.html">Surveillance &amp; Detection</a>
-        <a href="people-access.html">People Access</a>
-        <a href="vehicle-access.html">Vehicle Access</a>
-        <a href="platform-integration.html">Platform &amp; Integration</a>
-        <a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="brands.html" class="nav-link has-dropdown">Brands</a>
-      <div class="simple-dropdown">
-        <a href="hikvision-singapore.html">Hikvision</a>
-        <a href="hanwha-samsung-singapore.html">Hanwha</a>
-        <a href="ajax-alarm-singapore.html">AJAX</a>
-        <a href="zkteco-singapore.html">ZKTeco</a>
-        <a href="akuvox-singapore.html">Akuvox</a>
-        <a href="faac-singapore.html">FAAC</a>
-        <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
-      <div class="simple-dropdown">
-        <a href="portfolio.html">Private Homes</a>
-        <a href="portfolio.html">Condominiums</a>
-        <a href="commercial.html">Commercial &amp; Retail</a>
-        <a href="institutions.html">Institutions</a>
-        <a href="industrial.html">Industrial &amp; Logistics</a>
-        <a href="portfolio.html"><strong>&rarr; All Projects</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
-      <div class="simple-dropdown">
-        <a href="insights.html?cat=planning">Security Planning</a>
-        <a href="insights.html?cat=technology">Technology</a>
-        <a href="insights.html?cat=casestudy">Case Studies</a>
-        <a href="insights.html?cat=industry">SG Industry</a>
-        <a href="insights.html"><strong>&rarr; All Articles</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
-      <div class="simple-dropdown">
-        <a href="about.html">Our Story</a>
-        <a href="about.html#founder">Founder&rsquo;s Story</a>
-        <a href="awards-certifications.html">Awards &amp; Certifications</a>
-        <a href="contact.html">Contact Us</a>
-      </div>
-    </li>
-  </ul>
-  <!-- Desktop search icon -->
-  <div class="nav-right">
-    <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
+      <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
+      <span class="wordmark nav-wordmark">SECUREVISION</span>
+    </a>
+    
+    <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
+        <div class="simple-dropdown">
+          <a href="residential.html">Private Homes</a>
+          <a href="condominiums.html">Condominiums</a>
+          <a href="commercial.html">Commercial & Retail</a>
+          <a href="institutions.html">Institutions</a>
+          <a href="industrial.html">Industrial & Logistics</a>
+          <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="systems-hub.html" class="nav-link has-dropdown active">Systems</a>
+        <div class="simple-dropdown">
+          <a href="surveillance-systems.html">Surveillance & Detection</a>
+          <a href="people-access.html">People Access</a>
+          <a href="vehicle-access.html">Vehicle Access</a>
+          <a href="platform-integration.html">Platform & Integration</a>
+          <a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="brands.html" class="nav-link has-dropdown">Brands</a>
+        <div class="simple-dropdown">
+          <a href="hikvision-singapore.html">Hikvision</a>
+          <a href="hanwha-samsung-singapore.html">Hanwha</a>
+          <a href="ajax-alarm-singapore.html">AJAX</a>
+          <a href="zkteco-singapore.html">ZKTeco</a>
+          <a href="akuvox-singapore.html">Akuvox</a>
+          <a href="faac-singapore.html">FAAC</a>
+          <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      <li class="nav-item"><a href="insights.html" class="nav-link">Insights</a></li>
+      <li class="nav-item">
+        <a href="about.html" class="nav-link has-dropdown">About</a>
+        <div class="simple-dropdown">
+          <a href="about.html">Our Story</a>
+          <a href="awards-certifications.html">Awards & Certifications</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+    </div>
+
+    <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
   </div>
-  <!-- Mobile search icon â€” always right end on mobile -->
-  <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
-</div>
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a><a href="residential.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a href="commercial.html">Commercial</a><a href="institutions.html">Institutions</a><a href="industrial.html">Industrial</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu" id="sysSub"><a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a><a href="surveillance-systems.html">Surveillance</a><a href="people-access.html">People Access</a><a href="vehicle-access.html">Vehicle Access</a><a href="platform-integration.html">Platform</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;<div class="mobile-submenu" id="brdSub"><a href="brands.html"><strong>&rarr; All 20 Brands</strong></a><a href="hikvision-singapore.html">Hikvision</a><a href="ajax-alarm-singapore.html">AJAX</a><a href="zkteco-singapore.html">ZKTeco</a><a href="akuvox-singapore.html">Akuvox</a><a href="faac-singapore.html">FAAC</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;<div class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>&rarr; All Projects</strong></a><a href="portfolio.html">Private Homes</a><a href="portfolio.html">Condominiums</a><a href="portfolio.html">Commercial &amp; Retail</a><a href="portfolio.html">Institutions</a><a href="industrial.html">Industrial</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights &#9662;<div class="mobile-submenu" id="insSub"><a href="insights.html"><strong>&rarr; All Articles</strong></a><a href="insights.html?cat=planning">Security Planning</a><a href="insights.html?cat=technology">Technology</a><a href="insights.html?cat=casestudy">Case Studies</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a><a href="contact.html">Contact Us</a></div></div>
-</div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="solutions-hub.html" class="mobile-menu-item">Solutions</a>
+    <a href="systems-hub.html" class="mobile-menu-item">Systems</a>
+    <a href="brands.html" class="mobile-menu-item">Brands</a>
+    <a href="portfolio.html" class="mobile-menu-item">Portfolio</a>
+    <a href="insights.html" class="mobile-menu-item">Insights</a>
+    <a href="about.html" class="mobile-menu-item">About</a>
+    <a href="https://wa.me/6593860466" class="mobile-menu-item" style="color:var(--whatsapp,#25d366); border-top:1px solid rgba(255,255,255,0.1); margin-top:8px;">💬 WhatsApp Us</a>
+  </div>
 </nav>
 
-    
-
-<!-- HERO -->
-<section id="hero" class="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <h1>Surveillance &amp; Detection Systems</h1>
-      <p class="subtitle">Full-spectrum visual monitoring with AI-powered analytics â€” designed, installed, and maintained by Securevision for every property type in Singapore.</p>
-      <div class="hero-tags">
-        <span class="hero-tag">ðŸ“¹ IP Cameras</span>
-        <span class="hero-tag">ðŸ¤– AI Analytics</span>
-        <span class="hero-tag">ðŸŒ¡ï¸ Thermal Imaging</span>
-        <span class="hero-tag">ðŸ—„ï¸ NVR Storage</span>
-        <span class="hero-tag">ðŸ“Š VMS Software</span>
-        <span class="hero-tag">ðŸŒ™ Low-Light</span>
-      </div>
-      <div class="hero-btns">
-        <a href="#categories" class="btn btn-primary">View Camera Systems</a>
-        <a href="https://wa.me/6593860466" class="btn btn-secondary" style="border-color:white;color:white">Get a Quote</a>
-      </div>
+<!-- Hero Section -->
+<header class="hero hero-surveillance hero-solid" style="background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.5)), url('proprietary-assets/surveillance-hero.png'); background-size: cover; background-position: center;">
+    <div class="container">
+        <span class="eyebrow-light">Surveillance & Detection</span>
+        <h1>Layered Intelligence:<br>Detect, Verify, Respond</h1>
+        <p class="subtitle">Our design approach combines alarms and cameras into layered detection systems — from simple residential setups to comprehensive industrial perimeters. The scale changes. The philosophy doesn't.</p>
+        <div class="btn-group" style="justify-content: center;">
+            <a href="contact.html" class="btn btn-primary">Book Site Assessment</a>
+            <a href="#components" class="btn btn-secondary" style="border-color:white; color:white;">Explore Components</a>
+        </div>
+        <p style="margin-top: 32px; font-size: 13px; color: rgba(255,255,255,0.6); font-weight: 500;">Engineered for Singapore Properties Since 2006</p>
     </div>
-  </div>
-</section>
-    <!-- BREADCRUMBS -->
-    <nav class="sv-breadcrumb">
+</header>
+
+<!-- Breadcrumbs -->
+<nav class="sv-breadcrumb">
+    <div class="container">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="systems-hub.html">Systems</a></li>
+            <li>Surveillance & Detection</li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Main Content Area -->
+<main>
+    <!-- SECTION 2: Philosophy -->
+    <section id="philosophy" style="padding: 100px 0; background: var(--bg-white, #ffffff);">
         <div class="container">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="systems-hub.html">Systems</a></li>
-                <li>Surveillance & Detection</li>
-            </ul>
+            <div class="section-header" style="text-align: center; margin-bottom: 64px;">
+                <span class="eyebrow">The Philosophy</span>
+                <h2 style="margin-bottom: 20px;">Layered Detection: The Engineering Approach</h2>
+                <p class="subtitle" style="margin: 0 auto; max-width: 800px;">Detection isn't about buying the most cameras or the loudest alarms. It's about understanding three core engineering questions before a single device is specified.</p>
+            </div>
+            
+            <div class="grid-3" style="margin-bottom: 56px;">
+                <div class="card" style="padding: 40px; text-align: center; border-bottom: 4px solid var(--primary);">
+                    <div style="font-size: 32px; margin-bottom: 20px;">🛡️</div>
+                    <h3 style="font-size: 18px; margin-bottom: 12px;">1. What are you protecting?</h3>
+                    <p style="font-size: 14px; color: var(--text-gray);">Protecting people and shared assets in a condo estate requires a different layer than protecting high-value inventory in an industrial yard.</p>
+                </div>
+                <div class="card" style="padding: 40px; text-align: center; border-bottom: 4px solid var(--primary);">
+                    <div style="font-size: 32px; margin-bottom: 20px;">🔍</div>
+                    <h3 style="font-size: 18px; margin-bottom: 12px;">2. What vulnerabilities exist?</h3>
+                    <p style="font-size: 14px; color: var(--text-gray);">We map blind spots, poor lighting zones, and perimeter entry points to ensure total coverage without hardware waste.</p>
+                </div>
+                <div class="card" style="padding: 40px; text-align: center; border-bottom: 4px solid var(--primary);">
+                    <div style="font-size: 32px; margin-bottom: 20px;">⚠️</div>
+                    <h3 style="font-size: 18px; margin-bottom: 12px;">3. How critical is each zone?</h3>
+                    <p style="font-size: 14px; color: var(--text-gray);">A public lobby needs situational awareness; a server room needs dual-verification. We designate criticality for every zone.</p>
+                </div>
+            </div>
+
+            <div style="max-width: 850px; margin: 0 auto; text-align: center;">
+                <p style="font-size: 18px; line-height: 1.8; color: var(--text-dark); margin-bottom: 24px;">Our surveillance design approach layers two detection systems — <strong>alarms and cameras</strong> — to create <strong>defence in depth</strong>. While cameras provide visual evidence, alarms provide immediate proactive alerts. Together, they eliminate the delay between an incident and a response.</p>
+                <p style="font-size: 16px; line-height: 1.7; color: var(--text-gray);">This isn't about forcing one platform. It's about architecting the right detection layers — whether integrated through Ajax, Risco, Hikvision, or kept separate — to match your threat profile and operational needs.</p>
+            </div>
         </div>
-    </nav>
+    </section>
 
+    <!-- SECTION 3: How It Works -->
+    <section id="why-layers" style="padding: 100px 0; background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 64px;">
+                <span class="eyebrow">How It Works</span>
+                <h2 style="margin-bottom: 20px;">Why Detection Layers Matter</h2>
+                <div style="max-width: 850px; margin: 0 auto; text-align: left; font-size: 16px; line-height: 1.8; color: var(--text-gray);">
+                    <p style="margin-bottom: 16px;"><strong>Every detection method has a blind spot:</strong></p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 12px; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary);">•</span>
+                            <strong>Alarms alone</strong> tell you something triggered — but not what. False alarms waste response time. Real threats might be dismissed as another false alert.
+                        </li>
+                        <li style="margin-bottom: 12px; padding-left: 24px; position: relative;">
+                            <span style="position: absolute; left: 0; color: var(--primary);">•</span>
+                            <strong>Cameras alone</strong> show you exactly what’s happening — but only if someone's watching that exact feed at that exact moment. Threats go unnoticed until it's too late.
+                        </li>
+                        <li style="margin-bottom: 12px; padding-left: 24px; position: relative; color: var(--text-dark); font-weight: 500;">
+                            <span style="position: absolute; left: 0; color: #38a169;">•</span>
+                            <strong>Layered detection</strong> eliminates both blind spots. The alarm triggers instant notification. The camera provides immediate visual verification. Your guard gets both: real-time alert AND video proof — in under 5 seconds.
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
+            <p style="text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 32px; color: var(--text-gray);">Here's the difference in practice:</p>
+            
+            <div class="grid-3">
+                <!-- CARD 1: Alarm Only -->
+                <div class="card" style="border-top: 4px solid #e53e3e; padding: 32px;">
+                    <h3 style="color: #e53e3e; font-size: 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                        <span>❌</span> Alarm Only
+                    </h3>
+                    <div style="font-size: 13px; line-height: 1.6;">
+                        <p style="font-weight: 700; margin-bottom: 8px; color: var(--text-dark);">Scenario:</p>
+                        <ul style="list-style: none; padding: 0; color: var(--text-gray); margin-bottom: 20px;">
+                            <li>• Motion sensor triggers at 2 AM</li>
+                            <li>• Guard gets alert: "Zone 3 breach"</li>
+                            <li>• No visual confirmation</li>
+                            <li>• Guard must physically investigate (3-5 mins)</li>
+                            <li>• Could be cat, wind, actual intruder — unknown</li>
+                        </ul>
+                        <div style="background: #fff5f5; padding: 12px; border-radius: 6px; border-left: 3px solid #e53e3e;">
+                            <p style="font-weight: 700; color: #c53030; margin-bottom: 4px;">Result:</p>
+                            <p style="color: #c53030;">Wasted response time, high false alarm rate</p>
+                        </div>
+                    </div>
+                </div>
 
-<!-- OVERVIEW -->
-<section id="overview">
-  <div class="container">
-    <div class="two-col">
-      <div class="overview-text">
-        <span class="eyebrow">Why It Matters</span>
-        <h2>Surveillance That Detects, Not Just Records</h2>
-        <p>Most CCTV installations are designed for retrospective review â€” you look back at footage after an incident. Securevision designs surveillance systems for <strong>real-time detection</strong>: systems that identify threats as they emerge and trigger the right response immediately.</p>
-        <p>We assess every zone for lighting conditions, coverage angles, blind spots, and integration requirements before specifying a single camera. The result is a system with no gaps and no wasted hardware.</p>
-        <ul class="check-list">
-          <li>AI behaviour analytics for intrusion, loitering, crowd detection</li>
-          <li>4K resolution with intelligent compression â€” no storage waste</li>
-          <li>Seamless integration with access control and alarm systems</li>
-          <li>Centralised VMS for multi-site management and remote review</li>
-          <li>Thermal imaging for perimeter and low-light environments</li>
-          <li>SPF-compliant footage retention and evidence management</li>
-        </ul>
-      </div>
-      <div class="spec-card">
-        <h3>System Capabilities at a Glance</h3>
-        <div class="spec-row"><span class="spec-label">Resolution Range</span><span class="spec-value">2MP â†’ 32MP+</span></div>
-        <div class="spec-row"><span class="spec-label">Analytics</span><span class="spec-value">AI-Powered, Real-time</span></div>
-        <div class="spec-row"><span class="spec-label">Low-Light</span><span class="spec-value">0.001 Lux (Thermal)</span></div>
-        <div class="spec-row"><span class="spec-label">Storage</span><span class="spec-value">NVR / Cloud Hybrid</span></div>
-        <div class="spec-row"><span class="spec-label">Retention</span><span class="spec-value">30â€“90 Days Standard</span></div>
-        <div class="spec-row"><span class="spec-label">Viewing</span><span class="spec-value">Web / Mobile / Workstation</span></div>
-        <div class="spec-row"><span class="spec-label">Integration</span><span class="spec-value">Access, Alarm, BMS</span></div>
-        <div class="spec-row"><span class="spec-label">Brands</span><span class="spec-value">Hikvision, Dahua, Axis</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+                <!-- CARD 2: Camera Only -->
+                <div class="card" style="border-top: 4px solid #dd6b20; padding: 32px;">
+                    <h3 style="color: #dd6b20; font-size: 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                        <span>⚠️</span> Camera Only
+                    </h3>
+                    <div style="font-size: 13px; line-height: 1.6;">
+                        <p style="font-weight: 700; margin-bottom: 8px; color: var(--text-dark);">Scenario:</p>
+                        <ul style="list-style: none; padding: 0; color: var(--text-gray); margin-bottom: 20px;">
+                            <li>• Intruder crosses perimeter at 2 AM</li>
+                            <li>• No immediate alert (recording passively)</li>
+                            <li>• Guard notices 10 mins later during routine check</li>
+                            <li>• Intruder already inside building</li>
+                            <li>&nbsp;</li>
+                        </ul>
+                        <div style="background: #fffaf0; padding: 12px; border-radius: 6px; border-left: 3px solid #dd6b20;">
+                            <p style="font-weight: 700; color: #9c4221; margin-bottom: 4px;">Result:</p>
+                            <p style="color: #9c4221;">Delayed detection, reactive response</p>
+                        </div>
+                    </div>
+                </div>
 
-<!-- PRODUCT CATEGORIES -->
-<section id="categories">
-  <div class="container">
-    <div class="section-header">
-      <span class="eyebrow">Camera Systems</span>
-      <h2>The Right Camera for Every Zone</h2>
-      <p>We don't specify cameras from a catalogue â€” we match camera type, resolution, and analytics capability to the specific demands of each coverage zone in your property.</p>
-    </div>
-    <div class="cat-grid">
-      <div class="cat-card">
-        <div class="cat-icon">ðŸ“¹</div>
-        <h3>Fixed IP Dome & Bullet Cameras</h3>
-        <p>The backbone of any installation. High-resolution fixed cameras for lobbies, corridors, car parks, and perimeters with consistent frame coverage.</p>
-        <ul class="cat-specs">
-          <li>2MP to 8MP resolution options</li>
-          <li>IR night vision up to 60m</li>
-          <li>Vandal-resistant rated (IK10)</li>
-          <li>IP66/67 weatherproof housing</li>
-          <li>WDR for high-contrast scenes</li>
-        </ul>
-      </div>
-      <div class="cat-card">
-        <div class="cat-icon">ðŸ”­</div>
-        <h3>PTZ Cameras</h3>
-        <p>Pan-tilt-zoom cameras that follow activity automatically. Ideal for large open areas â€” car parks, recreational facilities, building exteriors, and industrial yards.</p>
-        <ul class="cat-specs">
-          <li>Optical zoom up to 40x</li>
-          <li>Auto-tracking of detected subjects</li>
-          <li>Preset tours and guard positions</li>
-          <li>360Â° continuous rotation</li>
-          <li>Long-range IR illumination</li>
-        </ul>
-      </div>
-      <div class="cat-card">
-        <div class="cat-icon">ðŸŒ</div>
-        <h3>Panoramic & Multi-sensor Cameras</h3>
-        <p>Single-unit cameras delivering 180Â° or 360Â° situational awareness. Eliminate blind spots in large open spaces with one device instead of four.</p>
-        <ul class="cat-specs">
-          <li>Up to 32MP multi-sensor</li>
-          <li>Full 360Â° dewarped view</li>
-          <li>Replace 4-camera installations</li>
-          <li>Deep learning people counting</li>
-          <li>Ideal for lobbies and retail</li>
-        </ul>
-      </div>
-      <div class="cat-card">
-        <div class="cat-icon">ðŸ¤–</div>
-        <h3>AI Behaviour Analytics Cameras</h3>
-        <p>Cameras with embedded deep-learning â€” detecting loitering, perimeter crossing, crowd gathering, abandoned objects, and fall detection in real time.</p>
-        <ul class="cat-specs">
-          <li>Perimeter intrusion detection</li>
-          <li>Loitering & crowd alert</li>
-          <li>Abandoned object detection</li>
-          <li>Face detection & search</li>
-          <li>False alarm suppression</li>
-        </ul>
-      </div>
-      <div class="cat-card">
-        <div class="cat-icon">ðŸŒ¡ï¸</div>
-        <h3>Thermal Imaging Systems</h3>
-        <p>Heat-signature detection for complete darkness, fog, smoke, and camouflage scenarios. Critical for perimeter security and industrial monitoring.</p>
-        <ul class="cat-specs">
-          <li>Detection in total darkness</li>
-          <li>Temperature measurement</li>
-          <li>Perimeter fence integration</li>
-          <li>Fire/heat anomaly alerts</li>
-          <li>No illumination required</li>
-        </ul>
-      </div>
-      <div class="cat-card">
-        <div class="cat-icon">ðŸ—„ï¸</div>
-        <h3>NVR Storage & VMS Platform</h3>
-        <p>The intelligence backbone. Scalable NVR infrastructure with enterprise VMS â€” centralised management, remote viewing, and AI-assisted incident search.</p>
-        <ul class="cat-specs">
-          <li>Scalable from 4 to 256+ channels</li>
-          <li>RAID redundancy for uptime</li>
-          <li>Smart playback & AI search</li>
-          <li>Multi-site central management</li>
-          <li>Mobile & web viewer included</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+                <!-- CARD 3: Layered Detection -->
+                <div class="card" style="border-top: 4px solid #38a169; padding: 32px; background: #f0fff4;">
+                    <h3 style="color: #38a169; font-size: 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                        <span>✅</span> Layered Detection
+                    </h3>
+                    <div style="font-size: 13px; line-height: 1.6;">
+                        <p style="font-weight: 700; margin-bottom: 8px; color: var(--text-dark);">Scenario:</p>
+                        <ul style="list-style: none; padding: 0; color: var(--text-gray); margin-bottom: 20px;">
+                            <li>• Motion sensor triggers at 2 AM</li>
+                            <li>• Alarm sends alert: "Zone 3 breach"</li>
+                            <li>• Camera auto-focuses on Zone 3</li>
+                            <li>• AI analytics confirm: "Human detected"</li>
+                            <li>• Guard sees live video within 5 seconds</li>
+                        </ul>
+                        <div style="background: #ffffff; padding: 12px; border-radius: 6px; border-left: 3px solid #38a169;">
+                            <p style="font-weight: 700; color: #22543d; margin-bottom: 4px;">Result:</p>
+                            <p style="color: #22543d;">Instant detection, visual verification, informed decision</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<!-- USE CASES -->
-<section id="use-cases">
-  <div class="container">
-    <div class="section-header">
-      <span class="eyebrow">Applications</span>
-      <h2>Designed for Real-World Scenarios</h2>
-      <p>Our surveillance designs address the specific threat profiles and coverage requirements of each property type â€” not generic templates.</p>
-    </div>
-    <div class="use-grid">
-      <div class="use-card">
-        <div class="use-badge">Residential</div>
-        <h3>Lobby & Lift Lobby Coverage</h3>
-        <p>Wide-angle panoramic cameras covering every entry point with face-detection capability. Footage retained 30 days minimum for resident disputes and security reviews.</p>
-      </div>
-      <div class="use-card">
-        <div class="use-badge">Commercial</div>
-        <h3>Retail Loss Prevention</h3>
-        <p>AI analytics for dwell time, queue management, and behaviour anomaly detection. Covers blind spots at shelf ends and cash counters with tamper-proof housings.</p>
-      </div>
-      <div class="use-card">
-        <div class="use-badge">Industrial</div>
-        <h3>Perimeter & Yard Security</h3>
-        <p>Thermal + visible cameras on fences and yard perimeters. Automatic intrusion alerts trigger PTZ auto-tracking and security team notification simultaneously.</p>
-      </div>
-      <div class="use-card">
-        <div class="use-badge">Car Parks</div>
-        <h3>Multi-Level Car Park Monitoring</h3>
-        <p>Low-light cameras optimised for dim parking environments, integrated with ANPR at entry/exit. Covers every bay level with centralised overview on VMS dashboard.</p>
-      </div>
-      <div class="use-card">
-        <div class="use-badge">Institutions</div>
-        <h3>Campus & Facility Surveillance</h3>
-        <p>Wide-area PTZ cameras with scheduled patrol routes cover open campuses. Integration with access control provides visual verification at every access event.</p>
-      </div>
-      <div class="use-card">
-        <div class="use-badge">Critical Infrastructure</div>
-        <h3>Server Room & High-Security Zones</h3>
-        <p>Dual-verification surveillance â€” camera + access card â€” for sensitive areas. Tamper alerts, motion detection, and immediate security team escalation.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- METHODOLOGY -->
-<section id="methodology">
-  <div class="container">
-    <div class="section-header">
-      <span class="eyebrow">Our Process</span>
-      <h2>How We Design Your Surveillance System</h2>
-      <p>Every installation follows a rigorous design process â€” no guesswork, no gaps.</p>
-    </div>
-    <div class="method-steps">
-      <div class="method-step">
-        <div class="step-num">1</div>
-        <h3>Site Survey & Risk Map</h3>
-        <p>Walk every zone, identify blind spots, assess lighting conditions and threat entry points.</p>
-      </div>
-      <div class="method-step">
-        <div class="step-num">2</div>
-        <h3>Camera Specification</h3>
-        <p>Match camera type, resolution, and analytics to each zone's specific requirements.</p>
-      </div>
-      <div class="method-step">
-        <div class="step-num">3</div>
-        <h3>System Design & Integration</h3>
-        <p>Design NVR architecture, network topology, and integration with access and alarm systems.</p>
-      </div>
-      <div class="method-step">
-        <div class="step-num">4</div>
-        <h3>Commission & Handover</h3>
-        <p>Test every camera, configure analytics, train staff, and deliver full system documentation.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- BRANDS -->
-<section id="brands">
-  <div class="container">
-    <div class="section-header">
-      <span class="eyebrow">Technology Partners</span>
-      <h2>Authorised Partners for Leading Brands</h2>
-      <p>We work with globally proven manufacturers and provide full manufacturer warranties with all installations.</p>
-    </div>
-    <div class="brands-row">
-      <div class="brand-chip">Hikvision<div class="brand-type">Authorised Partner</div></div>
-      <div class="brand-chip">Dahua<div class="brand-type">Authorised Reseller</div></div>
-      <div class="brand-chip">Axis<div class="brand-type">Reseller</div></div>
-      <div class="brand-chip">Hanwha<div class="brand-type">Reseller</div></div>
-      <div class="brand-chip">Bosch<div class="brand-type">Certified Installer</div></div>
-      <div class="brand-chip">Uniview<div class="brand-type">Reseller</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- PROPERTY APPLICATIONS -->
-<section id="applications">
-  <div class="container">
-    <div class="section-header">
-      <span class="eyebrow">Who We Serve</span>
-      <h2>Surveillance for Every Property Type</h2>
-    </div>
-    <div class="app-grid">
-      <a href="residential.html" class="app-card" style="text-decoration:none; color:inherit;">
-        <div class="app-icon">ðŸ </div>Private Homes
-      </a>
-      <a href="condominiums.html" class="app-card" style="text-decoration:none; color:inherit;">
-        <div class="app-icon">ðŸ¢</div>Condominiums
-      </a>
-      <a href="commercial.html" class="app-card" style="text-decoration:none; color:inherit;">
-        <div class="app-icon">ðŸ¬</div>Commercial
-      </a>
-      <a href="institutions.html" class="app-card" style="text-decoration:none; color:inherit;">
-        <div class="app-icon">ðŸ›ï¸</div>Institutions
-      </a>
-      <a href="industrial.html" class="app-card" style="text-decoration:none; color:inherit;">
-        <div class="app-icon">ðŸ­</div>Industrial
-      </a>
-    </div>
-  </div>
-</section>
-
-
-<!-- BRANDS WE INSTALL -->
-<section class="brands-we-install" style="background:var(--light-gray,#F8F9FA); padding:64px 0;">
-  <div class="container">
-    <span style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent,#2b6cb0);margin-bottom:12px;display:block;">Brands We Install</span>
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:40px;">
-      <div>
-        <h2 style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(22px,3vw,32px);margin-bottom:10px;">Brands We Install â€” Surveillance &amp; Alarm</h2>
-        <p style="font-size:15px;color:#5F6368;max-width:660px;line-height:1.7;margin:0;">We carry leading brands across cameras, NVRs, and alarm systems. Every brand we list is one we install, warrant, and maintain in Singapore.</p>
-      </div>
-      <a href="brands.html" style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:8px;background:var(--accent,#2b6cb0);color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-decoration:none;white-space:nowrap;flex-shrink:0;">View All 20 Brands â†’</a>
-    </div>
-    <style>
-      .bwi-group { margin-bottom: 36px; }
-      .bwi-group:last-child { margin-bottom: 0; }
-      .bwi-group-header { display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #E8EAED; }
-      .bwi-group-icon { font-size:18px; }
-      .bwi-group-title { font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:#1B1F23; }
-      .bwi-group-bar { width:32px;height:3px;border-radius:2px;flex-shrink:0; }
-      .bwi-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px; }
-      .bwi-card { background:#fff;border:1px solid #E8EAED;border-radius:8px;padding:16px 14px;text-decoration:none;color:#1B1F23;transition:all .2s;display:flex;flex-direction:column;gap:6px; }
-      .bwi-card:hover { box-shadow:0 6px 20px rgba(0,0,0,.1);transform:translateY(-2px);border-color:var(--accent,#2b6cb0); }
-      .bwi-name { font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700; }
-      .bwi-desc { font-size:11px;color:#5F6368;line-height:1.4;flex:1; }
-      .bwi-tier { display:inline-block;padding:2px 8px;border-radius:8px;font-size:10px;font-weight:700;color:#fff;align-self:flex-start; }
-      @media(max-width:600px){ .bwi-grid { grid-template-columns:repeat(2,1fr); } }
-    </style>
-    
-      <div class="bwi-group">
-        <div class="bwi-group-header">
-          <span class="bwi-group-icon">ðŸ“¹</span>
-          <span class="bwi-group-title">Surveillance & CCTV</span>
-          <span class="bwi-group-bar" style="background:#2b6cb0;"></span>
+            <div style="margin-top: 56px; text-align: center;">
+                <p style="font-size: 18px; font-weight: 700; color: var(--text-dark);">This is why we design in layers. Each system covers the weakness of the other.</p>
+            </div>
         </div>
-        <div class="bwi-grid">
-          <a href="hikvision-singapore.html" class="bwi-card">
-            <div class="bwi-name">Hikvision</div>
-            <div class="bwi-desc">World #1 Â· Authorised Partner</div>
-            <div class="bwi-tier" style="background:#2b6cb0;">Midâ€“Premium</div>
-          </a>
-          <a href="hanwha-samsung-singapore.html" class="bwi-card">
-            <div class="bwi-name">Hanwha Vision</div>
-            <div class="bwi-desc">Korean enterprise AI</div>
-            <div class="bwi-tier" style="background:#7209B7;">Premium</div>
-          </a>
-          <a href="uniview-singapore.html" class="bwi-card">
-            <div class="bwi-name">Uniview</div>
-            <div class="bwi-desc">IP pioneer Â· value range</div>
-            <div class="bwi-tier" style="background:#38a169;">Budgetâ€“Mid</div>
-          </a>
-          <a href="milesight-singapore.html" class="bwi-card">
-            <div class="bwi-name">Milesight</div>
-            <div class="bwi-desc">IoT-native Â· people counting</div>
-            <div class="bwi-tier" style="background:#2b6cb0;">Midâ€“Premium</div>
-          </a>
-        </div>
-      </div>
-      <div class="bwi-group">
-        <div class="bwi-group-header">
-          <span class="bwi-group-icon">ðŸ””</span>
-          <span class="bwi-group-title">Alarm & Intruder Detection</span>
-          <span class="bwi-group-bar" style="background:#e53e3e;"></span>
-        </div>
-        <div class="bwi-grid">
-          <a href="ajax-alarm-singapore.html" class="bwi-card">
-            <div class="bwi-name">AJAX Systems</div>
-            <div class="bwi-desc">Wireless Â· best app Â· EU #1</div>
-            <div class="bwi-tier" style="background:#2b6cb0;">Midâ€“Premium</div>
-          </a>
-          <a href="risco-alarm-singapore.html" class="bwi-card">
-            <div class="bwi-name">RISCO Group</div>
-            <div class="bwi-desc">Hybrid Â· commercial grade</div>
-            <div class="bwi-tier" style="background:#2b6cb0;">Midâ€“Premium</div>
-          </a>
-          <a href="paradox-alarm-singapore.html" class="bwi-card">
-            <div class="bwi-name">Paradox Security</div>
-            <div class="bwi-desc">Canadian Â· residential specialist</div>
-            <div class="bwi-tier" style="background:#38a169;">Budgetâ€“Mid</div>
-          </a>
-          <a href="dsc-alarm-singapore.html" class="bwi-card">
-            <div class="bwi-name">DSC</div>
-            <div class="bwi-desc">Johnson Controls Â· widely installed</div>
-            <div class="bwi-tier" style="background:#38a169;">Budgetâ€“Mid</div>
-          </a>
-          <a href="ge-caddx-alarm-singapore.html" class="bwi-card">
-            <div class="bwi-name">GE Caddx</div>
-            <div class="bwi-desc">Entry-level Â· budget residential</div>
-            <div class="bwi-tier" style="background:#38a169;">Budget</div>
-          </a>
-        </div>
-      </div>
-  </div>
-</section>
+    </section>
+    <!-- SECTION 4: Two Systems -->
+    <section id="two-systems" style="padding: 100px 0; background: var(--bg-white, #ffffff);">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 72px;">
+                <span class="eyebrow">Core Systems</span>
+                <h2 style="margin-bottom: 20px;">The Two Detection Systems</h2>
+                <p class="subtitle" style="margin: 0 auto; max-width: 800px;">We architect our surveillance solutions using two distinct but complementary detection layers: visual intelligence and physical intrusion sensing.</p>
+            </div>
 
-<!-- CTA -->
-<section id="cta">
-  <div class="container">
-    <div class="cta-inner">
-      <span class="eyebrow eyebrow-light">Get Started</span>
-      <h2>Design Your Surveillance System</h2>
-      <p>Tell us about your property and we'll recommend the right camera types, coverage design, and analytics configuration â€” no obligation.</p>
-      <div class="cta-btns">
-        <a href="https://wa.me/6593860466" class="btn btn-whatsapp">ðŸ’¬ WhatsApp a Specialist</a>
-      </div>
+            <div class="grid-2" style="gap: 56px; align-items: start;">
+                <!-- LEFT COLUMN: CCTV & AI VIDEO ANALYTICS -->
+                <div class="system-col" style="background: var(--bg-light); padding: 48px; border-radius: 12px; border-top: 5px solid var(--c-surveillance, #2b6cb0);">
+                    <h3 style="font-size: 22px; margin-bottom: 4px; display: flex; align-items: center; gap: 10px;">
+                        <span>📹</span> CCTV & AI Video Analytics
+                    </h3>
+                    <p style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-bottom: 24px;">Visual Intelligence Layer</p>
+                    
+                    <p style="font-size: 15px; line-height: 1.7; color: var(--text-dark); margin-bottom: 28px;">Modern IP cameras aren't just recording devices — they're intelligent detection systems with built-in AI capabilities:</p>
+                    
+                    <div style="margin-bottom: 28px;">
+                        <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; color: var(--primary);">Built-in AI Features:</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.8; color: var(--text-gray);">
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> <strong>Line Crossing Detection</strong> — Alert when someone crosses a virtual boundary</li>
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> <strong>Intrusion Zone Detection</strong> — Monitor specific areas (doorways, restricted zones)</li>
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> <strong>Motion Detection</strong> — Trigger recording only when movement occurs</li>
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> <strong>Human/Vehicle Classification</strong> — Reduce false alarms from pets or cars</li>
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> <strong>Loitering Detection</strong> — Alert when someone stays in an area too long</li>
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> <strong>Face Detection</strong> — Count people, identify known/unknown faces</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 28px;">
+                        <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; color: var(--primary);">When to Use Cameras:</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.8; color: var(--text-gray);">
+                            <li style="margin-bottom: 8px; display: flex; gap: 10px;"><span>✓</span> High-visibility deterrence</li>
+                            <li style="margin-bottom: 8px; display: flex; gap: 10px;"><span>✓</span> Evidence capture (HD footage for investigations)</li>
+                            <li style="margin-bottom: 8px; display: flex; gap: 10px;"><span>✓</span> Remote monitoring (check property from anywhere)</li>
+                            <li style="margin-bottom: 8px; display: flex; gap: 10px;"><span>✓</span> Blind spot coverage</li>
+                            <li style="margin-bottom: 8px; display: flex; gap: 10px;"><span>✓</span> Post-incident investigation</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 32px;">
+                        <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; color: var(--primary);">Platform Options:</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.8; color: var(--text-gray);">
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> <strong>Hikvision Hik-Connect app</strong> — Monitor cameras & receive AI alerts</li>
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> <strong>Integration capable</strong> — Works with Ajax, Risco, third-party VMS</li>
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> Can operate standalone or integrated</li>
+                        </ul>
+                    </div>
+
+                    <a href="cctv-landing.html" style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; color: var(--primary); text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px;">Learn More About CCTV Systems →</a>
+                </div>
+
+                <!-- RIGHT COLUMN: BURGLAR ALARMS & INTRUSION SENSORS -->
+                <div class="system-col" style="background: var(--bg-light); padding: 48px; border-radius: 12px; border-top: 5px solid var(--primary);">
+                    <h3 style="font-size: 22px; margin-bottom: 4px; display: flex; align-items: center; gap: 10px;">
+                        <span>🔔</span> Burglar Alarms & Intrusion Sensors
+                    </h3>
+                    <p style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-bottom: 24px;">Instant Detection Layer</p>
+                    
+                    <p style="font-size: 15px; line-height: 1.7; color: var(--text-dark); margin-bottom: 28px;">Alarms provide the fastest intrusion detection — triggering within milliseconds of a breach, long before someone appears on camera.</p>
+                    
+                    <div style="margin-bottom: 28px;">
+                        <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; color: var(--primary);">Sensor Types:</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.8; color: var(--text-gray);">
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> <strong>PIR Motion Detectors</strong> — Detect body heat movement in rooms</li>
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> <strong>Dual-Technology Sensors</strong> — PIR + microwave for fewer false alarms</li>
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> <strong>Door/Window Contacts</strong> — Trigger when entry points open</li>
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> <strong>Glass Break Sensors</strong> — Detect shattering sound frequency</li>
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> <strong>Perimeter Beams</strong> — Invisible infrared barriers for gates/fences</li>
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> <strong>Vibration Sensors</strong> — Detect fence cutting or wall drilling</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 28px;">
+                        <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; color: var(--primary);">When to Use Alarms:</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.8; color: var(--text-gray);">
+                            <li style="margin-bottom: 8px; display: flex; gap: 10px;"><span>✓</span> Perimeter security (detect before they reach building)</li>
+                            <li style="margin-bottom: 8px; display: flex; gap: 10px;"><span>✓</span> Entry point monitoring (doors, windows, loading bays)</li>
+                            <li style="margin-bottom: 8px; display: flex; gap: 10px;"><span>✓</span> After-hours protection</li>
+                            <li style="margin-bottom: 8px; display: flex; gap: 10px;"><span>✓</span> Critical zone protection (server rooms, restricted areas)</li>
+                            <li style="margin-bottom: 8px; display: flex; gap: 10px;"><span>✓</span> Instant alert requirement</li>
+                        </ul>
+                    </div>
+
+                    <div style="margin-bottom: 32px;">
+                        <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; color: var(--primary);">Platform Options with Camera Integration:</h4>
+                        <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.8; color: var(--text-gray);">
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> <strong>Ajax Systems app</strong> — Integrates Ajax alarms with Ajax/IP cameras</li>
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> <strong>Risco Cloud app</strong> — Integrates Risco alarms with camera verification</li>
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> Can trigger Hikvision cameras when alarm activates</li>
+                            <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> Standalone alarm systems also available</li>
+                        </ul>
+                    </div>
+
+                    <a href="alarms-landing.html" style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; color: var(--primary); text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px;">Learn More About Alarm Systems →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION 5: Integration -->
+    <section id="integration" style="padding: 100px 0; background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 64px;">
+                <span class="eyebrow">Integration</span>
+                <h2 style="margin-bottom: 20px;">When Alarms & Cameras Work As One</h2>
+                <p class="subtitle" style="margin: 0 auto; max-width: 800px;">The power of layered detection multiplies when alarms and cameras communicate. Automated triggers eliminate the reliance on manual monitoring.</p>
+            </div>
+
+            <div style="max-width: 800px; margin: 0 auto 64px; background: #fff; padding: 48px; border-radius: 12px; border: 1px solid var(--border-light);">
+                <h3 style="font-size: 18px; margin-bottom: 32px; text-transform: uppercase; letter-spacing: 1px; color: var(--primary);">How Integration Works:</h3>
+                <div style="display: flex; flex-direction: column; gap: 24px;">
+                    <div style="display: flex; gap: 20px; align-items: flex-start;">
+                        <span style="width: 28px; height: 28px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0;">1</span>
+                        <p style="font-size: 15px; color: var(--text-dark); margin-top: 4px;"><strong>Alarm sensor detects intrusion</strong> — a door opens or motion is detected in a restricted zone.</p>
+                    </div>
+                    <div style="display: flex; gap: 20px; align-items: flex-start;">
+                        <span style="width: 28px; height: 28px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0;">2</span>
+                        <p style="font-size: 15px; color: var(--text-dark); margin-top: 4px;"><strong>System instantly triggers camera</strong> — associated cameras begin high-bitrate recording immediately.</p>
+                    </div>
+                    <div style="display: flex; gap: 20px; align-items: flex-start;">
+                        <span style="width: 28px; height: 28px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0;">3</span>
+                        <p style="font-size: 15px; color: var(--text-dark); margin-top: 4px;"><strong>Camera auto-focuses</strong> — PTZ cameras can be programmed to swing to the triggered zone automatically.</p>
+                    </div>
+                    <div style="display: flex; gap: 20px; align-items: flex-start;">
+                        <span style="width: 28px; height: 28px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0;">4</span>
+                        <p style="font-size: 15px; color: var(--text-dark); margin-top: 4px;"><strong>AI analytics verify threat</strong> — Deep learning algorithms confirm if the trigger was human, vehicle, or animal.</p>
+                    </div>
+                    <div style="display: flex; gap: 20px; align-items: flex-start;">
+                        <span style="width: 28px; height: 28px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0;">5</span>
+                        <p style="font-size: 15px; color: var(--text-dark); margin-top: 4px;"><strong>Guard receives live feed</strong> — Push notifications include a direct link to the real-time video event.</p>
+                    </div>
+                    <div style="display: flex; gap: 20px; align-items: flex-start;">
+                        <span style="width: 28px; height: 28px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; flex-shrink: 0;">6</span>
+                        <p style="font-size: 15px; color: var(--text-dark); margin-top: 4px;"><strong>Decision made in seconds</strong> — Informed confirmation ensures the right response is dispatched immediately.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-3" style="margin-bottom: 56px;">
+                <div class="card" style="padding: 36px; border-bottom: 4px solid var(--c-platform, #38a169);">
+                    <h3 style="font-size: 18px; margin-bottom: 20px; color: var(--text-dark);">Unified Platform</h3>
+                    <div style="font-size: 14px; line-height: 1.7; color: var(--text-gray); margin-bottom: 24px;">
+                        <p style="font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Examples:</p>
+                        <ul style="list-style: none; padding: 0;">
+                            <li>• Ajax ecosystem (Alarms + Cameras)</li>
+                            <li>• Risco Cloud (Integrated app)</li>
+                            <li>• Hikvision AX PRO (Unified system)</li>
+                        </ul>
+                    </div>
+                    <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                        <p style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text-light); margin-bottom: 4px;">Best for:</p>
+                        <p style="font-size: 13px; color: var(--text-dark);">New installations, desire for single-app control</p>
+                    </div>
+                </div>
+
+                <div class="card" style="padding: 36px; border-bottom: 4px solid var(--c-surveillance, #2b6cb0);">
+                    <h3 style="font-size: 18px; margin-bottom: 20px; color: var(--text-dark);">Cross-Platform</h3>
+                    <div style="font-size: 14px; line-height: 1.7; color: var(--text-gray); margin-bottom: 24px;">
+                        <p style="font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Examples:</p>
+                        <ul style="list-style: none; padding: 0;">
+                            <li>• Ajax alarms trigger Hikvision cameras</li>
+                            <li>• Risco app integrates 3rd-party IP cams</li>
+                            <li>• VMS platform unifying multiple brands</li>
+                        </ul>
+                    </div>
+                    <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                        <p style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text-light); margin-bottom: 4px;">Best for:</p>
+                        <p style="font-size: 13px; color: var(--text-dark);">Existing mixed systems, brand preferences</p>
+                    </div>
+                </div>
+
+                <div class="card" style="padding: 36px; border-bottom: 4px solid var(--text-light);">
+                    <h3 style="font-size: 18px; margin-bottom: 20px; color: var(--text-dark);">Separate Systems</h3>
+                    <div style="font-size: 14px; line-height: 1.7; color: var(--text-gray); margin-bottom: 24px;">
+                        <p style="font-weight: 700; color: var(--text-dark); margin-bottom: 8px;">Examples:</p>
+                        <ul style="list-style: none; padding: 0;">
+                            <li>• Alarms on Ajax/Risco app</li>
+                            <li>• Cameras on Hikvision app</li>
+                            <li>• Both function independently</li>
+                        </ul>
+                    </div>
+                    <div style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                        <p style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text-light); margin-bottom: 4px;">Best for:</p>
+                        <p style="font-size: 13px; color: var(--text-dark);">Simple setups, budget constraints</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="max-width: 850px; margin: 0 auto; background: #fff; border: 2px solid #e8eaed; border-left: 5px solid var(--primary); padding: 32px; border-radius: 12px;">
+                <p style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 12px;">Important Note:</p>
+                <p style="font-size: 15px; line-height: 1.7; color: var(--text-dark); margin: 0;">Integration is valuable but not mandatory. A property with separate alarm and camera apps still benefits from layered detection — you just manage them separately. Integration adds convenience and automation, but both systems work effectively on their own.</p>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION 6: Scalability -->
+    <section id="scalability" style="padding: 100px 0; background: var(--bg-white, #ffffff);">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 72px;">
+                <span class="eyebrow">Scalability</span>
+                <h2 style="margin-bottom: 20px;">Layered Detection Scaled to Your Property</h2>
+                <p class="subtitle" style="margin: 0 auto; max-width: 800px;">The same design philosophy applies across all property sizes — only the scale and complexity change.</p>
+            </div>
+
+            <div class="grid-3">
+                <!-- SMALL PROPERTIES -->
+                <div class="card" style="padding: 40px; display: flex; flex-direction: column; height: 100%;">
+                    <div style="margin-bottom: 24px;">
+                        <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-light); border: 1px solid #e8eaed; padding: 4px 10px; border-radius: 4px;">Small Properties</span>
+                        <h3 style="margin-top: 16px; font-size: 20px;">Homes, Small Offices, & Clinics</h3>
+                    </div>
+                    
+                    <div style="flex-grow: 1;">
+                        <div style="margin-bottom: 24px;">
+                            <h4 style="font-size: 13px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px;">Typical Setup:</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.7; color: var(--text-gray);">
+                                <li style="margin-bottom: 6px;">• 4-8 IP cameras (entry + interior)</li>
+                                <li style="margin-bottom: 6px;">• Door/window contacts (all entries)</li>
+                                <li style="margin-bottom: 6px;">• 1-2 motion detectors in main zones</li>
+                                <li style="margin-bottom: 6px;">• Mobile app monitoring</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 24px;">
+                            <h4 style="font-size: 13px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px;">Design Focus:</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.7; color: var(--text-gray);">
+                                <li style="margin-bottom: 6px;">• Entry point coverage (front/back/windows)</li>
+                                <li style="margin-bottom: 6px;">• Interior verification (hallways/rooms)</li>
+                                <li style="margin-bottom: 6px;">• Simple arming/disarming logic</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 24px;">
+                            <h4 style="font-size: 13px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px;">Platform Approach:</h4>
+                            <p style="font-size: 14px; line-height: 1.7; color: var(--text-gray);">Separate apps (Ajax/Hikvision) or single-app integration (convenience-driven).</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #f1f3f4;">
+                        <p style="font-size: 12px; font-weight: 700; color: var(--text-light); text-transform: uppercase; margin-bottom: 4px;">Investment Range:</p>
+                        <p style="font-size: 22px; font-weight: 700; color: var(--text-dark);">$3,000 — $12,000</p>
+                    </div>
+                </div>
+
+                <!-- MEDIUM PROPERTIES -->
+                <div class="card" style="padding: 40px; display: flex; flex-direction: column; height: 100%; border-top: 4px solid var(--primary);">
+                    <div style="margin-bottom: 24px;">
+                        <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary); border: 1px solid var(--primary); padding: 4px 10px; border-radius: 4px;">Medium Properties</span>
+                        <h3 style="margin-top: 16px; font-size: 20px;">Condos, Retail, & Offices</h3>
+                    </div>
+                    
+                    <div style="flex-grow: 1;">
+                        <div style="margin-bottom: 24px;">
+                            <h4 style="font-size: 13px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px;">Typical Setup:</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.7; color: var(--text-gray);">
+                                <li style="margin-bottom: 6px;">• 15-40 IP cameras (car park/perimeter)</li>
+                                <li style="margin-bottom: 6px;">• Perimeter beams + motion sensors</li>
+                                <li style="margin-bottom: 6px;">• Access control audit integration</li>
+                                <li style="margin-bottom: 6px;">• Guard monitoring station</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 24px;">
+                            <h4 style="font-size: 13px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px;">Design Focus:</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.7; color: var(--text-gray);">
+                                <li style="margin-bottom: 6px;">• Zoned criticality (public vs restricted)</li>
+                                <li style="margin-bottom: 6px;">• Visual verification of all alarm zones</li>
+                                <li style="margin-bottom: 6px;">• Multi-user audit trails</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 24px;">
+                            <h4 style="font-size: 13px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px;">Platform Approach:</h4>
+                            <p style="font-size: 14px; line-height: 1.7; color: var(--text-gray);">Unified platform or VMS recommended for faster response.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #f1f3f4;">
+                        <p style="font-size: 12px; font-weight: 700; color: var(--text-light); text-transform: uppercase; margin-bottom: 4px;">Investment Range:</p>
+                        <p style="font-size: 22px; font-weight: 700; color: var(--text-dark);">$15,000 — $60,000</p>
+                    </div>
+                </div>
+
+                <!-- LARGE PROPERTIES -->
+                <div class="card" style="padding: 40px; display: flex; flex-direction: column; height: 100%;">
+                    <div style="margin-bottom: 24px;">
+                        <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-light); border: 1px solid #e8eaed; padding: 4px 10px; border-radius: 4px;">Large Properties</span>
+                        <h3 style="margin-top: 16px; font-size: 20px;">Industrial, Campus, & Warehouses</h3>
+                    </div>
+                    
+                    <div style="flex-grow: 1;">
+                        <div style="margin-bottom: 24px;">
+                            <h4 style="font-size: 13px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px;">Typical Setup:</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.7; color: var(--text-gray);">
+                                <li style="margin-bottom: 6px;">• 50-200+ IP cameras (mass coverage)</li>
+                                <li style="margin-bottom: 6px;">• Thermal perimeter detection + AI</li>
+                                <li style="margin-bottom: 6px;">• Central Command Station</li>
+                                <li style="margin-bottom: 6px;">• Site-wide wireless links</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 24px;">
+                            <h4 style="font-size: 13px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px;">Design Focus:</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.7; color: var(--text-gray);">
+                                <li style="margin-bottom: 6px;">• Proactive perimeter early-warning</li>
+                                <li style="margin-bottom: 6px;">• Autonomous AI threat filtering</li>
+                                <li style="margin-bottom: 6px;">• Multi-system coordination (LPR/Face)</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 24px;">
+                            <h4 style="font-size: 13px; text-transform: uppercase; color: var(--primary); margin-bottom: 12px;">Platform Approach:</h4>
+                            <p style="font-size: 14px; line-height: 1.7; color: var(--text-gray);">Unified VMS platform critical for cross-system coordination.</p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 32px; padding-top: 24px; border-top: 1px solid #f1f3f4;">
+                        <p style="font-size: 12px; font-weight: 700; color: var(--text-light); text-transform: uppercase; margin-bottom: 4px;">Investment Range:</p>
+                        <p style="font-size: 22px; font-weight: 700; color: var(--text-dark);">$80,000 — $300,000+</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION 7: Safety -->
+    <section id="safety" style="padding: 100px 0; background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 72px;">
+                <span class="eyebrow">Beyond Security</span>
+                <h2 style="margin-bottom: 20px;">Detection Systems for Safety, Not Just Security</h2>
+                <p class="subtitle" style="margin: 0 auto; max-width: 800px;">The same surveillance and detection technologies that protect against intrusions can also safeguard vulnerable individuals.</p>
+            </div>
+
+            <div class="card" style="padding: 64px; background: #fff; margin-bottom: 56px;">
+                <div class="grid-2" style="gap: 64px; align-items: start;">
+                    <div>
+                        <span style="font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--primary); margin-bottom: 12px; display: block;">Main Use Case</span>
+                        <h3 style="font-size: 28px; margin-bottom: 4px;">📹 Elderly Care & Assisted Living</h3>
+                        <p style="font-size: 14px; font-weight: 500; color: var(--text-light); margin-bottom: 32px;">Monitoring seniors at home or in care facilities</p>
+                        
+                        <div style="margin-bottom: 32px;">
+                            <h4 style="font-size: 15px; text-transform: uppercase; color: var(--text-dark); margin-bottom: 16px; border-bottom: 1px solid #f1f3f4; padding-bottom: 8px;">Detection Layers:</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.8; color: var(--text-gray);">
+                                <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> Motion sensors (bedrooms, bathrooms, hallways)</li>
+                                <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> Camera AI analytics (fall detection, zone monitoring)</li>
+                                <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> Non-movement alerts (no motion detected for X hours)</li>
+                                <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> Wandering detection (person exits safe zone)</li>
+                            </ul>
+                        </div>
+
+                        <div style="margin-bottom: 32px;">
+                            <h4 style="font-size: 15px; text-transform: uppercase; color: var(--text-dark); margin-bottom: 16px; border-bottom: 1px solid #f1f3f4; padding-bottom: 8px;">Privacy Considerations:</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.8; color: var(--text-gray);">
+                                <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> Common area cameras, never in bathrooms</li>
+                                <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> AI detects falls without storing visual data</li>
+                                <li style="margin-bottom: 8px; padding-left: 20px; position: relative;"><span style="position: absolute; left: 0; color: var(--primary);">•</span> Alert-only systems (notification without recording)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--bg-light); padding: 40px; border-radius: 12px;">
+                        <h4 style="font-size: 15px; text-transform: uppercase; color: var(--text-dark); margin-bottom: 24px;">How It Works:</h4>
+                        <div style="display: flex; flex-direction: column; gap: 24px;">
+                            <div style="display: flex; gap: 16px;">
+                                <div style="width: 32px; height: 32px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">1</div>
+                                <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);"><strong style="color: var(--text-dark);">Activity Mapping:</strong> Sensors confirm regular activity patterns (e.g., kitchen use at 8 AM).</p>
+                            </div>
+                            <div style="display: flex; gap: 16px;">
+                                <div style="width: 32px; height: 32px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">2</div>
+                                <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);"><strong style="color: var(--text-dark);">AI Assessment:</strong> Cameras with edge-AI detect unusual positions (human down on floor).</p>
+                            </div>
+                            <div style="display: flex; gap: 16px;">
+                                <div style="width: 32px; height: 32px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">3</div>
+                                <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);"><strong style="color: var(--text-dark);">Non-Movement Alert:</strong> System triggers if no motion detected for fixed periods (e.g., 4 hours).</p>
+                            </div>
+                            <div style="display: flex; gap: 16px;">
+                                <div style="width: 32px; height: 32px; background: var(--primary); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">4</div>
+                                <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);"><strong style="color: var(--text-dark);">Instant Notification:</strong> Family or caregivers receive a priority alert on their mobile devices.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; max-width: 900px; margin: 0 auto 56px;">
+                <p style="font-size: 32px; line-height: 1.4; color: var(--primary); font-family: 'Montserrat', sans-serif; font-weight: 500; font-style: italic;">
+                    "This isn't surveillance — it's care. The same detection technology that secures buildings can also provide peace of mind for families with elderly loved ones."
+                </p>
+            </div>
+
+            <div style="background: var(--bg-dark); padding: 48px; border-radius: 12px; color: #fff;">
+                <h4 style="font-size: 18px; margin-bottom: 24px; text-transform: uppercase; letter-spacing: 1.5px; opacity: 0.8; text-align: center;">Other Safety Applications</h4>
+                <div class="grid-3" style="gap: 40px;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 32px; margin-bottom: 16px;">🏊</div>
+                        <h5 style="font-size: 16px; margin-bottom: 12px;">Pool Area Monitoring</h5>
+                        <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6;">Detect if a child enters the pool perimeter unsupervised using AI virtual fences.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 32px; margin-bottom: 16px;">👷</div>
+                        <h5 style="font-size: 16px; margin-bottom: 12px;">Lone Worker Safety</h5>
+                        <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6;">Detect if a staff member is "man-down" in warehouse or restricted areas via AI analytics.</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 32px; margin-bottom: 16px;">🔥</div>
+                        <h5 style="font-size: 16px; margin-bottom: 12px;">Fire/Smoke Integration</h5>
+                        <p style="font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.6;">Cameras visually verify the source of fire alarms, reducing false facility evacuations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION 8: Components -->
+    <section id="components" style="padding: 100px 0; background: var(--bg-white, #ffffff);">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 72px;">
+                <span class="eyebrow">Systems & Components</span>
+                <h2 style="margin-bottom: 20px;">Explore Detection Components</h2>
+                <p class="subtitle" style="margin: 0 auto; max-width: 800px;">Dive deeper into the specific systems that make up surveillance and detection:</p>
+            </div>
+
+            <div class="grid-3">
+                <!-- CARD 1 -->
+                <div class="card" style="padding: 40px; transition: transform 0.3s ease;">
+                    <div style="font-size: 32px; margin-bottom: 24px;">📹</div>
+                    <h3 style="font-size: 20px; margin-bottom: 12px;">CCTV & IP Cameras</h3>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray); margin-bottom: 24px;">High-definition recording, built-in AI analytics, and secure remote viewing from any device.</p>
+                    <a href="cctv-systems.html" style="font-size: 14px; font-weight: 700; color: var(--primary); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Explore CCTV Systems <span style="font-size: 18px;">→</span></a>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="card" style="padding: 40px; transition: transform 0.3s ease;">
+                    <div style="font-size: 32px; margin-bottom: 24px;">🔔</div>
+                    <h3 style="font-size: 20px; margin-bottom: 12px;">Burglar Alarm Systems</h3>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray); margin-bottom: 24px;">Instant intrusion alerts powered by extensive sensor networks across your entire property.</p>
+                    <a href="alarm-systems.html" style="font-size: 14px; font-weight: 700; color: var(--primary); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Explore Alarm Systems <span style="font-size: 18px;">→</span></a>
+                </div>
+
+                <!-- CARD 3 -->
+                <div class="card" style="padding: 40px; transition: transform 0.3s ease;">
+                    <div style="font-size: 32px; margin-bottom: 24px;">🌡️</div>
+                    <h3 style="font-size: 20px; margin-bottom: 12px;">Thermal Imaging</h3>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray); margin-bottom: 24px;">Detect heat signatures and movement in complete darkness or challenging weather conditions.</p>
+                    <a href="thermal-imaging.html" style="font-size: 14px; font-weight: 700; color: var(--primary); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Learn About Thermal <span style="font-size: 18px;">→</span></a>
+                </div>
+
+                <!-- CARD 4 -->
+                <div class="card" style="padding: 40px; transition: transform 0.3s ease;">
+                    <div style="font-size: 32px; margin-bottom: 24px;">📡</div>
+                    <h3 style="font-size: 20px; margin-bottom: 12px;">Perimeter Detection</h3>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray); margin-bottom: 24px;">Outdoor fence sensors, laser beams, and early warning systems for boundary security.</p>
+                    <a href="perimeter-security.html" style="font-size: 14px; font-weight: 700; color: var(--primary); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Explore Perimeter Systems <span style="font-size: 18px;">→</span></a>
+                </div>
+
+                <!-- CARD 5 -->
+                <div class="card" style="padding: 40px; transition: transform 0.3s ease;">
+                    <div style="font-size: 32px; margin-bottom: 24px;">🤖</div>
+                    <h3 style="font-size: 20px; margin-bottom: 12px;">AI Video Analytics</h3>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray); margin-bottom: 24px;">Deep learning algorithms that filter threats from noise, reducing false alarms by up to 90%.</p>
+                    <a href="ai-analytics.html" style="font-size: 14px; font-weight: 700; color: var(--primary); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Learn About AI Analytics <span style="font-size: 18px;">→</span></a>
+                </div>
+
+                <!-- CARD 6 -->
+                <div class="card" style="padding: 40px; transition: transform 0.3s ease;">
+                    <div style="font-size: 32px; margin-bottom: 24px;">📱</div>
+                    <h3 style="font-size: 20px; margin-bottom: 12px;">Integration Platforms</h3>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray); margin-bottom: 24px;">Centralized management via Ajax, Risco, Hikvision, or enterprise VMS software.</p>
+                    <a href="integration-platforms.html" style="font-size: 14px; font-weight: 700; color: var(--primary); text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">Explore Integration <span style="font-size: 18px;">→</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION 9: CTA -->
+    <section id="cta" style="padding: 120px 0; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); position: relative; overflow: hidden; color: #fff;">
+        <!-- Subtle Background Pattern Overlay -->
+        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('proprietary-assets/grid-pattern.svg') center/cover; opacity: 0.1; pointer-events: none;"></div>
+        
+        <div class="container" style="position: relative; z-index: 2; text-align: center;">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 style="color: #ffffff; font-size: 36px; margin-bottom: 24px;">Not Sure Which Detection Layers You Need?</h2>
+                <p style="color: rgba(255, 255, 255, 0.85); font-size: 18px; line-height: 1.6; margin-bottom: 48px;">
+                    Every property has different vulnerabilities. Our systems engineers will assess your site and recommend the right combination of alarms, cameras, and integration to match your threat profile and budget.
+                </p>
+                
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://wa.me/6593860466" target="_blank" rel="noopener" class="btn btn-whatsapp" style="background: #25D366; color: #fff; padding: 16px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 12px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.03a11.782 11.782 0 001.583 5.867L0 24l6.117-1.605a11.772 11.772 0 005.925 1.603h.005c6.635 0 12.022-5.392 12.026-12.033a11.742 11.742 0 00-3.504-8.508z"/>
+                        </svg>
+                        WhatsApp Engineer
+                    </a>
+                    
+                    <a href="contact.html" class="btn btn-primary" style="background: var(--primary); color: #fff; padding: 16px 32px; border-radius: 8px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);">
+                        Book Site Assessment
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="f-logo-wrap">
+                    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
+                    <span class="brand-name">Securevision</span>
+                </div>
+                <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since 2006.</p>
+                <div class="f-socials">
+                    <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@securevision" target="_blank" rel="noopener" aria-label="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="residential.html">Private Homes</a></li>
+                    <li><a href="condominiums.html">Condominiums</a></li>
+                    <li><a href="commercial.html">Commercial &amp; Retail</a></li>
+                    <li><a href="industrial.html">Industrial &amp; Logistics</a></li>
+                    <li><a href="institutions.html">Institutions &amp; Government</a></li>
+                    <li><a href="healthcare.html">Healthcare &amp; Managed Living</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="awards-certifications.html">Awards &amp; Certifications</a></li>
+                    <li><a href="portfolio.html">Project Portfolio</a></li>
+                    <li><a href="insights.html">Industry Insights</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Get In Touch</h4>
+                <div class="footer-contact-item">
+                    <span>💬</span>
+                    <a href="https://wa.me/6593860466">WhatsApp Us</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span>✉️</span>
+                    <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span>📞</span>
+                    <a href="tel:+6562864796">+65 6286 4796</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Securevision Pte Ltd &middot; Police Licence L/PS/000267/2023P &middot; bizSAFE Level 3 &middot; BCA Registered</p>
+            <div class="footer-bottom-links">
+                <a href="sitemap.html">Sitemap</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
     </div>
-  </div>
-</section>
-
-<footer class="main-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <!-- Col 1: Brand & Basic Info -->
-      <div class="footer-col footer-brand">
-        <a href="index.html" class="footer-logo">
-          <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
-          <span class="wordmark footer-wordmark">SECUREVISION</span>
-        </a>
-        <p class="footer-tagline">Engineering security solutions across Singapore since 2006. NUS engineering-led and police-licensed.</p>
-        <div class="footer-contact-info">
-          <p><strong>Securevision Pte Ltd</strong></p>
-          <p>Police License: L/PS/000267/2023P</p>
-          <p>bizSAFE Level 3</p>
-        </div>
-      </div>
-
-      <!-- Col 2: Solutions -->
-      <div class="footer-col">
-        <h4 class="footer-title">Solutions</h4>
-        <ul class="footer-links">
-          <li><a href="residential.html">Private Homes</a></li>
-          <li><a href="condominiums.html">Condominiums (MCST)</a></li>
-          <li><a href="commercial.html">Commercial & Retail</a></li>
-          <li><a href="institutions.html">Institutions</a></li>
-          <li><a href="industrial.html">Industrial & Logistics</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 3: Systems -->
-      <div class="footer-col">
-        <h4 class="footer-title">Systems</h4>
-        <ul class="footer-links">
-          <li><a href="surveillance-systems.html">Surveillance & Detection</a></li>
-          <li><a href="people-access.html">People Access Systems</a></li>
-          <li><a href="vehicle-access.html">Vehicle Access Systems</a></li>
-          <li><a href="platform-integration.html">Platform & Integration</a></li>
-          <li><a href="brands.html">Hardware Brands</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 4: Reach Us -->
-      <div class="footer-col">
-        <h4 class="footer-title">Reach Us</h4>
-        <ul class="footer-links">
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="about.html">Our Story</a></li>
-          <li><a href="portfolio.html">Project Portfolio</a></li>
-          <li><a href="insights.html">Security Insights</a></li>
-          <li><a href="https://wa.me/6593860466" class="footer-whatsapp"><strong>WhatsApp: +65 9386 0466</strong></a></li>
-        </ul>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/securevision" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="https://www.linkedin.com/company/securevision-pte-ltd" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-        </div>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <div class="footer-bottom-inner">
-        <p>&copy; 2025 Securevision Pte Ltd. All rights reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </div>
 </footer>
 
 <!-- Floating WhatsApp Button -->
@@ -555,26 +872,29 @@
   <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.03a11.782 11.782 0 001.583 5.867L0 24l6.117-1.605a11.772 11.772 0 005.925 1.603h.005c6.635 0 12.022-5.392 12.026-12.033a11.742 11.742 0 00-3.504-8.508z"/></svg>
 </a>
 
+<!-- Scripts -->
 <script>
-// Mobile toggle
+// Main Nav Scroll Effect
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('.main-nav');
+    if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
+
+// Mobile Menu Toggle
 function toggleMobileMenu() {
-  const menu = document.getElementById('mobileMenu');
-  menu.classList.toggle('active');
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('active');
 }
-function toggleSubmenu(id) {
-  const sub = document.getElementById(id);
-  const isOpen = sub.style.display === 'block';
-  document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
-  if (!isOpen) sub.style.display = 'block';
-}
-// Tap outside to close
-document.addEventListener('click', function(e) {
-  const nav = document.querySelector('.main-nav');
-  const menu = document.getElementById('mobileMenu');
-  if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
-    menu.classList.remove('active');
-  }
+
+// Set Current Year
+document.querySelectorAll('.current-year').forEach(el => {
+    el.textContent = new Date().getFullYear();
 });
 </script>
 
-
+</body>
+</html>
