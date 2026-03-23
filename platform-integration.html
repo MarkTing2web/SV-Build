@@ -117,6 +117,39 @@
 
 .step-circle { width: 64px; height: 64px; background: #38a169; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: 800; margin: 0 auto 24px; }
 .capability-icon { font-size: 36px; margin-bottom: 24px; display: block; }
+
+/* Ecosystem Partners Matrix */
+.partners-table-outer { width: 100%; overflow-x: auto; margin-top: 48px; padding: 1px; }
+.partners-matrix-table { display: grid; grid-template-columns: repeat(7, minmax(130px, 1fr)); border: 1px solid var(--border-light); background: var(--border-light); gap: 1px; border-radius: 12px; overflow: hidden; min-width: 910px; }
+.cat-cell { background: #f8f9fa; padding: 20px 10px; text-align: center; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--text-light); border-bottom: 1px solid var(--border-light); transition: 0.3s; }
+.cat-cell:hover { background: #fff; color: var(--primary-blue); }
+.brand-cell { background: #fff; aspect-ratio: 1 / 1; display: flex; align-items: center; justify-content: center; padding: 24px; text-decoration: none; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); position: relative; }
+.brand-cell:hover { background: #f0f7ff; z-index: 2; box-shadow: inset 0 0 0 2px var(--primary-blue); }
+.table-logo { width: 100%; height: 100%; background-size: contain; background-repeat: no-repeat; background-position: center; filter: invert(1) grayscale(1) opacity(0.8); transition: 0.3s; }
+.brand-cell:hover .table-logo { filter: invert(1) grayscale(0) opacity(1); transform: scale(1.1); }
+.tl-risco { background-image: url('images/logo-risco.png'); }
+.tl-ajax { background-image: url('images/logo-ajax.png'); }
+.tl-paradox { background-image: url('images/logo-paradox.png'); }
+.tl-hikvision { background-image: url('images/logo-hikvision.png'); }
+.tl-milesight { background-image: url('images/strip-cctv.png'); background-size: 200% auto; background-position: 100% center; }
+.tl-hanwha { background-image: url('images/logo-wisenet.svg'); background-size: contain; background-repeat: no-repeat; background-position: center; }
+.tl-zkteco { background-image: url('images/strip-access.png'); background-size: 600% auto; background-position: 0% center; }
+.tl-suprema { background-image: url('images/strip-access.png'); background-size: 600% auto; background-position: 20% center; }
+.tl-hid { background-image: url('images/strip-access.png'); background-size: 600% auto; background-position: 80% center; }
+.tl-akuvox { background-image: url('images/strip-intercom-gates.png'); background-size: 600% auto; background-position: 0% center; }
+.tl-aiphone { background-image: url('images/strip-intercom-gates.png'); background-size: 600% auto; background-position: 20% center; }
+.tl-kocom { background-image: url('images/strip-intercom-gates.png'); background-size: 600% auto; background-position: 40% center; }
+.tl-faac { background-image: url('images/strip-intercom-gates.png'); background-size: 600% auto; background-position: 60% center; }
+.tl-dormer { background-image: url('images/strip-intercom-gates.png'); background-size: 600% auto; background-position: 80% center; }
+.tl-mag { background-image: url('images/strip-intercom-gates.png'); background-size: 600% auto; background-position: 100% center; }
+.tl-yeastar { background-image: url('images/strip-it-network.png'); background-size: 400% auto; background-position: 0% center; }
+.tl-fanvil { background-image: url('images/strip-it-network.png'); background-size: 400% auto; background-position: 33% center; }
+.tl-ruijie { background-image: url('images/strip-it-network.png'); background-size: 400% auto; background-position: 66% center; }
+.tl-omada { background-image: url('images/strip-it-network.png'); background-size: 400% auto; background-position: 100% center; }
+.brand-cell.empty { background: #fafafa; pointer-events: none; }
+.scroll-hint { display: none; font-size: 11px; color: var(--text-light); margin-bottom: 8px; text-align: right; }
+@media (max-width: 910px) { .scroll-hint { display: block; } }
+
 </style>
 
 <!-- Hero Section -->
@@ -517,9 +550,45 @@
                 <h2>Brands We Integrate</h2>
                 <p class="subtitle">Manufacturer-neutral connectivity.</p>
             </div>
-            <div class="grid-5" style="margin-top: 56px; opacity: 0.6; text-align: center; font-weight: 700;">
-                <div>Hikvision</div><div>Hanwha</div><div>ZKTeco</div><div>Akuvox</div><div>AJAX</div>
-                <div style="margin-top: 40px;">FAAC</div><div style="margin-top: 40px;">Dahua</div><div style="margin-top: 40px;">Suprema</div><div style="margin-top: 40px;">2N</div><div style="margin-top: 40px;">Bosch</div>
+            <div class="partners-table-outer">
+                <div class="scroll-hint">Swipe to see more &rarr;</div>
+                <div class="partners-matrix-table">
+                    <!-- ROW 1: HEADERS -->
+                    <div class="cat-cell">Alarm</div>
+                    <div class="cat-cell">CCTV</div>
+                    <div class="cat-cell">Access</div>
+                    <div class="cat-cell">Intercom</div>
+                    <div class="cat-cell">Gates</div>
+                    <div class="cat-cell">IP Voice</div>
+                    <div class="cat-cell">Network</div>
+
+                    <!-- ROW 2: BRANDS -->
+                    <a href="risco-alarm-singapore.html" class="brand-cell"><div class="table-logo tl-risco"></div></a>
+                    <a href="hikvision-singapore.html" class="brand-cell"><div class="table-logo tl-hikvision"></div></a>
+                    <a href="zkteco-singapore.html" class="brand-cell"><div class="table-logo tl-zkteco"></div></a>
+                    <a href="akuvox-singapore.html" class="brand-cell"><div class="table-logo tl-akuvox"></div></a>
+                    <a href="faac-singapore.html" class="brand-cell"><div class="table-logo tl-faac"></div></a>
+                    <a href="yeastar-singapore.html" class="brand-cell"><div class="table-logo tl-yeastar"></div></a>
+                    <a href="brands.html" class="brand-cell"><div class="table-logo tl-ruijie"></div></a>
+
+                    <!-- ROW 3: BRANDS -->
+                    <a href="ajax-alarm-singapore.html" class="brand-cell"><div class="table-logo tl-ajax"></div></a>
+                    <a href="milesight-singapore.html" class="brand-cell"><div class="table-logo tl-milesight"></div></a>
+                    <a href="suprema-singapore.html" class="brand-cell"><div class="table-logo tl-suprema"></div></a>
+                    <a href="aiphone-singapore.html" class="brand-cell"><div class="table-logo tl-aiphone"></div></a>
+                    <a href="dormer-singapore.html" class="brand-cell"><div class="table-logo tl-dormer"></div></a>
+                    <a href="fanvil-singapore.html" class="brand-cell"><div class="table-logo tl-fanvil"></div></a>
+                    <a href="brands.html" class="brand-cell"><div class="table-logo tl-omada"></div></a>
+
+                    <!-- ROW 4: BRANDS -->
+                    <a href="paradox-alarm-singapore.html" class="brand-cell"><div class="table-logo tl-paradox"></div></a>
+                    <a href="hanwha-samsung-singapore.html" class="brand-cell"><div class="table-logo tl-hanwha"></div></a>
+                    <a href="hid-singapore.html" class="brand-cell"><div class="table-logo tl-hid"></div></a>
+                    <a href="kocom-singapore.html" class="brand-cell"><div class="table-logo tl-kocom"></div></a>
+                    <a href="mag-gates-singapore.html" class="brand-cell"><div class="table-logo tl-mag"></div></a>
+                    <div class="brand-cell empty"></div>
+                    <div class="brand-cell empty"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -610,10 +679,6 @@ document.addEventListener('click', function (e) {
         menu.classList.remove('active');
     }
 });
-</script>
-</body>
-</html>      }
-        });
 </script>
 </body>
 </html>
