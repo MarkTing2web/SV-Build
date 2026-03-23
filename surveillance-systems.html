@@ -223,64 +223,73 @@
             
             <div class="grid-3">
                 <!-- CARD 1: Alarm Only -->
-                <div class="card" style="border-top: 4px solid #e53e3e; padding: 32px;">
-                    <h3 style="color: #e53e3e; font-size: 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
-                        <span>❌</span> Alarm Only
-                    </h3>
-                    <div style="font-size: 13px; line-height: 1.6;">
-                        <p style="font-weight: 700; margin-bottom: 8px; color: var(--text-dark);">Scenario:</p>
-                        <ul style="list-style: none; padding: 0; color: var(--text-gray); margin-bottom: 20px;">
-                            <li>• Motion sensor triggers at 2 AM</li>
-                            <li>• Guard gets alert: "Zone 3 breach"</li>
-                            <li>• No visual confirmation</li>
-                            <li>• Guard must physically investigate (3-5 mins)</li>
-                            <li>• Could be cat, wind, actual intruder — unknown</li>
-                        </ul>
-                        <div style="background: #fff5f5; padding: 12px; border-radius: 6px; border-left: 3px solid #e53e3e;">
-                            <p style="font-weight: 700; color: #c53030; margin-bottom: 4px;">Result:</p>
-                            <p style="color: #c53030;">Wasted response time, high false alarm rate</p>
+                <div class="card" style="padding: 0; border-top: 4px solid #e53e3e; overflow: hidden; display: flex; flex-direction: column;">
+                    <img src="proprietary-assets/scenario-alarm.png" alt="Alarm Only - Unverified Alert" style="width: 100%; height: 180px; object-fit: cover;">
+                    <div style="padding: 32px;">
+                        <h3 style="color: #e53e3e; font-size: 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                            <span>❌</span> Alarm Only
+                        </h3>
+                        <div style="font-size: 13px; line-height: 1.6;">
+                            <p style="font-weight: 700; margin-bottom: 8px; color: var(--text-dark);">Scenario:</p>
+                            <ul style="list-style: none; padding: 0; color: var(--text-gray); margin-bottom: 20px;">
+                                <li>• Motion sensor triggers at 2 AM</li>
+                                <li>• Guard gets alert: "Zone 3 breach"</li>
+                                <li>• No visual confirmation</li>
+                                <li>• Guard must physically investigate (3-5 mins)</li>
+                                <li>• Cause unknown (animal, wind, intruder)</li>
+                            </ul>
+                            <div style="background: #fff5f5; padding: 12px; border-radius: 6px; border-left: 3px solid #e53e3e;">
+                                <p style="font-weight: 700; color: #c53030; margin-bottom: 4px;">Result:</p>
+                                <p style="color: #c53030;">Wasted response time, high false alarm risk.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- CARD 2: Camera Only -->
-                <div class="card" style="border-top: 4px solid #dd6b20; padding: 32px;">
-                    <h3 style="color: #dd6b20; font-size: 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
-                        <span>⚠️</span> Camera Only
-                    </h3>
-                    <div style="font-size: 13px; line-height: 1.6;">
-                        <p style="font-weight: 700; margin-bottom: 8px; color: var(--text-dark);">Scenario:</p>
-                        <ul style="list-style: none; padding: 0; color: var(--text-gray); margin-bottom: 20px;">
-                            <li>• Intruder crosses perimeter at 2 AM</li>
-                            <li>• No immediate alert (recording passively)</li>
-                            <li>• Guard notices 10 mins later during routine check</li>
-                            <li>• Intruder already inside building</li>
-                            <li>&nbsp;</li>
-                        </ul>
-                        <div style="background: #fffaf0; padding: 12px; border-radius: 6px; border-left: 3px solid #dd6b20;">
-                            <p style="font-weight: 700; color: #9c4221; margin-bottom: 4px;">Result:</p>
-                            <p style="color: #9c4221;">Delayed detection, reactive response</p>
+                <div class="card" style="padding: 0; border-top: 4px solid #dd6b20; overflow: hidden; display: flex; flex-direction: column;">
+                    <img src="proprietary-assets/scenario-camera.png" alt="Camera Only - Delayed Discovery" style="width: 100%; height: 180px; object-fit: cover;">
+                    <div style="padding: 32px;">
+                        <h3 style="color: #dd6b20; font-size: 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                            <span>⚠️</span> Camera Only
+                        </h3>
+                        <div style="font-size: 13px; line-height: 1.6;">
+                            <p style="font-weight: 700; margin-bottom: 8px; color: var(--text-dark);">Scenario:</p>
+                            <ul style="list-style: none; padding: 0; color: var(--text-gray); margin-bottom: 20px;">
+                                <li>• Intruder crosses perimeter at 2 AM</li>
+                                <li>• No immediate alert (passive recording)</li>
+                                <li>• Guard notices 10 mins later by chance</li>
+                                <li>• Intruder already inside the building</li>
+                                <li>• Investigation happens too late</li>
+                            </ul>
+                            <div style="background: #fffaf0; padding: 12px; border-radius: 6px; border-left: 3px solid #dd6b20;">
+                                <p style="font-weight: 700; color: #9c4221; margin-bottom: 4px;">Result:</p>
+                                <p style="color: #9c4221;">Delayed detection, reactive threat response.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- CARD 3: Layered Detection -->
-                <div class="card" style="border-top: 4px solid #38a169; padding: 32px; background: #f0fff4;">
-                    <h3 style="color: #38a169; font-size: 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
-                        <span>✅</span> Layered Detection
-                    </h3>
-                    <div style="font-size: 13px; line-height: 1.6;">
-                        <p style="font-weight: 700; margin-bottom: 8px; color: var(--text-dark);">Scenario:</p>
-                        <ul style="list-style: none; padding: 0; color: var(--text-gray); margin-bottom: 20px;">
-                            <li>• Motion sensor triggers at 2 AM</li>
-                            <li>• Alarm sends alert: "Zone 3 breach"</li>
-                            <li>• Camera auto-focuses on Zone 3</li>
-                            <li>• AI analytics confirm: "Human detected"</li>
-                            <li>• Guard sees live video within 5 seconds</li>
-                        </ul>
-                        <div style="background: #ffffff; padding: 12px; border-radius: 6px; border-left: 3px solid #38a169;">
-                            <p style="font-weight: 700; color: #22543d; margin-bottom: 4px;">Result:</p>
-                            <p style="color: #22543d;">Instant detection, visual verification, informed decision</p>
+                <div class="card" style="padding: 0; border-top: 4px solid #38a169; overflow: hidden; display: flex; flex-direction: column; background: #f0fff4;">
+                    <img src="proprietary-assets/scenario-layered.png" alt="Layered Detection - Proactive Verification" style="width: 100%; height: 180px; object-fit: cover;">
+                    <div style="padding: 32px;">
+                        <h3 style="color: #38a169; font-size: 16px; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                            <span>✅</span> Layered Detection
+                        </h3>
+                        <div style="font-size: 13px; line-height: 1.6;">
+                            <p style="font-weight: 700; margin-bottom: 8px; color: var(--text-dark);">Scenario:</p>
+                            <ul style="list-style: none; padding: 0; color: var(--text-gray); margin-bottom: 20px;">
+                                <li>• Motion sensor triggers at 2 AM</li>
+                                <li>• Alarm pushes live video within 1 second</li>
+                                <li>• AI logic confirms: "Human Detected"</li>
+                                <li>• Visual verification in under 5 seconds</li>
+                                <li>• Police/Guard dispatched immediately</li>
+                            </ul>
+                            <div style="background: #ffffff; padding: 12px; border-radius: 6px; border-left: 3px solid #38a169;">
+                                <p style="font-weight: 700; color: #22543d; margin-bottom: 4px;">Result:</p>
+                                <p style="color: #22543d;">Instant detection, verification, and decision.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
