@@ -249,6 +249,41 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
     pointer-events: none;
 }
 
+/* -- GLOBAL CARD UTILITY -- */
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* Internal body of a card (usually a div with padding) */
+.card > div {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Automatically push the last link/button to the bottom of the card */
+.card a:last-child, .card .btn:last-child {
+    margin-top: auto;
+}
+
 /* ── SECTIONS ── */
 section { padding: 100px 0; }
 .eyebrow {
