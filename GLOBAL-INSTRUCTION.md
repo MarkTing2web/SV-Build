@@ -14,7 +14,7 @@
 
 **Language & Spelling Standards:**
 - All copy must follow **British English (UK)** spelling conventions.
-- **Key Examples**: `optimisation` (not optimization), `labour` (not labour), `centre` (not centre), `programme` (not program), `defence` (not defense), `licence` (noun), `licensing` (verb), `modelling` (not modeling).
+- **Key Examples**: `authorisation` (not authorization), `authorised` (not authorized), `optimisation` (not optimization), `labour` (not labor), `centre` (not center), `programme` (not program), `defence` (not defense), `licence` (noun), `licensing` (verb), `modelling` (not modeling).
 - Use Singapore-specific terminology: "estate", "MCST", "Managing Agent", "GCB", "bizSAFE".
 
 **Tone of voice:**

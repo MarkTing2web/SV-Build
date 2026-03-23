@@ -1,721 +1,669 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>People Access Systems | Securevision Singapore</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="sv-shared.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People Access & Authentication | Securevision Singapore</title>
+    <meta name="description" content="Beyond simple locks — engineered authorisation for Singapore's most secure buildings. Biometric, RFID, and cloud-managed access by Securevision.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="sv-shared.css">
 </head>
+<body>
 
-<body style="padding-top:68px">
-  <nav class="main-nav">
-    <div class="nav-container">
-      <!-- Logo + Wordmark Ã¢â‚¬â€ always left -->
-      <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
-        <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
-        <span class="wordmark nav-wordmark">SECUREVISION</span>
-      </a>
-      <!-- Hamburger Ã¢â‚¬â€ centred absolutely on mobile (via CSS) -->
-      <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg
-          width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" x1="12" x2="21" y2="12"></line>
-          <line x1="3" x1="6" x2="21" y2="6"></line>
-          <line x1="3" x1="18" x2="21" y2="18"></line>
-        </svg></button>
-      <!-- Desktop nav links -->
-      <ul class="nav-menu">
-        <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
-          <div class="simple-dropdown">
-            <a href="residential.html">Private Homes</a>
-            <a href="condominiums.html">Condominiums</a>
-            <a href="commercial.html">Commercial &amp; Retail</a>
-            <a href="institutions.html">Institutions</a>
-            <a href="industrial.html">Industrial &amp; Logistics</a>
-            <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
-          </div>
-        </li>
-        <li class="nav-item"><a href="systems-hub.html" class="nav-link has-dropdown active">Systems</a>
-          <div class="simple-dropdown">
-            <a href="surveillance-systems.html">Surveillance &amp; Detection</a>
-            <a href="people-access.html">People Access</a>
-            <a href="vehicle-access.html">Vehicle Access</a>
-            <a href="platform-integration.html">Platform &amp; Integration</a>
-            <a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a>
-          </div>
-        </li>
-        <li class="nav-item"><a href="brands.html" class="nav-link has-dropdown">Brands</a>
-          <div class="simple-dropdown">
-            <a href="hikvision-singapore.html">Hikvision</a>
-            <a href="hanwha-samsung-singapore.html">Hanwha</a>
-            <a href="ajax-alarm-singapore.html">AJAX</a>
-            <a href="zkteco-singapore.html">ZKTeco</a>
-            <a href="akuvox-singapore.html">Akuvox</a>
-            <a href="faac-singapore.html">FAAC</a>
-            <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
-          </div>
-        </li>
-        <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
-          <div class="simple-dropdown">
-            <a href="portfolio.html">Private Homes</a>
-            <a href="portfolio.html">Condominiums</a>
-            <a href="commercial.html">Commercial &amp; Retail</a>
-            <a href="institutions.html">Institutions</a>
-            <a href="industrial.html">Industrial &amp; Logistics</a>
-            <a href="portfolio.html"><strong>&rarr; All Projects</strong></a>
-          </div>
-        </li>
-        <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
-          <div class="simple-dropdown">
-            <a href="insights.html?cat=planning">Security Planning</a>
-            <a href="insights.html?cat=technology">Technology</a>
-            <a href="insights.html?cat=casestudy">Case Studies</a>
-            <a href="insights.html?cat=industry">SG Industry</a>
-            <a href="insights.html"><strong>&rarr; All Articles</strong></a>
-          </div>
-        </li>
-        <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
-          <div class="simple-dropdown">
-            <a href="about.html">Our Story</a>
-            <a href="about.html#founder">Founder&rsquo;s Story</a>
-            <a href="awards-certifications.html">Awards &amp; Certifications</a>
-            <a href="contact.html">Contact Us</a>
-          </div>
-        </li>
-      </ul>
-      <!-- Desktop search icon -->
-      <div class="nav-right">
-        <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search"
-          onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" x1="21" x2="16.65" y2="16.65" />
-          </svg></button>
-      </div>
-      <!-- Mobile search icon Ã¢â‚¬â€ always right end on mobile -->
-      <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search"
-        onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8" />
-          <line x1="21" x1="21" x2="16.65" y2="16.65" />
-        </svg></button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu"
-          id="solSub"><a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a><a
-            href="residential.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a
-            href="commercial.html">Commercial</a><a href="institutions.html">Institutions</a><a
-            href="industrial.html">Industrial</a></div>
-      </div>
-      <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu"
-          id="sysSub"><a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a><a
-            href="surveillance-systems.html">Surveillance</a><a href="people-access.html">People Access</a><a
-            href="vehicle-access.html">Vehicle Access</a><a href="platform-integration.html">Platform</a></div>
-      </div>
-      <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;<div class="mobile-submenu"
-          id="brdSub"><a href="brands.html"><strong>&rarr; All 20 Brands</strong></a><a
-            href="hikvision-singapore.html">Hikvision</a><a href="ajax-alarm-singapore.html">AJAX</a><a
-            href="zkteco-singapore.html">ZKTeco</a><a href="akuvox-singapore.html">Akuvox</a><a
-            href="faac-singapore.html">FAAC</a></div>
-      </div>
-      <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;<div class="mobile-submenu"
-          id="portSub"><a href="portfolio.html"><strong>&rarr; All Projects</strong></a><a href="portfolio.html">Private
-            Homes</a><a href="portfolio.html">Condominiums</a><a href="portfolio.html">Commercial &amp; Retail</a><a
-            href="portfolio.html">Institutions</a><a href="industrial.html">Industrial</a></div>
-      </div>
-      <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights &#9662;<div class="mobile-submenu"
-          id="insSub"><a href="insights.html"><strong>&rarr; All Articles</strong></a><a
-            href="insights.html?cat=planning">Security Planning</a><a
-            href="insights.html?cat=technology">Technology</a><a href="insights.html?cat=casestudy">Case Studies</a>
+<!-- Navigation -->
+<nav class="main-nav">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
+      <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
+      <span class="wordmark nav-wordmark">SECUREVISION</span>
+    </a>
+    
+    <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
+
+    <ul class="nav-menu">
+      <li class="nav-item">
+        <a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
+        <div class="simple-dropdown">
+          <a href="residential.html">Private Homes</a>
+          <a href="condominiums.html">Condominiums</a>
+          <a href="commercial.html">Commercial & Retail</a>
+          <a href="institutions.html">Institutions</a>
+          <a href="industrial.html">Industrial & Logistics</a>
+          <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
         </div>
-      </div>
-      <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu"
-          id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a
-            href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a><a
-            href="contact.html">Contact Us</a></div>
-      </div>
+      </li>
+      <li class="nav-item">
+        <a href="systems-hub.html" class="nav-link has-dropdown active">Systems</a>
+        <div class="simple-dropdown">
+          <a href="surveillance-systems.html">Surveillance & Detection</a>
+          <a href="people-access.html">People Access</a>
+          <a href="vehicle-access.html">Vehicle Access</a>
+          <a href="platform-integration.html">Platform & Integration</a>
+          <a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="brands.html" class="nav-link has-dropdown">Brands</a>
+        <div class="simple-dropdown">
+          <a href="hikvision-singapore.html">Hikvision</a>
+          <a href="hanwha-samsung-singapore.html">Hanwha</a>
+          <a href="ajax-alarm-singapore.html">AJAX</a>
+          <a href="zkteco-singapore.html">ZKTeco</a>
+          <a href="akuvox-singapore.html">Akuvox</a>
+          <a href="faac-singapore.html">FAAC</a>
+          <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
+        </div>
+      </li>
+      <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      <li class="nav-item"><a href="insights.html" class="nav-link">Insights</a></li>
+      <li class="nav-item">
+        <a href="about.html" class="nav-link has-dropdown">About</a>
+        <div class="simple-dropdown">
+          <a href="about.html">Our Story</a>
+          <a href="awards-certifications.html">Awards & Certifications</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </li>
+    </ul>
+
+    <div class="nav-right">
+      <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
     </div>
-  </nav>
 
+    <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    </button>
+  </div>
 
-  <nav class="sv-breadcrumb">
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="solutions-hub.html" class="mobile-menu-item">Solutions</a>
+    <a href="systems-hub.html" class="mobile-menu-item">Systems</a>
+    <a href="brands.html" class="mobile-menu-item">Brands</a>
+    <a href="portfolio.html" class="mobile-menu-item">Portfolio</a>
+    <a href="insights.html" class="mobile-menu-item">Insights</a>
+    <a href="about.html" class="mobile-menu-item">About</a>
+    <a href="https://wa.me/6593860466" class="mobile-menu-item" style="color:var(--whatsapp,#25d366); border-top:1px solid rgba(255,255,255,0.1); margin-top:8px;">💬 WhatsApp Us</a>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="hero" style="padding: 180px 0 140px; text-align: center; position: relative; overflow: hidden; background: #0E1A2B; color: white;">
+    <img src="proprietary-assets/people-access-hero.png" alt="Advanced People Access Systems" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: 0;">
+    <div class="hero-overlay" style="position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.8)); z-index: 1;"></div>
+    <div class="container z-2 pos-relative" style="position: relative; z-index: 2;">
+        <span class="eyebrow-light" style="font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #5b9ee1; margin-bottom: 20px; display: block;">People Access Control</span>
+        <h1 style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: clamp(34px, 5.5vw, 56px); line-height: 1.15; margin-bottom: 28px; text-shadow: 0 2px 20px rgba(0,0,0,0.4);">Who Gets In,<br>When and Where</h1>
+        <p class="subtitle" style="font-size: 19px; color: rgba(255, 255, 255, 0.9); max-width: 850px; margin: 0 auto 44px; line-height: 1.7; text-shadow: 0 1px 10px rgba(0,0,0,0.5);">Credentials for daily users. Verification for visitors. <strong>Authorisation</strong> based on identity, not just locks on doors.</p>
+        <div class="btn-group" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+            <a href="book-slot.html" class="btn btn-primary" style="min-width: 240px; padding: 18px 36px; border-radius: 8px; font-size: 14px;">Book Site Assessment</a>
+            <a href="#overview" class="btn btn-outline-light" style="min-width: 240px; padding: 18px 36px; border-radius: 8px; font-size: 14px; border-width: 2px;">Explore Access Systems</a>
+        </div>
+        <p class="tagline" style="margin-top: 56px; font-size: 13px; opacity: 0.7; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">Engineered for Singapore Properties Since 2006</p>
+    </div>
+</header>
+
+<!-- Breadcrumbs -->
+<nav class="sv-breadcrumb" style="border-bottom: 1px solid var(--border-light);">
     <div class="container">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="systems-hub.html">Systems</a></li>
-        <li>People Access & Authentication</li>
-      </ul>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="systems-hub.html">Systems</a></li>
+            <li style="color: var(--text-dark); font-weight: 600;">People Access Control</li>
+        </ul>
     </div>
-  </nav>
+</nav>
 
+<!-- Main Content -->
+<main>
+    <!-- Section 2: THE DESIGN PHILOSOPHY -->
+    <section id="overview" class="bg-white" style="padding: 100px 0;">
+        <div class="container">
+            <div style="max-width: 900px; margin: 0 auto; text-align: center; margin-bottom: 72px;">
+                <span class="eyebrow" style="color: var(--primary-blue); font-weight: 700; margin-bottom: 16px;">The Philosophy</span>
+                <h2 style="font-size: clamp(28px, 4vw, 42px); color: var(--text-dark); margin-bottom: 24px;">Access Control: Authorisation by Identity</h2>
+                <p style="font-size: 18px; color: var(--text-gray); line-height: 1.8; font-weight: 500;">
+                    Access control isn't about locking doors — it's about answering three fundamental questions:
+                </p>
+            </div>
 
+            <!-- The Three Questions -->
+            <div class="grid-3" style="margin-bottom: 96px; gap: 32px;">
+                <div class="card" style="padding: 0; overflow: hidden; border-bottom: 4px solid var(--primary-blue);">
+                    <img src="proprietary-assets/philosophy-who-wide.png" alt="Who are they?" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 32px;">
+                        <h4 style="margin-bottom: 12px; font-size: 18px;">Who are they?</h4>
+                        <p style="font-size: 14px; color: var(--text-light); line-height: 1.6;">Separating permanent users (residents, tenants) from temporary visitors requiring one-time approval.</p>
+                    </div>
+                </div>
+                <div class="card" style="padding: 0; overflow: hidden; border-bottom: 4px solid var(--c-people);">
+                    <img src="proprietary-assets/philosophy-what-wide.png" alt="What credential?" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 32px;">
+                        <h4 style="margin-bottom: 12px; font-size: 18px;">What credential?</h4>
+                        <p style="font-size: 14px; color: var(--text-light); line-height: 1.6;">Matching patterns: cards, tokens, mobile phones, and biometric face recognition.</p>
+                    </div>
+                </div>
+                <div class="card" style="padding: 0; overflow: hidden; border-bottom: 4px solid var(--text-dark);">
+                    <img src="proprietary-assets/philosophy-how-wide.png" alt="How to prove?" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 32px;">
+                        <h4 style="margin-bottom: 12px; font-size: 18px;">How to prove?</h4>
+                        <p style="font-size: 14px; color: var(--text-light); line-height: 1.6;">Generating an audit trail showing exactly who entered, when, and who granted them authorisation.</p>
+                    </div>
+                </div>
+            </div>
 
+            <!-- Two Distinct Groups -->
+            <div style="text-align: center; margin-bottom: 56px;">
+                <h3 style="font-size: 28px; color: var(--text-dark); margin-bottom: 16px;">Two Distinct Groups: How We Design</h3>
+                <p style="font-size: 16px; color: var(--text-gray); max-width: 700px; margin: 0 auto;">Our design approach architects separate paths based on the group's relationship with the property.</p>
+            </div>
 
-  <!-- BREADCRUMBS -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch;">
+                <!-- Group 1: Permanent Users -->
+                <div class="card" style="padding: 0; overflow: hidden; border-bottom: 4px solid var(--primary-blue); background: var(--bg-light); display: flex; flex-direction: column;">
+                    <img src="proprietary-assets/group1-permanent-wide.png" alt="Group 1: Permanent Users" style="width: 100%; height: 260px; object-fit: cover;">
+                    <div style="padding: 48px; flex-grow: 1;">
+                        <h3 style="font-size: 24px; color: var(--text-dark); margin-bottom: 8px; font-family: 'Montserrat', sans-serif;">👥 Permanent Users</h3>
+                        <p style="font-size: 15px; color: var(--primary-blue); font-weight: 600; margin-bottom: 32px; letter-spacing: 0.5px; text-transform: uppercase;">Daily Access with Ongoing Credentials</p>
+                        
+                        <div style="margin-bottom: 32px;">
+                            <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-bottom: 12px;">Who They Are</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 15px; line-height: 1.8; color: var(--text-gray);">
+                                <li>• Employees (office staff, retail workers)</li>
+                                <li>• Residents & homeowners (condo, landed)</li>
+                                <li>• Tenants (commercial, industrial)</li>
+                                <li>• Family members (authorised household)</li>
+                            </ul>
+                        </div>
 
+                        <div style="margin-bottom: 40px;">
+                            <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-bottom: 20px;">Access Strategies</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.8; color: var(--text-gray);">
+                                <li style="margin-bottom: 12px;">🪪 <strong>RFID & Fobs:</strong> Low-friction, durable, and cost-effective.</li>
+                                <li style="margin-bottom: 12px;">🩺 <strong>Biometric (Face/Palm):</strong> Unshareable security.</li>
+                                <li style="margin-bottom: 12px;">📱 <strong>Mobile NFC/App:</strong> Convenient smartphone credentials.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Group 2: Temporary Users -->
+                <div class="card" style="padding: 0; overflow: hidden; border-bottom: 4px solid var(--c-people); background: #0E1A2B; color: white; display: flex; flex-direction: column;">
+                    <img src="proprietary-assets/group2-temporary-wide.png" alt="Group 2: Temporary Users" style="width: 100%; height: 260px; object-fit: cover;">
+                    <div style="padding: 48px; flex-grow: 1;">
+                        <h3 style="font-size: 24px; color: #fff; margin-bottom: 8px; font-family: 'Montserrat', sans-serif;">👋 Temporary Users</h3>
+                        <p style="font-size: 15px; color: #5b9ee1; font-weight: 600; margin-bottom: 32px; letter-spacing: 0.5px; text-transform: uppercase;">Supervised or Time-Limited Entry</p>
+                        
+                        <div style="margin-bottom: 32px;">
+                            <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-bottom: 12px;">The Tiers</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.8);">
+                                <li>• <strong>Tier 1:</strong> Casual visitors & delivery drivers</li>
+                                <li>• <strong>Tier 2:</strong> Pre-registered meeting guests</li>
+                                <li>• <strong>Tier 3:</strong> Regular contractors (cleaners, interns)</li>
+                                <li>• <strong>Tier 4:</strong> Ad-hoc food/parcel couriers</li>
+                            </ul>
+                        </div>
 
-  <!-- OVERVIEW -->
-  <section id="overview">
-    <div class="container">
-      <div class="two-col">
-        <div class="overview-text">
-          <span class="eyebrow">Why It Matters</span>
-          <h2>Know Exactly Who Is in Your Building</h2>
-          <p>Traditional locks and keys give you no audit trail, no revocation control, and no way to know who accessed
-            what and when. Modern access control transforms your building's entry points into intelligent, managed
-            checkpoints.</p>
-          <p>Securevision designs people access systems that scale Ã¢â‚¬â€ from a single front door to a 500-unit
-            condominium with multiple zones, resident access levels, and visitor pre-registration. Every entry is
-            logged, every credential can be revoked remotely.</p>
-          <ul class="check-list">
-            <li>Complete access event log for audit, compliance, and investigations</li>
-            <li>Multi-factor options: card + PIN, card + biometric, mobile</li>
-            <li>Visitor management with time-limited credential issuance</li>
-            <li>Zone-based access levels Ã¢â‚¬â€ restrict areas by role or time</li>
-            <li>Integration with CCTV for visual verification at every access point</li>
-            <li>Remote management Ã¢â‚¬â€ add, modify, or revoke access instantly</li>
-          </ul>
+                        <div style="margin-bottom: 40px;">
+                            <h4 style="font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-bottom: 20px;">Access Strategies</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.7);">
+                                <li style="margin-bottom: 12px;">📞 <strong>Video Intercom:</strong> Visual verification.</li>
+                                <li style="margin-bottom: 12px;">🏷️ <strong>Temp QR Codes:</strong> Time-limited self-service.</li>
+                                <li style="margin-bottom: 12px;">💾 <strong>Temp Cards:</strong> Credentials that auto-expire.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="max-width: 900px; margin: 80px auto 0;">
+                <p style="font-size: 16px; color: var(--text-gray); line-height: 1.8; font-style: italic; border-left: 3px solid var(--border-light); padding-left: 24px;">
+                    This isn't about installing card readers everywhere. It's about architecting credential strategies — matching the right credential type to each user group's access pattern and security requirements.
+                </p>
+            </div>
         </div>
-        <div class="spec-card">
-          <h3>System Capabilities at a Glance</h3>
-          <div class="spec-row"><span class="spec-label">Credential Types</span><span class="spec-value">Card, PIN, Bio,
-              Mobile</span></div>
-          <div class="spec-row"><span class="spec-label">Users per System</span><span class="spec-value">Up to
-              100,000+</span></div>
-          <div class="spec-row"><span class="spec-label">Door Controllers</span><span class="spec-value">2 to 128+
-              doors</span></div>
-          <div class="spec-row"><span class="spec-label">Access Levels</span><span class="spec-value">Unlimited
-              zones/times</span></div>
-          <div class="spec-row"><span class="spec-label">Audit Log</span><span class="spec-value">12 months+
-              retention</span></div>
-          <div class="spec-row"><span class="spec-label">CCTV Integration</span><span class="spec-value">Linked to
-              camera events</span></div>
-          <div class="spec-row"><span class="spec-label">Remote Management</span><span class="spec-value">Cloud /
-              On-premise</span></div>
-          <div class="spec-row"><span class="spec-label">Visitor Pre-reg</span><span class="spec-value">QR code /
-              App</span></div>
+    </section>
+    <!-- Section 3: WHY IDENTITY-BASED ACCESS MATTERS -->
+    <section class="bg-light" style="padding: 100px 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 64px;">
+                <span class="eyebrow">How It Works</span>
+                <h2 style="font-size: clamp(28px, 4vw, 40px); margin-bottom: 24px;">Why Identity-Based Access Matters: Three Scenarios</h2>
+                <p style="font-size: 17px; color: var(--text-gray); max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                    Conventional access methods often leave significant security gaps. Identity-based authorisation is designed to eliminate them by ensuring <strong>accountability</strong> for every entry.
+                </p>
+            </div>
+
+            <div class="grid-3" style="gap: 32px;">
+                <!-- Card 1: Shared Access (Red) -->
+                <div class="card" style="padding: 0; overflow: hidden; border-bottom: 4px solid #ef4444; background: white; display: flex; flex-direction: column;">
+                    <img src="proprietary-assets/scenario-red-wide.png" alt="Shared Access Risk" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 32px; flex-grow: 1;">
+                        <div style="display: inline-block; padding: 4px 10px; background: #fee2e2; color: #ef4444; font-size: 11px; font-weight: 700; border-radius: 4px; text-transform: uppercase; margin-bottom: 16px;">Vulnerability: High Risk</div>
+                        <h4 style="margin-bottom: 12px; font-size: 18px;">Shared Access</h4>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 24px; font-size: 14px; line-height: 1.6; color: var(--text-gray);">
+                            <li style="margin-bottom: 10px;">• Office uses "1234" PIN for all staff</li>
+                            <li style="margin-bottom: 10px;">• Ex-employees still know the code</li>
+                            <li style="margin-bottom: 10px;">• Code shared with unauthorised cleaners</li>
+                            <li style="margin-bottom: 10px;">• No record of who entered when</li>
+                        </ul>
+                        <div style="background: #fef2f2; padding: 16px; border-radius: 8px; border: 1px solid #fee2e2;">
+                            <p style="font-size: 13px; color: #991b1b; margin: 0;"><strong>Security Gap:</strong> PIN/key sharing leads to complete loss of accountability.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Unverified Visitor (Orange) -->
+                <div class="card" style="padding: 0; overflow: hidden; border-bottom: 4px solid #f97316; background: white; display: flex; flex-direction: column;">
+                    <img src="proprietary-assets/scenario-orange-wide.png" alt="Unverified Visitor Risk" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 32px; flex-grow: 1;">
+                        <div style="display: inline-block; padding: 4px 10px; background: #ffedd5; color: #f97316; font-size: 11px; font-weight: 700; border-radius: 4px; text-transform: uppercase; margin-bottom: 16px;">Vulnerability: Blind Spot</div>
+                        <h4 style="margin-bottom: 12px; font-size: 18px;">Unverified Visitors</h4>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 24px; font-size: 14px; line-height: 1.6; color: var(--text-gray);">
+                            <li style="margin-bottom: 10px;">• Audio-only barrier — "I'm for Unit 05"</li>
+                            <li style="margin-bottom: 10px;">• Resident hears a voice, releases lock</li>
+                            <li style="margin-bottom: 10px;">• Visitor has no ID record in system</li>
+                            <li style="margin-bottom: 10px;">• No photo log of entry or exit</li>
+                        </ul>
+                        <div style="background: #fff7ed; padding: 16px; border-radius: 8px; border: 1px solid #ffedd5;">
+                            <p style="font-size: 13px; color: #9a3412; margin: 0;"><strong>Security Gap:</strong> Audio verification is easily faked by intruders.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Identity-Based (Green) -->
+                <div class="card" style="padding: 0; overflow: hidden; border-bottom: 4px solid #10b981; background: white; display: flex; flex-direction: column;">
+                    <img src="proprietary-assets/scenario-green-wide.png" alt="Verified Identity Security" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 32px; flex-grow: 1;">
+                        <div style="display: inline-block; padding: 4px 10px; background: #d1fae5; color: #059669; font-size: 11px; font-weight: 700; border-radius: 4px; text-transform: uppercase; margin-bottom: 16px;">Status: Secured</div>
+                        <h4 style="margin-bottom: 12px; font-size: 18px;">Verified Authorisation</h4>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 24px; font-size: 14px; line-height: 1.6; color: var(--text-gray);">
+                            <li style="margin-bottom: 10px;">• Face scanned or video-verified call</li>
+                            <li style="margin-bottom: 10px;">• Visitor's photo linked to entry log</li>
+                            <li style="margin-bottom: 10px;">• Resident sees visitor before unlock</li>
+                            <li style="margin-bottom: 10px;">• Instant alerts for unauthorised events</li>
+                        </ul>
+                        <div style="background: #f0fdf4; padding: 16px; border-radius: 8px; border: 1px solid #d1fae5;">
+                            <p style="font-size: 13px; color: #065f46; margin: 0;"><strong>Outcome:</strong> 100% accountability with a visual and digital audit trail.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 64px; text-align: center;">
+                <p style="font-size: 16px; color: var(--text-light); font-weight: 500;">
+                    This is why we design for identity. Each person gets credentials matched to their pattern, visitors require visual verification, and every entry is logged.
+                </p>
+            </div>
         </div>
-      </div>
+    </section>
+    <!-- Section 4: CREDENTIAL TYPES & MULTI-MODAL ACCESS -->
+    <section class="bg-white" style="padding: 100px 0; border-top: 1px solid var(--border-light);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 64px;">
+                <span class="eyebrow">Credentials</span>
+                <h2 style="font-size: clamp(28px, 4vw, 40px); margin-bottom: 24px;">Choosing the Right Credential Type</h2>
+                <p style="font-size: 17px; color: var(--text-gray); max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                    Every credential type has trade-offs between security, convenience, and cost. Many properties use multi-modal credentials — combining two or more types for different user groups or security zones.
+                </p>
+            </div>
+
+            <!-- Comparison Table -->
+            <div style="overflow-x: auto; margin-bottom: 80px; background: white; border-radius: 12px; border: 1px solid var(--border-light); box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+                <table style="width: 100%; border-collapse: collapse; font-size: 14px; text-align: left;">
+                    <thead>
+                        <tr style="background: var(--bg-light); border-bottom: 1px solid var(--border-light);">
+                            <th style="padding: 20px 24px;">Credential Type</th>
+                            <th style="padding: 20px 24px;">Security</th>
+                            <th style="padding: 20px 24px;">Convenience</th>
+                            <th style="padding: 20px 24px;">Cost</th>
+                            <th style="padding: 20px 24px;">Can Be Shared?</th>
+                            <th style="padding: 20px 24px;">Can Be Lost?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--border-light);">
+                            <td style="padding: 16px 24px;"><strong>PIN Code</strong></td>
+                            <td style="padding: 16px 24px;">Low-Medium</td>
+                            <td style="padding: 16px 24px;">Medium</td>
+                            <td style="padding: 16px 24px;">Very Low</td>
+                            <td style="padding: 16px 24px;">✅ Yes</td>
+                            <td style="padding: 16px 24px;">❌ No</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-light);">
+                            <td style="padding: 16px 24px;"><strong>RFID Card</strong></td>
+                            <td style="padding: 16px 24px;">Medium</td>
+                            <td style="padding: 16px 24px;">High</td>
+                            <td style="padding: 16px 24px;">Low</td>
+                            <td style="padding: 16px 24px;">✅ Yes</td>
+                            <td style="padding: 16px 24px;">✅ Yes</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-light);">
+                            <td style="padding: 16px 24px;"><strong>Fingerprint</strong></td>
+                            <td style="padding: 16px 24px;">High</td>
+                            <td style="padding: 16px 24px;">Medium</td>
+                            <td style="padding: 16px 24px;">Medium</td>
+                            <td style="padding: 16px 24px;">❌ No</td>
+                            <td style="padding: 16px 24px;">❌ No</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-light);">
+                            <td style="padding: 16px 24px;"><strong>Face Recognition</strong></td>
+                            <td style="padding: 16px 24px;">High</td>
+                            <td style="padding: 16px 24px;">Very High</td>
+                            <td style="padding: 16px 24px;">High</td>
+                            <td style="padding: 16px 24px;">❌ No</td>
+                            <td style="padding: 16px 24px;">❌ No</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-light);">
+                            <td style="padding: 16px 24px;"><strong>Mobile NFC/BLE</strong></td>
+                            <td style="padding: 16px 24px;">Med-High</td>
+                            <td style="padding: 16px 24px;">High</td>
+                            <td style="padding: 16px 24px;">Medium</td>
+                            <td style="padding: 16px 24px;">⚠️ Partially</td>
+                            <td style="padding: 16px 24px;">✅ Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Multi-Modal Strategies -->
+            <div style="margin-bottom: 100px;">
+                <h3 style="text-align: center; margin-bottom: 48px; font-size: 26px;">Multi-Modal Credential Strategies</h3>
+                <div class="grid-3" style="gap: 24px;">
+                    <div class="card" style="padding: 32px; background: white;">
+                        <h4 style="color: var(--primary-blue); margin-bottom: 16px;">Zone-Based Multi-Modal</h4>
+                        <p style="font-size: 14px; margin-bottom: 16px;">Different credentials for different security zones. RFID for lobbies (low friction), but Face Recognition + PIN for the server room (high security).</p>
+                        <p style="font-size: 12px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">Used By: Commercial offices, industrial facilities</p>
+                    </div>
+                    <div class="card" style="padding: 32px; background: white;">
+                        <h4 style="color: var(--primary-blue); margin-bottom: 16px;">User-Type Multi-Modal</h4>
+                        <p style="font-size: 14px; margin-bottom: 16px;">Employees use biometrics (unshareable), visitors use temporary app-based PINs (auto-expire), and cleaners use revocable RFID cards.</p>
+                        <p style="font-size: 12px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">Used By: Gated condos, co-working spaces</p>
+                    </div>
+                    <div class="card" style="padding: 32px; background: white;">
+                        <h4 style="color: var(--primary-blue); margin-bottom: 16px;">Time-Based Multi-Modal</h4>
+                        <p style="font-size: 14px; margin-bottom: 16px;">RFID only during office hours (high throughput). After 6 PM, dual-factor (Card + PIN) is required to ensure stricter identity checks.</p>
+                        <p style="font-size: 12px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">Used By: Commercial buildings, high-value retail</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integration: Access + Surveillance -->
+            <div style="background: #0E1A2B; border-radius: 20px; padding: 60px; color: white;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+                    <div>
+                        <h3 style="font-size: 30px; margin-bottom: 24px;">Integration: Access + Surveillance for Visual Verification</h3>
+                        <p style="font-size: 16px; opacity: 0.8; line-height: 1.8; margin-bottom: 32px;">In developments where Access Control + CCTV integrate, guards can visually confirm identity against the presented credential in real-time.</p>
+                        <div style="background: rgba(255,255,255,0.05); padding: 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                            <h4 style="font-size: 15px; text-transform: uppercase; letter-spacing: 1px; color: #5b9ee1; margin-bottom: 16px;">Why This Matters</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 1.7;">
+                                <li style="margin-bottom: 12px;">🛡️ <strong>Prevents Credential Sharing:</strong> Cross-check face vs card data.</li>
+                                <li style="margin-bottom: 12px;">🏛️ <strong>Visual Proof for Audit:</strong> Photo logs linked to every entry.</li>
+                                <li style="margin-bottom: 0;">🔎 <strong>Suspicious Pattern Detection:</strong> Catch unauthorised "tailgaters".</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1);">
+                        <img src="proprietary-assets/integration-access-surveillance.png" alt="Integrated Access and Surveillance Monitoring" style="width: 100%; height: auto; display: block;">
+                        <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.8)); padding: 20px; font-size: 12px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px;">
+                            Unified Interface: Real-time Identity Verification
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 5: DESIGN BY PROPERTY TYPE (SCALABILITY) -->
+    <section id="scalability" class="bg-light" style="padding: 100px 0;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 72px;">
+                <span class="eyebrow">Scalability</span>
+                <h2 style="font-size: clamp(28px, 4vw, 42px); margin-bottom: 24px;">People Access Design by Property Type</h2>
+                <p style="font-size: 17px; color: var(--text-light); max-width: 800px; margin: 0 auto;">
+                    From small offices to 500-unit condominiums, we engineer systems that scale with your property's volume and user diversity.
+                </p>
+            </div>
+
+            <div class="grid-3" style="gap: 32px;">
+                <!-- Small Properties -->
+                <div class="card" style="padding: 48px 36px;">
+                    <h3 style="color: var(--text-dark); font-size: 22px; margin-bottom: 20px;">Small Properties</h3>
+                    <div style="margin-bottom: 24px;">
+                        <ul style="list-style: none; padding: 0; font-size: 15px; color: var(--text-gray); line-height: 1.8;">
+                            <li style="margin-bottom: 12px;">🏢 <strong>1-3 Access Points</strong></li>
+                            <li style="margin-bottom: 12px;">🎫 RFID cards or Mobile credentials</li>
+                            <li style="margin-bottom: 12px;">📞 Simple intercom for visitors</li>
+                            <li style="margin-bottom: 12px;">💾 Standalone readers</li>
+                        </ul>
+                    </div>
+                    <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid var(--border-light);">
+                        <span style="font-size: 12px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">Estimated Investment</span>
+                        <p style="font-size: 18px; color: var(--primary-blue); font-weight: 700; margin: 4px 0 0;">$2,000 &mdash; $8,000</p>
+                    </div>
+                </div>
+
+                <!-- Medium Properties -->
+                <div class="card" style="padding: 48px 36px; border-color: var(--primary-blue);">
+                    <h3 style="color: var(--text-dark); font-size: 22px; margin-bottom: 20px;">Medium Properties</h3>
+                    <div style="margin-bottom: 24px;">
+                        <ul style="list-style: none; padding: 0; font-size: 15px; color: var(--text-gray); line-height: 1.8;">
+                            <li style="margin-bottom: 12px;">🏢 <strong>10-30 Access Points</strong></li>
+                            <li style="margin-bottom: 12px;">📶 RFID + Mobile + Intercoms</li>
+                            <li style="margin-bottom: 12px;">⚖️ Zone-based permissions</li>
+                            <li style="margin-bottom: 12px;">🌐 Networked POE system</li>
+                        </ul>
+                    </div>
+                    <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid var(--border-light);">
+                        <span style="font-size: 12px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">Estimated Investment</span>
+                        <p style="font-size: 18px; color: var(--primary-blue); font-weight: 700; margin: 4px 0 0;">$12,000 &mdash; $50,000</p>
+                    </div>
+                </div>
+
+                <!-- Large Properties -->
+                <div class="card" style="padding: 48px 36px;">
+                    <h3 style="color: var(--text-dark); font-size: 22px; margin-bottom: 20px;">Large Properties</h3>
+                    <div style="margin-bottom: 24px;">
+                        <ul style="list-style: none; padding: 0; font-size: 15px; color: var(--text-gray); line-height: 1.8;">
+                            <li style="margin-bottom: 12px;">🏢 <strong>50-200+ Access Points</strong></li>
+                            <li style="margin-bottom: 12px;">🧬 Multi-modal Biometric & Mobile</li>
+                            <li style="margin-bottom: 12px;">📸 Integrated Camera Verification</li>
+                            <li style="margin-bottom: 12px;">🖥️ Enterprise management platform</li>
+                        </ul>
+                    </div>
+                    <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid var(--border-light);">
+                        <span style="font-size: 12px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">Estimated Investment</span>
+                        <p style="font-size: 18px; color: var(--primary-blue); font-weight: 700; margin: 4px 0 0;">$60,000 &mdash; $250,000+</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- Section 6: SINGAPORE COMPLIANCE (SCDF, PDPA, MCST) -->
+    <section id="compliance" class="bg-white" style="padding: 100px 0; border-top: 1px solid var(--border-light);">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 56px;">
+                <span class="eyebrow">Local Compliance</span>
+                <h2 style="font-size: 32px; margin-bottom: 20px;">Singapore Regulatory Standards</h2>
+            </div>
+            <div class="grid-3" style="gap: 28px;">
+                <div class="badge" style="background: white; padding: 32px; text-align: left;">
+                    <div style="color: var(--primary-blue); font-size: 24px; margin-bottom: 16px;">🔥</div>
+                    <strong style="font-size: 16px; margin-bottom: 8px; display: block;">SCDF Fire Safety</strong>
+                    <p style="font-size: 13px; color: var(--text-light); line-height: 1.6;">Our magnetic locks are engineered for fire-alarm integration, ensuring fail-safe free egress during emergencies as per SCDF regulations.</p>
+                </div>
+                <div class="badge" style="background: white; padding: 32px; text-align: left;">
+                    <div style="color: var(--primary-blue); font-size: 24px; margin-bottom: 16px;">🛡️</div>
+                    <strong style="font-size: 16px; margin-bottom: 8px; display: block;">PDPA Data Protection</strong>
+                    <p style="font-size: 13px; color: var(--text-light); line-height: 1.6;">All biometric and visitor data is stored with encryption and retention policies that comply with Singapore PDPA requirements.</p>
+                </div>
+                <div class="badge" style="background: white; padding: 32px; text-align: left;">
+                    <div style="color: var(--primary-blue); font-size: 24px; margin-bottom: 16px;">🏫</div>
+                    <strong style="font-size: 16px; margin-bottom: 8px; display: block;">MCST Audit Compliance</strong>
+                    <p style="font-size: 13px; color: var(--text-light); line-height: 1.6;">Our platforms provide full audit trails, meeting MCST requirements for common area access logging and 90-day data retention.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7: EXPLORE COMPONENTS -->
+    <section id="components" class="bg-light" style="padding: 100px 0;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 64px;">
+                <span class="eyebrow">System Components</span>
+                <h2 style="font-size: 32px; margin-bottom: 20px;">Explore Access Control Building Blocks</h2>
+            </div>
+            <div class="grid-3" style="gap: 24px;">
+                <div class="card subsys-card c-peop" style="padding: 32px; border-top: 3px solid var(--c-people); text-decoration: none; color: inherit;">
+                    <span style="font-size: 32px; margin-bottom: 16px;">💳</span>
+                    <h3 style="font-size: 18px; margin-bottom: 12px;">Access Readers</h3>
+                    <p style="font-size: 14px; color: var(--text-light); line-height: 1.6;">Hybrid readers supporting RFID, NFC, and Bluetooth Mobile credentials on a single unit.</p>
+                    <span class="s-link" style="color: var(--c-people); font-size: 12px; font-weight: 700; margin-top: 24px; text-transform: uppercase;">View Tech Specs &rarr;</span>
+                </div>
+                <div class="card subsys-card c-peop" style="padding: 32px; border-top: 3px solid var(--c-people); text-decoration: none; color: inherit;">
+                    <span style="font-size: 32px; margin-bottom: 16px;">🏗️</span>
+                    <h3 style="font-size: 18px; margin-bottom: 12px;">Electric Locks</h3>
+                    <p style="font-size: 14px; color: var(--text-light); line-height: 1.6;">Grade-1 magnetic locks, electric strikes, and motorized bolts for high-duty cycle security.</p>
+                    <span class="s-link" style="color: var(--c-people); font-size: 12px; font-weight: 700; margin-top: 24px; text-transform: uppercase;">View Tech Specs &rarr;</span>
+                </div>
+                <div class="card subsys-card c-peop" style="padding: 32px; border-top: 3px solid var(--c-people); text-decoration: none; color: inherit;">
+                    <span style="font-size: 32px; margin-bottom: 16px;">📞</span>
+                    <h3 style="font-size: 18px; margin-bottom: 12px;">Video Intercoms</h3>
+                    <p style="font-size: 14px; color: var(--text-light); line-height: 1.6;">IP intercom stations with night-vision cameras and app-based remote door unlock.</p>
+                    <span class="s-link" style="color: var(--c-people); font-size: 12px; font-weight: 700; margin-top: 24px; text-transform: uppercase;">View Tech Specs &rarr;</span>
+                </div>
+                <div class="card subsys-card c-peop" style="padding: 32px; border-top: 3px solid var(--c-people); text-decoration: none; color: inherit;">
+                    <span style="font-size: 32px; margin-bottom: 16px;">📸</span>
+                    <h3 style="font-size: 18px; margin-bottom: 12px;">Biometric Readers</h3>
+                    <p style="font-size: 14px; color: var(--text-light); line-height: 1.6;">Advanced facial recognition and palm scan terminals with masks and temperature check options.</p>
+                    <span class="s-link" style="color: var(--c-people); font-size: 12px; font-weight: 700; margin-top: 24px; text-transform: uppercase;">View Tech Specs &rarr;</span>
+                </div>
+                <div class="card subsys-card c-peop" style="padding: 32px; border-top: 3px solid var(--c-people); text-decoration: none; color: inherit;">
+                    <span style="font-size: 32px; margin-bottom: 16px;">📅</span>
+                    <h3 style="font-size: 18px; margin-bottom: 12px;">Visitor Management</h3>
+                    <p style="font-size: 14px; color: var(--text-light); line-height: 1.6;">Software tools for generating temporary QR codes and managing guest pre-registration.</p>
+                    <span class="s-link" style="color: var(--c-people); font-size: 12px; font-weight: 700; margin-top: 24px; text-transform: uppercase;">View Tech Specs &rarr;</span>
+                </div>
+                <div class="card subsys-card c-peop" style="padding: 32px; border-top: 3px solid var(--c-people); text-decoration: none; color: inherit;">
+                    <span style="font-size: 32px; margin-bottom: 16px;">💻</span>
+                    <h3 style="font-size: 18px; margin-bottom: 12px;">Access Platforms</h3>
+                    <p style="font-size: 14px; color: var(--text-light); line-height: 1.6;">Cloud and local management consoles for real-time monitoring and credential revoke.</p>
+                    <span class="s-link" style="color: var(--c-people); font-size: 12px; font-weight: 700; margin-top: 24px; text-transform: uppercase;">View Tech Specs &rarr;</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 9: FINAL CTA -->
+    <section class="cta-section cta-skyline" style="padding: 120px 0; text-align: center; color: white; background: #0E1A2B;">
+        <div class="container">
+            <div style="max-width: 850px; margin: 0 auto;">
+                <h2 style="font-size: clamp(28px, 4vw, 44px); margin-bottom: 24px;">Not Sure Which Access Strategy You Need?</h2>
+                <p style="font-size: 18px; opacity: 0.9; line-height: 1.8; margin-bottom: 48px;">
+                    Every property has different user groups and access patterns. Our systems engineers will assess your permanent users, visitor types, and security zones — then recommend the right combination of credentials, readers, and intercom systems.
+                </p>
+                <div class="btn-group" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://wa.me/6593860466" class="btn btn-whatsapp" style="min-width: 260px; padding: 18px 40px; font-size: 14px;">WhatsApp Engineer</a>
+                    <a href="book-slot.html" class="btn btn-primary" style="min-width: 260px; padding: 18px 40px; font-size: 14px;">Book Assessment</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <!-- Col 1: Brand & Basic Info -->
+            <div class="footer-col footer-brand">
+                <div class="f-logo-wrap">
+                    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
+                    <span class="brand-name">Securevision</span>
+                </div>
+                <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since 2006.</p>
+                <div class="f-socials">
+                    <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@securevision" target="_blank" rel="noopener" aria-label="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="residential.html">Private Homes</a></li>
+                    <li><a href="condominiums.html">Condominiums</a></li>
+                    <li><a href="commercial.html">Commercial &amp; Retail</a></li>
+                    <li><a href="industrial.html">Industrial &amp; Logistics</a></li>
+                    <li><a href="institutions.html">Institutions &amp; Government</a></li>
+                    <li><a href="healthcare.html">Healthcare &amp; Managed Living</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="awards-certifications.html">Awards &amp; Certifications</a></li>
+                    <li><a href="portfolio.html">Project Portfolio</a></li>
+                    <li><a href="insights.html">Industry Insights</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Get In Touch</h4>
+                <div class="footer-contact-item">
+                    <span>💬</span>
+                    <a href="https://wa.me/6593860466">WhatsApp Us</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span>✉️</span>
+                    <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span>📞</span>
+                    <a href="tel:+6562864796">+65 6286 4796</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; <span class="current-year">2026</span> Securevision Pte Ltd &middot; Police Licence L/PS/000267/2023P &middot; bizSAFE Level 3 &middot; BCA Registered</p>
+            <div class="footer-bottom-links">
+                <a href="sitemap.html">Sitemap</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
     </div>
-  </section>
+</footer>
 
-  <!-- PRODUCT CATEGORIES -->
-  <section id="categories">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Access Hardware</span>
-        <h2>Every Access Point, Engineered</h2>
-        <p>From pedestrian turnstiles and biometric readers to intercom stations and visitor kiosks Ã¢â‚¬â€ we specify and
-          install the right hardware for every entry scenario.</p>
-      </div>
-      <div class="cat-grid">
-        <div class="cat-card">
-          <div class="cat-icon">Ã°Å¸Å¡Âª</div>
-          <h3>Turnstiles & Entry Barriers</h3>
-          <p>High-throughput pedestrian barriers for lobbies, transit hubs, and facility entrances. Options from basic
-            tripod to full-height security turnstiles.</p>
-          <ul class="cat-specs">
-            <li>Flap, swing & tripod types</li>
-            <li>Full-height security turnstiles</li>
-            <li>Speed gate for high traffic</li>
-            <li>ADA-compliant wide lanes</li>
-            <li>Bi-directional control</li>
-          </ul>
-        </div>
-        <div class="cat-card">
-          <div class="cat-icon">Ã°Å¸â€™Â³</div>
-          <h3>Card Readers & Keypads</h3>
-          <p>RFID and smart card readers for standard door access. Proximity, Mifare, DESFire, and multi-technology
-            options for interoperability.</p>
-          <ul class="cat-specs">
-            <li>Mifare & DESFire encrypted</li>
-            <li>Multi-technology readers</li>
-            <li>Indoor & outdoor rated</li>
-            <li>Card + PIN combination</li>
-            <li>Tamper detection built-in</li>
-          </ul>
-        </div>
-        <div class="cat-card">
-          <div class="cat-icon">Ã°Å¸â€˜â€ </div>
-          <h3>Biometric Terminals</h3>
-          <p>Fingerprint, facial recognition, and palm vein readers for high-security access points. Eliminates
-            credential sharing and buddy punching.</p>
-          <ul class="cat-specs">
-            <li>Fingerprint (1:N matching)</li>
-            <li>Facial recognition (AI-based)</li>
-            <li>Palm vein scanners</li>
-            <li>Liveness detection</li>
-            <li>Mask-compliant face recognition</li>
-          </ul>
-        </div>
-        <div class="cat-card">
-          <div class="cat-icon">Ã°Å¸â€Â</div>
-          <h3>Electric & EM Locks</h3>
-          <p>Fail-safe and fail-secure locking mechanisms for every door type Ã¢â‚¬â€ glass, timber, metal frames.
-            Integrated with fire alarm for emergency release.</p>
-          <ul class="cat-specs">
-            <li>Electromagnetic locks (EM)</li>
-            <li>Electric strikes & drop bolts</li>
-            <li>Fail-safe / fail-secure options</li>
-            <li>Fire alarm integration</li>
-            <li>Door position sensors</li>
-          </ul>
-        </div>
-        <div class="cat-card">
-          <div class="cat-icon">Ã°Å¸â€˜Â¤</div>
-          <h3>Visitor Management Systems</h3>
-          <p>Digitise the visitor journey from pre-registration to badge printing to access credential issuance Ã¢â‚¬â€
-            replacing paper logbooks with a secure digital trail.</p>
-          <ul class="cat-specs">
-            <li>Web & mobile pre-registration</li>
-            <li>QR code visitor passes</li>
-            <li>ID document scanning</li>
-            <li>Time-limited access credentials</li>
-            <li>Host notification via SMS/email</li>
-          </ul>
-        </div>
-        <div class="cat-card">
-          <div class="cat-icon">Ã°Å¸â€œÅ¾</div>
-          <h3>Intercom & Video Door Stations</h3>
-          <p>Audio and video communication between visitors and residents or security. Integrated with access control
-            for remote door release from any device.</p>
-          <ul class="cat-specs">
-            <li>IP video door stations</li>
-            <li>Indoor monitor units</li>
-            <li>Mobile app door release</li>
-            <li>Multi-tenant support</li>
-            <li>CCTV snapshot on call</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CREDENTIAL TYPES -->
-  <section id="credentials">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Credential Options</span>
-        <h2>The Right Credential for Every Context</h2>
-        <p>We design access systems around how your users actually operate Ã¢â‚¬â€ balancing security with convenience at
-          every access point.</p>
-      </div>
-      <div class="cred-grid">
-        <div class="cred-card">
-          <div class="cred-icon">Ã°Å¸â€™Â³</div>
-          <div class="cred-badge">Standard</div>
-          <h3>RFID / Smart Card</h3>
-          <p>Durable, cost-effective credentials for large user populations. Encrypted Mifare or DESFire cards prevent
-            cloning.</p>
-        </div>
-        <div class="cred-card">
-          <div class="cred-icon">Ã°Å¸â€œÂ±</div>
-          <div class="cred-badge">Modern</div>
-          <h3>Mobile / BLE</h3>
-          <p>Smartphone-based credentials via Bluetooth or NFC. No physical card required Ã¢â‚¬â€ ideal for tech-forward
-            developments.</p>
-        </div>
-        <div class="cred-card">
-          <div class="cred-icon">Ã°Å¸â€˜â€ </div>
-          <div class="cred-badge">High Security</div>
-          <h3>Biometric</h3>
-          <p>Fingerprint or face Ã¢â‚¬â€ the credential is the person. Eliminates card loss, credential sharing, and buddy
-            punching.</p>
-        </div>
-        <div class="cred-card">
-          <div class="cred-icon">Ã°Å¸â€Â¢</div>
-          <div class="cred-badge">Backup</div>
-          <h3>PIN Code</h3>
-          <p>Keypad entry as a standalone or second-factor. Ideal for after-hours access, visitor PIN codes, or
-            emergency override.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- USE CASES -->
-  <section id="use-cases">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Applications</span>
-        <h2>Access Control for Every Property Type</h2>
-      </div>
-      <div class="use-grid">
-        <div class="use-card">
-          <div class="use-badge">Condominium</div>
-          <h3>Multi-Zone Resident Access</h3>
-          <p>Card or mobile access for unit doors, lift lobbies, gym, pool, and carpark. Visitor intercom with remote
-            release from resident smartphones.</p>
-        </div>
-        <div class="use-card">
-          <div class="use-badge">Office</div>
-          <h3>Corporate Office Access</h3>
-          <p>Role-based access levels Ã¢â‚¬â€ reception open, server room restricted, executive floor multi-factor. Full
-            audit log for compliance and HR investigation.</p>
-        </div>
-        <div class="use-card">
-          <div class="use-badge">Industrial</div>
-          <h3>Hazardous Zone Control</h3>
-          <p>Biometric access to restricted production areas. Shift-based time zones, contractor credential management,
-            and automated headcount reporting.</p>
-        </div>
-        <div class="use-card">
-          <div class="use-badge">Institution</div>
-          <h3>School & Campus Control</h3>
-          <p>Student, staff, and visitor credentials with time-based zoning. Automatically lock classrooms outside
-            school hours. Integration with attendance systems.</p>
-        </div>
-        <div class="use-card">
-          <div class="use-badge">Healthcare</div>
-          <h3>Clinical Zone Management</h3>
-          <p>Ward access restricted to credentialed staff. Pharmacy and drug storage with biometric + PIN dual
-            verification. Patient protection zones logged.</p>
-        </div>
-        <div class="use-card">
-          <div class="use-badge">Multi-tenancy</div>
-          <h3>Mixed-Use Buildings</h3>
-          <p>Separate access domains for each tenant while sharing infrastructure. Building management retains override
-            Ã¢â‚¬â€ tenant admins manage their own staff.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- METHODOLOGY -->
-  <section id="methodology">
-    <div class="container">
-      <div class="section-header">
-        <span class="eyebrow">Our Process</span>
-        <h2>How We Design Your Access System</h2>
-      </div>
-      <div class="method-steps">
-        <div class="method-step">
-          <div class="step-num">1</div>
-          <h3>Access Requirement Mapping</h3>
-          <p>Define user groups, access zones, and time-based restrictions before any hardware is specified.</p>
-        </div>
-        <div class="method-step">
-          <div class="step-num">2</div>
-          <h3>Hardware Specification</h3>
-          <p>Select reader type, lock mechanism, and controller architecture for each door and zone.</p>
-        </div>
-        <div class="method-step">
-          <div class="step-num">3</div>
-          <h3>System Integration</h3>
-          <p>Link access events to CCTV, visitor management, and alarm systems for a unified response.</p>
-        </div>
-        <div class="method-step">
-          <div class="step-num">4</div>
-          <h3>Commission & Training</h3>
-          <p>Configure access levels, enrol users, train administrators, and deliver full system documentation.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- BRANDS WE INSTALL -->
-  <section class="brands-we-install" style="background:var(--light-gray,#F8F9FA); padding:64px 0;">
-    <div class="container">
-      <span
-        style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--accent,#319795);margin-bottom:12px;display:block;">Brands
-        We Install</span>
-      <div
-        style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:40px;">
-        <div>
-          <h2
-            style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:clamp(22px,3vw,32px);margin-bottom:10px;">
-            Brands We Install Ã¢â‚¬â€ Access Control &amp; Intercom</h2>
-          <p style="font-size:15px;color:#5F6368;max-width:660px;line-height:1.7;margin:0;">We carry leading access
-            control and intercom brands across every budget tier. Specified to match your property type, user
-            population, and credential requirements.</p>
-        </div>
-        <a href="brands.html"
-          style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:8px;background:var(--accent,#319795);color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-decoration:none;white-space:nowrap;flex-shrink:0;">View
-          All 20 Brands Ã¢â€ â€™</a>
-      </div>
-      <style>
-        .bwi-group {
-          margin-bottom: 36px;
-        }
-
-        .bwi-group:last-child {
-          margin-bottom: 0;
-        }
-
-        .bwi-group-header {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          margin-bottom: 16px;
-          padding-bottom: 12px;
-          border-bottom: 2px solid #E8EAED;
-        }
-
-        .bwi-group-icon {
-          font-size: 18px;
-        }
-
-        .bwi-group-title {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 13px;
-          font-weight: 700;
-          color: #1B1F23;
-        }
-
-        .bwi-group-bar {
-          width: 32px;
-          height: 3px;
-          border-radius: 2px;
-          flex-shrink: 0;
-        }
-
-        .bwi-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-          gap: 12px;
-        }
-
-        .bwi-card {
-          background: #fff;
-          border: 1px solid #E8EAED;
-          border-radius: 8px;
-          padding: 16px 14px;
-          text-decoration: none;
-          color: #1B1F23;
-          transition: all .2s;
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-        }
-
-        .bwi-card:hover {
-          box-shadow: 0 6px 20px rgba(0, 0, 0, .1);
-          transform: translateY(-2px);
-          border-color: var(--accent, #319795);
-        }
-
-        .bwi-name {
-          font-family: 'Montserrat', sans-serif;
-          font-size: 14px;
-          font-weight: 700;
-        }
-
-        .bwi-desc {
-          font-size: 11px;
-          color: #5F6368;
-          line-height: 1.4;
-          flex: 1;
-        }
-
-        .bwi-tier {
-          display: inline-block;
-          padding: 2px 8px;
-          border-radius: 8px;
-          font-size: 10px;
-          font-weight: 700;
-          color: #fff;
-          align-self: flex-start;
-        }
-
-        @media(max-width:600px) {
-          .bwi-grid {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-      </style>
-
-      <div class="bwi-group">
-        <div class="bwi-group-header">
-          <span class="bwi-group-icon">Ã°Å¸â€˜â€ </span>
-          <span class="bwi-group-title">Access Control</span>
-          <span class="bwi-group-bar" style="background:#319795;"></span>
-        </div>
-        <div class="bwi-grid">
-          <a href="zkteco-singapore.html" class="bwi-card">
-            <div class="bwi-name">ZKTeco</div>
-            <div class="bwi-desc">World #1 biometric Ã‚Â· budgetÃ¢â‚¬â€œmid</div>
-            <div class="bwi-tier" style="background:#38a169;">BudgetÃ¢â‚¬â€œMid</div>
-          </a>
-          <a href="suprema-singapore.html" class="bwi-card">
-            <div class="bwi-name">Suprema</div>
-            <div class="bwi-desc">NIST #1 accuracy Ã‚Â· enterprise</div>
-            <div class="bwi-tier" style="background:#7209B7;">Premium</div>
-          </a>
-          <a href="hid-singapore.html" class="bwi-card">
-            <div class="bwi-name">HID Global</div>
-            <div class="bwi-desc">Global credential standard</div>
-            <div class="bwi-tier" style="background:#7209B7;">Premium</div>
-          </a>
-          <a href="entrypass-singapore.html" class="bwi-card">
-            <div class="bwi-name">EntryPass</div>
-            <div class="bwi-desc">SEA-built Ã‚Â· tropical rated</div>
-            <div class="bwi-tier" style="background:#38a169;">BudgetÃ¢â‚¬â€œMid</div>
-          </a>
-          <a href="microengine-singapore.html" class="bwi-card">
-            <div class="bwi-name">MicroEngine</div>
-            <div class="bwi-desc">Singapore-designed Ã‚Â· MOM T&amp;A</div>
-            <div class="bwi-tier" style="background:#38a169;">BudgetÃ¢â‚¬â€œMid</div>
-          </a>
-        </div>
-      </div>
-      <div class="bwi-group">
-        <div class="bwi-group-header">
-          <span class="bwi-group-icon">Ã°Å¸â€œÅ¾</span>
-          <span class="bwi-group-title">Video Intercom</span>
-          <span class="bwi-group-bar" style="background:#2b6cb0;"></span>
-        </div>
-        <div class="bwi-grid">
-          <a href="akuvox-singapore.html" class="bwi-card">
-            <div class="bwi-name">Akuvox</div>
-            <div class="bwi-desc">Smart IP Ã‚Â· face recognition Ã‚Â· app</div>
-            <div class="bwi-tier" style="background:#2b6cb0;">MidÃ¢â‚¬â€œPremium</div>
-          </a>
-          <a href="aiphone-singapore.html" class="bwi-card">
-            <div class="bwi-name">Aiphone</div>
-            <div class="bwi-desc">Japanese gold standard Ã‚Â· 70yr heritage</div>
-            <div class="bwi-tier" style="background:#2b6cb0;">MidÃ¢â‚¬â€œPremium</div>
-          </a>
-          <a href="kocom-singapore.html" class="bwi-card">
-            <div class="bwi-name">Kocom</div>
-            <div class="bwi-desc">Korean value Ã‚Â· residential budget</div>
-            <div class="bwi-tier" style="background:#38a169;">Budget</div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section id="cta">
-    <div class="container">
-      <div class="cta-inner">
-        <span class="eyebrow eyebrow-light">Get Started</span>
-        <h2>Design Your Access Control System</h2>
-        <p>Tell us about your property type, user population, and access zones Ã¢â‚¬â€ we'll design the right credential and
-          hardware architecture.</p>
-        <div class="cta-btns">
-          <a href="https://wa.me/6593860466" class="btn btn-whatsapp">Ã°Å¸â€™Â¬ WhatsApp a Specialist</a>
-          <a href="contact.html" class="btn btn-outline-white">Book a Site Survey</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="main-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <!-- Col 1: Brand & Basic Info -->
-        <div class="footer-col footer-brand">
-          <a href="index.html" class="footer-logo">
-            <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
-            <span class="wordmark footer-wordmark">SECUREVISION</span>
-          </a>
-          <p class="footer-tagline">Engineering security solutions across Singapore since 2006. NUS engineering-led and
-            police-licensed.</p>
-          <div class="footer-contact-info">
-            <p><strong>Securevision Pte Ltd</strong></p>
-            <p>Police License: L/PS/000267/2023P</p>
-            <p>bizSAFE Level 3</p>
-          </div>
-        </div>
-
-        <!-- Col 2: Solutions -->
-        <div class="footer-col">
-          <h4 class="footer-title">Solutions</h4>
-          <ul class="footer-links">
-            <li><a href="residential.html">Private Homes</a></li>
-            <li><a href="condominiums.html">Condominiums (MCST)</a></li>
-            <li><a href="commercial.html">Commercial & Retail</a></li>
-            <li><a href="institutions.html">Institutions</a></li>
-            <li><a href="industrial.html">Industrial & Logistics</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 3: Systems -->
-        <div class="footer-col">
-          <h4 class="footer-title">Systems</h4>
-          <ul class="footer-links">
-            <li><a href="surveillance-systems.html">Surveillance & Detection</a></li>
-            <li><a href="people-access.html">People Access Systems</a></li>
-            <li><a href="vehicle-access.html">Vehicle Access Systems</a></li>
-            <li><a href="platform-integration.html">Platform & Integration</a></li>
-            <li><a href="brands.html">Hardware Brands</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 4: Reach Us -->
-        <div class="footer-col">
-          <h4 class="footer-title">Reach Us</h4>
-          <ul class="footer-links">
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="about.html">Our Story</a></li>
-            <li><a href="portfolio.html">Project Portfolio</a></li>
-            <li><a href="insights.html">Security Insights</a></li>
-            <li><a href="https://wa.me/6593860466" class="footer-whatsapp"><strong>WhatsApp: +65 9386 0466</strong></a>
-            </li>
-          </ul>
-          <div class="footer-social">
-            <a href="https://www.facebook.com/securevision" aria-label="Facebook"><svg width="20" height="20"
-                viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-              </svg></a>
-            <a href="https://www.linkedin.com/company/securevision-pte-ltd" aria-label="LinkedIn"><svg width="20"
-                height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect x="2" y="9" width="4" height="12" />
-                <circle cx="4" cy="4" r="2" />
-              </svg></a>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div class="footer-bottom-inner">
-          <p>&copy; 2025 Securevision Pte Ltd. All rights reserved.</p>
-          <div class="footer-bottom-links">
-            <a href="privacy.html">Privacy Policy</a>
-            <a href="terms.html">Terms of Service</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
     <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
-      <path
-        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.03a11.782 11.782 0 001.583 5.867L0 24l6.117-1.605a11.772 11.772 0 005.925 1.603h.005c6.635 0 12.022-5.392 12.026-12.033a11.742 11.742 0 00-3.504-8.508z" />
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.03a11.782 11.782 0 001.583 5.867L0 24l6.117-1.605a11.772 11.772 0 005.925 1.603h.005c6.635 0 12.022-5.392 12.026-12.033a11.742 11.742 0 00-3.504-8.508z"/>
     </svg>
-  </a>
+</a>
 
-  <script>
+<script>
     function toggleMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('active');
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
     }
-    function toggleSubmenu(id) {
-      const sub = document.getElementById(id);
-      const isOpen = sub.style.display === 'block';
-      document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
-      if (!isOpen) sub.style.display = 'block';
-    }
-    document.addEventListener('click', function (e) {
-      const nav = document.querySelector('.main-nav');
-      const menu = document.getElementById('mobileMenu');
-      if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
-        menu.classList.remove('active');
-      }
-    });
-  </script>
+</script>
 </body>
-
 </html>
