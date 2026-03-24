@@ -1,7 +1,7 @@
 # SECUREVISION WEBSITE SITEMAP
 
-**Last Updated:** March 18, 2026  
-**Total Pages Built:** 50 HTML pages  
+**Last Updated:** March 24, 2026  
+**Total Pages Built:** 50+ HTML pages  
 **Navigation Items:** 6 main menu items + search (Solutions, Systems, Brands, Portfolio, Insights, About, Search)
 
 ---
@@ -81,7 +81,7 @@ Menu Expanded (when ☰ tapped):
 Notes:
 - Logo scales down on mobile (40px → 32px → 28px)
 - Wordmark scales down (22px → 18px → 16px on phones)
-- No dropdowns on mobile - direct links to hub pages
+- **Interactive Dropdowns:** Mobile menu now features accordion-style sub-menus for deep navigation.
 - WhatsApp NOT in desktop nav (only mobile menu + floating button)
 ```
 
@@ -189,7 +189,7 @@ SECUREVISION.COM.SG
 │   │
 │   └── Cross-link to SYSTEMS hub at bottom of page
 │
-├── SYSTEMS (Hub: systems.html - formerly technology.html)
+├── SYSTEMS (Hub: systems-hub.html)
 │   │
 │   ├── BY SYSTEM TYPE
 │   │   ├── ✅ surveillance-systems.html - CCTV & Surveillance
@@ -283,7 +283,7 @@ SECUREVISION.COM.SG
 | Hub | File | Nav Placement | Purpose |
 |-----|------|---------------|---------|
 | Solutions Hub | solutions-hub.html | SOLUTIONS (click) | Property type gateway |
-| Systems Hub | systems.html | SYSTEMS (click) | System type gateway |
+| Systems Hub | systems-hub.html | SYSTEMS (click) | System type gateway |
 | Brands Hub | brands.html | BRANDS (click) | All brands overview |
 
 ### **SECTOR SOLUTIONS (11 pages)**
