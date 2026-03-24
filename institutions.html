@@ -40,7 +40,7 @@
     <nav class="main-nav">
         <div class="nav-container">
             <a href="index.html" class="nav-logo-link">
-                <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
+                <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
                 <span class="wordmark nav-wordmark">SECUREVISION</span>
             </a>
             <ul class="nav-menu">
@@ -53,11 +53,31 @@
                         <a href="institutions.html">Institutions &amp; Government</a>
                         <a href="healthcare.html">Healthcare &amp; Managed Living</a>
                         <hr>
-                        <a href="solutions-hub.html"><strong>View All Solutions</strong></a>
+                        <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
                     </div>
                 </li>
-                <li class="nav-item"><a href="systems-hub.html" class="nav-link">Systems</a></li>
-                <li class="nav-item"><a href="brands.html" class="nav-link">Brands</a></li>
+                <li class="nav-item"><a href="systems-hub.html" class="nav-link has-dropdown">Systems</a>
+                    <div class="simple-dropdown">
+                        <a href="surveillance-systems.html">Surveillance &amp; Detection</a>
+                        <a href="people-access.html">People Access</a>
+                        <a href="vehicle-access.html">Vehicle Access</a>
+                        <a href="platform-integration.html">Platform &amp; Integration</a>
+                        <hr>
+                        <a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="brands.html" class="nav-link has-dropdown">Brands</a>
+                    <div class="simple-dropdown">
+                        <a href="hikvision-singapore.html">Hikvision</a>
+                        <a href="hanwha-samsung-singapore.html">Hanwha</a>
+                        <a href="ajax-alarm-singapore.html">AJAX</a>
+                        <a href="zkteco-singapore.html">ZKTeco</a>
+                        <a href="akuvox-singapore.html">Akuvox</a>
+                        <a href="faac-singapore.html">FAAC</a>
+                        <hr>
+                        <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
+                    </div>
+                </li>
                 <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
                 <li class="nav-item"><a href="insights.html" class="nav-link">Insights</a></li>
                 <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
@@ -70,9 +90,9 @@
         
         <!-- Mobile Menu Overlay -->
         <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions ▾
+            <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;
                 <div class="mobile-submenu" id="solSub">
-                    <a href="solutions-hub.html"><strong>View All Solutions</strong></a>
+                    <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
                     <a href="residential.html">Private Homes</a>
                     <a href="condominiums.html">Condominiums</a>
                     <a href="commercial.html">Commercial &amp; Retail</a>
@@ -81,14 +101,26 @@
                     <a href="healthcare.html">Healthcare &amp; Managed Living</a>
                 </div>
             </div>
-            <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems ▾
+            <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;
                 <div class="mobile-submenu" id="sysSub">
-                    <a href="systems-hub.html"><strong>View All Systems</strong></a>
-                    <a href="surveillance-systems.html">Surveillance</a>
+                    <a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a>
+                    <a href="surveillance-systems.html">Surveillance &amp; Detection</a>
                     <a href="people-access.html">People Access</a>
+                    <a href="vehicle-access.html">Vehicle Access</a>
+                    <a href="platform-integration.html">Platform &amp; Integration</a>
                 </div>
             </div>
-            <div class="mobile-menu-item"><a href="brands.html">Brands</a></div>
+            <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;
+                <div class="mobile-submenu" id="brdSub">
+                    <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
+                    <a href="hikvision-singapore.html">Hikvision</a>
+                    <a href="hanwha-samsung-singapore.html">Hanwha</a>
+                    <a href="ajax-alarm-singapore.html">AJAX</a>
+                    <a href="zkteco-singapore.html">ZKTeco</a>
+                    <a href="akuvox-singapore.html">Akuvox</a>
+                    <a href="faac-singapore.html">FAAC</a>
+                </div>
+            </div>
             <div class="mobile-menu-item"><a href="portfolio.html">Portfolio</a></div>
             <div class="mobile-menu-item"><a href="about.html">About</a></div>
             <div class="mobile-menu-item"><a href="contact.html">Contact Us</a></div>
@@ -391,7 +423,7 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="f-logo-wrap">
-                    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
+                    <img src="images/securevision-logo-white.png" alt="Securevision Logo">
                     <span class="brand-name">Securevision</span>
                 </div>
                 <p>Your partner in building smart, secure, and connected communities &mdash; powered by intelligent security systems since 2006.</p>
@@ -479,11 +511,14 @@
     // Header scroll effect
     window.addEventListener('scroll', () => {
         const nav = document.querySelector('.main-nav');
-        if (nav) {
+        const logo = document.querySelector('.nav-logo-img');
+        if (nav && logo) {
             if (window.scrollY > 50) {
                 nav.classList.add('scrolled');
+                logo.src = 'images/securevision-logo-blue.png';
             } else {
                 nav.classList.remove('scrolled');
+                logo.src = 'images/securevision-logo-white.png';
             }
         }
     });

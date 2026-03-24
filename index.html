@@ -58,7 +58,7 @@
 <div class="nav-container">
   <!-- Logo + Wordmark — always left -->
   <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
-    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
+    <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
     <span class="wordmark nav-wordmark">SECUREVISION</span>
   </a>
   <!-- Hamburger — centred absolutely on mobile (via CSS) -->
@@ -651,7 +651,7 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="f-logo-wrap">
-                    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
+                    <img src="images/securevision-logo-white.png" alt="Securevision Logo">
                     <span class="brand-name">Securevision</span>
                 </div>
                 <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since 2006.</p>
@@ -746,10 +746,15 @@ function toggleSubmenu(id) {
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('.main-nav');
-            if (window.scrollY > 20) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
+            const logo = document.querySelector('.nav-logo-img');
+            if (nav && logo) {
+                if (window.scrollY > 20) {
+                    nav.classList.add('scrolled');
+                    logo.src = 'images/securevision-logo-blue.png';
+                } else {
+                    nav.classList.remove('scrolled');
+                    logo.src = 'images/securevision-logo-white.png';
+                }
             }
         });
 </script>
