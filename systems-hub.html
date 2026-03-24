@@ -37,7 +37,9 @@
 
         /* Legacy/SECURE Comparison Cards (Philosophy) */
         .comparison-cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
-        .comp-card { padding: 32px; border-radius: 12px; border: 1px solid var(--border-light); height: 100%; }
+        .comp-card { padding: 0; border-radius: 12px; border: 1px solid var(--border-light); height: 100%; overflow: hidden; display: flex; flex-direction: column; }
+        .comp-card img { width: 100%; height: 200px; object-fit: cover; }
+        .comp-card-content { padding: 32px; }
         .subsys-card.c-plat { border-top-color: var(--c-platform); }
         .subsys-card { padding: 0 !important; overflow: hidden; }
         .subsys-card h3 { font-size: 18px !important; }
@@ -176,22 +178,28 @@
 
             <div class="comparison-cards-grid">
                 <div class="comp-card negative">
-                    <h3>❌ Fragmented Problems</h3>
-                    <p style="color: var(--text-gray); line-height: 1.6;">
-                        Cameras see threats but can't stop them.<br>
-                        Access cards control doors but don't verify who approved entry.<br>
-                        Boom gates open but don't log which vehicle entered.<br>
-                        Nothing talks to anything else.
-                    </p>
+                    <img src="images/philosophy-fragmented.png" alt="Fragmented Problems - Disconnected Systems">
+                    <div class="comp-card-content">
+                        <h3>❌ Fragmented Problems</h3>
+                        <p style="color: var(--text-gray); line-height: 1.6;">
+                            Cameras see threats but can't stop them.<br>
+                            Access cards control doors but don't verify who approved entry.<br>
+                            Boom gates open but don't log which vehicle entered.<br>
+                            Nothing talks to anything else.
+                        </p>
+                    </div>
                 </div>
                 <div class="comp-card positive">
-                    <h3>✅ Integrated Solution</h3>
-                    <p style="color: var(--text-gray); line-height: 1.6;">
-                        Detection triggers access decisions.<br>
-                        Entry logs connect to vehicle records.<br>
-                        All systems feed one dashboard.<br>
-                        Automation replaces manual processes.
-                    </p>
+                    <img src="images/philosophy-integrated.png" alt="Integrated Solution - Synchronised Data Flow">
+                    <div class="comp-card-content">
+                        <h3>✅ Integrated Solution</h3>
+                        <p style="color: var(--text-gray); line-height: 1.6;">
+                            Detection triggers access decisions.<br>
+                            Entry logs connect to vehicle records.<br>
+                            All systems feed one dashboard.<br>
+                            Automation replaces manual processes.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
