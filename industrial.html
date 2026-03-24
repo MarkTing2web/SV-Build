@@ -32,6 +32,31 @@
         #trust-bar .assurance-content p {
             font-size: 13px;
         }
+
+        /* Industrial Foundation Cards (Factor Cards) */
+        .factors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .factor-card { 
+            padding: 0; 
+            border-radius: 12px; 
+            border: 1px solid var(--border-light); 
+            background: #fff; 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column;
+            text-align: left;
+            transition: 0.3s;
+        }
+        .factor-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+        .factor-card .card-image-wrap { height: 200px; width: 100%; overflow: hidden; }
+        .factor-card .card-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .factor-card:hover .card-image-wrap img { transform: scale(1.05); }
+        .factor-card-content { padding: 24px; flex-grow: 1; }
+        .factor-card h3 { font-size: 18px; margin-bottom: 10px; color: var(--dark-blue); }
+        .factor-card p { font-size: 14px; color: var(--text-gray); margin: 0; line-height: 1.6; }
+
+        @media (max-width: 992px) {
+            .factors-grid { grid-template-columns: 1fr; gap: 24px; }
+        }
     </style>
 </head>
 <body>
@@ -199,22 +224,37 @@
         </div>
         
         <div class="factors-grid">
-            <div class="factor-card" style="text-align: center;">
-                <div style="font-size:40px; margin-bottom:24px;">🛡️</div>
-                <h3 style="color:var(--text-dark);">Perimeter Resilience</h3>
-                <p style="color:var(--text-light);">We engineer intelligent perimeter detection that identifies real intrusions mid-motion, so your team only reacts when it truly matters. We secure your boundaries while ensuring authorised vehicles move without delay.</p>
+            <!-- 1. Perimeter Resilience -->
+            <div class="factor-card">
+                <div class="card-image-wrap">
+                    <img src="images/logic-perimeter-alarm-v4.png" alt="Intelligent Perimeter Detection">
+                </div>
+                <div class="factor-card-content">
+                    <h3>Perimeter Resilience</h3>
+                    <p>We engineer intelligent perimeter detection that identifies real intrusions mid-motion, so your team only reacts when it truly matters. We secure your boundaries while ensuring authorised vehicles move without delay.</p>
+                </div>
             </div>
             
-            <div class="factor-card" style="text-align: center;">
-                <div style="font-size:40px; margin-bottom:24px;">🧠</div>
-                <h3 style="color:var(--text-dark);">Operational Intelligence</h3>
-                <p style="color:var(--text-light);">Your security cameras can do more than just record&mdash;they can help you run a better business. We connect your systems to give you a clear view of your operations, helping you manage loading bays efficiently and look after your most valuable assets with ease.</p>
+            <!-- 2. Operational Intelligence -->
+            <div class="factor-card">
+                <div class="card-image-wrap">
+                    <img src="images/automated-workflow-dashboard.png" alt="Operational Intelligence Dashboard">
+                </div>
+                <div class="factor-card-content">
+                    <h3>Operational Intelligence</h3>
+                    <p>Your security cameras can do more than just record&mdash;they can help you run a better business. We connect your systems to give you a clear view of your operations, helping you manage loading bays efficiently.</p>
+                </div>
             </div>
             
-            <div class="factor-card" style="text-align: center;">
-                <div style="font-size:40px; margin-bottom:24px;">👷</div>
-                <h3 style="color:var(--text-dark);">Workforce Assurance</h3>
-                <p style="color:var(--text-light);">Your people are your greatest asset. We engineer systems that ensure only authorised staff can enter sensitive zones, while providing real-time data to help you maintain a safe, compliant, and productive working environment.</p>
+            <!-- 3. Workforce Assurance -->
+            <div class="factor-card">
+                <div class="card-image-wrap">
+                    <img src="images/pillar_people_access.png" alt="Workforce Safety and Access Assurance">
+                </div>
+                <div class="factor-card-content">
+                    <h3>Workforce Assurance</h3>
+                    <p>Your people are your greatest asset. We engineer systems that ensure only authorised staff can enter sensitive zones, while providing real-time data to help you maintain a safe and productive working environment.</p>
+                </div>
             </div>
         </div>
     </div>
