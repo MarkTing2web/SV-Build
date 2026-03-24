@@ -10,6 +10,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="sv-shared.css">
+    <style>
+        /* Healthcare Foundation Cards (Factor Cards) */
+        .factors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .factor-card { 
+            padding: 0; 
+            border-radius: 12px; 
+            border: 1px solid var(--border-light); 
+            background: #fff; 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column;
+            text-align: left;
+            transition: 0.3s;
+        }
+        .factor-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+        .factor-card .card-image-wrap { height: 200px; width: 100%; overflow: hidden; }
+        .factor-card .card-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .factor-card:hover .card-image-wrap img { transform: scale(1.05); }
+        .factor-card-content { padding: 24px; flex-grow: 1; }
+        .factor-card h3 { font-size: 18px; margin-bottom: 10px; color: var(--dark-blue); }
+        .factor-card p { font-size: 14px; color: var(--text-gray); margin: 0; line-height: 1.6; }
+
+        @media (max-width: 992px) {
+            .factors-grid { grid-template-columns: 1fr; gap: 24px; }
+        }
+    </style>
 </head>
 <body>
 
@@ -167,21 +193,38 @@
                 <p class="subtitle">Security in healthcare isn't just about lockdowns; it's about creating a safe, invisible safety net for residents and staff.</p>
             </div>
 
-            <div class="grid-3">
-                <div class="card" style="text-align: center; border: 1px solid var(--border-light); padding: 48px 32px; border-radius: 12px; background: #fff;">
-                    <div style="font-size:40px; margin-bottom:24px;">👥</div>
-                    <h3>Frictionless Flow</h3>
-                    <p style="font-size: 14px; color: var(--text-gray);">Identifies residents mid-stride to eliminate bottlenecks at dormitories and staff entries during peak shift changes.</p>
+            <div class="factors-grid">
+                <!-- 1. Frictionless Flow -->
+                <div class="factor-card">
+                    <div class="card-image-wrap">
+                        <img src="images/healthcare-flow.png" alt="Healthcare Frictionless Flow">
+                    </div>
+                    <div class="factor-card-content">
+                        <h3>Frictionless Flow</h3>
+                        <p>Identifies residents mid-stride to eliminate bottlenecks at dormitories and staff entries during peak shift changes.</p>
+                    </div>
                 </div>
-                <div class="card" style="text-align: center; border: 1px solid var(--border-light); padding: 48px 32px; border-radius: 12px; background: #fff;">
-                    <div style="font-size:40px; margin-bottom:24px;">📊</div>
-                    <h3>Occupancy Insights</h3>
-                    <p style="font-size: 14px; color: var(--text-gray);">Real-time headcount and zone-safety data on a single unified dashboard for fire safety and welfare audits.</p>
+                
+                <!-- 2. Occupancy Insights -->
+                <div class="factor-card">
+                    <div class="card-image-wrap">
+                        <img src="images/healthcare-occupancy.png" alt="Healthcare Occupancy Insights">
+                    </div>
+                    <div class="factor-card-content">
+                        <h3>Occupancy Insights</h3>
+                        <p>Real-time headcount and zone-safety data on a single unified dashboard for fire safety and welfare audits.</p>
+                    </div>
                 </div>
-                <div class="card" style="text-align: center; border: 1px solid var(--border-light); padding: 48px 32px; border-radius: 12px; background: #fff;">
-                    <div style="font-size:40px; margin-bottom:24px;">🛠️</div>
-                    <h3>Resilient Care</h3>
-                    <p style="font-size: 14px; color: var(--text-gray);">One engineering team for intercoms, gates, and CCTV to ensure 100% uptime for critical welfare operations.</p>
+                
+                <!-- 3. Resilient Care -->
+                <div class="factor-card">
+                    <div class="card-image-wrap">
+                        <img src="images/healthcare-resilient.png" alt="Healthcare Resilient Care Integration">
+                    </div>
+                    <div class="factor-card-content">
+                        <h3>Resilient Care</h3>
+                        <p>One engineering team for intercoms, gates, and CCTV to ensure 100% uptime for critical welfare operations.</p>
+                    </div>
                 </div>
             </div>
         </div>
