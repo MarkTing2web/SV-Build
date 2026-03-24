@@ -10,6 +10,67 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="sv-shared.css">
+    
+    <style>
+        /* PAGE-SPECIFIC STYLE OVERRIDES */
+        #securevision-edge .why-card { 
+            padding: 0; 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
+            text-align: left; 
+            background: #fff;
+        }
+        #securevision-edge .card-image-wrap { 
+            height: 200px; 
+            width: 100%; 
+            overflow: hidden; 
+        }
+        #securevision-edge .card-image-wrap img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.3s;
+        }
+        #securevision-edge .why-card:hover .card-image-wrap img {
+            transform: scale(1.05);
+        }
+        #securevision-edge .why-card-content { 
+            padding: 24px; 
+            flex-grow: 1; 
+            display: flex;
+            flex-direction: column;
+        }
+        #securevision-edge .why-card .icon { 
+            font-size: 24px; 
+            margin-bottom: 12px; 
+        }
+        #securevision-edge .why-card h3 { 
+            font-size: 18px; 
+            margin-bottom: 12px; 
+            color: var(--dark-blue);
+        }
+        #securevision-edge .why-card p {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        #securevision-edge .tagline { 
+            font-size: 12px; 
+            color: var(--primary-blue); 
+            font-weight: 600; 
+            margin-top: auto; 
+            border-top: 1px solid var(--border-light); 
+            padding-top: 16px; 
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        @media (max-width: 768px) {
+            #securevision-edge .grid-3 { grid-template-columns: 1fr; gap: 24px; }
+        }
+    </style>
 </head>
 <body>
 
@@ -315,26 +376,41 @@
         <div class="grid-3 mt-32">
             <!-- Card 1: One-Stop Security -->
             <div class="why-card">
-                <div class="icon">🛠️</div>
-                <h3>One-Stop Security</h3>
-                <p>We manage the entire ecosystem &mdash; cabling, network, and systems &mdash; so you only ever have one partner to call.</p>
-                <div class="tagline">CCTV & Alarms &bull; Smart Gates & Intercoms &bull; Turnkey Infrastructure</div>
+                <div class="card-image-wrap">
+                    <img src="images/edge-one-stop-v2.png" alt="Securevision Technicians performing professional installation">
+                </div>
+                <div class="why-card-content">
+                    <div class="icon">🛠️</div>
+                    <h3>One-Stop Security</h3>
+                    <p>We manage the entire ecosystem &mdash; cabling, network, and systems &mdash; so you only ever have one partner to call.</p>
+                    <div class="tagline">CCTV & Alarms &bull; Smart Gates &bull; Turnkey Infrastructure</div>
+                </div>
             </div>
 
             <!-- Card 2: Dedicated Support -->
             <div class="why-card">
-                <div class="icon">🛡️</div>
-                <h3>Dedicated Support</h3>
-                <p>With 20 years in the trade, we are still supporting projects from our first year. We stay with you long after the wires are pulled.</p>
-                <div class="tagline">Service & Maintenance &bull; Remote Diagnostics &bull; bizSAFE Certified Support</div>
+                <div class="card-image-wrap">
+                    <img src="images/edge-support-v5.png" alt="Securevision Technicians performing active maintenance and configuration">
+                </div>
+                <div class="why-card-content">
+                    <div class="icon">🛡️</div>
+                    <h3>Dedicated Support</h3>
+                    <p>With 20 years in the trade, we are still supporting projects from our first year. We stay with you long after the wires are pulled.</p>
+                    <div class="tagline">Maintenance &bull; Remote Diagnostics &bull; bizSAFE Certified</div>
+                </div>
             </div>
 
             <!-- Card 3: Real Value -->
             <div class="why-card">
-                <div class="icon">💎</div>
-                <h3>Real Value</h3>
-                <p>We engineer high-performance systems at prices that make sense. No unnecessary markups, just security that works.</p>
-                <div class="tagline">No hidden cost &bull; Scalable Engineering</div>
+                <div class="card-image-wrap">
+                    <img src="images/edge-value-v3.png" alt="Happy homeowners with Securevision lead engineer">
+                </div>
+                <div class="why-card-content">
+                    <div class="icon">💎</div>
+                    <h3>Real Value</h3>
+                    <p>We engineer high-performance systems at prices that make sense. No unnecessary markups, just security that works.</p>
+                    <div class="tagline">No hidden cost &bull; Scalable Engineering &bull; Peace of Mind</div>
+                </div>
             </div>
         </div>
     </div>
