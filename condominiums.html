@@ -32,6 +32,32 @@
         #trust-bar .assurance-content p {
             font-size: 13px;
         }
+
+        /* Condo Logic Cards (Factor Cards) */
+        .factors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .factor-card { 
+            padding: 0; 
+            border-radius: 12px; 
+            border: 1px solid var(--border-light); 
+            background: #fff; 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column;
+            text-align: left;
+            transition: 0.3s;
+        }
+        .factor-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+        .factor-card .card-image-wrap { height: 200px; width: 100%; overflow: hidden; }
+        .factor-card .card-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .factor-card:hover .card-image-wrap img { transform: scale(1.05); }
+        .factor-card-content { padding: 24px; flex-grow: 1; }
+        .factor-card .icon { font-size: 24px; margin-bottom: 12px; }
+        .factor-card h3 { font-size: 18px; margin-bottom: 10px; color: var(--dark-blue); }
+        .factor-card p { font-size: 14px; color: var(--text-gray); margin: 0; line-height: 1.6; }
+
+        @media (max-width: 992px) {
+            .factors-grid { grid-template-columns: 1fr; gap: 24px; }
+        }
     </style>
 </head>
 <body>
@@ -191,22 +217,40 @@
         </div>
 
         <div class="factors-grid mt-32">
+            <!-- 1. Estate Resilience -->
             <div class="factor-card">
-                <div class="icon">🏢</div>
-                <h3>Estate Resilience</h3>
-                <p>We engineer systems for the long term. Replacing individual failures with integrated infrastructure that extends the lifecycle of your estate assets.</p>
+                <div class="card-image-wrap">
+                    <img src="images/condo-resilience.png" alt="Securevision Technicians upgrading intercom system">
+                </div>
+                <div class="factor-card-content">
+                    <div class="icon">🏢</div>
+                    <h3>Estate Resilience</h3>
+                    <p>We engineer systems for the long term. Replacing individual failures with integrated infrastructure that extends the lifecycle of your estate assets.</p>
+                </div>
             </div>
             
+            <!-- 2. Supportive Engineering -->
             <div class="factor-card">
-                <div class="icon">🛡️</div>
-                <h3>Supportive Engineering</h3>
-                <p>We stay with you through committee cycles. Our engineering team provides the continuity and technical depth MCSTs and MAs depend on.</p>
+                <div class="card-image-wrap">
+                    <img src="images/condo-engineering.png" alt="Securevision engineer consulting with MCST and Managing Agent">
+                </div>
+                <div class="factor-card-content">
+                    <div class="icon">🛡️</div>
+                    <h3>Supportive Engineering</h3>
+                    <p>We stay with you through committee cycles. Our engineering team provides the continuity and technical depth MCSTs and MAs depend on.</p>
+                </div>
             </div>
             
+            <!-- 3. Operational Savings -->
             <div class="factor-card">
-                <div class="icon">⚡</div>
-                <h3>Operational Savings</h3>
-                <p>Smart systems reduce manual guard workload and visitor congestion, paying for themselves through improved efficiency and lower property overheads.</p>
+                <div class="card-image-wrap">
+                    <img src="images/condo-savings.png" alt="Automated gantry system for condominium operational efficiency">
+                </div>
+                <div class="factor-card-content">
+                    <div class="icon">⚡</div>
+                    <h3>Operational Savings</h3>
+                    <p>Smart systems reduce manual guard workload and visitor congestion, paying for themselves through improved efficiency and lower property overheads.</p>
+                </div>
             </div>
         </div>
     </div>
