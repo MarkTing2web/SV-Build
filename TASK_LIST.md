@@ -18,8 +18,8 @@ The HTML and CSS structure for the "3 Foundations of Modern Industrial Security"
 - **Current Placeholder**: `images/pillar_people_access.png`
 
 ## Final Polish Task
-- [ ] Generate the 3 custom Singapore-based images.
-- [ ] Save to `images/` directory.
-- [ ] Update `industrial.html` image `src` attributes.
-- [ ] **Remove the icons** (🛡️, 🧠, 👷) from the card content, matching the clean aesthetic of the Residential and Condo pages.
-- [ ] Commit and push to main.
+- [x] Generate the 3 custom Singapore-based images.
+- [x] Save to `images/` directory.
+- [x] Update `industrial.html` image `src` attributes.
+- [x] **Remove the icons** (🛡️, 🧠, 👷) from the card content, matching the clean aesthetic of the Residential and Condo pages.
+- [x] Commit and push to main.
