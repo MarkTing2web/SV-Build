@@ -198,7 +198,9 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
 .mobile-menu {
     display: none; background: #0E1A2B;
     border-top: 1px solid rgba(255,255,255,0.08);
+    position: absolute; top: 100%; left: 0; right: 0;
     padding: 16px 24px 24px;
+    z-index: 999;
 }
 .mobile-menu.active { display: block; }
 .mobile-menu-item {
@@ -1263,6 +1265,11 @@ section { padding: 100px 0; }
     .nav-logo-link span { font-size: 16px !important; }
     .nav-logo-img { height: 30px !important; }
 
+    /* Show mobile nav buttons */
+    .mobile-toggle { display: flex; }
+    .mobile-search-btn { display: flex; }
+    .nav-menu, .nav-right { display: none; }
+
     section { padding: 64px 0; }
     .hero { padding: 110px 0 80px; }
     .hero h1 { font-size: 32px; }
@@ -1282,7 +1289,11 @@ section { padding: 100px 0; }
         gap: 12px;
         align-items: center;
     }
-    .btn-group { flex-direction: column; align-items: center; }
+    
+    /* Buttons equal length when stacked */
+    .btn-group { flex-direction: column; align-items: stretch; max-width: 400px; margin: 0 auto 48px; }
+    .btn-group .btn { width: 100%; min-width: unset; }
+
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
     .footer-brand { grid-column: 1 / -1; }
 }
