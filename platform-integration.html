@@ -24,10 +24,6 @@
       <span class="wordmark nav-wordmark">SECUREVISION</span>
     </a>
     
-    <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-    </button>
-
     <ul class="nav-menu">
       <li class="nav-item">
         <a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
@@ -47,6 +43,7 @@
           <a href="people-access.html">People Access</a>
           <a href="vehicle-access.html">Vehicle Access</a>
           <a href="platform-integration.html">Platform & Integration</a>
+          <hr>
           <a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a>
         </div>
       </li>
@@ -59,6 +56,7 @@
           <a href="zkteco-singapore.html">ZKTeco</a>
           <a href="akuvox-singapore.html">Akuvox</a>
           <a href="faac-singapore.html">FAAC</a>
+          <hr>
           <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
         </div>
       </li>
@@ -80,19 +78,43 @@
       </button>
     </div>
 
-    <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
     </button>
   </div>
 
   <div class="mobile-menu" id="mobileMenu">
-    <a href="solutions-hub.html" class="mobile-menu-item">Solutions</a>
-    <a href="systems-hub.html" class="mobile-menu-item">Systems</a>
-    <a href="brands.html" class="mobile-menu-item">Brands</a>
+    <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions ▾
+        <div class="mobile-submenu" id="solSub">
+            <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
+            <a href="residential.html">Private Homes</a>
+            <a href="condominiums.html">Condominiums</a>
+            <a href="commercial.html">Commercial & Retail</a>
+            <a href="institutions.html">Institutions</a>
+            <a href="industrial.html">Industrial & Logistics</a>
+        </div>
+    </div>
+    <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems ▾
+        <div class="mobile-submenu" id="sysSub">
+            <a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a>
+            <a href="surveillance-systems.html">Surveillance</a>
+            <a href="people-access.html">People Access</a>
+            <a href="vehicle-access.html">Vehicle Access</a>
+            <a href="platform-integration.html">Platform</a>
+        </div>
+    </div>
+    <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands ▾
+        <div class="mobile-submenu" id="brdSub">
+            <a href="brands.html"><strong>&rarr; All Brands</strong></a>
+            <a href="hikvision-singapore.html">Hikvision</a>
+            <a href="ajax-alarm-singapore.html">AJAX</a>
+            <a href="zkteco-singapore.html">ZKTeco</a>
+        </div>
+    </div>
     <a href="portfolio.html" class="mobile-menu-item">Portfolio</a>
     <a href="insights.html" class="mobile-menu-item">Insights</a>
     <a href="about.html" class="mobile-menu-item">About</a>
-    <a href="https://wa.me/6593860466" class="mobile-menu-item" style="color:var(--whatsapp,#25d366); border-top:1px solid rgba(255,255,255,0.1); margin-top:8px;" target="_blank">💬 WhatsApp Us</a>
+    <a href="https://wa.me/6593860466" class="mobile-menu-item" style="color:var(--accent-green); border-top:1px solid rgba(255,255,255,0.1); margin-top:8px;">💬 WhatsApp Us</a>
   </div>
 </nav>
 
@@ -109,7 +131,6 @@
 .scenario-card { border-bottom-width: 4px; border-bottom-style: solid; height: 100%; }
 .vulnerability-badge { display: inline-block; padding: 4px 12px; border-radius: 4px; font-size: 10px; font-weight: 700; color: white; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
 
-.integration-dark-box { background: #0E1A2B; border-radius: 24px; padding: 60px; color: white; }
 .inner-accent-box { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 32px; }
 
 .architecture-panel { padding: 48px; border-left: 4px solid; height: 100%; background: #f8f9fa; border-radius: 0 12px 12px 0; }
@@ -154,7 +175,7 @@
 
 <!-- Hero Section -->
 <header class="hero">
-    <img src="images/hero-video of intercom and vesta platform.mp4" class="hero-video" alt="Professional Platform Integration Singapore">
+    <img src="proprietary-assets/platform-integration-hero.png" class="hero-image" alt="Professional Platform Integration Singapore">
     <div class="hero-overlay"></div>
     <div class="container z-2 pos-relative">
         <span class="eyebrow-light">Platform Architecture</span>
@@ -181,32 +202,38 @@
 
 <main>
     <!-- SECTION 2: THE DESIGN PHILOSOPHY -->
-    <section id="philosophy" class="philosophy">
+    <section id="philosophy" class="bg-white">
         <div class="container">
             <div class="section-header text-center">
                 <span class="eyebrow">The Design Philosophy</span>
                 <h2>Platform Integration: Connectivity by Design</h2>
-                <p class="intro-text" style="max-width: 900px; margin: 0 auto;">Platform integration isn't about buying one brand or one software. It's about designing the logic layer that makes your systems — regardless of manufacturer — work together intelligently.</p>
+                <p class="subtitle" style="max-width: 900px; margin: 0 auto;">Platform integration isn't about buying one brand or one software. It's about designing the logic layer that makes your systems — regardless of manufacturer — work together intelligently.</p>
             </div>
 
             <div class="grid-3" style="margin-top: 56px;">
                 <!-- Question 1 -->
-                <div class="card platform-card" style="border-bottom: 4px solid #38a169;">
-                    <img src="proprietary-assets/platform-what-wide.png" alt="What systems do you have?" style="width:100%; height:200px; object-fit:cover; margin-bottom:24px; border-radius:8px;">
-                    <h3>What systems do you have?</h3>
-                    <p>Surveillance cameras, access control readers, vehicle barriers, alarms, intercoms — purchased over years from different vendors.</p>
+                <div class="card" style="padding: 0; border-bottom: 4px solid #38a169;">
+                    <img src="proprietary-assets/platform-what-wide.png" alt="What systems do you have?">
+                    <div style="padding: 32px;">
+                        <h3>What systems do you have?</h3>
+                        <p>Surveillance cameras, access control readers, vehicle barriers, alarms, intercoms — purchased over years from different vendors.</p>
+                    </div>
                 </div>
                 <!-- Question 2 -->
-                <div class="card platform-card" style="border-bottom: 4px solid #38a169;">
-                    <img src="proprietary-assets/platform-talk-wide.png" alt="Do they talk to each other?" style="width:100%; height:200px; object-fit:cover; margin-bottom:24px; border-radius:8px;">
-                    <h3>Do they talk to each other?</h3>
-                    <p>Siloed systems mean guards juggle multiple screens, managers log into separate portals, and incidents require manual cross-referencing.</p>
+                <div class="card" style="padding: 0; border-bottom: 4px solid #38a169;">
+                    <img src="proprietary-assets/platform-talk-wide.png" alt="Do they talk to each other?">
+                    <div style="padding: 32px;">
+                        <h3>Do they talk to each other?</h3>
+                        <p>Siloed systems mean guards juggle multiple screens, managers log into separate portals, and incidents require manual cross-referencing.</p>
+                    </div>
                 </div>
                 <!-- Question 3 -->
-                <div class="card platform-card" style="border-bottom: 4px solid #333;">
-                    <img src="proprietary-assets/platform-action-wide.png" alt="Can one event trigger action?" style="width:100%; height:200px; object-fit:cover; margin-bottom:24px; border-radius:8px;">
-                    <h3>Can one event trigger coordinated action?</h3>
-                    <p>Integrated platforms enable automation: one alarm auto-pops the right camera, locks adjacent zones, and notifies the right people.</p>
+                <div class="card" style="padding: 0; border-bottom: 4px solid #333;">
+                    <img src="proprietary-assets/platform-action-wide.png" alt="Can one event trigger action?">
+                    <div style="padding: 32px;">
+                        <h3>Can one event trigger action?</h3>
+                        <p>Integrated platforms enable automation: one alarm auto-pops the right camera, locks adjacent zones, and notifies the right people.</p>
+                    </div>
                 </div>
             </div>
 
@@ -216,56 +243,54 @@
                 <p class="subtitle">Platform integration scales from single buildings to global portfolios. The architecture depends on your operational model.</p>
             </div>
 
-            <div class="grid-2" style="margin-top: 56px; gap: 40px;">
+            <div class="grid-2" style="margin-top: 56px; gap: 40px; align-items: stretch;">
                 <!-- Single-Site -->
-                <div style="background: #f8f9fa; border-radius: 12px; overflow: hidden; border-bottom: 4px solid var(--primary-blue);">
+                <div class="card" style="padding: 0; border-bottom: 4px solid var(--primary-blue); background: #f8f9fa;">
                     <img src="proprietary-assets/platform-single-site.png" alt="Single-Site Integration" style="width: 100%; height: 240px; object-fit: cover;">
                     <div style="padding: 48px;">
-                        <div style="font-size: 32px; margin-bottom: 16px;">🏢</div>
                         <h3>Single-Site Integration</h3>
                         <p style="color: var(--primary-blue); text-transform: uppercase; font-weight: 700; font-size: 13px; letter-spacing: 1px; margin-bottom: 24px;">Vertical Integration for One Location</p>
                         
-                        <div style="margin-bottom: 20px;">
-                            <strong style="font-size: 11px; text-transform: uppercase; color: #666;">Who Uses This:</strong>
-                            <ul style="font-size: 14px; margin-top: 8px;">
-                                <li>Condominiums (one estate)</li>
-                                <li>Office buildings (single campus)</li>
-                                <li>Hospitals / Industrial sites</li>
+                        <div style="margin-bottom: 32px;">
+                            <h4 style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-bottom: 12px;">Who Uses This:</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 15px; line-height: 1.8; color: var(--text-gray);">
+                                <li>&bull; Condominiums (one estate)</li>
+                                <li>&bull; Office buildings (single campus)</li>
+                                <li>&bull; Hospitals / Industrial sites</li>
                             </ul>
                         </div>
                         <div>
-                            <strong style="font-size: 11px; text-transform: uppercase; color: #666;">Capabilities:</strong>
-                            <ul style="font-size: 14px; margin-top: 8px;">
-                                <li>Unified dashboard (one screen)</li>
-                                <li>Automated correlation (alarm-to-video)</li>
-                                <li>Local data storage + Cloud backup</li>
+                            <h4 style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-bottom: 12px;">Capabilities:</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 15px; line-height: 1.8; color: var(--text-gray);">
+                                <li>&bull; Unified dashboard (one screen)</li>
+                                <li>&bull; Automated correlation (alarm-to-video)</li>
+                                <li>&bull; Local data storage + Cloud backup</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <!-- Multi-Site -->
-                <div style="background: #0E1A2B; color: white; border-radius: 12px; overflow: hidden; border-bottom: 4px solid #38a169;">
+                <div class="card" style="padding: 0; border-bottom: 4px solid #38a169; background: #0E1A2B; color: white;">
                     <img src="proprietary-assets/platform-multi-site.png" alt="Multi-Site Integration" style="width: 100%; height: 240px; object-fit: cover;">
                     <div style="padding: 48px;">
-                        <div style="font-size: 32px; margin-bottom: 16px;">🌐</div>
                         <h3 style="color: white;">Multi-Site Integration</h3>
                         <p style="color: #38a169; text-transform: uppercase; font-weight: 700; font-size: 13px; letter-spacing: 1px; margin-bottom: 24px;">Horizontal Integration Across Locations</p>
                         
-                        <div style="margin-bottom: 20px;">
-                            <strong style="font-size: 11px; text-transform: uppercase; color: #aaa;">Who Uses This:</strong>
-                            <ul style="font-size: 14px; margin-top: 8px; opacity: 0.9;">
-                                <li>Retail chains (10-50 outlets)</li>
-                                <li>Corporate real estate portfolios</li>
-                                <li>Industrial parks</li>
+                        <div style="margin-bottom: 32px;">
+                            <h4 style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-bottom: 12px;">Who Uses This:</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.8);">
+                                <li>&bull; Retail chains (10-50 outlets)</li>
+                                <li>&bull; Corporate real estate portfolios</li>
+                                <li>&bull; Industrial parks</li>
                             </ul>
                         </div>
                         <div>
-                            <strong style="font-size: 11px; text-transform: uppercase; color: #aaa;">Capabilities:</strong>
-                            <ul style="font-size: 14px; margin-top: 8px; opacity: 0.9;">
-                                <li>Portfolio dashboard (all sites)</li>
-                                <li>Centralized credentials (sync all)</li>
-                                <li>Remote access managed from HQ</li>
+                            <h4 style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-bottom: 12px;">Capabilities:</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 15px; line-height: 1.8; color: rgba(255,255,255,0.8);">
+                                <li>&bull; Portfolio dashboard (all sites)</li>
+                                <li>&bull; Centralized credentials (sync all)</li>
+                                <li>&bull; Remote access managed from HQ</li>
                             </ul>
                         </div>
                     </div>
@@ -279,90 +304,108 @@
     </section>
 
     <!-- SECTION 3: WHY PLATFORM INTEGRATION MATTERS -->
-    <section id="scenarios" style="background: #f8f9fa; padding: 100px 0;">
+    <section id="scenarios" class="bg-light border-top border-bottom">
         <div class="container">
             <div class="section-header text-center">
                 <span class="eyebrow">The Problem</span>
                 <h2>Why Fragmented Systems Create Operational Gaps</h2>
-                <p class="intro-text" style="max-width: 900px; margin: 0 auto;">Without platform integration, your security hardware is only as good as the guard's ability to manually connect the dots. These scenarios show what's at stake.</p>
+                <p class="subtitle" style="max-width: 900px; margin: 0 auto;">Without platform integration, your security hardware is only as good as the guard's ability to manually connect the dots. These scenarios show what's at stake.</p>
             </div>
 
             <div class="grid-3" style="margin-top: 56px;">
                 <!-- Scenario 1 -->
-                <div class="card scenario-card" style="border-bottom: 4px solid #e53e3e;">
-                    <img src="proprietary-assets/scenario-3screen-wide.png" alt="The 3-Screen Guard" style="width:100%; border-radius:8px; margin-bottom:24px;">
-                    <span class="vulnerability-badge" style="background: #e53e3e;">Operational Inefficiency</span>
-                    <h3>The 3-Screen Guard</h3>
-                    <p style="font-size: 14px; margin-top: 16px;"><strong>Scenario:</strong> Guard monitors 3 separate systems. Alarm triggers on L4; guard must manually find camera and cross-reference access logs. 3-5 minutes lost.</p>
-                    <p style="font-size: 14px; color: #e53e3e; margin-top: 16px;"><strong>Security Gap:</strong> Intruder moves zones before footage is reviewed. No coordinated lockdown occurred.</p>
+                <div class="card" style="padding: 0; border-bottom: 4px solid #e53e3e;">
+                    <img src="proprietary-assets/scenario-3screen-wide.png" alt="The 3-Screen Guard">
+                    <div style="padding: 32px;">
+                        <div style="display: inline-block; padding: 4px 10px; background: #fee2e2; color: #e53e3e; font-size: 11px; font-weight: 700; border-radius: 4px; text-transform: uppercase; margin-bottom: 16px;">Operational Inefficiency</div>
+                        <h3 style="margin-bottom: 12px; font-size: 18px;">The 3-Screen Guard</h3>
+                        <p style="font-size: 14px; margin-bottom: 16px;"><strong>Scenario:</strong> Guard monitors 3 separate systems. Alarm triggers on L4; guard must manually find camera and cross-reference access logs. 3-5 minutes lost.</p>
+                        <div style="background: #fef2f2; padding: 16px; border-radius: 8px; border: 1px solid #fee2e2;">
+                            <p style="font-size: 13px; color: #991b1b; margin: 0;"><strong>Security Gap:</strong> Intruder moves zones before footage is reviewed. No coordinated lockdown occurred.</p>
+                        </div>
+                    </div>
                 </div>
                 <!-- Scenario 2 -->
-                <div class="card scenario-card" style="border-bottom: 4px solid #dd6b20;">
-                    <img src="proprietary-assets/scenario-credential-wide.png" alt="The Credential Nightmare" style="width:100%; border-radius:8px; margin-bottom:24px;">
-                    <span class="vulnerability-badge" style="background: #dd6b20;">Security Vulnerability</span>
-                    <h3>The Credential Nightmare</h3>
-                    <p style="font-size: 14px; margin-top: 16px;"><strong>Scenario:</strong> Employee resigns; HR emails IT, Security logs into 3 systems. Revocation completes 3 days late.</p>
-                    <p style="font-size: 14px; color: #dd6b20; margin-top: 16px;"><strong>Security Gap:</strong> Ex-employee accessed building twice using unrevoked cards. No audit trail of approval delays.</p>
+                <div class="card" style="padding: 0; border-bottom: 4px solid #dd6b20;">
+                    <img src="proprietary-assets/scenario-credential-wide.png" alt="The Credential Nightmare">
+                    <div style="padding: 32px;">
+                        <div style="display: inline-block; padding: 4px 10px; background: #ffedd5; color: #dd6b20; font-size: 11px; font-weight: 700; border-radius: 4px; text-transform: uppercase; margin-bottom: 16px;">Security Vulnerability</div>
+                        <h3 style="margin-bottom: 12px; font-size: 18px;">The Credential Nightmare</h3>
+                        <p style="font-size: 14px; margin-bottom: 16px;"><strong>Scenario:</strong> Employee resigns; HR emails IT, Security logs into 3 systems. Revocation completes 3 days late.</p>
+                        <div style="background: #fff7ed; padding: 16px; border-radius: 8px; border: 1px solid #ffedd5;">
+                            <p style="font-size: 13px; color: #9a3412; margin: 0;"><strong>Security Gap:</strong> Ex-employee accessed building twice using unrevoked cards. No audit trail of approval delays.</p>
+                        </div>
+                    </div>
                 </div>
                 <!-- Scenario 3 -->
-                <div class="card scenario-card" style="border-bottom: 4px solid #38a169;">
-                    <img src="proprietary-assets/scenario-integrated-wide.png" alt="The Unified Platform" style="width:100%; border-radius:8px; margin-bottom:24px;">
-                    <span class="vulnerability-badge" style="background: #38a169;">Integrated Solution</span>
-                    <h3>The Unified Platform Response</h3>
-                    <p style="font-size: 14px; margin-top: 16px;"><strong>Scenario:</strong> Alarm triggers → Platform auto-pops camera + access log overlay. Zones autolock; Push sent to manager.</p>
-                    <p style="font-size: 14px; color: #38a169; margin-top: 16px;"><strong>Result:</strong> Coordinated response in under 30 seconds. Complete incident timeline auto-generated.</p>
+                <div class="card" style="padding: 0; border-bottom: 4px solid #38a169;">
+                    <img src="proprietary-assets/scenario-integrated-wide.png" alt="The Unified Platform">
+                    <div style="padding: 32px;">
+                        <div style="display: inline-block; padding: 4px 10px; background: #d1fae5; color: #38a169; font-size: 11px; font-weight: 700; border-radius: 4px; text-transform: uppercase; margin-bottom: 16px;">Integrated Solution</div>
+                        <h3 style="margin-bottom: 12px; font-size: 18px;">The Unified Platform Response</h3>
+                        <p style="font-size: 14px; margin-bottom: 16px;"><strong>Scenario:</strong> Alarm triggers → Platform auto-pops camera + access log overlay. Zones autolock; Push sent to manager.</p>
+                        <div style="background: #f0fdf4; padding: 16px; border-radius: 8px; border: 1px solid #d1fae5;">
+                            <p style="font-size: 13px; color: #065f46; margin: 0;"><strong>Result:</strong> Coordinated response in under 30 seconds. Complete incident timeline auto-generated.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- SECTION 4: CAPABILITIES -->
-    <section id="capabilities" style="padding: 100px 0;">
+    <section id="capabilities" class="bg-white">
         <div class="container">
             <div class="section-header text-center">
                 <span class="eyebrow">Platform Capabilities</span>
                 <h2>What Modern Platform Integration Enables</h2>
-                <p class="intro-text" style="max-width: 800px; margin: 0 auto;">Platform integration delivers three critical capabilities that traditional siloed systems cannot: unified control, remote access, and multi-site orchestration.</p>
+                <p class="subtitle" style="max-width: 800px; margin: 0 auto;">Platform integration delivers three critical capabilities that traditional siloed systems cannot: unified control, remote access, and multi-site orchestration.</p>
             </div>
 
             <div class="grid-3" style="margin-top: 64px;">
                 <!-- Unified -->
-                <div class="card">
-                    <span class="capability-icon">🎛️</span>
-                    <h3>Unified Control: One Interface</h3>
-                    <p style="font-size: 14px; margin-bottom: 24px;">Consolidate CCTV, access, alarms, and barriers into a single dashboard middleware layer sitting above your hardware.</p>
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
-                        <small style="font-weight: 700; color: var(--primary-blue);">BUSINESS IMPACT:</small>
-                        <ul style="font-size: 13px; margin-top: 8px;">
-                            <li>80% faster incident response</li>
-                            <li>Single source of truth for audits</li>
-                        </ul>
+                <div class="card" style="padding: 0; border-bottom: 4px solid var(--c-platform); height: 100%;">
+                    <img src="proprietary-assets/platform-unified.png" alt="Unified Control" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 32px;">
+                        <h3 style="margin-bottom: 12px;">Unified Control</h3>
+                        <p style="font-size: 14px; margin-bottom: 24px;">Consolidate CCTV, access, alarms, and license plate recognition into a single dashboard middleware layer sitting above your hardware.</p>
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                            <small style="font-weight: 700; color: var(--primary-blue);">BUSINESS IMPACT:</small>
+                            <ul style="font-size: 13px; margin-top: 8px;">
+                                <li>80% faster incident response</li>
+                                <li>Single source of truth for audits</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <!-- Remote -->
-                <div class="card">
-                    <span class="capability-icon">📱</span>
-                    <h3>Remote Access: Control from Anywhere</h3>
-                    <p style="font-size: 14px; margin-bottom: 24px;">Cloud-connected platforms enable authorized users to monitor systems from phone, tablet, or laptop securely.</p>
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
-                        <small style="font-weight: 700; color: var(--primary-blue);">BUSINESS IMPACT:</small>
-                        <ul style="font-size: 13px; margin-top: 8px;">
-                            <li>Manage properties without travel</li>
-                            <li>Faster after-hours decisions</li>
-                        </ul>
+                <div class="card" style="padding: 0; border-bottom: 4px solid var(--c-platform); height: 100%;">
+                    <img src="proprietary-assets/platform-remote.png" alt="Remote Identity Management" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 32px;">
+                        <h3 style="margin-bottom: 12px;">Remote Identity</h3>
+                        <p style="font-size: 14px; margin-bottom: 24px;">Cloud-connected platforms enable HR and security teams to monitor systems and manage credentials from phone, tablet, or laptop securely from anywhere.</p>
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                            <small style="font-weight: 700; color: var(--primary-blue);">BUSINESS IMPACT:</small>
+                            <ul style="font-size: 13px; margin-top: 8px;">
+                                <li>Manage properties without travel</li>
+                                <li>Faster after-hours decisions</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
                 <!-- Orchestration -->
-                <div class="card">
-                    <span class="capability-icon">🌐</span>
-                    <h3>Multi-Site: Portfolio Orchestration</h3>
-                    <p style="font-size: 14px; margin-bottom: 24px;">Centralized oversight and credential management across all locations from a single HQ dashboard.</p>
-                    <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
-                        <small style="font-weight: 700; color: var(--primary-blue);">BUSINESS IMPACT:</small>
-                        <ul style="font-size: 13px; margin-top: 8px;">
-                            <li>Add credentials once, sync to all sites</li>
-                            <li>Standardized portfolio policies</li>
-                        </ul>
+                <div class="card" style="padding: 0; border-bottom: 4px solid var(--c-platform); height: 100%;">
+                    <img src="proprietary-assets/platform-orchestrate.png" alt="Multi-Site Orchestration" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 32px;">
+                        <h3 style="margin-bottom: 12px;">Multi-Site Orchestration</h3>
+                        <p style="font-size: 14px; margin-bottom: 24px;">Centralized oversight and global analytics across all locations, allowing managers to monitor store data from one city to another from a single dashboard.</p>
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px;">
+                            <small style="font-weight: 700; color: var(--primary-blue);">BUSINESS IMPACT:</small>
+                            <ul style="font-size: 13px; margin-top: 8px;">
+                                <li>Add credentials once, sync to all sites</li>
+                                <li>Standardized portfolio policies</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -370,13 +413,13 @@
     </section>
 
     <!-- SECTION 5: WORKFLOWS -->
-    <section id="workflows" style="padding: 100px 0; background: #f8f9fa;">
+    <section id="workflows" class="bg-light border-top">
         <div class="container">
-            <div class="integration-dark-box">
+            <div class="secure-callout" style="padding: 60px;">
                 <div class="grid-2" style="align-items: center; gap: 60px;">
                     <div>
                         <h2 style="color: white; margin-bottom: 24px;">What Integration Unlocks:<br>Automated Workflows</h2>
-                        <p style="opacity: 0.7; margin-bottom: 40px;">IF/THEN logic that makes your security infrastructure act like a coordinated system.</p>
+                        <p style="opacity: 0.7; margin-bottom: 40px; color: white;">IF/THEN logic that makes your security infrastructure act like a coordinated system.</p>
                         
                         <div class="grid-2" style="gap: 24px;">
                             <div>
@@ -406,42 +449,52 @@
     </section>
 
     <!-- SECTION 6: ARCHITECTURE DETAILS -->
-    <section id="architecture-models" style="padding: 100px 0;">
+    <section id="architecture-models" class="bg-white border-bottom">
         <div class="container">
-            <div class="section-header text-center">
-                <h2>Architecture Models</h2>
-                <p class="subtitle">Choosing Your Integration Model</p>
+            <div class="text-center" style="margin-bottom: 72px;">
+                <span class="eyebrow">Architecture Models</span>
+                <h2>Choosing Your Integration Model</h2>
             </div>
 
             <div class="grid-2" style="margin-top: 56px; gap: 40px; align-items: stretch;">
                 <!-- Single Site -->
-                <div style="border-left: 4px solid var(--primary-blue); padding: 48px; background: #f8f9fa; border-radius: 0 12px 12px 0;">
+                <div class="card" style="padding: 48px 36px; border-left: 4px solid var(--primary-blue); background: #f8f9fa;">
                     <div style="font-size: 32px; margin-bottom: 24px;">🏢</div>
                     <h3>Single-Site Integration</h3>
-                    <p style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: #888; margin-bottom: 24px;">Design Purpose</p>
-                    <p style="margin-bottom: 32px; font-size: 14px;">Unified platform instance for one property/campus. Local servers for zero-latency in guard control rooms.</p>
-                    
                     <div style="margin-bottom: 32px;">
-                        <strong style="font-size: 11px; text-transform: uppercase;">Deployments:</strong>
-                        <p style="font-size: 14px;">Condos, office towers, hospitals, manufacturing hubs.</p>
+                        <h4 style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-bottom: 12px;">Design Purpose</h4>
+                        <p style="font-size: 14px; color: var(--text-gray); line-height: 1.6;">Unified platform instance for one property/campus. Local servers for zero-latency in guard control rooms.</p>
                     </div>
                     
-                    <p style="font-weight: 700; color: #333;">Investment: $20,000 – $80,000 per site</p>
+                    <div style="margin-bottom: 32px;">
+                        <h4 style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-light); margin-bottom: 12px;">Deployments</h4>
+                        <p style="font-size: 14px; color: var(--text-gray); line-height: 1.6;">Condos, office towers, hospitals, manufacturing hubs.</p>
+                    </div>
+                    
+                    <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid var(--border-light);">
+                        <span style="font-size: 11px; font-weight: 700; color: var(--text-light); text-transform: uppercase;">Estimated Investment</span>
+                        <p style="font-size: 18px; color: var(--primary-blue); font-weight: 700; margin: 4px 0 0;">$20,000 – $80,000 per site</p>
+                    </div>
                 </div>
 
                 <!-- Multi Site -->
-                <div style="border-left: 4px solid #38a169; padding: 48px; background: #0E1A2B; color: white; border-radius: 0 12px 12px 0;">
+                <div class="card" style="padding: 48px 36px; border-left: 4px solid #38a169; background: #0E1A2B; color: white;">
                     <div style="font-size: 32px; margin-bottom: 24px;">🌐</div>
                     <h3 style="color: white;">Multi-Site Integration</h3>
-                    <p style="font-size: 11px; text-transform: uppercase; font-weight: 700; color: #aaa; margin-bottom: 24px;">Design Purpose</p>
-                    <p style="margin-bottom: 32px; font-size: 14px; opacity: 0.9;">Portfolio-wide management from central HQ. Cloud-connected bridge between autonomous local sites.</p>
-                    
                     <div style="margin-bottom: 32px;">
-                        <strong style="font-size: 11px; text-transform: uppercase;">Deployments:</strong>
-                        <p style="font-size: 14px; opacity: 0.8;">Retail chains, industrial parks, property firms.</p>
+                        <h4 style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-bottom: 12px;">Design Purpose</h4>
+                        <p style="font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.6;">Portfolio-wide management from central HQ. Cloud-connected bridge between autonomous local sites.</p>
                     </div>
                     
-                    <p style="font-weight: 700; color: white;">Investment: $50,000 – $250,000 for portfolio+</p>
+                    <div style="margin-bottom: 32px;">
+                        <h4 style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.4); margin-bottom: 12px;">Deployments</h4>
+                        <p style="font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.6;">Retail chains, industrial parks, property firms.</p>
+                    </div>
+                    
+                    <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);">
+                        <span style="font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.5); text-transform: uppercase;">Estimated Investment</span>
+                        <p style="font-size: 18px; color: white; font-weight: 700; margin: 4px 0 0;">$50,000 – $250,000 for portfolio+</p>
+                    </div>
                 </div>
             </div>
             
@@ -472,48 +525,49 @@
     </section>
 
     <!-- SECTION 7: COMPONENTS -->
-    <section id="components" style="background: #f8f9fa; padding: 100px 0;">
+    <section id="components" class="bg-light">
         <div class="container">
             <div class="section-header text-center">
                 <span class="eyebrow">Platform Components</span>
                 <h2>The Building Blocks</h2>
             </div>
             <div class="grid-3" style="margin-top: 56px;">
-                <div class="card"><strong>📊 Dashboard</strong><p style="font-size: 14px; margin-top: 8px;">Single-screen real-time status grid.</p></div>
-                <div class="card"><strong>🔗 Correlation Engine</strong><p style="font-size: 14px; margin-top: 8px;">Linking alarms automatically to video/access logs.</p></div>
-                <div class="card"><strong>👥 Role-Based Views</strong><p style="font-size: 14px; margin-top: 8px;">Custom panels for guards vs auditors.</p></div>
-                <div class="card"><strong>🔌 API Gateway</strong><p style="font-size: 14px; margin-top: 8px;">Connecting HR, BMS, and third-party apps.</p></div>
-                <div class="card"><strong>📱 Mobile Command</strong><p style="font-size: 14px; margin-top: 8px;">Apps for remote monitoring and door release.</p></div>
-                <div class="card"><strong>📈 Reporting Suite</strong><p style="font-size: 14px; margin-top: 8px;">Automated daily/monthly compliance logs.</p></div>
+                <div class="card"><strong>📊 Dashboard</strong><p style="font-size: 14px; margin-top: 8px; color: var(--text-gray);">Single-screen real-time status grid.</p></div>
+                <div class="card"><strong>🔗 Correlation Engine</strong><p style="font-size: 14px; margin-top: 8px; color: var(--text-gray);">Linking alarms automatically to video/access logs.</p></div>
+                <div class="card"><strong>👥 Role-Based Views</strong><p style="font-size: 14px; margin-top: 8px; color: var(--text-gray);">Custom panels for guards vs auditors.</p></div>
+                <div class="card"><strong>🔌 API Gateway</strong><p style="font-size: 14px; margin-top: 8px; color: var(--text-gray);">Connecting HR, BMS, and third-party apps.</p></div>
+                <div class="card"><strong>📱 Mobile Command</strong><p style="font-size: 14px; margin-top: 8px; color: var(--text-gray);">Apps for remote monitoring and door release.</p></div>
+                <div class="card"><strong>📈 Reporting Suite</strong><p style="font-size: 14px; margin-top: 8px; color: var(--text-gray);">Automated daily/monthly compliance logs.</p></div>
             </div>
         </div>
     </section>
 
     <!-- SECTION 8: USE CASES -->
-    <section id="use-cases" style="padding: 100px 0;">
+    <section id="use-cases" class="bg-white">
         <div class="container">
             <div class="section-header text-center">
-                <h2>Real-World Applications</h2>
+                <span class="eyebrow">Applications</span>
+                <h2>Real-World Use Cases</h2>
             </div>
             <div class="grid-3" style="margin-top: 56px;">
-                <div class="card"><span class="badge-green">Condominium</span><h3>Estate-Wide Sync</h3><p style="font-size: 14px;">Unified guard monitoring for 300 units; auto-checks visitor pre-reg before gate release.</p></div>
-                <div class="card"><span class="badge-green">Retail chain</span><h3>Centralized Portfolio</h3><p style="font-size: 14px;">15 outlets managed from Singapore HQ. Regional alarm review from tablet.</p></div>
-                <div class="card"><span class="badge-green">Industrial Park</span><h3>Compound Coordination</h3><p style="font-size: 14px;">5 buildings + admin; auto-evac unlock on fire alarm detection.</p></div>
-                <div class="card"><span class="badge-green">Corporate Campus</span><h3>Enterprise Access</h3><p style="font-size: 14px;">2,500 employees synced via HR; zero-day credential revocation.</p></div>
-                <div class="card"><span class="badge-green">Hospital</span><h3>Healthcare Security</h3><p style="font-size: 14px;">Main site + 4 clinics; nurse station panic link to HQ security dispatch.</p></div>
-                <div class="card"><span class="badge-green">Mixed-Use</span><h3>Multi-Domain</h3><p style="font-size: 14px;">Shared hardware but isolated management for residential vs retail podiums.</p></div>
+                <div class="card"><span class="badge-green">Condominium</span><h3>Estate-Wide Sync</h3><p style="font-size: 14px; color: var(--text-gray);">Unified guard monitoring for 300 units; auto-checks visitor pre-reg before gate release.</p></div>
+                <div class="card"><span class="badge-green">Retail chain</span><h3>Centralized Portfolio</h3><p style="font-size: 14px; color: var(--text-gray);">15 outlets managed from Singapore HQ. Regional alarm review from tablet.</p></div>
+                <div class="card"><span class="badge-green">Industrial Park</span><h3>Compound Coordination</h3><p style="font-size: 14px; color: var(--text-gray);">5 buildings + admin; auto-evac unlock on fire alarm detection.</p></div>
+                <div class="card"><span class="badge-green">Corporate Campus</span><h3>Enterprise Access</h3><p style="font-size: 14px; color: var(--text-gray);">2,500 employees synced via HR; zero-day credential revocation.</p></div>
+                <div class="card"><span class="badge-green">Hospital</span><h3>Healthcare Security</h3><p style="font-size: 14px; color: var(--text-gray);">Main site + 4 clinics; nurse station panic link to HQ security dispatch.</p></div>
+                <div class="card"><span class="badge-green">Mixed-Use</span><h3>Multi-Domain</h3><p style="font-size: 14px; color: var(--text-gray);">Shared hardware but isolated management for residential vs retail podiums.</p></div>
             </div>
         </div>
     </section>
 
     <!-- SECTION 9: REMOTE ACCESS -->
-    <section style="padding: 100px 0; background: #f8f9fa;">
+    <section id="remote-access" class="bg-light border-top border-bottom">
         <div class="container">
-            <div class="integration-dark-box">
+            <div class="secure-callout" style="padding: 60px;">
                 <div class="grid-2" style="align-items: center; gap: 60px;">
                     <div>
                         <h2 style="color: white; margin-bottom: 24px;">The Modern Reality:<br>Work from Anywhere</h2>
-                        <p style="opacity: 0.7; margin-bottom: 48px;">Cloud connectivity ensures MCSTs and facility teams stay in control 24/7/365.</p>
+                        <p style="opacity: 0.7; margin-bottom: 48px; color: white;">Cloud connectivity ensures MCSTs and facility teams stay in control 24/7/365.</p>
                         <div style="border-left: 2px solid #38a169; padding-left: 24px; margin-bottom: 32px;">
                             <p style="color: white; font-size: 14px; margin-bottom: 12px;"><strong>After-hours Incident Review:</strong> 2am noise complaint reviewed instantly from home via phone app. screenshots shared by Sunday morning.</p>
                         </div>
@@ -528,27 +582,28 @@
     </section>
 
     <!-- SECTION 10: METHODOLOGY -->
-    <section id="methodology" style="padding: 100px 0;">
+    <section id="methodology" class="bg-white">
         <div class="container">
             <div class="section-header text-center">
                 <span class="eyebrow">Our Process</span>
                 <h2>Designing Your Architecture</h2>
             </div>
             <div class="grid-4" style="margin-top: 64px;">
-                <div class="text-center"><div class="step-circle">1</div><h4>Audit</h4><p style="font-size: 14px;">Surveying all existing hardware brands.</p></div>
-                <div class="text-center"><div class="step-circle">2</div><h4>Design</h4><p style="font-size: 14px;">API mapping & logic layer topology.</p></div>
-                <div class="text-center"><div class="step-circle">3</div><h4>Deploy</h4><p style="font-size: 14px;">Server installs & dashboard config.</p></div>
-                <div class="text-center"><div class="step-circle">4</div><h4>Handover</h4><p style="font-size: 14px;">Guard training & documentation.</p></div>
+                <div class="text-center"><div class="step-circle" style="background: var(--c-platform);">1</div><h4>Audit</h4><p style="font-size: 14px; color: var(--text-gray);">Surveying all existing hardware brands.</p></div>
+                <div class="text-center"><div class="step-circle" style="background: var(--c-platform);">2</div><h4>Design</h4><p style="font-size: 14px; color: var(--text-gray);">API mapping & logic layer topology.</p></div>
+                <div class="text-center"><div class="step-circle" style="background: var(--c-platform);">3</div><h4>Deploy</h4><p style="font-size: 14px; color: var(--text-gray);">Server installs & dashboard config.</p></div>
+                <div class="text-center"><div class="step-circle" style="background: var(--c-platform);">4</div><h4>Handover</h4><p style="font-size: 14px; color: var(--text-gray);">Guard training & documentation.</p></div>
             </div>
         </div>
     </section>
 
     <!-- SECTION 11: BRANDS -->
-    <section id="integration-brands" style="background: #f8f9fa; padding: 100px 0;">
+    <section id="integration-brands" class="bg-light border-top">
         <div class="container">
             <div class="section-header text-center">
+                <span class="eyebrow">Ecosystem</span>
                 <h2>Brands We Integrate</h2>
-                <p class="subtitle">Manufacturer-neutral connectivity.</p>
+                <p class="subtitle">Manufacturer-neutral connectivity and bridge layering for 20+ brands.</p>
             </div>
             <div class="partners-table-outer">
                 <div class="scroll-hint">Swipe to see more &rarr;</div>
@@ -611,74 +666,117 @@
 <footer class="site-footer">
     <div class="container">
         <div class="footer-grid">
+            <!-- Col 1: Brand & Basic Info -->
             <div class="footer-brand">
-                <div class="f-logo-wrap" style="display:flex; align-items:center; gap:12px; margin-bottom:24px;">
-                    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" style="width:40px;">
-                    <span class="brand-name" style="font-family:'Montserrat',sans-serif; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:white;">Securevision</span>
+                <div class="f-logo-wrap">
+                    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
+                    <span class="brand-name">Securevision</span>
                 </div>
-                <p style="opacity:0.7; font-size:14px; line-height:1.6;">Your partner in building smart, secure, and connected communities — powered by intelligent security systems since 2006.</p>
+                <p>Your partner in building smart, secure, and connected communities &mdash; powered by intelligent security systems since 2006.</p>
+                <div class="f-socials">
+                    <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@securevision" target="_blank" rel="noopener" aria-label="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
             </div>
             
             <div class="footer-links">
-                <h4 style="color:white; margin-bottom:24px;">Solutions</h4>
-                <ul style="list-style:none; padding:0; font-size:14px; line-height:2;">
-                    <li><a href="residential.html" style="color:rgba(255,255,255,0.7); text-decoration:none;">Private Homes</a></li>
-                    <li><a href="condominiums.html" style="color:rgba(255,255,255,0.7); text-decoration:none;">Condominiums</a></li>
-                    <li><a href="commercial.html" style="color:rgba(255,255,255,0.7); text-decoration:none;">Commercial</a></li>
-                    <li><a href="industrial.html" style="color:rgba(255,255,255,0.7); text-decoration:none;">Industrial</a></li>
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="residential.html">Private Homes</a></li>
+                    <li><a href="condominiums.html">Condominiums</a></li>
+                    <li><a href="commercial.html">Commercial &amp; Retail</a></li>
+                    <li><a href="industrial.html">Industrial &amp; Logistics</a></li>
+                    <li><a href="institutions.html">Institutions &amp; Government</a></li>
+                    <li><a href="healthcare.html">Healthcare &amp; Managed Living</a></li>
                 </ul>
             </div>
             
             <div class="footer-links">
-                <h4 style="color:white; margin-bottom:24px;">Company</h4>
-                <ul style="list-style:none; padding:0; font-size:14px; line-height:2;">
-                    <li><a href="about.html" style="color:rgba(255,255,255,0.7); text-decoration:none;">Our Story</a></li>
-                    <li><a href="awards-certifications.html" style="color:rgba(255,255,255,0.7); text-decoration:none;">Awards</a></li>
-                    <li><a href="portfolio.html" style="color:rgba(255,255,255,0.7); text-decoration:none;">Portfolio</a></li>
-                    <li><a href="contact.html" style="color:rgba(255,255,255,0.7); text-decoration:none;">Contact Us</a></li>
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="awards-certifications.html">Awards &amp; Certifications</a></li>
+                    <li><a href="portfolio.html">Project Portfolio</a></li>
+                    <li><a href="insights.html">Industry Insights</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
             
             <div class="footer-contact">
-                <h4 style="color:white; margin-bottom:24px;">Get In Touch</h4>
-                <p style="color:rgba(255,255,255,0.7); font-size:14px; margin-bottom:12px;">💬 <a href="https://wa.me/6593860466" style="color:inherit; text-decoration:none;">+65 9386 0466</a></p>
-                <p style="color:rgba(255,255,255,0.7); font-size:14px;">✉️ <a href="mailto:enquiry@securevision.com.sg" style="color:inherit; text-decoration:none;">enquiry@securevision.com.sg</a></p>
+                <h4>Get In Touch</h4>
+                <div class="footer-contact-item">
+                    <span>💬</span>
+                    <a href="https://wa.me/6593860466">WhatsApp Us</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span>✉️</span>
+                    <a href="mailto:enquiry@securevision.com.sg">enquiry@securevision.com.sg</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span>📞</span>
+                    <a href="tel:+6562864796">+65 6286 4796</a>
+                </div>
             </div>
         </div>
         
-        <div class="footer-bottom" style="margin-top:80px; padding-top:40px; border-top:1px solid rgba(255,255,255,0.1); text-align:center;">
-            <p style="font-size:12px; opacity:0.5; color:white;">&copy; 2026 Securevision Pte Ltd &middot; Police Licence L/PS/000267/2023P &middot; bizSAFE Level 3</p>
+        <div class="footer-bottom">
+            <p>&copy; <span class="current-year"></span> Securevision Pte Ltd &middot; Police Licence L/PS/000267/2023P &middot; bizSAFE Level 3 &middot; BCA Registered</p>
+            <div class="footer-bottom-links">
+                <a href="sitemap.html">Sitemap</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
         </div>
     </div>
 </footer>
 
 <!-- Floating WhatsApp Button -->
 <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.03a11.782 11.782 0 001.583 5.867L0 24l6.117-1.605a11.772 11.772 0 005.925 1.603h.005c6.635 0 12.022-5.392 12.026-12.033a11.742 11.742 0 00-3.504-8.508z"/>
+    </svg>
 </a>
 
 <script>
-function toggleMobileMenu() {
-  const menu = document.getElementById('mobileMenu');
-  menu.classList.toggle('active');
-}
-window.addEventListener('scroll', () => {
-    const nav = document.querySelector('.main-nav');
-    if (nav) {
-        if (window.scrollY > 20) {
-            nav.classList.add('scrolled');
-        } else {
-            nav.classList.remove('scrolled');
+    function toggleMobileMenu() {
+        const menu = document.getElementById('mobileMenu');
+        menu.classList.toggle('active');
+    }
+    function toggleSubmenu(id) {
+        const sub = document.getElementById(id);
+        if (sub) {
+            sub.style.display = (sub.style.display === 'block') ? 'none' : 'block';
         }
     }
-});
-document.addEventListener('click', function (e) {
-    const nav = document.querySelector('.main-nav');
-    const menu = document.getElementById('mobileMenu');
-    if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
-        menu.classList.remove('active');
-    }
-});
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.main-nav');
+        if (nav) {
+            if (window.scrollY > 20) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        }
+    });
+    document.addEventListener('click', function (e) {
+        const nav = document.querySelector('.main-nav');
+        const menu = document.getElementById('mobileMenu');
+        if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
+            menu.classList.remove('active');
+        }
+    });
+    // Update current year
+    document.addEventListener('DOMContentLoaded', () => {
+        const yearSpan = document.querySelector('.current-year');
+        if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    });
 </script>
 </body>
 </html>
