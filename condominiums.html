@@ -58,6 +58,115 @@
         @media (max-width: 992px) {
             .factors-grid { grid-template-columns: 1fr; gap: 24px; }
         }
+
+        /* PILLAR CARDS (Section 1) */
+        #system-architecture .factors-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+        .pillar-card {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pillar-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12); border-color: var(--primary-blue); }
+        .pillar-image-wrap { height: 180px; overflow: hidden; }
+        .pillar-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .pillar-card:hover .pillar-image-wrap img { transform: scale(1.05); }
+        .pillar-content { padding: 32px; flex-grow: 1; display: flex; flex-direction: column; }
+        .pillar-header { margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+        .pillar-header h3 { font-size: 18px; color: var(--text-dark); margin: 0; line-height: 1.3; }
+        .pillar-badge { font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px; letter-spacing: 0.5px; flex-shrink: 0; margin-top: 4px; }
+        .badge-essential { background: rgba(0, 86, 179, 0.1); color: var(--primary-blue); }
+        .pillar-content p { font-size: 14px; color: var(--text-gray); line-height: 1.6; margin-bottom: 24px; }
+        .pillar-components { margin-bottom: 32px; }
+        .pillar-components strong { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); margin-bottom: 12px; }
+        .pillar-components ul { list-style: none; padding: 0; margin: 0; }
+        .pillar-components li { font-size: 13px; color: var(--text-gray); margin-bottom: 8px; position: relative; padding-left: 18px; }
+        .pillar-components li::before { content: '•'; position: absolute; left: 0; color: var(--primary-blue); font-weight: bold; }
+        .pillar-link { font-size: 14px; font-weight: 600; color: var(--primary-blue); text-decoration: none; margin-top: auto; display: inline-block; transition: 0.2s; }
+        .pillar-link:hover { color: var(--dark-blue); text-decoration: underline; }
+        
+        .pillar-closing-note { text-align: center; max-width: 800px; margin: 56px auto 0; font-size: 15px; color: var(--text-gray); line-height: 1.8; padding: 28px; background: var(--bg-light); border-radius: 12px; border: 1px solid var(--border-light); }
+        
+        .section-cta { text-align: center; max-width: 800px; margin: 64px auto 0; }
+        .section-cta h3 { font-size: 22px; margin-bottom: 12px; color: var(--text-dark); }
+        .section-cta p { font-size: 16px; color: var(--text-gray); margin-bottom: 24px; }
+
+        @media (max-width: 992px) {
+            #system-architecture .factors-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 576px) {
+            #system-architecture .factors-4 { grid-template-columns: 1fr; }
+        }
+
+        /* PRICING CARDS (Investment Guide) */
+        #investment-guide .grid-3 { align-items: stretch; }
+        .pricing-card {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: 0.3s;
+        }
+        .pricing-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12); border-color: var(--primary-blue); }
+        .size-badge { display: inline-block; background: var(--bg-light); color: var(--text-light); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; margin-bottom: 16px; text-transform: uppercase; }
+        .pricing-card h3 { font-size: 20px; margin-bottom: 8px; color: var(--text-dark); line-height: 1.3; }
+        .prop-types { font-size: 13px; color: var(--text-light); margin-bottom: 24px; }
+        .price-wrap { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border-light); }
+        .price-range { font-size: 24px; font-weight: 700; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; display: block; }
+        .pricing-body { flex-grow: 1; margin-bottom: 32px; }
+        .pricing-body ul { list-style: none; padding: 0; margin: 0; }
+        .pricing-body li { font-size: 14px; color: var(--text-gray); margin-bottom: 12px; position: relative; padding-left: 20px; line-height: 1.5; }
+        .pricing-body li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold; }
+        .pricing-footer p { font-size: 12px; color: var(--text-light); font-style: italic; margin: 0; }
+        .pricing-callout { background: #fff; border: 1px solid var(--border-light); border-radius: 12px; padding: 40px; text-align: center; max-width: 850px; margin: 64px auto 0; }
+        .pricing-callout h3 { font-size: 20px; margin-bottom: 16px; color: var(--text-dark); }
+        .pricing-callout p { font-size: 15px; color: var(--text-gray); line-height: 1.7; margin: 0; }
+        .pricing-callout ol { display: inline-block; text-align: left; margin: 24px auto; color: var(--text-gray); font-size: 15px; line-height: 1.8; padding-left: 40px; }
+        .pricing-callout ol li { margin-bottom: 8px; }
+
+        /* COMPLIANCE CARDS (Section 9) */
+        #compliance-assurance .factors-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+        .compliance-card {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: 0.3s;
+        }
+        .compliance-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0, 86, 179, 0.08); border-color: var(--primary-blue); }
+        .compliance-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-light);
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-bottom: 24px;
+        }
+        .compliance-card h3 { font-size: 18px; margin-bottom: 12px; color: var(--text-dark); line-height: 1.4; }
+        .compliance-card p { font-size: 14px; color: var(--text-gray); line-height: 1.6; margin-bottom: 20px; }
+        .compliance-list { flex-grow: 1; margin-bottom: 24px; }
+        .compliance-list strong { display: block; font-size: 12px; text-transform: uppercase; color: var(--text-light); margin-bottom: 12px; letter-spacing: 0.5px; }
+        .compliance-list ul { list-style: none; padding: 0; margin: 0; }
+        .compliance-list li { font-size: 13px; color: var(--text-gray); margin-bottom: 8px; position: relative; padding-left: 18px; }
+        .compliance-list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold; }
+        .compliance-footer p { font-size: 12px; color: var(--text-light); font-style: italic; margin: 0; border-top: 1px solid var(--border-light); padding-top: 16px; }
+        
+        .compliance-callout { text-align: center; max-width: 800px; margin: 64px auto 0; background: var(--primary-blue); color: #fff; padding: 40px; border-radius: 16px; }
+        .compliance-callout h3 { font-size: 22px; margin-bottom: 12px; color: #fff; }
+        .compliance-callout p { font-size: 16px; color: rgba(255,255,255,0.9); margin: 0; line-height: 1.6; }
     </style>
 </head>
 <body>
@@ -253,7 +362,126 @@
     </div>
 </section>
 
-<!-- ── 4. PATHFINDER (Market Groups) ── -->
+<!-- ── 4. SYSTEM ARCHITECTURE ── -->
+<section id="system-architecture" class="bg-white border-top">
+    <div class="container">
+        <div class="text-center">
+            <span class="eyebrow">System Architecture</span>
+            <h2>What Systems Do Condominium Estates Need?</h2>
+            <p class="subtitle" style="max-width: 900px; margin-left: auto; margin-right: auto;">Every condominium estate requires all four integrated security pillars working together. Here's how we architect security infrastructure for MCST-managed properties, from boutique developments to large-scale estates.</p>
+        </div>
+
+        <div class="factors-4 mt-56">
+            <!-- Card 1: Surveillance & Detection -->
+            <div class="pillar-card">
+                <div class="pillar-image-wrap">
+                    <img src="images/pillar_surveillance.png" alt="Surveillance & Detection">
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-header">
+                        <h3>Surveillance & Detection</h3>
+                        <span class="pillar-badge badge-essential">ESSENTIAL</span>
+                    </div>
+                    <p>Estate-wide camera coverage for lobbies, corridors, car parks, and perimeters. AI-powered analytics to detect loitering, unauthorized access, and vehicle tracking. Centralized recording for MCST compliance and incident investigation.</p>
+                    <div class="pillar-components">
+                        <strong>Typical components:</strong>
+                        <ul>
+                            <li>50-200+ IP cameras (multi-block coverage)</li>
+                            <li>Car park & corridor coverage</li>
+                            <li>AI analytics (loitering, tailgating detection)</li>
+                            <li>Cloud backup for MCST audit trails</li>
+                        </ul>
+                    </div>
+                    <a href="surveillance-systems.html" class="pillar-link">Learn More About Surveillance &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Card 2: People Access Control -->
+            <div class="pillar-card">
+                <div class="pillar-image-wrap">
+                    <img src="images/pillar_people_access.png" alt="People Access Control">
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-header">
+                        <h3>People Access Control</h3>
+                        <span class="pillar-badge badge-essential">ESSENTIAL</span>
+                    </div>
+                    <p>Resident, visitor, contractor, and delivery personnel management. Integrated video intercoms at every unit. Temporary access for cleaners, renovation contractors, and service providers. Complete audit trail for MCST AGM reporting.</p>
+                    <div class="pillar-components">
+                        <strong>Typical components:</strong>
+                        <ul>
+                            <li>Resident access cards (RFID/NFC)</li>
+                            <li>Video intercom systems (per unit)</li>
+                            <li>Visitor registration kiosks</li>
+                            <li>Contractor temporary access management</li>
+                        </ul>
+                    </div>
+                    <a href="people-access.html" class="pillar-link">Learn More About People Access &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Card 3: Vehicle Access & Barriers -->
+            <div class="pillar-card">
+                <div class="pillar-image-wrap">
+                    <img src="images/pillar_vehicle_access.png" alt="Vehicle Access & Barriers">
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-header">
+                        <h3>Vehicle Access & Barriers</h3>
+                        <span class="pillar-badge badge-essential">ESSENTIAL</span>
+                    </div>
+                    <p>Season parking holder recognition via ANPR. Visitor vehicle tracking and time-limited access. Delivery vehicle management. Integration with guard house systems to eliminate manual logbooks and reduce visitor congestion.</p>
+                    <div class="pillar-components">
+                        <strong>Typical components:</strong>
+                        <ul>
+                            <li>Multiple gantries (2-4 entry/exit points)</li>
+                            <li>ANPR season parking recognition</li>
+                            <li>Visitor vehicle registration & tracking</li>
+                            <li>GantryGo™ integration (automated logs)</li>
+                        </ul>
+                    </div>
+                    <a href="vehicle-access.html" class="pillar-link">Learn More About Vehicle Access &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Card 4: Platform Integration -->
+            <div class="pillar-card">
+                <div class="pillar-image-wrap">
+                    <img src="images/pillar_platform.png" alt="Platform Integration">
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-header">
+                        <h3>Platform Integration</h3>
+                        <span class="pillar-badge badge-essential">ESSENTIAL</span>
+                    </div>
+                    <p>Unified VESTA™ dashboard connecting surveillance, access control, and vehicle management. MCST-ready audit reports for AGMs. Multi-block coordination. Remote monitoring for managing agents.</p>
+                    <div class="pillar-components">
+                        <strong>Typical components:</strong>
+                        <ul>
+                            <li>VESTA™ unified platform</li>
+                            <li>MCST audit report generation</li>
+                            <li>Multi-site/multi-block management</li>
+                            <li>Guard handover automation</li>
+                        </ul>
+                    </div>
+                    <a href="platform-integration.html" class="pillar-link">Learn More About Platform Integration &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pillar-closing-note">
+            <p>All four pillars are essential for condominium estates. Unlike private homes, estates require platform integration to meet MCST audit requirements and coordinate security across multiple blocks and entry points.</p>
+        </div>
+
+        <div class="section-cta">
+            <h3>Not Sure Where to Start?</h3>
+            <p>Our estate assessment identifies your current security gaps, recommends the right combination of systems, and provides transparent pricing for MCST board approval.</p>
+            <a href="contact.html?ref=condo-systems" class="btn btn-primary">Request Estate Assessment</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── 5. PATHFINDER (Market Groups) ── -->
 <section id="pathfinder" class="bg-light border-top">
     <div class="container">
         <div class="text-center">
@@ -301,7 +529,7 @@
     </div>
 </section>
 
-<!-- ── 5. PROVEN OUTCOMES ── -->
+<!-- ── 6. PROVEN OUTCOMES ── -->
 <section id="outcomes" class="bg-white">
     <div class="container">
         <div class="text-center">
@@ -356,7 +584,114 @@
     </div>
 </section>
 
-<!-- ── 6. THE JOURNEY ── -->
+<!-- ── 7. INVESTMENT GUIDE ── -->
+<section id="investment-guide" class="bg-light border-top">
+    <div class="container">
+        <div class="text-center" style="margin-bottom: 56px;">
+            <span class="eyebrow">Pricing Transparency</span>
+            <h2>Investment Guide: What Does Estate Security Cost?</h2>
+            <p class="subtitle" style="max-width: 900px; margin-left: auto; margin-right: auto;">Budget transparency is critical for MCST planning. Here's what to expect based on your estate's size, complexity, and system requirements. All prices include professional installation, MCST documentation, training, and warranty.</p>
+        </div>
+
+        <div class="grid-3 mt-48">
+            <!-- Tier 1: Small Estates -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="size-badge">50 – 150 units</span>
+                    <h3>Small Estates</h3>
+                    <p class="prop-types">Boutique Condos • Walk-Up Apartments • Small Developments</p>
+                </div>
+                <div class="price-wrap">
+                    <span class="price-range">$10,000 – $25,000</span>
+                </div>
+                <div class="pricing-body">
+                    <ul>
+                        <li>4-16 IP cameras (lobbies, corridors, perimeter)</li>
+                        <li>Basic access control system (resident cards)</li>
+                        <li>1-2 automated gantries (ANPR optional)</li>
+                        <li>Video intercom upgrade (per unit)</li>
+                        <li>Visitor management kiosk</li>
+                        <li>Cloud backup & MCST reporting</li>
+                        <li>Professional installation + 2-year warranty</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <p>Starting point for small boutique developments. Scalable based on specific estate requirements.</p>
+                </div>
+            </div>
+
+            <!-- Tier 2: Medium Estates -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="size-badge">150 – 300 units</span>
+                    <h3>Medium Estates</h3>
+                    <p class="prop-types">Multi-Block Condos • Mid-Sized Developments • Integrated Estates</p>
+                </div>
+                <div class="price-wrap">
+                    <span class="price-range">$20,000 – $60,000</span>
+                </div>
+                <div class="pricing-body">
+                    <ul>
+                        <li>16-48 IP cameras (comprehensive coverage)</li>
+                        <li>Integrated access control (residents + visitors + contractors)</li>
+                        <li>2-3 automated gantries with ANPR</li>
+                        <li>Full video intercom integration</li>
+                        <li>Visitor & delivery management system</li>
+                        <li>VESTA™ platform for multi-block coordination</li>
+                        <li>MCST audit-ready reporting</li>
+                        <li>Professional installation + 3-year warranty</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <p>Most common configuration for medium-sized estates with multiple entrance points and facilities.</p>
+                </div>
+            </div>
+
+            <!-- Tier 3: Large Estates -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="size-badge">300 – 500+ units</span>
+                    <h3>Large Estates</h3>
+                    <p class="prop-types">Large Developments • Estate Communities • Integrated Complexes</p>
+                </div>
+                <div class="price-wrap">
+                    <span class="price-range">$40,000 – $120,000</span>
+                </div>
+                <div class="pricing-body">
+                    <ul>
+                        <li>32-64 IP cameras (estate-wide grid)</li>
+                        <li>Enterprise access control (multi-zone, multi-building)</li>
+                        <li>3-5 automated gantries with full ANPR integration</li>
+                        <li>Comprehensive video intercom (all units + facilities)</li>
+                        <li>Advanced visitor & contractor management</li>
+                        <li>Full VESTA™ platform with MA remote access</li>
+                        <li>Facilities integration (pool, gym, BBQ areas)</li>
+                        <li>Network infrastructure upgrades</li>
+                        <li>Professional installation + 5-year warranty</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <p>Tailored engineering for large estates. Every deployment is custom-designed to match your estate's unique layout and operational requirements.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing-callout">
+            <h3>What Affects the Final Cost?</h3>
+            <p>Five factors determine your estate's investment:</p>
+            <ol>
+                <li><strong>Estate size and unit count:</strong> Larger estates require more cameras, access points, and cabling infrastructure.</li>
+                <li><strong>Number of entrance points and gantries:</strong> Each vehicle entry/exit point requires dedicated gantry systems and ANPR cameras.</li>
+                <li><strong>Existing infrastructure condition:</strong> Upgrading legacy systems or working with old cabling increases complexity.</li>
+                <li><strong>MCST compliance requirements:</strong> Some estates require enhanced audit trails, cloud backup, or specialized reporting.</li>
+                <li><strong>Facilities integration:</strong> Connecting pool access, gym entry, BBQ bookings, and function room management adds scope.</li>
+            </ol>
+            <p>Our estate assessment provides a detailed, fixed-price proposal with transparent line items for MCST board approval. No hidden costs, no surprises.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── 8. THE JOURNEY ── -->
 <section id="journey" class="bg-white">
     <div class="container">
         <div class="text-center">
@@ -390,7 +725,109 @@
     </div>
 </section>
 
-<!-- ── 7. TRUST BAR ── -->
+<!-- ── 9. COMPLIANCE & MCST ASSURANCE ── -->
+<section id="compliance-assurance" class="bg-white border-top">
+    <div class="container">
+        <div class="text-center">
+            <span class="eyebrow">Compliance & Standards</span>
+            <h2>Built for MCST Compliance & Singapore Regulations</h2>
+            <p class="subtitle" style="max-width: 900px; margin-left: auto; margin-right: auto;">Every condominium estate in Singapore operates under strict regulatory frameworks. We engineer systems that meet MCST audit requirements, protect resident privacy, and comply with all relevant safety and building standards.</p>
+        </div>
+
+        <div class="factors-4 mt-56">
+            <!-- Card 1: MCST Audit Requirements -->
+            <div class="compliance-card">
+                <div class="compliance-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg>
+                </div>
+                <h3>MCST Security Audit</h3>
+                <p>Complete documentation for security audits. Every access event, vehicle movement, and system incident is automatically logged with timestamps for MCST board transparency.</p>
+                <div class="compliance-list">
+                    <strong>What we provide:</strong>
+                    <ul>
+                        <li>Automated audit trail generation</li>
+                        <li>Incident reports for board review</li>
+                        <li>Security expenditure tracking</li>
+                        <li>Maintenance log documentation</li>
+                    </ul>
+                </div>
+                <div class="compliance-footer">
+                    <p>Required for all MCST-managed properties. Essential for board accountability.</p>
+                </div>
+            </div>
+
+            <!-- Card 2: PDPA Data Protection -->
+            <div class="compliance-card">
+                <div class="compliance-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <h3>PDPA Data Protection Compliance</h3>
+                <p>Resident data and CCTV footage are protected under PDPA. We architect systems with encrypted storage and role-based access controls for authorized personnel only.</p>
+                <div class="compliance-list">
+                    <strong>What we provide:</strong>
+                    <ul>
+                        <li>Encrypted data storage</li>
+                        <li>Role-based access controls</li>
+                        <li>Automatic retention policy</li>
+                        <li>Access audit trails</li>
+                    </ul>
+                </div>
+                <div class="compliance-footer">
+                    <p>Mandatory for all estates. Protects MCST from legal liability under PDPA.</p>
+                </div>
+            </div>
+
+            <!-- Card 3: SCDF Fire Safety -->
+            <div class="compliance-card">
+                <div class="compliance-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.5 3.5 6.5 1 1.333 1 3 1 4.5a3.5 3.5 0 0 1-7 0Z"/><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-5-4-5-4l4 4c-1.5 3-4.5 4-4.5 5.5A7 7 0 0 0 12 22Z"/></svg>
+                </div>
+                <h3>SCDF Fire Safety Compliance</h3>
+                <p>All door access complies with the Fire Code to have Emergency Breakglass. Where needed, the system can be integrated with the fire alarm to release doors during a fire evacuation.</p>
+                <div class="compliance-list">
+                    <strong>What we provide:</strong>
+                    <ul>
+                        <li>Fire-code compliant door access</li>
+                        <li>Emergency breakglass protocols</li>
+                        <li>Optional fire alarm integration</li>
+                        <li>Evacuation route compliance</li>
+                    </ul>
+                </div>
+                <div class="compliance-footer">
+                    <p>Required for all estates with electronic access. Critical for resident safety.</p>
+                </div>
+            </div>
+
+            <!-- Card 4: BCA Building Regulations -->
+            <div class="compliance-card">
+                <div class="compliance-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <h3>BCA & Electrical Safety Standards</h3>
+                <p>All installations comply with BCA regulations and Electrical Wiring Standards. We coordinate with LEW for proper cable routing, grounding, and surge protection.</p>
+                <div class="compliance-list">
+                    <strong>What we provide:</strong>
+                    <ul>
+                        <li>LEW coordination & certification</li>
+                        <li>BCA submission for major works</li>
+                        <li>Electrical safety compliance</li>
+                        <li>Proper cable containment</li>
+                    </ul>
+                </div>
+                <div class="compliance-footer">
+                    <p>Essential for new installations and major system replacements.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="compliance-callout">
+            <h3>Working with Your Consultants for Safety Compliance</h3>
+            <p>We work closely with your appointed consultants and Managing Agents to ensure all security installations meet current safety standards and fire codes. From technical system coordination to consultant sign-offs, we ensure your estate's security is compliant and reliable.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── 10. TRUST BAR ── -->
 <section id="trust-bar" class="assurance-section bg-light">
     <div class="container">
         <div class="assurance-grid">
@@ -430,7 +867,7 @@
     </div>
 </section>
 
-<!-- ── 7. FINAL CTA ── -->
+<!-- ── 11. FINAL CTA ── -->
 <section id="get-started" class="cta-section" style="background: linear-gradient(rgba(14, 26, 43, 0.8), rgba(14, 26, 43, 0.8)), url('images/secureviison support mcst through the years.png'); background-size: cover; background-position: center;">
     <div class="container text-center">
         <h2>Ready to Modernise Your Estate?</h2>
@@ -444,7 +881,7 @@
     </div>
 </section>
 
-<!-- ── 8. FOOTER ── -->
+<!-- ── 12. FOOTER ── -->
 <footer class="site-footer">
     <div class="footer-container">
         <div class="footer-grid">

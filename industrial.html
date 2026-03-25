@@ -33,29 +33,117 @@
             font-size: 13px;
         }
 
-        /* Industrial Foundation Cards (Factor Cards) */
-        .factors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        .factor-card { 
-            padding: 0; 
-            border-radius: 12px; 
-            border: 1px solid var(--border-light); 
-            background: #fff; 
-            overflow: hidden; 
-            display: flex; 
+        /* PILLAR CARDS (System Architecture) */
+        #system-architecture .factors-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+        .pillar-card {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
             flex-direction: column;
-            text-align: left;
+            height: 100%;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pillar-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12); border-color: var(--primary-blue); }
+        .pillar-image-wrap { height: 180px; overflow: hidden; }
+        .pillar-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .pillar-card:hover .pillar-image-wrap img { transform: scale(1.05); }
+        .pillar-content { padding: 32px; flex-grow: 1; display: flex; flex-direction: column; }
+        .pillar-header { margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+        .pillar-header h3 { font-size: 18px; color: var(--text-dark); margin: 0; line-height: 1.3; }
+        .pillar-badge { font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px; letter-spacing: 0.5px; flex-shrink: 0; margin-top: 4px; }
+        .badge-essential { background: rgba(0, 86, 179, 0.1); color: var(--primary-blue); }
+        .badge-optional { background: rgba(100, 116, 139, 0.1); color: #64748b; }
+        .pillar-content p { font-size: 14px; color: var(--text-gray); line-height: 1.6; margin-bottom: 24px; }
+        .pillar-components { margin-bottom: 32px; }
+        .pillar-components strong { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); margin-bottom: 12px; }
+        .pillar-components ul { list-style: none; padding: 0; margin: 0; }
+        .pillar-components li { font-size: 13px; color: var(--text-gray); margin-bottom: 8px; position: relative; padding-left: 18px; }
+        .pillar-components li::before { content: '•'; position: absolute; left: 0; color: var(--primary-blue); font-weight: bold; }
+        .pillar-link { font-size: 14px; font-weight: 600; color: var(--primary-blue); text-decoration: none; margin-top: auto; display: inline-block; transition: 0.2s; }
+        .pillar-link:hover { color: var(--dark-blue); text-decoration: underline; }
+        
+        .pillar-closing-note { text-align: center; max-width: 800px; margin: 48px auto 0; font-size: 15px; color: var(--text-gray); line-height: 1.8; padding: 28px; background: var(--bg-light); border-radius: 12px; border: 1px solid var(--border-light); }
+        
+        .section-cta { text-align: center; max-width: 800px; margin: 56px auto 0; padding: 40px; background: #fff; border: 1px solid var(--border-light); border-radius: 16px; }
+        .section-cta h3 { font-size: 22px; margin-bottom: 12px; color: var(--text-dark); }
+        .section-cta p { font-size: 16px; color: var(--text-gray); margin-bottom: 24px; }
+
+        /* PRICING CARDS (Investment Guide) */
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .pricing-card {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
             transition: 0.3s;
         }
-        .factor-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
-        .factor-card .card-image-wrap { height: 200px; width: 100%; overflow: hidden; }
-        .factor-card .card-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-        .factor-card:hover .card-image-wrap img { transform: scale(1.05); }
-        .factor-card-content { padding: 24px; flex-grow: 1; }
-        .factor-card h3 { font-size: 18px; margin-bottom: 10px; color: var(--dark-blue); }
-        .factor-card p { font-size: 14px; color: var(--text-gray); margin: 0; line-height: 1.6; }
+        .pricing-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12); border-color: var(--primary-blue); }
+        .size-badge { display: inline-block; background: var(--bg-light); color: var(--text-light); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; margin-bottom: 16px; text-transform: uppercase; }
+        .pricing-card h3 { font-size: 20px; margin-bottom: 8px; color: var(--text-dark); line-height: 1.3; }
+        .prop-types { font-size: 13px; color: var(--text-light); margin-bottom: 24px; }
+        .price-wrap { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border-light); }
+        .price-range { font-size: 24px; font-weight: 700; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; display: block; }
+        .pricing-body { flex-grow: 1; margin-bottom: 32px; }
+        .pricing-body ul { list-style: none; padding: 0; margin: 0; }
+        .pricing-body li { font-size: 14px; color: var(--text-gray); margin-bottom: 12px; position: relative; padding-left: 20px; line-height: 1.5; }
+        .pricing-body li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold; }
+        .pricing-footer p { font-size: 12px; color: var(--text-light); font-style: italic; margin: 0; }
+        .pricing-callout { background: #fff; border: 1px solid var(--border-light); border-radius: 12px; padding: 40px; text-align: center; max-width: 850px; margin: 64px auto 0; }
+        .pricing-callout h3 { font-size: 20px; margin-bottom: 16px; color: var(--text-dark); }
+        .pricing-callout p { font-size: 15px; color: var(--text-gray); line-height: 1.7; margin: 0; }
+        .pricing-callout ol { display: inline-block; text-align: left; margin: 24px auto; color: var(--text-gray); font-size: 15px; line-height: 1.8; padding-left: 40px; }
+        .pricing-callout ol li { margin-bottom: 8px; }
 
-        @media (max-width: 992px) {
-            .factors-grid { grid-template-columns: 1fr; gap: 24px; }
+        /* COMPLIANCE CARDS */
+        .compliance-card {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: 0.3s;
+        }
+        .compliance-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0, 86, 179, 0.08); border-color: var(--primary-blue); }
+        .compliance-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-light);
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-bottom: 24px;
+        }
+        .compliance-card h3 { font-size: 18px; margin-bottom: 12px; color: var(--text-dark); line-height: 1.4; }
+        .compliance-card p { font-size: 14px; color: var(--text-gray); line-height: 1.6; margin-bottom: 20px; }
+        .compliance-list { flex-grow: 1; margin-bottom: 24px; }
+        .compliance-list strong { display: block; font-size: 12px; text-transform: uppercase; color: var(--text-light); margin-bottom: 12px; letter-spacing: 0.5px; }
+        .compliance-list ul { list-style: none; padding: 0; margin: 0; }
+        .compliance-list li { font-size: 13px; color: var(--text-gray); margin-bottom: 8px; position: relative; padding-left: 18px; }
+        .compliance-list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold; }
+        .compliance-footer p { font-size: 12px; color: var(--text-light); font-style: italic; margin: 0; border-top: 1px solid var(--border-light); padding-top: 16px; }
+        
+        .compliance-callout { text-align: center; max-width: 800px; margin: 64px auto 0; background: var(--primary-blue); color: #fff; padding: 40px; border-radius: 16px; }
+        .compliance-callout h3 { font-size: 22px; margin-bottom: 12px; color: #fff; }
+        .compliance-callout p { font-size: 16px; color: rgba(255,255,255,0.9); margin: 0; line-height: 1.6; }
+
+        /* Grid Systems */
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .grid-4, .factors-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+
+        @media (max-width: 1200px) {
+            .grid-4, .factors-4 { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .grid-3, .grid-4, .factors-4, .factors-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -204,7 +292,7 @@
     </div>
 </nav>
 
-<!-- ── 3. STRATEGY ── -->
+<!-- ── 3. PHILOSOPHY ── -->
 <section id="philosophy" class="bg-white">
     <div class="container">
         <div class="text-center" style="max-width:900px;margin:0 auto">
@@ -215,7 +303,7 @@
     </div>
 </section>
 
-<!-- ── 4. PILLARS ── -->
+<!-- ── 4. FOUNDATIONS ── -->
 <section id="pillars" class="bg-light">
     <div class="container">
         <div class="text-center" style="max-width:850px; margin:0 auto 56px;">
@@ -260,7 +348,126 @@
     </div>
 </section>
 
-<!-- ── 5. PATHFINDER ── -->
+<!-- ── 5. SYSTEM ARCHITECTURE ── -->
+<section id="system-architecture" class="bg-white border-top">
+    <div class="container">
+        <div class="text-center">
+            <span class="eyebrow">System Architecture</span>
+            <h2>What Systems Do Industrial Facilities Need?</h2>
+            <p class="subtitle" style="border:none; max-width: 900px; margin-left: auto; margin-right: auto;">Every industrial facility—from data centres to logistics hubs and manufacturing plants—requires all four integrated security pillars. Here's how we architect mission-critical infrastructure for Singapore's industrial sector.</p>
+        </div>
+
+        <div class="factors-4 mt-56">
+            <!-- Card 1: Surveillance & Detection -->
+            <div class="pillar-card">
+                <div class="pillar-image-wrap">
+                    <img src="images/pillar_surveillance.png" alt="Surveillance & Detection">
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-header">
+                        <h3>Surveillance & Detection</h3>
+                        <span class="pillar-badge badge-essential">ESSENTIAL</span>
+                    </div>
+                    <p>Comprehensive perimeter protection with thermal imaging. Production floor monitoring for PPE compliance and loading bay coverage for cargo manifest verification.</p>
+                    <div class="pillar-components">
+                        <strong>Typical components:</strong>
+                        <ul>
+                            <li>30-150+ IP cameras</li>
+                            <li>Thermal imaging for night detection</li>
+                            <li>AI analytics (PPE, intrusion, fire-risk)</li>
+                            <li>Perimeter beams & motion sensors</li>
+                        </ul>
+                    </div>
+                    <a href="surveillance-systems.html" class="pillar-link">Learn More About Surveillance &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Card 2: People Access Control -->
+            <div class="pillar-card">
+                <div class="pillar-image-wrap">
+                    <img src="images/pillar_people_access.png" alt="People Access Control">
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-header">
+                        <h3>People Access Control</h3>
+                        <span class="pillar-badge badge-essential">ESSENTIAL</span>
+                    </div>
+                    <p>Multi-zone access control separating production, hazmat, and server rooms. Biometric authentication and visitor escort management for sensitive zones.</p>
+                    <div class="pillar-components">
+                        <strong>Typical components:</strong>
+                        <ul>
+                            <li>Multi-zone access control system</li>
+                            <li>Employee biometric or card authentication</li>
+                            <li>Contractor temporary credentials</li>
+                            <li>Visitor escort management</li>
+                        </ul>
+                    </div>
+                    <a href="people-access.html" class="pillar-link">Learn More About People Access &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Card 3: Vehicle Access & Barriers -->
+            <div class="pillar-card">
+                <div class="pillar-image-wrap">
+                    <img src="images/pillar_vehicle_access.png" alt="Vehicle Access & Barriers">
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-header">
+                        <h3>Vehicle Access & Barriers</h3>
+                        <span class="pillar-badge badge-essential">ESSENTIAL</span>
+                    </div>
+                    <p>High-speed ANPR gantries for fleet management. Automated loading bay barriers with time-slot coordination to reduce peak-hour congestion.</p>
+                    <div class="pillar-components">
+                        <strong>Typical components:</strong>
+                        <ul>
+                            <li>High-speed ANPR gantries (2-5 points)</li>
+                            <li>Heavy vehicle fleet recognition</li>
+                            <li>Loading bay boom barriers</li>
+                            <li>Delivery vehicle time-slot management</li>
+                        </ul>
+                    </div>
+                    <a href="vehicle-access.html" class="pillar-link">Learn More About Vehicle Access &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Card 4: Platform Integration -->
+            <div class="pillar-card">
+                <div class="pillar-image-wrap">
+                    <img src="images/pillar_platform.png" alt="Platform Integration">
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-header">
+                        <h3>Platform Integration</h3>
+                        <span class="pillar-badge badge-essential">ESSENTIAL</span>
+                    </div>
+                    <p>Unified VESTA™ platform for 24/7 operations oversight. Multi-zone coordination and real-time alerts for facility managers and SOC teams.</p>
+                    <div class="pillar-components">
+                        <strong>Typical components:</strong>
+                        <ul>
+                            <li>VESTA™ unified platform</li>
+                            <li>24/7 remote monitoring capability</li>
+                            <li>Multi-zone facility coordination</li>
+                            <li>Emergency protocol integration</li>
+                        </ul>
+                    </div>
+                    <a href="platform-integration.html" class="pillar-link">Learn More About Platform Integration &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pillar-closing-note">
+            <p>All four pillars are essential for industrial facilities operating 24/7. Unlike office or retail environments, industrial operations cannot afford downtime, security gaps, or compliance failures. We architect systems for mission-critical resilience.</p>
+        </div>
+
+        <div class="section-cta">
+            <h3>Need a Zero-Downtime Security Upgrade?</h3>
+            <p>Our industrial assessment maps your perimeter vulnerabilities, production floor blind spots, and compliance gaps—then delivers a fixed-price proposal engineered for zero operational disruption.</p>
+            <a href="contact.html?ref=industrial-systems" class="btn btn-primary">Request Engineering Audit</a>
+        </div>
+    </div>
+</section>
+
+<!-- ── 6. PATHFINDER ── -->
 <section id="pathfinder" class="bg-white">
     <div class="container">
         <div class="text-center" style="margin-bottom:64px;">
@@ -326,7 +533,7 @@
     </div>
 </section>
 
-<!-- ── 6. PROVEN OUTCOMES ── -->
+<!-- ── 7. PROVEN OUTCOMES ── -->
 <section id="case-studies" class="bg-light">
     <div class="container">
         <div class="text-center">
@@ -378,7 +585,109 @@
     </div>
 </section>
 
-<!-- ── 7. THE JOURNEY ── -->
+<!-- ── 8. INVESTMENT GUIDE ── -->
+<section id="investment-guide" class="bg-light border-top">
+    <div class="container">
+        <div class="text-center" style="margin-bottom: 56px;">
+            <span class="eyebrow">Pricing Transparency</span>
+            <h2>Investment Guide: What Does Industrial Security Cost?</h2>
+            <p class="subtitle" style="border:none; max-width: 900px; margin-left: auto; margin-right: auto;">Industrial security investments vary based on facility size, operational complexity, and regulatory requirements. All prices include professional installation, compliance documentation, and warranty.</p>
+        </div>
+
+        <div class="grid-3 mt-48">
+            <!-- Tier 1: Small Facilities -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="size-badge">5,000 – 20,000 sqft • Single Building</span>
+                    <h3>Small Facilities</h3>
+                    <p class="prop-types">Small Warehouses • Single Production Lines</p>
+                </div>
+                <div class="price-wrap">
+                    <span class="price-range">$30,000 – $80,000</span>
+                </div>
+                <div class="pricing-body">
+                    <ul>
+                        <li>20-40 IP cameras (perimeter, floor)</li>
+                        <li>Basic access & visitor management</li>
+                        <li>1-2 vehicle gantries with ANPR</li>
+                        <li>Perimeter intrusion detection</li>
+                        <li>Cloud backup & remote monitoring</li>
+                        <li>WSH compliance documentation</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <p>Starting point for small manufacturing or logistics operations. Scalable as production expands.</p>
+                </div>
+            </div>
+
+            <!-- Tier 2: Medium Facilities -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="size-badge">20,000 – 50,000 sqft • Multi-Zone</span>
+                    <h3>Medium Facilities</h3>
+                    <p class="prop-types">Logistics Hubs • Medium Data Centres</p>
+                </div>
+                <div class="price-wrap">
+                    <span class="price-range">$80,000 – $200,000</span>
+                </div>
+                <div class="pricing-body">
+                    <ul>
+                        <li>50-100 IP cameras (comprehensive)</li>
+                        <li>Multi-zone access (production, admin)</li>
+                        <li>2-4 vehicle gantries with fleet management</li>
+                        <li>AI analytics (PPE, intrusion alerts)</li>
+                        <li>VESTA™ platform for centralized monitoring</li>
+                        <li>Loading bay management integration</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <p>Most common configuration for mid-sized factories and logistics operations with multiple zones.</p>
+                </div>
+            </div>
+
+            <!-- Tier 3: Large Complexes -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="size-badge">50,000+ sqft • Multi-Building Campus</span>
+                    <h3>Large Complexes</h3>
+                    <p class="prop-types">Enterprise Campuses • Mission-Critical Hubs</p>
+                </div>
+                <div class="price-wrap">
+                    <span class="price-range">$200,000 – $500,000+</span>
+                </div>
+                <div class="pricing-body">
+                    <ul>
+                        <li>100-250+ IP cameras (enterprise grid)</li>
+                        <li>Enterprise access (multi-building)</li>
+                        <li>4-8 vehicle gantries with tracking</li>
+                        <li>Advanced AI (PPE, fire-risk, intrusion)</li>
+                        <li>Full VESTA™ with 24/7 SOC integration</li>
+                        <li>Emergency protocol integration</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <p>Tailored engineering for large complexes. Custom-designed for zero-downtime and full regulatory compliance.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing-callout">
+            <h3>What Affects the Final Cost?</h3>
+            <p>Six factors determine your industrial security investment:</p>
+            <ol>
+                <li><strong>Perimeter length:</strong> Extensive outdoor areas require more cameras and detection systems.</li>
+                <li><strong>Number of operational zones:</strong> Separating production floors, hazmat storage, and server rooms increases complexity.</li>
+                <li><strong>Regulatory requirements:</strong> WSH, SCDF, MOM, and industry-specific regulations add documentation scope.</li>
+                <li><strong>Operational hours:</strong> 24/7 facilities require redundant systems and zero-downtime installation.</li>
+                <li><strong>Vehicle throughput:</strong> High-volume hubs need more sophisticated ANPR and loading bay coordination.</li>
+                <li><strong>Mission-criticality:</strong> Data centres require thermal detection and multi-factor authentication.</li>
+            </ol>
+            <p>Our engineering audit provides a transparent, fixed-price proposal with detailed line items for procurement approval.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── 9. THE JOURNEY ── -->
 <section id="journey" class="bg-white">
     <div class="container">
         <div class="text-center">
@@ -412,7 +721,109 @@
     </div>
 </section>
 
-<!-- ── 8. TRUST BAR ── -->
+<!-- ── 10. COMPLIANCE & INDUSTRIAL STANDARDS ── -->
+<section id="compliance-standards" class="bg-white border-top">
+    <div class="container">
+        <div class="text-center">
+            <span class="eyebrow">Compliance & Standards</span>
+            <h2>Built for Singapore Industrial Regulations</h2>
+            <p class="subtitle" style="border:none; max-width: 900px; margin-left: auto; margin-right: auto;">Every industrial facility in Singapore operates under strict workplace safety, fire safety, and operational standards. We engineer systems that protect your workforce and reduce operational liability.</p>
+        </div>
+
+        <div class="grid-4 mt-56">
+            <!-- Card 1: WSH -->
+            <div class="compliance-card">
+                <div class="compliance-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2" ry="2"/><path d="M2 20h20"/><path d="M9 16l3-3 3 3"/></svg>
+                </div>
+                <h3>WSH (Workplace Safety & Health)</h3>
+                <p>AI analytics monitor PPE compliance and restricted zone access. Complete incident documentation for WSH audits and safety reporting.</p>
+                <div class="compliance-list">
+                    <strong>What we provide:</strong>
+                    <ul>
+                        <li>AI PPE compliance detection</li>
+                        <li>Restricted zone access enforcement</li>
+                        <li>Incident documentation for audits</li>
+                        <li>bizSAFE Level 3 certified installers</li>
+                    </ul>
+                </div>
+                <div class="compliance-footer">
+                    <p>Mandatory for all manufacturing and logistics facilities. Critical for reducing workplace accidents.</p>
+                </div>
+            </div>
+
+            <!-- Card 2: SCDF -->
+            <div class="compliance-card">
+                <div class="compliance-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.5 3.5 6.5 1 1.333 1 3 1 4.5a3.5 3.5 0 0 1-7 0Z"/><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-5-4-5-4l4 4c-1.5 3-4.5 4-4.5 5.5A7 7 0 0 0 12 22Z"/></svg>
+                </div>
+                <h3>SCDF Fire Safety Compliance</h3>
+                <p>Integrated access systems for emergency egress. Thermal imaging for fire-risk hotspots in server rooms and substations.</p>
+                <div class="compliance-list">
+                    <strong>What we provide:</strong>
+                    <ul>
+                        <li>Fire alarm integration (auto door release)</li>
+                        <li>Thermal fire-risk detection</li>
+                        <li>Emergency evacuation compliance</li>
+                        <li>SCDF inspection coordination</li>
+                    </ul>
+                </div>
+                <div class="compliance-footer">
+                    <p>Required for all industrial facilities. Especially critical for data centres and chemical storage.</p>
+                </div>
+            </div>
+
+            <!-- Card 3: MOM -->
+            <div class="compliance-card">
+                <div class="compliance-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+                </div>
+                <h3>MOM & Contractor Safety</h3>
+                <p>Temporary contractor credentials and visitor escort requirements. Automated audit trails for incident investigations and reporting.</p>
+                <div class="compliance-list">
+                    <strong>What we provide:</strong>
+                    <ul>
+                        <li>Contractor temporary access management</li>
+                        <li>Visitor escort enforcement</li>
+                        <li>Automated compliance audit trails</li>
+                        <li>HR system integration</li>
+                    </ul>
+                </div>
+                <div class="compliance-footer">
+                    <p>Essential for facilities with high contractor turnover or multi-tenant industrial parks.</p>
+                </div>
+            </div>
+            
+            <!-- Card 4: PDPA -->
+            <div class="compliance-card">
+                <div class="compliance-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <h3>PDPA Data Protection</h3>
+                <p>Employee biometrics and visitor logs protected with encrypted storage and role-based access controls.</p>
+                <div class="compliance-list">
+                    <strong>What we provide:</strong>
+                    <ul>
+                        <li>Encrypted biometric data storage</li>
+                        <li>Role-based access controls</li>
+                        <li>Automatic data retention policies</li>
+                        <li>PDPA-compliant audit trails</li>
+                    </ul>
+                </div>
+                <div class="compliance-footer">
+                    <p>Mandatory for all facilities handling employee biometric data and contractor information.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="compliance-callout">
+            <h3>We Handle Industrial Compliance Coordination</h3>
+            <p>From WSH safety audits to SCDF fire certifications and MOM contractor documentation, we coordinate all regulatory requirements on your behalf. Your facility manager focuses on operations. We handle compliance engineering and statutory submissions.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── 11. TRUST BAR ── -->
 <section id="trust-bar" class="assurance-section bg-light">
     <div class="container">
         <div class="assurance-grid">
@@ -452,7 +863,7 @@
     </div>
 </section>
 
-<!-- ── 7. FINAL CTA ── -->
+<!-- ── 12. FINAL CTA ── -->
 <section id="final-cta" class="cta-section" style="background: linear-gradient(rgba(14, 26, 43, 0.75), rgba(14, 26, 43, 0.75)), url('images/industrial-cta-secured-hub.png'); background-size: cover; background-position: center;">
     <div class="container">
         <div class="text-center" style="max-width:850px; margin: 0 auto 64px;">
@@ -488,7 +899,7 @@
     </div>
 </section>
 
-<!-- ── 8. FOOTER ── -->
+<!-- ── 13. FOOTER ── -->
 <footer class="site-footer">
     <div class="footer-container">
         <div class="footer-grid">
