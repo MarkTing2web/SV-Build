@@ -11,29 +11,136 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="sv-shared.css">
     <style>
-        /* Healthcare Foundation Cards (Factor Cards) */
-        .factors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-        .factor-card { 
-            padding: 0; 
-            border-radius: 12px; 
-            border: 1px solid var(--border-light); 
-            background: #fff; 
-            overflow: hidden; 
-            display: flex; 
+        /* PILLAR CARDS (System Architecture) */
+        #system-architecture .factors-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+        .pillar-card {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
             flex-direction: column;
-            text-align: left;
+            height: 100%;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pillar-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12); border-color: var(--primary-blue); }
+        .pillar-image-wrap { height: 180px; overflow: hidden; }
+        .pillar-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .pillar-card:hover .pillar-image-wrap img { transform: scale(1.05); }
+        .pillar-content { padding: 32px; flex-grow: 1; display: flex; flex-direction: column; }
+        .pillar-header { margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+        .pillar-header h3 { font-size: 18px; color: var(--text-dark); margin: 0; line-height: 1.3; }
+        .pillar-badge { font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px; letter-spacing: 0.5px; flex-shrink: 0; margin-top: 4px; }
+        .badge-essential { background: rgba(0, 86, 179, 0.1); color: var(--primary-blue); }
+        .badge-optional { background: rgba(100, 116, 139, 0.1); color: #64748b; }
+        .pillar-content p { font-size: 14px; color: var(--text-gray); line-height: 1.6; margin-bottom: 24px; }
+        .pillar-components { margin-bottom: 32px; }
+        .pillar-components strong { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); margin-bottom: 12px; }
+        .pillar-components ul { list-style: none; padding: 0; margin: 0; }
+        .pillar-components li { font-size: 13px; color: var(--text-gray); margin-bottom: 8px; position: relative; padding-left: 18px; }
+        .pillar-components li::before { content: '•'; position: absolute; left: 0; color: var(--primary-blue); font-weight: bold; }
+        .pillar-link { font-size: 14px; font-weight: 600; color: var(--primary-blue); text-decoration: none; margin-top: auto; display: inline-block; transition: 0.2s; }
+        .pillar-link:hover { color: var(--dark-blue); text-decoration: underline; }
+        
+        .pillar-closing-note { text-align: center; max-width: 800px; margin: 48px auto 0; font-size: 15px; color: var(--text-gray); line-height: 1.8; padding: 28px; background: var(--bg-light); border-radius: 12px; border: 1px solid var(--border-light); }
+        
+        .section-cta { text-align: center; max-width: 800px; margin: 56px auto 0; padding: 40px; border: 1px solid var(--border-light); border-radius: 16px; background: #fff; }
+        .section-cta h3 { font-size: 22px; margin-bottom: 12px; color: var(--text-dark); }
+        .section-cta p { font-size: 16px; color: var(--text-gray); margin-bottom: 24px; }
+
+        /* PRICING CARDS (Investment Guide) */
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .pricing-card {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
             transition: 0.3s;
         }
-        .factor-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
-        .factor-card .card-image-wrap { height: 200px; width: 100%; overflow: hidden; }
-        .factor-card .card-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
-        .factor-card:hover .card-image-wrap img { transform: scale(1.05); }
-        .factor-card-content { padding: 24px; flex-grow: 1; }
-        .factor-card h3 { font-size: 18px; margin-bottom: 10px; color: var(--dark-blue); }
-        .factor-card p { font-size: 14px; color: var(--text-gray); margin: 0; line-height: 1.6; }
+        .pricing-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12); border-color: var(--primary-blue); }
+        .size-badge { display: inline-block; background: var(--bg-light); color: var(--text-light); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; margin-bottom: 16px; text-transform: uppercase; }
+        .pricing-card h3 { font-size: 20px; margin-bottom: 8px; color: var(--text-dark); line-height: 1.3; }
+        .prop-types { font-size: 13px; color: var(--text-light); margin-bottom: 24px; }
+        .price-wrap { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border-light); }
+        .price-range { font-size: 24px; font-weight: 700; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; display: block; }
+        .pricing-body { flex-grow: 1; margin-bottom: 32px; }
+        .pricing-body ul { list-style: none; padding: 0; margin: 0; }
+        .pricing-body li { font-size: 14px; color: var(--text-gray); margin-bottom: 12px; position: relative; padding-left: 20px; line-height: 1.5; }
+        .pricing-body li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold; }
+        .pricing-footer p { font-size: 12px; color: var(--text-light); font-style: italic; margin: 0; }
+        .pricing-callout { background: #fff; border: 1px solid var(--border-light); border-radius: 12px; padding: 40px; text-align: center; max-width: 850px; margin: 64px auto 0; }
+        .pricing-callout h3 { font-size: 20px; margin-bottom: 16px; color: var(--text-dark); }
+        .pricing-callout p { font-size: 15px; color: var(--text-gray); line-height: 1.7; margin: 0; }
+        .pricing-callout ol { display: inline-block; text-align: left; margin: 24px auto; color: var(--text-gray); font-size: 15px; line-height: 1.8; padding-left: 40px; }
+        .pricing-callout ol li { margin-bottom: 8px; }
 
+        /* COMPLIANCE CARDS */
+        .grid-4, .factors-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .compliance-card {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: 0.3s;
+        }
+        .compliance-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0, 86, 179, 0.08); border-color: var(--primary-blue); }
+        .compliance-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--bg-light);
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            margin-bottom: 24px;
+        }
+        .compliance-card h3 { font-size: 18px; margin-bottom: 12px; color: var(--text-dark); line-height: 1.4; }
+        .compliance-card p { font-size: 14px; color: var(--text-gray); line-height: 1.6; margin-bottom: 20px; }
+        .compliance-list { flex-grow: 1; margin-bottom: 24px; }
+        .compliance-list strong { display: block; font-size: 12px; text-transform: uppercase; color: var(--text-light); margin-bottom: 12px; letter-spacing: 0.5px; }
+        .compliance-list ul { list-style: none; padding: 0; margin: 0; }
+        .compliance-list li { font-size: 13px; color: var(--text-gray); margin-bottom: 8px; position: relative; padding-left: 18px; }
+        .compliance-list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold; }
+        .compliance-footer p { font-size: 12px; color: var(--text-light); font-style: italic; margin: 0; border-top: 1px solid var(--border-light); padding-top: 16px; }
+        
+        .compliance-callout { text-align: center; max-width: 800px; margin: 64px auto 0; background: var(--primary-blue); color: #fff; padding: 40px; border-radius: 16px; }
+        .compliance-callout h3 { font-size: 22px; margin-bottom: 12px; color: #fff; }
+        .compliance-callout p { font-size: 16px; color: rgba(255,255,255,0.9); margin: 0; line-height: 1.6; }
+
+        /* TRUST BAR */
+        .assurance-section { padding: 80px 0; }
+        .assurance-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .assurance-card {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 32px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            transition: 0.3s;
+        }
+        .assurance-card:hover { border-color: var(--primary-blue); box-shadow: 0 8px 24px rgba(0, 86, 179, 0.08); }
+        .assurance-icon { width: 48px; height: 48px; color: var(--primary-blue); flex-shrink: 0; }
+        .assurance-content h3 { font-size: 16px; margin-bottom: 4px; color: var(--text-dark); }
+        .assurance-content p { font-size: 13px; color: var(--text-gray); margin: 0; }
+
+        @media (max-width: 1200px) {
+            .grid-4, .factors-4 { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 992px) {
-            .factors-grid { grid-template-columns: 1fr; gap: 24px; }
+            .factors-grid, .grid-3, .assurance-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .grid-3, .grid-4, .factors-4, .factors-grid, .assurance-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -173,7 +280,7 @@
         </div>
     </header>
 
-    <!-- BREADCRUMBS -->
+    <!-- ── 2. BREADCRUMBS ── -->
     <div class="sv-breadcrumb">
         <div class="container">
             <ul>
@@ -184,7 +291,7 @@
         </div>
     </div>
 
-    <!-- LOGIC PILLARS -->
+    <!-- ── 4. FOUNDATIONS ── -->
     <section id="foundations" class="bg-white">
         <div class="container">
             <div class="text-center" style="max-width: 800px; margin: 0 auto 56px;">
@@ -230,7 +337,126 @@
         </div>
     </section>
 
-    <!-- PATHFINDER -->
+    <!-- ── 5. SYSTEM ARCHITECTURE ── -->
+    <section id="system-architecture" class="bg-light border-top">
+        <div class="container">
+            <div class="text-center">
+                <span class="eyebrow">System Architecture</span>
+                <h2>What Systems Do Healthcare Facilities Need?</h2>
+                <p class="subtitle" style="border:none; max-width: 900px; margin-left: auto; margin-right: auto;">Every healthcare facility—from nursing homes to worker dormitories and co-living spaces—requires integrated security that balances resident welfare with operational efficiency. Here's how we architect compassionate, high-assurance infrastructure for Singapore's healthcare sector.</p>
+            </div>
+
+            <div class="factors-4 mt-56">
+                <!-- Card 1: Surveillance & Detection -->
+                <div class="pillar-card">
+                    <div class="pillar-image-wrap">
+                        <img src="images/pillar_surveillance.png" alt="Surveillance & Detection">
+                    </div>
+                    <div class="pillar-content">
+                        <div class="pillar-header">
+                            <h3>Surveillance & Detection</h3>
+                            <span class="pillar-badge badge-essential">ESSENTIAL</span>
+                        </div>
+                        <p>Comprehensive coverage for common areas and entry points. AI wandering detection for nursing homes ensures safety while maintaining dignity.</p>
+                        <div class="pillar-components">
+                            <strong>Typical components:</strong>
+                            <ul>
+                                <li>25-100+ IP cameras</li>
+                                <li>AI wandering detection</li>
+                                <li>Fall detection analytics</li>
+                                <li>Emergency incident playback</li>
+                            </ul>
+                        </div>
+                        <a href="surveillance-systems.html" class="pillar-link">Learn More About Surveillance &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Card 2: People Access Control -->
+                <div class="pillar-card">
+                    <div class="pillar-image-wrap">
+                        <img src="images/pillar_people_access.png" alt="People Access Control">
+                    </div>
+                    <div class="pillar-content">
+                        <div class="pillar-header">
+                            <h3>People Access Control</h3>
+                            <span class="pillar-badge badge-essential">ESSENTIAL</span>
+                        </div>
+                        <p>Multi-zone access for residents, staff, and visitors. High-throughput facial recognition for dormitories managing shift changes efficiently.</p>
+                        <div class="pillar-components">
+                            <strong>Typical components:</strong>
+                            <ul>
+                                <li>Resident access cards/face ID</li>
+                                <li>Staff & worker credentials</li>
+                                <li>Family visitor management</li>
+                                <li>Contractor temporary access</li>
+                            </ul>
+                        </div>
+                        <a href="people-access.html" class="pillar-link">Learn More About People Access &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Card 3: Vehicle Access & Barriers -->
+                <div class="pillar-card">
+                    <div class="pillar-image-wrap">
+                        <img src="images/pillar_vehicle_access.png" alt="Vehicle Access & Barriers">
+                    </div>
+                    <div class="pillar-content">
+                        <div class="pillar-header">
+                            <h3>Vehicle Access & Barriers</h3>
+                            <span class="pillar-badge badge-optional">OPTIONAL</span>
+                        </div>
+                        <p>For larger campuses: automated barriers with ANPR for ambulances and staff ensuring priority access and efficient delivery management.</p>
+                        <div class="pillar-components">
+                            <strong>Typical components:</strong>
+                            <ul>
+                                <li>Automated barriers (1-2 entry)</li>
+                                <li>Ambulance priority access</li>
+                                <li>Staff vehicle ANPR</li>
+                                <li>Delivery time-slot management</li>
+                            </ul>
+                        </div>
+                        <a href="vehicle-access.html" class="pillar-link">Learn More About Vehicle Access &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Card 4: Platform Integration -->
+                <div class="pillar-card">
+                    <div class="pillar-image-wrap">
+                        <img src="images/pillar_platform.png" alt="Platform Integration">
+                    </div>
+                    <div class="pillar-content">
+                        <div class="pillar-header">
+                            <h3>Platform Integration</h3>
+                            <span class="pillar-badge badge-essential">ESSENTIAL</span>
+                        </div>
+                        <p>Unified VESTA™ dashboard integrating nurse calls and occupancy tracking. Staff notifications for wandering alerts sent directly to mobile devices.</p>
+                        <div class="pillar-components">
+                            <strong>Typical components:</strong>
+                            <ul>
+                                <li>VESTA™ unified platform</li>
+                                <li>Nurse call integration</li>
+                                <li>Occupancy tracking & headcount</li>
+                                <li>MOM attendance sync</li>
+                            </ul>
+                        </div>
+                        <a href="platform-integration.html" class="pillar-link">Learn More About Platform Integration &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pillar-closing-note">
+                <p>All four pillars are essential for healthcare facilities managing resident welfare and regulatory compliance. Vehicle access becomes optional for smaller nursing homes without parking, but surveillance, people access, and platform integration are critical for care coordination and emergency response.</p>
+            </div>
+
+            <div class="section-cta">
+                <h3>Need a Welfare-Centric Security Assessment?</h3>
+                <p>Our healthcare facility audit maps your operational flow, reviews your resident safety protocols, and recommends compliant systems that protect your community while maintaining dignity and comfort.</p>
+                <a href="contact.html?ref=healthcare-systems" class="btn btn-primary">Request Facility Assessment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── 6. PATHFINDER ── -->
     <section id="pathfinder" class="bg-light">
         <div class="container">
             <div class="text-center" style="margin-bottom:64px;">
@@ -270,7 +496,7 @@
         </div>
 </section>
 
-<!-- ── PROVEN OUTCOMES ── -->
+    <!-- ── 7. PROVEN OUTCOMES ── -->
 <section id="case-studies" class="bg-white border-top">
     <div class="container">
         <div class="text-center">
@@ -322,7 +548,108 @@
     </div>
 </section>
 
-<!-- ── THE JOURNEY ── -->
+<!-- ── 8. INVESTMENT GUIDE ── -->
+<section id="investment-guide" class="bg-light border-top">
+    <div class="container">
+        <div class="text-center" style="margin-bottom: 56px;">
+            <span class="eyebrow">Pricing Transparency</span>
+            <h2>Investment Guide: What Does Healthcare Security Cost?</h2>
+            <p class="subtitle" style="border:none; max-width: 900px; margin-left: auto; margin-right: auto;">Healthcare security investments vary based on facility size, resident population, and operational complexity. All prices include professional installation, staff training, and warranty.</p>
+        </div>
+
+        <div class="grid-3 mt-48">
+            <!-- Tier 1: Small Facilities -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="size-badge">20 – 100 Residents • Single Building</span>
+                    <h3>Small Facilities</h3>
+                    <p class="prop-types">Nursing Homes • Boutique Hostels • Co-Living</p>
+                </div>
+                <div class="price-wrap">
+                    <span class="price-range">$20,000 – $50,000</span>
+                </div>
+                <div class="pricing-body">
+                    <ul>
+                        <li>15-30 IP cameras (perimeter, halls)</li>
+                        <li>Basic access & visitor management</li>
+                        <li>AI wandering detection (nursing)</li>
+                        <li>Nurse call integration (optional)</li>
+                        <li>PDPA-compliant data storage</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <p>Starting point for small nursing homes and boutique co-living spaces. Scalable as resident population grows.</p>
+                </div>
+            </div>
+
+            <!-- Tier 2: Medium Facilities -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="size-badge">100 – 300 Residents • Multi-Zone</span>
+                    <h3>Medium Facilities</h3>
+                    <p class="prop-types">Large Nursing Homes • Co-Living Complexes</p>
+                </div>
+                <div class="price-wrap">
+                    <span class="price-range">$50,000 – $120,000</span>
+                </div>
+                <div class="pricing-body">
+                    <ul>
+                        <li>40-80 IP cameras (campus coverage)</li>
+                        <li>Multi-zone access (floors, admin, kitchen)</li>
+                        <li>Keyless mobile entry system</li>
+                        <li>AI wandering & fall analytics</li>
+                        <li>VESTA™ multi-zone coordination</li>
+                        <li>Nurse call & MOH reporting</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <p>Most common configuration for established nursing homes and co-living operators with multiple zones.</p>
+                </div>
+            </div>
+
+            <!-- Tier 3: Large Dormitories -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="size-badge">300 – 1,000+ Residents • Multi-Building Campus</span>
+                    <h3>Large Dormitories & Campuses</h3>
+                    <p class="prop-types">Worker Dormitories • Healthcare Campuses</p>
+                </div>
+                <div class="price-wrap">
+                    <span class="price-range">$120,000 – $250,000+</span>
+                </div>
+                <div class="pricing-body">
+                    <ul>
+                        <li>80-150+ IP cameras (enterprise grid)</li>
+                        <li>High-throughput face ID (shift changes)</li>
+                        <li>Automated barriers with ANPR</li>
+                        <li>Full VESTA™ multi-building coordination</li>
+                        <li>MOM attendance integration</li>
+                        <li>MOH/MOM compliance documentation</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <p>Tailored engineering for high-density dormitories and healthcare campuses. Custom-designed for compliance.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing-callout">
+            <h3>What Affects the Final Cost?</h3>
+            <p>Six factors determine your healthcare security investment:</p>
+            <ol>
+                <li><strong>Facility size and resident population:</strong> Larger populations require more covering and robust systems.</li>
+                <li><strong>Number of zones:</strong> Multi-building campuses need coordinated response protocols.</li>
+                <li><strong>Regulatory requirements:</strong> MOH, MOM, and PDPA compliance add documentation and hardware scope.</li>
+                <li><strong>Resident welfare features:</strong> AI wandering and fall analytics increase system complexity.</li>
+                <li><strong>Operational throughput:</strong> High-density dormitories need high-speed face recognition.</li>
+                <li><strong>Emergency preparedness:</strong> Occupancy tracking and alerts add critical safety layers.</li>
+            </ol>
+            <p>Our facility assessment provides a transparent, fixed-price proposal with clear line items for approval.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── 9. THE JOURNEY ── -->
 <section id="journey" class="bg-light">
     <div class="container">
         <div class="text-center">
@@ -356,7 +683,149 @@
     </div>
 </section>
 
-<!-- ── 7. FINAL CTA ── -->
+<!-- ── 10. COMPLIANCE & HEALTHCARE STANDARDS ── -->
+<section id="compliance-standards" class="bg-white border-top">
+    <div class="container">
+        <div class="text-center">
+            <span class="eyebrow">Compliance & Standards</span>
+            <h2>Built for Singapore Healthcare Regulations</h2>
+            <p class="subtitle" style="border:none; max-width: 900px; margin-left: auto; margin-right: auto;">Every nursing home, dormitory, and managed living facility in Singapore operates under strict health, safety, and welfare standards.</p>
+        </div>
+
+        <div class="grid-4 mt-56">
+            <!-- Card 1: MOH -->
+            <div class="compliance-card">
+                <div class="compliance-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                </div>
+                <h3>MOH Regulations & Patient Safety</h3>
+                <p>AI wandering detection alerts staff when vulnerable residents approaches exit zones. PDPA-compliant patient records and medication logs.</p>
+                <div class="compliance-list">
+                    <strong>What we provide:</strong>
+                    <ul>
+                        <li>AI wandering detection</li>
+                        <li>PDPA patient data protection</li>
+                        <li>Incident docs for MOH audits</li>
+                        <li>Nurse call system integration</li>
+                    </ul>
+                </div>
+                <div class="compliance-footer">
+                    <p>Required for all nursing homes. Critical for resident safety and regulatory compliance.</p>
+                </div>
+            </div>
+
+            <!-- Card 2: SCDF -->
+            <div class="compliance-card">
+                <div class="compliance-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.5 3.5 6.5 1 1.333 1 3 1 4.5a3.5 3.5 0 0 1-7 0Z"/><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-5-4-5-4l4 4c-1.5 3-4.5 4-4.5 5.5A7 7 0 0 0 12 22Z"/></svg>
+                </div>
+                <h3>SCDF Fire Safety Compliance</h3>
+                <p>Real-time occupancy tracking for fire safety officers. Doors automatically unlock during fire alarms ensuring safe evacuation.</p>
+                <div class="compliance-list">
+                    <strong>What we provide:</strong>
+                    <ul>
+                        <li>Fire alarm integration (auto door)</li>
+                        <li>Real-time occupancy tracking</li>
+                        <li>Emergency evacuation compliance</li>
+                        <li>SCDF inspection coordination</li>
+                    </ul>
+                </div>
+                <div class="compliance-footer">
+                    <p>Required for all healthcare facilities. Especially critical for nursing homes and high-density dorms.</p>
+                </div>
+            </div>
+
+            <!-- Card 3: PDPA -->
+            <div class="compliance-card">
+                <div class="compliance-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                </div>
+                <h3>PDPA Data Protection</h3>
+                <p>Patient and staff data protected with encrypted storage. Only authorized administrators and welfare officers can access sensitive data.</p>
+                <div class="compliance-list">
+                    <strong>What we provide:</strong>
+                    <ul>
+                        <li>Encrypted patient data storage</li>
+                        <li>Role-based access controls</li>
+                        <li>Automatic retention policies</li>
+                        <li>PDPA-compliant audit trails</li>
+                    </ul>
+                </div>
+                <div class="compliance-footer">
+                    <p>Mandatory for all healthcare facilities handling resident, patient, and staff data.</p>
+                </div>
+            </div>
+
+            <!-- Card 4: MOM -->
+            <div class="compliance-card">
+                <div class="compliance-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M22 11h-6"/><path d="M19 8v6"/></svg>
+                </div>
+                <h3>MOM Regulations & Worker Welfare</h3>
+                <p>Attendance tracking systems that sync directly with MOM for worker dormitories. Resident access logs for labor compliance and welfare audits.</p>
+                <div class="compliance-list">
+                    <strong>What we provide:</strong>
+                    <ul>
+                        <li>MOM attendance integration</li>
+                        <li>Accurate headcount tracking</li>
+                        <li>Worker access audit trails</li>
+                        <li>Welfare inspection documentation</li>
+                    </ul>
+                </div>
+                <div class="compliance-footer">
+                    <p>Essential for dormitories managing foreign worker accommodation under MOM regulations.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="compliance-callout">
+            <h3>We Handle Healthcare Compliance Coordination</h3>
+            <p>From MOH safety audits to SCDF fire certifications and PDPA patient data policies, we coordinate all regulatory requirements on your behalf. Your facility manager focuses on resident care. We handle compliance engineering and statutory submissions.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── 11. TRUST BAR ── -->
+<section id="trust-bar" class="assurance-section bg-light">
+    <div class="container">
+        <div class="assurance-grid">
+            <!-- 1. Police Licensed -->
+            <div class="assurance-card">
+                <div class="assurance-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <div class="assurance-content">
+                    <h3>Police Licensed Security Provider</h3>
+                    <p>Licence No: L/PS/000267/2023P</p>
+                </div>
+            </div>
+
+            <!-- 2. Longevity -->
+            <div class="assurance-card">
+                <div class="assurance-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div class="assurance-content">
+                    <h3>20 Years Serving Healthcare</h3>
+                    <p>Trusted Since 2006</p>
+                </div>
+            </div>
+
+            <!-- 3. Certification -->
+            <div class="assurance-card">
+                <div class="assurance-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <div class="assurance-content">
+                    <h3>BCA & bizSAFE Level 3 Certified</h3>
+                    <p>Government Recognised Standards</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── 12. FINAL CTA ── -->
 <section id="final-cta" class="cta-section" style="background: linear-gradient(rgba(14, 26, 43, 0.8), rgba(14, 26, 43, 0.8)), url('images/healthcare-cta.png'); background-size: cover; background-position: center;">
         <div class="container text-center">
             <h2 style="color: #fff;">Ready to Modernise Your Facility?</h2>
@@ -378,7 +847,7 @@
         </div>
     </section>
 
-    <!-- FOOTER (Standard Master) -->
+    <!-- ── 13. FOOTER ── -->
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-grid">
