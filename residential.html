@@ -70,6 +70,249 @@
         @media (max-width: 768px) {
             #securevision-edge .grid-3 { grid-template-columns: 1fr; gap: 24px; }
         }
+
+        /* PILLAR CARDS (Section 3.5) */
+        .pillar-card {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12);
+            border-color: var(--primary-blue);
+        }
+        .pillar-image-wrap {
+            height: 180px;
+            overflow: hidden;
+        }
+        .pillar-image-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+        .pillar-card:hover .pillar-image-wrap img {
+            transform: scale(1.05);
+        }
+        .pillar-content {
+            padding: 32px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .pillar-header {
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        .pillar-header h3 {
+            font-size: 18px;
+            color: var(--text-dark);
+            margin: 0;
+            line-height: 1.3;
+        }
+        .pillar-badge {
+            font-size: 10px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            letter-spacing: 0.5px;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+        .badge-essential {
+            background: rgba(0, 86, 179, 0.1);
+            color: var(--primary-blue);
+        }
+        .badge-optional {
+            background: #f1f3f5;
+            color: var(--text-light);
+        }
+        .pillar-content p {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .pillar-components {
+            margin-bottom: 32px;
+        }
+        .pillar-components strong {
+            display: block;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+        }
+        .pillar-components ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .pillar-components li {
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 18px;
+        }
+        .pillar-components li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-blue);
+            font-weight: bold;
+        }
+        .pillar-link {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-decoration: none;
+            margin-top: auto;
+            display: inline-block;
+            transition: 0.2s;
+        }
+        .pillar-link:hover {
+            color: var(--dark-blue);
+            text-decoration: underline;
+        }
+        .pillar-closing-note {
+            text-align: center;
+            max-width: 800px;
+            margin: 56px auto 0;
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.8;
+            padding: 28px;
+            background: var(--bg-light);
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+        }
+
+        /* PRICING CARDS (Section 5.5) */
+        #investment-guide .grid-3 {
+            align-items: stretch;
+        }
+        .pricing-card {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: 0.3s;
+        }
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12);
+            border-color: var(--primary-blue);
+        }
+        .size-badge {
+            display: inline-block;
+            background: var(--bg-light);
+            color: var(--text-light);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+        .pricing-card h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+        .prop-types {
+            font-size: 13px;
+            color: var(--text-light);
+            margin-bottom: 24px;
+        }
+        .price-wrap {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border-light);
+        }
+        .price-range {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-family: 'Montserrat', sans-serif;
+            display: block;
+        }
+        .pricing-body {
+            flex-grow: 1;
+            margin-bottom: 32px;
+        }
+        .pricing-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .pricing-body li {
+            font-size: 14px;
+            color: var(--text-gray);
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+            line-height: 1.5;
+        }
+        .pricing-body li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+        .pricing-footer p {
+            font-size: 12px;
+            color: var(--text-light);
+            font-style: italic;
+            margin: 0;
+        }
+        .pricing-callout {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            max-width: 850px;
+            margin: 64px auto 0;
+        }
+        .pricing-callout h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+        .pricing-callout p {
+            font-size: 15px;
+            color: var(--text-gray);
+            line-height: 1.7;
+            margin: 0;
+        }
+        .pricing-callout ol {
+            display: inline-block;
+            text-align: left;
+            margin: 24px auto;
+            color: var(--text-gray);
+            font-size: 15px;
+            line-height: 1.8;
+            padding-left: 40px;
+        }
+        .pricing-callout ol li {
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
@@ -232,13 +475,126 @@
     </div>
 </section>
 
-<!-- ── 3.5 ENGINEERING PARTNER ── -->
+<!-- ── 3.4 ENGINEERING PARTNER ── -->
 <section id="engineering-partner" class="bg-light border-top">
     <div class="container">
         <div class="text-center">
             <span class="eyebrow">Technical Excellence</span>
             <h2>Your Engineering Partner at Every Stage.</h2>
             <p class="subtitle">Whether you are a Homeowner looking to protect your family legacy, or a Developer, Consultant, or Contractor seeking a partner who understands the rigours of full-scale security engineering &mdash; we are the one to call. We provide the technical blueprints, specialised integration, and the bizSAFE-certified reliability that modern Singaporean properties demand.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── 3.5 SYSTEM ARCHITECTURE ── -->
+<section id="system-architecture" class="bg-white border-top">
+    <div class="container">
+        <div class="text-center">
+            <span class="eyebrow">System Architecture</span>
+            <h2>What Systems Do Residential Homes Need?</h2>
+            <p class="subtitle" style="max-width: 900px; margin-left: auto; margin-right: auto;">Every home is different, but most residential properties benefit from the same four integrated security pillars. Here's how we design for landed homes, GCBs, semi-Ds, and terraces.</p>
+        </div>
+
+        <div class="factors-4 mt-56">
+            <!-- Card 1: Surveillance & Detection -->
+            <div class="pillar-card">
+                <div class="pillar-image-wrap">
+                    <img src="images/pillar_surveillance.png" alt="Surveillance & Detection">
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-header">
+                        <h3>Surveillance & Detection</h3>
+                        <span class="pillar-badge badge-essential">ESSENTIAL</span>
+                    </div>
+                    <p>Perimeter cameras to monitor gardens, driveways, and entry points. Motion sensors and alarms for intrusion detection. Thermal imaging for large properties. AI analytics to reduce false alarms from pets and foliage.</p>
+                    <div class="pillar-components">
+                        <strong>Typical components:</strong>
+                        <ul>
+                            <li>IP cameras (8-24 cameras typical)</li>
+                            <li>Wireless alarm sensors</li>
+                            <li>Perimeter beams for gardens</li>
+                            <li>Video analytics (human/vehicle detection)</li>
+                        </ul>
+                    </div>
+                    <a href="surveillance-systems.html" class="pillar-link">Learn More About Surveillance &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Card 2: People Access Control -->
+            <div class="pillar-card">
+                <div class="pillar-image-wrap">
+                    <img src="images/pillar_people_access.png" alt="People Access Control">
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-header">
+                        <h3>People Access Control</h3>
+                        <span class="pillar-badge badge-essential">ESSENTIAL</span>
+                    </div>
+                    <p>Control who enters your home. Biometric fingerprint or face recognition for family members. Mobile app access for domestic helpers. Temporary PIN codes for contractors and visitors. Complete audit trail of every entry.</p>
+                    <div class="pillar-components">
+                        <strong>Typical components:</strong>
+                        <ul>
+                            <li>Digital door locks (3-5 doors typical)</li>
+                            <li>Video intercoms</li>
+                            <li>Mobile app credentials</li>
+                            <li>Visitor management for helpers</li>
+                        </ul>
+                    </div>
+                    <a href="people-access.html" class="pillar-link">Learn More About People Access &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Card 3: Vehicle Access & Barriers -->
+            <div class="pillar-card">
+                <div class="pillar-image-wrap">
+                    <img src="images/pillar_vehicle_access.png" alt="Vehicle Access & Barriers">
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-header">
+                        <h3>Vehicle Access & Barriers</h3>
+                        <span class="pillar-badge badge-essential">ESSENTIAL</span>
+                    </div>
+                    <p>Automated gates for driveways. License plate recognition (ANPR) for family vehicles. Video intercom for visitor verification before opening gates. Smart gate motors that integrate with alarm systems for security arming.</p>
+                    <div class="pillar-components">
+                        <strong>Typical components:</strong>
+                        <ul>
+                            <li>Automated sliding/swing gates</li>
+                            <li>ANPR cameras for driveways</li>
+                            <li>Video intercom at gate</li>
+                            <li>Remote control via mobile app</li>
+                        </ul>
+                    </div>
+                    <a href="vehicle-access.html" class="pillar-link">Learn More About Vehicle Access &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Card 4: Platform Integration -->
+            <div class="pillar-card">
+                <div class="pillar-image-wrap">
+                    <img src="images/pillar_platform.png" alt="Platform Integration">
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-header">
+                        <h3>Platform Integration</h3>
+                        <span class="pillar-badge badge-optional">OPTIONAL</span>
+                    </div>
+                    <p>Connect all systems into one unified mobile app. View cameras, unlock doors, and open gates from anywhere. Automation rules like 'arm alarm when gate closes' or 'record video when doorbell rings.' Essential for estates with multiple buildings; optional for single homes.</p>
+                    <div class="pillar-components">
+                        <strong>Typical components:</strong>
+                        <ul>
+                            <li>Unified mobile dashboard</li>
+                            <li>Cross-system automation</li>
+                            <li>Remote monitoring</li>
+                            <li>Cloud backup (optional)</li>
+                        </ul>
+                    </div>
+                    <a href="platform-integration.html" class="pillar-link">Learn More About Platform Integration &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pillar-closing-note">
+            <p><strong>Not sure which systems you need?</strong> Our site assessment will map your property's vulnerabilities and recommend the right combination of pillars based on your home's size, layout, and security priorities.</p>
         </div>
     </div>
 </section>
@@ -360,6 +716,109 @@
                     <a href="portfolio.html" class="btn btn-primary">Explore Case Study &rarr;</a>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── 5.5 INVESTMENT GUIDE ── -->
+<section id="investment-guide" class="bg-light border-top">
+    <div class="container">
+        <div class="text-center" style="margin-bottom: 56px;">
+            <span class="eyebrow">Pricing Transparency</span>
+            <h2>Investment Guide: What Does Residential Security Cost?</h2>
+            <p class="subtitle" style="max-width: 900px; margin-left: auto; margin-right: auto;">Budget transparency is important. Here's what to expect based on your home's size and the systems you need. All prices include professional installation, training, and warranty.</p>
+        </div>
+
+        <div class="grid-3 mt-48">
+            <!-- Tier 1: Small to Medium Homes -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="size-badge">2,000 – 3,500 sqft</span>
+                    <h3>Small to Medium Homes</h3>
+                    <p class="prop-types">Terraces • Corner Terraces • Small Semi-Ds</p>
+                </div>
+                <div class="price-wrap">
+                    <span class="price-range">$5,000 – $15,000</span>
+                </div>
+                <div class="pricing-body">
+                    <ul>
+                        <li>8-12 IP cameras (perimeter + entry points)</li>
+                        <li>Wireless alarm system (10-15 sensors)</li>
+                        <li>1-2 automated gates (main gate + side gate)</li>
+                        <li>Video intercom at main entrance</li>
+                        <li>Mobile app control (basic features)</li>
+                        <li>Professional installation + 1-year warranty</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <p>Starting point for most terrace homes. Scalable based on specific needs.</p>
+                </div>
+            </div>
+
+            <!-- Tier 2: Medium to Large Homes -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="size-badge">3,500 – 5,500 sqft</span>
+                    <h3>Medium to Large Homes</h3>
+                    <p class="prop-types">Large Semi-Ds • Detached • Small Bungalows</p>
+                </div>
+                <div class="price-wrap">
+                    <span class="price-range">$10,000 – $30,000</span>
+                </div>
+                <div class="pricing-body">
+                    <ul>
+                        <li>12-18 IP cameras (full perimeter coverage)</li>
+                        <li>Hybrid alarm system (wired + wireless sensors)</li>
+                        <li>2-3 automated gates (main, side, rear)</li>
+                        <li>Video intercoms at multiple points</li>
+                        <li>Face recognition or biometric access</li>
+                        <li>Platform integration (unified app control)</li>
+                        <li>Professional installation + 2-year warranty</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <p>Most common configuration for semi-detached and detached homes.</p>
+                </div>
+            </div>
+
+            <!-- Tier 3: Large Homes & GCBs -->
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="size-badge">5,500+ sqft</span>
+                    <h3>Large Homes & GCBs</h3>
+                    <p class="prop-types">Bungalows • GCBs • Estates</p>
+                </div>
+                <div class="price-wrap">
+                    <span class="price-range">$25,000 – $50,000</span>
+                </div>
+                <div class="pricing-body">
+                    <ul>
+                        <li>18-30+ IP cameras (comprehensive coverage)</li>
+                        <li>Advanced alarm with perimeter beams</li>
+                        <li>3-5 automated gates + barriers</li>
+                        <li>Multiple video intercoms + lobby panels</li>
+                        <li>Biometric access control (fingerprint/face)</li>
+                        <li>Full platform integration + automation</li>
+                        <li>Network infrastructure upgrades</li>
+                        <li>Professional installation + 3-year warranty</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <p>Tailored engineering for large estates. Every GCB project is custom-designed.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing-callout">
+            <h3>What Affects the Final Cost?</h3>
+            <p>Four factors determine your investment:</p>
+            <ol>
+                <li><strong>Property size and perimeter length:</strong> Larger areas require more cabling and detection points.</li>
+                <li><strong>Number of entry points requiring coverage:</strong> Each gate and door adds to the system's hardware count.</li>
+                <li><strong>Integration complexity:</strong> Connecting new smart systems to existing legacy gate motors or wiring.</li>
+                <li><strong>Premium features:</strong> Advanced AI such as facial recognition or specialized intrusion sensors.</li>
+            </ol>
+            <p>Our site assessment provides a detailed proposal tailored to your unique requirements.</p>
         </div>
     </div>
 </section>
