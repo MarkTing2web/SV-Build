@@ -7,7 +7,7 @@
 ## 1. PROJECT IDENTITY
 
 **Company:** Securevision Pte Ltd
-**Tagline:** Singapore's Smart Security & Operations Partner
+**Tagline:** Your partner in building smart, secure, and connected communities — powered by intelligent security systems since 2006.
 **Established:** 2006
 **Domain:** www.securevision.com.sg
 **Primary CTA:** WhatsApp +65 9386 0466 (https://wa.me/6593860466)
@@ -763,8 +763,8 @@ About          → about.html
 
 ### Brand Block content
 - Logo: `<img src="/images/securevision-logo-light.svg" alt="Securevision" height="36">`
-- Tagline: "Singapore's integrated security systems specialist since 2006."
-- Contact line: 📞 +65 9386 0466 · ✉️ info@securevision.com.sg
+- Tagline: "Your partner in building smart, secure, and connected communities — powered by intelligent security systems since 2006."
+- Contact line: 📞 +65 9386 0466 · ✉️ enquiry@securevision.com.sg
 - Social icons row (see Social Media section below)
 
 ### Footer Columns
@@ -784,7 +784,7 @@ About          → about.html
 ### Footer Bottom Bar
 ```
 © 2026 Securevision Pte Ltd  |  Police License L/PS/000267/2023P  |  bizSAFE Level 3  |  BCA Registered
-Serving Singapore Since 2006  |  info@securevision.com.sg
+Serving Singapore Since 2006  |  enquiry@securevision.com.sg
 ```
 
 ### Footer CSS

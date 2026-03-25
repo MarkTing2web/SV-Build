@@ -242,7 +242,9 @@ SECUREVISION.COM.SG
 │
 ├── INSIGHTS (/insights/)
 │   ├── ✅ insights.html - Insights & Articles Hub
-│   └── ✅ resources.html - Resources (may merge with insights)
+│   ├── ✅ resources.html - Resources
+│   ├── ✅ cctv.html - Comprehensive CCTV Guide (Blog)
+│   └── ✅ burglar-alarm.html - Comprehensive Burglar Alarm Guide (Blog)
 │
 └── ABOUT (/about/)
     ├── ✅ about.html - About Securevision
@@ -343,7 +345,9 @@ SECUREVISION.COM.SG
 | | STA Building | portfolio-sta.html | Via portfolio.html |
 | | Cyrus Tech Park | portfolio-cyrus.html | Via portfolio.html |
 | **Insights** | Insights Hub | insights.html | INSIGHTS |
-| | Resources | resources.html | Via insights or merged |
+| | Resources | resources.html | Via insights |
+| | CCTV Guide | cctv.html | Resources / Insights |
+| | Burglar Alarm | burglar-alarm.html | Resources / Insights |
 
 ---
 
