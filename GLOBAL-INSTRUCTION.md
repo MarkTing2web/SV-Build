@@ -204,6 +204,14 @@
 - .subtitle → Grid: 40px (Desktop), 32px (Mobile)
 - .section-divider: 64px margin-top, 40px padding-top.
 
+### Sidebar Layout & Sticky Navigation
+For technical guides and multi-section pages:
+- **Layout Wrapper**: Use `.layout-with-sidebar` with a 3:1 grid ratio (`3fr 1fr`).
+- **Standard Spacing**: The `.layout-with-sidebar` must have a **`margin-bottom: 120px`** to provide clear space between the sticky navigation and the final full-width CTA.
+- **Sticky TOC**: The `.sticky-toc` should stay within the `aside` column, pinned to `top: 120px`.
+- **Max Height**: Sticky TOC should have `max-height: calc(100vh - 160px)` and `overflow-y: auto`.
+- **Final CTA**: Always place the final CTA section **outside** the layout container to allow it to stretch to full width.
+
 ---
 
 ## 6. RESPONSIVE BREAKPOINTS
