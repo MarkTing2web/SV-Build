@@ -1,6 +1,6 @@
 # SECUREVISION WEBSITE SITEMAP
 
-**Last Updated:** March 24, 2026  
+**Last Updated:** March 26, 2026  
 **Total Pages Built:** 50+ HTML pages  
 **Navigation Items:** 6 main menu items + search (Solutions, Systems, Brands, Portfolio, Insights, About, Search)
 
@@ -193,6 +193,8 @@ SECUREVISION.COM.SG
 │   │
 │   ├── BY SYSTEM TYPE
 │   │   ├── ✅ surveillance-systems.html - CCTV & Surveillance
+│   │   ├── ✅ cctv.html - CCTV Camera Systems Guide
+│   │   ├── ✅ burglar-alarm.html - Burglar Alarm Systems Guide
 │   │   ├── ✅ people-access.html - People Access Control
 │   │   ├── ✅ vehicle-access.html - Vehicle Access & Barriers
 │   │   └── ✅ platform-integration.html - Platform & Integration
