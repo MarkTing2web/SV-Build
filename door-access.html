@@ -13,11 +13,11 @@
     
     <!-- Shared Styles -->
     <link rel="stylesheet" href="sv-shared.css">
+    <link rel="stylesheet" href="sv-guides.css">
     
     <style>
-        /* PAGE-SPECIFIC STYLE OVERRIDES */
+        /* PAGE-SPECIFIC STYLE OVERRIDES (Unique to Door Access) */
         :root {
-            /* Keep technical pillar color as per design */
             --primary-access: #3182ce; 
         }
 
@@ -37,221 +37,6 @@
             inset: 0;
             background: radial-gradient(ellipse 60% 70% at 65% 50%, rgba(49, 130, 206, 0.2), transparent 70%);
             pointer-events: none;
-        }
-
-        /* Stat Grid (Specific to technical guides) */
-        .stat-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 56px;
-        }
-
-        .stat-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 32px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: 700;
-            color: #5b9ee1;
-            display: block;
-            margin-bottom: 8px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .stat-desc {
-            font-size: 13px;
-            opacity: 0.8;
-            line-height: 1.4;
-        }
-
-        /* Technical Content Layout (Common for Guides) */
-        .lead {
-            font-size: 18px;
-            line-height: 1.8;
-            color: var(--text-dark);
-            margin-bottom: 56px;
-        }
-
-        main p {
-            line-height: 1.8;
-            margin-bottom: 24px;
-            color: var(--text-gray);
-        }
-
-        .subsection { margin-top: 64px; }
-        .subsection h3 { 
-            font-size: 24px; 
-            margin-bottom: 32px; 
-            color: var(--text-dark); 
-            border-left: 5px solid var(--primary-access) !important; 
-            padding-left: 24px; 
-        }
-
-        .blog-row {
-            display: grid;
-            grid-template-columns: 3fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-            align-items: flex-start;
-        }
-
-        .blog-text {
-            line-height: 1.8;
-        }
-
-        .blog-img-wrap {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            margin-bottom: 24px;
-        }
-
-        .blog-img-wrap img,
-        .component-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* SQUARE IMAGE OPTION */
-        .blog-img-wrap.blog-img-square {
-            aspect-ratio: 1 / 1;
-        }
-
-        .blog-img-wrap img.blog-img-square,
-        .component-card img.blog-img-square {
-            aspect-ratio: 1 / 1;
-        }
-
-        /* Utility to prevent product images from being cut off */
-        .img-contain img {
-            object-fit: contain !important;
-            padding: 24px;
-        }
-
-        .blog-img-caption {
-            font-size: 12px;
-            color: var(--text-light);
-            margin-top: 12px;
-            font-style: italic;
-            text-align: center;
-            display: block;
-            line-height: 1.4;
-        }
-
-        .component-card {
-            background: #fff;
-            border: 1px solid var(--border-light);
-            border-radius: 12px;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-        }
-
-        .component-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 32px;
-        }
-
-        .component-number {
-            width: 40px;
-            height: 40px;
-            background: var(--primary-access);
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .recommendation-box {
-            background: #f0f7ff;
-            border-left: 6px solid var(--primary-access) !important;
-            padding: 32px;
-            border-radius: 4px;
-            margin: 40px 0;
-        }
-
-        .faq-grid {
-            display: grid;
-            gap: 24px;
-        }
-
-        .faq-item {
-            background: #fff;
-            border: 1px solid var(--border-light);
-            border-radius: 12px;
-            padding: 32px;
-            transition: 0.3s;
-        }
-
-        .faq-item:hover {
-            border-color: var(--primary-access) !important;
-        }
-
-        /* CONSTRAIN SECTIONS: Override breakout from sv-shared.css */
-        .layout-with-sidebar main section {
-            padding: 80px 0;
-            border-bottom: 1px solid var(--border-light);
-        }
-
-        .layout-with-sidebar main section.bg-light {
-            margin-left: 0 !important;
-            margin-right: 0 !important;
-            padding: 64px 32px !important;
-            border-radius: 12px !important;
-            border-bottom: 1px solid var(--border-light) !important;
-        }
-
-        /* Nav Override Scrolled State */
-        .main-nav.scrolled .nav-link:hover, 
-        .main-nav.scrolled .nav-link.active { 
-            color: var(--primary-access) !important; 
-        }
-
-        /* NAVIGATOR / STICKY TOC FIX */
-        .sticky-toc {
-            position: sticky;
-            top: 100px;
-            max-height: calc(100vh - 140px) !important;
-            overflow-y: auto;
-            scrollbar-width: thin;
-        }
-
-        .toc-list a:hover, 
-        .toc-list a.active { 
-            color: var(--primary-access) !important; 
-        }
-
-        @media (max-width: 992px) {
-            .stat-grid { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 480px) {
@@ -399,8 +184,8 @@
             <!-- SIDEBAR: STICKY TOC -->
             <aside>
                 <div class="sticky-toc">
-                    <h3 class="toc-title">Quick Navigation</h3>
-                    <ul class="toc-list">
+                    <h3 class="toc-title" onclick="toggleTocMobile()">Guide Sections</h3>
+                    <ul class="toc-list" id="tocList">
                         <li><a href="#what-is-door-access">1. What Is a Door Access Control System?</a></li>
                         <li><a href="#how-it-works">2. How Door Access Systems Work</a></li>
                         <li><a href="#types-of-systems">3. Types of Access Control Systems</a></li>
@@ -417,17 +202,19 @@
                         <li><a href="#access-permissions">14. Permissions Architecture</a></li>
                         <li><a href="#time-attendance">15. Time & Attendance Integration</a></li>
                         <li><a href="#digital-locks">16. Digital Door Locks</a></li>
-                        <li><a href="#advanced-features">17. Advanced Integrations</a></li>
-                        <li><a href="#turnstiles-barriers">18. Turnstiles & Barriers</a></li>
-                        <li><a href="#pricing">19. What Does It Cost?</a></li>
-                        <li><a href="#examples">20. Real Installation Examples</a></li>
-                        <li><a href="#maintenance">21. Maintenance & Best Practices</a></li>
-                        <li><a href="#fire-safety">22. Fire Safety & Compliance</a></li>
-                        <li><a href="#pdpa">23. PDPA, Privacy & Cybersecurity</a></li>
-                        <li><a href="#mistakes">24. Common Mistakes to Avoid</a></li>
-                        <li><a href="#brands">25. Brands & Systems We Carry</a></li>
-                        <li><a href="#faq">26. Frequently Asked Questions</a></li>
-                        <li><a href="#final-cta">27. Get Your Free Assessment</a></li>
+                        <li><a href="#vms">17. Visitor Management Systems (VMS)</a></li>
+                        <li><a href="#elevator-control">18. Elevator & Lift Access Control</a></li>
+                        <li><a href="#advanced-features">19. Advanced System Integrations</a></li>
+                        <li><a href="#turnstiles-barriers">20. Turnstiles & Barriers</a></li>
+                        <li><a href="#pricing">21. What Does It Cost?</a></li>
+                        <li><a href="#examples">22. Real Installation Examples</a></li>
+                        <li><a href="#maintenance">23. Maintenance & Best Practices</a></li>
+                        <li><a href="#fire-safety">24. Fire Safety & Compliance</a></li>
+                        <li><a href="#pdpa">25. PDPA, Privacy & Cybersecurity</a></li>
+                        <li><a href="#mistakes">26. Common Mistakes to Avoid</a></li>
+                        <li><a href="#brands">27. Brands & Systems We Carry</a></li>
+                        <li><a href="#faq">28. Frequently Asked Questions</a></li>
+                        <li><a href="#final-cta">29. Get Your Free Assessment</a></li>
                     </ul>
                 </div>
             </aside>
@@ -442,42 +229,38 @@
 
                     <div class="subsection">
                         <h3>Why Keys Are Insecure</h3>
-                        <div class="blog-row">
-                            <div class="blog-text">
-                                <p>Traditional mechanical keys have fundamental security weaknesses that make them unsuitable for modern security needs.</p>
-                                <ul style="list-style: none; padding: 0; display: grid; gap: 16px;">
-                                    <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Easy Duplication:</strong> Any key can be copied at a locksmith for $5-$10 in minutes. There's no way to know if your key has been duplicated. A disgruntled employee or contractor could make copies before returning the key.</li>
-                                    <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Irrevocable Access:</strong> When an employee leaves or a key is lost, the only solution is to change the entire lock and issue new keys to everyone. This is expensive, time-consuming, and creates a window of vulnerability.</li>
-                                    <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>No Audit Trail:</strong> You have no way to know who entered your premises, when they entered, or which door they used. If something goes missing, you cannot investigate who had access.</li>
-                                    <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>No Time Restrictions:</strong> A key works 24/7. You cannot restrict access to office hours only, or prevent weekend access. Everyone with a key can enter anytime.</li>
-                                    <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Key Management:</strong> As your organisation grows, key distribution becomes a logistical nightmare. Who has which keys? How many copies exist? Which locks do they open?</li>
-                                </ul>
-                            </div>
-                            <div class="blog-img-wrap">
-                                <img src="images/key-vs-card.png" alt="Comparison between traditional mechanical keys and modern RFID access cards">
+                        <div class="blog-row-wrap">
+                            <div class="blog-img-wrap blog-img-square">
+                                <img src="images/key-vs-card.png" alt="Comparison between traditional mechanical keys and modern RFID access cards" class="blog-img-square">
                                 <span class="blog-img-caption">Mechanical keys are easy to duplicate and impossible to audit.</span>
                             </div>
+                            <p>Traditional mechanical keys have fundamental security weaknesses that make them unsuitable for modern security needs.</p>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 16px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Easy Duplication:</strong> Any key can be copied at a locksmith for $5-$10 in minutes. There's no way to know if your key has been duplicated. A disgruntled employee or contractor could make copies before returning the key.</li>
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 16px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Irrevocable Access:</strong> When an employee leaves or a key is lost, the only solution is to change the entire lock and issue new keys to everyone. This is expensive, time-consuming, and creates a window of vulnerability.</li>
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 16px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>No Audit Trail:</strong> You have no way to know who entered your premises, when they entered, or which door they used. If something goes missing, you cannot investigate who had access.</li>
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 16px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>No Time Restrictions:</strong> A key works 24/7. You cannot restrict access to office hours only, or prevent weekend access. Everyone with a key can enter anytime.</li>
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 16px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Key Management:</strong> As your organisation grows, key distribution becomes a logistical nightmare. Who has which keys? How many copies exist? Which locks do they open?</li>
+                            </ul>
                         </div>
                     </div>
 
                     <div class="subsection">
                         <h3>How Door Access Control Solves These Problems</h3>
-                        <div class="blog-row">
-                            <div class="blog-text">
-                                <p>Electronic access control eliminates every weakness of traditional keys through intelligent digital management.</p>
-                                <ul style="list-style: none; padding: 0; display: grid; gap: 16px;">
-                                    <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Complete Audit Trail:</strong> Every door access is logged with timestamp, user name, and door location. You know exactly who entered where and when. If an incident occurs, you can review access logs to investigate.</li>
-                                    <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Instant Credential Revocation:</strong> When an employee leaves, you disable their credential in seconds. The card, fingerprint, or mobile access becomes invalid immediately. No need to change locks or collect keys.</li>
-                                    <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Time-based Access Restrictions:</strong> Grant access only during specific hours. Employees can access the office 9 AM to 6 PM Monday to Friday. Cleaning staff can access all areas 6 AM to 8 AM only.</li>
-                                    <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>No Authorised Duplication:</strong> Access cards cannot be duplicated without the proper encoding equipment and software. Biometric credentials (fingerprints, faces) are unique to each individual and cannot be copied.</li>
-                                    <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Centralised Management:</strong> Add or remove users from a single interface. Set access levels for different user groups. Generate reports showing who has access to what. Manage everything from one software platform or mobile app.</li>
-                                    <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Integration with Other Systems:</strong> Access control integrates with CCTV (video verification of who accessed), time attendance (automatic clock-in), visitor management (temporary QR codes), and building automation (turn off lights when everyone leaves).</li>
-                                </ul>
-                            </div>
-                            <div class="blog-img-wrap">
+                        <div class="blog-row-wrap">
+                            <div class="blog-img-wrap blog-img-square">
                                 <img src="images/system-diagram-square.png" alt="Access control system architecture diagram showing credentials, readers, and controllers" class="blog-img-square">
                                 <span class="blog-img-caption">Modern systems integrate live monitoring with instant revocation.</span>
                             </div>
+                            <p>Electronic access control eliminates every weakness of traditional keys through intelligent digital management.</p>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 16px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Complete Audit Trail:</strong> Every door access is logged with timestamp, user name, and door location. You know exactly who entered where and when. If an incident occurs, you can review access logs to investigate.</li>
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 16px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Instant Credential Revocation:</strong> When an employee leaves, you disable their credential in seconds. The card, fingerprint, or mobile access becomes invalid immediately. No need to change locks or collect keys.</li>
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 16px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Time-based Access Restrictions:</strong> Grant access only during specific hours. Employees can access the office 9 AM to 6 PM Monday to Friday. Cleaning staff can access all areas 6 AM to 8 AM only.</li>
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 16px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>No Authorised Duplication:</strong> Access cards cannot be duplicated without the proper encoding equipment and software. Biometric credentials (fingerprints, faces) are unique to each individual and cannot be copied.</li>
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 16px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Centralised Management:</strong> Add or remove users from a single interface. Set access levels for different user groups. Generate reports showing who has access to what. Manage everything from one software platform or mobile app.</li>
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 16px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Integration with Other Systems:</strong> Access control integrates with CCTV (video verification of who accessed), time attendance (automatic clock-in), visitor management (temporary QR codes), and building automation (turn off lights when everyone leaves).</li>
+                            </ul>
                         </div>
                     </div>
 
@@ -557,20 +340,18 @@
                                 <div class="component-number">1</div>
                                 <h4>Credentials (Your Identity)</h4>
                             </div>
-                            <div class="blog-row">
-                                <div class="blog-text">
-                                    <p>Credentials identify who is requesting access. Modern access control supports multiple credential types:</p>
-                                    <ul style="list-style: none; padding: 0; display: grid; gap: 16px; font-size: 14px;">
-                                        <li><strong>Access Cards:</strong> The most common credential. A card contains a unique ID number. Types include EM (125kHz), MIFARE (13.56MHz), and high-security DESFire (encrypted). Available as cards, fobs, or wristbands.</li>
-                                        <li><strong>Biometrics:</strong> Fingerprints provide secure authentication that cannot be shared. Modern 3D Facial Recognition is contactless and hygienic. Palm Vein recognition scans internal vein patterns for maximum security.</li>
-                                        <li><strong>Mobile Access:</strong> Using smartphones via Bluetooth Low Energy (BLE), NFC (tap-to-enter), or QR codes. Convenient as most users always carry their phones.</li>
-                                        <li><strong>PIN Codes:</strong> Numeric codes entered on a keypad. Often used as a secondary factor (Card + PIN) for high-security areas.</li>
-                                    </ul>
-                                </div>
-                                <div class="blog-img-wrap">
+                            <div class="blog-row-wrap">
+                                <div class="blog-img-wrap blog-img-square">
                                     <img src="images/creds-array.png" alt="Array of access control credentials including RFID cards, fobs, biometrics, and mobile access" class="blog-img-square">
                                     <span class="blog-img-caption">A single system can support cards, biometrics, and mobile access simultaneously.</span>
                                 </div>
+                                <p>Credentials identify who is requesting access. Modern access control supports multiple credential types:</p>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Access Cards:</strong> The most common credential. A card contains a unique ID number. Types include EM (125kHz), MIFARE (13.56MHz), and high-security DESFire (encrypted). Available as cards, fobs, or wristbands.</li>
+                                    <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Biometrics:</strong> Fingerprints provide secure authentication that cannot be shared. Modern 3D Facial Recognition is contactless and hygienic. Palm Vein recognition scans internal vein patterns for maximum security.</li>
+                                    <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Mobile Access:</strong> Using smartphones via Bluetooth Low Energy (BLE), NFC (tap-to-enter), or QR codes. Convenient as most users always carry their phones.</li>
+                                    <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>PIN Codes:</strong> Numeric codes entered on a keypad. Often used as a secondary factor (Card + PIN) for high-security areas.</li>
+                                </ul>
                             </div>
                         </div>
 
@@ -580,15 +361,13 @@
                                 <div class="component-number">2</div>
                                 <h4>Readers (The Scanner)</h4>
                             </div>
-                            <div class="blog-row">
-                                <div class="blog-text">
-                                    <p>Readers scan credentials and send data to the controller. Card readers use radio frequency (RF) to energise the card and read its ID number. Reading distances vary from 3-10cm for standard proximity cards to up to 2 metres for long-range vehicle access.</p>
-                                    <p>Biometric readers use optical, capacitive, or near-infrared sensors to capture unique physical traits. Multi-modal readers combine technologies (e.g., face + fingerprint + card) for flexibility and redundancy. Readers connect via prioritised wired connections (RS-485 or Wiegand) for maximum reliability.</p>
-                                </div>
-                                <div class="blog-img-wrap">
+                            <div class="blog-row-wrap">
+                                <div class="blog-img-wrap blog-img-square">
                                     <img src="images/reader-wall.png" alt="RFID card reader professionally mounted on an office wall next to a glass door" class="blog-img-square">
                                     <span class="blog-img-caption">Professional readers are typically wired for high reliability and 24/7 operation.</span>
                                 </div>
+                                <p>Readers scan credentials and send data to the controller. Card readers use radio frequency (RF) to energise the card and read its ID number. Reading distances vary from 3-10cm for standard proximity cards to up to 2 metres for long-range vehicle access.</p>
+                                <p>Biometric readers use optical, capacitive, or near-infrared sensors to capture unique physical traits. Multi-modal readers combine technologies (e.g., face + fingerprint + card) for flexibility and redundancy. Readers connect via prioritised wired connections (RS-485 or Wiegand) for maximum reliability.</p>
                             </div>
                         </div>
 
@@ -598,15 +377,13 @@
                                 <div class="component-number">3</div>
                                 <h4>Controllers (The Brain)</h4>
                             </div>
-                            <div class="blog-row">
-                                <div class="blog-text">
-                                    <p>Controllers are the intelligence of the system. They perform critical checks: Is the credential valid? Does this user have access to this door? Is the current time within permitted hours? If all pass, it sends an unlock signal and logs the event for the audit trail.</p>
-                                    <p>Network controllers connect to a central server or cloud platform, enabling real-time monitoring and centralised management of hundreds of doors. Standalone units act independently, ideal for single-door setups where networking is unfeasible.</p>
-                                </div>
-                                <div class="blog-img-wrap">
+                            <div class="blog-row-wrap">
+                                <div class="blog-img-wrap blog-img-square">
                                     <img src="images/controller-unit.png" alt="Access control controller unit in professional metal enclosure" class="blog-img-square">
                                     <span class="blog-img-caption">Controllers manage the logic and hardware interface for 1 to 8 doors each.</span>
                                 </div>
+                                <p>Controllers are the intelligence of the system. They perform critical checks: Is the credential valid? Does this user have access to this door? Is the current time within permitted hours? If all pass, it sends an unlock signal and logs the event for the audit trail.</p>
+                                <p>Network controllers connect to a central server or cloud platform, enabling real-time monitoring and centralised management of hundreds of doors. Standalone units act independently, ideal for single-door setups where networking is unfeasible.</p>
                             </div>
                         </div>
 
@@ -616,20 +393,18 @@
                                 <div class="component-number">4</div>
                                 <h4>Locks (The Physical Barrier)</h4>
                             </div>
-                            <div class="blog-row">
-                                <div class="blog-text">
-                                    <p>Electrified locks secure the door and release on signal. Common types include:</p>
-                                    <ul style="list-style: none; padding: 0; display: grid; gap: 12px; font-size: 14px;">
-                                        <li><strong>EM Locks:</strong> Powerful magnets (300kg-1200kg). Fail-safe (unlocked without power), essential for fire safety.</li>
-                                        <li><strong>Electric Strikes:</strong> Replaces the strike plate. Available in fail-safe and fail-secure (stays locked without power) versions.</li>
-                                        <li><strong>Drop Bolts:</strong> Motorised bolts for high-security glass or double doors.</li>
-                                        <li><strong>Electric Mortise:</strong> Integrated motorised latches for residential or hotel applications.</li>
-                                    </ul>
-                                </div>
-                                <div class="blog-img-wrap">
+                            <div class="blog-row-wrap">
+                                <div class="blog-img-wrap blog-img-square">
                                     <img src="images/em-lock.png" alt="Electromagnetic lock (EM Lock) unit for professional door security" class="blog-img-square">
                                     <span class="blog-img-caption">Lock selection depends on door type, fire safety, and security requirements.</span>
                                 </div>
+                                <p>Electrified locks secure the door and release on signal. Common types include:</p>
+                                <ul style="list-style: none; padding: 0;">
+                                    <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>EM Locks:</strong> Powerful magnets (300kg-1200kg). Fail-safe (unlocked without power), essential for fire safety.</li>
+                                    <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Electric Strikes:</strong> Replaces the strike plate. Available in fail-safe and fail-secure (stays locked without power) versions.</li>
+                                    <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Drop Bolts:</strong> Motorised bolts for high-security glass or double doors.</li>
+                                    <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Electric Mortise:</strong> Integrated motorised latches for residential or hotel applications.</li>
+                                </ul>
                             </div>
                         </div>
 
@@ -639,49 +414,49 @@
                                 <div class="component-number">5</div>
                                 <h4>Management Software</h4>
                             </div>
-                            <div class="blog-row">
-                                <div class="blog-text">
-                                    <p>The interface for administrators to configure users, assign access levels, and generate audit reports. On-premise software keeps data locally (no subscription), while Cloud-based software enables management from any web browser or mobile app, popular for its ease of use and remote accessibility.</p>
-                                </div>
-                                <div class="blog-img-wrap">
-                                    <img src="images/signal-flow.png" alt="Technical diagram showing the sequential signal flow of a door access event">
+                            <div class="blog-row-wrap">
+                                <div class="blog-img-wrap blog-img-square">
+                                    <img src="images/signal-flow.png" alt="Technical diagram showing the sequential signal flow of a door access event" class="blog-img-square">
                                     <span class="blog-img-caption">Software acts as the control panel for the entire security ecosystem.</span>
                                 </div>
+                                <p>The interface for administrators to configure users, assign access levels, and generate audit reports. On-premise software keeps data locally (no subscription), while Cloud-based software enables management from any web browser or mobile app, popular for its ease of use and remote accessibility.</p>
                             </div>
-                        </div>
-                    </div>
+                        </div><!-- End Component 5 -->
 
-                    <div class="subsection">
-                        <h3>System Architecture & Signal Flow</h3>
-                        <p>The complete access control sequence happens in milliseconds (200-500ms), ensuring a smooth user experience:</p>
-                        <ul style="list-style: none; padding: 0; display: grid; gap: 12px; margin-top: 24px;">
-                            <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">1</span> <strong>Presentation:</strong> User presents credential (card, finger, face).</li>
-                            <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">2</span> <strong>Data Extraction:</strong> Reader scans and extracts the unique ID or template.</li>
-                            <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">3</span> <strong>Validation:</strong> Controller checks database permissions and time groups.</li>
-                            <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">4</span> <strong>Action:</strong> If authorised, the controller signals the lock to release.</li>
-                            <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">5</span> <strong>Audit:</strong> The event is logged (name, door, time) for tracking.</li>
-                        </ul>
-                        <div class="mt-40">
-                            <img src="images/signal-flow-sequence.png" alt="Technical diagram showing complete access control signal flow: Credential &rarr; Reader &rarr; Controller &rarr; Lock &rarr; Success" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); display: block; margin: 0 auto;">
-                            <span class="blog-img-caption">Every door authentication happens in milliseconds across these five critical components.</span>
-                        </div>
-                    </div>
+                        <div class="subsection">
+                            <h3>System Architecture & Signal Flow</h3>
+                            <p>The complete access control sequence happens in milliseconds (200-500ms), ensuring a smooth user experience:</p>
+                            <ul style="list-style: none; padding: 0; display: grid; gap: 12px; margin-top: 24px;">
+                                <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">1</span> <strong>Presentation:</strong> User presents credential (card, finger, face).</li>
+                                <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">2</span> <strong>Data Extraction:</strong> Reader scans and extracts the unique ID or template.</li>
+                                <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">3</span> <strong>Validation:</strong> Controller checks database permissions and time groups.</li>
+                                <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">4</span> <strong>Action:</strong> If authorised, the controller signals the lock to release.</li>
+                                <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">5</span> <strong>Audit:</strong> The event is logged (name, door, time) for tracking.</li>
+                            </ul>
+                            <div class="mt-40">
+                                <div class="blog-img-wrap">
+                                    <img src="images/signal-flow-sequence.png" alt="Technical diagram showing complete access control signal flow: Credential &rarr; Reader &rarr; Controller &rarr; Lock &rarr; Success">
+                                    <span class="blog-img-caption">Every door authentication happens in milliseconds across these five critical components.</span>
+                                </div>
+                            </div>
+                        </div><!-- End Five Core Components Subsection -->
+                    </div><!-- End Signal Flow Subsection -->
 
                     <div class="subsection">
                         <h3>Standalone vs Networked vs Cloud Systems</h3>
                         <p>Access control systems are deployed in three main architectures, each suited for different scales.</p>
                         <div class="grid-3 gap-24">
-                            <div class="card">
+                            <div class="case-study-card">
                                 <strong>Standalone</strong>
-                                <p style="font-size: 14px; margin-top: 12px; color: var(--text-gray);">Operates independently. Credentials programmed directly on the reader. Lowest cost, but no centralised management or comprehensive audit trail.</p>
+                                <p>Operates independently. Credentials programmed directly on the reader. Lowest cost, but no centralised management or comprehensive audit trail.</p>
                             </div>
-                            <div class="card">
+                            <div class="case-study-card">
                                 <strong>Network (On-Premise)</strong>
-                                <p style="font-size: 14px; margin-top: 12px; color: var(--text-gray);">Controllers connected to a local server. Centralised management and detailed reporting. No internet required, but requires server maintenance.</p>
+                                <p>Controllers connected to a local server. Centralised management and detailed reporting. No internet required, but requires server maintenance.</p>
                             </div>
-                            <div class="card">
+                            <div class="case-study-card">
                                 <strong>Cloud-Based</strong>
-                                <p style="font-size: 14px; margin-top: 12px; color: var(--text-gray);">Manage from anywhere via app or browser. No server needed, automatic updates. Highly scalable and ideal for multi-site businesses.</p>
+                                <p>Manage from anywhere via app or browser. No server needed, automatic updates. Highly scalable and ideal for multi-site businesses.</p>
                             </div>
                         </div>
                     </div>
@@ -714,7 +489,10 @@
 
                     <div class="subsection">
                         <h3>By Deployment Scale</h3>
-                        <img src="images/system-scales.png" alt="Comparison of access control system scales from single door to enterprise building complexes" style="margin-bottom: 40px;">
+                        <div class="blog-img-wrap blog-img-square">
+                            <img src="images/system-scales.png" alt="Comparison of access control system scales from single door to enterprise building complexes" class="blog-img-square">
+                            <span class="blog-img-caption">Scalability Architecture: From standalone readers to multi-site enterprise ecosystems.</span>
+                        </div>
                         <div class="grid-3 gap-24">
                             <div class="component-card" style="padding: 24px; margin-bottom: 0;">
                                 <strong>Single Door</strong>
@@ -733,44 +511,50 @@
 
                     <div class="subsection">
                         <h3>By Control Architecture</h3>
-                        <img src="images/arch-compare.png" alt="Architecture comparison: Standalone, On-Premise, and Cloud access control systems" style="margin-bottom: 40px;">
-                        <div style="overflow-x: auto;">
-                            <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                        <div class="blog-img-wrap">
+                            <img src="images/arch-compare.png" alt="Architecture comparison: Standalone, On-Premise, and Cloud access control systems">
+                            <span class="blog-img-caption">System Comparison: Evaluating control logic deployment across different architectures.</span>
+                        </div>
+                        <div class="blog-table-wrap">
+                            <table class="blog-table">
                                 <thead>
-                                    <tr style="background: var(--bg-light); border-bottom: 2px solid var(--border-light);">
-                                        <th style="padding: 16px; text-align: left;">Architecture</th>
-                                        <th style="padding: 16px; text-align: left;">Management</th>
-                                        <th style="padding: 16px; text-align: left;">Audit Trail</th>
-                                        <th style="padding: 16px; text-align: left;">Infrastructure</th>
+                                    <tr>
+                                        <th>Architecture</th>
+                                        <th>Management</th>
+                                        <th>Audit Trail</th>
+                                        <th>Infrastructure</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr style="border-bottom: 1px solid var(--border-light);">
-                                        <td style="padding: 12px 16px; font-weight: 600;">Standalone</td>
-                                        <td style="padding: 12px 16px;">Door-by-door</td>
-                                        <td style="padding: 12px 16px;">None/Limited</td>
-                                        <td style="padding: 12px 16px;">Reader only</td>
+                                    <tr>
+                                        <td><strong>Standalone</strong></td>
+                                        <td>Door-by-door</td>
+                                        <td>None/Limited</td>
+                                        <td>Reader only</td>
                                     </tr>
-                                    <tr style="border-bottom: 1px solid var(--border-light);">
-                                        <td style="padding: 12px 16px;">Network (On-Prem)</td>
-                                        <td style="padding: 12px 16px;">Centralised</td>
-                                        <td style="padding: 12px 16px;">Comprehensive</td>
-                                        <td style="padding: 12px 16px;">Local Server</td>
+                                    <tr>
+                                        <td><strong>Network (On-Prem)</strong></td>
+                                        <td>Centralised</td>
+                                        <td>Comprehensive</td>
+                                        <td>Local Server</td>
                                     </tr>
-                                    <tr style="border-bottom: 1px solid var(--border-light);">
-                                        <td style="padding: 12px 16px; font-weight: 600;">Cloud-Based</td>
-                                        <td style="padding: 12px 16px;">Anywhere (App/Web)</td>
-                                        <td style="padding: 12px 16px;">Comprehensive</td>
-                                        <td style="padding: 12px 16px;">Internet Connection</td>
+                                    <tr>
+                                        <td><strong>Cloud-Based</strong></td>
+                                        <td>Anywhere (App/Web)</td>
+                                        <td>Real-time</td>
+                                        <td>Edge-intelligent Readers</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </div><!-- End Architecture Subsection -->
 
                     <div class="subsection">
                         <h3>By Installation Type</h3>
-                        <img src="images/install-types.png" alt="Visual guide to wired, wireless, and hybrid door access installations" style="margin-bottom: 40px;">
+                        <div class="blog-img-wrap">
+                            <img src="images/install-types.png" alt="Visual guide to wired, wireless, and hybrid door access installations">
+                            <span class="blog-img-caption">Installation Topology: Choosing between high-reliability wired or flexible wireless connectivity.</span>
+                        </div>
                         <div class="grid-2 gap-24">
                             <div class="card">
                                 <strong>Wired Systems (Professional Standard)</strong>
@@ -793,19 +577,21 @@
                     <h2 style="margin-bottom: 32px;">4. Single Door Access Control</h2>
                     <p class="lead">Single door access control systems are self-contained reader-controller units ideal for controlling one to three doors without centralised management requirements.</p>
 
-                    <div class="blog-row">
+                    <div class="blog-row-wrap">
                         <div class="blog-text">
                             <h3>What Is a Single Door System?</h3>
                             <p>Unlike multi-door systems that separate readers from central controllers, single-door systems integrate everything in one device. The unit contains the scanner, the "brain" (logic), the user database, and the lock relay. It is mounted directly next to the door, eliminating the need for extensive cabling back to a server room.</p>
                         </div>
-                        <div class="blog-img-wrap">
+                        <div class="blog-img-wrap blog-img-square">
                             <img src="images/standalone-reader.png" alt="Standalone card reader with built-in controller for single door security" class="blog-img-square">
                         </div>
                     </div>
 
                     <div class="subsection">
                         <h3>Standalone vs Network-Capable</h3>
-                        <img src="images/network-reader.png" alt="Advanced network-capable card reader with LCD display and touchscreen interface" class="blog-img-square" style="max-width: 300px; margin-bottom: 32px;">
+                        <div class="blog-img-wrap blog-img-square">
+                            <img src="images/network-reader.png" alt="Advanced network-capable card reader with LCD display and touchscreen interface" class="blog-img-square">
+                        </div>
                         <div class="grid-2 gap-24">
                             <div class="faq-item">
                                 <h4>True Standalone Readers</h4>
@@ -859,20 +645,18 @@
                     <h2 style="margin-bottom: 32px;">5. Multi-Door Access Control</h2>
                     <p class="lead">Multi-door access control systems use separate controllers and readers to manage 2-250+ doors with centralised management, comprehensive audit trails, and deep integration capabilities.</p>
 
-                    <div class="blog-row">
-                        <div class="blog-text">
-                            <h3>What Is a Multi-Door System?</h3>
-                            <p>Multi-door systems separate the "intelligence" (controllers) from the "interface" (readers). This enables centralized management of an entire building from a single software platform.</p>
-                            <ul style="list-style: none; padding: 0; display: grid; gap: 16px; font-size: 15px;">
-                                <li><strong>Architecture:</strong> Readers are mounted outside doors as simple scanners, while controllers are installed in secure internal locations like electrical or IT rooms.</li>
-                                <li><strong>Wiring:</strong> Readers connect to controllers via RS-485 or Wiegand data cables. Controllers then link to your network via Ethernet.</li>
-                                <li><strong>Configurations:</strong> Controllers typically manage 2, 4, or 8 doors each. A system scales indefinitely by networking multiple controllers together.</li>
-                            </ul>
-                        </div>
-                        <div class="blog-img-wrap">
+                    <div class="blog-row-wrap">
+                        <div class="blog-img-wrap blog-img-square">
                             <img src="images/four-door-ctrl.png" alt="Enterprise 4-door access control controller in professional metal enclosure" class="blog-img-square">
                             <span class="blog-img-caption">Professional controllers are installed inside the protected area for maximum security.</span>
                         </div>
+                        <h3>What Is a Multi-Door System?</h3>
+                        <p>Multi-door systems separate the "intelligence" (controllers) from the "interface" (readers). This enables centralized management of an entire building from a single software platform.</p>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Architecture:</strong> Readers are mounted outside doors as simple scanners, while controllers are installed in secure internal locations like electrical or IT rooms.</li>
+                            <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Wiring:</strong> Readers connect to controllers via RS-485 or Wiegand data cables. Controllers then link to your network via Ethernet.</li>
+                            <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Configurations:</strong> Controllers typically manage 2, 4, or 8 doors each. A system scales indefinitely by networking multiple controllers together.</li>
+                        </ul>
                     </div>
 
                     <div class="subsection">
@@ -1011,13 +795,16 @@
                             </div>
                         </div>
 
-                        <img src="images/upgrade-compare.png" alt="Before and After comparison showing upgrade from mechanical locks to professional door access control" style="margin-top: 40px;">
+                        <div class="blog-img-wrap">
+                            <img src="images/upgrade-compare.png" alt="Before and After comparison showing upgrade from mechanical locks to professional door access control">
+                            <span class="blog-img-caption">Infrastructure Modernisation: Upgrading from mechanical security to professional electronic access control.</span>
+                        </div>
                     </div>
 
                     <div class="subsection">
                         <h3>Retrofit vs New Installation</h3>
-                        <div style="overflow-x: auto;">
-                            <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                        <div class="blog-table-wrap">
+                            <table class="blog-table">
                                 <thead>
                                     <tr style="background: var(--bg-light); border-bottom: 2px solid var(--border-light);">
                                         <th style="padding: 16px; text-align: left;">Option</th>
@@ -1039,7 +826,7 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </div><!-- End Retrofit Subsection -->
 
                     <div class="subsection">
                         <h3>Phased Implementation Approach</h3>
@@ -1047,17 +834,17 @@
                         <img src="images/upgrade-timeline.png" alt="Three-phase timeline for access control implementation: Main Entrance, Secondary Access, and Internal Zones" style="margin-bottom: 32px;">
                         <div class="grid-3 gap-24">
                             <div class="faq-item">
-                                <span class="badge" style="background: var(--primary-access); color: white; margin-bottom: 12px; border: none;">Phase 1</span>
+                                <span class="badge-phase">Phase 1</span>
                                 <h4>Main Entrances</h4>
                                 <p>Immediately control who enters the building. Revoke ex-staff access instantly and track all visitors.</p>
                             </div>
                             <div class="faq-item">
-                                <span class="badge" style="background: var(--primary-access); color: white; margin-bottom: 12px; border: none;">Phase 2</span>
+                                <span class="badge-phase">Phase 2</span>
                                 <h4>Secondary Access</h4>
                                 <p>Secure side doors, loading bays, and parking gates to prevent common tailgating or unauthorised entry points.</p>
                             </div>
                             <div class="faq-item">
-                                <span class="badge" style="background: var(--primary-access); color: white; margin-bottom: 12px; border: none;">Phase 3</span>
+                                <span class="badge-phase">Phase 3</span>
                                 <h4>Restricted Internal Zones</h4>
                                 <p>Control internal movement for server rooms, finance departments, and executive suites where security is paramount.</p>
                             </div>
@@ -1076,7 +863,10 @@
                                 <p><strong>Solution:</strong> U-bracket EM locks clamp onto the top of the glass, providing a powerful holding force without requiring any drilling in the tempered glass.</p>
                             </div>
                         </div>
-                        <img src="images/retrofit-options.png" alt="Technical diagrams showing retrofit solutions for glass doors, wood doors, and metal gates" style="margin-top: 40px;">
+                        <div class="blog-img-wrap">
+                            <img src="images/retrofit-options.png" alt="Technical diagrams showing retrofit solutions for glass doors, wood doors, and metal gates">
+                            <span class="blog-img-caption">Retrofit Architecture: Tailored hardware solutions for existing facility infrastructure.</span>
+                        </div>
                     </div>
                 </section>
 
@@ -1085,7 +875,10 @@
                     <span class="eyebrow" style="color: var(--primary-access);">Security & Administration</span>
                     <h2 style="margin-bottom: 32px;">7. Credential Security & Management Lifecycle</h2>
                     <p class="lead">Effective credential management is critical to access control security. Understanding how credentials are issued, stored, and deactivated ensures your system remains secure throughout its lifecycle.</p>
-                    <img src="images/cred-types-array.png" alt="Overview of various access control credential types including RFID, biometrics, and mobile" style="margin-bottom: 48px;">
+                    <div class="blog-img-wrap">
+                        <img src="images/cred-types-array.png" alt="Overview of various access control credential types including RFID, biometrics, and mobile">
+                        <span class="blog-img-caption">Credential Ecology: From traditional RFID to 3D biometrics and mobile-first authentication.</span>
+                    </div>
 
                     <div class="subsection">
                         <h3>The Enrolment Process</h3>
@@ -1130,35 +923,34 @@
                     
                     <div class="subsection">
                         <h3>Card Security Levels</h3>
-                        <p>Not all access cards are equal. Choosing the right technology determines how vulnerable your site is to cloning.</p>
-                        <div style="overflow-x: auto;">
-                            <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                        <div class="blog-table-wrap">
+                            <table class="blog-table">
                                 <thead>
-                                    <tr style="background: var(--bg-light); border-bottom: 2px solid var(--border-light);">
-                                        <th style="padding: 16px; text-align: left;">Technology</th>
-                                        <th style="padding: 16px; text-align: left;">Security Level</th>
-                                        <th style="padding: 16px; text-align: left;">Cloning Difficulty</th>
-                                        <th style="padding: 16px; text-align: left;">Best For</th>
+                                    <tr>
+                                        <th>Technology</th>
+                                        <th>Security Level</th>
+                                        <th>Cloning Risk</th>
+                                        <th>Best For</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr style="border-bottom: 1px solid var(--border-light);">
-                                        <td style="padding: 12px 16px; font-weight: 600;">125kHz EM Cards</td>
-                                        <td style="padding: 12px 16px; color: #e53e3e;">Low</td>
-                                        <td style="padding: 12px 16px;">Very Easy (Plain text ID)</td>
-                                        <td style="padding: 12px 16px;">Gyms, Parking, Residential Gates</td>
+                                    <tr>
+                                        <td><strong>Proximity (125kHz)</strong></td>
+                                        <td style="color: #e53e3e;">Low</td>
+                                        <td>High (Unencrypted)</td>
+                                        <td>Legacy residential sites</td>
                                     </tr>
-                                    <tr style="border-bottom: 1px solid var(--border-light);">
-                                        <td style="padding: 12px 16px; font-weight: 600;">MIFARE Classic</td>
-                                        <td style="padding: 12px 16px; color: #d69e2e;">Medium</td>
-                                        <td style="padding: 12px 16px;">Moderate (Encrypted memory)</td>
-                                        <td style="padding: 12px 16px;">General Office Suites</td>
+                                    <tr>
+                                        <td><strong>MIFARE Classic</strong></td>
+                                        <td style="color: #d69e2e;">Medium</td>
+                                        <td>Moderate (Encrypted Memory)</td>
+                                        <td>General Office Suites</td>
                                     </tr>
-                                    <tr style="border-bottom: 1px solid var(--border-light);">
-                                        <td style="padding: 12px 16px; font-weight: 600;">MIFARE DESFire EV2/3</td>
-                                        <td style="padding: 12px 16px; color: #38a169;">High</td>
-                                        <td style="padding: 12px 16px;">Extreme (AES-128 Encryption)</td>
-                                        <td style="padding: 12px 16px;">Finance, Server Rooms, Government</td>
+                                    <tr>
+                                        <td><strong>MIFARE DESFire EV2/3</strong></td>
+                                        <td style="color: #38a169;">High</td>
+                                        <td>Extreme (AES-128 Encryption)</td>
+                                        <td>Finance, Server Rooms, Government</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1167,7 +959,9 @@
                     
                     <div class="subsection">
                         <h3>Credential Lifecycle Diagram</h3>
-                        <img src="images/cred-lifecycle.png" alt="Diagram showing the lifecycle of an access credential from issuance to deactivation" style="margin-top: 40px; border-radius: 12px;">
+                        <div class="blog-img-wrap">
+                            <img src="images/cred-lifecycle.png" alt="Diagram showing the lifecycle of an access credential from issuance to deactivation" style="margin-top: 40px;">
+                        </div>
                     </div>
                 </section>
 
@@ -1176,7 +970,24 @@
                     <span class="eyebrow" style="color: var(--primary-access);">Authentication Methods</span>
                     <h2 style="margin-bottom: 32px;">8. Credential Types & Technologies</h2>
                     <p class="lead">Access control supports multiple credential technologies, each with different security levels, costs, and user experience. Understanding your options helps you choose the right balance for your application.</p>
-                    <img src="images/card-compare.png" alt="Comparison of RFID card technologies: EM vs MIFARE vs DESFire security levels" style="margin-bottom: 48px;">
+                    <div class="blog-img-wrap">
+                        <img src="images/card-compare.png" alt="Comparison of RFID card technologies: EM vs MIFARE vs DESFire security levels">
+                    </div>
+
+                    <div class="blog-row-wrap">
+                        <div class="blog-img-wrap blog-img-square">
+                            <img src="images/rfid-cards-array.png" alt="Different types of access control credentials including cards, fobs, and mobile access" class="blog-img-square">
+                            <span class="blog-img-caption">Choose from cards, fobs, wristbands, or mobile credentials to suit your workflow.</span>
+                        </div>
+                        <p>Modern access control systems support a wide variety of credential types, allowing you to choose the best fit for your facility's security and convenience needs.</p>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding-left: 32px; position: relative; margin-bottom: 16px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Proximity Cards (125kHz):</strong> The standard choice for many offices. Durable and affordable. Available as thin clamshell cards or convenient key fobs.</li>
+                            <li style="padding-left: 32px; position: relative; margin-bottom: 16px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Smart Cards (13.56MHz):</strong> Advanced MIFARE and DESFire technology. Encrypted data storage prevents unauthorised duplication and improves security.</li>
+                            <li style="padding-left: 32px; position: relative; margin-bottom: 16px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Mobile Credentials:</strong> Digital cards stored securely in the user's smartphone. Use BLE (Bluetooth) or NFC to unlock doors from a distance or with a simple tap.</li>
+                            <li style="padding-left: 32px; position: relative; margin-bottom: 16px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Fingerprint & Face:</strong> Biological credentials that can't be lost or shared. Modern AI-powered facial recognition is fast, contactless, and provides high security.</li>
+                            <li style="padding-left: 32px; position: relative; margin-bottom: 16px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>PIN Codes:</strong> Numeric codes for keypads. Often used as a secondary factor for dual-authentication in high-security zones.</li>
+                        </ul>
+                    </div>
 
                     <div class="subsection">
                         <h3>Biometric Credentials</h3>
@@ -1242,25 +1053,34 @@
                     <h2 style="margin-bottom: 32px;">9. Reader Types Explained</h2>
                     <p class="lead">Readers are the physical interface between users and the access control system. Choosing the right reader type depends on your chosen credential technology, security requirements, and environmental conditions.</p>
 
-                    <div class="blog-row">
-                        <div class="blog-text">
-                            <h3>RFID Card Readers</h3>
-                            <p>Card readers are the industry standard for commercial access. They scan cards or fobs and transmit the encrypted ID to the door controller. We typically categorise these by frequency:</p>
-                            <ul style="list-style: none; padding: 0; display: grid; gap: 16px; margin-top: 24px;">
-                                <li style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
-                                    <strong>EM Readers (125kHz):</strong> Basic, reliable, and low cost. Ideal for residential gates or internal office doors.
-                                </li>
-                                <li style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
-                                    <strong>MIFARE/Smart Readers (13.56MHz):</strong> Support encrypted communication. Highly recommended for commercial suites to prevent card cloning.
-                                </li>
-                                <li style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
-                                    <strong>Multi-Technology:</strong> Support both old EM and new MIFARE cards—perfect for phased facility upgrades.
-                                </li>
-                            </ul>
+                    <div class="blog-row-wrap">
+                        <div class="blog-img-wrap blog-img-square">
+                            <img src="images/reader-types-array.png" alt="Array of different reader types including standard proximity, keypad, and biometric readers" class="blog-img-square">
+                            <span class="blog-img-caption">Readers come in various form factors to suit both indoor and outdoor applications.</span>
                         </div>
-                        <div class="blog-img-wrap">
-                            <img src="images/mullion-reader.png" alt="Sleek mullion-style RFID card reader mounted on a modern Singapore office wall" class="blog-img-square">
-                        </div>
+                        <p>Readers are the physical interface where users present their credentials. The right reader type depends on your required security level and environmental conditions.</p>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Surface Mount Readers:</strong> Compact and easy to install on any wall surface. Ideal for standard office doors and internal access points.</li>
+                            <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Mullion Readers:</strong> Slim design for narrow door frames or aluminium profile doors. Perfect for modern glass entrances.</li>
+                            <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Keypad Readers:</strong> Combine card access with PIN entry for dual-factor security or temporary visitor access.</li>
+                            <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Long-Range Readers:</strong> Scan cards or UHF tags from several metres away. Ideal for vehicle gates and hands-free entry points.</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>RFID Card Readers</h3>
+                        <p>Card readers are the industry standard for commercial access. They scan cards or fobs and transmit the encrypted ID to the door controller. We typically categorise these by frequency:</p>
+                        <ul style="list-style: none; padding: 0; display: grid; gap: 16px; margin-top: 24px;">
+                            <li style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                                <strong>EM Readers (125kHz):</strong> Basic, reliable, and low cost. Ideal for residential gates or internal office doors.
+                            </li>
+                            <li style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                                <strong>MIFARE/Smart Readers (13.56MHz):</strong> Support encrypted communication. Highly recommended for commercial suites to prevent card cloning.
+                            </li>
+                            <li style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
+                                <strong>Multi-Technology:</strong> Support both old EM and new MIFARE cards—perfect for phased facility upgrades.
+                            </li>
+                        </ul>
                     </div>
 
                     <div class="subsection">
@@ -1311,23 +1131,36 @@
 
                     <div class="subsection">
                         <h3>Electromagnetic (EM) Locks</h3>
-                        <div class="blog-row" style="margin-bottom: 0;">
-                            <div class="blog-text">
-                                <p>EM locks use powerful magnetic force to hold a door closed. They consist of an electromagnet on the frame and an armature plate on the door. They are inherently <strong>Fail-Safe</strong> (unlock when power is cut), making them the gold standard for fire exit routes.</p>
-                                <ul style="font-size: 14px; color: var(--text-gray); margin-top: 24px;">
-                                    <li><strong>300kg/600lbs:</strong> Best for internal office doors.</li>
-                                    <li><strong>600kg/1200lbs:</strong> Industry standard for commercial entrances.</li>
-                                    <li><strong>U-Brackets:</strong> Mandatory for frameless glass doors (no drilling required).</li>
-                                </ul>
+                        <div class="blog-row-wrap" style="margin-top: 48px;">
+                            <div class="blog-img-wrap blog-img-square">
+                                <img src="images/em-lock-unit.png" alt="Surface mounted electromagnetic lock (EM Lock) on a glass door" class="blog-img-square">
+                                <span class="blog-img-caption">EM locks are a standard for glass doors, offering fail-safe security and easy installation.</span>
                             </div>
-                            <div class="blog-img-wrap img-contain">
-                                <img src="images/em-lock-diagram.png" alt="Technical diagram of an electromagnetic lock showing internal electromagnet and armature plate components">
-                            </div>
+                            <h4 style="margin-bottom: 24px;">Electromagnetic Locks (EM Locks)</h4>
+                            <p>EM locks use a powerful electromagnet to hold the door closed. They are one of the most reliable and common lock types for commercial buildings.</p>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Holding Force:</strong> Available in various strengths, typically 600lbs (280kg) for standard doors and 1200lbs (600kg) for high-security portals.</li>
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Fail-Safe Operation:</strong> Automatically releases when power is cut. This is a critical requirement for fire exit doors in Singapore.</li>
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Near Zero Maintenance:</strong> With no moving parts, EM locks are extremely durable and rarely fail due to physical wear.</li>
+                            </ul>
                         </div>
                     </div>
 
                     <div class="subsection">
                         <h3>Alternative Lock Mechanisms</h3>
+                        <div class="blog-row-wrap" style="margin-top: 48px;">
+                            <div class="blog-img-wrap blog-img-square">
+                                <img src="images/electric-strike-unit.png" alt="Close-up of a stainless steel electric strike plate installed in a door frame" class="blog-img-square">
+                                <span class="blog-img-caption">Electric strikes allow for motorised control while keeping standard door hardware useful.</span>
+                            </div>
+                            <h4 style="margin-bottom: 24px;">Electric Door Strikes</h4>
+                            <p>Electric strikes replace the standard strike plate in the door frame. They are ideal for projects where you want to keep the existing mechanical lock set.</p>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Flexible Operation:</strong> Available in both fail-secure (stays locked) and fail-safe (unlocks) modes to suit different security needs.</li>
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Discreet Installation:</strong> The hardware is hidden within the door frame, maintaining the aesthetic of high-end wood or aluminium doors.</li>
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Cost Effective:</strong> Often the most affordable way to electrify a standard wooden office door without replacing the entire latch system.</li>
+                            </ul>
+                        </div>
                         <div class="grid-3 gap-24">
                             <div class="card">
                                 <strong>Electric Strikes</strong>
@@ -1346,8 +1179,8 @@
 
                     <div class="subsection">
                         <h3>Lock Selection Matrix</h3>
-                        <div style="overflow-x: auto;">
-                            <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                        <div class="blog-table-wrap">
+                            <table class="blog-table">
                                 <thead>
                                     <tr style="background: var(--bg-light); border-bottom: 2px solid var(--border-light);">
                                         <th style="padding: 16px; text-align: left;">Door Type</th>
@@ -1384,7 +1217,7 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </div><!-- End Lock Selection Matrix Subsection -->
                 </section>
                 <!-- ── 11. PLANNING YOUR ACCESS CONTROL SYSTEM ── -->
                 <section id="planning-guide">
@@ -1473,7 +1306,7 @@
                     <h2 style="margin-bottom: 32px;">12. Cloud-Based Access Control - No Server Required</h2>
                     <p class="lead">Cloud-based access control eliminates the need for on-site servers, offering remote management, automatic updates, and multi-site capabilities through internet-connected readers and secure cloud platforms.</p>
 
-                    <div class="blog-row">
+                    <div class="blog-row-wrap">
                         <div class="blog-text">
                             <h3>How Cloud Access Works</h3>
                             <p>Traditional systems rely on local servers. Cloud systems connect readers directly to platforms like AWS or Azure. Intelligence is moved from your server room to the cloud, allowing for true "anywhere" management.</p>
@@ -1485,7 +1318,7 @@
                         </div>
                     </div>
 
-                    <div class="blog-row" style="margin-top: 48px;">
+                    <div class="blog-row-wrap" style="margin-top: 48px;">
                         <div class="blog-img-wrap img-contain">
                             <img src="images/cloud-vs-traditional.png" alt="Side-by-side comparison between traditional on-premise servers and modern cloud-based access control">
                             <span class="blog-img-caption">Infrastructure Comparison: Moving from hardware-heavy local servers to agile cloud platforms.</span>
@@ -1524,7 +1357,7 @@
                             </div>
                         </div>
 
-                        <div class="blog-row" style="margin-top: 48px;">
+                        <div class="blog-row-wrap" style="margin-top: 48px;">
                             <div class="blog-text">
                                 <h3>Mobile-First Management</h3>
                                 <p>Control your entire security perimeter from your pocket. The mobile app allows for instant biometric enrollment, remote door unlocking, and real-time push notifications for critical security events.</p>
@@ -1700,28 +1533,18 @@
                     <h2 style="margin-bottom: 32px;">14. Access Levels, Time Groups & Permissions Architecture</h2>
                     <p class="lead">Permissions are built on a layered architecture of Access Levels and Time Groups. This structure enables sophisticated security policies that scale effortlessly without manual per-user configuration.</p>
 
-                    <div class="blog-row">
-                        <div class="blog-text">
-                            <h3>Hierarchy of Permission</h3>
-                            <p>Instead of managing users individually, we use logical templates to automate security. This "Access Levels" approach ensures that adding 100 new employees takes seconds rather than hours.</p>
-                            <div class="blog-img-wrap blog-img-square img-contain" style="margin-top: 32px;">
-                                <img src="images/access-levels-pyramid.png" alt="Hierarchical pyramid showing access level tiers for Staff, Management, and Administration">
-                                <span class="blog-img-caption">The Permission Pyramid: Granting access based on role-based seniority.</span>
-                            </div>
+                    <div class="blog-row-wrap">
+                        <div class="blog-img-wrap blog-img-square img-contain">
+                            <img src="images/access-levels-pyramid.png" alt="Hierarchical pyramid showing access level tiers for Staff, Management, and Administration" class="blog-img-square">
+                            <span class="blog-img-caption">The Permission Pyramid: Granting access based on role-based seniority.</span>
                         </div>
-                        <div class="blog-text">
-                            <ul style="list-style: none; padding: 0; display: grid; gap: 16px;">
-                                <li style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
-                                    <strong>Access Levels:</strong> Templates that define <u>WHERE</u> a user can go (e.g., "Staff" = Main + Pantry + Meeting Rooms).
-                                </li>
-                                <li style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
-                                    <strong>Time Groups:</strong> Schedules that define <u>WHEN</u> access is allowed (e.g., "Office Hours" = Mon-Fri, 08:00 - 18:00).
-                                </li>
-                                <li style="background: var(--bg-light); padding: 16px; border-radius: 8px;">
-                                    <strong>Door Groups:</strong> Logical zones that combine multiple doors for easier batch assignment.
-                                </li>
-                            </ul>
-                        </div>
+                        <h3>Hierarchy of Permission</h3>
+                        <p>Instead of managing users individually, we use logical templates to automate security. This "Access Levels" approach ensures that adding 100 new employees takes seconds rather than hours.</p>
+                        <ul style="list-style: none; padding: 0;">
+                            <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Access Levels:</strong> Templates that define <u>WHERE</u> a user can go (e.g., "Staff" = Main + Pantry + Meeting Rooms or Lobby access).</li>
+                            <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Time Groups:</strong> Schedules that define <u>WHEN</u> access is allowed (e.g., "Office Hours" = Mon-Fri, 08:00 - 18:00).</li>
+                            <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Door Groups:</strong> Logical zones that combine multiple doors for easier batch assignment across large facilities.</li>
+                        </ul>
                     </div>
 
                     <div class="subsection">
@@ -1780,23 +1603,16 @@
 
                     <div class="subsection">
                         <h3>How It Works: Every Tap is a Punch</h3>
-                        <div class="blog-row">
-                            <div class="blog-text">
-                                <p>Instead of dedicated time-clocks, we configure exit and entry readers to function as attendance terminals. The "First entry of the day" is logged as the clock-in, and the "Last exit of the day" is the clock-out. The system automatically calculates total hours, excluding lunch breaks where required.</p>
-                                <div class="blog-img-wrap blog-img-square img-contain" style="margin-top: 32px; max-width: 400px; margin-inline: auto;">
-                                    <img src="images/time-attendance-terminal.png" alt="Professional biometric time attendance terminal displaying a successful clock-in message">
-                                    <span class="blog-img-caption">Combined Access & T&A: A single card tap secures the door and logs work hours simultaneously.</span>
-                                </div>
+                        <div class="blog-row-wrap">
+                            <div class="blog-img-wrap blog-img-square img-contain">
+                                <img src="images/time-attendance-terminal.png" alt="Professional biometric time attendance terminal displaying a successful clock-in message" class="blog-img-square">
+                                <span class="blog-img-caption">Combined Access & T&A: A single card tap secures the door and logs work hours simultaneously.</span>
                             </div>
-                            <div class="blog-text">
-                                <h4 style="margin-top: 0;">Automated HR Dashboards</h4>
-                                <p style="font-size: 14px; margin-bottom: 24px;">Export detailed timesheets directly to your payroll software. Instantly identify patterns of tardiness or absenteeism with visual heatmaps.</p>
-                                <div class="blog-img-wrap img-contain">
-                                    <img src="images/time-attendance-dash.png" alt="Time and attendance software dashboard showing summary statistics and employee timesheets">
-                                </div>
-                                <div class="recommendation-box" style="margin-top: 24px;">
-                                    <strong>MOM Compliance:</strong> Under the Employment Act, Singapore employers must maintain accurate records of work hours (including overtime) for at least two years. Our systems automate this record-keeping for audit readiness.
-                                </div>
+                            <p>Instead of dedicated time-clocks, we configure exit and entry readers to function as attendance terminals. The "First entry of the day" is logged as the clock-in, and the "Last exit of the day" is the clock-out. The system automatically calculates total hours, excluding lunch breaks where required.</p>
+                            <h4 style="margin-top: 24px;">Automated HR Dashboards</h4>
+                            <p>Export detailed timesheets directly to your payroll software. Instantly identify patterns of tardiness or absenteeism with visual heatmaps from the centralized cloud platform.</p>
+                            <div class="recommendation-box" style="margin-top: 24px;">
+                                <strong>MOM Compliance:</strong> Under the Employment Act, Singapore employers must maintain accurate records of work hours (including overtime) for at least two years. Our systems automate this record-keeping for audit readiness.
                             </div>
                         </div>
                     </div>
@@ -1859,15 +1675,13 @@
 
                     <div class="subsection">
                          <h3>Power & Maintenance</h3>
-                         <div class="blog-row">
-                             <div class="blog-text">
-                                 <p>Digital locks are battery-powered (typically 4-8 AA batteries) and operate independently of the building's electrical grid. Most models provide an audible low-battery alert 2-4 weeks before depletion.</p>
-                                 <p>In the event of total battery failure, external emergency 9V terminals allow you to "jump-start" the lock and enter with your primary credential.</p>
-                             </div>
-                             <div class="blog-img-wrap blog-img-square img-contain" style="max-width: 300px;">
-                                 <img src="images/battery-detail.png" alt="Interior view of a digital lock battery compartment showing power orientation and emergency terminals">
+                         <div class="blog-row-wrap">
+                             <div class="blog-img-wrap blog-img-square img-contain">
+                                 <img src="images/battery-detail.png" alt="Interior view of a digital lock battery compartment showing power orientation and emergency terminals" class="blog-img-square">
                                  <span class="blog-img-caption">Internal battery compartment and emergency backup power terminals.</span>
                              </div>
+                             <p>Digital locks are battery-powered (typically 4-8 AA batteries) and operate independently of the building's electrical grid. Most models provide an audible low-battery alert 2-4 weeks before depletion.</p>
+                             <p>In the event of total battery failure, external emergency 9V terminals allow you to "jump-start" the lock and enter with your primary credential. This standalone nature makes them perfect for residential and boutique office upgrades.</p>
                          </div>
                     </div>
 
@@ -1909,58 +1723,126 @@
                     </div>
                 </section>
 
-                <!-- ── 17. ADVANCED INTEGRATIONS ── -->
-                <section id="advanced-features">
-                    <span class="eyebrow" style="color: var(--primary-access);">System Integration</span>
-                    <h2 style="margin-bottom: 32px;">17. Advanced Integrations</h2>
-                    <p class="lead">Modern access control systems act as the bridge between security, facility management, and life safety systems, creating a unified, responsive building environment.</p>
-
+                <!-- ── 17. VISITOR MANAGEMENT SYSTEMS (VMS) ── -->
+                <section id="vms">
+                    <span class="eyebrow" style="color: var(--primary-access);">Entry Management</span>
+                    <h2 style="margin-bottom: 32px;">17. Visitor Management Systems (VMS)</h2>
+                    <p class="lead">Modern VMS solutions eliminate manual logbooks, digitising the guest entry process for improved security, data accuracy, and a premium lobby experience.</p>
+                    
                     <div class="subsection">
-                        <h3>CCTV & Video Verification</h3>
-                        <p>Link every "Door Scan" to a camera view. In high-security environments, a video popup on the security desk allows for instant visual verification of the entrant, preventing card sharing and tailgating.</p>
-                        <div class="blog-img-wrap img-contain" style="margin-top: 32px;">
-                            <img src="images/cctv-integration.png" alt="Unified security interface showing split-screen with access events matched to live CCTV video feeds">
-                            <span class="blog-img-caption">Visual Verification: Instantly matching biometric or card entries with live video for 100% audit accuracy.</span>
+                        <h3>Digital Sign-In Workflows</h3>
+                        <div class="blog-row-wrap">
+                            <div class="blog-img-wrap blog-img-square">
+                                <img src="images/visitor_management_kiosk_1774632356113.png" alt="Sleek digital visitor management kiosk in a modern office lobby displaying sign-in options" class="blog-img-square">
+                                <span class="blog-img-caption">Digital VMS: Streamlining guest arrival while capturing high-resolution photos and contact data.</span>
+                            </div>
+                            <p>Instead of paper logs, visitors use digital kiosks or their own smartphones to register. This ensures that every guest is accounted for and their host is instantly notified of their arrival.</p>
+                            <ul style="list-style: none; padding: 0;">
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Pre-Registration:</strong> Hosts email time-limited QR codes to guests, allowing for hands-free entry past security.</li>
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Facial Enrolment:</strong> Frequent visitors or contractors can enrol their face for recurring touchless entry during their contract period.</li>
+                                <li style="padding-left: 32px; position: relative; margin-bottom: 12px;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Auto-Expiry:</strong> Guest credentials automatically deactivate at a set time (e.g., 6:00 PM), ensuring zero legacy access risks.</li>
+                            </ul>
                         </div>
                     </div>
 
                     <div class="subsection">
-                        <h3>Visitor Management (VMS)</h3>
+                        <h3>VMS Integration Benefits</h3>
                         <div class="grid-3 gap-24">
                             <div class="card">
-                                <strong>Pre-Registration</strong>
-                                <p style="font-size: 13px; margin-top: 12px; color: var(--text-gray);">Hosts email a time-limited QR code to guests. Visitors scan the code at the entrance for seamless self-entry.</p>
+                                <strong>Instant Host Alerts</strong>
+                                <p style="font-size: 13px; margin-top: 12px; color: var(--text-gray);">Hosts receive SMS or Slack notifications the second their guest arrives, reducing lobby wait times.</p>
                             </div>
                             <div class="card">
-                                <strong>Reception Kiosks</strong>
-                                <p style="font-size: 13px; margin-top: 12px; color: var(--text-gray);">Automated sign-in kiosks capture visitor photos and automatically notify the host via SMS upon arrival.</p>
+                                <strong>Watchlist Screening</strong>
+                                <p style="font-size: 13px; margin-top: 12px; color: var(--text-gray);">Automatically flag barred individuals or expired contractor insurance documents at the point of entry.</p>
                             </div>
                             <div class="card">
-                                <strong>Auto-Expiry</strong>
-                                <p style="font-size: 13px; margin-top: 12px; color: var(--text-gray);">Guest credentials automatically deactivate at a set time (e.g., 6:00 PM), ensuring no legacy access lingers.</p>
+                                <strong>Emergency Evacuation</strong>
+                                <p style="font-size: 13px; margin-top: 12px; color: var(--text-gray);">Instant, real-time fire-drill muster lists showing exactly which visitors are still inside the building.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ── 18. ELEVATOR & LIFT ACCESS CONTROL ── -->
+                <section id="elevator-control" class="bg-light">
+                    <span class="eyebrow" style="color: var(--primary-access);">Vertical Security</span>
+                    <h2 style="margin-bottom: 32px;">18. Elevator & Lift Access Control</h2>
+                    <p class="lead">Vertical access control secures the most critical transition point in high-rise buildings, ensuring occupants only reach the specific floors they are authorised to visit.</p>
+
+                    <div class="blog-row-wrap">
+                        <div class="blog-img-wrap blog-img-square">
+                            <img src="images/akuvox_readers_grid_1774626893375.png" alt="Professional mullion-style RFID and biometric reader installed on a brushed metal lift panel" class="blog-img-square">
+                            <span class="blog-img-caption">Vertical Privacy: Control access to sensitive floors directly from the lift cabin.</span>
+                        </div>
+                        <h3>Restricting Floor Buttons</h3>
+                        <p>Most lift systems are interlocked with the access control panel via an "Elevator Control Module." Upon card tap, the system identifies the user and only activates the buttons for their permitted floors.</p>
+                        <p>For high-prestige residential or head-office towers, 'Destination Dispatch' integration allows for direct lift assignment from the lobby terminal, further improving traffic flow and overall building privacy.</p>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>Elevator Monitoring & Overrides</h3>
+                        <div class="blog-row-wrap">
+                            <div class="blog-img-wrap blog-img-square">
+                                <img src="images/realtime_monitoring_status_grid_1774630641540.png" alt="Management dashboard showing real-time lift status and floor-level access logs" class="blog-img-square">
+                                <span class="blog-img-caption">Operational Oversight: Real-time dashboard showing every lift event and system status.</span>
+                            </div>
+                            <p>Security managers can perform 'Remote Floor Release' for contractors during authorised hours or lock down specific high-value floors during emergencies.</p>
+                            <div class="recommendation-box" style="margin-top: 12px;">
+                                <strong>Scheduling:</strong> Auto-lock floors from 8:00 PM to 6:00 AM while allowing VIP residents 24/7 unrestricted access to their private levels.
                             </div>
                         </div>
                     </div>
 
                     <div class="subsection">
-                        <h3>Elevator & Lift Access Control</h3>
-                        <p>Restricts floor buttons within the elevator cabin based on the user's credential. Essential for high-rise residential privacy and multi-tenant commercial buildings to ensure staff only access their authorised floors.</p>
+                        <h3>Strategic Deployments</h3>
+                        <div class="grid-2 gap-24">
+                            <div class="card">
+                                <strong>Multi-Tenant Offices</strong>
+                                <p style="font-size: 14px; margin-top: 12px; color: var(--text-gray);">Ensure Tenant A staff cannot exit on Tenant B's floor. Vital for data protection and inter-company confidentiality.</p>
+                            </div>
+                            <div class="card">
+                                <strong>Hospitality & Residential</strong>
+                                <p style="font-size: 14px; margin-top: 12px; color: var(--text-gray);">Restrict access to penthouses and amenity levels (gym/pool) to valid residents and paying guests only.</p>
+                            </div>
+                        </div>
                     </div>
+                </section>
 
-                    <div class="subsection">
-                        <h3>Car Park Barriers & ANPR</h3>
-                        <p><strong>Automatic Number Plate Recognition (ANPR)</strong> cameras read vehicle licence plates in milliseconds, lifting boom barriers for season parkers without requiring a card tap. This provides a completely hands-free entry experience for residents and staff.</p>
+                <!-- ── 19. ADVANCED SYSTEM INTEGRATIONS ── -->
+                <section id="advanced-features">
+                    <span class="eyebrow" style="color: var(--primary-access);">System Unification</span>
+                    <h2 style="margin-bottom: 32px;">19. Advanced System Integrations</h2>
+                    <p class="lead">Modern access control systems act as the bridge between security, facility management, and life safety systems, creating a unified, responsive building environment.</p>
+
+                    <div class="subsection"  style="margin-top: 48px;">
+                        <h3>CCTV & Video Verification</h3>
+                        <div class="blog-row-wrap">
+                            <div class="blog-img-wrap blog-img-square">
+                                <img src="images/cctv_access_unified_vms_integration_1774631302662.png" alt="Unified security interface showing split-screen with access events matched to live CCTV video feeds" class="blog-img-square">
+                                <span class="blog-img-caption">Visual Verification: Instantly matching biometric or card entries with live video for 100% audit accuracy.</span>
+                            </div>
+                            <p>Link every "Door Scan" to a camera view. In high-security environments, a video popup on the security desk allows for instant visual verification of the entrant, preventing card sharing and tailgating.</p>
+                            <ul style="list-style: none; padding: 0; display: grid; gap: 16px;">
+                                <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Match Events:</strong> Instantly find video clips for specific door alarms or unauthorised entries.</li>
+                                <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">✓</span> <strong>Two-Factor Video:</strong> Require an operator to visually confirm the person's face matches their card before remotely releasing high-value doors.</li>
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="subsection">
                          <h3>Fire Alarm & Emergency Override</h3>
-                         <p>Integration with your building's Fire Alarm Panel is **mandatory**. Upon alarm activation, the access control system must instantly release all magnetic locks in the means of escape, allowing for safe, unimpeded evacuation in compliance with SCDF fire safety codes.</p>
+                         <p>Integration with your building's Fire Alarm Panel is **mandatory** under Singapore fire safety codes. Upon alarm activation, the access control system must instantly release all magnetic locks in the means of escape, allowing for safe, unimpeded evacuation.</p>
+                         <div class="blog-img-wrap" style="margin-top: 32px; aspect-ratio: 21/9;">
+                            <img src="images/fire_safety_integration_logic_1774629601529.png" alt="Technical diagram showing the relay connection between a building Fire Alarm Panel and an electromagnetic door lock">
+                            <span class="blog-img-caption">Life Safety Priority: Fire signals overrule security logic to ensure safe emergency exit.</span>
+                         </div>
                     </div>
                 </section>
-                <!-- ── 18. TURNSTILES, BARRIERS & PHYSICAL ACCESS CONTROL ── -->
+                <!-- ── 20. TURNSTILES, BARRIERS & PHYSICAL ACCESS CONTROL ── -->
                 <section id="turnstiles-barriers" class="bg-light">
                     <span class="eyebrow" style="color: var(--primary-access);">Physical Barriers</span>
-                    <h2 style="margin-bottom: 32px;">18. Turnstiles, Barriers & Physical Access Control</h2>
+                    <h2 style="margin-bottom: 32px;">20. Turnstiles, Barriers & Physical Access Control</h2>
                     <p class="lead">Physical barriers enforce strict one-person-per-credential authentication, effectively preventing "tailgating" and ensuring 100% accurate occupancy tracking in high-traffic environments.</p>
 
                     <div class="subsection">
@@ -1983,12 +1865,28 @@
 
                     <div class="grid-2 gap-24" style="margin-top: 40px;">
                         <div class="blog-img-wrap">
-                            <img src="images/physical-tripod-turnstile.png" alt="Stainless steel tripod turnstile installed in a modern Singapore office lobby">
+                            <img src="images/turnstile_tripod_1774627036254.png" alt="Stainless steel tripod turnstile installed in a high-traffic industrial zone">
                             <span class="blog-img-caption">Tripod Turnstiles: Effective, low-cost pedestrian control for high-traffic industrial and commercial zones.</span>
                         </div>
                         <div class="blog-img-wrap">
-                            <img src="images/physical-flap-barrier.png" alt="Premium glass flap barrier speed gate in a corporate office lobby with an employee walking through">
+                            <img src="images/turnstile_flap_v2_1774628127360.png" alt="Premium glass flap barrier speed gate in a corporate office lobby">
                             <span class="blog-img-caption">Flap Barriers: High-speed, prestige-tier entrance control for modern corporate headquarters.</span>
+                        </div>
+                    </div>
+
+                    <div class="subsection">
+                        <h3>High-Prestige Speed Gates</h3>
+                        <div class="blog-row-wrap">
+                            <div class="blog-img-wrap blog-img-square">
+                                <img src="images/office lobby turnstile and face recognition.png" alt="Ultra-modern optical speed gates with retracted panels in a white-marble corporate lobby" class="blog-img-square">
+                                <span class="blog-img-caption">Optical Speed Gates: Premium, touchless entry for AAA-grade commercial towers.</span>
+                            </div>
+                            <div class="blog-text" style="flex: 0.8;">
+                                <p style="font-size: 14px; margin-bottom: 12px;">Speed gates offer the highest throughput (~40 people/minute) using invisible infra-red sensors to detect tailgating without the need for physical bars.</p>
+                                <div class="recommendation-box" style="margin: 0;">
+                                    <strong>No-Contact:</strong> Panels retract into the cabinet, providing a COMPLETELY touch-free experience for staff.
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -1998,35 +1896,39 @@
                             <div class="recommendation-box" style="margin: 0;">
                                 <strong>Full-Height Turnstiles</strong>
                                 <p style="font-size: 14px; margin-top: 8px;">Floor-to-ceiling rotating cages for maximum security. Impossible to jump or crawl under. Essential for military bases, prisons, and unmanned industrial perimeters.</p>
+                                <div class="blog-img-wrap img-contain" style="margin-top: 16px;">
+                                    <img src="images/project-factory.png" alt="Industrial full-height turnstile cage guarding a factory perimeter">
+                                </div>
                             </div>
                             <div class="recommendation-box" style="margin: 0;">
                                 <strong>Accessible Swing Gates</strong>
                                 <p style="font-size: 14px; margin-top: 8px;">Wider gates next to standard turnstiles for wheelchairs, strollers, and delivery trollies. Fully ADA-compliant for inclusive building access.</p>
+                                <div class="blog-img-wrap img-contain" style="margin-top: 16px;">
+                                    <img src="images/industrial-gate-pedestal.png" alt="Automatic wide glass swing gate for wheelchair access in a corporate lobby">
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="subsection">
                         <h3>Vehicle Access Control</h3>
-                        <div class="blog-row">
+                        <div class="blog-row-wrap">
+                            <div class="blog-img-wrap blog-img-square">
+                                <img src="images/boom_barrier_anpr_1774627280408.png" alt="Car park boom barrier with an ANPR camera reading an approaching vehicle's licence plate" class="blog-img-square">
+                                <span class="blog-img-caption">Vehicle access automation: ANPR cameras identify vehicles and command barriers to lift without driver intervention.</span>
+                            </div>
                             <div class="blog-text">
                                 <p><strong>Car Park Boom Barriers:</strong> Automate your car park with <strong>ANPR (Automatic Number Plate Recognition)</strong>. Our cameras read licence plates in milliseconds, lifting barriers for season parkers without the need to wind down windows or tap cards.</p>
                                 <p><strong>Automatic Rising Bollards:</strong> High-security vehicle blockage for embassies or pedestrian plazas. These heavy-duty steel posts rise from the ground to prevent vehicle-ramming attacks.</p>
-                            </div>
-                            <div class="blog-img-wrap">
-                                <div class="blog-img-wrap">
-                            <img src="images/vehicle-boom-barrier.png" alt="Car park boom barrier with an ANPR camera reading an approaching vehicle's licence plate">
-                            <span class="blog-img-caption">Vehicle access automation: ANPR cameras identify vehicles and command barriers to lift without driver intervention.</span>
-                        </div>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <!-- ── 19. WHAT DOES IT COST? ── -->
+                <!-- ── 21. WHAT DOES IT COST? ── -->
                 <section id="pricing">
                     <span class="eyebrow" style="color: var(--primary-access);">Investment Planning</span>
-                    <h2 style="margin-bottom: 32px;">19. What Does It Cost?</h2>
+                    <h2 style="margin-bottom: 32px;">21. What Does It Cost?</h2>
                     <p class="lead">System costs vary based on door count, technology choice, and integration depth. Use these budgetary guides for initial project planning in Singapore.</p>
 
                     <div class="subsection">
@@ -2076,34 +1978,42 @@
                                     <li><strong>Prevent Time Theft:</strong> Biometric T&A integration typically saves 3-5% on monthly payroll by eliminating "buddy punching."</li>
                                     <li><strong>No More Re-Keying:</strong> When keys are lost or staff leave, deactivating a card costs $0, compared to $300+ for mechanical lock changes.</li>
                                 </ul>
+                                <div class="blog-img-wrap img-contain" style="margin-top: 24px;">
+                                    <img src="images/traditional_vs_cloud_access_compare_1774630142886.png" alt="Chart comparing 5-year TCO for traditional vs cloud-based access control systems">
+                                    <span class="blog-img-caption">TCO Breakdown: Evaluating long-term subscription costs vs upfront server CapEx.</span>
+                                </div>
                             </div>
                             <div class="blog-img-wrap">
-                                <img src="images/investment-roi-access.png" alt="Infographic showing the Return on Investment (ROI) of electronic access control over 5 years">
-                                <span class="blog-img-caption">ROI Analysis: Long-term savings from eliminated re-keying costs and improved payroll accuracy.</span>
+                                <img src="images/door_access_roi_v2_1774627127878.png" alt="Infographic showing the Return on Investment (ROI) of electronic access control over 5 years">
+                                <span class="blog-img-caption">ROI Analysis: Cumulative savings from improved payroll accuracy and reduced hardware maintenance.</span>
                             </div>
+                        </div>
+                        <div class="blog-img-wrap" style="margin-top: 40px; aspect-ratio: 21/9;">
+                            <img src="images/cloud_architecture_access_control_1774630070322.png" alt="Architectural diagram showing multi-site cloud access control scalability from 1 to 100 doors">
+                            <span class="blog-img-caption">System Scalability: Seamlessly expanding from a single boutique entrance to a nationwide corporate network.</span>
                         </div>
                     </div>
                 </section>
-                <!-- ── 20. REAL INSTALLATION EXAMPLES ── -->
+                <!-- ── 22. REAL INSTALLATION EXAMPLES ── -->
                 <section id="examples" class="bg-light">
                     <span class="eyebrow" style="color: var(--primary-access);">Real-World Deployments</span>
-                    <h2 style="margin-bottom: 32px;">20. Real Installation Examples</h2>
+                    <h2 style="margin-bottom: 32px;">22. Real Installation Examples</h2>
                     <p class="lead">Learn from actual access control deployments across different property types in Singapore. These case studies highlight the balance between security requirements, physical constraints, and ROI.</p>
 
                     <div class="subsection">
                         <h3>Case Study 1: Boutique Law Firm (15 Staff)</h3>
                         <div class="grid-3 gap-24">
-                            <div class="card">
+                            <div class="case-study-card">
                                 <strong>The Challenge</strong>
-                                <p style="font-size: 13px; margin-top: 12px; color: var(--text-gray);">Protecting sensitive client files in a 3-floor commercial office. Needed to restrict junior staff from partner levels and ensure a two-person rule for document vaults.</p>
+                                <p>Protecting sensitive client files in a 3-floor commercial office. Needed to restrict junior staff from partner levels and ensure a two-person rule for document vaults.</p>
                             </div>
-                            <div class="card">
+                            <div class="case-study-card">
                                 <strong>The Solution</strong>
-                                <p style="font-size: 13px; margin-top: 12px; color: var(--text-gray);">8-door Akuvox Cloud system using Card+PIN readers. Integrated a 'two-person rule' logic for vault access and visitor QR codes for clients.</p>
+                                <p>8-door Akuvox Cloud system using Card+PIN readers. Integrated a 'two-person rule' logic for vault access and visitor QR codes for clients.</p>
                             </div>
-                            <div class="card">
+                            <div class="case-study-card">
                                 <strong>The Result</strong>
-                                <p style="font-size: 13px; margin-top: 12px; color: var(--text-gray);">Zero unauthorised access incidents in 6 months. Receptionist saved 3 hours/week on visitor management. Full compliance with legal audit requirements.</p>
+                                <p>Zero unauthorised access incidents in 6 months. Receptionist saved 3 hours/week on visitor management. Full compliance with legal audit requirements.</p>
                             </div>
                         </div>
                     </div>
@@ -2111,17 +2021,17 @@
                     <div class="subsection">
                         <h3>Case Study 2: Logistics Warehouse (80 Staff)</h3>
                         <div class="grid-3 gap-24">
-                            <div class="card" style="background: var(--bg-light);">
+                            <div class="case-study-card">
                                 <strong>The Challenge</strong>
-                                <p style="font-size: 13px; margin-top: 12px;">Preventing "buddy punching" (payroll fraud) and ensuring only forklift-certified staff could access dangerous production zones.</p>
+                                <p>Preventing "buddy punching" (payroll fraud) and ensuring only forklift-certified staff could access dangerous production zones.</p>
                             </div>
-                            <div class="card" style="background: var(--bg-light);">
+                            <div class="case-study-card">
                                 <strong>The Solution</strong>
-                                <p style="font-size: 13px; margin-top: 12px;">Facial recognition at the main gate for T&A. Interlocked door zones that check the employee's certification status in real-time before unlocking.</p>
+                                <p>Facial recognition at the main gate for T&A. Interlocked door zones that check the employee's certification status in real-time before unlocking.</p>
                             </div>
-                            <div class="card" style="background: var(--bg-light);">
+                            <div class="case-study-card">
                                 <strong>The Result</strong>
-                                <p style="font-size: 13px; margin-top: 12px;">Payroll costs reduced by 4.8% ($35k/year savings) due to accurate time tracking. Passed MOM audit with zero discrepancies.</p>
+                                <p>Payroll costs reduced by 4.8% ($35k/year savings) due to accurate time tracking. Passed MOM audit with zero discrepancies.</p>
                             </div>
                         </div>
                         <div class="blog-img-wrap" style="margin-top: 40px;">
@@ -2131,10 +2041,10 @@
                     </div>
                 </section>
 
-                <!-- ── 21. MAINTENANCE & BEST PRACTICES ── -->
+                <!-- ── 23. MAINTENANCE & BEST PRACTICES ── -->
                 <section id="maintenance">
                     <span class="eyebrow" style="color: var(--primary-access);">System Care</span>
-                    <h2 style="margin-bottom: 32px;">21. Maintenance & Best Practices</h2>
+                    <h2 style="margin-bottom: 32px;">23. Maintenance & Best Practices</h2>
                     <p class="lead">Preventive maintenance ensures your access control system remains reliable and secure. Intermittent faults are often the result of neglected door alignment or outdated firmware.</p>
 
                     <div class="subsection">
@@ -2156,10 +2066,10 @@
                     </div>
                 </section>
 
-                <!-- ── 22. FIRE SAFETY & COMPLIANCE ── -->
+                <!-- ── 24. FIRE SAFETY & COMPLIANCE ── -->
                 <section id="fire-safety" class="bg-light">
                     <span class="eyebrow" style="color: var(--primary-access);">Emergency Procedures</span>
-                    <h2 style="margin-bottom: 32px;">22. Fire Safety & Compliance</h2>
+                    <h2 style="margin-bottom: 32px;">24. Fire Safety & Compliance</h2>
                     <p class="lead">Access control systems must never impede emergency evacuation. In Singapore, SCDF fire codes mandate strict integration between security hardware and life safety systems.</p>
 
                     <div class="recommendation-box" style="border-left: 4px solid #e53e3e; background: #fff5f5;">
@@ -2177,10 +2087,10 @@
                     </div>
                 </section>
 
-                <!-- ── 23. PDPA, PRIVACY & CYBERSECURITY ── -->
+                <!-- ── 25. PDPA, PRIVACY & CYBERSECURITY ── -->
                 <section id="pdpa">
                     <span class="eyebrow" style="color: var(--primary-access);">Data Protection</span>
-                    <h2 style="margin-bottom: 32px;">23. PDPA, Privacy & Cybersecurity</h2>
+                    <h2 style="margin-bottom: 32px;">25. PDPA, Privacy & Cybersecurity</h2>
                     <p class="lead">As access control systems collect personal data (names, movements, and biometric templates), compliance with Singapore's Personal Data Protection Act (PDPA) is essential.</p>
 
                     <div class="grid-2 gap-24">
@@ -2195,10 +2105,10 @@
                     </div>
                 </section>
 
-                <!-- ── 24. COMMON MISTAKES TO AVOID ── -->
+                <!-- ── 26. COMMON MISTAKES TO AVOID ── -->
                 <section id="mistakes" class="bg-light">
                     <span class="eyebrow" style="color: var(--primary-access);">Lessons Learned</span>
-                    <h2 style="margin-bottom: 32px;">24. Common Mistakes to Avoid</h2>
+                    <h2 style="margin-bottom: 32px;">26. Common Mistakes to Avoid</h2>
                     <div class="grid-2 gap-24">
                         <div class="faq-item">
                             <strong>1. Under-specifying System Capacity</strong>
@@ -2219,10 +2129,10 @@
                     </div>
                 </section>
 
-                <!-- ── 25. BRANDS & SYSTEMS WE CARRY ── -->
+                <!-- ── 27. BRANDS & SYSTEMS WE CARRY ── -->
                 <section id="brands">
                     <span class="eyebrow" style="color: var(--primary-access);">Our Partners</span>
-                    <h2 style="margin-bottom: 48px;">25. Brands & Systems We Carry</h2>
+                    <h2 style="margin-bottom: 48px;">27. Brands & Systems We Carry</h2>
                     <div class="brand-showcase-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 32px; align-items: center;">
                         <img src="images/brand-zkteco.png" alt="ZKTeco Logo" style="width: 100%; filter: grayscale(1); opacity: 0.7; transition: 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(1)'; this.style.opacity='0.7';">
                         <img src="images/brand-suprema.png" alt="Suprema Logo" style="width: 100%; filter: grayscale(1); opacity: 0.7; transition: 0.3s;" onmouseover="this.style.filter='none'; this.style.opacity='1';" onmouseout="this.style.filter='grayscale(1)'; this.style.opacity='0.7';">
@@ -2233,10 +2143,10 @@
                     </div>
                 </section>
 
-                <!-- ── 26. FREQUENTLY ASKED QUESTIONS ── -->
+                <!-- ── 28. FREQUENTLY ASKED QUESTIONS ── -->
                 <section id="faq" class="bg-light">
                     <span class="eyebrow" style="color: var(--primary-access);">Common Questions</span>
-                    <h2 style="margin-bottom: 40px;">26. Frequently Asked Questions</h2>
+                    <h2 style="margin-bottom: 40px;">28. Frequently Asked Questions</h2>
                     <div class="faq-grid">
                         <div class="faq-item">
                             <h4>What happens to my doors during a power failure?</h4>
@@ -2260,12 +2170,12 @@
         </div>
     </div>
 
-    <!-- ── 27. FINAL CTA ── -->
-    <section id="final-cta" class="cta-section cta-skyline" style="background: linear-gradient(rgba(14, 26, 43, 0.8), rgba(14, 26, 43, 0.8)), url('images/Expert Security Solutions For Every Property Type.png'); background-size: cover; background-position: center;">
-        <div class="container">
-            <div class="cta-header-wrap text-center">
-                <span class="eyebrow-light">Ready to Secure Your Property?</span>
-                <h2 style="color: white;">Get Started with Professional Access Control</h2>
+                <!-- ── 29. GET YOUR FREE ASSESSMENT ── -->
+                <section id="final-cta" class="cta-section cta-skyline" style="background: linear-gradient(rgba(14, 26, 43, 0.8), rgba(14, 26, 43, 0.8)), url('images/Expert Security Solutions For Every Property Type.png'); background-size: cover; background-position: center;">
+                    <div class="container">
+                        <div class="cta-header-wrap text-center">
+                            <span class="eyebrow-light">Ready to Secure Your Property?</span>
+                            <h2 style="color: white;">29. Get Your Free Assessment</h2>
                 <p class="subtitle" style="color: rgba(255,255,255,0.9) !important; max-width: 800px; margin: 0 auto 40px;">Securevision provides end-to-end security architecture, from single-door residential setups to enterprise-grade biometric ecosystems across Singapore.</p>
             </div>
             
@@ -2374,31 +2284,47 @@
     </div>
 </footer>
 
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-</a>
-
-<script>
-function toggleMobileMenu() {
-  const menu = document.getElementById('mobileMenu');
-  menu.classList.toggle('active');
-}
-function toggleSubmenu(id) {
-  const sub = document.getElementById(id);
-  const isOpen = sub.style.display === 'block';
-  document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
-  if (!isOpen) sub.style.display = 'block';
-}
-        document.addEventListener('click', function (e) {
-            const nav = document.querySelector('.main-nav');
-            const menu = document.getElementById('mobileMenu');
-            if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
-                menu.classList.remove('active');
+    <script>
+        /* MOBILE TOC ACCORDION */
+        function toggleTocMobile() {
+            if (window.innerWidth <= 992) {
+                const title = document.querySelector('.toc-title');
+                const list = document.querySelector('.toc-list');
+                if (title && list) {
+                    title.classList.toggle('active');
+                    list.classList.toggle('active');
+                }
             }
+        }
+
+        /* AUTO-CLOSE TOC ON LINK CLICK (Mobile Only) */
+        document.querySelectorAll('.toc-list a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 992) {
+                    const title = document.querySelector('.toc-title');
+                    const list = document.querySelector('.toc-list');
+                    if (title) title.classList.remove('active');
+                    if (list) list.classList.remove('active');
+                }
+            });
         });
 
-        // Header scroll effect
+        /* MOBILE MENU TOGGLE */
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) menu.classList.toggle('active');
+        }
+
+        function toggleSubmenu(id) {
+            const sub = document.getElementById(id);
+            if (sub) {
+                const isOpen = sub.classList.contains('active');
+                document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
+                if (!isOpen) sub.classList.add('active');
+            }
+        }
+
+        /* HEADER SCROLL EFFECT */
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('.main-nav');
             const logo = document.querySelector('.nav-logo-img');
@@ -2412,7 +2338,7 @@ function toggleSubmenu(id) {
                 }
             }
         });
-</script>
+    </script>
 
     <!-- Floating WhatsApp Button -->
     <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">

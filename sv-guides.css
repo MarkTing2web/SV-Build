@@ -1,0 +1,459 @@
+/* 
+    SECUREVISION TECHNICAL GUIDES / PILLAR PAGES TEMPLATE 
+    Standardised design system for long-form technical content.
+    ----------------------------------------------------------
+    1. 65/35 Text/Image Proportion (blog-row-wrap)
+    2. Word-wrap around images for long text
+    3. Sticky Mobile TOC Accordion
+    4. Standalone Image Full-Width Scaling
+    5. Standardised Typography (16px/18px)
+*/
+
+:root {
+    --primary-access: #3182ce; /* Default technical pillar color */
+}
+
+/* 0. GLOBAL NAV OVERRIDES */
+.main-nav.scrolled .nav-link:hover, 
+.main-nav.scrolled .nav-link.active { 
+    color: var(--primary-access) !important; 
+}
+
+/* 1. TYPOGRAPHY & SPACING (Compliance for Readability) */
+.lead {
+    font-size: 18px !important;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 48px;
+}
+
+main p {
+    font-size: 16px !important;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    color: var(--text-gray);
+}
+
+main li {
+    font-size: 16px !important;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    color: var(--text-gray);
+}
+
+/* Stat Grid (Specific to technical guides) */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 32px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: #5b9ee1;
+    display: block;
+    margin-bottom: 8px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.stat-label {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.stat-desc {
+    font-size: 13px;
+    opacity: 0.8;
+    line-height: 1.4;
+}
+
+.subsection { 
+    margin-top: 64px; 
+}
+
+.subsection h3 { 
+    font-size: 24px !important; 
+    margin-bottom: 32px; 
+    color: var(--text-dark); 
+    border-left: 5px solid var(--primary-access) !important; 
+    padding-left: 24px; 
+}
+
+/* 2. LAYOUT: TEXT/IMAGE PROPORTIONS (65/35) */
+
+/* Standard Grid (Non-wrapping) */
+.blog-row {
+    display: grid;
+    grid-template-columns: 13fr 7fr; /* 65/35 Ratio */
+    gap: 40px;
+    margin-bottom: 40px;
+    align-items: flex-start;
+}
+
+/* 3. WORD-WRAP VARIANT (Float logic for long content) */
+.blog-row-wrap {
+    display: block; /* Overrides grid */
+    margin-bottom: 40px;
+}
+
+.blog-row-wrap .blog-img-wrap {
+    float: right;
+    width: 35%; /* Fixed 35% width for image */
+    margin-left: 40px;
+    margin-bottom: 24px;
+}
+
+.blog-row-wrap::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* 4. IMAGE WRAPPERS & SCALING */
+.blog-img-wrap {
+    position: relative;
+    width: 100%; /* Standalone images fill 100% of their container */
+    aspect-ratio: 16 / 9;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    margin-bottom: 24px;
+}
+
+.blog-img-wrap img,
+.component-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Aspect Ratio Utilities */
+.blog-img-wrap.blog-img-square {
+    aspect-ratio: 1 / 1;
+}
+
+.blog-img-wrap img.blog-img-square,
+.component-card img.blog-img-square {
+    aspect-ratio: 1 / 1;
+}
+
+/* Utility to prevent product logos or icons from being cut off */
+.img-contain img {
+    object-fit: contain !important;
+    padding: 24px;
+}
+
+.blog-img-caption {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 12px;
+    font-style: italic;
+    text-align: center;
+    display: block;
+    line-height: 1.4;
+}
+
+/* 5. DATA TABLES (Standardised Technical Format) */
+.blog-table-wrap {
+    margin: 40px 0;
+    overflow-x: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+}
+
+.blog-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    background: #fff;
+}
+
+.blog-table th {
+    background: var(--bg-light);
+    padding: 16px;
+    text-align: left;
+    border-bottom: 2px solid var(--border-light);
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.blog-table td {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-light);
+    color: var(--text-gray);
+    vertical-align: top;
+}
+
+.blog-table tr:nth-child(even) {
+    background: #fafbfc;
+}
+
+/* 6. COMPONENT & CASE STUDY CARDS */
+.case-study-card {
+    background: var(--bg-light);
+    border-radius: 12px;
+    padding: 32px;
+    height: 100%;
+    border: 1px solid var(--border-light);
+}
+
+.case-study-card strong {
+    color: var(--primary-access);
+    display: block;
+    margin-bottom: 12px;
+    font-size: 15px;
+}
+
+.badge-phase {
+    background: var(--primary-access);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.component-card {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.component-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.component-number {
+    width: 40px;
+    height: 40px;
+    background: var(--primary-access);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.recommendation-box {
+    background: #f0f7ff;
+    border-left: 6px solid var(--primary-access) !important;
+    padding: 32px;
+    border-radius: 4px;
+    margin: 40px 0;
+}
+
+.faq-grid {
+    display: grid;
+    gap: 24px;
+}
+
+.faq-item {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 32px;
+    transition: 0.3s;
+}
+
+.faq-item:hover {
+    border-color: var(--primary-access) !important;
+}
+
+/* 6. SIDEBAR & NAVIGATION */
+.layout-with-sidebar {
+    display: grid;
+    grid-template-columns: 1fr 280px; /* Sidebar on RIGHT */
+    grid-template-areas: "content sidebar";
+    gap: 64px;
+    align-items: stretch;
+    margin-bottom: 120px;
+}
+
+aside { grid-area: sidebar; }
+main { grid-area: content; }
+
+.layout-with-sidebar main section {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.layout-with-sidebar main section.bg-light {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 64px 32px !important;
+    border-radius: 12px !important;
+    border-bottom: 1px solid var(--border-light) !important;
+}
+
+.sticky-toc {
+    position: sticky;
+    top: 100px;
+    background: #fff;
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    max-height: calc(100vh - 140px) !important;
+    overflow-y: auto;
+}
+
+.toc-list { list-style: none; padding: 0; }
+.toc-list li { margin-bottom: 12px; }
+.toc-list a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 13px;
+    font-weight: 500;
+    transition: 0.2s;
+    display: block;
+    line-height: 1.4;
+}
+
+.toc-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: default;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--bg-light);
+    color: var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.toc-list a:hover, 
+.toc-list a.active { 
+    color: var(--primary-access) !important; 
+}
+
+/* 7. RESPONSIVE COMPLIANCE (991px Mobile Rule) */
+@media (max-width: 991px) {
+    .container {
+        padding: 0 24px !important; /* 24px standard gutter for text compliance */
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .layout-with-sidebar {
+        display: block !important;
+    }
+
+    /* Sticky Mobile TOC Bar */
+    aside {
+        position: sticky !important;
+        top: 68px !important; /* Site Nav Height */
+        z-index: 900 !important;
+        width: 100% !important;
+        background: #fff;
+    }
+
+    .sticky-toc {
+        position: relative !important;
+        top: 0 !important;
+        width: 100vw !important;
+        margin-left: -24px !important;
+        margin-right: -24px !important;
+        padding: 16px 24px !important;
+        background: #fff !important;
+        border: none !important;
+        border-bottom: 2px solid var(--border-light) !important;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05) !important;
+        border-radius: 0 !important;
+        max-height: none !important;
+    }
+
+    .toc-title {
+        margin: 0 !important;
+        cursor: pointer;
+        font-size: 14px !important;
+        color: var(--primary-access) !important;
+    }
+
+    .toc-title::after {
+        content: '▼';
+        font-size: 10px;
+        transition: transform 0.3s;
+        opacity: 0.6;
+    }
+
+    .toc-title.active::after {
+        transform: rotate(180deg);
+    }
+
+    .toc-list {
+        display: none;
+        max-height: 50vh;
+        overflow-y: auto;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .toc-list.active {
+        display: block;
+    }
+
+    /* Layout Reset on Mobile */
+    .blog-row { 
+        grid-template-columns: 1fr !important; 
+        gap: 24px; 
+    }
+    
+    .blog-row-wrap .blog-img-wrap {
+        float: none !important;
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-bottom: 24px !important;
+    }
+
+    .blog-img-wrap {
+        aspect-ratio: 16 / 9;
+        height: auto !important;
+        min-height: 220px;
+        order: -1; 
+    }
+
+    .blog-img-wrap.blog-img-square {
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto 24px;
+    }
+
+    .stat-grid { 
+        grid-template-columns: 1fr; 
+    }
+}
