@@ -78,45 +78,6 @@
             line-height: 1.4;
         }
 
-        /* BLOG-STYLE LAYOUT & SIDEBAR */
-        .layout-with-sidebar {
-            display: grid;
-            grid-template-columns: 3fr 1fr;
-            grid-template-areas: "content sidebar";
-            gap: 64px;
-            align-items: stretch;
-            margin-bottom: 120px;
-        }
-
-        main { grid-area: content; }
-        aside { grid-area: sidebar; }
-
-        .sticky-toc {
-            position: sticky;
-            top: 120px;
-            background: #fff;
-            padding: 32px;
-            border-radius: 12px;
-            border: 1px solid var(--border-light);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            max-height: calc(100vh - 160px);
-            overflow-y: auto;
-        }
-
-        .toc-title {
-            font-size: 16px;
-            font-weight: 700;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--bg-light);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .toc-list { list-style: none; padding: 0; margin: 0; }
-        .toc-list li { margin-bottom: 12px; }
-        .toc-list a { font-size: 14px; color: var(--text-light); text-decoration: none; transition: 0.2s; display: block; line-height: 1.4; }
-        .toc-list a:hover, .toc-list a.active { color: var(--primary-cctv); font-weight: 600; padding-left: 4px; }
 
         /* CONTENT STYLING */
         section { 
@@ -125,50 +86,44 @@
         }
 
         .lead {
-            font-size: 19px;
+            font-size: 18px;
             line-height: 1.8;
             color: var(--text-dark);
-            margin-bottom: 48px;
+            margin-bottom: 56px;
         }
 
         main p {
             line-height: 1.8;
             margin-bottom: 24px;
-            color: #4a5568;
+            color: var(--text-gray);
         }
 
         .subsection { margin-top: 64px; }
         .subsection h3 { 
-            font-size: 26px; 
+            font-size: 24px; 
             margin-bottom: 32px; 
             color: var(--text-dark); 
             border-left: 5px solid var(--primary-cctv); 
             padding-left: 24px; 
         }
 
-        /* REFINED BLOG ROW (75:25) */
+        /* 75:25 SUBSECTION LAYOUT (Text : Image) */
         .blog-row {
             display: grid;
-            grid-template-columns: 75% 25%;
+            grid-template-columns: 3fr 1fr;
             gap: 40px;
             margin-bottom: 40px;
             align-items: flex-start;
         }
 
         .blog-text {
-            /* Standard text flow */
             line-height: 1.8;
         }
 
-        .blog-img-wrap {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .blog-img-wrap img {
+        .blog-img-wrap img,
+        .component-card img {
             width: 100%;
-            height: 280px; /* Target range 200-350px */
+            height: auto;
             aspect-ratio: 16 / 9;
             object-fit: cover;
             border-radius: 12px;
@@ -176,11 +131,19 @@
             display: block;
         }
 
+        /* SQUARE IMAGE OPTION (For specifically formatted diagrams) */
+        .blog-img-wrap img.blog-img-square,
+        .component-card img.blog-img-square {
+            aspect-ratio: 1 / 1;
+        }
+
         .blog-img-caption {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-light);
+            margin-top: 12px;
             font-style: italic;
             text-align: center;
+            display: block;
             line-height: 1.4;
         }
 
@@ -235,11 +198,6 @@
         }
 
         @media (max-width: 992px) {
-            .layout-with-sidebar { 
-                grid-template-columns: 1fr; 
-                grid-template-areas: "sidebar" "content";
-            }
-            .sticky-toc { position: static; margin-bottom: 40px; max-height: none; }
             
             .blog-row {
                 grid-template-columns: 1fr;
@@ -447,7 +405,7 @@
             <!-- MAIN CONTENT AREA (Left Side) -->
             <main>
                 <!-- ── 1. WHAT IS A CCTV SYSTEM? ── -->
-                <section id="what-is-cctv" style="padding-top: 0;">
+                <section id="what-is-cctv">
                     <span class="eyebrow" style="color: var(--primary-cctv);">The Basics</span>
                     <h2 style="margin-bottom: 32px;">1. What Is a CCTV Camera System?</h2>
                     <p class="lead">CCTV (Closed-Circuit Television) is a video surveillance system that captures, records, and stores video footage of your property. Unlike broadcast television, CCTV operates on a closed circuit—cameras send video to specific monitors and recorders that only authorized users can access.</p>
@@ -481,7 +439,7 @@
                                 </ul>
                             </div>
                             <div class="blog-img-wrap">
-                                <img src="images/cctv-ai-analytics-demo.png" alt="AI-powered CCTV analytics showing object detection" style="height: 280px; aspect-ratio: 1/1;">
+                                <img src="images/cctv-ai-analytics-demo.png" alt="AI-powered CCTV analytics showing object detection" class="blog-img-square">
                                 <span class="blog-img-caption">AI analytics transform passive cameras into intelligent security guardians.</span>
                             </div>
                         </div>
@@ -499,7 +457,7 @@
                 </section>
 
                 <!-- ── 2. HOW CCTV SYSTEMS WORK ── -->
-                <section id="how-it-works">
+                <section id="how-it-works" class="bg-light">
                     <span class="eyebrow" style="color: var(--primary-cctv);">System Architecture</span>
                     <h2 style="margin-bottom: 32px;">2. How Does a CCTV System Work?</h2>
                     <p>Understanding the components and how they work together helps you make informed decisions about your surveillance needs.</p>
@@ -520,7 +478,7 @@
                                     <p>Typical camera counts: 2-4 for apartments, 4-8 for landed homes, and up to 100+ for large warehouses and industrial sites.</p>
                                 </div>
                                 <div class="blog-img-wrap">
-                                    <img src="images/cctv-camera-anatomy-cutaway.png" alt="Anatomy of an IP camera showing sensor, lens, and IR LEDs" style="height: 280px; aspect-ratio: 1/1;">
+                                    <img src="images/cctv-camera-anatomy-cutaway.png" alt="Anatomy of an IP camera showing sensor, lens, and IR LEDs" class="blog-img-square">
                                     <span class="blog-img-caption">Cameras serve as the 'eyes' of your security system, capturing every detail in 4K.</span>
                                 </div>
                             </div>
@@ -539,7 +497,7 @@
                                     <p>Recorders are usually installed in secure, locked racks to prevent tampering or theft of the footage itself.</p>
                                 </div>
                                 <div class="blog-img-wrap">
-                                    <img src="images/cctv-nvr-unit-rack.png" alt="Professional Network Video Recorder unit mounted in rack" style="height: 280px; aspect-ratio: 1/1;">
+                                    <img src="images/cctv-nvr-unit-rack.png" alt="Professional Network Video Recorder unit mounted in rack" class="blog-img-square">
                                     <span class="blog-img-caption">The NVR manages all video data and provides the interface for remote viewing.</span>
                                 </div>
                             </div>
@@ -557,7 +515,7 @@
                                     <p><strong>Capacity Requirements:</strong> 8 cameras at 4MP resolution typically require 4-6TB of storage to maintain 30 days of continuous recording. HDDs usually last 3-5 years before preventive replacement is recommended.</p>
                                 </div>
                                 <div class="blog-img-wrap">
-                                    <img src="images/cctv-hdd-purple-new.png" alt="Western Digital Purple surveillance hard drive" style="height: 280px; aspect-ratio: 1/1;">
+                                    <img src="images/cctv-hdd-purple-new.png" alt="Western Digital Purple surveillance hard drive" class="blog-img-square">
                                     <span class="blog-img-caption">Specialized HDDs ensure reliable recording even under constant 24/7 workloads.</span>
                                 </div>
                             </div>
@@ -575,7 +533,7 @@
                                     <p><strong>PoE Switches:</strong> These provide connectivity and power to multiple cameras (4, 8, 16, or 24 ports). A managed switch allows for remote diagnostics and VLAN segmentation for improved security.</p>
                                 </div>
                                 <div class="blog-img-wrap">
-                                    <img src="images/cctv-poe-switch.png" alt="Professional PoE network switch for IP cameras" style="height: 280px; aspect-ratio: 1/1;">
+                                    <img src="images/cctv-poe-switch.png" alt="Professional PoE network switch for IP cameras" class="blog-img-square">
                                     <span class="blog-img-caption">PoE technology eliminates the need for separate power cables to every camera.</span>
                                 </div>
                             </div>
@@ -595,7 +553,7 @@
                             <p>Power failures disable CCTV systems unless backup power is provided. A UPS automatically takes over during blackouts, ensuring cameras continue recording just when security is most vulnerable.</p>
                             <p>A standard 1500VA UPS provides 20-40 minutes of runtime for a medium system—enough to bridge most temporary outages or keep the system running while a generator starts.</p>
                             <div class="blog-img-wrap" style="margin-top: 24px;">
-                                <img src="images/cctv-ups-unit.png" alt="Professional UPS unit installation for CCTV" style="height: 280px; aspect-ratio: 1/1;">
+                                <img src="images/cctv-ups-unit.png" alt="Professional UPS unit installation for CCTV" class="blog-img-square">
                                 <span class="blog-img-caption">A UPS ensures your security system continues recording during power failures.</span>
                             </div>
                         </div>
@@ -635,7 +593,7 @@
                                     </ul>
                                 </div>
                                 <div class="blog-img-wrap">
-                                    <img src="images/cctv-mobile-app.png" alt="Smartphone and tablet displaying CCTV mobile app interface" style="height: 280px; aspect-ratio: 1/1;">
+                                    <img src="images/cctv-mobile-app.png" alt="Smartphone and tablet displaying CCTV mobile app interface" class="blog-img-square">
                                     <span class="blog-img-caption">Modern mobile apps provide live views and playback controls from anywhere in the world.</span>
                                 </div>
                             </div>
@@ -648,7 +606,7 @@
                             <p><strong>Signal Flow:</strong> Camera captures video → CAT6 cable (PoE) → PoE Switch → NVR (Records to HDD) → Router → Smartphone App.</p>
                             <p>When you open your app, it requests a secure stream from your NVR via the cloud or a direct IP connection. For recorded footage, the NVR retrieves data from its hard drives and streams it to your device instantly.</p>
                             <div class="blog-img-wrap" style="margin-top: 32px;">
-                                <img src="images/cctv-system-flow.png" alt="Technical system architecture diagram showing CCTV signal flow" style="height: 250px; aspect-ratio: 16/9;">
+                                <img src="images/cctv-system-flow.png" alt="Technical system architecture diagram showing CCTV signal flow">
                                 <span class="blog-img-caption">Technical system architecture showing data and power flow from cameras to cloud.</span>
                             </div>
                         </div>
@@ -723,7 +681,7 @@
                                     <p>Traditional analogue systems are now obsolete. They are limited to 0.3MP resolution (grainy and blurry) and lack modern features like mobile apps or AI. We do <strong>not</strong> install new legacy systems and strongly advise upgrading immediately if you still rely on them for security.</p>
                                 </div>
                                 <div class="blog-img-wrap">
-                                    <img src="images/cctv-legacy-analogue.png" alt="Obsolete legacy analogue CCTV camera from the 1990s" style="height: 280px; aspect-ratio: 1/1;">
+                                    <img src="images/cctv-legacy-analogue.png" alt="Obsolete legacy analogue CCTV camera from the 1990s" class="blog-img-square">
                                     <span class="blog-img-caption">Legacy analogue technology is obsolete and lacks the detail required for modern security.</span>
                                 </div>
                             </div>
@@ -789,7 +747,7 @@
                                 <p>Digital video and power are delivered through a single CAT6 cable (PoE), ensuring zero interference and 24/7 recording regardless of WiFi congestion or battery health.</p>
                             </div>
                             <div class="blog-img-wrap">
-                                <img src="images/cctv-maintenance-audit.png" alt="Professional wired IP camera installation showing CAT6 cable management" style="height: 280px; aspect-ratio: 1/1;">
+                                <img src="images/cctv-maintenance-audit.png" alt="Professional wired IP camera installation showing CAT6 cable management" class="blog-img-square">
                                 <span class="blog-img-caption">Wired installations provide the 24/7 reliability required for true security monitoring.</span>
                             </div>
                         </div>
@@ -801,7 +759,7 @@
                                 <p><strong>The "Power" Trap:</strong> Most consumers don't realize that "wireless" cameras still need to be plugged into an electrical outlet or rely on batteries that require regular recharging. "Wireless" refers only to the data transmission, not the electrical connection.</p>
                             </div>
                             <div class="blog-img-wrap">
-                                <img src="images/cctv-wireless-wifi.png" alt="Wireless WiFi CCTV camera showing required power cable connection" style="height: 280px; aspect-ratio: 1/1;">
+                                <img src="images/cctv-wireless-wifi.png" alt="Wireless WiFi CCTV camera showing required power cable connection" class="blog-img-square">
                                 <span class="blog-img-caption">Most 'Wireless' cameras still require a physical power cable to an electrical outlet.</span>
                             </div>
                         </div>
@@ -809,7 +767,7 @@
                 </section>
 
                 <!-- ── 4. UPGRADING YOUR EXISTING SYSTEM ── -->
-                <section id="upgrading-existing-system">
+                <section id="upgrading-existing-system" class="bg-light">
                     <span class="eyebrow" style="color: var(--primary-cctv);">System Migration</span>
                     <h2 style="margin-bottom: 32px;">4. Upgrading Your Existing CCTV System</h2>
                     <p>Many properties have old analogue systems installed 5-15 years ago. If your images are grainy or cameras are failing, you have three primary upgrade paths.</p>
@@ -919,7 +877,7 @@
                                     <p><strong>Digital Dewarping:</strong> While the raw image is a "bubble," the software "dewarps" it into multiple flat rectangular views, allowing you to look in every direction simultaneously from a single video stream.</p>
                                 </div>
                                 <div class="blog-img-wrap">
-                                    <img src="images/cctv-ai-analytics-demo.png" alt="Fisheye camera view showing circular raw feed and dewarped flat views" style="height: 250px; aspect-ratio: 16/9;">
+                                    <img src="images/cctv-ai-analytics-demo.png" alt="Fisheye camera view showing circular raw feed and dewarped flat views">
                                     <span class="blog-img-caption">Fisheye cameras provide 100% room coverage with zero blind spots from a single installation point.</span>
                                 </div>
                             </div>
@@ -937,7 +895,7 @@
                                     <p>Choosing the right lens is just as important as the resolution. A 2.8mm lens is perfect for small rooms, while a 6mm lens is necessary for zooming in on a driveway or entry gate from a distance.</p>
                                 </div>
                                 <div class="blog-img-wrap">
-                                    <img src="images/cctv-resolution-ladder.png" alt="Comparison between 2.8mm wide angle and 6mm telephoto CCTV lenses" style="height: 250px; aspect-ratio: 16/9;">
+                                    <img src="images/cctv-resolution-ladder.png" alt="Comparison between 2.8mm wide angle and 6mm telephoto CCTV lenses">
                                     <span class="blog-img-caption">Matching the focal length to your specific coverage goal is critical for clear identification.</span>
                                 </div>
                             </div>
@@ -949,19 +907,19 @@
                             <div class="component-card">
                                 <h5>Varifocal Zoom</h5>
                                 <p style="font-size: 14px; margin-bottom: 20px;">Features an adjustable lens (usually 2.8-12mm) that can be zoomed in or out during installation to perfectly frame the target area.</p>
-                                <img src="images/cctv-camera-anatomy.png" alt="CCTV camera with varifocal lens showing zoom adjustment mechanism" style="width: 100%; border-radius: 8px;">
+                                <img src="images/cctv-camera-anatomy.png" alt="CCTV camera with varifocal lens showing zoom adjustment mechanism">
                             </div>
                             <!-- LPR -->
                             <div class="component-card">
                                 <h5>License Plate Recognition (LPR)</h5>
                                 <p style="font-size: 14px; margin-bottom: 20px;">Specialized shutter speeds and algorithms designed to capture crisp, readable license plates even on fast-moving vehicles at night.</p>
-                                <img src="images/industrial-perimeter.png" alt="LPR camera view showing vehicle with detected license plate SBA1234A" style="width: 100%; border-radius: 8px;">
+                                <img src="images/industrial-perimeter.png" alt="LPR camera view showing vehicle with detected license plate SBA1234A">
                             </div>
                             <!-- Thermal -->
                             <div class="component-card">
                                 <h5>Thermal Imaging</h5>
                                 <p style="font-size: 14px; margin-bottom: 20px;">Detects heat signatures instead of visible light. Essential for complete darkness, fog, or heavy rain over long distances.</p>
-                                <img src="images/comp-thermal.png" alt="Thermal imaging camera view showing human heat signature in darkness" style="width: 100%; border-radius: 8px;">
+                                <img src="images/comp-thermal.png" alt="Thermal imaging camera view showing human heat signature in darkness">
                             </div>
                         </div>
 
@@ -1003,7 +961,7 @@
                 </section>
 
                 <!-- ── 6. UNDERSTANDING RESOLUTION & IMAGE QUALITY ── -->
-                <section id="resolution-image-quality">
+                <section id="resolution-image-quality" class="bg-light">
                     <span class="eyebrow" style="color: var(--primary-cctv);">Image Quality</span>
                     <h2 style="margin-bottom: 32px;">6. Understanding Resolution & Image Quality</h2>
                     <p>Resolution determines how much detail your cameras capture. Higher resolution means clearer faces, readable license plates, and better evidence. But resolution isn't everything—other factors significantly affect image quality.</p>
@@ -1022,7 +980,7 @@
                                 <p><strong>Note:</strong> A professional 4MP camera with a high-quality lens will often outperform a "cheap" 8MP consumer camera, especially at night. Sensor quality and lens glass are just as important as the megapixel count.</p>
                             </div>
                             <div class="blog-img-wrap">
-                                <img src="images/cctv-resolution-ladder.png" alt="Triple comparison showing office scene at 2MP (grainy), 4MP (clear), and 8MP (very sharp) resolutions" style="height: 300px; aspect-ratio: 16/9;">
+                                <img src="images/cctv-resolution-ladder.png" alt="Triple comparison showing office scene at 2MP (grainy), 4MP (clear), and 8MP (very sharp) resolutions">
                                 <span class="blog-img-caption">Higher resolution allows you to zoom in on an incident without the image becoming "pixelated."</span>
                             </div>
                         </div>
@@ -1049,17 +1007,17 @@
                                 <p><strong>Height Matters:</strong> Cameras mounted too high (above 4 meters) result in "Top-of-Head" views, making facial identification impossible. For entry points, we recommend mounting cameras at roughly 2.5 meters to capture clear eye-level facial details.</p>
                             </div>
                             <div class="blog-img-wrap">
-                                <img src="images/cctv-planning-layout.png" alt="Strategic CCTV planning diagrams showing Terrace House, Office, Retail, and Warehouse layouts" style="height: 300px; aspect-ratio: 16/9;">
+                                <img src="images/cctv-planning-layout.png" alt="Strategic CCTV planning diagrams showing Terrace House, Office, Retail, and Warehouse layouts">
                                 <span class="blog-img-caption">Custom floor plans for Terrace houses, Offices, and Warehouses ensure optimized camera placement.</span>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <hr style="border: 0; border-top: 1px solid var(--border-light);">
+
 
                 <!-- ── 8. VIDEO STORAGE & RETENTION ── -->
-                <section id="video-storage">
+                <section id="video-storage" class="bg-light">
                     <span class="eyebrow" style="color: var(--primary-cctv);">Storage Planning</span>
                     <h2 style="margin-bottom: 32px;">8. Video Storage & Retention</h2>
                     <p>How much storage do you need? How long should you retain footage? Storage decisions affect both system cost and your ability to retrieve historical footage when needed.</p>
@@ -1077,7 +1035,7 @@
                                 </ul>
                             </div>
                             <div class="blog-img-wrap">
-                                <img src="images/cctv-storage-retention.png" alt="Storage capacity visualization and retention calendar infographic" style="height: 300px; aspect-ratio: 16/9;">
+                                <img src="images/cctv-storage-retention.png" alt="Storage capacity visualization and retention calendar infographic">
                                 <span class="blog-img-caption">Professional storage ensures your data is written reliably 24/7 without frame drops.</span>
                             </div>
                         </div>
@@ -1220,14 +1178,14 @@
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
                                     RAID 5 (Parity)
                                 </h5>
-                                <img src="images/cctv-raid-redundancy.png" alt="Technical diagram showing RAID 5 data distribution and parity across multiple hard drives" style="height: 250px; aspect-ratio: 16/9;">
+                                <img src="images/cctv-raid-redundancy.png" alt="Technical diagram showing RAID 5 data distribution and parity across multiple hard drives">
                                 <span class="blog-img-caption">RAID 5 configuration provides the highest level of data security for critical commercial sites.</span>
                             </div>
                         </div>
                     </div>
                 </section>
 
-                <hr style="border: 0; border-top: 1px solid var(--border-light);">
+
 
                 <!-- ── 9. WHAT DOES IT COST? ── -->
                 <section id="what-it-costs">
@@ -1282,7 +1240,7 @@
                                 <p><strong>Installation Complexity:</strong> Cabling through high ceilings, concrete beams, or across multiple floors requires more manpower and specialized equipment compared to simple surface-mount installations.</p>
                             </div>
                             <div class="blog-img-wrap">
-                                <img src="images/cctv-cost-distribution.png" alt="CCTV system cost breakdown pie chart showing Hardware, Labor, Storage, and Infrastructure segments" style="height: 300px; aspect-ratio: 1/1;">
+                                <img src="images/cctv-cost-distribution.png" alt="CCTV system cost breakdown pie chart showing Hardware, Labor, Storage, and Infrastructure segments" class="blog-img-square">
                                 <span class="blog-img-caption">Hardware represents only ~40% of a professional installation; labor, storage, and infrastructure are critical cost drivers.</span>
                             </div>
                         </div>
@@ -1290,7 +1248,7 @@
                 </section>
 
                 <!-- ── 10. UNDERSTANDING NIGHTVISION & LOW LIGHT ── -->
-                <section id="nightvision-low-light">
+                <section id="nightvision-low-light" class="bg-light">
                     <span class="eyebrow" style="color: var(--primary-cctv);">Night Performance</span>
                     <h2 style="margin-bottom: 32px;">10. Understanding Nightvision & Low Light</h2>
                     <p>Most security incidents happen in the dark. If your cameras produce a "grainy" or "noisy" image at night, they are virtually useless for identification.</p>
@@ -1303,7 +1261,7 @@
                                 <p><strong>Starlight / ColorVu Technology:</strong> Modern premium cameras use high-sensitivity sensors and large aperture lenses to maintain <strong>vivid full-color video</strong> even in near-total darkness. Seeing a "Blue Shirt" instead of just a "Grey Shirt" can be the difference between a successful investigation and a cold case.</p>
                             </div>
                             <div class="blog-img-wrap">
-                                <img src="images/cctv-starlight-comparison.png" alt="Side-by-side comparison of grainy standard IR vs vivid Starlight color night vision" style="height: 250px; aspect-ratio: 16/9;">
+                                <img src="images/cctv-starlight-comparison.png" alt="Side-by-side comparison of grainy standard IR vs vivid Starlight color night vision">
                                 <span class="blog-img-caption">Starlight sensors maintain full color and superior clarity in extreme low-light conditions.</span>
                             </div>
                         </div>
@@ -1325,7 +1283,7 @@
                                 <p><strong>Two-Way Audio:</strong> Some models feature built-in microphones and speakers, allowing you to speak directly through the camera to a delivery person or warn off an intruder remotely.</p>
                             </div>
                             <div class="blog-img-wrap">
-                                <img src="images/cctv-mobile-app-mockup.png" alt="Composite mockup of CCTV mobile app interface with live view, playback, and AI push notifications" style="height: 300px; aspect-ratio: 16/9;">
+                                <img src="images/cctv-mobile-app-mockup.png" alt="Composite mockup of CCTV mobile app interface with live view, playback, and AI push notifications">
                                 <span class="blog-img-caption">Remote access turns your CCTV system into a proactive security and management tool.</span>
                             </div>
                         </div>
@@ -1333,7 +1291,7 @@
                 </section>
 
                 <!-- ── 12. VIDEO ANALYTICS - WHERE & HOW ── -->
-                <section id="analytics-intro">
+                <section id="analytics-intro" class="bg-light">
                     <span class="eyebrow" style="color: var(--primary-cctv);">Intelligence Architecture</span>
                     <h2 style="margin-bottom: 32px;">12. Video Analytics: Edge, NVR, or Server-Based?</h2>
                     <p>Modern CCTV systems can analyze video to detect events, count people, recognize faces, and trigger alerts automatically. Understanding where analytics processing happens—Edge, NVR, or Server—helps you choose the right solution for your performance and budget needs.</p>
@@ -1614,10 +1572,10 @@
                     </div>
                 </section>
 
-                <hr style="border: 0; border-top: 1px solid var(--border-light);">
+
 
                 <!-- ── 14. REAL INSTALLATION EXAMPLES ── -->
-                <section id="real-installation-examples">
+                <section id="real-installation-examples" class="bg-light">
                     <span class="eyebrow" style="color: var(--primary-cctv);">Case Studies</span>
                     <h2 style="margin-bottom: 32px;">14. Real Installation Examples</h2>
                     <p>Real-world case studies demonstrate how CCTV systems are designed, deployed, and deliver value across different property types. These examples show the decision-making process, challenges faced, and results achieved.</p>
@@ -1695,7 +1653,7 @@
                     </div>
                 </section>
 
-                <hr style="border: 0; border-top: 1px solid var(--border-light);">
+
 
                 <!-- ── 15. MAINTENANCE & BEST PRACTICES ── -->
                 <section id="maintenance-best-practices">
@@ -1748,10 +1706,10 @@
                     </div>
                 </section>
 
-                <hr style="border: 0; border-top: 1px solid var(--border-light);">
+
 
                 <!-- ── 16. PRIVACY, PDPA & CYBERSECURITY ── -->
-                <section id="privacy-pdpa-cybersecurity">
+                <section id="privacy-pdpa-cybersecurity" class="bg-light">
                     <span class="eyebrow" style="color: var(--primary-cctv);">Legal & Security</span>
                     <h2 style="margin-bottom: 32px;">16. Privacy, PDPA & Cybersecurity</h2>
                     <p>In Singapore, surveillance remains governed by strict laws. Compliance is not just a best practice—it's a legal requirement to avoid heavy fines and civil liabilities.</p>
@@ -1768,7 +1726,7 @@
                                 </ul>
                             </div>
                             <div class="blog-img-wrap">
-                                <img src="images/comp-integration-v3.png" alt="PDPA compliance flowchart for CCTV installations in Singapore" style="height: 300px; aspect-ratio: 16/9;">
+                                <img src="images/comp-integration-v3.png" alt="PDPA compliance flowchart for CCTV installations in Singapore">
                                 <span class="blog-img-caption">Legal signage and data retention policies are mandatory for all commercial installations.</span>
                             </div>
                         </div>
@@ -1793,7 +1751,7 @@
                     </div>
                 </section>
 
-                <hr style="border: 0; border-top: 1px solid var(--border-light);">
+
 
                 <!-- ── 17. COMMON MISTAKES TO AVOID ── -->
                 <section id="common-mistakes">
@@ -1882,10 +1840,10 @@
                     </div>
                 </section>
 
-                <hr style="border: 0; border-top: 1px solid var(--border-light);">
+
 
                 <!-- ── 18. BRANDS & EQUIPMENT WE CARRY ── -->
-                <section id="brands-equipment">
+                <section id="brands-equipment" class="bg-light">
                     <span class="eyebrow" style="color: var(--primary-cctv);">Our Products</span>
                     <h2 style="margin-bottom: 32px;">18. Brands & Equipment We Carry</h2>
                     <p>We partner with industry-leading manufacturers to provide reliable, high-quality CCTV systems. Each brand is selected for its proven performance in Singapore's environment.</p>
@@ -1949,7 +1907,7 @@
                     </div>
                 </section>
 
-                <hr style="border: 0; border-top: 1px solid var(--border-light);">
+
 
                 <!-- ── 19. FAQ ── -->
                 <section id="faq">
@@ -2009,7 +1967,7 @@
                     </div>
                 </section>
 
-                <hr style="border: 0; border-top: 1px solid var(--border-light);">
+
 
             </main>
         </div>
@@ -2161,6 +2119,11 @@
             }
         });
     </script>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    </a>
 
 </body>
 </html>

@@ -204,12 +204,14 @@
 - .subtitle → Grid: 40px (Desktop), 32px (Mobile)
 - .section-divider: 64px margin-top, 40px padding-top.
 
-### Sidebar Layout & Sticky Navigation
-For technical guides and multi-section pages:
-- **Layout Wrapper**: Use `.layout-with-sidebar` with a 3:1 grid ratio (`3fr 1fr`).
+### Technical Guide Template (Side-Nav Format)
+For long-form technical guides (e.g., CCTV, Burglar Alarm, Door Access):
+- **Layout Wrapper**: Use `.layout-with-sidebar` with a fixed-width sidebar grid (`1fr 280px`).
 - **Standard Spacing**: The `.layout-with-sidebar` must have a **`margin-bottom: 120px`** to provide clear space between the sticky navigation and the final full-width CTA.
-- **Sticky TOC**: The `.sticky-toc` should stay within the `aside` column, pinned to `top: 120px`.
+- **Sticky TOC**: The `.sticky-toc` should stay within the `aside` column, pinned to `top: 100px` for optimal spacing under the main nav.
+- **Alternating Sections**: Apply `class="bg-light"` to alternating sections (typically even-numbered) for a refined visual rhythm. The shared CSS handles negative margins and internal padding for these sections.
 - **Max Height**: Sticky TOC should have `max-height: calc(100vh - 160px)` and `overflow-y: auto`.
+- **Hover States**: All guide TOC links must use the standardized `var(--primary-blue)` hover color defined in `sv-shared.css`.
 - **Final CTA**: Always place the final CTA section **outside** the layout container to allow it to stretch to full width.
 
 ---

@@ -59,10 +59,10 @@ h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; }
     padding: 0 24px; 
 }
 
-/* -- SIDEBAR & TOC LAYOUT -- */
+/* -- TECHNICAL GUIDE TEMPLATE (Side-Nav Format) -- */
 .layout-with-sidebar {
     display: grid;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr 280px;
     grid-template-areas: "content sidebar";
     gap: 64px;
     align-items: stretch;
@@ -74,7 +74,7 @@ aside { grid-area: sidebar; }
 
 .sticky-toc {
     position: sticky;
-    top: 120px;
+    top: 100px;
     background: #fff;
     padding: 32px;
     border-radius: 12px;
@@ -91,6 +91,8 @@ aside { grid-area: sidebar; }
     padding-bottom: 12px;
     border-bottom: 2px solid var(--bg-light);
     color: var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
 .toc-list { list-style: none; padding: 0; }
@@ -104,8 +106,22 @@ aside { grid-area: sidebar; }
     display: block;
     line-height: 1.4;
 }
-.toc-list a:hover { color: var(--primary-blue); padding-left: 4px; }
-.toc-list a.active { color: var(--primary-blue); font-weight: 700; }
+.toc-list a:hover, 
+.toc-list a.active { 
+    color: var(--primary-blue); 
+    font-weight: 600; 
+    padding-left: 4px; 
+}
+
+/* -- Alternating Section Backgrounds (Inside Guide Layout) -- */
+.layout-with-sidebar main section.bg-light {
+    background-color: var(--bg-light);
+    margin-left: -24px;
+    margin-right: -24px;
+    padding: 80px 24px;
+    border-radius: 16px;
+    border-bottom: none;
+}
 
 @media (max-width: 992px) {
     .layout-with-sidebar {
@@ -117,6 +133,11 @@ aside { grid-area: sidebar; }
         position: static;
         max-height: none;
         margin-bottom: 40px;
+    }
+    .layout-with-sidebar main section.bg-light {
+        margin-left: -16px;
+        margin-right: -16px;
+        padding: 48px 16px;
     }
 }
 .btn {
