@@ -17,10 +17,11 @@
     <style>
         /* PAGE-SPECIFIC STYLE OVERRIDES */
         :root {
-            --primary-access: #3182ce; /* Access Blue */
-            --primary-blue: #0056b3;
+            /* Keep technical pillar color as per design */
+            --primary-access: #3182ce; 
         }
 
+        /* Hero Override: specific background image */
         .hero-access {
             background: linear-gradient(rgba(14, 26, 43, 0.85), rgba(14, 26, 43, 0.85)), url('images/door-access-hero.png');
             background-size: cover;
@@ -38,6 +39,7 @@
             pointer-events: none;
         }
 
+        /* Stat Grid (Specific to technical guides) */
         .stat-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -78,13 +80,7 @@
             line-height: 1.4;
         }
 
-
-        /* CONTENT STYLING */
-        section { 
-            padding: 80px 0; 
-            border-bottom: 1px solid var(--border-light); 
-        }
-
+        /* Technical Content Layout (Common for Guides) */
         .lead {
             font-size: 18px;
             line-height: 1.8;
@@ -103,11 +99,10 @@
             font-size: 24px; 
             margin-bottom: 32px; 
             color: var(--text-dark); 
-            border-left: 5px solid var(--primary-access); 
+            border-left: 5px solid var(--primary-access) !important; 
             padding-left: 24px; 
         }
 
-        /* 75:25 SUBSECTION LAYOUT (Text : Image) */
         .blog-row {
             display: grid;
             grid-template-columns: 3fr 1fr;
@@ -120,40 +115,40 @@
             line-height: 1.8;
         }
 
+        .blog-img-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 24px;
+        }
+
         .blog-img-wrap img,
         .component-card img {
             width: 100%;
-            height: auto;
-            aspect-ratio: 16 / 9;
+            height: 100%;
             object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
             display: block;
         }
 
-        /* SQUARE IMAGE OPTION (For specifically formatted diagrams) */
+        /* SQUARE IMAGE OPTION */
+        .blog-img-wrap.blog-img-square {
+            aspect-ratio: 1 / 1;
+        }
+
         .blog-img-wrap img.blog-img-square,
         .component-card img.blog-img-square {
             aspect-ratio: 1 / 1;
         }
 
-        .blog-img-placeholder {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 16 / 9;
-            background: #f0f3f6;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 32px;
-            text-align: center;
-            font-size: 13px;
-            color: var(--text-light);
-            font-style: italic;
-            border: 1px dashed var(--border-light);
-            line-height: 1.6;
-            margin-bottom: 12px;
+        /* Utility to prevent product images from being cut off */
+        .img-contain img {
+            object-fit: contain !important;
+            padding: 24px;
         }
 
         .blog-img-caption {
@@ -198,7 +193,7 @@
 
         .recommendation-box {
             background: #f0f7ff;
-            border-left: 6px solid var(--primary-access);
+            border-left: 6px solid var(--primary-access) !important;
             padding: 32px;
             border-radius: 4px;
             margin: 40px 0;
@@ -218,27 +213,44 @@
         }
 
         .faq-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-            border-color: var(--primary-access);
+            border-color: var(--primary-access) !important;
         }
 
-        .faq-item h4 {
-            color: var(--text-dark);
-            margin-bottom: 12px;
-            font-size: 17px;
+        /* CONSTRAIN SECTIONS: Override breakout from sv-shared.css */
+        .layout-with-sidebar main section {
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-light);
         }
 
-        .faq-item p {
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 0;
-            color: var(--text-gray);
+        .layout-with-sidebar main section.bg-light {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            padding: 64px 32px !important;
+            border-radius: 12px !important;
+            border-bottom: 1px solid var(--border-light) !important;
+        }
+
+        /* Nav Override Scrolled State */
+        .main-nav.scrolled .nav-link:hover, 
+        .main-nav.scrolled .nav-link.active { 
+            color: var(--primary-access) !important; 
+        }
+
+        /* NAVIGATOR / STICKY TOC FIX */
+        .sticky-toc {
+            position: sticky;
+            top: 100px;
+            max-height: calc(100vh - 140px) !important;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+
+        .toc-list a:hover, 
+        .toc-list a.active { 
+            color: var(--primary-access) !important; 
         }
 
         @media (max-width: 992px) {
-            .blog-row { grid-template-columns: 1fr; gap: 24px; }
-            .blog-img-wrap { order: -1; margin-bottom: 8px; }
             .stat-grid { grid-template-columns: 1fr; }
         }
 
@@ -369,9 +381,9 @@
         </div>
     </header>
 
-    <!-- ── 2. BREADCRUMBS ── -->
-    <div class="sv-breadcrumb">
-        <div class="container">
+    <!-- ── 2. BREADCRUMBS (Contained) ── -->
+    <div class="container">
+        <div class="sv-breadcrumb" style="background: transparent; padding: 24px 0 0 0;">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="systems-hub.html">Systems</a></li>
@@ -649,8 +661,9 @@
                             <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">4</span> <strong>Action:</strong> If authorised, the controller signals the lock to release.</li>
                             <li style="padding-left: 32px; position: relative;"><span style="position: absolute; left:0; color:var(--primary-access);">5</span> <strong>Audit:</strong> The event is logged (name, door, time) for tracking.</li>
                         </ul>
-                        <div class="blog-img-placeholder" style="height: 300px; margin-top: 40px;">
-                            [Signal flow diagram showing complete sequence with icons: User &rarr; Credential &rarr; Reader &rarr; Controller &rarr; Lock &rarr; Door | Audit log database icon | Clean infographic style]
+                        <div class="mt-40">
+                            <img src="images/signal-flow-sequence.png" alt="Technical diagram showing complete access control signal flow: Credential &rarr; Reader &rarr; Controller &rarr; Lock &rarr; Success" style="width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); display: block; margin: 0 auto;">
+                            <span class="blog-img-caption">Every door authentication happens in milliseconds across these five critical components.</span>
                         </div>
                     </div>
 
@@ -1199,7 +1212,6 @@
                         <h3 class="mt-48">Security Comparison by Method</h3>
                         <img src="images/security-chart.png" alt="Security level comparison chart for different access control credentials" style="margin-top: 32px;">
                     </div>
-                    </div>
                 </section>
                 <!-- ── 9. READER TYPES EXPLAINED ── -->
                 <section id="reader-types">
@@ -1235,15 +1247,15 @@
                             <div class="card">
                                 <strong>Fingerprint Readers</strong>
                                 <p style="font-size: 14px; margin-top: 12px; color: var(--text-gray);">Available as optical or capacitive sensors. Modern units store up to 5,000 templates locally and perform matching in under 1 second.</p>
-                                <div class="blog-img-placeholder" style="height: 180px; margin-top: 16px;">
-                                    [Close-up of a finger on a high-precision optical sensor | Green LED success indicator]
+                                <div class="blog-img-wrap" style="margin-top: 16px;">
+                                    <img src="images/biometric-finger-success.png" alt="Close-up of a finger on a high-precision optical sensor with a green success indicator LED">
                                 </div>
                             </div>
                             <div class="card">
                                 <strong>Facial Recognition Terminals</strong>
                                 <p style="font-size: 14px; margin-top: 12px; color: var(--text-gray);">3D terminals use dual cameras for depth sensing, preventing spoofing via photos. Completely touchless and hygienic.</p>
-                                <div class="blog-img-placeholder" style="height: 180px; margin-top: 16px;">
-                                    [Facial recognition terminal screen showing a user's face with a green tracking box and 'Access Granted' message]
+                                <div class="blog-img-wrap" style="margin-top: 16px;">
+                                    <img src="images/biometric-face-success.png" alt="Facial recognition terminal screen showing an Asian user's face with a green tracking box and 'Access Granted' message">
                                 </div>
                             </div>
                         </div>
@@ -1285,7 +1297,7 @@
                                     <li><strong>U-Brackets:</strong> Mandatory for frameless glass doors (no drilling required).</li>
                                 </ul>
                             </div>
-                            <div class="blog-img-wrap">
+                            <div class="blog-img-wrap img-contain">
                                 <img src="images/em-lock-diagram.png" alt="Technical diagram of an electromagnetic lock showing internal electromagnet and armature plate components">
                             </div>
                         </div>
@@ -1370,8 +1382,9 @@
                                 <p style="font-size: 14px; margin-top: 12px; color: var(--text-gray);">We recommend card readers with EM locks for side gates. Domestic helpers can be given time-restricted access cards for specific working hours.</p>
                             </div>
                         </div>
-                        <div class="blog-img-placeholder" style="height: 250px; margin-top: 40px;">
-                            [Clean architectural floor plan of a condominium unit/landed property showing main entrance with digital lock and side gate with card reader + EM lock marked]
+                        <div class="blog-img-wrap img-contain" style="margin-top: 40px;">
+                            <img src="images/plan-residential-access.png" alt="Architectural floor plan of a Singapore condominium unit showing main entrance and side gate security markings">
+                            <span class="blog-img-caption">Layered residential security strategy: Digital lock for main entrance + RFID for side gates.</span>
                         </div>
                     </div>
 
@@ -1391,8 +1404,9 @@
                                 <p style="font-size: 13px; margin-top: 12px; color: var(--text-gray);">Server and cash rooms require two-factor authentication (Card + Fingerprint) and full audit trails.</p>
                             </div>
                         </div>
-                        <div class="blog-img-placeholder" style="height: 300px; margin-top: 40px;">
-                            [Office floor plan with colour-coded security zones: Green (Public), Blue (Staff Only), Red (High Security Server Room) | Access points clearly marked]
+                        <div class="blog-img-wrap img-contain" style="margin-top: 40px;">
+                            <img src="images/plan-office-zones.png" alt="Office floor plan with colour-coded security zones: Public, Staff, and High Security">
+                            <span class="blog-img-caption">Office zoning: Segmenting movement between general work areas and high-security server rooms.</span>
                         </div>
                     </div>
 
@@ -1409,8 +1423,9 @@
                                 <p>For hazardous material or high-value chemical storage, the system can require two independent employee credentials within 30 seconds to grant entry.</p>
                             </div>
                         </div>
-                        <div class="blog-img-placeholder" style="height: 250px; margin-top: 40px;">
-                            [Ruggedized warehouse gate with high-holding-force EM lock and an outdoor weather-rated fingerprint reader | Industrial context]
+                        <div class="blog-img-wrap" style="margin-top: 40px;">
+                            <img src="images/industrial-gate-pedestal.png" alt="Ruggedized warehouse gate with high-holding-force EM lock and outdoor weather-rated biometric reader">
+                            <span class="blog-img-caption">Ruggedised industrial access: Combining biometric precision with high-holding-force magnetic locks.</span>
                         </div>
                     </div>
 
@@ -1452,9 +1467,8 @@
                             </ul>
                         </div>
                         <div class="blog-img-wrap">
-                            <div class="blog-img-placeholder">
-                                [Smartphone displaying a modern cloud access control app with buttons for 'Unlock Front Door' and a live log of recent entries | Clean UI design]
-                            </div>
+                            <img src="images/cloud-app-interface.png" alt="Smartphone displaying a modern cloud access control app with remote unlock buttons and live audit logs">
+                            <span class="blog-img-caption">Cloud-native management: Grant access and monitor sites globally from your mobile device.</span>
                         </div>
                     </div>
 
@@ -1528,8 +1542,9 @@
                                 <p style="font-size: 14px; margin-top: 12px; color: var(--text-gray);">Premium biometric accuracy with cloud-hosted management. Best for high-security sites requiring remote oversight.</p>
                             </div>
                         </div>
-                        <div class="blog-img-placeholder" style="height: 300px; margin-top: 40px;">
-                            [Grid of Akuvox cloud-connected readers: R20A (Card/4G), R27 (Keypad), R29 (Facial Recognition) | Sleek modern aesthetics]
+                        <div class="blog-img-wrap img-contain" style="margin-top: 40px;">
+                            <img src="images/brand-akuvox-readers.png" alt="Grid of Akuvox cloud-connected readers including R20A, R27, and R29 face recognition terminal">
+                            <span class="blog-img-caption">The Akuvox ecosystem: From compact mullion readers to premium facial recognition terminals.</span>
                         </div>
                     </div>
 
@@ -1606,8 +1621,9 @@
                                 <p>Configures a pair of doors so only one can be open at a time. Ideal for clean rooms or high-security vaults to prevent "piggybacking" or contamination.</p>
                             </div>
                         </div>
-                        <div class="blog-img-placeholder" style="height: 250px; margin-top: 40px;">
-                            [Technical diagram showing a secure 'Mantrap' lobby with two doors (Door A and Door B) | Logic flow arrows showing Door A must close before Door B unlocks | Green/Red indicator lights illustrated]
+                        <div class="blog-img-wrap" style="margin-top: 40px;">
+                            <img src="images/mantrap-logic.png" alt="Technical diagram showing a secure 'Mantrap' lobby logic: Door A must close before Door B unlocks">
+                            <span class="blog-img-caption">Airlock / Mantrap logic: Ensures physical isolation between public and secure zones.</span>
                         </div>
                     </div>
 
@@ -1650,9 +1666,8 @@
                             </ul>
                         </div>
                         <div class="blog-img-wrap">
-                            <div class="blog-img-placeholder">
-                                [Screenshot of a modern access control software interface showing a list of 'Access Levels' (Staff, Management, IT, Security) with checkboxes next to individual door names]
-                            </div>
+                            <img src="images/software-access-levels.png" alt="Screenshot of access control software showing the Access Levels and permissions configuration interface">
+                            <span class="blog-img-caption">Permissions architecture: Grouping readers into logical 'Access Levels' for rapid user on-boarding.</span>
                         </div>
                     </div>
 
@@ -1752,8 +1767,9 @@
                         </div>
                     </div>
 
-                    <div class="blog-img-placeholder" style="height: 300px; margin-top: 32px;">
-                        [Four digital lock types displayed side-by-side: Panel 1 - Card lock with RFID surface | Panel 2 - PIN code lock with numeric keypad | Panel 3 - Fingerprint lock with optical sensor | Panel 4 - Smart lock with mobile app interface on a phone screen | Clean product photography]
+                    <div class="blog-img-wrap" style="margin-top: 32px;">
+                        <img src="images/digital-lock-variants.png" alt="Four types of digital door locks side-by-side: RFID, PIN, Fingerprint, and Smart Mobile App">
+                        <span class="blog-img-caption">Digital door lock authentication: Multiple keyless entry options tailored for residential and boutique office environments.</span>
                     </div>
 
                     <div class="subsection">
@@ -1863,11 +1879,13 @@
                     </div>
 
                     <div class="grid-2 gap-24" style="margin-top: 40px;">
-                        <div class="blog-img-placeholder" style="height: 250px;">
-                            [Tripod turnstile installed in office lobby, three rotating arms visible, employee scanning card at integrated reader, stainless steel construction]
+                        <div class="blog-img-wrap">
+                            <img src="images/physical-tripod-turnstile.png" alt="Stainless steel tripod turnstile installed in a modern Singapore office lobby">
+                            <span class="blog-img-caption">Tripod Turnstiles: Effective, low-cost pedestrian control for high-traffic industrial and commercial zones.</span>
                         </div>
-                        <div class="blog-img-placeholder" style="height: 250px;">
-                            [Premium flap barrier in corporate lobby, transparent glass panels in open position, employee walking through, sleek modern design]
+                        <div class="blog-img-wrap">
+                            <img src="images/physical-flap-barrier.png" alt="Premium glass flap barrier speed gate in a corporate office lobby with an employee walking through">
+                            <span class="blog-img-caption">Flap Barriers: High-speed, prestige-tier entrance control for modern corporate headquarters.</span>
                         </div>
                     </div>
 
@@ -1893,9 +1911,10 @@
                                 <p><strong>Automatic Rising Bollards:</strong> High-security vehicle blockage for embassies or pedestrian plazas. These heavy-duty steel posts rise from the ground to prevent vehicle-ramming attacks.</p>
                             </div>
                             <div class="blog-img-wrap">
-                                <div class="blog-img-placeholder" style="height: 200px;">
-                                    [Car park boom barrier with ANPR camera mounted above, vehicle approaching, licence plate being read, barrier in lowered position]
-                                </div>
+                                <div class="blog-img-wrap">
+                            <img src="images/vehicle-boom-barrier.png" alt="Car park boom barrier with an ANPR camera reading an approaching vehicle's licence plate">
+                            <span class="blog-img-caption">Vehicle access automation: ANPR cameras identify vehicles and command barriers to lift without driver intervention.</span>
+                        </div>
                             </div>
                         </div>
                     </div>
@@ -1956,9 +1975,8 @@
                                 </ul>
                             </div>
                             <div class="blog-img-wrap">
-                                <div class="blog-img-placeholder" style="height: 250px;">
-                                    [Infographic showing 'Return on Investment' timeline | Bar charts comparing annual 'Traditional Lock' maintenance vs 'Access Control' efficiency | 50% Hardare, 30% Labour, 15% Software labels]
-                                </div>
+                                <img src="images/investment-roi-access.png" alt="Infographic showing the Return on Investment (ROI) of electronic access control over 5 years">
+                                <span class="blog-img-caption">ROI Analysis: Long-term savings from eliminated re-keying costs and improved payroll accuracy.</span>
                             </div>
                         </div>
                     </div>
@@ -2003,6 +2021,10 @@
                                 <p style="font-size: 13px; margin-top: 12px;">Payroll costs reduced by 4.8% ($35k/year savings) due to accurate time tracking. Passed MOM audit with zero discrepancies.</p>
                             </div>
                         </div>
+                        <div class="blog-img-wrap" style="margin-top: 40px;">
+                            <img src="images/case-study-warehouse.png" alt="Warehouse entrance showing an employee using a facial recognition terminal to unlock interlocked high-security doors">
+                            <span class="blog-img-caption">Case Study 2: High-throughput facial recognition integrated with safety-interlocked warehouse zones.</span>
+                        </div>
                     </div>
                 </section>
 
@@ -2045,6 +2067,10 @@
                     <div class="subsection" style="margin-top: 40px;">
                         <h3>Fire Alarm Integration</h3>
                         <p>Our controllers are wired directly to the building's Fire Alarm Panel (FAP) via a dry-contact relay. When the alarm triggers, the 12/24V power to all door locks is cut at the source—guaranteeing that occupants can exit without fumbling for cards or fingerprints during an emergency.</p>
+                        <div class="blog-img-wrap img-contain" style="margin-top: 40px;">
+                            <img src="images/fire-safety-integration.png" alt="Technical diagram showing the integration between the Fire Alarm Panel (FAP), door controller, and fail-safe electromagnetic lock">
+                            <span class="blog-img-caption">Fire Safety Integration: Life-safety signals from the FAP always take priority over the security system.</span>
+                        </div>
                     </div>
                 </section>
 
