@@ -212,7 +212,10 @@ For long-form technical guides (e.g., CCTV, Burglar Alarm, Door Access):
 - **Alternating Sections**: Apply `class="bg-light"` to alternating sections (typically even-numbered) for a refined visual rhythm. The shared CSS handles negative margins and internal padding for these sections.
 - **Max Height**: Sticky TOC should have `max-height: calc(100vh - 160px)` and `overflow-y: auto`.
 - **Hover States**: All guide TOC links must use the standardized `var(--primary-blue)` hover color defined in `sv-shared.css`.
-- **Final CTA**: Always place the final CTA section **outside** the layout container to allow it to stretch to full width.
+- **Final CTA**: Always place the final CTA section **outside** the layout container to allow it to stretch to full-width.
+- **CTA Layout**: Use a centered, hero-style layout with a dark linear-gradient overlay on a relevant background image (`cta-skyline` class).
+- **No Numbering**: The final assessment CTA must **NEVER** have a section number (e.g., Use "Get Your Free Assessment" instead of "29. Get Your Free Assessment").
+- **TOC Exclusion**: The final CTA section must **NEVER** be listed in the sidebar Table of Contents.
 
 ---
 
