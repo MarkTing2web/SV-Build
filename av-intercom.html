@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intercom Systems: Complete Guide for Singapore Properties | Securevision</title>
+    <meta name="description" content="The definitive technical guide to intercom systems in Singapore. From residential gates to multi-unit buildings - understand technology, choose the right system, and implement visitor communication.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="sv-shared.css">
+    <link rel="stylesheet" href="sv-guides.css">
+    
+    <style>
+        /* PAGE-SPECIFIC STYLE OVERRIDES */
+        :root {
+            --primary-intercom: #3182ce; /* Using a blue tone consistent with the technical guides */
+            --primary-blue: #0046af;
+        }
+        
+        .hero-intercom {
+            background-image: linear-gradient(rgba(14, 26, 43, 0.85), rgba(14, 26, 43, 0.9)), url('images/intercom-hero-main.png');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: white;
+            padding: 180px 0 140px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Hero Accent Glow */
+        .hero-intercom::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 70% at 65% 50%, rgba(49, 130, 206, 0.2) 0%, transparent 70%);
+            z-index: 1;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 32px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #5b9ee1;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.8;
+            color: #fff;
+        }
+        
+        /* Layout adjust for sidebar */
+        .layout-with-sidebar {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            grid-template-areas: "content sidebar";
+            gap: 64px;
+            margin-top: 64px;
+            margin-bottom: 120px;
+        }
+
+        @media (max-width: 992px) {
+            .layout-with-sidebar {
+                grid-template-columns: 1fr;
+                grid-template-areas: "sidebar" "content";
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MASTER NAVIGATION -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <!-- Logo + Wordmark — always left -->
+            <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
+                <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
+                <span class="wordmark nav-wordmark">SECUREVISION</span>
+            </a>
+            <!-- Hamburger — centred absolutely on mobile (via CSS) -->
+            <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg
+                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg></button>
+            <!-- Desktop nav links -->
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
+                    <div class="simple-dropdown">
+                        <a href="residential.html">Private Homes</a>
+                        <a href="condominiums.html">Condominiums</a>
+                        <a href="commercial.html">Commercial &amp; Retail</a>
+                        <a href="industrial.html">Industrial &amp; Logistics</a>
+                        <a href="institutions.html">Institutions &amp; Government</a>
+                        <a href="healthcare.html">Healthcare &amp; Managed Living</a>
+                        <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="systems-hub.html" class="nav-link active has-dropdown">Systems</a>
+                    <div class="simple-dropdown">
+                        <a href="surveillance-systems.html">Surveillance &amp; Detection</a>
+                        <a href="people-access.html">People Access</a>
+                        <a href="vehicle-access.html">Vehicle Access</a>
+                        <a href="platform-integration.html">Platform &amp; Integration</a>
+                        <a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="brands.html" class="nav-link has-dropdown">Brands</a>
+                    <div class="simple-dropdown">
+                        <a href="hikvision-singapore.html">Hikvision</a>
+                        <a href="hanwha-samsung-singapore.html">Hanwha</a>
+                        <a href="ajax-alarm-singapore.html">AJAX</a>
+                        <a href="zkteco-singapore.html">ZKTeco</a>
+                        <a href="akuvox-singapore.html">Akuvox</a>
+                        <a href="faac-singapore.html">FAAC</a>
+                        <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
+                    <div class="simple-dropdown">
+                        <a href="portfolio.html">Private Homes</a>
+                        <a href="portfolio.html">Condominiums</a>
+                        <a href="commercial.html">Commercial &amp; Retail</a>
+                        <a href="industrial.html">Industrial &amp; Logistics</a>
+                        <a href="institutions.html">Institutions &amp; Government</a>
+                        <a href="healthcare.html">Healthcare &amp; Managed Living</a>
+                        <a href="portfolio.html"><strong>&rarr; All Projects</strong></a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
+                    <div class="simple-dropdown">
+                        <a href="insights.html?cat=planning">Security Planning</a>
+                        <a href="insights.html?cat=technology">Technology</a>
+                        <a href="insights.html?cat=casestudy">Case Studies</a>
+                        <a href="insights.html?cat=industry">SG Industry</a>
+                        <a href="insights.html"><strong>&rarr; All Articles</strong></a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
+                    <div class="simple-dropdown">
+                        <a href="about.html">Our Story</a>
+                        <a href="about.html#founder">Founder&rsquo;s Story</a>
+                        <a href="awards-certifications.html">Awards &amp; Certifications</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- Desktop search icon -->
+            <div class="nav-right">
+                <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search"
+                    onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg></button>
+            </div>
+            <!-- Mobile search icon — always right end on mobile -->
+            <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search"
+                onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg></button>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu"
+                    id="solSub"><a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a><a
+                        href="residential.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a
+                        href="commercial.html">Commercial &amp; Retail</a><a href="industrial.html">Industrial &amp;
+                        Logistics</a><a href="institutions.html">Institutions &amp; Government</a><a
+                        href="healthcare.html">Healthcare &amp; Managed Living</a></div>
+            </div>
+            <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu"
+                    id="sysSub"><a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a><a
+                        href="surveillance-systems.html">Surveillance</a><a href="people-access.html">People
+                        Access</a><a href="vehicle-access.html">Vehicle Access</a><a
+                        href="platform-integration.html">Platform</a></div>
+            </div>
+            <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;<div class="mobile-submenu"
+                    id="brdSub"><a href="brands.html"><strong>&rarr; All 20 Brands</strong></a><a
+                        href="hikvision-singapore.html">Hikvision</a><a href="ajax-alarm-singapore.html">AJAX</a><a
+                        href="zkteco-singapore.html">ZKTeco</a><a href="akuvox-singapore.html">Akuvox</a><a
+                        href="faac-singapore.html">FAAC</a></div>
+            </div>
+            <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;<div
+                    class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>&rarr; All
+                            Projects</strong></a><a href="portfolio.html">Private Homes</a><a
+                        href="portfolio.html">Condominiums</a><a href="commercial.html">Commercial &amp; Retail</a><a
+                        href="industrial.html">Industrial &amp; Logistics</a><a href="institutions.html">Institutions
+                        &amp; Government</a><a href="healthcare.html">Healthcare &amp; Managed Living</a></div>
+            </div>
+            <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights &#9662;<div class="mobile-submenu"
+                    id="insSub"><a href="insights.html"><strong>&rarr; All Articles</strong></a><a
+                        href="insights.html?cat=planning">Security Planning</a><a
+                        href="insights.html?cat=technology">Technology</a><a href="insights.html?cat=casestudy">Case
+                        Studies</a></div>
+            </div>
+            <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu"
+                    id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a
+                        href="about.html#founder">Founder&rsquo;s Story</a><a
+                        href="awards-certifications.html">Awards</a><a href="contact.html">Contact Us</a></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── HERO SECTION ── -->
+    <header class="hero-intercom">
+        <div class="container pos-relative z-2">
+            <span class="eyebrow-light" style="letter-spacing: 2px;">Professional Communication Systems</span>
+            <h1 style="color: #fff; margin-top: 24px; margin-bottom: 32px; font-size: clamp(32px, 5vw, 64px);">Intercom Systems: <br><span style="color: #5b9ee1;">Complete Guide for Singapore Properties</span></h1>
+            <p class="lead" style="color: rgba(255,255,255,0.9); max-width: 850px; margin: 0 auto 48px; line-height: 1.8; font-size: 18px;">From residential gates to multi-unit buildings and commercial facilities — understand intercom technology, choose the right system, and implement professional visitor communication solutions.</p>
+            
+            <div class="btn-group" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 64px;">
+                <a href="book-slot.html" class="btn btn-primary" style="min-width: 250px;">Request Site Assessment</a>
+                <a href="https://wa.me/6593860466" class="btn btn-whatsapp" style="min-width: 250px; background: #25d366; color: white;">WhatsApp Specialist</a>
+            </div>
+
+            <div class="stat-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+                <div class="stat-card">
+                    <span class="stat-number">📞 Two-Way</span>
+                    <span class="stat-label">Audio & Video Verification</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">🏢 Scalable</span>
+                    <span class="stat-label">1 to 5,000+ Units</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">🔒 Multi-Point</span>
+                    <span class="stat-label">Gate, Lobby & Lift Control</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── BREADCRUMBS ── -->
+    <div class="container">
+        <div class="sv-breadcrumb" style="background: transparent; padding: 24px 0 0 0;">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="systems-hub.html">Systems</a></li>
+                <li>Intercom Guide</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- MAIN WRAPPER -->
+    <div class="container mt-64 mb-64">
+        <div class="layout-with-sidebar">
+
+            <!-- SIDEBAR: STICKY TOC -->
+            <aside>
+                <div class="sticky-toc">
+                    <h3 class="toc-title" onclick="toggleTocMobile()">Guide Sections</h3>
+                    <ul class="toc-list" id="tocList">
+                        <li><a href="#what-is">1. What is an Intercom System?</a></li>
+                        <li><a href="#comparison">2. Intercom vs Other Systems</a></li>
+                        <li><a href="#ip-phone">3. Intercom vs IP Phone Systems</a></li>
+                        <li><a href="#how-it-works">4. How Intercom Systems Work</a></li>
+                        <li><a href="#types">5. Types of Intercom Systems</a></li>
+                        <li><a href="#section6">6. Section Placeholder</a></li>
+                        <!-- TOC items will be updated when sections are added -->
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT AREA -->
+            <main id="main-content">
+                <!-- ── 1. WHAT IS AN INTERCOM SYSTEM? ── -->
+                <section id="what-is">
+                    <span class="eyebrow" style="color: var(--primary-intercom);">Definitions & Core Functions</span>
+                    <h2 style="margin-bottom: 32px;">1. What is an Intercom System?</h2>
+                    
+                    <div class="blog-row-wrap" style="display: flex; flex-direction: row; flex-wrap: nowrap; gap: 40px; align-items: flex-start; margin-bottom: 48px;">
+                        <div class="blog-text" style="flex: 1; min-width: 0;">
+                            <p class="lead">An intercom system is a standalone communication network designed for voice and video conversation within a building or property.</p>
+                            <p>Unlike telephone systems that connect to external phone lines, intercoms operate as closed networks dedicated to internal communication and visitor management. The core function of an intercom is simple: enable two people in different locations within the same property to communicate instantly. A visitor at your front gate can speak with someone inside the house. An employee in one office can call a colleague in another department. A person trapped in a lift can reach security personnel for help.</p>
+                        </div>
+                        <div class="blog-img-wrap blog-img-square" style="flex: 0 0 35%; aspect-ratio: 1/1; border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden; background: #fff; margin: 0;">
+                            <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #f8fbff; color: #4a5568; font-size: 11px; text-align: center; padding: 20px;">
+                                <div style="font-size: 24px; margin-bottom: 12px;">📞↔️📱</div>
+                                [Split comparison image showing 1970s audio handset intercom on left versus modern touchscreen video intercom with mobile app on right]
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>The Evolution of Intercom Technology</h3>
+                        <p>Intercom systems have transformed dramatically over the past six decades:</p>
+                        
+                        <div class="mt-32" style="display: grid; gap: 32px;">
+                            <div class="evolution-item">
+                                <h4 style="color: var(--primary-intercom);">1960s-1980s: Audio Handsets</h4>
+                                <p>Early intercoms were simple audio-only devices with handsets similar to telephones. A visitor pressed a button at the door station, a bell rang inside, and residents picked up a handset to speak. These systems used basic analog circuitry and required dedicated wiring between the door and indoor stations. Door release was manual—press a button on the handset to trigger a relay that unlocked the gate or door.</p>
+                            </div>
+                            <div class="evolution-item">
+                                <h4 style="color: var(--primary-intercom);">1990s: Video Integration</h4>
+                                <p>The introduction of small CRT (cathode ray tube) monitors brought visual verification to intercoms. Residents could now see who was at the door before opening. Video quality was modest—grainy black-and-white or low-resolution color—but the security improvement was significant. These systems required more complex wiring: separate cables for audio, video, and power.</p>
+                            </div>
+                            <div class="evolution-item">
+                                <h4 style="color: var(--primary-intercom);">2000s: Digital IP Systems</h4>
+                                <p>Network-based intercoms emerged, using the same infrastructure as computers and security cameras. IP (Internet Protocol) intercoms transmitted digital audio and video over CAT6 Ethernet cables, enabling higher quality, longer distances, and integration with other building systems. Recording became standard, and systems could support hundreds or thousands of stations on a single network.</p>
+                            </div>
+                            <div class="evolution-item">
+                                <h4 style="color: var(--primary-intercom);">2010s-Present: Cloud and Mobile Apps</h4>
+                                <p>Modern intercoms connect to the internet, allowing residents to answer door calls on their smartphones from anywhere in the world. Cloud-based platforms manage user permissions, log all visitor interactions, and integrate with access control systems. Facial recognition, QR codes, and temporary digital keys have replaced traditional methods of visitor management.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>What Intercoms Are NOT</h3>
+                        <p style="margin-bottom: 32px;">Understanding what an intercom is not helps clarify its purpose:</p>
+                        
+                        <div class="grid-2 gap-32">
+                            <div>
+                                <h4 style="margin-bottom: 12px; color: #2d3748;">Not a Telephone System</h4>
+                                <p style="font-size: 15px; line-height: 1.7; color: var(--text-gray);">Intercoms do not connect to the public switched telephone network (PSTN) or make external calls. You cannot dial a phone number on an intercom. If a system allows calling outside phone numbers, it's a business telephone system (PABX) with door phone capability, not a pure intercom. We cover this distinction in detail in Section 3.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 12px; color: #2d3748;">Not a PA (Public Address) System</h4>
+                                <p style="font-size: 15px; line-height: 1.7; color: var(--text-gray);">PA systems broadcast announcements one-way to multiple locations—a voice from the office goes to all zones, but listeners cannot reply. Intercoms are primarily two-way: both parties can speak and hear each other in real-time conversation. Some advanced intercoms include PA capability as an additional feature, but it's not their primary function.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 12px; color: #2d3748;">Not a Video Doorbell</h4>
+                                <p style="font-size: 15px; line-height: 1.7; color: var(--text-gray);">Standalone video doorbells like Ring or Nest connect wirelessly to your home WiFi and send notifications to your phone. They're designed as retrofit products for homes without existing intercom infrastructure. Intercoms are complete wired systems with dedicated indoor monitors, multiple stations, and professional-grade reliability. Video doorbells cost $150-$400 and run on batteries or doorbell transformers. Intercom systems cost $900-$5,000+ and integrate with property access control, multiple indoor monitors, and building management systems.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 12px; color: #2d3748;">Not a Walkie-Talkie</h4>
+                                <p style="font-size: 15px; line-height: 1.7; color: var(--text-gray);">Walkie-talkies are portable handheld radios for mobile communication across distances (typically 1-5km depending on terrain and power). Intercoms are fixed installations with stations mounted at specific locations. Walkie-talkies use radio frequencies and require users to press-and-hold a talk button (half-duplex). Modern intercoms support full-duplex communication where both parties can speak simultaneously, just like a phone call.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>Modern Intercom Capabilities</h3>
+                        <p style="margin-bottom: 32px;">Today's intercom systems extend far beyond simple voice communication:</p>
+                        
+                        <div class="mt-32" style="display: grid; gap: 24px;">
+                            <div>
+                                <h4 style="margin-bottom: 8px;">High-Definition Video</h4>
+                                <p style="font-size: 15px; line-height: 1.7;">Modern video intercoms feature 2-megapixel to 4-megapixel cameras with wide-angle lenses (typically 140-180 degrees) and HD or Full HD resolution. Night vision with infrared LEDs allows clear identification of visitors even in complete darkness. Some models include dual cameras—one for facial recognition at eye level, another for package detection at waist level.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 8px;">Mobile App Integration</h4>
+                                <p style="font-size: 15px; line-height: 1.7;">Residents receive push notifications when someone presses the door button, see live video on their smartphones, speak with visitors through the app, and release the door remotely—whether they're at home, in the office, or traveling abroad. Call logs and recorded video provide a complete history of all visitor interactions.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 8px;">Access Control Integration</h4>
+                                <p style="font-size: 15px; line-height: 1.7;">Many modern door stations include built-in card readers (RFID, NFC), numeric keypads, fingerprint sensors, or facial recognition cameras. Authorized users can enter without calling anyone—they simply tap their card, enter their PIN, or look at the camera. This unifies visitor management (unknown guests call for entry) with resident access (authorized users enter directly) in a single device.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 8px;">Call Recording and Logging</h4>
+                                <p style="font-size: 15px; line-height: 1.7;">IP-based intercoms automatically capture snapshots or video recordings of everyone who calls, time-stamped and stored in cloud or local servers. This creates an audit trail for security purposes and helps residents identify previous visitors. Some systems also record the audio conversation, though this requires compliance with Singapore's Personal Data Protection Act (PDPA) regarding notification and consent.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 8px;">Weather Resistance and Durability</h4>
+                                <p style="font-size: 15px; line-height: 1.7;">Outdoor intercom stations are built to IP65 or IP66 weatherproof ratings, withstanding Singapore's tropical climate: heavy rain, high humidity, intense sun, and temperature variations. Metal housings (stainless steel or aluminum) resist corrosion, and conformal coating protects circuit boards from moisture.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>Where Intercoms Are Used</h3>
+                        
+                        <div class="blog-img-wrap" style="width: 100%; border-radius: 12px; overflow: hidden; background: #f0f4f8; margin: 32px 0;">
+                            <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; text-align: center; color: #718096; font-size: 14px; padding: 40px;">
+                                [Six-panel grid showing intercom applications: residential gate station, condominium lobby panel, office reception intercom, warehouse loading bay station, hospital nurse call station, elevator emergency intercom]
+                            </div>
+                        </div>
+
+                        <div class="grid-2 gap-40 mt-32">
+                            <div>
+                                <h4 style="margin-bottom: 12px;">Residential Properties</h4>
+                                <p style="font-size: 15px; line-height: 1.7;">Landed homes, bungalows, and terraced houses install intercoms at main gates and side entrances. Indoor monitors are placed in kitchens, living rooms, or bedrooms, allowing residents to vet visitors without walking to the gate. Systems typically support 1 door station and 2-8 indoor monitors.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 12px;">Condominiums and Apartments</h4>
+                                <p style="font-size: 15px; line-height: 1.7;">Multi-unit residential buildings use visitor call panels at main entrances where visitors select a unit number to call. The system routes the call to that unit's indoor monitor or mobile app. Residents see and speak with the visitor, then grant access by pressing a button that releases the lobby door. Large condominiums may have 50 to 5,000 individual units, multiple entrance stations, and guard house integration.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 12px;">Offices and Commercial Buildings</h4>
+                                <p style="font-size: 15px; line-height: 1.7;">Businesses install intercoms at reception areas to vet visitors before granting access. Some offices use intercom networks for internal communication between departments, meeting rooms, or floors—similar to an internal telephone extension system but dedicated to building communication rather than external calling.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 12px;">Industrial Facilities</h4>
+                                <p style="font-size: 15px; line-height: 1.7;">Warehouses, factories, and manufacturing plants deploy intercoms at loading bays, perimeter gates, and between production areas. Noisy industrial environments require intercoms with high-power speakers, noise-canceling microphones, and rugged construction to withstand harsh conditions.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 12px;">Institutional Settings</h4>
+                                <p style="font-size: 15px; line-height: 1.7;">Hospitals, schools, prisons, airports, and railway stations use specialized intercom systems for operational communication and emergency response. These may include hundreds of stations networked together, allowing selective calling between specific locations and centralized monitoring at control rooms.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 12px;">Emergency Communication</h4>
+                                <p style="font-size: 15px; line-height: 1.7;">Building codes require intercoms in certain locations for safety: inside elevator cabins (to call for help if trapped), handicap-accessible toilets (emergency call buttons), car park help points (for drivers needing assistance), and fire stairwells (for firefighter coordination). These are often one-way call systems where the person presses a button to alert security or building management.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--bg-light); padding: 40px; border-radius: 12px; border-top: 4px solid var(--primary-intercom); margin-top: 64px;">
+                        <p style="font-size: 16px; line-height: 1.8; font-style: italic; color: #4a5568; margin: 0;">Intercom systems have evolved from simple voice boxes to sophisticated communication and security platforms. They serve a single unifying purpose: enable people within a property to communicate effectively, verify visitors before granting access, and maintain secure control over who enters the premises. The technology may vary—from basic audio handsets to cloud-connected video systems with artificial intelligence—but the fundamental goal remains constant: safe, convenient communication within your property's boundaries.</p>
+                    </div>
+                </section>
+
+                <!-- ── 2. INTERCOM VS OTHER COMMUNICATION SYSTEMS ── -->
+                <section id="comparison">
+                    <div class="section-divider"></div>
+                    <span class="eyebrow" style="color: var(--primary-intercom);">Technology Comparisons</span>
+                    <h2 style="margin-bottom: 32px;">2. Intercom vs Other Systems</h2>
+                    
+                    <p class="lead">Intercom systems are often confused with other communication technologies. While there's some overlap in functionality, each system serves distinct purposes. Understanding these differences helps you choose the right solution for your needs.</p>
+
+                    <div class="subsection mt-48">
+                        <h3>Intercom vs Walkie-Talkies</h3>
+                        <div class="grid-2 gap-40">
+                            <div>
+                                <h4 style="margin-bottom: 16px;">Walkie-Talkies: Mobile Communication</h4>
+                                <p style="margin-bottom: 16px;">Walkie-talkies are portable handheld radios designed for mobile communication across distances. Security guards patrolling a facility, event staff coordinating crowd management, or construction workers moving across a site carry walkie-talkies to stay in contact while on the move.</p>
+                                <p><strong>Key characteristics:</strong></p>
+                                <ul class="check-list mt-16">
+                                    <li><strong>Portable:</strong> Handheld devices clipping to belt/pocket</li>
+                                    <li><strong>Radio Frequency:</strong> Transmit via VHF/UHF, no cables</li>
+                                    <li><strong>Range:</strong> 1-5km urban, up to 30km open terrain</li>
+                                    <li><strong>Half-Duplex:</strong> Press-to-talk (one person at a time)</li>
+                                    <li><strong>Group:</strong> Everyone on same channel hears all</li>
+                                    <li><strong>No Installation:</strong> Works out-of-the-box</li>
+                                    <li><strong>Battery Powered:</strong> Requires regular charging</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 16px;">Intercoms: Fixed Installation</h4>
+                                <p style="margin-bottom: 16px;">Intercoms are permanently installed at specific locations within a building or property. A visitor stands at a fixed door station at your gate, presses a button, and the call rings at fixed indoor monitors inside your home.</p>
+                                <p><strong>Key characteristics:</strong></p>
+                                <ul class="check-list mt-16">
+                                    <li><strong>Fixed Location:</strong> Mounted at specific doors/rooms/lifts</li>
+                                    <li><strong>Wired Connection:</strong> Typically 2-wire, 4-wire, or CAT6</li>
+                                    <li><strong>Unlimited Range:</strong> Works across any building size</li>
+                                    <li><strong>Full-Duplex:</strong> Simultaneous two-way conversation</li>
+                                    <li><strong>Point-to-Point:</strong> Calls directed to specific stations</li>
+                                    <li><strong>Professional Installation:</strong> Requires wiring/mounting</li>
+                                    <li><strong>Continuous Power:</strong> Powered by AC/PoE (no batteries)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="recommendation-box mt-32">
+                            <h4>When You Need Both:</h4>
+                            <p>Many facilities use intercoms AND walkie-talkies for different purposes. A condominium might have:
+                            <br>• Intercoms for visitor communication (gate stations calling fixed unit monitors)
+                            <br>• Walkie-talkies for security guards on patrol (mobile communication while walking grounds)</p>
+                            <p style="margin-top: 12px;">Each serves its purpose: intercoms for location-based communication, walkie-talkies for people-based communication.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>Intercom vs PA (Public Address) Systems</h3>
+                        <div class="grid-2 gap-40">
+                            <div>
+                                <h4 style="margin-bottom: 16px;">PA Systems: One-Way Broadcasting</h4>
+                                <p>PA systems broadcast announcements from a single source to multiple speakers across a facility. A shopping mall plays background music and makes promotional announcements. A factory announces shift changes across the plant.</p>
+                                <ul class="check-list mt-16">
+                                    <li><strong>One-Way:</strong> Audio flows to speakers only, no reply possible</li>
+                                    <li><strong>Broadcasting:</strong> Same message to all selected zones</li>
+                                    <li><strong>Mass Communication:</strong> Designed to reach many simultaneously</li>
+                                    <li><strong>Amplifier-Based:</strong> Central amplifier drives passive speakers</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 16px;">Intercoms: Two-Way Conversation</h4>
+                                <p>Intercoms enable dialogue between specific locations. A visitor calls, you answer, you have a conversation, and decide whether to grant access. Both parties can speak and hear.</p>
+                                <ul class="check-list mt-16">
+                                    <li><strong>Two-Way:</strong> Both parties speak and listen in real-time</li>
+                                    <li><strong>Targeted:</strong> Call goes to specific station(s) only</li>
+                                    <li><strong>Interactive:</strong> Questions/answers can be exchanged instantly</li>
+                                    <li><strong>Individual Addressing:</strong> Call specific rooms/departments</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div style="background: var(--bg-light); padding: 24px; border-radius: 12px; margin-top: 24px;">
+                            <p><strong>When They Overlap:</strong> Some advanced intercom systems include PA capability as a secondary feature. A building manager might use the intercom infrastructure to broadcast fire drill announcements. However, the primary design remains targeted, interactive dialogue.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>Intercom vs Video Doorbells</h3>
+                        <div class="blog-row-wrap" style="display: flex; flex-direction: row; flex-wrap: nowrap; gap: 40px; align-items: flex-start; margin-bottom: 48px;">
+                            <div class="blog-text" style="flex: 1; min-width: 0;">
+                                <h4 style="margin-bottom: 16px;">Video Doorbells: Standalone WiFi Devices</h4>
+                                <p>Video doorbells like Ring, Nest Hello, or Arlo replace your existing doorbell button. They connect to WiFi and send video to your smartphone. While excellent for retrofits, they cost $150-$400 and depend entirely on internet and phone connectivity.</p>
+                                <h4 style="margin: 32px 0 16px;">Intercoms: Complete Wired Systems</h4>
+                                <p>Intercoms are professional systems with dedicated indoor monitors (7-10 inch screens) and wired infrastructure (2-wire/CAT6). They integrate with building access control, work offline if needed, and cost $900-$5,000+ for a complete residential system.</p>
+                            </div>
+                            <div class="blog-img-wrap blog-img-square" style="flex: 0 0 35%; aspect-ratio: 1/1; border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden; background: #fff; margin: 0;">
+                                <div style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #f8fbff; color: #4a5568; font-size: 11px; text-align: center; padding: 20px;">
+                                    <div style="font-size: 32px; margin-bottom: 12px;">📱 vs 🖥️</div>
+                                    [Four-panel comparison showing walkie-talkie, PA speaker system, video doorbell, and professional intercom monitor side-by-side]
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="blog-table-wrap mt-32">
+                            <table class="blog-table">
+                                <thead>
+                                    <tr>
+                                        <th>Feature</th>
+                                        <th>Video Doorbell</th>
+                                        <th>Intercom System</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td><strong>Indoor Display</strong></td><td>Mobile phone only</td><td>Dedicated monitor(s) + optional mobile</td></tr>
+                                    <tr><td><strong>Installation</strong></td><td>DIY, 30 minutes</td><td>Professional, 4-8 hours</td></tr>
+                                    <tr><td><strong>Wiring</strong></td><td>Battery or doorbell wire</td><td>Dedicated intercom cabling</td></tr>
+                                    <tr><td><strong>Internet Dependency</strong></td><td>Required for all functions</td><td>Optional (works offline)</td></tr>
+                                    <tr><td><strong>Multiple Doors</strong></td><td>One per door, separate apps</td><td>Unified system for all doors</td></tr>
+                                    <tr><td><strong>Indoor Monitors</strong></td><td>None (phone only)</td><td>1-8 monitors supported</td></tr>
+                                    <tr><td><strong>Power</strong></td><td>Battery or 16-24V transformer</td><td>AC transformer or PoE</td></tr>
+                                    <tr><td><strong>Reliability</strong></td><td>Depends on WiFi signal</td><td>Wired, very reliable</td></tr>
+                                    <tr><td><strong>Elderly Users</strong></td><td>Must use smartphone</td><td>Dedicated monitor, push-button answer</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="grid-2 gap-32 mt-40">
+                            <div style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px;">
+                                <h4 style="color: #4a5568;">When Video Doorbells Make Sense:</h4>
+                                <ul style="list-style: disc; margin-left: 20px; font-size: 14px; margin-top: 12px; color: #718096; line-height: 1.6;">
+                                    <li>Rental properties where permanent installation isn't allowed</li>
+                                    <li>Quick upgrade for homes without existing infrastructure</li>
+                                    <li>Budget-conscious homeowners comfortable with mobile-only interface</li>
+                                    <li>Simple single-entrance applications</li>
+                                    <li>Tech-savvy users who always have phones nearby</li>
+                                </ul>
+                            </div>
+                            <div style="padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #f8fbff;">
+                                <h4 style="color: var(--primary-intercom);">When Intercoms Make Sense:</h4>
+                                <ul style="list-style: disc; margin-left: 20px; font-size: 14px; margin-top: 12px; color: #718096; line-height: 1.6;">
+                                    <li>New construction or major renovation projects</li>
+                                    <li>Multiple entry points (main gate, side gate, back door)</li>
+                                    <li>Elderly users needing easy-to-use dedicated monitors</li>
+                                    <li>Integration with property access control (gates, locks)</li>
+                                    <li>Condominiums and multi-unit buildings</li>
+                                    <li>Priority on reliability and wired robustness</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>Intercom vs Building Telephone Systems</h3>
+                        <p>This is addressed in detail in Section 3, but the key distinction: intercoms are for internal communication only (no external phone calls), while building telephone systems (PABX, key phone, IP phone) connect to outside lines for business telephony. Both can handle door phones, but their primary purposes differ fundamentally.</p>
+                        
+                        <div class="blog-img-wrap mt-32" style="width: 100%; border-radius: 12px; overflow: hidden; background: #f0f4f8;">
+                            <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; text-align: center; color: #718096; font-size: 14px; padding: 40px;">
+                                [Comparison table graphic showing Intercom vs Walkie-Talkie vs PA System vs Video Doorbell vs Telephone System across key attributes: mobility, communication direction, installation type, typical cost]
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ── 3. INTERCOM VS IP PHONE SYSTEMS (DOOR PHONE CAPABILITY) ── -->
+                <section id="ip-phone">
+                    <div class="section-divider"></div>
+                    <span class="eyebrow" style="color: var(--primary-intercom);">Convergence & Telephony</span>
+                    <h2 style="margin-bottom: 32px;">3. Intercom vs IP Phone Systems (Door Phone Capability)</h2>
+                    
+                    <p class="lead">This is where confusion often arises. Both intercom systems and IP phone systems can handle door phones. Both can show video of visitors. Both can release doors. Yet they serve fundamentally different primary purposes.</p>
+
+                    <div class="subsection mt-48">
+                        <h3>The Fundamental Difference</h3>
+                        <div class="grid-2 gap-40">
+                            <div>
+                                <h4 style="margin-bottom: 12px;">Intercom System: Internal Communication Only</h4>
+                                <p style="font-size: 15px; line-height: 1.7; color: var(--text-gray);">An intercom is a closed network for communication within your building. It cannot call external phone numbers or connect to SIP trunks for outside calling. When a visitor calls, it rings wall-mounted monitors or residents' mobile phone apps. It's a one-way communication intake: visitors calling in, or internal stations calling each other.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 12px;">IP Phone System: Business Telephony</h4>
+                                <p style="font-size: 15px; line-height: 1.7; color: var(--text-gray);">An IP phone system (PABX) is designed for business telephony—making and receiving calls with the outside world. These systems connect to SIP trunks to reach the public network, allowing you to dial external numbers, transfer calls between extensions, set up voicemail, and manage professional call queues.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>Where They Overlap: Door Phone Integration</h3>
+                        <p>Modern door phones use SIP protocol—the standard that IP phones use. This allows for two distinct architectural approaches:</p>
+                        
+                        <div class="grid-2 gap-40 mt-32">
+                            <div>
+                                <h4 style="margin-bottom: 12px;">Approach 1: Intercom System (Traditional)</h4>
+                                <p style="font-size: 14px; line-height: 1.6;">The door station calls dedicated video intercom monitors. Residents see visitors on a 7-10 inch wall-mounted screen and press a dedicated release button. This is the classic setup found in landed homes and condominiums.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 12px;">Approach 2: IP Phone System (Converged)</h4>
+                                <p style="font-size: 14px; line-height: 1.6;">The SIP door station is registered as an extension of the office IP phone system. It calls the receptionist's desk phone, who sees the video feed on the phone screen and unlocks the door using a keypad code (e.g., *9).</p>
+                            </div>
+                        </div>
+
+                        <div class="blog-img-wrap mt-32" style="width: 100%; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid #e2e8f0;">
+                            <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; text-align: center; color: #718096; font-size: 14px; padding: 40px;">
+                                [Two side-by-side diagrams: LEFT showing door station calling dedicated intercom monitor, RIGHT showing door station calling desk IP phone]
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>When to Use a Standalone Intercom System</h3>
+                        <div class="mt-32" style="display: grid; gap: 24px;">
+                            <div>
+                                <h4>Residential Homes & Condominiums</h4>
+                                <p style="font-size: 15px;">Landed properties and apartments don't need business phone features. Residents simply want to see and speak with visitors at the gate. A dedicated wall-mounted monitor in the kitchen serves this purpose perfectly and is far more intuitive for non-technical users.</p>
+                            </div>
+                            <div>
+                                <h4>Small Offices Without PABX</h4>
+                                <p style="font-size: 15px;">Offices where staff use mobile phones for business don't need the complexity of a phone system just for the door. A simple video intercom at reception provides professional visitor vetting at a lower cost.</p>
+                            </div>
+                            <div>
+                                <h4>Emergency Communication</h4>
+                                <p style="font-size: 15px;">Intercoms in elevators or handicap toilets must be simple, dedicated safety devices. They cannot depend on a desk phone system that might be managed by IT or turned off after hours.</p>
+                            </div>
+                            <div>
+                                <h4>Budget-Conscious Applications</h4>
+                                <p style="font-size: 15px;">If your only requirement is visitor communication, installing a dedicated intercom typically costs 40-60% less than deploying a full IP phone system with door integration.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>When to Use IP Phone System with Door Phone</h3>
+                        <ul class="check-list mt-32" style="display: grid; gap: 20px;">
+                            <li><strong>Offices with Existing PABX:</strong> Leverage existing PoE switches and phone servers for incremental cost savings ($600-$900 for just the door phone).</li>
+                            <li><strong>Multi-Department Organizations:</strong> Use powerful call routing to present menus: "Press 1 for Sales, 2 for Support," routing calls to appropriate desk extensions.</li>
+                            <li><strong>Heavy Call Volume:</strong> Receptionists can manage customer calls and door calls on one unified interface without switching devices.</li>
+                            <li><strong>Unified Communications:</strong> Integrate door call logs into the same ecosystem as business calls, presence status, and mobility apps.</li>
+                            <li><strong>Future Scalability:</strong> Ideal for organizations planning to scale from 5 to 50+ staff across multiple branch offices.</li>
+                        </ul>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>The Hybrid Approach: Best of Both Worlds</h3>
+                        <p>Large office buildings often deploy both: a standalone intercom for continuous security monitoring at the guard desk, and IP phone registration for staff convenience when the guard is away.</p>
+                        
+                        <div style="background: var(--bg-light); padding: 32px; border-radius: 12px; margin-top: 32px; border-left: 4px solid var(--primary-intercom);">
+                            <h4 style="margin-bottom: 16px;">Technical Convergence: SIP Protocol</h4>
+                            <p style="font-size: 15px; margin-bottom: 20px;">SIP (Session Initiation Protocol) is the reason these systems can talk to each other. Modern door phones, monitors, and desk phones all speak the same language, allowing a single station to ring a wall monitor and a desk phone simultaneously or sequentially.</p>
+                            <div style="background: #fff; padding: 24px; border-radius: 8px;">
+                                [Diagram showing SIP door phone in center with arrows connecting to: dedicated intercom monitor, desk IP phone, mobile smartphone app, and IP phone system server]
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>Cost Comparison & Decision Scenarios</h3>
+                        <div class="grid-2 gap-40 mt-32">
+                            <div class="card" style="padding: 32px;">
+                                <h4 style="margin-bottom: 16px;">Standalone Intercom (Resi/Small Office)</h4>
+                                <ul style="list-style: none; font-size: 14px; margin-bottom: 20px;">
+                                    <li>Door Station: $600-$800</li>
+                                    <li>Monitor (7"): $400-$600</li>
+                                    <li>Labor: $300-$500</li>
+                                </ul>
+                                <strong style="font-size: 18px; color: var(--primary-intercom);">Total: $1,300 - $1,900</strong>
+                            </div>
+                            <div class="card" style="padding: 32px;">
+                                <h4 style="margin-bottom: 16px;">IP Phone System (10 Extensions)</h4>
+                                <ul style="list-style: none; font-size: 14px; margin-bottom: 20px;">
+                                    <li>PABX Server: $2,000-$5,000</li>
+                                    <li>IP Phones (10): $1,500-$3,000</li>
+                                    <li>Door Station: $600-$800</li>
+                                </ul>
+                                <strong style="font-size: 18px; color: var(--primary-intercom);">Total: $5,900 - $13,300</strong>
+                            </div>
+                        </div>
+
+                        <div class="mt-40" style="background: var(--bg-dark); color: #fff; padding: 40px; border-radius: 12px;">
+                            <h4 style="color: #fff; margin-bottom: 24px;">Real-World Scenarios</h4>
+                            <div class="grid-2 gap-32">
+                                <div>
+                                    <h5 style="color: #5b9ee1; margin-bottom: 8px;">Landed Home / Elderly Parents</h5>
+                                    <p style="font-size: 14px; color: rgba(255,255,255,0.7);">Standalone Intercom. Purpose-built, no tech-curve, works offline.</p>
+                                </div>
+                                <div>
+                                    <h5 style="color: #5b9ee1; margin-bottom: 8px;">Office (8 Staff)</h5>
+                                    <p style="font-size: 14px; color: rgba(255,255,255,0.7);">IP Phone System. Receptionist answers door on desk phone. Efficient.</p>
+                                </div>
+                                <div>
+                                    <h5 style="color: #5b9ee1; margin-bottom: 8px;">Condominium (200 Units)</h5>
+                                    <p style="font-size: 14px; color: rgba(255,255,255,0.7);">Cloud IP Intercom. Mobile apps for residents, no PABX needed.</p>
+                                </div>
+                                <div>
+                                    <h5 style="color: #5b9ee1; margin-bottom: 8px;">Enterprise Building</h5>
+                                    <p style="font-size: 14px; color: rgba(255,255,255,0.7);">Hybrid setup for redundancy and visibility at the guard house.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recommendation-box mt-48" style="background: #f0f4ff; border-left: 5px solid var(--primary-blue);">
+                        <h4>Learn More About IP Phone & PABX Systems</h4>
+                        <p>If your primary requirement is business telephony—making/receiving external calls, call queues, and voicemail—you need a dedicated IP phone system.</p>
+                        <a href="ip-phones.html" class="btn btn-outline mt-16">View Business Telephony Guide &rarr;</a>
+                    </div>
+                </section>
+                <!-- ── 4. HOW INTERCOM SYSTEMS WORK ── -->
+                <section id="how-it-works">
+                    <div class="section-divider"></div>
+                    <span class="eyebrow" style="color: var(--primary-intercom);">Technical Architecture</span>
+                    <h2 style="margin-bottom: 32px;">4. How Intercom Systems Work</h2>
+                    
+                    <p class="lead">Understanding the fundamental components and signal flow of an intercom system helps you make informed decisions about installation, troubleshooting, and system expansion. While modern intercoms can be sophisticated, the core principles remain straightforward.</p>
+
+                    <div class="subsection mt-48">
+                        <h3>Core Components</h3>
+                        <p>Every intercom system, regardless of complexity, consists of four essential elements:</p>
+                        
+                        <div class="mt-32">
+                            <h4 style="color: var(--primary-intercom); margin-bottom: 16px;">1. Door Station (Outdoor Unit)</h4>
+                            <p>The door station is the visitor-facing component mounted outside your property—at the gate, front door, or building entrance. It contains:</p>
+                            <ul class="check-list mt-16" style="display: grid; gap: 16px;">
+                                <li><strong>Microphone:</strong> Captures the visitor's voice. Outdoor intercoms use noise-canceling microphones to reduce wind, rain, and traffic noise. Microphone sensitivity is calibrated for typical speaking distance (30-60cm from the unit).</li>
+                                <li><strong>Speaker:</strong> Outputs your voice so the visitor can hear your response. Outdoor speakers must be loud enough (typically 85-95 dB) to be heard in noisy environments and weather-resistant to prevent water damage.</li>
+                                <li><strong>Camera (Video Intercoms):</strong> Captures visual image of the visitor. Modern door stations use 2-4 megapixel cameras with wide-angle lenses (140-180 degrees) to show not just the visitor's face but also if they're alone and what they're carrying. Infrared LEDs (typically 6-12 LEDs) provide night vision in complete darkness up to 1.5-3 meters.</li>
+                                <li><strong>Call Button:</strong> The visitor presses this to initiate the call. Simple systems have a single button. Multi-unit systems have a numeric keypad or touchscreen directory where visitors select which unit to call.</li>
+                                <li><strong>Door Release Relay:</strong> An electronic switch that triggers when you press the unlock button, sending power to your electric lock, magnetic lock, or gate motor to grant access. Relays are rated for the voltage and current of your lock (typically 12V DC or 24V DC, 1-3 amps).</li>
+                                <li><strong>Weatherproof Housing:</strong> Door stations are built to IP65 or IP66 ratings, meaning they're completely sealed against dust and protected against water jets from any direction. Materials include stainless steel, aluminum, or ruggedized polycarbonate plastic. Singapore's tropical climate demands corrosion resistance and UV stability.</li>
+                                <li><strong>Card Reader / Keypad (Optional):</strong> Many modern door stations integrate access control, allowing authorized users to enter without calling anyone. RFID card readers support proximity cards, numeric keypads accept PIN codes, and advanced models include fingerprint sensors or facial recognition cameras.</li>
+                            </ul>
+                            
+                            <div class="blog-img-wrap mt-32" style="width: 100%; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid #e2e8f0;">
+                                <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; text-align: center; color: #718096; font-size: 14px; padding: 40px;">
+                                    [Exploded diagram of video door station showing microphone, speaker, camera, IR LEDs, call button, relay, and weatherproof housing components labeled]
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-48">
+                            <h4 style="color: var(--primary-intercom); margin-bottom: 16px;">2. Indoor Station (Monitor or Handset)</h4>
+                            <p>The indoor station is where you receive and respond to calls from the door station. This can be:</p>
+                            
+                            <div class="grid-2 gap-32 mt-24">
+                                <div style="padding: 24px; background: #f8fbff; border-radius: 12px;">
+                                    <h5 style="margin-bottom: 12px;">Handset Intercom (Audio-Only)</h5>
+                                    <p style="font-size: 14px; color: var(--text-gray); line-height: 1.6;">Similar to a telephone handset, you pick it up when the door rings, speak into it, and hang up when done. Handset intercoms are simple, familiar to elderly users, and provide audio privacy (conversation isn't broadcast to the room). They're typically audio-only, though some models have small screens showing which door is calling.</p>
+                                </div>
+                                <div style="padding: 24px; background: #f8fbff; border-radius: 12px;">
+                                    <h5 style="margin-bottom: 12px;">Video Monitor (Hands-Free)</h5>
+                                    <p style="font-size: 14px; color: var(--text-gray); line-height: 1.6;">A wall-mounted screen (typically 7-10 inches) that displays video from the door camera. Modern monitors are touchscreen, allowing you to answer with a button press, adjust volume, view recorded visitors, and configure settings. Hands-free operation means you don't pick up anything—speak toward the monitor and it transmits your voice via built-in microphone and speaker.</p>
+                                </div>
+                            </div>
+
+                            <p style="margin-top: 24px;"><strong>Indoor stations include:</strong></p>
+                            <ul class="check-list mt-16" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px 32px;">
+                                <li><strong>Screen:</strong> LCD/OLED, 7-10 inch, up to 1080p</li>
+                                <li><strong>Speaker:</strong> Internal, typically 1-2 watts</li>
+                                <li><strong>Microphone:</strong> Built-in for hands-free</li>
+                                <li><strong>Answer/Release:</strong> Touchscreen or physical</li>
+                                <li><strong>Volume:</strong> Ringtone and talk levels</li>
+                                <li><strong>Power:</strong> Low-voltage (12-24V) or PoE</li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-48">
+                            <h4 style="color: var(--primary-intercom); margin-bottom: 16px;">3. Controller (Brain of the System)</h4>
+                            <p>The controller manages call routing, signal processing, and power distribution. In simple systems, the controller might be built into the door station or indoor monitor. In complex systems, it's a separate unit.</p>
+                            
+                            <ul class="check-list mt-16">
+                                <li><strong>Call Routing:</strong> Manages logic for which monitors ring when a door button is pressed.</li>
+                                <li><strong>Signal Processing:</strong> Amplifies signals, filters noise, and mixes audio sources during calls.</li>
+                                <li><strong>Power Distribution:</strong> Supplies regulated current to stations and locks via the signal cabling.</li>
+                                <li><strong>Integration Interface:</strong> Connects with access databases, CCTV recording, and BMS logging.</li>
+                            </ul>
+                            
+                            <div class="blog-img-wrap mt-32" style="width: 100%; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid #e2e8f0;">
+                                <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; text-align: center; color: #718096; font-size: 14px; padding: 40px;">
+                                    [Photo of 4-door access control controller unit showing terminals, power connections, relay outputs]
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-48">
+                            <h4 style="color: var(--primary-intercom); margin-bottom: 16px;">4. Wiring (Communication Medium)</h4>
+                            <p>Wiring carries signals and power between components. The type of wiring depends on the intercom technology:</p>
+                            
+                            <div class="grid-2 gap-32 mt-24">
+                                <div>
+                                    <h5>2-Wire Systems</h5>
+                                    <p style="font-size: 14px; color: var(--text-gray);">A single pair of wires carries audio and power. Simple and economical for basic homes. Typical range: 100-300m.</p>
+                                </div>
+                                <div>
+                                    <h5>4-Wire Systems</h5>
+                                    <p style="font-size: 14px; color: var(--text-gray);">Separate pairs for audio and video signals. Used in traditional analog video intercoms often with coaxial cable.</p>
+                                </div>
+                                <div>
+                                    <h5>CAT6 Ethernet Cable</h5>
+                                    <p style="font-size: 14px; color: var(--text-gray);">IP-based standard. Carries HD video, audio, and power (PoE) in a single digital cable. Max 100m per run.</p>
+                                </div>
+                                <div>
+                                    <h5>Wireless (WiFi/4G)</h5>
+                                    <p style="font-size: 14px; color: var(--text-gray);">Eliminates cable runs but introduces dependency on signal quality and external internet connectivity.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="blog-img-wrap mt-32" style="width: 100%; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid #e2e8f0;">
+                                <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; text-align: center; color: #718096; font-size: 14px; padding: 40px;">
+                                    [Four cable types side by side: 2-wire audio cable, 4-wire with coax, CAT6 ethernet cable, wireless symbol with WiFi/4G icons]
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>Signal Flow: What Happens When Someone Presses Your Doorbell</h3>
+                        <p>Let's trace a complete interaction from button press to door opening:</p>
+                        
+                        <div class="workflow-steps mt-32">
+                            <div class="step" style="display: grid; grid-template-columns: 80px 1fr; gap: 24px; margin-bottom: 32px;">
+                                <div style="width: 80px; height: 80px; background: var(--primary-intercom); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 24px;">1</div>
+                                <div>
+                                    <h5 style="margin-bottom: 8px;">Visitor Presses Button</h5>
+                                    <p style="font-size: 14px; line-height: 1.6;">The visitor presses the call button, closing an electrical contact that signals the system a call is being initiated.</p>
+                                </div>
+                            </div>
+                            <div class="step" style="display: grid; grid-template-columns: 80px 1fr; gap: 24px; margin-bottom: 32px;">
+                                <div style="width: 80px; height: 80px; background: var(--primary-intercom); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 24px;">2</div>
+                                <div>
+                                    <h5 style="margin-bottom: 8px;">Signal Transmits to Indoor Station</h5>
+                                    <p style="font-size: 14px; line-height: 1.6;">A "call request" (voltage change or SIP INVITE packet) is sent to the indoor monitor(s). The controller determines which monitors ring.</p>
+                                </div>
+                            </div>
+                            <div class="step" style="display: grid; grid-template-columns: 80px 1fr; gap: 24px; margin-bottom: 32px;">
+                                <div style="width: 80px; height: 80px; background: var(--primary-intercom); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 24px;">3</div>
+                                <div>
+                                    <h5 style="margin-bottom: 8px;">Indoor Station Rings</h5>
+                                    <p style="font-size: 14px; line-height: 1.6;">The monitor wakes up, plays a ringtone, and displays live video. You see the visitor and decide whether to answer.</p>
+                                </div>
+                            </div>
+                            <div class="step" style="display: grid; grid-template-columns: 80px 1fr; gap: 24px; margin-bottom: 32px;">
+                                <div style="width: 80px; height: 80px; background: var(--primary-intercom); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 24px;">4</div>
+                                <div>
+                                    <h5 style="margin-bottom: 8px;">You Answer the Call</h5>
+                                    <p style="font-size: 14px; line-height: 1.6;">Answering establishes a two-way audio connection. Echo cancellation filters out speaker-to-microphone feedback for a clear conversation.</p>
+                                </div>
+                            </div>
+                            <div class="step" style="display: grid; grid-template-columns: 80px 1fr; gap: 24px; margin-bottom: 32px;">
+                                <div style="width: 80px; height: 80px; background: var(--primary-intercom); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 24px;">5</div>
+                                <div>
+                                    <h5 style="margin-bottom: 8px;">Conversation</h5>
+                                    <p style="font-size: 14px; line-height: 1.6;">You speak with the visitor to verify their purpose. This vetting stage is the core security function of the intercom.</p>
+                                </div>
+                            </div>
+                            <div class="step" style="display: grid; grid-template-columns: 80px 1fr; gap: 24px; margin-bottom: 32px;">
+                                <div style="width: 80px; height: 80px; background: var(--primary-intercom); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 24px;">6</div>
+                                <div>
+                                    <h5 style="margin-bottom: 8px;">Door Release (Optional)</h5>
+                                    <p style="font-size: 14px; line-height: 1.6;">Pressing the release button triggers the door station's relay, unlocking the electric/magnetic lock or opening the gate for a preset duration.</p>
+                                </div>
+                            </div>
+                            <div class="step" style="display: grid; grid-template-columns: 80px 1fr; gap: 24px;">
+                                <div style="width: 80px; height: 80px; background: var(--primary-intercom); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 24px;">7</div>
+                                <div>
+                                    <h5 style="margin-bottom: 8px;">Call Ends</h5>
+                                    <p style="font-size: 14px; line-height: 1.6;">The connection terminates, returning the system to standby. Recordings are saved with timestamps if the system has logging capability.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="blog-img-wrap mt-40" style="width: 100%; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid #e2e8f0;">
+                            <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; text-align: center; color: #718096; font-size: 14px; padding: 40px;">
+                                [Horizontal flowchart showing 7 steps from visitor pressing button through to door opening, with icons for each stage and arrows connecting them]
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>Communication Types: How Audio is Transmitted</h3>
+                        <div class="grid-3 gap-24 mt-32">
+                            <div class="card" style="padding: 24px;">
+                                <h4 style="color: var(--primary-intercom); margin-bottom: 12px; font-size: 16px;">Full-Duplex</h4>
+                                <p style="font-size: 13px; line-height: 1.6;">Both parties speak and hear simultaneously, like a phone call. Uses echo cancellation to prevent feedback. standard in modern IP systems.</p>
+                            </div>
+                            <div class="card" style="padding: 24px;">
+                                <h4 style="color: var(--primary-intercom); margin-bottom: 12px; font-size: 16px;">Half-Duplex</h4>
+                                <p style="font-size: 13px; line-height: 1.6;">Only one person can speak at a time. Requires waiting for silence before replying. Common in budget analog models.</p>
+                            </div>
+                            <div class="card" style="padding: 24px;">
+                                <h4 style="color: var(--primary-intercom); margin-bottom: 12px; font-size: 16px;">Press-to-Talk (PTT)</h4>
+                                <p style="font-size: 13px; line-height: 1.6;">Manual audio activation. Hold button to speak, release to listen. Used in very noisy industrial and emergency environments.</p>
+                            </div>
+                        </div>
+                        <div class="blog-img-wrap mt-24" style="width: 100%; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid #e2e8f0;">
+                            <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; text-align: center; color: #718096; font-size: 14px; padding: 40px;">
+                                [Three-panel diagram showing full-duplex (two-way arrows with simultaneous speech), half-duplex (single alternating arrows), and press-to-talk (button icon with directed arrow)]
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>Power Distribution in Intercom Systems</h3>
+                        <p>How power is delivered affects installation complexity and reliability:</p>
+                        
+                        <div class="grid-3 gap-24 mt-32">
+                            <div>
+                                <h5 style="margin-bottom: 8px;">Centralized Power</h5>
+                                <p style="font-size: 14px; color: var(--text-gray);">A single transformer powers all stations. Easier to maintain and back up with batteries, but susceptible to voltage drop over long cable runs.</p>
+                            </div>
+                            <div>
+                                <h5 style="margin-bottom: 8px;">Distributed Power</h5>
+                                <p style="font-size: 14px; color: var(--text-gray);">Small adapters at each station. Simple to install without cross-building wiring, but requires outlets everywhere and is hard to back up.</p>
+                            </div>
+                            <div>
+                                <h5 style="margin-bottom: 8px;">Power over Ethernet (PoE)</h5>
+                                <p style="font-size: 14px; color: var(--text-gray);">Data and power on one CAT6 cable. Centralized at the network switch, professional, and very easy to protect via UPS.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="blog-img-wrap mt-24" style="width: 100%; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid #e2e8f0;">
+                            <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; text-align: center; color: #718096; font-size: 14px; padding: 40px;">
+                                [Three diagrams showing centralized power architecture, distributed power with multiple adapters, and PoE network with switch]
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>Analog vs Digital Signal Processing</h3>
+                        <div class="grid-2 gap-40 mt-32">
+                            <div>
+                                <h4 style="margin-bottom: 12px;">Analog Signals</h4>
+                                <p style="font-size: 14px; color: var(--text-gray); line-height: 1.7;">Continuous electrical waveforms represent audio/video. Simple and robust but degrades over distance, susceptible to interference, and capped at standard definition quality.</p>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 12px;">Digital Signals</h4>
+                                <p style="font-size: 14px; color: var(--text-gray); line-height: 1.7;">Data converted into 1s and 0s using SIP protocol. Maintains perfect quality regardless of distance (within network limits), allows for encryption, and supports HD/4K resolutions.</p>
+                            </div>
+                        </div>
+                        <div class="blog-img-wrap mt-24" style="width: 100%; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid #e2e8f0;">
+                            <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; text-align: center; color: #718096; font-size: 14px; padding: 40px;">
+                                [Split diagram showing analog waveform degrading over long cable distance versus digital packets maintaining integrity]
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>System Architectures: How Stations Connect</h3>
+                        <div class="grid-2 gap-32 mt-32">
+                            <div>
+                                <h5>Point-to-Point</h5>
+                                <p style="font-size: 14px; color: var(--text-gray);">One door station wired directly to one monitor. Maximum simplicity for basic homes.</p>
+                            </div>
+                            <div>
+                                <h5>Star Topology</h5>
+                                <p style="font-size: 14px; color: var(--text-gray);">All stations wire back to a central controller hub. Used in analog multi-station systems.</p>
+                            </div>
+                            <div>
+                                <h5>Daisy Chain</h5>
+                                <p style="font-size: 14px; color: var(--text-gray);">Stations linked in series. Reduces cabling but failure in one station can affect the chain.</p>
+                            </div>
+                            <div>
+                                <h5>Network Topology</h5>
+                                <p style="font-size: 14px; color: var(--text-gray);">IP devices on standard network switches. Maximum scalability across buildings or cities.</p>
+                            </div>
+                        </div>
+                        <div class="blog-img-wrap mt-24" style="width: 100%; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid #e2e8f0;">
+                            <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; text-align: center; color: #718096; font-size: 14px; padding: 40px;">
+                                [Four network topology diagrams showing point-to-point, star, daisy chain, and networked architectures]
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>Inside the Hardware</h3>
+                        <div class="grid-2 gap-40">
+                            <div style="padding: 24px; background: #fdfdfd; border: 1px solid #eee; border-radius: 12px;">
+                                <h4 style="margin-bottom: 16px;">Door Station Event Loop</h4>
+                                <ul style="list-style: decimal; margin-left: 20px; font-size: 14px; line-height: 1.7; color: var(--text-gray);">
+                                    <li><strong>Detection:</strong> Microcontroller senses button press.</li>
+                                    <li><strong>Activation:</strong> Firmware wakes camera and IR LEDs.</li>
+                                    <li><strong>Signaling:</strong> Tones (Analog) or SIP INVITE (Digital) sent.</li>
+                                    <li><strong>Audio Ready:</strong> Codecs and amplifiers initialized.</li>
+                                    <li><strong>Feedback:</strong> Status LED indicates active dialing.</li>
+                                </ul>
+                            </div>
+                            <div style="padding: 24px; background: #fdfdfd; border: 1px solid #eee; border-radius: 12px;">
+                                <h4 style="margin-bottom: 16px;">Indoor Station Response</h4>
+                                <ul style="list-style: decimal; margin-left: 20px; font-size: 14px; line-height: 1.7; color: var(--text-gray);">
+                                    <li><strong>Wakeup:</strong> Screen powers to full brightness.</li>
+                                    <li><strong>Alert:</strong> Configuration-based ringtone plays.</li>
+                                    <li><strong>Visual:</strong> Live video feed decodes onto display.</li>
+                                    <li><strong>Interactivity:</strong> UI displays call control prompts.</li>
+                                    <li><strong>Log:</strong> Snapshot image captured and timestamped.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--bg-light); padding: 40px; border-radius: 12px; border-top: 4px solid var(--primary-intercom); margin-top: 64px;">
+                        <p style="font-size: 16px; line-height: 1.8; color: #4a5568; margin: 0;">The intercom system is fundamentally a specialized communication appliance. While modern features like facial recognition and cloud integration add sophistication, the core principle remains constant: connect people across distances within a property for secure communication and reliable access control.</p>
+                    </div>
+                <!-- ── 5. TYPES OF INTERCOM SYSTEMS ── -->
+                <section id="types">
+                    <div class="section-divider"></div>
+                    <span class="eyebrow" style="color: var(--primary-intercom);">Categorization & Selection</span>
+                    <h2 style="margin-bottom: 32px;">5. Types of Intercom Systems</h2>
+                    
+                    <p class="lead">Intercom systems can be categorized in several ways based on their communication capabilities, underlying technology, installation method, scale, and intended application. Understanding these categories helps you identify which type best suits your property and requirements.</p>
+
+                    <div class="subsection mt-48">
+                        <h3>By Communication Capability: Audio vs Video</h3>
+                        <div class="grid-2 gap-40">
+                            <div>
+                                <h4 style="margin-bottom: 16px;">Audio-Only Intercoms</h4>
+                                <p>Audio intercoms transmit voice only—no camera, no visual component. The door station has a microphone, speaker, and call button. The indoor station is a handset (like a telephone) or a simple speaker box with buttons.</p>
+                                <ul style="list-style: none; font-size: 14px; margin-top: 12px; color: var(--text-gray);">
+                                    <li>• Door Station Cost: $150-$400</li>
+                                    <li>• Indoor Handset Cost: $100-$300</li>
+                                    <li>• Complete System (1 door + 2 handsets): $400-$1,200</li>
+                                </ul>
+                                <h5 style="margin-top: 24px; font-size: 15px;">When audio-only makes sense:</h5>
+                                <ul class="check-list mt-12" style="font-size: 13px;">
+                                    <li>Budget-conscious applications prioritized over visual verification.</li>
+                                    <li>Retrofits where only 2-wire cabling exists and running new cables is disruptive.</li>
+                                    <li>Gated communities where visitors are pre-screened at a main guardhouse.</li>
+                                    <li>Harsh environments where camera lenses require frequent cleaning.</li>
+                                    <li>Privacy-conscious users who prefer not to have video recording.</li>
+                                    <li>Elderly users comfortable with traditional telephone-style handsets.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 16px;">Audio-Video Intercoms</h4>
+                                <p>Audio-video intercoms add a camera to the door station and a screen to the indoor station. You see and speak with visitors simultaneously.</p>
+                                <ul style="list-style: none; font-size: 14px; margin-top: 12px; color: var(--text-gray);">
+                                    <li>• Door Station Cost: $400-$800</li>
+                                    <li>• Indoor Monitor Cost: $300-$600</li>
+                                    <li>• Complete System (1 door + 1 monitor): $900-$3,000</li>
+                                </ul>
+                                <h5 style="margin-top: 24px; font-size: 15px;">Visual verification advantages:</h5>
+                                <ul class="check-list mt-12" style="font-size: 13px;">
+                                    <li>Confirm identity before opening—face matches voice.</li>
+                                    <li>See if visitor is alone or accompanied.</li>
+                                    <li>Observe body language and demeanor.</li>
+                                    <li>Recorded evidence capture for security audit trails.</li>
+                                    <li>Package and delivery uniform verification.</li>
+                                    <li>Night vision capability for 24/7 security.</li>
+                                    <li>Passive monitoring of loitering outside the gate.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="blog-img-wrap mt-32" style="width: 100%; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid #e2e8f0;">
+                            <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; text-align: center; color: #718096; font-size: 14px; padding: 40px;">
+                                [Side-by-side comparison: LEFT showing audio handset intercom, RIGHT showing video monitor intercom with person's face visible on screen]
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>By Technology: Analog vs IP Network</h3>
+                        <div class="grid-2 gap-40">
+                            <div>
+                                <h4 style="margin-bottom: 16px;">Analog Intercoms</h4>
+                                <p style="font-size: 14px; color: var(--text-gray);">Traditional systems transmitting continuous electrical signals over dedicated wiring. Proven reliability but limited features.</p>
+                                <ul class="check-list mt-16" style="font-size: 13px;">
+                                    <li><strong>Advantages:</strong> Proven reliability, simple troubleshooting, no network dependency, lower equipment cost.</li>
+                                    <li><strong>Disadvantages:</strong> Limited scalability, standard definition video only, no remote/mobile access, difficult integration.</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 style="margin-bottom: 16px;">IP Network Intercoms</h4>
+                                <p style="font-size: 14px; color: var(--text-gray);">Digital packet-based systems using SIP (Session Initiation Protocol). High performance and maximum feature set.</p>
+                                <ul class="check-list mt-16" style="font-size: 13px;">
+                                    <li><strong>Advantages:</strong> HD/4K video quality, highly scalable, remote mobile app access, SIP integration, cloud recording.</li>
+                                    <li><strong>Disadvantages:</strong> Network dependency, higher configuration complexity, cybersecurity management needed, higher initial cost.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="blog-img-wrap mt-32" style="width: 100%; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid #e2e8f0;">
+                            <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; text-align: center; color: #718096; font-size: 14px; padding: 40px;">
+                                [Diagram comparing analog architecture (door station with 4-wire cables to dedicated monitors) vs IP architecture (door station on network with PoE switch connecting to monitors, cloud, mobile app)]
+                            </div>
+                        </div>
+
+                        <div class="blog-table-wrap mt-40">
+                            <h4 style="margin-bottom: 24px;">Cost Comparison (1 Door + 3 Indoor Stations)</h4>
+                            <table class="blog-table">
+                                <thead>
+                                    <tr>
+                                        <th>Component</th>
+                                        <th>Analog System</th>
+                                        <th>IP System</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>Door Station</td><td>$300</td><td>$600 (SIP)</td></tr>
+                                    <tr><td>Indoor Monitors (x3)</td><td>$450 ($150 ea)</td><td>$900 ($300 ea)</td></tr>
+                                    <tr><td>Wiring & Infrastructure</td><td>$250 (4-wire/Coax)</td><td>$300 (CAT6 + PoE Switch)</td></tr>
+                                    <tr><td>Power & Peripherals</td><td>$100</td><td>$250 (PoE Hub)</td></tr>
+                                    <tr><td>Installation/Labor</td><td>$400</td><td>$600 (Config included)</td></tr>
+                                    <tr style="background: #f8fbff; font-weight: 700;"><td>Total Est. Cost</td><td>$1,500</td><td>$2,650</td></tr>
+                                </tbody>
+                            </table>
+                            <p style="font-size: 13px; color: var(--text-gray); font-style: italic; margin-top: 12px;">*Prices are estimated averages. IP systems include redundant features like mobile app, remote access, and cloud sync.</p>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>By Installation Method: Wired vs Wireless vs Hybrid</h3>
+                        <div class="grid-3 gap-24 mt-32">
+                            <div class="card" style="padding: 24px;">
+                                <h4 style="margin-bottom: 12px; font-size: 16px;">Wired Intercoms</h4>
+                                <p style="font-size: 13px; line-height: 1.6;">Maximum reliability and security. Immune to WiFi congestion and interference. High labor for cable runs but consistent year-round performance.</p>
+                            </div>
+                            <div class="card" style="padding: 24px;">
+                                <h4 style="margin-bottom: 12px; font-size: 16px;">Wireless Intercoms</h4>
+                                <p style="font-size: 13px; line-height: 1.6;">Easy retrofits with minimal disruption. Fast and flexible installation but dependent on WiFi/4G signal quality and battery maintenance.</p>
+                            </div>
+                            <div class="card" style="padding: 24px;">
+                                <h4 style="margin-bottom: 12px; font-size: 16px;">Hybrid Systems</h4>
+                                <p style="font-size: 13px; line-height: 1.6;">Optimal balance. Wired door stations for reliability and power, with wireless secondary monitors and mobile app access for convenience.</p>
+                            </div>
+                        </div>
+                        <div class="blog-img-wrap mt-24" style="width: 100%; border-radius: 12px; overflow: hidden; background: #fff; border: 1px solid #e2e8f0;">
+                            <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; text-align: center; color: #718096; font-size: 14px; padding: 40px;">
+                                [Three diagrams showing wired system with cables, wireless system with WiFi symbols, hybrid system with wired door station and wireless indoor monitors]
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>By Scale: Single-Unit, Multi-Unit, Building-Wide</h3>
+                        <div class="grid-3 gap-24 mt-32">
+                            <div>
+                                <h5 style="margin-bottom: 12px;">Residential (Single-Unit)</h5>
+                                <p style="font-size: 14px; color: var(--text-gray);">Typically 1-5 doors for a single family. Direct calling, owner-managed, and simple kitchen/bedroom monitors ($900-$3k).</p>
+                            </div>
+                            <div>
+                                <h5 style="margin-bottom: 12px;">Condominiums (Multi-Unit)</h5>
+                                <p style="font-size: 14px; color: var(--text-gray);">Directory-based calling for 50-5,000 units. Lobby release, guardhouse sync, and resident database management ($50k+).</p>
+                            </div>
+                            <div>
+                                <h5 style="margin-bottom: 12px;">Institutional (Building-Wide)</h5>
+                                <p style="font-size: 14px; color: var(--text-gray);">Complex many-to-many communication across large campuses. Schools, hospitals, and airports ($30k-$200k+).</p>
+                            </div>
+                        </div>
+                        <div class="blog-img-wrap mt-24" style="width: 100%; border-radius: 12px; overflow: hidden; background: #f0f4f8;">
+                            <div style="aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; text-align: center; color: #718096; font-size: 14px; padding: 40px;">
+                                [Three-tier pyramid diagram showing scale: single-unit at bottom, multi-unit in middle, building-wide at top]
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="subsection mt-48">
+                        <h3>By Application: Residential, Condo, Office, Emergency, Institutional</h3>
+                        <div class="grid-2 gap-40 mt-32">
+                            <div class="card" style="padding: 24px; border: none; background: #f9fafb;">
+                                <h4 style="margin-bottom: 12px;">Residential & Condo</h4>
+                                <p style="font-size: 14px; color: var(--text-gray);">Focus on visitor vetting, gate motor integration, and mobile app convenience for homeowners and apartment residents.</p>
+                            </div>
+                            <div class="card" style="padding: 24px; border: none; background: #f9fafb;">
+                                <h4 style="margin-bottom: 12px;">Office & Commercial</h4>
+                                <p style="font-size: 14px; color: var(--text-gray);">Emphasis on receptionist visitor vetting, inter-departmental calling, and integration with employee access control.</p>
+                            </div>
+                            <div class="card" style="padding: 24px; border: none; background: #f9fafb;">
+                                <h4 style="margin-bottom: 12px;">Emergency & Institutional</h4>
+                                <p style="font-size: 14px; color: var(--text-gray);">Regulatory safety-first designs for lifts and accessible toilets, or campus-wide systems for coordination in hospitals and airports.</p>
+                            </div>
+                            <div style="display: flex; align-items: center; justify-content: center; padding: 24px; background: #fff; border: 1px dashed #e2e8f0; border-radius: 12px;">
+                                <p style="font-size: 13px; color: #94a3b8; text-align: center;">[Four-panel grid showing different intercom applications: residential gate, condo lobby, office reception, hospital emergency station]</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: var(--bg-light); padding: 40px; border-radius: 12px; border-top: 4px solid var(--primary-intercom); margin-top: 64px;">
+                        <p style="font-size: 16px; line-height: 1.8; color: #4a5568; margin: 0;">The type of intercom system you need depends on your property size, number of entry points, and specific user requirements. Understanding these categories helps narrow your choices to systems purpose-built for your specific application.</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+
+
+    <!-- ── GET YOUR FREE ASSESSMENT ── -->
+    <section id="final-cta" class="cta-section cta-skyline" style="background: linear-gradient(rgba(14, 26, 43, 0.8), rgba(14, 26, 43, 0.8)), url('images/intercom-assessment-cta.png'); background-size: cover; background-position: center;">
+        <div class="container">
+            <div class="cta-header-wrap text-center">
+                <span class="eyebrow-light" style="color: #5b9ee1; letter-spacing: 2px;">Ready to Upgrade Your Communications?</span>
+                <h2 style="color: white; margin-bottom: 24px;">Get Your Free Assessment</h2>
+                <p class="subtitle" style="color: rgba(255,255,255,0.9) !important; max-width: 800px; margin: 0 auto 48px; font-size: 17px; line-height: 1.8;">Securevision provides professional end-to-end intercom architecture. From single-door residential setups to enterprise-grade IP systems for condominiums across Singapore, we ensure your visitor management remains secure, compliant, and easy to operate.</p>
+            </div>
+
+            <div class="grid-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 40px;">
+                <div class="cta-card-glass">
+                    <div class="cta-icon" style="font-size: 40px; margin-bottom: 20px;">💬</div>
+                    <h3>Direct Chat</h3>
+                    <p>Best for quick budgetary pricing, system health checks, or spare parts enquiries.</p>
+                    <a href="https://wa.me/6593860466" class="btn btn-whatsapp" target="_blank">WhatsApp Us &rarr;</a>
+                </div>
+
+                <div class="cta-card-prominent">
+                    <div class="cta-icon" style="font-size: 40px; margin-bottom: 20px;">📅</div>
+                    <h3>Smart Assessment</h3>
+                    <p>Best for new projects, full modernisations, or managing agent tenders.</p>
+                    <a href="book-slot.html" class="btn btn-primary">Book Assessment &rarr;</a>
+                </div>
+
+                <div class="cta-card-glass">
+                    <div class="cta-icon" style="font-size: 40px; margin-bottom: 20px;">📞</div>
+                    <h3>Priority Hotline</h3>
+                    <p>Immediate technical support for critical failures, gates, or alarm issues.</p>
+                    <a href="tel:+6562864796" class="btn btn-outline">Call Now &rarr;</a>
+                </div>
+            </div>
+
+            <div class="footer-note" style="margin-top: 48px; font-size: 13px; color: rgba(255,255,255,0.45);">
+                <p>Serving Singapore Since 2006</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="f-logo-wrap">
+                        <img src="images/securevision-logo-white.png" alt="Securevision Logo">
+                        <span class="brand-name">Securevision</span>
+                    </div>
+                    <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since 2006.</p>
+                    <div class="f-socials">
+                        <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                            </svg>
+                        </a>
+                        <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect x="2" y="9" width="4" height="12" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </a>
+                        <a href="https://www.youtube.com/@securevision" target="_blank" rel="noopener" aria-label="YouTube">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="residential.html">Private Homes</a></li>
+                        <li><a href="condominiums.html">Condominiums</a></li>
+                        <li><a href="commercial.html">Commercial &amp; Retail</a></li>
+                        <li><a href="industrial.html">Industrial &amp; Logistics</a></li>
+                        <li><a href="institutions.html">Institutions &amp; Government</a></li>
+                        <li><a href="healthcare.html">Healthcare &amp; Managed Living</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="awards-certifications.html">Awards &amp; Certifications</a></li>
+                        <li><a href="portfolio.html">Project Portfolio</a></li>
+                        <li><a href="insights.html">Industry Insights</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <div class="footer-contact-item">
+                        <span>💬</span>
+                        <a href="https://wa.me/6593860466">WhatsApp Us</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>✉️</span>
+                        <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>📞</span>
+                        <a href="tel:+6562864796">+65 6286 4796</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Securevision Pte Ltd &middot; Police Licence L/PS/000267/2023P &middot; bizSAFE Level 3 &middot; BCA Registered</p>
+                <div class="footer-bottom-links">
+                    <a href="sitemap.html">Sitemap</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* MOBILE TOC ACCORDION */
+        function toggleTocMobile() {
+            if (window.innerWidth <= 992) {
+                const title = document.querySelector('.toc-title');
+                const list = document.querySelector('.toc-list');
+                if (title && list) {
+                    title.classList.toggle('active');
+                    list.classList.toggle('active');
+                }
+            }
+        }
+
+        /* AUTO-CLOSE TOC ON LINK CLICK (Mobile Only) */
+        document.querySelectorAll('.toc-list a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 992) {
+                    const title = document.querySelector('.toc-title');
+                    const list = document.querySelector('.toc-list');
+                    if (title) title.classList.remove('active');
+                    if (list) list.classList.remove('active');
+                }
+            });
+        });
+
+        /* MOBILE MENU TOGGLE */
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (menu) menu.classList.toggle('active');
+        }
+
+        function toggleSubmenu(id) {
+            const sub = document.getElementById(id);
+            if (sub) {
+                const isOpen = sub.classList.contains('active');
+                document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
+                if (!isOpen) sub.classList.add('active');
+            }
+        }
+
+        /* HEADER SCROLL EFFECT */
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.main-nav');
+            const logo = document.querySelector('.nav-logo-img');
+            if (nav && logo) {
+                if (window.scrollY > 20) {
+                    nav.classList.add('scrolled');
+                    logo.src = 'images/securevision-logo-blue.png';
+                } else {
+                    nav.classList.remove('scrolled');
+                    logo.src = 'images/securevision-logo-white.png';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
