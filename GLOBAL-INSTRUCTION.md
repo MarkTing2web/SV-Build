@@ -205,7 +205,7 @@
 - .section-divider: 64px margin-top, 40px padding-top.
 
 ### Technical Guide Template (Side-Nav Format)
-For long-form technical guides (e.g., CCTV, Burglar Alarm, Door Access):
+For long-form technical guides (e.g., CCTV, Burglar Alarm, Door Access, AV Intercom):
 - **Layout Wrapper**: Use `.layout-with-sidebar` with a fixed-width sidebar grid (`1fr 280px`).
 - **Standard Spacing**: The `.layout-with-sidebar` must have a **`margin-bottom: 120px`** to provide clear space between the sticky navigation and the final full-width CTA.
 - **Sticky TOC**: The `.sticky-toc` should stay within the `aside` column, pinned to `top: 100px` for optimal spacing under the main nav.

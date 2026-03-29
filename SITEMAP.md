@@ -1,7 +1,7 @@
 # SECUREVISION WEBSITE SITEMAP
 
 **Last Updated:** March 26, 2026  
-**Total Pages Built:** 50+ HTML pages  
+**Total Pages Built:** 54+ HTML pages  
 **Navigation Items:** 6 main menu items + search (Solutions, Systems, Brands, Portfolio, Insights, About, Search)
 
 ---
@@ -192,12 +192,14 @@ SECUREVISION.COM.SG
 ├── SYSTEMS (Hub: systems-hub.html)
 │   │
 │   ├── BY SYSTEM TYPE
-│   │   ├── ✅ surveillance-systems.html - CCTV & Surveillance
-│   │   ├── ✅ cctv.html - CCTV Camera Systems Guide
-│   │   ├── ✅ burglar-alarm.html - Burglar Alarm Systems Guide
-│   │   ├── ✅ people-access.html - People Access Control
-│   │   ├── ✅ vehicle-access.html - Vehicle Access & Barriers
-│   │   └── ✅ platform-integration.html - Platform & Integration
+│   │   ├── ✅ surveillance-systems.html - CCTV & Surveillance Hub
+│   │   ├── ✅ cctv.html - Comprehensive CCTV Technical Guide
+│   │   ├── ✅ burglar-alarm.html - Comprehensive Burglar Alarm Technical Guide
+│   │   ├── ✅ door-access.html - Comprehensive Door Access Technical Guide
+│   │   ├── ✅ av-intercom.html - Comprehensive AV Intercom Technical Guide
+│   │   ├── ✅ people-access.html - People Access Control Hub
+│   │   ├── ✅ vehicle-access.html - Vehicle Access & Barriers Hub
+│   │   └── ✅ platform-integration.html - Platform & Integration Hub
 │   │
 │   └── Cross-link to SOLUTIONS hub at top of page
 │
@@ -273,7 +275,7 @@ SECUREVISION.COM.SG
 
 ---
 
-## COMPLETE PAGE INVENTORY (50 Pages)
+## COMPLETE PAGE INVENTORY (54 Pages)
 
 ### **CORE PAGES (4 pages)**
 | Page | File | Nav Placement | Notes |
@@ -350,6 +352,8 @@ SECUREVISION.COM.SG
 | | Resources | resources.html | Via insights |
 | | CCTV Guide | cctv.html | Resources / Insights |
 | | Burglar Alarm | burglar-alarm.html | Resources / Insights |
+| | Door Access Guide | door-access.html | Resources / Insights |
+| | AV Intercom Guide | av-intercom.html | Resources / Insights |
 
 ---
 
