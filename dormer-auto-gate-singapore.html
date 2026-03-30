@@ -1,16 +1,16 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HID Global Access Control Installer Singapore | Securevision</title>
+    <title>Dormer Gate Systems Installer Singapore | Securevision</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="sv-shared.css">
     <style>
         :root {
-            --primary-accent: #e53e3e; /* HID Red */
-            --accent-dark: #c53030;
+            --primary-accent: #553c9a; /* Dormer Purple */
+            --accent-dark: #3a2a6b;
             --charcoal: #1B1F23;
             --medium-gray: #5F6368;
             --light-gray: #F8F9FA;
@@ -91,8 +91,8 @@
         .models-section { background: var(--light-gray); padding: 100px 0; }
         .models-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
             margin-top: 48px;
         }
         .model-card {
@@ -100,27 +100,28 @@
             border-radius: 16px;
             overflow: hidden;
             border: 1px solid var(--border-color);
+            display: grid;
+            grid-template-columns: 200px 1fr;
             transition: 0.3s;
         }
         .model-card:hover { border-color: var(--primary-accent); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
         .model-visual {
             background: #0E1A2B;
-            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 4rem;
         }
-        .model-body { padding: 24px; }
-        .model-name { font-size: 1.15rem; font-weight: 700; margin-bottom: 8px; }
-        .model-desc { font-size: 0.9rem; color: var(--medium-gray); margin-bottom: 16px; }
+        .model-body { padding: 32px; }
+        .model-name { font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
+        .model-desc { font-size: 0.95rem; color: var(--medium-gray); margin-bottom: 20px; }
         
         .spec-row {
             display: flex;
             justify-content: space-between;
-            padding: 6px 0;
+            padding: 8px 0;
             border-bottom: 1px solid var(--border-color);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
         }
         .spec-lbl { color: var(--medium-gray); }
         .spec-val { font-weight: 600; }
@@ -156,6 +157,8 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .fit-grid { grid-template-columns: repeat(2, 1fr); }
+            .model-card { grid-template-columns: 1fr; }
+            .model-visual { height: 160px; }
         }
     </style>
 </head>
@@ -163,35 +166,35 @@
 
 <nav class="main-nav">
 <div class="nav-container">
-  <!-- Logo + Wordmark â€” always left -->
+  <!-- Logo + Wordmark — always left -->
   <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
     <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
     <span class="wordmark nav-wordmark">SECUREVISION</span>
   </a>
-  <!-- Hamburger â€” centred absolutely on mobile (via CSS) -->
+  <!-- Hamburger — centred absolutely on mobile (via CSS) -->
   <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
   <!-- Desktop nav links -->
   <ul class="nav-menu">
-    <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
+    <li class="nav-item"><a href="security-solutions-singapore.html" class="nav-link has-dropdown">Solutions</a>
       <div class="simple-dropdown">
-        <a href="residential.html">Private Homes</a>
+        <a href="residential-security-singapore.html">Private Homes</a>
         <a href="condominiums.html">Condominiums</a>
-        <a href="commercial.html">Commercial &amp; Retail</a>
-        <a href="institutions.html">Institutions</a>
-        <a href="industrial.html">Industrial &amp; Logistics</a>
-        <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
+        <a href="commercial-security-singapore.html">Commercial &amp; Retail</a>
+        <a href="government-institution-security-singapore.html">Institutions</a>
+        <a href="industrial-security-singapore.html">Industrial &amp; Logistics</a>
+        <a href="security-solutions-singapore.html"><strong>&rarr; View All Solutions</strong></a>
       </div>
     </li>
-    <li class="nav-item"><a href="systems-hub.html" class="nav-link has-dropdown">Systems</a>
+    <li class="nav-item"><a href="security-systems-singapore.html" class="nav-link has-dropdown">Systems</a>
       <div class="simple-dropdown">
-        <a href="surveillance-systems.html">Surveillance &amp; Detection</a>
-        <a href="people-access.html">People Access</a>
-        <a href="vehicle-access.html">Vehicle Access</a>
-        <a href="platform-integration.html">Platform &amp; Integration</a>
-        <a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a>
+        <a href="cctv-surveillance-singapore.html">Surveillance &amp; Detection</a>
+        <a href="access-control-singapore.html">People Access</a>
+        <a href="vehicle-access-control-singapore.html">Vehicle Access</a>
+        <a href="integrated-security-system-singapore.html">Platform &amp; Integration</a>
+        <a href="security-systems-singapore.html"><strong>&rarr; View All Systems</strong></a>
       </div>
     </li>
-    <li class="nav-item"><a href="brands.html" class="nav-link has-dropdown active">Brands</a>
+    <li class="nav-item"><a href="security-brands-singapore.html" class="nav-link has-dropdown active">Brands</a>
       <div class="simple-dropdown">
         <a href="hikvision-singapore.html">Hikvision</a>
         <a href="hanwha-samsung-singapore.html">Hanwha</a>
@@ -199,26 +202,26 @@
         <a href="zkteco-singapore.html">ZKTeco</a>
         <a href="akuvox-singapore.html">Akuvox</a>
         <a href="faac-singapore.html">FAAC</a>
-        <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
+        <a href="security-brands-singapore.html"><strong>&rarr; All 20 Brands</strong></a>
       </div>
     </li>
     <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
       <div class="simple-dropdown">
         <a href="portfolio.html">Private Homes</a>
         <a href="portfolio.html">Condominiums</a>
-        <a href="commercial.html">Commercial &amp; Retail</a>
-        <a href="institutions.html">Institutions</a>
-        <a href="industrial.html">Industrial &amp; Logistics</a>
+        <a href="commercial-security-singapore.html">Commercial &amp; Retail</a>
+        <a href="government-institution-security-singapore.html">Institutions</a>
+        <a href="industrial-security-singapore.html">Industrial &amp; Logistics</a>
         <a href="portfolio.html"><strong>&rarr; All Projects</strong></a>
       </div>
     </li>
-    <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
+    <li class="nav-item"><a href="security-articles-singapore.html" class="nav-link has-dropdown">Insights</a>
       <div class="simple-dropdown">
-        <a href="insights.html?cat=planning">Security Planning</a>
-        <a href="insights.html?cat=technology">Technology</a>
-        <a href="insights.html?cat=casestudy">Case Studies</a>
-        <a href="insights.html?cat=industry">SG Industry</a>
-        <a href="insights.html"><strong>&rarr; All Articles</strong></a>
+        <a href="security-articles-singapore.html?cat=planning">Security Planning</a>
+        <a href="security-articles-singapore.html?cat=technology">Technology</a>
+        <a href="security-articles-singapore.html?cat=casestudy">Case Studies</a>
+        <a href="security-articles-singapore.html?cat=industry">SG Industry</a>
+        <a href="security-articles-singapore.html"><strong>&rarr; All Articles</strong></a>
       </div>
     </li>
     <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
@@ -234,15 +237,15 @@
   <div class="nav-right">
     <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
   </div>
-  <!-- Mobile search icon â€” always right end on mobile -->
+  <!-- Mobile search icon — always right end on mobile -->
   <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
 </div>
 <div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a><a href="residential.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a href="commercial.html">Commercial</a><a href="institutions.html">Institutions</a><a href="industrial.html">Industrial</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu" id="sysSub"><a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a><a href="surveillance-systems.html">Surveillance</a><a href="people-access.html">People Access</a><a href="vehicle-access.html">Vehicle Access</a><a href="platform-integration.html">Platform</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;<div class="mobile-submenu" id="brdSub"><a href="brands.html"><strong>&rarr; All 20 Brands</strong></a><a href="hikvision-singapore.html">Hikvision</a><a href="ajax-alarm-singapore.html">AJAX</a><a href="zkteco-singapore.html">ZKTeco</a><a href="akuvox-singapore.html">Akuvox</a><a href="faac-singapore.html">FAAC</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;<div class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>&rarr; All Projects</strong></a><a href="portfolio.html">Private Homes</a><a href="portfolio.html">Condominiums</a><a href="portfolio.html">Commercial &amp; Retail</a><a href="portfolio.html">Institutions</a><a href="industrial.html">Industrial</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights &#9662;<div class="mobile-submenu" id="insSub"><a href="insights.html"><strong>&rarr; All Articles</strong></a><a href="insights.html?cat=planning">Security Planning</a><a href="insights.html?cat=technology">Technology</a><a href="insights.html?cat=casestudy">Case Studies</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="security-solutions-singapore.html"><strong>&rarr; View All Solutions</strong></a><a href="residential-security-singapore.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a href="commercial-security-singapore.html">Commercial</a><a href="government-institution-security-singapore.html">Institutions</a><a href="industrial-security-singapore.html">Industrial</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu" id="sysSub"><a href="security-systems-singapore.html"><strong>&rarr; View All Systems</strong></a><a href="cctv-surveillance-singapore.html">Surveillance</a><a href="access-control-singapore.html">People Access</a><a href="vehicle-access-control-singapore.html">Vehicle Access</a><a href="integrated-security-system-singapore.html">Platform</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;<div class="mobile-submenu" id="brdSub"><a href="security-brands-singapore.html"><strong>&rarr; All 20 Brands</strong></a><a href="hikvision-singapore.html">Hikvision</a><a href="ajax-alarm-singapore.html">AJAX</a><a href="zkteco-singapore.html">ZKTeco</a><a href="akuvox-singapore.html">Akuvox</a><a href="faac-singapore.html">FAAC</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;<div class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>&rarr; All Projects</strong></a><a href="portfolio.html">Private Homes</a><a href="portfolio.html">Condominiums</a><a href="portfolio.html">Commercial &amp; Retail</a><a href="portfolio.html">Institutions</a><a href="industrial-security-singapore.html">Industrial</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights &#9662;<div class="mobile-submenu" id="insSub"><a href="security-articles-singapore.html"><strong>&rarr; All Articles</strong></a><a href="security-articles-singapore.html?cat=planning">Security Planning</a><a href="security-articles-singapore.html?cat=technology">Technology</a><a href="security-articles-singapore.html?cat=casestudy">Case Studies</a></div></div>
   <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a><a href="contact.html">Contact Us</a></div></div>
 </div>
 </nav>
@@ -252,8 +255,8 @@
     <div class="container">
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="brands.html">Brands</a></li>
-            <li>HID Global</li>
+            <li><a href="security-brands-singapore.html">Brands</a></li>
+            <li>Dormer</li>
         </ul>
     </div>
 </nav>
@@ -263,32 +266,32 @@
         <div class="hero-grid">
             <div>
                 <div class="breadcrumb" style="font-size: 0.9rem; opacity: 0.6; margin-bottom: 20px;">
-                    <a href="brands.html" style="color: white; text-decoration: none;">All Brands</a> / 
-                    <a href="people-access.html" style="color: white; text-decoration: none;">People Access Systems</a>
+                    <a href="security-brands-singapore.html" style="color: white; text-decoration: none;">All Brands</a> / 
+                    <a href="vehicle-access-control-singapore.html" style="color: white; text-decoration: none;">Gates & Barriers</a>
                 </div>
                 <div class="brand-badge">
-                    <span class="bb-name">HID Global</span>
-                    <span class="bb-auth">Authorised Partner Â· Singapore</span>
+                    <span class="bb-name">Dormer</span>
+                    <span class="bb-auth">Installer · Singapore</span>
                 </div>
-                <h1>HID Global Access Control Singapore</h1>
-                <p class="hero-lead">HID Global is the world's leading manufacturer of access control credentials and readers. HID is the de-facto standard in Singapore's banking, hospitality, and corporate sectors. Securevision installs and maintains HID systems for maximum security and interoperability.</p>
+                <h1>Dormer Auto Gate Installer Singapore</h1>
+                <p class="hero-lead">Dormer is a gate automation brand with an established installation base in Singapore's residential market. Securevision installs and services Dormer systems for homeowners seeking reliable gate automation at competitive prices.</p>
                 <div class="btn-group" style="display: flex; gap: 16px;">
-                    <a href="https://wa.me/6593860466" class="btn btn-accent" style="background: #25d366; border-color: #25d366;">ðŸ’¬ WhatsApp Quote</a>
-                    <a href="contact.html" class="btn btn-outline" style="border: 1px solid white; color: white;">Request Assessment</a>
+                    <a href="https://wa.me/6593860466" class="btn btn-accent" style="background: #25d366; border-color: #25d366;">💬 WhatsApp Quote</a>
+                    <a href="contact.html" class="btn btn-outline" style="border: 1px solid white; color: white;">Site Assessment</a>
                 </div>
             </div>
             <div class="brand-card">
                 <div class="bc-logo-area">
-                    <div class="bc-logo-name">HID GLOBAL</div>
+                    <div class="bc-logo-name">DORMER</div>
                 </div>
                 <div class="bc-stats">
                     <div class="bc-stat">
-                        <span class="bcs-val">Global Std</span>
-                        <span class="bcs-lbl">De-facto choice</span>
+                        <span class="bcs-val">SG Base</span>
+                        <span class="bcs-lbl">Strong local presence</span>
                     </div>
                     <div class="bc-stat">
-                        <span class="bcs-val">Encrypted</span>
-                        <span class="bcs-lbl">iCLASS / SEOS</span>
+                        <span class="bcs-val">Service Ready</span>
+                        <span class="bcs-lbl">Full maintenance</span>
                     </div>
                 </div>
             </div>
@@ -298,23 +301,23 @@
 
 <section>
     <div class="container">
-        <span class="eyebrow">Why We Carry HID Global</span>
-        <h2>The Gold Standard in Access Security</h2>
+        <span class="eyebrow">Why We Carry Dormer</span>
+        <h2>Reliable Local Support</h2>
         <div class="why-grid">
             <div class="why-card">
-                <div class="wc-icon">ðŸŒ</div>
-                <h3>Interoperability</h3>
-                <p>HID credentials are accepted across most premium office buildings and facilities in Singapore, making it the practical choice for corporate users.</p>
+                <div class="wc-icon">🔧</div>
+                <h3>Wide Service Coverage</h3>
+                <p>Dormer has one of the largest residential installed bases in Singapore — we service and upgrade existing systems with ease.</p>
             </div>
             <div class="why-card">
-                <div class="wc-icon">ðŸ”</div>
-                <h3>Advanced Encryption</h3>
-                <p>HID iCLASS and SEOS technologies use multi-layered encryption to prevent card cloning and unauthorised credential duplication.</p>
+                <div class="wc-icon">💰</div>
+                <h3>Budget Competitive</h3>
+                <p>Dormer competes aggressively on price, making it an excellent choice for standard residential gate applications.</p>
             </div>
             <div class="why-card">
-                <div class="wc-icon">ðŸ“±</div>
-                <h3>Mobile Readiness</h3>
-                <p>HID Mobile Access allows users to use their smartphones as secure credentials via BLE and NFC for a touchless entry experience.</p>
+                <div class="wc-icon">🏠</div>
+                <h3>Singapore Market-Fit</h3>
+                <p>Designed specifically for the local market, Dormer products are well-matched to Singapore's typical landed home configurations.</p>
             </div>
         </div>
     </div>
@@ -322,42 +325,32 @@
 
 <section class="models-section">
     <div class="container">
-        <span class="eyebrow">Featured Solutions</span>
-        <h2>HID Global Readers & Credentials</h2>
+        <div style="text-align: center; margin-bottom: 48px;">
+            <span class="eyebrow">Featured Models</span>
+            <h2>Dormer Products & Models</h2>
+        </div>
         <div class="models-grid">
             <div class="model-card">
-                <div class="model-visual">ðŸ“–</div>
+                <div class="model-visual">🏠</div>
                 <div class="model-body">
-                    <div class="model-name">multiCLASS SE Readers</div>
-                    <p class="model-desc">Multi-technology readers that handle legacy 125kHz, Mifare, and encrypted iCLASS SE/SEOS in one unit.</p>
+                    <div class="model-name">DSG-500 Sliding Gate</div>
+                    <p class="model-desc">Standard sliding gate motor for Singapore landed homes up to 500kg. Reliable and cost-effective.</p>
                     <div class="model-specs">
-                        <div class="spec-row"><span class="spec-lbl">Technologies</span><span class="spec-val">125kHz + 13.56MHz</span></div>
-                        <div class="spec-row"><span class="spec-lbl">Interface</span><span class="spec-val">Wiegand / OSDP</span></div>
-                        <div class="spec-row"><span class="spec-lbl">Mobile</span><span class="spec-val">BLE Supported</span></div>
+                        <div class="spec-row"><span class="spec-lbl">Weight</span><span class="spec-val">Up to 500kg</span></div>
+                        <div class="spec-row"><span class="spec-lbl">Power</span><span class="spec-val">230V AC</span></div>
+                        <div class="spec-row"><span class="spec-lbl">Release</span><span class="spec-val">Manual Key</span></div>
                     </div>
                 </div>
             </div>
             <div class="model-card">
-                <div class="model-visual">ðŸ’³</div>
+                <div class="model-visual">🚪</div>
                 <div class="model-body">
-                    <div class="model-name">iCLASS SE Credentials</div>
-                    <p class="model-desc">High-security encrypted smart cards. SIO-encoded data prevents cloning and data tampering.</p>
+                    <div class="model-name">DSW-300 Swing Gate</div>
+                    <p class="model-desc">Above-ground swing gate operator for residential single and double gates. Durable construction.</p>
                     <div class="model-specs">
-                        <div class="spec-row"><span class="spec-lbl">Encryption</span><span class="spec-val">AES-128</span></div>
-                        <div class="spec-row"><span class="spec-lbl">Clone-proof</span><span class="spec-val">Advanced SIO</span></div>
-                        <div class="spec-row"><span class="spec-lbl">Durability</span><span class="spec-val">ISO Standard</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="model-card">
-                <div class="model-visual">ðŸ“±</div>
-                <div class="model-body">
-                    <div class="model-name">HID Mobile Access</div>
-                    <p class="model-desc">Smartphone-based credentials. Twist-and-Go gesture support for seamless hands-free entry.</p>
-                    <div class="model-specs">
-                        <div class="spec-row"><span class="spec-lbl">Platform</span><span class="spec-val">iOS / Android</span></div>
-                        <div class="spec-row"><span class="spec-lbl">Gesture</span><span class="spec-val">Twist-and-Go</span></div>
-                        <div class="spec-row"><span class="spec-lbl">Protocols</span><span class="spec-val">BLE + NFC</span></div>
+                        <div class="spec-row"><span class="spec-lbl">Leaf</span><span class="spec-val">Up to 300kg</span></div>
+                        <div class="spec-row"><span class="spec-lbl">Power</span><span class="spec-val">230V AC</span></div>
+                        <div class="spec-row"><span class="spec-lbl">Remotes</span><span class="spec-val">2 Included</span></div>
                     </div>
                 </div>
             </div>
@@ -368,21 +361,21 @@
 <section>
     <div class="container">
         <span class="eyebrow">Who This Suits</span>
-        <h2>Which Properties We Install HID In</h2>
+        <h2>Which Properties We Install Dormer In</h2>
         <div class="fit-grid">
-            <a href="people-access.html" class="fit-card"><span class="fc-icon">ðŸ¦</span><h4>Banking</h4></a>
-            <a href="people-access.html" class="fit-card"><span class="fc-icon">ðŸ¢</span><h4>Headquarters</h4></a>
-            <a href="people-access.html" class="fit-card"><span class="fc-icon">ðŸ¨</span><h4>Hospitality</h4></a>
-            <a href="people-access.html" class="fit-card"><span class="fc-icon">ðŸ›ï¸</span><h4>Government</h4></a>
-            <a href="people-access.html" class="fit-card"><span class="fc-icon">ðŸª</span><h4>SME Premium</h4></a>
+            <a href="vehicle-access-control-singapore.html" class="fit-card"><span class="fc-icon">🏠</span><h4>Homes</h4></a>
+            <a href="vehicle-access-control-singapore.html" class="fit-card"><span class="fc-icon">🏘️</span><h4>Small Condos</h4></a>
+            <a href="vehicle-access-control-singapore.html" class="fit-card"><span class="fc-icon">🏢</span><h4>Offices</h4></a>
+            <a href="vehicle-access-control-singapore.html" class="fit-card"><span class="fc-icon">🏫</span><h4>Schools</h4></a>
+            <a href="vehicle-access-control-singapore.html" class="fit-card"><span class="fc-icon">🏭</span><h4>Industrial</h4></a>
         </div>
     </div>
 </section>
 
 <section class="hero" style="background: linear-gradient(135deg, #1a2942 0%, #0E1A2B 100%); text-align: center; padding: 100px 0;">
     <div class="container">
-        <h2>Upgrade to World-Class HID Security?</h2>
-        <p style="margin-bottom: 40px; opacity: 0.8;">We supply, install, commission, and maintain HID Global systems across Singapore.</p>
+        <h2>Expert Dormer Installation?</h2>
+        <p style="margin-bottom: 40px; opacity: 0.8;">We supply, install, commission, and maintain Dormer systems across Singapore.</p>
         <div style="display: flex; gap: 20px; justify-content: center;">
             <a href="https://wa.me/6593860466" class="btn btn-accent" style="background: #25d366; border-color: #25d366; padding: 16px 32px;">WhatsApp Us</a>
             <a href="contact.html" class="btn btn-outline" style="border: 1px solid white; color: white; padding: 16px 32px;">Get a Quote</a>
@@ -411,11 +404,11 @@
       <div class="footer-col">
         <h4 class="footer-title">Solutions</h4>
         <ul class="footer-links">
-          <li><a href="residential.html">Private Homes</a></li>
+          <li><a href="residential-security-singapore.html">Private Homes</a></li>
           <li><a href="condominiums.html">Condominiums (MCST)</a></li>
-          <li><a href="commercial.html">Commercial & Retail</a></li>
-          <li><a href="institutions.html">Institutions</a></li>
-          <li><a href="industrial.html">Industrial & Logistics</a></li>
+          <li><a href="commercial-security-singapore.html">Commercial & Retail</a></li>
+          <li><a href="government-institution-security-singapore.html">Institutions</a></li>
+          <li><a href="industrial-security-singapore.html">Industrial & Logistics</a></li>
         </ul>
       </div>
 
@@ -423,11 +416,11 @@
       <div class="footer-col">
         <h4 class="footer-title">Systems</h4>
         <ul class="footer-links">
-          <li><a href="surveillance-systems.html">Surveillance & Detection</a></li>
-          <li><a href="people-access.html">People Access Systems</a></li>
-          <li><a href="vehicle-access.html">Vehicle Access Systems</a></li>
-          <li><a href="platform-integration.html">Platform & Integration</a></li>
-          <li><a href="brands.html">Hardware Brands</a></li>
+          <li><a href="cctv-surveillance-singapore.html">Surveillance & Detection</a></li>
+          <li><a href="access-control-singapore.html">People Access Systems</a></li>
+          <li><a href="vehicle-access-control-singapore.html">Vehicle Access Systems</a></li>
+          <li><a href="integrated-security-system-singapore.html">Platform & Integration</a></li>
+          <li><a href="security-brands-singapore.html">Hardware Brands</a></li>
         </ul>
       </div>
 
@@ -438,7 +431,7 @@
           <li><a href="contact.html">Contact Us</a></li>
           <li><a href="about.html">Our Story</a></li>
           <li><a href="portfolio.html">Project Portfolio</a></li>
-          <li><a href="insights.html">Security Insights</a></li>
+          <li><a href="security-articles-singapore.html">Security Insights</a></li>
           <li><a href="https://wa.me/6593860466" class="footer-whatsapp"><strong>WhatsApp: +65 9386 0466</strong></a></li>
         </ul>
         <div class="footer-social">
@@ -485,4 +478,5 @@ document.addEventListener('click', function(e) {
 </script>
 </body>
 </html>
+
 

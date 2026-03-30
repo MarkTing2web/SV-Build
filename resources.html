@@ -1,803 +1,1123 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-GB">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Security Resources & Tools | Securevision Singapore</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Insights & Resources | Securevision Singapore</title>
+    <meta name="description" content="Professional security knowledge base for homeowners, architects and building managers. Technical guides, planning tools, compliance templates and manufacturer resources.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="sv-shared.css">
-<style>
-    :root {
-        --primary-accent: #0056b3;
-        --charcoal: #1B1F23;
-        --medium-gray: #5F6368;
-        --light-gray: #F8F9FA;
-        --border-color: #E8EAED;
-        --container-width: 1200px;
-    }
 
-    /* HERO Section */
-    .hero {
-        background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
-        color: white;
-        padding: 120px 0 80px;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-    .hero h1 { font-size: clamp(32px, 5vw, 48px); margin-bottom: 24px; }
-    .hero h1 em { font-style: normal; color: #5b9ee1; }
-    .hero p { font-size: 18px; max-width: 800px; margin: 0 auto 32px; opacity: 0.9; line-height: 1.6; }
+    <style>
+        /* Section Anchor Offsets */
+        section[id] { scroll-margin-top: 80px; }
 
-    /* CALCULATOR Section */
-    .calc-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 64px;
-        align-items: center;
-    }
-    .calc-benefits {
-        list-style: none;
-        margin: 24px 0;
-    }
-    .calc-benefits li {
-        display: flex;
-        gap: 12px;
-        padding: 12px 0;
-        border-bottom: 1px solid var(--border-color);
-        font-size: 15px;
-    }
-    .calc-benefits li::before {
-        content: 'âœ“';
-        color: var(--primary-accent);
-        font-weight: 700;
-    }
-    .calc-preview {
-        background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
-        border-radius: 16px;
-        padding: 48px;
-        color: white;
-        text-align: center;
-    }
-    .coming-soon-badge {
-        background: rgba(255, 215, 0, 0.1);
-        border: 1px solid rgba(255, 215, 0, 0.3);
-        color: #ffd700;
-        padding: 8px 20px;
-        border-radius: 50px;
-        font-weight: 700;
-        text-transform: uppercase;
-        font-size: 12px;
-        margin-bottom: 24px;
-        display: inline-block;
-    }
-    .notify-form {
-        display: flex;
-        gap: 8px;
-        margin-top: 24px;
-    }
-    .notify-form input {
-        flex: 1;
-        padding: 12px 16px;
-        border-radius: 8px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: rgba(255, 255, 255, 0.1);
-        color: white;
-    }
-
-    /* CATEGORIES Section */
-    .categories-section { background: var(--light-gray); }
-    .cat-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 32px;
-    }
-    .cat-block {
-        background: white;
-        border: 1px solid var(--border-color);
-        border-radius: 12px;
-        overflow: hidden;
-    }
-    .cat-header {
-        padding: 24px;
-        border-bottom: 1px solid var(--border-color);
-        display: flex;
-        gap: 16px;
-        align-items: center;
-    }
-    .cat-header-bar {
-        width: 4px;
-        height: 40px;
-        border-radius: 2px;
-    }
-    .resource-list { padding: 8px 24px; }
-    .resource-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 16px 0;
-        border-bottom: 1px solid var(--border-color);
-        text-decoration: none;
-        color: var(--charcoal);
-        transition: all 0.2s ease;
-    }
-    .resource-item:last-child { border-bottom: none; }
-    .resource-item:hover { color: var(--primary-accent); }
-    .ri-left { display: flex; gap: 16px; align-items: center; }
-    .ri-badge {
-        font-size: 11px;
-        font-weight: 700;
-        padding: 4px 12px;
-        border-radius: 50px;
-        text-transform: uppercase;
-    }
-    .badge-soon { background: var(--light-gray); color: var(--medium-gray); }
-    .badge-free { background: #e3f2fd; color: #1565c0; }
-
-    /* STRIP Section */
-    .strip-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 24px;
-    }
-    .guide-card {
-        background: var(--light-gray);
-        border: 1px solid var(--border-color);
-        border-radius: 12px;
-        padding: 32px;
-        text-decoration: none;
-        color: var(--charcoal);
-        transition: all 0.3s ease;
-    }
-    .guide-card:hover {
-        border-color: var(--primary-accent);
-        transform: translateY(-4px);
-    }
-    .gc-category {
-        font-size: 11px;
-        font-weight: 700;
-        color: var(--primary-accent);
-        text-transform: uppercase;
-        margin-bottom: 8px;
-    }
-
-    /* CTA Section */
-    .cta-section {
-        background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
-        color: white;
-        text-align: center;
-        padding: 96px 0;
-    }
-
-    @media (max-width: 992px) {
-        .strip-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 768px) {
-        .calc-grid, .cat-grid, .strip-grid {
-            grid-template-columns: 1fr;
+        /* Custom Resource Components */
+        .hero-trust-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #fff;
+            letter-spacing: 0.5px;
         }
-    }
-</style>
 
+        /* Quick Access Cards in Hero */
+        .quick-access-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+            margin-top: 48px;
+        }
+        .quick-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 24px 16px;
+            border-radius: 12px;
+            text-align: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .quick-card:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-5px);
+            border-color: rgba(255,255,255,0.3);
+        }
+        .quick-card .icon { font-size: 24px; margin-bottom: 12px; display: block; }
+        .quick-card strong { display: block; font-size: 14px; color: #fff; margin-bottom: 4px; }
+        .quick-card span { font-size: 11px; color: rgba(255,255,255,0.6); }
+
+        /* Guide Card Meta */
+        .guide-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .meta-author { color: var(--primary-blue); }
+        .meta-update { color: #2e7d32; }
+
+        .guide-footer-meta {
+            margin: 20px 0;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        /* Filter Row */
+        .filter-row {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+        .filter-btn {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-blue);
+            color: #fff;
+            border-color: var(--primary-blue);
+        }
+
+        /* Product Resource Links */
+        .resource-links {
+            list-style: none;
+            margin-top: 16px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .resource-link {
+            font-size: 12px;
+            text-decoration: none;
+            color: var(--text-gray);
+            padding: 6px 10px;
+            background: var(--bg-light);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: 0.2s;
+        }
+        .resource-link:hover { background: #e2e8f0; color: var(--primary-blue); }
+
+        /* FAQ Section */
+        .faq-search-wrap {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            display: flex;
+            gap: 12px;
+        }
+        .faq-search {
+            flex: 1;
+            padding: 12px 20px;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            font-size: 15px;
+        }
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        .faq-card {
+            background: #fff;
+            padding: 32px;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+        }
+        .faq-card h3 { font-size: 17px; margin-bottom: 12px; color: var(--text-dark); line-height: 1.4; }
+        .faq-card p { font-size: 14px; color: var(--text-gray); line-height: 1.7; }
+        .faq-category {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+        }
+
+        /* Gating Notice */
+        .notice-box {
+            background: #fff9e6;
+            border: 1px solid #ffeeba;
+            padding: 24px;
+            border-radius: 8px;
+            margin-bottom: 48px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .notice-icon { font-size: 24px; }
+        .notice-text { font-size: 14px; color: #856404; line-height: 1.6; }
+
+        /* Trade Cards */
+        .trade-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .trade-category {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 32px;
+        }
+        .trade-head { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+        .trade-head .icon { font-size: 24px; }
+        .trade-head h3 { font-size: 18px; margin: 0; }
+        
+        .download-item {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--bg-light);
+        }
+        .download-item:last-child { border-bottom: none; }
+        .download-name { display: block; font-size: 13px; font-weight: 600; color: var(--text-dark); margin-bottom: 4px; }
+        .download-meta { display: block; font-size: 11px; color: var(--text-light); margin-bottom: 10px; }
+        .download-btn {
+            font-size: 12px;
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .download-btn:hover { text-decoration: underline; }
+
+        /* Video Card */
+        .video-thumbnail {
+            position: relative;
+            background: #f1f5f9;
+            aspect-ratio: 16/9;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .play-overlay {
+            width: 48px; height: 48px;
+            background: var(--primary-blue);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            z-index: 2;
+        }
+        .vid-badge {
+            position: absolute;
+            bottom: 8px; right: 8px;
+            background: rgba(0,0,0,0.7);
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+        .vid-source {
+            position: absolute;
+            top: 8px; left: 8px;
+            background: var(--white);
+            color: var(--text-dark);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 992px) {
+            .quick-access-grid { grid-template-columns: repeat(3, 1fr); }
+            .trade-grid, .faq-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .quick-access-grid { grid-template-columns: repeat(2, 1fr); }
+            .trade-grid, .faq-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
-<body>
+<body class="bg-white">
+
 <nav class="main-nav">
 <div class="nav-container">
-  <!-- Logo + Wordmark â€” always left -->
   <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
-    <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo" class="nav-logo-img">
-    <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#ffffff;letter-spacing:0.5px;">SECUREVISION</span>
+    <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
+    <span class="wordmark nav-wordmark">SECUREVISION</span>
   </a>
-
-  <!-- Hamburger â€” centred absolutely on mobile (via CSS) -->
   <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
-
-  <!-- Desktop nav links -->
   <ul class="nav-menu">
-    <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
+    <li class="nav-item"><a href="security-solutions-singapore.html" class="nav-link has-dropdown">Solutions</a>
       <div class="simple-dropdown">
-        <a href="residential.html">&#127968; Private Homes</a>
-        <a href="condominiums.html">&#127960;&#65039; Condominiums</a>
-        <a href="commercial.html">&#127978; Commercial &amp; Retail</a>
-        <a href="institutions.html">&#127979; Institutions</a>
-        <a href="industrial.html">&#127981; Industrial &amp; Logistics</a>
-        <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
+        <a href="residential-security-singapore.html">Private Homes</a>
+        <a href="condominiums.html">Condominiums</a>
+        <a href="commercial-security-singapore.html">Commercial &amp; Retail</a>
+        <a href="industrial-security-singapore.html">Industrial &amp; Logistics</a>
+        <a href="government-institution-security-singapore.html">Institutions &amp; Government</a>
+        <a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a>
+        <a href="security-solutions-singapore.html"><strong>&rarr; View All Solutions</strong></a>
       </div>
     </li>
-    <li class="nav-item"><a href="systems-hub.html" class="nav-link has-dropdown">Systems</a>
+    <li class="nav-item"><a href="security-systems-singapore.html" class="nav-link has-dropdown">Systems</a>
       <div class="simple-dropdown">
-        <a href="surveillance-systems.html">&#128249; Surveillance &amp; Detection</a>
-        <a href="people-access.html">&#128682; People Access</a>
-        <a href="vehicle-access.html">&#128663; Vehicle Access</a>
-        <a href="platform-integration.html">&#128202; Platform &amp; Integration</a>
-        <a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a>
+        <a href="cctv-surveillance-singapore.html">CCTV &amp; Surveillance</a>
+        <a href="access-control-singapore.html">Access Control Systems</a>
+        <a href="burglar-alarm.html">Alarm &amp; Intrusion</a>
+        <a href="intercom-system-singapore.html">Intercom &amp; Communication</a>
+        <a href="auto-gate-singapore.html">Autogate &amp; Barriers</a>
+        <a href="integrated-security-system-singapore.html">Platform &amp; Integration</a>
+        <a href="security-systems-singapore.html"><strong>&rarr; View All Systems</strong></a>
       </div>
     </li>
-    <li class="nav-item"><a href="brands.html" class="nav-link has-dropdown">Brands</a>
-      <div class="simple-dropdown">
-        <a href="hikvision-singapore.html">Hikvision</a>
-        <a href="hanwha-samsung-singapore.html">Hanwha</a>
-        <a href="ajax-alarm-singapore.html">AJAX</a>
-        <a href="zkteco-singapore.html">ZKTeco</a>
-        <a href="akuvox-singapore.html">Akuvox</a>
-        <a href="faac-singapore.html">FAAC</a>
-        <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
+    <li class="nav-item"><a href="security-brands-singapore.html" class="nav-link has-dropdown">Brands</a>
+      <div class="simple-dropdown wide-dropdown">
+        <a href="security-brands-singapore.html#surveillance"><strong>Surveillance</strong> &mdash; Hikvision &bull; Hanwha &bull; Uniview &bull; Milesight</a>
+        <a href="security-brands-singapore.html#access"><strong>Access Control</strong> &mdash; Suprema &bull; ZKTeco &bull; HID &bull; EntryPass</a>
+        <a href="security-brands-singapore.html#intercom"><strong>Intercoms</strong> &mdash; Akuvox &bull; Aiphone &bull; Kocom</a>
+        <a href="security-brands-singapore.html#alarms"><strong>Alarms</strong> &mdash; AJAX &bull; RISCO &bull; Paradox &bull; DSC</a>
+        <a href="security-brands-singapore.html#gates"><strong>Gates & Barriers</strong> &mdash; FAAC &bull; MAG &bull; Dormer</a>
+        <hr>
+        <a href="security-brands-singapore.html"><strong>&rarr; View All Technology Partners</strong></a>
       </div>
     </li>
     <li class="nav-item"><a href="portfolio.html" class="nav-link has-dropdown">Portfolio</a>
       <div class="simple-dropdown">
-        <a href="portfolio-lviv.html">The L&rsquo;viv</a>
-        <a href="portfolio-scape.html">SCAPE</a>
-        <a href="portfolio-sta.html">STA</a>
-        <a href="portfolio-cyrus.html">Cyrus Tech</a>
-        <a href="portfolio.html"><strong>&rarr; All Projects</strong></a>
+        <a href="portfolio.html">All Projects</a>
+        <a href="condominiums.html">Condominiums</a>
+        <a href="commercial-security-singapore.html">Commercial</a>
+        <a href="industrial-security-singapore.html">Industrial</a>
       </div>
     </li>
     <li class="nav-item"><a href="resources.html" class="nav-link has-dropdown active">Resources</a>
       <div class="simple-dropdown">
-        <a href="resources-cctv-guide.html">CCTV Guide</a>
-        <a href="resources-troubleshoot.html">Troubleshooting</a>
-        <a href="resources-faq.html">FAQs</a>
+        <a href="resources.html#guides">Technical Guides</a>
+        <a href="resources.html#tools">Planning Tools</a>
+        <a href="resources.html#library">Product Library</a>
+        <a href="resources.html#videos">Video Training</a>
+        <a href="resources.html#faq">FAQ</a>
+        <a href="resources.html#trade">For Professionals</a>
         <a href="resources.html"><strong>&rarr; All Resources</strong></a>
       </div>
     </li>
-    <li class="nav-item"><a href="insights.html" class="nav-link has-dropdown">Insights</a>
-      <div class="simple-dropdown">
-        <a href="insights.html?cat=planning">Security Planning</a>
-        <a href="insights.html?cat=technology">Technology</a>
-        <a href="insights.html?cat=casestudy">Case Studies</a>
-        <a href="insights.html?cat=industry">SG Industry</a>
-        <a href="insights.html"><strong>&rarr; All Articles</strong></a>
-      </div>
-    </li>
+    <li class="nav-item"><a href="security-articles-singapore.html" class="nav-link">Insights</a></li>
     <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
       <div class="simple-dropdown">
         <a href="about.html">Our Story</a>
-        <a href="about.html#founder">Founder&rsquo;s Story</a>
-        <a href="awards-certifications.html">Awards &amp; Certifications</a>
+        <a href="awards-certifications.html">Certifications</a>
+        <a href="about.html#founder">Founder</a>
         <a href="contact.html">Contact Us</a>
       </div>
     </li>
   </ul>
-
-  <!-- Desktop search icon -->
   <div class="nav-right">
     <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
-  </div>
-
-  <!-- Mobile search icon â€” always right end on mobile -->
-  <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
-</div>
-
-<!-- Mobile menu panel -->
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;
-    <div class="mobile-submenu" id="solSub">
-      <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
-      <a href="residential.html">&#127968; Private Homes</a>
-      <a href="condominiums.html">&#127960;&#65039; Condominiums</a>
-      <a href="commercial.html">&#127978; Commercial</a>
-      <a href="institutions.html">&#127979; Institutions</a>
-      <a href="industrial.html">&#127981; Industrial</a>
-    </div>
-  </div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;
-    <div class="mobile-submenu" id="sysSub">
-      <a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a>
-      <a href="surveillance-systems.html">&#128249; Surveillance</a>
-      <a href="people-access.html">&#128682; People Access</a>
-      <a href="vehicle-access.html">&#128663; Vehicle Access</a>
-      <a href="platform-integration.html">&#128202; Platform</a>
-    </div>
-  </div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('brdSub')">Brands &#9662;
-    <div class="mobile-submenu" id="brdSub">
-      <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
-      <a href="hikvision-singapore.html">Hikvision</a>
-      <a href="ajax-alarm-singapore.html">AJAX</a>
-      <a href="zkteco-singapore.html">ZKTeco</a>
-      <a href="akuvox-singapore.html">Akuvox</a>
-      <a href="faac-singapore.html">FAAC</a>
-    </div>
-  </div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;
-    <div class="mobile-submenu" id="portSub">
-      <a href="portfolio.html"><strong>&rarr; All Projects</strong></a>
-      <a href="portfolio-lviv.html">The L&rsquo;viv</a>
-      <a href="portfolio-scape.html">SCAPE</a>
-      <a href="portfolio-sta.html">STA</a>
-      <a href="portfolio-cyrus.html">Cyrus Tech</a>
-    </div>
-  </div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources &#9662;
-    <div class="mobile-submenu" id="resSub">
-      <a href="resources.html"><strong>&rarr; All Resources</strong></a>
-      <a href="resources-cctv-guide.html">CCTV Guide</a>
-      <a href="resources-troubleshoot.html">Troubleshooting</a>
-      <a href="resources-faq.html">FAQs</a>
-    </div>
-  </div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('insSub')">Insights &#9662;
-    <div class="mobile-submenu" id="insSub">
-      <a href="insights.html"><strong>&rarr; All Articles</strong></a>
-      <a href="insights.html?cat=planning">Security Planning</a>
-      <a href="insights.html?cat=technology">Technology</a>
-      <a href="insights.html?cat=casestudy">Case Studies</a>
-    </div>
-  </div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;
-    <div class="mobile-submenu" id="abtSub">
-      <a href="about.html"><strong>&rarr; About Securevision</strong></a>
-      <a href="about.html#founder">Founder&rsquo;s Story</a>
-      <a href="awards-certifications.html">Awards</a>
-      <a href="contact.html">Contact Us</a>
-    </div>
   </div>
 </div>
 </nav>
 
-
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="security-solutions-singapore.html"><strong>&rarr; View All Solutions</strong></a><a href="residential-security-singapore.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a href="commercial-security-singapore.html">Commercial &amp; Retail</a><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a><a href="government-institution-security-singapore.html">Institutions &amp; Government</a><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu" id="sysSub"><a href="security-systems-singapore.html"><strong>&rarr; View All Systems</strong></a><a href="cctv-surveillance-singapore.html">CCTV &amp; Surveillance</a><a href="access-control-singapore.html">Access Control Systems</a><a href="burglar-alarm.html">Alarm &amp; Intrusion</a><a href="intercom-system-singapore.html">Intercom &amp; Communication</a><a href="auto-gate-singapore.html">Autogate &amp; Barriers</a><a href="integrated-security-system-singapore.html">Platform &amp; Integration</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('brandSub')">Brands &#9662;<div class="mobile-submenu" id="brandSub">
+      <a href="security-brands-singapore.html"><strong>&rarr; View All Partners</strong></a>
+      <a href="security-brands-singapore.html#surveillance">Surveillance &mdash; Hik · Han · Uni · Mil</a>
+      <a href="security-brands-singapore.html#access">Access &mdash; Sup · ZK · HID · EP</a>
+      <a href="security-brands-singapore.html#intercom">Intercoms &mdash; Aku · Aip · Koc</a>
+      <a href="security-brands-singapore.html#alarms">Alarms &mdash; AJAX · RIS · Par · DSC</a>
+      <a href="security-brands-singapore.html#gates">Gates &mdash; FAAC · MAG · Dor</a>
+    </div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;<div class="mobile-submenu" id="portSub"><a href="portfolio.html"><strong>&rarr; All Projects</strong></a><a href="portfolio.html">Private Homes</a><a href="portfolio.html">Condominiums</a><a href="commercial-security-singapore.html">Commercial &amp; Retail</a><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a><a href="government-institution-security-singapore.html">Institutions &amp; Government</a><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources &#9662;<div class="mobile-submenu" id="resSub"><a href="resources.html"><strong>&rarr; All Resources</strong></a><a href="resources.html#guides">Technical Guides</a><a href="resources.html#tools">Planning Tools</a><a href="resources.html#library">Product Library</a><a href="resources.html#videos">Video Training</a><a href="resources.html#faq">FAQ</a><a href="resources.html#trade">For Professionals</a></div></div>
+  <a href="security-articles-singapore.html" class="mobile-menu-item">Insights</a>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a><a href="contact.html">Contact Us</a></div></div>
+</div>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero hero-resources">
+  <div class="hero-overlay"></div>
   <div class="container">
-    <span class="eyebrow" style="color:rgba(255,255,255,.45)">Security Resources</span>
-    <h1>Plan Smarter.<br><em>Decide with Confidence.</em></h1>
-    <p>Free tools, guides, and checklists to help you plan, specify, and maintain your security system â€” whether you're a homeowner, property manager, or security professional.</p>
-<div style="display:flex;gap:8px;margin-top:12px">
-<a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook" style="width:32px;height:32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-<a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn" style="width:32px;height:32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-<a href="https://wa.me/6593860466" target="_blank" rel="noopener" aria-label="WhatsApp" style="width:32px;height:32px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:6px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);text-decoration:none"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
-</div>
-  </div>
-</section>
-
-<!-- FEATURED: CALCULATOR -->
-<section class="calculator-feature">
-  <div class="container">
-    <div class="calc-grid">
-      <div class="calc-text">
-        <span class="eyebrow">Coming Soon</span>
-        <h2>Security System Planning Calculator</h2>
-        <p>Our most-requested tool â€” currently in development. The calculator will let you input your property type, size, and coverage requirements, then generate a recommended system scope with approximate investment range.</p>
-        <p>No obligation, no sales call required. A genuine planning tool designed to give you an honest starting point before you engage anyone.</p>
-        <ul class="calc-benefits">
-          <li>Enter property type, floor area, and number of entry points</li>
-          <li>Get a recommended camera count, access points, and alarm zone layout</li>
-          <li>See an indicative budget range for your system scope</li>
-          <li>Receive a summary by email to share with your team or MCST</li>
-          <li>Option to request a detailed quote at the end</li>
-        </ul>
-        <p style="font-size:13px;color:var(--gray)">In the meantime â€” WhatsApp us your property details and we'll give you a verbal estimate within the same business day.</p>
-        <a href="https://wa.me/6593860466" class="btn btn-whatsapp">ðŸ’¬ Get a WhatsApp Estimate Instead</a>
-      </div>
-      <div class="calc-preview">
-        <div class="calc-icon">ðŸ§®</div>
-        <div class="calc-title">Security System Calculator</div>
-        <div class="calc-sub">Enter your property details â†’ get a system scope and budget range</div>
-        <div class="coming-soon-badge">âš¡ Coming Soon</div>
-        <p style="font-size:13px;color:rgba(255,255,255,.5);margin:0 0 12px">Be notified when the calculator launches:</p>
-        <div class="notify-form">
-          <input type="email" placeholder="your@email.com">
-          <button onclick="alert('Thanks â€” we\'ll notify you when the calculator launches!')">Notify Me</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- RESOURCE CATEGORIES -->
-<section class="categories-section">
-  <div class="container">
-    <span class="eyebrow">All Resources</span>
-    <h2 style="margin-bottom:8px">Browse by Category</h2>
-    <p style="max-width:640px;margin-bottom:40px">Everything you need to plan, specify, troubleshoot, and maintain your security systems.</p>
-    <div class="cat-grid">
-
-      <!-- Planning Tools -->
-      <div class="cat-block">
-        <div class="cat-header">
-          <div class="cat-header-bar" style="background:#0056b3"></div>
-          <div class="cat-header-icon">ðŸ§®</div>
-          <div class="cat-header-text">
-            <h3>Planning Tools</h3>
-            <p>Interactive tools to scope and budget your system</p>
-          </div>
-        </div>
-        <div class="resource-list">
-          <a href="#calculator-notify" class="resource-item">
-            <div class="ri-left">
-              <div class="ri-icon">ðŸ§®</div>
-              <div class="ri-text">
-                <div class="ri-title">Security System Calculator</div>
-                <div class="ri-desc">Scope your system and get a budget range</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px">
-              <span class="ri-badge badge-soon">Coming Soon</span>
-              <span class="ri-arrow">â†’</span>
-            </div>
-          </a>
-          <a href="resources-assessment.html" class="resource-item">
-            <div class="ri-left">
-              <div class="ri-icon">ðŸ“‹</div>
-              <div class="ri-text">
-                <div class="ri-title">Property Risk Assessment</div>
-                <div class="ri-desc">Identify vulnerabilities before you specify</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px">
-              <span class="ri-badge badge-soon">Coming Soon</span>
-              <span class="ri-arrow">â†’</span>
-            </div>
-          </a>
-          <a href="resources-camera-planner.html" class="resource-item">
-            <div class="ri-left">
-              <div class="ri-icon">ðŸ“</div>
-              <div class="ri-text">
-                <div class="ri-title">Camera Coverage Planner</div>
-                <div class="ri-desc">Map camera positions for full coverage</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px">
-              <span class="ri-badge badge-soon">Coming Soon</span>
-              <span class="ri-arrow">â†’</span>
-            </div>
-          </a>
-          <a href="resources-budget.html" class="resource-item">
-            <div class="ri-left">
-              <div class="ri-icon">ðŸ’°</div>
-              <div class="ri-text">
-                <div class="ri-title">Budget Estimator Guide</div>
-                <div class="ri-desc">What systems cost by property type</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px">
-              <span class="ri-badge badge-soon">Coming Soon</span>
-              <span class="ri-arrow">â†’</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Learning & Guides -->
-      <div class="cat-block">
-        <div class="cat-header">
-          <div class="cat-header-bar" style="background:#319795"></div>
-          <div class="cat-header-icon">ðŸ“š</div>
-          <div class="cat-header-text">
-            <h3>Learning &amp; Guides</h3>
-            <p>Plain-language guides to security systems</p>
-          </div>
-        </div>
-        <div class="resource-list">
-          <a href="resources-cctv-guide.html" class="resource-item">
-            <div class="ri-left">
-              <div class="ri-icon">ðŸ“¹</div>
-              <div class="ri-text">
-                <div class="ri-title">CCTV Buyer's Guide</div>
-                <div class="ri-desc">Everything you need to know before buying</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px">
-              <span class="ri-badge badge-free">Free</span>
-              <span class="ri-arrow">â†’</span>
-            </div>
-          </a>
-          <a href="resources-access-control.html" class="resource-item">
-            <div class="ri-left">
-              <div class="ri-icon">ðŸ”’</div>
-              <div class="ri-text">
-                <div class="ri-title">Access Control Explained</div>
-                <div class="ri-desc">Cards vs biometrics vs mobile â€” what's right?</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px">
-              <span class="ri-badge badge-free">Free</span>
-              <span class="ri-arrow">â†’</span>
-            </div>
-          </a>
-          <a href="resources-anpr.html" class="resource-item">
-            <div class="ri-left">
-              <div class="ri-icon">ðŸš—</div>
-              <div class="ri-text">
-                <div class="ri-title">How ANPR Works</div>
-                <div class="ri-desc">Automatic number plate recognition explained</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px">
-              <span class="ri-badge badge-free">Free</span>
-              <span class="ri-arrow">â†’</span>
-            </div>
-          </a>
-          <a href="resources-integrated-systems.html" class="resource-item">
-            <div class="ri-left">
-              <div class="ri-icon">ðŸ”—</div>
-              <div class="ri-text">
-                <div class="ri-title">Integrated vs Standalone Systems</div>
-                <div class="ri-desc">Why integration matters and what it costs</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px">
-              <span class="ri-badge badge-free">Free</span>
-              <span class="ri-arrow">â†’</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Support Tools -->
-      <div class="cat-block">
-        <div class="cat-header">
-          <div class="cat-header-bar" style="background:#dd6b20"></div>
-          <div class="cat-header-icon">ðŸ”§</div>
-          <div class="cat-header-text">
-            <h3>Support Tools</h3>
-            <p>Troubleshooting and maintenance resources</p>
-          </div>
-        </div>
-        <div class="resource-list">
-          <a href="resources-troubleshoot.html" class="resource-item">
-            <div class="ri-left">
-              <div class="ri-icon">ðŸ”</div>
-              <div class="ri-text">
-                <div class="ri-title">Troubleshooting Checklists</div>
-                <div class="ri-desc">Camera offline? Gate not working? Start here.</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px">
-              <span class="ri-badge badge-free">Free</span>
-              <span class="ri-arrow">â†’</span>
-            </div>
-          </a>
-          <a href="resources-maintenance.html" class="resource-item">
-            <div class="ri-left">
-              <div class="ri-icon">ðŸ“…</div>
-              <div class="ri-text">
-                <div class="ri-title">Maintenance Schedules</div>
-                <div class="ri-desc">What to check and when for each system type</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px">
-              <span class="ri-badge badge-free">Free</span>
-              <span class="ri-arrow">â†’</span>
-            </div>
-          </a>
-          <a href="resources-faq.html" class="resource-item">
-            <div class="ri-left">
-              <div class="ri-icon">â“</div>
-              <div class="ri-text">
-                <div class="ri-title">System FAQs</div>
-                <div class="ri-desc">Common questions about security systems in SG</div>
-              </div>
-            </div>
-            <div style="display:flex;align-items:center;gap:8px">
-              <span class="ri-badge badge-free">Free</span>
-              <span class="ri-arrow">â†’</span>
-            </div>
-          </a>
-          <a href="contact.html" class="resource-item">
-            <div class="ri-left">
-              <div class="ri-icon">ðŸ“ž</div>
-              <div class="ri-text">
-                <div class="ri-title">Contact Technical Support</div>
-                <div class="ri-desc">Speak to a specialist for live help</div>
-              </div>
-            </div>
-            <span class="ri-arrow">â†’</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Downloads -->
-      <div class="cat-block">
-        <div class="cat-header">
-          <div class="cat-header-bar" style="background:#38a169"></div>
-          <div class="cat-header-icon">ðŸ“¥</div>
-          <div class="cat-header-text">
-            <h3>Downloads</h3>
-            <p>Spec sheets, wiring guides, and templates</p>
-          </div>
-        </div>
-        <div class="resource-list">
-          <div class="resource-item" style="cursor:default;opacity:.6">
-            <div class="ri-left">
-              <div class="ri-icon">ðŸ“„</div>
-              <div class="ri-text">
-                <div class="ri-title">Product Spec Sheets</div>
-                <div class="ri-desc">Technical datasheets for key products</div>
-              </div>
-            </div>
-            <span class="ri-badge badge-soon">Coming Soon</span>
-          </div>
-          <div class="resource-item" style="cursor:default;opacity:.6">
-            <div class="ri-left">
-              <div class="ri-icon">ðŸ”Œ</div>
-              <div class="ri-text">
-                <div class="ri-title">Wiring & Pre-wire Guides</div>
-                <div class="ri-desc">For contractors and new builds</div>
-              </div>
-            </div>
-            <span class="ri-badge badge-soon">Coming Soon</span>
-          </div>
-          <div class="resource-item" style="cursor:default;opacity:.6">
-            <div class="ri-left">
-              <div class="ri-icon">ðŸ“‹</div>
-              <div class="ri-text">
-                <div class="ri-title">Project Templates</div>
-                <div class="ri-desc">Site assessment and proposal templates</div>
-              </div>
-            </div>
-            <span class="ri-badge badge-soon">Coming Soon</span>
-          </div>
-          <a href="contact.html" class="resource-item">
-            <div class="ri-left">
-              <div class="ri-icon">âœ‰ï¸</div>
-              <div class="ri-text">
-                <div class="ri-title">Request a Specific Document</div>
-                <div class="ri-desc">Can't find what you need? Ask us directly.</div>
-              </div>
-            </div>
-            <span class="ri-arrow">â†’</span>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- POPULAR GUIDES -->
-<section class="guides-strip">
-  <div class="container">
-    <span class="eyebrow">Most Read</span>
-    <h2 style="margin-bottom:32px">Start Here</h2>
-    <div class="strip-grid">
-      <a href="resources-cctv-guide.html" class="guide-card">
-        <div class="gc-icon">ðŸ“¹</div>
-        <div class="gc-category">Buyer's Guide</div>
-        <div class="gc-title">CCTV Systems in Singapore â€” What You Need to Know</div>
-        <div class="gc-desc">Resolution, storage, AI analytics, brands â€” explained without jargon.</div>
+    <div class="hero-trust-badge">Police Licensed • 35+ Years Experience • 1,000+ Singapore Sites</div>
+    <h1>Singapore's Complete<br><em>Security Knowledge Base</em></h1>
+    <p class="subtitle">Professional resources for homeowners, architects, and building managers. From technical guides to calculators, manufacturer documentation to compliance templates — everything you need to make informed security decisions.</p>
+    
+    <div class="quick-access-grid">
+      <a href="#guides" class="quick-card">
+        <span class="icon">📚</span>
+        <strong>Technical Guides</strong>
+        <span>System pillar pages</span>
       </a>
-      <a href="resources-access-control.html" class="guide-card">
-        <div class="gc-icon">ðŸ”’</div>
-        <div class="gc-category">Explainer</div>
-        <div class="gc-title">Access Control: Cards, Biometrics, or Mobile?</div>
-        <div class="gc-desc">How to choose the right credential technology for your property.</div>
+      <a href="#tools" class="quick-card">
+        <span class="icon">🧮</span>
+        <strong>Planning Tools</strong>
+        <span>Calculators & estimators</span>
       </a>
-      <a href="resources-troubleshoot.html" class="guide-card">
-        <div class="gc-icon">ðŸ”</div>
-        <div class="gc-category">Support</div>
-        <div class="gc-title">My Camera Has Gone Offline â€” What to Check First</div>
-        <div class="gc-desc">A step-by-step diagnostic before calling a technician.</div>
+      <a href="#library" class="quick-card">
+        <span class="icon">📄</span>
+        <strong>Product Library</strong>
+        <span>Manufacturer docs</span>
       </a>
-      <a href="resources-integrated-systems.html" class="guide-card">
-        <div class="gc-icon">ðŸ”—</div>
-        <div class="gc-category">Strategy</div>
-        <div class="gc-title">Integrated vs Standalone Security â€” Does It Matter?</div>
-        <div class="gc-desc">Why the difference between a product and a system is everything.</div>
+      <a href="#videos" class="quick-card">
+        <span class="icon">🎥</span>
+        <strong>Video Training</strong>
+        <span>Visual tutorials</span>
+      </a>
+      <a href="#trade" class="quick-card">
+        <span class="icon">🏢</span>
+        <strong>For Professionals</strong>
+        <span>Templates & tools</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
+<!-- SECTION 1: TECHNICAL GUIDES -->
+<section id="guides" class="section-padding">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow">Expert Knowledge</span>
+            <h2>Technical Pillar Guides</h2>
+            <p>Comprehensive system guides written by Wee Meng Ler. From fundamentals to advanced configurations, everything you need to specify the right solution.</p>
+        </div>
+
+        <div class="grid-3 mt-56">
+            <!-- Guide 1 -->
+            <div class="card">
+                <img src="images/cctv-guide-hero.png" alt="Complete Guide to CCTV & Surveillance Systems" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; margin-bottom: 24px;">
+                <div class="guide-meta">
+                    <span class="meta-author">✍️ Wee Meng, 35 yrs</span>
+                    <span class="meta-update">● Updated Mar 2026</span>
+                </div>
+                <h3>Complete Guide to CCTV & Surveillance Systems</h3>
+                <p>From IP camera basics to AI analytics — everything you need to specify the right surveillance system for your property.</p>
+                <div class="guide-footer-meta">
+                    <span>⏱ 18 min read</span>
+                    <span class="badge badge-primary">Surveillance</span>
+                </div>
+                <a href="cctv.html" class="btn btn-primary">Read Guide &rarr;</a>
+            </div>
+
+            <!-- Guide 2 -->
+            <div class="card">
+                <img src="images/access-control-guide-hero.png" alt="Complete Guide to Access Control Systems" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; margin-bottom: 24px;">
+                <div class="guide-meta">
+                    <span class="meta-author">✍️ Wee Meng, 35 yrs</span>
+                    <span class="meta-update">● Updated Mar 2026</span>
+                </div>
+                <h3>Complete Guide to Access Control Systems</h3>
+                <p>Card readers, biometrics, mobile credentials, and integration strategies for residential and commercial properties.</p>
+                <div class="guide-footer-meta">
+                    <span>⏱ 15 min read</span>
+                    <span class="badge badge-primary">Access Control</span>
+                </div>
+                <a href="door-access.html" class="btn btn-primary">Read Guide &rarr;</a>
+            </div>
+
+            <!-- Guide 3 -->
+            <div class="card">
+                <img src="images/alarm-guide-hero.png" alt="Complete Guide to Alarm & Intrusion Systems" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; margin-bottom: 24px;">
+                <div class="guide-meta">
+                    <span class="meta-author">✍️ Wee Meng, 35 yrs</span>
+                    <span class="meta-update">● Updated Mar 2026</span>
+                </div>
+                <h3>Complete Guide to Alarm & Intrusion Systems</h3>
+                <p>Motion sensors, perimeter detection, police response integration, and false alarm prevention strategies.</p>
+                <div class="guide-footer-meta">
+                    <span>⏱ 14 min read</span>
+                    <span class="badge badge-primary">Alarm Systems</span>
+                </div>
+                <a href="burglar-alarm.html" class="btn btn-primary">Read Guide &rarr;</a>
+            </div>
+        </div>
+
+        <div class="grid-2 mt-32">
+            <!-- Guide 4 -->
+            <div class="card">
+                <img src="images/intercom-guide-hero.png" alt="Complete Guide to Intercom & Video Door Entry" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; margin-bottom: 24px;">
+                <div class="guide-meta">
+                    <span class="meta-author">✍️ Wee Meng, 35 yrs</span>
+                    <span class="meta-update">● Updated Mar 2026</span>
+                </div>
+                <h3>Complete Guide to Intercom & Video Door Entry</h3>
+                <p>Standalone units to building-wide IP intercom networks. Mobile app integration and visitor management.</p>
+                <div class="guide-footer-meta">
+                    <span>⏱ 12 min read</span>
+                    <span class="badge badge-primary">Intercom</span>
+                </div>
+                <a href="intercom-system-singapore.html" class="btn btn-primary">Read Guide &rarr;</a>
+            </div>
+
+            <!-- Guide 5 -->
+            <div class="card">
+                <img src="images/autogate-guide-hero.png" alt="Complete Guide to Autogate & Vehicle Barriers" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; margin-bottom: 24px;">
+                <div class="guide-meta">
+                    <span class="meta-author">✍️ Wee Meng, 35 yrs</span>
+                    <span class="meta-update">● Updated Mar 2026</span>
+                </div>
+                <h3>Complete Guide to Autogate & Vehicle Barriers</h3>
+                <p>Technical specifications for swing, sliding, and folding gates, alongside automatic vehicle barrier solutions for estates.</p>
+                <div class="guide-footer-meta">
+                    <span>⏱ 13 min read</span>
+                    <span class="badge badge-primary">Gates & Barriers</span>
+                </div>
+                <a href="auto-gate-singapore.html" class="btn btn-primary">Read Guide &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 2: PLANNING TOOLS -->
+<section id="tools" class="section-padding bg-light">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow">Planning Tools</span>
+            <h2>Interactive Calculators</h2>
+            <p>Professional planning tools to help you size your security system correctly. Used by our architects and consultants.</p>
+        </div>
+
+        <div class="grid-4 mt-56">
+            <!-- Tool 1 -->
+            <div class="card text-center">
+                <span style="font-size: 32px; margin-bottom: 16px; display: block;">💾</span>
+                <span class="badge badge-soon" style="margin: 0 auto 16px;">Coming Soon</span>
+                <h3 style="font-size: 16px;">Storage Calculator</h3>
+                <p style="font-size: 13px;">Calculate NVR/DVR storage requirements based on camera count, resolution, and retention.</p>
+            </div>
+            <!-- Tool 2 -->
+            <div class="card text-center">
+                <span style="font-size: 32px; margin-bottom: 16px; display: block;">📹</span>
+                <span class="badge badge-soon" style="margin: 0 auto 16px;">Coming Soon</span>
+                <h3 style="font-size: 16px;">Camera Coverage Calculator</h3>
+                <p style="font-size: 13px;">Determine how many cameras you need based on property size and coverage objectives.</p>
+            </div>
+            <!-- Tool 3 -->
+            <div class="card text-center">
+                <span style="font-size: 32px; margin-bottom: 16px; display: block;">💰</span>
+                <span class="badge badge-soon" style="margin: 0 auto 16px;">Coming Soon</span>
+                <h3 style="font-size: 16px;">System Cost Estimator</h3>
+                <p style="font-size: 13px;">Get a ballpark budget for your security system project including equipment and installation.</p>
+            </div>
+            <!-- Tool 4 -->
+            <div class="card text-center">
+                <span style="font-size: 32px; margin-bottom: 16px; display: block;">📊</span>
+                <span class="badge badge-soon" style="margin: 0 auto 16px;">Coming Soon</span>
+                <h3 style="font-size: 16px;">ROI Calculator</h3>
+                <p style="font-size: 13px;">Calculate cost savings and property value increase from upgrades. For AGM presentations.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: PRODUCT LIBRARY -->
+<section id="library" class="section-padding">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow">Manufacturer Resources</span>
+            <h2>Product Documentation Library</h2>
+            <p>Access brochures, datasheets, installation guides, and video tutorials from leading manufacturers we partner with.</p>
+        </div>
+
+        <div class="filter-row">
+            <button class="filter-btn active">All Brands</button>
+            <button class="filter-btn">Hikvision</button>
+            <button class="filter-btn">Dahua</button>
+            <button class="filter-btn">Axis</button>
+            <button class="filter-btn">Aiphone</button>
+            <button class="filter-btn">Akuvox</button>
+            <button class="filter-btn">ZKTeco</button>
+            <button class="filter-btn">Milesight</button>
+        </div>
+
+        <div class="grid-3">
+            <!-- Brand 1 -->
+            <div class="card">
+                <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: var(--text-light); margin-bottom: 12px; letter-spacing: 1px;">HIKVISION</div>
+                <h3>IP Camera Series</h3>
+                <p style="font-size: 13px;">CCTV & Surveillance</p>
+                <div class="resource-links">
+                    <a href="#" class="resource-link">📄 Brochures</a>
+                    <a href="#" class="resource-link">📋 Datasheets</a>
+                    <a href="#" class="resource-link">🎥 Videos</a>
+                    <a href="#" class="resource-link">🔧 Manuals</a>
+                </div>
+            </div>
+            <!-- Brand 2 -->
+            <div class="card">
+                <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: var(--text-light); margin-bottom: 12px; letter-spacing: 1px;">DAHUA</div>
+                <h3>Network Video Recorders</h3>
+                <p style="font-size: 13px;">CCTV & Surveillance</p>
+                <div class="resource-links">
+                    <a href="#" class="resource-link">📄 Brochures</a>
+                    <a href="#" class="resource-link">📋 Specs</a>
+                    <a href="#" class="resource-link">🎥 Setup</a>
+                    <a href="#" class="resource-link">🔧 Tools</a>
+                </div>
+            </div>
+            <!-- Brand 3 -->
+            <div class="card">
+                <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: var(--text-light); margin-bottom: 12px; letter-spacing: 1px;">AKUVOX</div>
+                <h3>IP Intercom Systems</h3>
+                <p style="font-size: 13px;">Video Intercom</p>
+                <div class="resource-links">
+                    <a href="#" class="resource-link">📄 Brochures</a>
+                    <a href="#" class="resource-link">📋 Specs</a>
+                    <a href="#" class="resource-link">🎥 Videos</a>
+                    <a href="#" class="resource-link">🔧 Guide</a>
+                </div>
+            </div>
+            <!-- Brand 4 -->
+            <div class="card">
+                <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: var(--text-light); margin-bottom: 12px; letter-spacing: 1px;">ZKTECO</div>
+                <h3>Biometric Access Control</h3>
+                <p style="font-size: 13px;">Access Control</p>
+                <div class="resource-links">
+                    <a href="#" class="resource-link">📄 Catalog</a>
+                    <a href="#" class="resource-link">📋 Docs</a>
+                    <a href="#" class="resource-link">🎥 Tutorials</a>
+                    <a href="#" class="resource-link">🔧 Downloads</a>
+                </div>
+            </div>
+            <!-- Brand 5 -->
+            <div class="card">
+                <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: var(--text-light); margin-bottom: 12px; letter-spacing: 1px;">AXIS</div>
+                <h3>Network Cameras</h3>
+                <p style="font-size: 13px;">CCTV & Surveillance</p>
+                <div class="resource-links">
+                    <a href="#" class="resource-link">📄 Brochures</a>
+                    <a href="#" class="resource-link">📋 Specs</a>
+                    <a href="#" class="resource-link">🎥 Videos</a>
+                    <a href="#" class="resource-link">🔧 Tools</a>
+                </div>
+            </div>
+            <!-- Brand 6 -->
+            <div class="card">
+                <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: var(--text-light); margin-bottom: 12px; letter-spacing: 1px;">AIPHONE</div>
+                <h3>Video Intercom</h3>
+                <p style="font-size: 13px;">Video Intercom</p>
+                <div class="resource-links">
+                    <a href="#" class="resource-link">📄 Catalog</a>
+                    <a href="#" class="resource-link">📋 Specs</a>
+                    <a href="#" class="resource-link">🎥 Guides</a>
+                    <a href="#" class="resource-link">🔧 Diagrams</a>
+                </div>
+            </div>
+            <!-- Brand 7 -->
+            <div class="card">
+                <div style="font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; color: var(--text-light); margin-bottom: 12px; letter-spacing: 1px;">MILESIGHT</div>
+                <h3>Network Video Solutions</h3>
+                <p style="font-size: 13px;">CCTV & Surveillance</p>
+                <div class="resource-links">
+                    <a href="#" class="resource-link">📄 Brochures</a>
+                    <a href="#" class="resource-link">📋 Datasheets</a>
+                    <a href="#" class="resource-link">🎥 Tutorials</a>
+                    <a href="#" class="resource-link">🔧 Software</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 4: VIDEO TRAINING -->
+<section id="videos" class="section-padding bg-light">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow">Visual Learning</span>
+            <h2>How-To Videos & Training</h2>
+            <p>Step-by-step tutorials from Securevision and manufacturer partners. Watch, learn, and implement.</p>
+        </div>
+
+        <div class="filter-row">
+            <button class="filter-btn active">All Videos</button>
+            <button class="filter-btn">CCTV</button>
+            <button class="filter-btn">Access Control</button>
+            <button class="filter-btn">Alarm</button>
+            <button class="filter-btn">Intercom</button>
+        </div>
+
+        <div class="grid-3">
+            <!-- Video 1 -->
+            <div class="card">
+                <div class="video-thumbnail">
+                    <div class="play-overlay">▶</div>
+                    <span class="vid-badge">12:45</span>
+                    <span class="vid-source">Securevision</span>
+                </div>
+                <h3 style="font-size: 16px;">Camera Positioning for Maximum Coverage</h3>
+                <p style="font-size: 12px; color: var(--text-light);">By Wee Meng • CCTV Fundamentals</p>
+            </div>
+            <!-- Video 2 -->
+            <div class="card">
+                <div class="video-thumbnail">
+                    <div class="play-overlay">▶</div>
+                    <span class="vid-badge">8:30</span>
+                    <span class="vid-source">Hikvision</span>
+                </div>
+                <h3 style="font-size: 16px;">Access Control Setup: Step by Step</h3>
+                <p style="font-size: 12px; color: var(--text-light);">Product Tutorial</p>
+            </div>
+            <!-- Video 3 -->
+            <div class="card">
+                <div class="video-thumbnail" style="background:#0f172a;">
+                    <div class="play-overlay" style="background:#5b9ee1;">🔊</div>
+                    <span class="vid-badge">15:20</span>
+                    <span class="vid-source">NotebookLM</span>
+                </div>
+                <h3 style="font-size: 16px;">CCTV System Basics: Audio Deep Dive</h3>
+                <p style="font-size: 12px; color: var(--text-light);">AI-Generated Guide</p>
+            </div>
+            <!-- Video 4 -->
+            <div class="card">
+                <div class="video-thumbnail">
+                    <div class="play-overlay">▶</div>
+                    <span class="vid-badge">10:15</span>
+                    <span class="vid-source">Akuvox</span>
+                </div>
+                <h3 style="font-size: 16px;">SmartPlus App Configuration</h3>
+                <p style="font-size: 12px; color: var(--text-light);">Product Tutorial</p>
+            </div>
+            <!-- Video 5 -->
+            <div class="card">
+                <div class="video-thumbnail">
+                    <div class="play-overlay">▶</div>
+                    <span class="vid-badge">9:45</span>
+                    <span class="vid-source">Securevision</span>
+                </div>
+                <h3 style="font-size: 16px;">Reducing False Alarms: Best Practices</h3>
+                <p style="font-size: 12px; color: var(--text-light);">By Wee Meng • Alarm Systems</p>
+            </div>
+            <!-- Video 6 -->
+            <div class="card">
+                <div class="video-thumbnail">
+                    <div class="play-overlay">▶</div>
+                    <span class="vid-badge">11:00</span>
+                    <span class="vid-source">ZKTeco</span>
+                </div>
+                <h3 style="font-size: 16px;">Biometric Reader Installation</h3>
+                <p style="font-size: 12px; color: var(--text-light);">Product Tutorial</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 5: FAQ LIBRARY -->
+<section id="faq" class="section-padding">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow">Quick Answers</span>
+            <h2>Frequently Asked Questions</h2>
+            <p>Common questions answered by our team. Can’t find what you need? Contact us directly.</p>
+        </div>
+
+        <div class="faq-search-wrap">
+            <input type="text" class="faq-search" placeholder="Search FAQs...">
+            <select class="filter-btn">
+                <option>All Systems</option>
+                <option>CCTV</option>
+                <option>Access Control</option>
+                <option>Alarm Systems</option>
+                <option>Intercom</option>
+            </select>
+        </div>
+
+        <div class="faq-grid">
+            <!-- FAQ 1 -->
+            <div class="faq-card">
+                <span class="faq-category">CCTV</span>
+                <h3>What's the difference between IP cameras and analog CCTV?</h3>
+                <p>IP cameras transmit digital video over network cables and offer higher resolution (up to 4K), remote access, and advanced features like motion detection and analytics. Analog cameras use coaxial cables and offer lower resolution but are more cost-effective for basic monitoring needs. Most modern installations use IP cameras for flexibility and image quality.</p>
+            </div>
+            <!-- FAQ 2 -->
+            <div class="faq-card">
+                <span class="faq-category">Access Control</span>
+                <h3>Can I use my smartphone to unlock doors with access control?</h3>
+                <p>Yes, modern access control systems support mobile credentials via Bluetooth or NFC. You can use your smartphone as a digital key, eliminating the need for physical cards. This is particularly useful for visitor management and temporary access grants. The system can also send you notifications when doors are accessed.</p>
+            </div>
+            <!-- FAQ 3 -->
+            <div class="faq-card">
+                <span class="faq-category">Alarm Systems</span>
+                <h3>How do I prevent false alarms from my security system?</h3>
+                <p>False alarms are typically caused by improper sensor placement, pets triggering motion detectors, or environmental factors. Use pet-immune sensors, ensure proper installation away from air vents and windows, and train all users on proper arming/disarming procedures. Regular maintenance and sensor testing also significantly reduce false alarms.</p>
+            </div>
+            <!-- FAQ 4 -->
+            <div class="faq-card">
+                <span class="faq-category">CCTV</span>
+                <h3>How long does CCTV footage get stored?</h3>
+                <p>Storage duration depends on your hard drive capacity, camera resolution, and recording settings. Typical installations store 30-90 days of footage. Using motion-activated recording instead of continuous recording can extend storage time. Cloud storage options are also available for longer retention and offsite backup.</p>
+            </div>
+            <!-- FAQ 5 -->
+            <div class="faq-card">
+                <span class="faq-category">Intercom</span>
+                <h3>Can video intercom systems integrate with my existing access control?</h3>
+                <p>Yes, most modern IP-based intercom systems can integrate with access control platforms. This allows you to see visitors on your intercom screen and grant access remotely using the same credentials as your access control system. Integration creates a seamless visitor management experience.</p>
+            </div>
+            <!-- FAQ 6 -->
+            <div class="faq-card">
+                <span class="faq-category">CCTV</span>
+                <h3>Do I need internet for my CCTV system to work?</h3>
+                <p>No, CCTV systems work independently of internet connectivity. Cameras record to local storage (NVR/DVR) without internet. However, internet is required for remote viewing on mobile apps and cloud backup features. For maximum reliability, we recommend local storage with optional cloud backup.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 6: FOR PROFESSIONALS -->
+<section id="trade" class="section-padding bg-light">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow">Professional Tools</span>
+            <h2>For Trade & MCST Professionals</h2>
+            <p>Templates, compliance guides, and professional resources for architects, consultants, and building managers.</p>
+        </div>
+
+        <div class="notice-box">
+            <span class="notice-icon">🔒</span>
+            <div class="notice-text">
+                <strong>Light Gating:</strong> Name and email required for downloads. We'll send you updates on new resources and industry regulations — you can unsubscribe anytime.
+            </div>
+        </div>
+
+        <div class="trade-grid">
+            <!-- Cat 1 -->
+            <div class="trade-category">
+                <div class="trade-head">
+                    <span class="icon">📋</span>
+                    <h3>AGM Templates</h3>
+                </div>
+                <div class="download-item">
+                    <span class="download-name">Security Proposal Template</span>
+                    <span class="download-meta">DOCX • 85KB</span>
+                    <a href="#" class="download-btn">Download Template &darr;</a>
+                </div>
+                <div class="download-item">
+                    <span class="download-name">Budget Presentation Slides</span>
+                    <span class="download-meta">PPTX • 1.2MB</span>
+                    <a href="#" class="download-btn">Download Template &darr;</a>
+                </div>
+            </div>
+            <!-- Cat 2 -->
+            <div class="trade-category">
+                <div class="trade-head">
+                    <span class="icon">📄</span>
+                    <h3>Tender Documents</h3>
+                </div>
+                <div class="download-item">
+                    <span class="download-name">RFP Template</span>
+                    <span class="download-meta">DOCX • 145KB</span>
+                    <a href="#" class="download-btn">Download Template &darr;</a>
+                </div>
+                <div class="download-item">
+                    <span class="download-name">Technical Specification Sheets</span>
+                    <span class="download-meta">PDF Bundle • 2.4MB</span>
+                    <a href="#" class="download-btn">Download Specs &darr;</a>
+                </div>
+            </div>
+            <!-- Cat 3 -->
+            <div class="trade-category">
+                <div class="trade-head">
+                    <span class="icon">🔒</span>
+                    <h3>Compliance & Regs</h3>
+                </div>
+                <div class="download-item">
+                    <span class="download-name">BCA Compliance Checklist</span>
+                    <span class="download-meta">PDF • 180KB</span>
+                    <a href="#" class="download-btn">Download Checklist &darr;</a>
+                </div>
+                <div class="download-item">
+                    <span class="download-name">PDPA Guidelines for CCTV</span>
+                    <span class="download-meta">PDF • 220KB</span>
+                    <a href="#" class="download-btn">Download Guide &darr;</a>
+                </div>
+            </div>
+            <!-- Cat 4 -->
+            <div class="trade-category">
+                <div class="trade-head">
+                    <span class="icon">🏗️</span>
+                    <h3>Design Tools</h3>
+                </div>
+                <div class="download-item">
+                    <span class="download-name">CAD Blocks Library</span>
+                    <span class="download-meta">DWG • 3.5MB</span>
+                    <a href="#" class="download-btn">Download Library &darr;</a>
+                </div>
+                <div class="download-item">
+                    <span class="download-name">Site Survey Checklist</span>
+                    <span class="download-meta">PDF • 95KB</span>
+                    <a href="#" class="download-btn">Download Checklist &darr;</a>
+                </div>
+            </div>
+            <!-- Cat 5 -->
+            <div class="trade-category">
+                <div class="trade-head">
+                    <span class="icon">🔧</span>
+                    <h3>Maintenance & Ops</h3>
+                </div>
+                <div class="download-item">
+                    <span class="download-name">Preventive Maintenance Schedule</span>
+                    <span class="download-meta">XLSX • 75KB</span>
+                    <a href="#" class="download-btn">Download Schedule &darr;</a>
+                </div>
+                <div class="download-item">
+                    <span class="download-name">Service Contract Template</span>
+                    <span class="download-meta">DOCX • 120KB</span>
+                    <a href="#" class="download-btn">Download Template &darr;</a>
+                </div>
+            </div>
+            <!-- Cat 6 -->
+            <div class="trade-category">
+                <div class="trade-head">
+                    <span class="icon">💰</span>
+                    <h3>Business Tools</h3>
+                </div>
+                <div class="download-item">
+                    <span class="download-name">ROI Calculator</span>
+                    <span class="download-meta">XLSX • 65KB</span>
+                    <a href="#" class="download-btn">Download Calculator &darr;</a>
+                </div>
+                <div class="download-item">
+                    <span class="download-name">Case Study Library</span>
+                    <span class="download-meta">PDF Bundle • 4.2MB</span>
+                    <a href="#" class="download-btn">Download Library &darr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 7: SUPPORT & CONTACT -->
+<section id="support" class="section-padding">
+    <div class="container">
+        <div class="section-header">
+            <span class="eyebrow">Get Help</span>
+            <h2>Expert Support & Contact</h2>
+            <p>Can’t find what you need? Our team is here to help. 35 years of experience at your service.</p>
+        </div>
+
+        <div class="grid-4 mt-56">
+            <!-- Support 1 -->
+            <div class="card text-center">
+                <span style="font-size: 32px; margin-bottom: 20px; display: block;">💬</span>
+                <h3>Technical Support</h3>
+                <p style="font-size: 13px; margin-bottom: 24px;">Get help with system configuration, troubleshooting, or technical questions.</p>
+                <a href="contact.html" class="btn btn-outline" style="border-color: var(--primary-blue); color: var(--primary-blue);">Submit Ticket</a>
+            </div>
+            <!-- Support 2 -->
+            <div class="card text-center">
+                <span style="font-size: 32px; margin-bottom: 20px; display: block;">📞</span>
+                <h3>Sales Inquiry</h3>
+                <p style="font-size: 13px; margin-bottom: 24px;">Request a quote, schedule a site survey, or discuss your requirements.</p>
+                <a href="contact.html" class="btn btn-outline" style="border-color: var(--primary-blue); color: var(--primary-blue);">Contact Sales</a>
+            </div>
+            <!-- Support 3 -->
+            <div class="card text-center">
+                <span style="font-size: 32px; margin-bottom: 20px; display: block;">📅</span>
+                <h3>Book Consultation</h3>
+                <p style="font-size: 13px; margin-bottom: 24px;">Schedule a 30-minute consultation with Wee Meng to discuss your needs.</p>
+                <a href="request-site-assessment-singapore.html" class="btn btn-outline" style="border-color: var(--primary-blue); color: var(--primary-blue);">Book Now</a>
+            </div>
+            <!-- Support 4 -->
+            <div class="card text-center" style="border: 1px solid var(--whatsapp);">
+                <span style="font-size: 32px; margin-bottom: 20px; display: block;">🚨</span>
+                <h3>Emergency Service</h3>
+                <p style="font-size: 13px; margin-bottom: 24px;">24/7 emergency support for existing customers. System down? We’re here.</p>
+                <a href="tel:+6593860466" class="btn btn-whatsapp">+65 9386 0466</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-section cta-skyline">
   <div class="container">
-    <span class="eyebrow" style="color:rgba(255,255,255,.4)">Still Have Questions?</span>
-    <h2>Can't Find What You Need?</h2>
-    <p>Our specialists answer security questions every day. WhatsApp us â€” no sales pressure, just honest advice from people who know their systems.</p>
-    <div class="btn-group-c">
-      <a href="https://wa.me/6593860466" class="btn btn-whatsapp">ðŸ’¬ WhatsApp a Specialist</a>
-      <a href="contact.html" class="btn btn-outline-white">Contact Us</a>
+    <span class="eyebrow-light">Ready to Upgrade?</span>
+    <h2>Secure Your Property with Intelligence</h2>
+    <p>Professional engineering, Singapore-compliant systems, and 35 years of expertise. Get started with a no-obligation site assessment.</p>
+    <div class="btn-group">
+      <a href="https://wa.me/6593860466" class="btn btn-whatsapp">💬 WhatsApp a Specialist</a>
+      <a href="contact.html" class="btn btn-outline-light">Book Assessment</a>
     </div>
   </div>
 </section>
 
-<footer class="main-footer">
-  <div class="container">
-    <div class="footer-grid">
-      <!-- Col 1: Brand & Basic Info -->
-      <div class="footer-col footer-brand">
-        <a href="index.html" class="footer-logo">
-          <img src="proprietary-assets/securevision-dark-logo.png" alt="Securevision Logo">
-          <span>SECUREVISION</span>
-        </a>
-        <p class="footer-tagline">Engineering security solutions across Singapore since 2006. NUS engineering-led and police-licensed.</p>
-        <div class="footer-contact-info">
-          <p><strong>Securevision Pte Ltd</strong></p>
-          <p>Police License: L/PS/000267/2023P</p>
-          <p>bizSAFE Level 3</p>
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="f-logo-wrap">
+                    <img src="images/securevision-logo-white.png" alt="Securevision Logo">
+                    <span class="brand-name">Securevision</span>
+                </div>
+                <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since 2006.</p>
+                <div class="f-socials">
+                    <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@securevision" target="_blank" rel="noopener" aria-label="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="residential-security-singapore.html">Private Homes</a></li>
+                    <li><a href="condominiums.html">Condominiums</a></li>
+                    <li><a href="commercial-security-singapore.html">Commercial &amp; Retail</a></li>
+                    <li><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a></li>
+                    <li><a href="government-institution-security-singapore.html">Institutions &amp; Government</a></li>
+                    <li><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></li>
+                </ul>
+            </div>
+            
+                <div class="footer-links">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="residential-security-singapore.html">Private Homes</a></li>
+                        <li><a href="condominiums.html">Condominiums</a></li>
+                        <li><a href="commercial-security-singapore.html">Commercial &amp; Retail</a></li>
+                        <li><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a></li>
+                        <li><a href="government-institution-security-singapore.html">Institutions &amp; Government</a></li>
+                        <li><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Systems</h4>
+                    <ul>
+                        <li><a href="cctv-surveillance-singapore.html">Surveillance &amp; CCTV</a></li>
+                        <li><a href="access-control-singapore.html">People Access</a></li>
+                        <li><a href="burglar-alarm.html">Burglar Alarm</a></li>
+                        <li><a href="intercom-system-singapore.html">Intercom Systems</a></li>
+                        <li><a href="auto-gate-singapore.html">Auto Gates &amp; Barriers</a></li>
+                        <li><a href="security-systems-singapore.html"><strong>All Technical Systems</strong></a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="resources.html#guides">Technical Guides</a></li>
+                        <li><a href="resources.html#tools">Planning Tools</a></li>
+                        <li><a href="resources.html#library">Product Library</a></li>
+                        <li><a href="resources.html#videos">Training Videos</a></li>
+                        <li><a href="resources.html#faq">Search &amp; FAQ</a></li>
+                        <li><a href="resources.html"><strong>Full Resource Hub</strong></a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="awards-certifications.html">Awards &amp; Certs</a></li>
+                        <li><a href="security-brands-singapore.html"><strong>Technology Partners</strong></a></li>
+                        <li><a href="portfolio.html">Project Portfolio</a></li>
+                        <li><a href="security-articles-singapore.html">Insights</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+            <div class="footer-contact">
+                <h4>Get In Touch</h4>
+                <div class="footer-contact-item">
+                    <span>💬</span>
+                    <a href="https://wa.me/6593860466">WhatsApp Us</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span>✉️</span>
+                    <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span>📞</span>
+                    <a href="tel:+6562864796">+65 6286 4796</a>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <!-- Col 2: Solutions -->
-      <div class="footer-col">
-        <h4 class="footer-title">Solutions</h4>
-        <ul class="footer-links">
-          <li><a href="residential.html">Private Homes</a></li>
-          <li><a href="condominiums.html">Condominiums (MCST)</a></li>
-          <li><a href="commercial.html">Commercial & Retail</a></li>
-          <li><a href="institutions.html">Institutions</a></li>
-          <li><a href="industrial.html">Industrial & Logistics</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 3: Systems -->
-      <div class="footer-col">
-        <h4 class="footer-title">Systems</h4>
-        <ul class="footer-links">
-          <li><a href="surveillance-systems.html">Surveillance & Detection</a></li>
-          <li><a href="people-access.html">People Access Systems</a></li>
-          <li><a href="vehicle-access.html">Vehicle Access Systems</a></li>
-          <li><a href="platform-integration.html">Platform & Integration</a></li>
-          <li><a href="brands.html">Hardware Brands</a></li>
-        </ul>
-      </div>
-
-      <!-- Col 4: Reach Us -->
-      <div class="footer-col">
-        <h4 class="footer-title">Reach Us</h4>
-        <ul class="footer-links">
-          <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="about.html">Our Story</a></li>
-          <li><a href="portfolio.html">Project Portfolio</a></li>
-          <li><a href="insights.html">Security Insights</a></li>
-          <li><a href="https://wa.me/6593860466" class="footer-whatsapp"><strong>WhatsApp: +65 9386 0466</strong></a></li>
-        </ul>
-        <div class="footer-social">
-          <a href="https://www.facebook.com/securevision" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="https://www.linkedin.com/company/securevision-pte-ltd" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Securevision Pte Ltd &middot; Police Licence L/PS/000267/2023P &middot; bizSAFE Level 3 &middot; BCA Registered</p>
+            <div class="footer-bottom-links">
+                <a href="sitemap.html">Sitemap</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
         </div>
-      </div>
     </div>
-
-    <div class="footer-bottom">
-      <div class="footer-bottom-inner">
-        <p>&copy; 2025 Securevision Pte Ltd. All rights reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="terms.html">Terms of Service</a>
-        </div>
-      </div>
-    </div>
-  </div>
 </footer>
 
-<!-- Floating WhatsApp Button -->
 <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.03a11.782 11.782 0 001.583 5.867L0 24l6.117-1.605a11.772 11.772 0 005.925 1.603h.005c6.635 0 12.022-5.392 12.026-12.033a11.742 11.742 0 00-3.504-8.508z"/></svg>
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
 </a>
 
 <script>
-// Main Nav Functionality
 function toggleMobileMenu() {
-  const mobileMenu = document.getElementById('mobileMenu');
-  mobileMenu.classList.toggle('active');
+  const menu = document.getElementById('mobileMenu');
+  if (menu) menu.classList.toggle('active');
 }
-
 function toggleSubmenu(id) {
-  const submenu = document.getElementById(id);
-  const isOpen = submenu.style.display === 'block';
-  // Close all submenus first
-  document.querySelectorAll('.mobile-submenu').forEach(sub => {
-    sub.style.display = 'none';
-  });
-  // Toggle the clicked one
-  if (!isOpen) {
-    submenu.style.display = 'block';
-  }
+  const sub = document.getElementById(id);
+  const isOpen = sub.style.display === 'block';
+  document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
+  if (!isOpen && sub) sub.style.display = 'block';
 }
 
-// Close mobile menu when clicking outside
-document.addEventListener('click', function(event) {
-  const mainNav = document.querySelector('.main-nav');
-  const mobileMenu = document.getElementById('mobileMenu');
-  if (mainNav && !mainNav.contains(event.target)) {
-    if (mobileMenu) mobileMenu.classList.remove('active');
-  }
+document.addEventListener('click', function (e) {
+    const nav = document.querySelector('.main-nav');
+    const menu = document.getElementById('mobileMenu');
+    if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
+        menu.classList.remove('active');
+    }
+});
+
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.main-nav');
+    const logo = document.querySelector('.nav-logo-img');
+    if (nav && logo) {
+        if (window.scrollY > 20) {
+            nav.classList.add('scrolled');
+            logo.src = 'images/securevision-logo-blue.png';
+        } else {
+            nav.classList.remove('scrolled');
+            logo.src = 'images/securevision-logo-white.png';
+        }
+    }
 });
 </script>
-
+</body>
+</html>

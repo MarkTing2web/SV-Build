@@ -1,7 +1,7 @@
 # SECUREVISION WEBSITE SITEMAP
 
-**Last Updated:** March 26, 2026  
-**Total Pages Built:** 54+ HTML pages  
+**Last Updated:** March 30, 2026  
+**Total Pages Built:** 68+ HTML pages  
 **Navigation Items:** 6 main menu items + search (Solutions, Systems, Brands, Portfolio, Insights, About, Search)
 
 ---
@@ -17,7 +17,7 @@
 
 ### **Solutions Dropdown (Hover):**
 ```
-SOLUTIONS (click → solutions-hub.html)
+SOLUTIONS (click → security-solutions-singapore.html)
 └─ On Hover:
    ├─ Residential
    ├─ Condominiums
@@ -28,7 +28,7 @@ SOLUTIONS (click → solutions-hub.html)
 
 ### **Systems Dropdown (Hover):**
 ```
-SYSTEMS (click → systems.html)
+SYSTEMS (click → security-systems-singapore.html)
 └─ On Hover:
    ├─ Surveillance & CCTV
    ├─ People Access Control
@@ -39,7 +39,7 @@ SYSTEMS (click → systems.html)
 
 ### **Brands Dropdown (Hover):**
 ```
-BRANDS (click → brands.html)
+BRANDS (click → security-brands-singapore.html)
 └─ On Hover (Simple Dropdown):
    ├─ Surveillance
    ├─ Access Control
@@ -49,10 +49,11 @@ BRANDS (click → brands.html)
    ├─ ─────────────
    └─ View All Brands →
 
-Note: Categories are section headers on brands.html page
+Note: Categories are section headers on security-brands-singapore.html page
 Individual brands: Hikvision, Uniview, Hanwha, Milesight (Surveillance),
-Suprema, ZKTeco, HID, EntryPass (Access), Akuvox, Aiphone, Kocom (Intercom),
-Ajax, RISCO, Paradox, DSC, GE/Caddx (Alarms), FAAC, MAG, Dormer (Gates)
+Suprema, ZKTeco, HID, EntryPass (Access), Akuvox, Aiphone, Kocom, Fanvil (Intercom),
+Ajax, RISCO, Paradox, DSC, GE/Caddx (Alarms), FAAC, MAG, Dormer (Gates),
+Yeastar (PBX/Comms)
 ```
 
 ### **Mobile Navigation (Hamburger Menu):**
@@ -68,11 +69,11 @@ Menu Expanded (when ☰ tapped):
 ┌─────────────────────┐
 │ ✕ MENU             │
 ├─────────────────────┤
-│ Solutions           │ ← Links to solutions-hub.html
+│ Solutions           │ ← Links to security-solutions-singapore.html
 │ Systems             │ ← Links to systems.html
-│ Brands              │ ← Links to brands.html
+│ Brands              │ ← Links to security-brands-singapore.html
 │ Portfolio           │ ← Links to portfolio.html
-│ Insights            │ ← Links to insights.html
+│ Insights            │ ← Links to security-articles-singapore.html
 │ About               │ ← Links to about.html (includes contact)
 ├─────────────────────┤
 │ 💬 WhatsApp Us      │
@@ -161,14 +162,14 @@ SECUREVISION.COM.SG
 │       - Logo in header links back here
 │       - "Home" removed from navigation (logo serves this purpose)
 │
-├── SOLUTIONS (Hub: solutions-hub.html)
+├── SOLUTIONS (Hub: security-solutions-singapore.html)
 │   │
 │   ├── BY PROPERTY TYPE
 │   │   │
 │   │   ├── 1. RESIDENTIAL (/residential/)
 │   │   │   ├── ✅ residential-building.html - For New Builds
-│   │   │   ├── ✅ residential-existing.html - For Existing Homes
-│   │   │   └── ✅ residential-trade.html - For Trade Professionals
+│   │   │   ├── ✅ home-security-upgrade-singapore.html - For Existing Homes
+│   │   │   └── ✅ security-trade-partners-singapore.html - For Trade Professionals
 │   │   │
 │   │   ├── 2. CONDOMINIUMS (/condominiums/)
 │   │   │   ├── ✅ condominiums.html - Main Landing
@@ -176,34 +177,35 @@ SECUREVISION.COM.SG
 │   │   │   └── ✅ condominiums-security.html - For Security Partners
 │   │   │
 │   │   ├── 3. COMMERCIAL (/commercial/)
-│   │   │   ├── ✅ commercial.html - Main Landing
+│   │   │   ├── ✅ commercial-security-singapore.html - Main Landing
 │   │   │   ├── ✅ commercial-office.html - Office Solutions
 │   │   │   ├── ✅ commercial-retail.html - Retail Solutions
 │   │   │   └── ✅ commercial-hotel.html - Hotel Solutions
 │   │   │
 │   │   ├── 4. INDUSTRIAL (/industrial/)
-│   │   │   └── ✅ industrial.html - Industrial Solutions
+│   │   │   └── ✅ industrial-security-singapore.html - Industrial Solutions
 │   │   │
 │   │   └── 5. INSTITUTIONS (/institutions/)
-│   │       └── ✅ institutions.html - Educational & Healthcare
+│   │       └── ✅ government-institution-security-singapore.html - Educational & Healthcare
 │   │
 │   └── Cross-link to SYSTEMS hub at bottom of page
 │
-├── SYSTEMS (Hub: systems-hub.html)
+├── SYSTEMS (Hub: security-systems-singapore.html)
 │   │
 │   ├── BY SYSTEM TYPE
-│   │   ├── ✅ surveillance-systems.html - CCTV & Surveillance Hub
+│   │   ├── ✅ cctv-surveillance-singapore.html - CCTV & Surveillance Hub
 │   │   ├── ✅ cctv.html - Comprehensive CCTV Technical Guide
 │   │   ├── ✅ burglar-alarm.html - Comprehensive Burglar Alarm Technical Guide
 │   │   ├── ✅ door-access.html - Comprehensive Door Access Technical Guide
-│   │   ├── ✅ av-intercom.html - Comprehensive AV Intercom Technical Guide
-│   │   ├── ✅ people-access.html - People Access Control Hub
-│   │   ├── ✅ vehicle-access.html - Vehicle Access & Barriers Hub
-│   │   └── ✅ platform-integration.html - Platform & Integration Hub
+│   │   ├── ✅ intercom-system-singapore.html - Comprehensive AV Intercom Technical Guide
+│   │   ├── ✅ auto-gate-singapore.html - Comprehensive Auto Gates & Barriers Technical Guide
+│   │   ├── ✅ access-control-singapore.html - People Access Control Hub
+│   │   ├── ✅ vehicle-access-control-singapore.html - Vehicle Access & Barriers Hub
+│   │   └── ✅ integrated-security-system-singapore.html - Platform & Integration Hub
 │   │
 │   └── Cross-link to SOLUTIONS hub at top of page
 │
-├── BRANDS (Hub: brands.html)
+├── BRANDS (Hub: security-brands-singapore.html)
 │   │
 │   ├── SURVEILLANCE BRANDS
 │   │   ├── ✅ hikvision-singapore.html - Hikvision
@@ -214,7 +216,7 @@ SECUREVISION.COM.SG
 │   ├── ACCESS CONTROL BRANDS
 │   │   ├── ✅ suprema-singapore.html - Suprema
 │   │   ├── ✅ zkteco-singapore.html - ZKTeco
-│   │   ├── ✅ hid-singapore.html - HID Global
+│   │   ├── ✅ hid-global-access-singapore.html - HID Global
 │   │   └── ✅ entrypass-singapore.html - EntryPass
 │   │
 │   ├── INTERCOM BRANDS
@@ -232,20 +234,20 @@ SECUREVISION.COM.SG
 │   ├── GATE & BARRIER BRANDS
 │   │   ├── ✅ faac-singapore.html - FAAC
 │   │   ├── ✅ mag-gates-singapore.html - MAG Gates
-│   │   └── ✅ dormer-singapore.html - Dormer
+│   │   └── ✅ dormer-auto-gate-singapore.html - Dormer
 │   │
 │   └── INTEGRATION PLATFORMS
 │       └── ✅ microengine-singapore.html - MicroEngine
 │
 ├── PORTFOLIO (/portfolio/)
 │   ├── ✅ portfolio.html - Portfolio Overview
-│   ├── ✅ portfolio-lviv.html - L'viv Residences
-│   ├── ✅ portfolio-scape.html - SCAPE Project
-│   ├── ✅ portfolio-sta.html - STA Building
-│   └── ✅ portfolio-cyrus.html - Cyrus Tech Park
+│   ├── ✅ condominium-security-lviv-residences-singapore.html - L'viv Residences
+│   ├── ✅ cctv-access-control-scape-singapore.html - SCAPE Project
+│   ├── ✅ commercial-security-sta-building-singapore.html - STA Building
+│   └── ✅ industrial-security-cyrus-tech-park-singapore.html - Cyrus Tech Park
 │
 ├── INSIGHTS (/insights/)
-│   ├── ✅ insights.html - Insights & Articles Hub
+│   ├── ✅ security-articles-singapore.html - Insights & Articles Hub
 │   ├── ✅ resources.html - Resources
 │   ├── ✅ cctv.html - Comprehensive CCTV Guide (Blog)
 │   └── ✅ burglar-alarm.html - Comprehensive Burglar Alarm Guide (Blog)
@@ -271,6 +273,12 @@ SECUREVISION.COM.SG
         - BCA Registered
         - Partner awards (ADV, ZKTeco, etc.)
         - Linked from About page
+    │
+    ├── ✅ request-site-assessment-singapore.html - Booking / Site Assessment Request
+    ├── ✅ contact-gateway.html - Unified Contact Routing
+    ├── ✅ sitemap.html - HTML Sitemap for Users
+    ├── ✅ privacy.html - Privacy Policy
+    └── ✅ terms.html - Terms of Service
 ```
 
 ---
@@ -288,33 +296,40 @@ SECUREVISION.COM.SG
 ### **HUB PAGES (3 pages)**
 | Hub | File | Nav Placement | Purpose |
 |-----|------|---------------|---------|
-| Solutions Hub | solutions-hub.html | SOLUTIONS (click) | Property type gateway |
-| Systems Hub | systems-hub.html | SYSTEMS (click) | System type gateway |
-| Brands Hub | brands.html | BRANDS (click) | All brands overview |
+| Solutions Hub | security-solutions-singapore.html | SOLUTIONS (click) | Property type gateway |
+| Systems Hub | security-systems-singapore.html | SYSTEMS (click) | System type gateway |
+| Brands Hub | security-brands-singapore.html | BRANDS (click) | All brands overview |
 
 ### **SECTOR SOLUTIONS (11 pages)**
 | Sector | Page | File | Nav Path |
 |--------|------|------|----------|
-| **Residential** | New Builds | residential-building.html | Solutions → Residential |
-| | Existing Homes | residential-existing.html | Solutions → Residential |
-| | Trade Professionals | residential-trade.html | Solutions → Residential |
+| **Residential** | Main Landing | residential-security-singapore.html | Solutions → Residential |
+| | New Builds | residential-building.html | Solutions → Residential |
+| | Existing Homes | home-security-upgrade-singapore.html | Solutions → Residential |
+| | Trade Professionals | security-trade-partners-singapore.html | Solutions → Residential |
 | **Condominiums** | Main Landing | condominiums.html | Solutions → Condominiums |
 | | MCST & Managing Agents | condominiums-mcst.html | Solutions → Condominiums |
 | | Security Partners | condominiums-security.html | Solutions → Condominiums |
-| **Commercial** | Main Landing | commercial.html | Solutions → Commercial |
+| **Commercial** | Main Landing | commercial-security-singapore.html | Solutions → Commercial |
 | | Office Solutions | commercial-office.html | Solutions → Commercial |
 | | Retail Solutions | commercial-retail.html | Solutions → Commercial |
 | | Hotel Solutions | commercial-hotel.html | Solutions → Commercial |
-| **Industrial** | Main Landing | industrial.html | Solutions → Industrial |
-| **Institutions** | Main Landing | institutions.html | Solutions → Institutions |
+| **Industrial** | Main Landing | industrial-security-singapore.html | Solutions → Industrial |
+| **Institutions** | Main Landing | government-institution-security-singapore.html | Solutions → Institutions |
+| | Healthcare | healthcare-security-singapore.html | Solutions → Institutions |
 
 ### **SYSTEM SOLUTIONS (4 pages)**
 | System | File | Nav Path |
 |--------|------|----------|
-| Surveillance & CCTV | surveillance-systems.html | Systems → Surveillance |
-| People Access Control | people-access.html | Systems → Access Control |
-| Vehicle Access & Barriers | vehicle-access.html | Systems → Vehicle Access |
-| Platform Integration | platform-integration.html | Systems → Integration |
+| Surveillance & CCTV | cctv-surveillance-singapore.html | Systems → Surveillance |
+| People Access Control | access-control-singapore.html | Systems → Access Control |
+| Vehicle Access & Barriers | vehicle-access-control-singapore.html | Systems → Vehicle Access |
+| Platform Integration | integrated-security-system-singapore.html | Systems → Integration |
+| **Technical Guides** | CCTV Guide | cctv.html | Systems → Surveillance |
+| | Burglar Alarm | burglar-alarm.html | Systems → Surveillance |
+| | Door Access Guide | door-access.html | Systems → Access Control |
+| | AV Intercom Guide | intercom-system-singapore.html | Systems → Access Control |
+| | Auto Gates & Barriers | auto-gate-singapore.html | Systems → Vehicle Access |
 
 ### **BRAND PAGES (21 pages)**
 | Category | Brand | File | Nav Path |
@@ -325,11 +340,12 @@ SECUREVISION.COM.SG
 | | Milesight | milesight-singapore.html | Brands → Surveillance |
 | **Access Control** | Suprema | suprema-singapore.html | Brands → Access Control |
 | | ZKTeco | zkteco-singapore.html | Brands → Access Control |
-| | HID Global | hid-singapore.html | Brands → Access Control |
+| | HID Global | hid-global-access-singapore.html | Brands → Access Control |
 | | EntryPass | entrypass-singapore.html | Brands → Access Control |
 | **Intercom** | Akuvox | akuvox-singapore.html | Brands → Intercom |
 | | Aiphone | aiphone-singapore.html | Brands → Intercom |
 | | Kocom | kocom-singapore.html | Brands → Intercom |
+| | Fanvil | fanvil-singapore.html | Brands → Intercom |
 | **Alarm** | Ajax | ajax-alarm-singapore.html | Brands → Alarms |
 | | RISCO | risco-alarm-singapore.html | Brands → Alarms |
 | | Paradox | paradox-alarm-singapore.html | Brands → Alarms |
@@ -337,23 +353,24 @@ SECUREVISION.COM.SG
 | | GE/Caddx | ge-caddx-alarm-singapore.html | Brands → Alarms |
 | **Gates/Barriers** | FAAC | faac-singapore.html | Brands → Gates |
 | | MAG Gates | mag-gates-singapore.html | Brands → Gates |
-| | Dormer | dormer-singapore.html | Brands → Gates |
+| | Dormer | dormer-auto-gate-singapore.html | Brands → Gates |
 | **Integration** | MicroEngine | microengine-singapore.html | Brands → Integration |
+| **Telephony** | Yeastar | yeastar-singapore.html | Brands → PBX |
 
 ### **PORTFOLIO & INSIGHTS (7 pages)**
 | Section | Page | File | Nav Placement |
 |---------|------|------|---------------|
 | **Portfolio** | Overview | portfolio.html | PORTFOLIO |
-| | L'viv Residences | portfolio-lviv.html | Via portfolio.html |
-| | SCAPE | portfolio-scape.html | Via portfolio.html |
-| | STA Building | portfolio-sta.html | Via portfolio.html |
-| | Cyrus Tech Park | portfolio-cyrus.html | Via portfolio.html |
-| **Insights** | Insights Hub | insights.html | INSIGHTS |
+| | L'viv Residences | condominium-security-lviv-residences-singapore.html | Via portfolio.html |
+| | SCAPE | cctv-access-control-scape-singapore.html | Via portfolio.html |
+| | STA Building | commercial-security-sta-building-singapore.html | Via portfolio.html |
+| | Cyrus Tech Park | industrial-security-cyrus-tech-park-singapore.html | Via portfolio.html |
+| **Insights** | Insights Hub | security-articles-singapore.html | INSIGHTS |
 | | Resources | resources.html | Via insights |
 | | CCTV Guide | cctv.html | Resources / Insights |
 | | Burglar Alarm | burglar-alarm.html | Resources / Insights |
 | | Door Access Guide | door-access.html | Resources / Insights |
-| | AV Intercom Guide | av-intercom.html | Resources / Insights |
+| | AV Intercom Guide | intercom-system-singapore.html | Resources / Insights |
 
 ---
 
@@ -365,7 +382,7 @@ securevision.com.sg/                          (Homepage)
 securevision.com.sg/about/                    (About + Contact)
 securevision.com.sg/awards-certifications/    (Awards)
 securevision.com.sg/solutions/                (Solutions Hub)
-securevision.com.sg/systems/                  (Systems Hub)
+securevision.com.sg/systems/                  (Systems Hub - security-systems-singapore.html)
 securevision.com.sg/brands/                   (Brands Hub)
 ```
 
@@ -426,7 +443,7 @@ Clicks Logo/Homepage
 ↓
 Sees hero or clicks "SOLUTIONS" in nav
 ↓
-Lands on solutions-hub.html
+Lands on security-solutions-singapore.html
 ↓
 Clicks "Condominiums"
 ↓
@@ -447,7 +464,7 @@ User: "I want to understand access control"
 ↓
 Google search: "access control systems Singapore"
 ↓
-Lands on people-access.html
+Lands on access-control-singapore.html
 ↓
 Reads system overview
 ↓
@@ -476,7 +493,7 @@ Sees "Where we install Hikvision:" links
 ↓
 Clicks relevant sector (e.g., "Commercial")
 ↓
-Lands on commercial.html
+Lands on commercial-security-singapore.html
 ↓
 Explores solutions
 ↓
@@ -493,7 +510,7 @@ Taps hamburger menu ☰
 ↓
 Taps "Solutions"
 ↓
-Lands on solutions-hub.html (no dropdown on mobile)
+Lands on security-solutions-singapore.html (no dropdown on mobile)
 ↓
 Browses property types
 ↓
@@ -509,23 +526,23 @@ Taps WhatsApp button (sticky on mobile)
 ## CROSS-LINKING STRATEGY
 
 ### **Hub Pages Cross-Link:**
-- **solutions-hub.html** → "Looking for a specific system? Browse by System Type →" links to systems.html
-- **systems.html** → "Not sure what you need? Find solutions for your property type →" links to solutions-hub.html
+- **security-solutions-singapore.html** → "Looking for a specific system? Browse by System Type →" links to security-systems-singapore.html
+- **security-systems-singapore.html** → "Not sure what you need? Find solutions for your property type →" links to security-solutions-singapore.html
 
 ### **Sector Pages Link to Systems:**
-- condominiums-mcst.html → Links to people-access.html, surveillance-systems.html, etc.
-- commercial-office.html → Links to people-access.html, surveillance-systems.html, etc.
+- condominiums-mcst.html → Links to access-control-singapore.html, cctv-surveillance-singapore.html, etc.
+- commercial-office.html → Links to access-control-singapore.html, cctv-surveillance-singapore.html, etc.
 
 ### **System Pages Link to Sectors:**
-- surveillance-systems.html → "Used in: Residential, Condominiums, Commercial, Industrial"
-- people-access.html → "Used in: Condominiums, Commercial, Industrial, Institutions"
+- cctv-surveillance-singapore.html → "Used in: Residential, Condominiums, Commercial, Industrial"
+- access-control-singapore.html → "Used in: Condominiums, Commercial, Industrial, Institutions"
 
 ### **Brand Pages Link Both Ways:**
-- hikvision-singapore.html → Links to surveillance-systems.html AND relevant sector pages
-- suprema-singapore.html → Links to people-access.html AND relevant sector pages
+- hikvision-singapore.html → Links to cctv-surveillance-singapore.html AND relevant sector pages
+- suprema-singapore.html → Links to access-control-singapore.html AND relevant sector pages
 
 ### **Portfolio Links to Everything:**
-- portfolio-lviv.html → Links to condominiums-mcst.html, akuvox-singapore.html, entrypass-singapore.html
+- condominium-security-lviv-residences-singapore.html → Links to condominiums-mcst.html, akuvox-singapore.html, entrypass-singapore.html
 
 ---
 
@@ -672,50 +689,57 @@ All HTML pages built with full structure
 
 ---
 
-## FILE NAMING CONVENTION
-
-### **Current Files:**
+### **Current Files (Physical Inventory):**
 ```
 /mnt/user-data/uploads/
 ├── index.html (Homepage)
 ├── about.html (About + Contact)
 ├── awards-certifications.html
-├── solutions-hub.html (Solutions Hub - may need to create)
-├── technology.html (Rename to: systems.html)
-├── brands.html (Brands Hub)
+├── security-solutions-singapore.html (Solutions Hub)
+├── security-systems-singapore.html (Systems Hub)
+├── security-brands-singapore.html (Brands Hub)
+├── residential-security-singapore.html (Main Landing)
 ├── residential-building.html
-├── residential-existing.html
-├── residential-trade.html
+├── home-security-upgrade-singapore.html
+├── security-trade-partners-singapore.html
 ├── condominiums.html
 ├── condominiums-mcst.html
 ├── condominiums-security.html
-├── commercial.html
+├── commercial-security-singapore.html
 ├── commercial-office.html
 ├── commercial-retail.html
 ├── commercial-hotel.html
-├── industrial.html
-├── institutions.html
-├── surveillance-systems.html
-├── people-access.html
-├── vehicle-access.html
-├── platform-integration.html
-├── [21 brand pages]
+├── industrial-security-singapore.html
+├── government-institution-security-singapore.html
+├── healthcare-security-singapore.html
+├── cctv-surveillance-singapore.html
+├── access-control-singapore.html
+├── vehicle-access-control-singapore.html
+├── integrated-security-system-singapore.html
+├── cctv.html (Technical Guide)
+├── burglar-alarm.html (Technical Guide)
+├── door-access.html (Technical Guide)
+├── intercom-system-singapore.html (Technical Guide)
+├── auto-gate-singapore.html (Technical Guide)
+├── [23 brand pages inclusive of Fanvil, Yeastar]
 ├── portfolio.html
-├── portfolio-lviv.html
-├── portfolio-scape.html
-├── portfolio-sta.html
-├── portfolio-cyrus.html
-├── insights.html
-└── resources.html
+├── condominium-security-lviv-residences-singapore.html
+├── cctv-access-control-scape-singapore.html
+├── commercial-security-sta-building-singapore.html
+├── industrial-security-cyrus-tech-park-singapore.html
+├── security-articles-singapore.html
+├── resources.html
+├── sitemap.html
+├── privacy.html
+├── terms.html
+├── request-site-assessment-singapore.html
+└── contact-gateway.html
 ```
 
-### **Files to Create/Modify:**
-1. **Create:** solutions-hub.html (if not exists)
-2. **Create:** search.html (search results page)
-3. **Rename:** technology.html → systems.html
-4. **Modify:** about.html (add contact section)
-5. **Review:** All hub pages for strong routing
-6. **Implement:** Search functionality (client-side with Lunr.js or Fuse.js)
+### **Tasks Underway:**
+1. **Coordination:** Ensure all pages cross-link between Systems and Solutions Hubs correctly.
+2. **Implementation:** Search functionality (client-side with Lunr.js or Fuse.js)
+3. **Verification:** All technical guides (cctv, burglar-alarm, etc.) meet the 65/35 design standard.
 
 ---
 
@@ -811,7 +835,7 @@ All HTML pages built with full structure
 - **Simplified dropdowns** - Mega menus replaced with clean, simple dropdowns
   - Portfolio and Insights: No dropdown (direct links)
   - Solutions, Systems, Brands, About: Simple dropdowns
-- **Hub pages** (solutions-hub.html, systems.html, brands.html) are critical for user routing
+- **Hub pages** (security-solutions-singapore.html, systems.html, security-brands-singapore.html) are critical for user routing
 - **Search functionality** uses client-side search (Lunr.js/Fuse.js) for instant results
 - **Mobile-first approach** - All dropdowns become simple links on mobile, search opens full-screen overlay
 - **Mobile layout:** Logo (left) | Menu (center) | Search (right)
@@ -834,9 +858,10 @@ All HTML pages built with full structure
 - **Added search icon (🔍)** to navigation for easy site-wide search
 - **Removed WhatsApp from desktop nav** (kept in mobile menu + floating button for cleaner header)
 - **Simplified all mega menus to simple dropdowns** for faster, cleaner UX
-- Clarified hub page structure (solutions-hub.html, systems.html, brands.html)
+- Clarified hub page structure (security-solutions-singapore.html, systems.html, security-brands-singapore.html)
 - Updated navigation to 6 clean items + search: Solutions, Systems, Brands, Portfolio, Insights, About, Search
 - Added mobile-specific navigation behavior (no dropdowns, direct hub links)
 - Mobile layout: Logo (left) | Menu (center) | Search (right) with responsive logo sizing
 - Search opens full-screen overlay on mobile with keyboard
 - Emphasized cross-linking between Solutions and Systems hubs
+

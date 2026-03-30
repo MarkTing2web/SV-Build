@@ -435,7 +435,7 @@ nav {
 | **Systems** | Surveillance & CCTV, People Access Control, Vehicle Access & Barriers, Platform Integration | Simple dropdown |
 | **Brands** | Surveillance, Access Control, Intercom, Alarms, Gates & Barriers, View All Brands → | Simple dropdown with categories |
 | **Portfolio** | (none) | Direct link to portfolio.html |
-| **Insights** | (none) | Direct link to insights.html |
+| **Insights** | (none) | Direct link to security-articles-singapore.html |
 | **About** | Company Story, Founder, bizSAFE Level 3, BCA certifications, ─────, Contact Us, WhatsApp | Simple dropdown with contact |
 
 ### Mobile Menu
@@ -484,20 +484,20 @@ nav {
 Logo + Wordmark → index.html (click to go home)
 
 Desktop Menu Items:
-Solutions      → solutions-hub.html    (dropdown: 6 property types)
+Solutions      → security-solutions-singapore.html    (dropdown: 6 property types)
 Systems        → systems.html          (dropdown: 4 system types)
-Brands         → brands.html           (dropdown: 6 categories)
+Brands         → security-brands-singapore.html           (dropdown: 6 categories)
 Portfolio      → portfolio.html        (no dropdown)
-Insights       → insights.html         (no dropdown)
+Insights       → security-articles-singapore.html         (no dropdown)
 About          → about.html            (dropdown: company info + contact)
 Search Icon    → (search functionality)
 
 Mobile Menu Items (when ☰ tapped):
-Solutions      → solutions-hub.html    (no submenu)
+Solutions      → security-solutions-singapore.html    (no submenu)
 Systems        → systems.html          (no submenu)
-Brands         → brands.html           (no submenu)
+Brands         → security-brands-singapore.html           (no submenu)
 Portfolio      → portfolio.html
-Insights       → insights.html
+Insights       → security-articles-singapore.html
 About          → about.html
 ─────────
 💬 WhatsApp Us → https://wa.me/6593860466
@@ -960,7 +960,7 @@ footer {
 - Display at 40px height, auto width
 - Greyscale by default: `filter: grayscale(100%) opacity(0.6)`
 - Colour on hover: `filter: none; opacity: 1`
-- Use in brands.html, brand pages, about.html, and surveillance/access/vehicle subsystem pages
+- Use in security-brands-singapore.html, brand pages, about.html, and surveillance/access/vehicle subsystem pages
 
 ### Image Placeholders
 When real images are not yet available, use a dark gradient placeholder:
@@ -1140,12 +1140,12 @@ YouTube:          http://www.youtube.com/@securevision
 ```
 
 ### 6-Sector Solution Architecture (New Order)
-1. **Private Homes** (residential.html)
+1. **Private Homes** (residential-security-singapore.html)
 2. **Condominiums** (condominiums.html)
-3. **Commercial & Retail** (commercial.html)
-4. **Industrial & Logistics** (industrial.html)
-5. **Institutions & Government** (institutions.html)
-6. **Healthcare & Managed Living** (healthcare.html)
+3. **Commercial & Retail** (commercial-security-singapore.html)
+4. **Industrial & Logistics** (industrial-security-singapore.html)
+5. **Institutions & Government** (government-institution-security-singapore.html)
+6. **Healthcare & Managed Living** (healthcare-security-singapore.html)
 
 ### Standard Footer Structure
 ```html
@@ -1164,12 +1164,12 @@ YouTube:          http://www.youtube.com/@securevision
             <div class="footer-links">
                 <h4>Solutions</h4>
                 <ul>
-                    <li><a href="residential.html">Private Homes</a></li>
+                    <li><a href="residential-security-singapore.html">Private Homes</a></li>
                     <li><a href="condominiums.html">Condominiums</a></li>
-                    <li><a href="commercial.html">Commercial &amp; Retail</a></li>
-                    <li><a href="industrial.html">Industrial &amp; Logistics</a></li>
-                    <li><a href="institutions.html">Institutions &amp; Government</a></li>
-                    <li><a href="healthcare.html">Healthcare &amp; Managed Living</a></li>
+                    <li><a href="commercial-security-singapore.html">Commercial &amp; Retail</a></li>
+                    <li><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a></li>
+                    <li><a href="government-institution-security-singapore.html">Institutions &amp; Government</a></li>
+                    <li><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></li>
                 </ul>
             </div>
             <!-- Other columns ... -->
@@ -1201,7 +1201,7 @@ GantryGo™ — Vehicle Gantry Intercom System
 | About | Unique | about.html |
 | Contact | Unique | contact.html |
 | Resources | Unique | resources.html |
-| Insights | Unique | insights.html |
+| Insights | Unique | security-articles-singapore.html |
 
 ---
 
@@ -1306,3 +1306,4 @@ The Securevision Design Framework is a 4-pillar architectural standard for techn
 
 *Securevision Global Design Instruction v1.0 — March 2026*
 *Do not modify without updating all dependent page prompts*
+
