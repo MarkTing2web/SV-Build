@@ -31,12 +31,10 @@ SOLUTIONS (click → security-solutions-singapore.html)
 ```
 SYSTEMS (click → security-systems-singapore.html)
 └─ On Hover:
-   ├─ Surveillance & CCTV
+   ├─ Surveillance & Detection
    ├─ People Access Control
-   ├─ Burglar Alarm
-   ├─ Intercom Systems
-   ├─ Auto Gates & Barriers
-   └─ All Technical Systems Hub →
+   ├─ Vehicle Access & Barriers
+   └─ Platform Management
 ```
 
 ### **Brands Dropdown (Hover):**
@@ -195,15 +193,15 @@ SECUREVISION.COM.SG
 ├── SYSTEMS (Hub: security-systems-singapore.html)
 │   │
 │   ├── BY SYSTEM TYPE
-│   │   ├── ✅ cctv-surveillance-singapore.html - CCTV & Surveillance Hub
+│   │   ├── ✅ surveillance-detection.html - Surveillance & Detection Hub
 │   │   ├── ✅ cctv.html - Comprehensive CCTV Technical Guide
 │   │   ├── ✅ burglar-alarm.html - Comprehensive Burglar Alarm Technical Guide
 │   │   ├── ✅ door-access.html - Comprehensive Door Access Technical Guide
 │   │   ├── ✅ intercom-system-singapore.html - Comprehensive AV Intercom Technical Guide
 │   │   ├── ✅ auto-gate-singapore.html - Comprehensive Auto Gates & Barriers Technical Guide
-│   │   ├── ✅ access-control-singapore.html - People Access Control Hub
-│   │   ├── ✅ vehicle-access-control-singapore.html - Vehicle Access & Barriers Hub
-│   │   └── ✅ integrated-security-system-singapore.html - Platform & Integration Hub
+│   │   ├── ✅ people-access-control.html - People Access Control Hub
+│   │   ├── ✅ vehicle-access-control.html - Vehicle Access & Barriers Hub
+│   │   └── ✅ integrated-security-platform.html - Platform Management Hub
 │   │
 │   └── Cross-link to SOLUTIONS hub at top of page
 │
@@ -323,10 +321,10 @@ SECUREVISION.COM.SG
 ### **SYSTEM SOLUTIONS (4 pages)**
 | System | File | Nav Path |
 |--------|------|----------|
-| Surveillance & CCTV | cctv-surveillance-singapore.html | Systems → Surveillance |
-| People Access Control | access-control-singapore.html | Systems → Access Control |
-| Vehicle Access & Barriers | vehicle-access-control-singapore.html | Systems → Vehicle Access |
-| Platform Integration | integrated-security-system-singapore.html | Systems → Integration |
+| Surveillance & Detection | surveillance-detection.html | Systems → Surveillance |
+| People Access Control | people-access-control.html | Systems → Access Control |
+| Vehicle Access & Barriers | vehicle-access-control.html | Systems → Vehicle Access |
+| Platform Management | integrated-security-platform.html | Systems → Integration |
 | **Technical Guides** | CCTV Guide | cctv.html | Systems → Surveillance |
 | | Burglar Alarm | burglar-alarm.html | Systems → Surveillance |
 | | Door Access Guide | door-access.html | Systems → Access Control |
@@ -466,7 +464,7 @@ User: "I want to understand access control"
 ↓
 Google search: "access control systems Singapore"
 ↓
-Lands on access-control-singapore.html
+Lands on people-access-control.html
 ↓
 Reads system overview
 ↓
@@ -532,16 +530,16 @@ Taps WhatsApp button (sticky on mobile)
 - **security-systems-singapore.html** → "Not sure what you need? Find solutions for your property type →" links to security-solutions-singapore.html
 
 ### **Sector Pages Link to Systems:**
-- condominiums-mcst.html → Links to access-control-singapore.html, cctv-surveillance-singapore.html, etc.
-- commercial-office.html → Links to access-control-singapore.html, cctv-surveillance-singapore.html, etc.
+- condominiums-mcst.html → Links to people-access-control.html, surveillance-detection.html, etc.
+- commercial-office.html → Links to people-access-control.html, surveillance-detection.html, etc.
 
 ### **System Pages Link to Sectors:**
-- cctv-surveillance-singapore.html → "Used in: Residential, Condominiums, Commercial, Industrial"
-- access-control-singapore.html → "Used in: Condominiums, Commercial, Industrial, Institutions"
+- surveillance-detection.html → "Used in: Residential, Condominiums, Commercial, Industrial"
+- people-access-control.html → "Used in: Condominiums, Commercial, Industrial, Institutions"
 
 ### **Brand Pages Link Both Ways:**
-- hikvision-singapore.html → Links to cctv-surveillance-singapore.html AND relevant sector pages
-- suprema-singapore.html → Links to access-control-singapore.html AND relevant sector pages
+- hikvision-singapore.html → Links to surveillance-detection.html AND relevant sector pages
+- suprema-singapore.html → Links to people-access-control.html AND relevant sector pages
 
 ### **Portfolio Links to Everything:**
 - condominium-security-lviv-residences-singapore.html → Links to condominiums-mcst.html, akuvox-singapore.html, entrypass-singapore.html
@@ -714,10 +712,10 @@ All HTML pages built with full structure
 ├── industrial-security-singapore.html
 ├── government-institution-security-singapore.html
 ├── healthcare-security-singapore.html
-├── cctv-surveillance-singapore.html
-├── access-control-singapore.html
-├── vehicle-access-control-singapore.html
-├── integrated-security-system-singapore.html
+├── surveillance-detection.html
+├── people-access-control.html
+├── vehicle-people-access-control.html
+├── integrated-security-platform.html
 ├── cctv.html (Technical Guide)
 ├── burglar-alarm.html (Technical Guide)
 ├── door-access.html (Technical Guide)

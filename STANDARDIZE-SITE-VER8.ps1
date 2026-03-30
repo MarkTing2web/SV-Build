@@ -1,48 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Use | Securevision Pte Ltd</title>
-    <meta name="description" content="Terms of Use for Securevision Pte Ltd website. Standard Singapore legal framework for site usage.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="sv-shared.css">
-    
-    <style>
-        :root {
-            --primary-blue: #0056b3;
-            --dark-blue: #003d82;
-            --text-dark: #1B1F23;
-            --text-gray: #333333;
-            --text-light: #5F6368;
-            --bg-light: #F8F9FA;
-            --border-light: #E8EAED;
-        }
+# Site-Wide Navigation Repair & Standardization Script (Ver 8 - The Direct Portfolio)
+# This script eliminates the Portfolio sub-menu and makes it a direct link.
 
-        body { font-family: 'Inter', sans-serif; color: var(--text-dark); background: #fff; padding-top: 80px; line-height: 1.7; }
-        .legal-hero { padding: 60px 0; background: var(--bg-light); border-bottom: 1px solid var(--border-light); margin-bottom: 60px; }
-        .legal-hero h1 { font-family: 'Montserrat', sans-serif; font-size: 34px; margin-bottom: 10px; color: var(--dark-blue); }
-        .legal-hero p { color: var(--text-gray); font-size: 16px; }
-
-        .legal-content { max-width: 900px; margin: 0 auto 100px; padding: 0 24px; }
-        .legal-content h2 { font-family: 'Montserrat', sans-serif; font-size: 20px; color: var(--primary-blue); margin: 40px 0 15px; padding-top: 20px; border-top: 1px solid var(--border-light); }
-        .legal-content h3 { font-family: 'Montserrat', sans-serif; font-size: 17px; margin: 25px 0 12px; color: var(--text-dark); border-left: 3px solid var(--primary-blue); padding-left: 12px; }
-        .legal-content p { margin-bottom: 18px; font-size: 14px; color: var(--text-gray); }
-        .legal-content ul { margin-bottom: 20px; padding-left: 20px; }
-        .legal-content li { margin-bottom: 8px; font-size: 14px; color: var(--text-gray); }
-        
-        .last-updated { font-size: 12px; color: var(--text-light); font-style: italic; margin-bottom: 30px; }
-        
-        @media (max-width: 768px) {
-            .legal-hero { padding: 40px 0; }
-            .legal-hero h1 { font-size: 28px; }
-        }
-    </style>
-</head>
-<body>
+$masterNav = @"
 <nav class="main-nav">
 <div class="nav-container">
   <!-- Logo + Wordmark — always left -->
@@ -90,7 +49,7 @@
         <a href="resources.html#guides">Technical Guides</a>
         <a href="resources.html#tools">Planning Tools</a>
         <a href="resources.html#library">Product Library</a>
-        <a href="resources.html#videos">Training Videos</a>
+        <a href="resources.html#videos">Video Training</a>
         <a href="resources.html#faq">FAQ</a>
         <a href="resources.html#trade">For Professionals</a>
         <a href="resources.html"><strong>&rarr; All Resources</strong></a>
@@ -130,81 +89,14 @@
       <a href="security-brands-singapore.html#gates">Gates &mdash; FAAC · MAG · Dor</a>
     </div></div>
   <a href="portfolio.html" class="mobile-menu-item">Portfolio</a>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources &#9662;<div class="mobile-submenu" id="resSub"><a href="resources.html"><strong>&rarr; All Resources</strong></a><a href="resources.html#guides">Technical Guides</a><a href="resources.html#tools">Planning Tools</a><a href="resources.html#library">Product Library</a><a href="resources.html#videos">Training Videos</a><a href="resources.html#faq">FAQ</a><a href="resources.html#trade">For Professionals</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources &#9662;<div class="mobile-submenu" id="resSub"><a href="resources.html"><strong>&rarr; All Resources</strong></a><a href="resources.html#guides">Technical Guides</a><a href="resources.html#tools">Planning Tools</a><a href="resources.html#library">Product Library</a><a href="resources.html#videos">Video Training</a><a href="resources.html#faq">FAQ</a><a href="resources.html#trade">For Professionals</a></div></div>
   <a href="security-articles-singapore.html" class="mobile-menu-item">Insights</a>
   <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a><a href="contact.html">Contact Us</a></div></div>
 </div>
-</nav><div class="legal-hero">
-        <div class="container">
-            <h1>Terms of Use</h1>
-            <p>Terms and conditions for using Securevision.com.sg.</p>
-        </div>
-    </div>
+</nav>
+"@
 
-    <main class="legal-content">
-        <div class="last-updated">Last Updated: March 19, 2026</div>
-
-        <p>Welcome to Securevision.com.sg. By accessing and using this website, you agree to comply with and be bound by the following Terms of Use. If you disagree with any part of these terms, please do not use our website.</p>
-
-        <h2>1. Intellectual Property Rights</h2>
-        <p>All content on this website, including but not limited to text, graphics, logos, images, icons, and software, is the property of **Securevision Pte Ltd** or its content suppliers and is protected by Singapore and international copyright laws. Unauthorized use, copying, or redistribution of any site materials is strictly prohibited.</p>
-
-        <h2>2. Use of Website Content</h2>
-        <p>The information provided on this website is for general informational purposes only. You are granted a limited, revocable, and non-exclusive license to access and make use of this website for personal or professional research into security solutions. This license does not include:</p>
-        <ul>
-            <li>Any resale or commercial use of this website or its contents.</li>
-            <li>Any collection and use of any product listings, descriptions, or prices.</li>
-            <li>Any derivative use of this site or its contents.</li>
-        </ul>
-
-        <h2>3. Accuracy of Information</h2>
-        <p>While we make every effort to ensure that the technical specifications, brand features, and service descriptions on this site are current and accurate, Securevision does not warrant or represent that the material on this website is complete, accurate, or up-to-date. Security systems and technical specifications are subject to change without prior notice.</p>
-
-        <h2>4. Disclaimer of Liability</h2>
-        <p>Securevision shall not be liable for any direct, indirect, special, or consequential damages arising out of your access to, or use of, this website. This includes, without limitation, any loss of data, loss of business, or inability to use the site. The use of information on this website is entirely at your own risk.</p>
-
-        <h2>5. Professional Engagement Disclaimer</h2>
-        <p>Please note that the information on this website does not constitute a formal business contract. Any actual engagement for security installation, maintenance, or consultancy services is subject to a separate, formal **Service Agreement** or **Quotation** issued by Securevision Pte Ltd. Those formal documents provide the legally binding terms for project delivery and service standards.</p>
-
-        <h2>6. Third-Party Links</h2>
-        <p>This website contains links to external brand websites (e.g., Hikvision, Suprema, ZKTeco). Securevision has no control over the content of these sites and accepts no responsibility for any loss or damage that may arise from your use of them.</p>
-
-        <h2>7. Prohibited Activities</h2>
-        <p>When using this website, you agree not to:</p>
-        <ul>
-            <li>Attempt to gain unauthorized access to any portion of the site or our servers.</li>
-            <li>Use any automated device (such as "deep-linking" or "scraping") to access, acquire, or copy any part of the site.</li>
-            <li>Introduce any viruses, trojans, or other malicious code.</li>
-            <li>Impersonate any person or entity in contact forms or communications.</li>
-        </ul>
-
-        <h2>8. Privacy Policy</h2>
-        <p>Accessing the website also constitutes acceptance of our **Privacy Policy**, which outlines how we collect and manage your personal data in compliance with the Singapore Personal Data Protection Act (PDPA).</p>
-
-        <h2>9. Governing Law</h2>
-        <p>These Terms of Use are governed by and construed in accordance with the laws of the **Republic of Singapore**. Any dispute arising from these terms shall be subject to the exclusive jurisdiction of the Courts of Singapore.</p>
-
-        <h2>10. Contact Us</h2>
-        <p>For any questions or concerns regarding these Terms of Use, please contact:</p>
-        <p>
-            <strong>Website Administrator</strong><br>
-            Securevision Pte Ltd<br>
-            Blk 1013 Geylang East Ave 3 #02-142<br>
-            Singapore 389728<br>
-            <strong>Email:</strong> legal@securevision.com.sg<br>
-            <strong>Phone:</strong> +65 6286 4796
-        </p>
-    </main>
-
-    <!-- Footer Match -->
-    <footer class="site-footer" style="background:#0E1A2B; padding: 40px 0; color: rgba(255,255,255,0.4); text-align:center; font-size:12px;">
-        <div class="container">
-            <p>&copy; <span id="current-year">2026</span> Securevision Pte Ltd. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    
-
+$masterScript = @'
 <script>
 function toggleMobileMenu() {
   const menu = document.getElementById('mobileMenu');
@@ -254,5 +146,43 @@ document.querySelectorAll('.nav-link').forEach(link => {
 const yearSpan = document.querySelector('.current-year');
 if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 </script>
-</body>
-</html>
+'@
+
+# Files to process
+$files = Get-ChildItem *.html -Exclude "index_full.html", "index-copy.html", "door-access-backup.html"
+
+foreach ($f in $files) {
+    $filePath = $f.FullName
+    $content = Get-Content $filePath -Raw
+
+    # 1. REMOVE ALL EXISTING NAV BLOCKS (Aggressive Purge)
+    $content = [regex]::Replace($content, "(?s)<nav class=`"main-nav`".*?</nav>", "")
+    $content = [regex]::Replace($content, "(?s)<div class=`"mobile-menu`".*?</div>", "")
+    
+    # 2. REMOVE ALL EXISTING SCRIPTS with toggleMobileMenu (Legacy Purge)
+    $content = [regex]::Replace($content, "(?s)<script>.*?function toggleMobileMenu.*?/script>", "")
+
+    # 3. INSERT MASTER NAV AFTER <body>
+    $bodyPattern = "(?i)<body.*?>"
+    if ($content -match $bodyPattern) {
+        $bodyTag = $matches[0]
+        # Only insert if not already present (failsafe)
+        if ($content -notmatch "class=`"main-nav`"") {
+            $content = $content.Replace($bodyTag, "$bodyTag`n$masterNav")
+            Write-Host "Injected Nav into $($f.Name)"
+        }
+    }
+
+    # 4. INSERT MASTER SCRIPT BEFORE </body>
+    if ($content -match "</body>") {
+        # Avoid double script
+        if ($content -notmatch "function toggleMobileMenu") {
+            $content = $content.Replace("</body>", "$masterScript`n</body>")
+            Write-Host "Injected Script into $($f.Name)"
+        }
+    }
+
+    Set-Content $filePath $content -NoNewline
+}
+
+Write-Host "Portfolio Menu Simplification Complete." -ForegroundColor Green
