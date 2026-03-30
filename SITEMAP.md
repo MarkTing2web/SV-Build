@@ -1,7 +1,7 @@
 # SECUREVISION WEBSITE SITEMAP
 
-**Last Updated:** March 30, 2026  
-**Total Pages Built:** 68+ HTML pages  
+**Last Updated:** March 31, 2026  
+**Total Pages Built:** 70+ HTML pages  
 **Navigation Items:** 6 main menu items + search (Solutions, Systems, Brands, Portfolio, Insights, About, Search)
 
 ---
@@ -19,11 +19,12 @@
 ```
 SOLUTIONS (click → security-solutions-singapore.html)
 └─ On Hover:
-   ├─ Residential
+   ├─ Private Homes
    ├─ Condominiums
-   ├─ Commercial
-   ├─ Industrial
-   └─ Institutions
+   ├─ Commercial & Retail
+   ├─ Industrial & Logistics
+   ├─ Institutions & Government
+   └─ Healthcare & Managed Living
 ```
 
 ### **Systems Dropdown (Hover):**
@@ -32,9 +33,10 @@ SYSTEMS (click → security-systems-singapore.html)
 └─ On Hover:
    ├─ Surveillance & CCTV
    ├─ People Access Control
-   ├─ Vehicle Access & Barriers
-   ├─ Platform Integration
-   └─ View All →
+   ├─ Burglar Alarm
+   ├─ Intercom Systems
+   ├─ Auto Gates & Barriers
+   └─ All Technical Systems Hub →
 ```
 
 ### **Brands Dropdown (Hover):**
@@ -70,11 +72,11 @@ Menu Expanded (when ☰ tapped):
 │ ✕ MENU             │
 ├─────────────────────┤
 │ Solutions           │ ← Links to security-solutions-singapore.html
-│ Systems             │ ← Links to systems.html
+│ Systems             │ ← Links to security-systems-singapore.html
 │ Brands              │ ← Links to security-brands-singapore.html
 │ Portfolio           │ ← Links to portfolio.html
 │ Insights            │ ← Links to security-articles-singapore.html
-│ About               │ ← Links to about.html (includes contact)
+│ About               │ ← Links to about.html
 ├─────────────────────┤
 │ 💬 WhatsApp Us      │
 └─────────────────────┘
@@ -293,12 +295,12 @@ SECUREVISION.COM.SG
 | Awards & Certifications | awards-certifications.html | Linked from About | Not in main nav |
 | Search Results | search.html | Search icon (🔍) | Displays search results, accessible via search icon |
 
-### **HUB PAGES (3 pages)**
 | Hub | File | Nav Placement | Purpose |
 |-----|------|---------------|---------|
 | Solutions Hub | security-solutions-singapore.html | SOLUTIONS (click) | Property type gateway |
-| Systems Hub | security-systems-singapore.html | SYSTEMS (click) | System type gateway |
-| Brands Hub | security-brands-singapore.html | BRANDS (click) | All brands overview |
+| Systems Hub | security-systems-singapore.html | SYSTEMS (click) | Technical systems gateway |
+| Brands Hub | security-brands-singapore.html | BRANDS (click) | Technology partners gateway |
+| Resources Hub | resources.html | ABOUT (dropdown) | Technical materials hub |
 
 ### **SECTOR SOLUTIONS (11 pages)**
 | Sector | Page | File | Nav Path |

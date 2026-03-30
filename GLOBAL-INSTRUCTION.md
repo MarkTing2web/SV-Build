@@ -428,15 +428,14 @@ nav {
 }
 ```
 
-### Dropdown Content by Menu Item
 | Menu Item | Dropdown Content | Behavior |
 |-----------|------------------|----------|
-| **Solutions** | Private Homes, Condominiums, Commercial & Retail, Industrial & Logistics, Institutions & Government, Healthcare & Managed Living | Simple dropdown |
-| **Systems** | Surveillance & CCTV, People Access Control, Vehicle Access & Barriers, Platform Integration | Simple dropdown |
-| **Brands** | Surveillance, Access Control, Intercom, Alarms, Gates & Barriers, View All Brands → | Simple dropdown with categories |
-| **Portfolio** | (none) | Direct link to portfolio.html |
-| **Insights** | (none) | Direct link to security-articles-singapore.html |
-| **About** | Company Story, Founder, bizSAFE Level 3, BCA certifications, ─────, Contact Us, WhatsApp | Simple dropdown with contact |
+| **Solutions** | Private Homes, Condominiums, Commercial & Retail, Industrial & Logistics, Institutions & Government, Healthcare & Managed Living | Simple dropdown to `security-solutions-singapore.html` |
+| **Systems** | Surveillance & CCTV, People Access Control, Burglar Alarm, Intercom Systems, Auto Gates & Barriers, **All Technical Systems Hub** | Simple dropdown to `security-systems-singapore.html` |
+| **Brands** | Surveillance, Access Control, Intercom, Alarms, Gates & Barriers, **Technology Partners Hub** | Simple dropdown to `security-brands-singapore.html` |
+| **Portfolio** | (none) | Direct link to `portfolio.html` |
+| **Insights** | (none) | Direct link to `security-articles-singapore.html` |
+| **About** | Our Story, Awards & Certifications, Technology Partners, Resources Hub, Project Portfolio, Contact Us | Simple dropdown to `about.html` |
 
 ### Mobile Menu
 ```css
@@ -780,19 +779,18 @@ About          → about.html
 - Contact line: 📞 +65 9386 0466 · ✉️ enquiry@securevision.com.sg
 - Social icons row (see Social Media section below)
 
-### Footer Columns
-**Solutions:** Private Homes · Condominiums · Commercial · Institutions · Industrial · Find My Solution
+### Footer Columns (Streamlined 6-Column Standard)
+**Brand Block:** Logo (white), bizSAFE/SPF/BCA badges, Police Licence, WhatsApp/Email CTAs.
 
-**Technology & Brands:** Surveillance · People Access · Vehicle Access · Platform · All 20 Brands
+**Solutions:** Private Homes · Condominiums · Commercial · Industrial · Institutions · Healthcare · `security-solutions-singapore.html`
 
-**Portfolio:** All Projects · The L'viv · SCAPE · STA · Cyrus Tech
+**Systems:** Surveillance & CCTV · People Access · Burglar Alarm · Intercom Systems · Auto Gates · `security-systems-singapore.html`
 
-**Resources & Insights:** All Resources · CCTV Guide · All Insights · Security Planning · Case Studies
+**Resources:** Technical Guides · Planning Tools · Product Library · Training Videos · Search & FAQ · `resources.html`
 
-**Company:**
-- Our Story · Awards & Certifications · Portfolio · Insights · Contact Us
-- Contact row format: `<a><span>📞</span> +65 6286 4796</a>`
-- WhatsApp/Email: Embed links in "WhatsApp Us" and "Email Us" to avoid spam. Avoid exposing raw numbers/addresses in the footer.
+**Company:** Our Story · Awards & Certs · Technology Partners · Project Portfolio · Insights · `security-brands-singapore.html`
+
+**Contact:** WhatsApp Us · Email Us · +65 6286 4796 · Global Location Hub
 
 ### Footer Bottom Bar
 ```
@@ -810,7 +808,7 @@ footer {
 }
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.6fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr 1.2fr;
   gap: 32px;
   margin-bottom: 40px;
 }
@@ -1147,6 +1145,12 @@ YouTube:          http://www.youtube.com/@securevision
 5. **Institutions & Government** (government-institution-security-singapore.html)
 6. **Healthcare & Managed Living** (healthcare-security-singapore.html)
 
+### Standard Portal Hubs (Permanent URLs)
+- **Primary Solutions**: security-solutions-singapore.html
+- **Technical Systems**: security-systems-singapore.html
+- **Technology Partners**: security-brands-singapore.html
+- **Resources Hub**: resources.html
+
 ### Standard Footer Structure
 ```html
 <footer class="site-footer">
@@ -1298,7 +1302,9 @@ The Securevision Design Framework is a 4-pillar architectural standard for techn
 ### Styling & Visuals:
 -   **Blueprint Theme**: Use grid backgrounds (`--tech-grid`) and technical diagrams.
 -   **Tone**: Engineering-led, precise, and tropical-redundant. No salesy/hyperbolic copy.
--   **Visuals over Lifestyle**: Prioritize schematics and technical hardware deconstructions.
+-   **High-Fidelity Visuals**: Replace all placeholders with high-fidelity engineering diagrams or real product photography. Standardize on **1:1 square diagrams** for component deconstruction.
+-   **65/35 Design Proportion**: For descriptive rows, use a **65% text / 35% image** grid proportion (or float logic) for optimal engineering-to-visual clarity.
+-   **Verbatim Fidelity**: All technical specs, regulatory compliance (SCDF, MAS, BCA), and engineering standards must be reproduced **verbatim** from the provided source material.
 
 ---
 
