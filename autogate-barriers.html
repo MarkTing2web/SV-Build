@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autogate & Barriers: Engineering-Led Guide for Singapore | Securevision</title>
+    <meta name="description"
+        content="A comprehensive guide to autogate systems and vehicle barriers in Singapore. Learn about system architecture, motor selection, safety sensors, and integration.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Shared Styles (Standard Pillar Page Styles) -->
+    <link rel="stylesheet" href="sv-shared.css">
+    <link rel="stylesheet" href="sv-guides.css">
+
+    <style>
+        /* PAGE-SPECIFIC STYLE OVERRIDES (Unique to Vehicle Access) */
+        :root {
+            --primary-pillar: #dd6b20; /* Vehicle Access Orange */
+            --primary-access: #dd6b20; /* For sv-guides.css compatibility */
+        }
+
+        /* Hero Override: specific background image */
+        .hero-vehicle {
+            background: linear-gradient(rgba(14, 26, 43, 0.8), rgba(14, 26, 43, 0.8)), url('images/Hero-modern condo with gantrygo and guards.png');
+            background-size: cover;
+            background-position: center;
+            padding: 180px 0 120px;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero-vehicle::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 60% 70% at 65% 50%, rgba(221, 107, 32, 0.25), transparent 70%);
+            pointer-events: none;
+        }
+
+        @media (max-width: 480px) {
+            .hero-vehicle {
+                padding: 140px 0 80px;
+            }
+
+            .hero-vehicle h1 {
+                font-size: 32px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <!-- Logo + Wordmark — always left -->
+            <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
+                <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
+                <span class="wordmark nav-wordmark">SECUREVISION</span>
+            </a>
+            <!-- Hamburger — centred absolutely on mobile (via CSS) -->
+            <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg
+                    width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg></button>
+            <!-- Desktop nav links -->
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="solutions-hub.html" class="nav-link has-dropdown">Solutions</a>
+                    <div class="simple-dropdown">
+                        <a href="residential.html">Private Homes</a>
+                        <a href="condominiums.html">Condominiums</a>
+                        <a href="commercial.html">Commercial &amp; Retail</a>
+                        <a href="industrial.html">Industrial &amp; Logistics</a>
+                        <a href="institutions.html">Institutions &amp; Government</a>
+                        <a href="healthcare.html">Healthcare &amp; Managed Living</a>
+                        <a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="systems-hub.html" class="nav-link active has-dropdown">Systems</a>
+                    <div class="simple-dropdown">
+                        <a href="surveillance-systems.html">Surveillance &amp; Detection</a>
+                        <a href="people-access.html">People Access</a>
+                        <a href="vehicle-access.html">Vehicle Access</a>
+                        <a href="platform-integration.html">Platform &amp; Integration</a>
+                        <a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="brands.html" class="nav-link has-dropdown">Brands</a>
+                    <div class="simple-dropdown">
+                        <a href="hikvision-singapore.html">Hikvision</a>
+                        <a href="hanwha-samsung-singapore.html">Hanwha</a>
+                        <a href="ajax-alarm-singapore.html">AJAX</a>
+                        <a href="zkteco-singapore.html">ZKTeco</a>
+                        <a href="akuvox-singapore.html">Akuvox</a>
+                        <a href="faac-singapore.html">FAAC</a>
+                        <a href="brands.html"><strong>&rarr; All 20 Brands</strong></a>
+                    </div>
+                </li>
+                <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+                <li class="nav-item"><a href="insights.html" class="nav-link">Insights</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
+                    <div class="simple-dropdown">
+                        <a href="about.html">Our Story</a>
+                        <a href="about.html#founder">Founder&rsquo;s Story</a>
+                        <a href="awards-certifications.html">Awards &amp; Certifications</a>
+                        <a href="contact.html">Contact Us</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- Desktop search icon -->
+            <div class="nav-right">
+                <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search"
+                    onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg></button>
+            </div>
+            <!-- Mobile search icon -->
+            <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search"
+                onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg></button>
+        </div>
+        <!-- Mobile Menu (Standardised) -->
+        <div class="mobile-menu" id="mobileMenu">
+             <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu"
+                    id="solSub"><a href="solutions-hub.html"><strong>&rarr; View All Solutions</strong></a><a
+                        href="residential.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a
+                        href="commercial.html">Commercial &amp; Retail</a><a href="industrial.html">Industrial &amp;
+                        Logistics</a><a href="institutions.html">Institutions &amp; Government</a><a
+                        href="healthcare.html">Healthcare &amp; Managed Living</a></div>
+            </div>
+            <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu"
+                    id="sysSub"><a href="systems-hub.html"><strong>&rarr; View All Systems</strong></a><a
+                        href="surveillance-systems.html">Surveillance</a><a href="people-access.html">People
+                        Access</a><a href="vehicle-access.html">Vehicle Access</a><a
+                        href="platform-integration.html">Platform</a></div>
+            </div>
+            <div class="mobile-menu-item"><a href="portfolio.html">Portfolio</a></div>
+            <div class="mobile-menu-item"><a href="insights.html">Insights</a></div>
+            <div class="mobile-menu-item"><a href="about.html">About</a></div>
+        </div>
+    </nav>
+
+    <!-- ── 1. HERO ── -->
+    <header class="hero-vehicle">
+        <div class="container pos-relative z-2">
+            <span class="eyebrow-light">Technical Guide</span>
+            <h1 style="font-size: clamp(32px, 5vw, 64px);">Autogate & Barriers: Engineering-Led Guide for Singapore Properties</h1>
+            <p class="subtitle" style="max-width: 800px;">Streamline vehicle entry. Enhance security. Professional autogate systems and traffic barriers for homes, condos, and industrial sites.</p>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <span class="stat-number">5,000+</span>
+                    <span class="stat-label">Gates Installed</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">99%</span>
+                    <span class="stat-label">Reliability Rate</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Support Access</span>
+                </div>
+            </div>
+
+            <div class="btn-group" style="margin-top: 64px;">
+                <a href="contact.html" class="btn btn-primary">Request Free Site Assessment</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── 2. BREADCRUMBS ── -->
+    <div class="container">
+        <div class="sv-breadcrumb" style="background: transparent; padding: 24px 0 0 0;">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="systems-hub.html">Systems</a></li>
+                <li>Autogate & Barriers Guide</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- MAIN WRAPPER -->
+    <div class="container mt-64 mb-120">
+        <div class="layout-with-sidebar">
+
+            <!-- SIDEBAR: STICKY TOC -->
+            <aside>
+                <div class="sticky-toc">
+                    <h3 class="toc-title" onclick="toggleTocMobile()">Guide Chapters</h3>
+                    <ul class="toc-list" id="tocList">
+                        <li><a href="#intro" class="active">1. Introduction</a></li>
+                        <li><span style="color: var(--text-light); padding: 12px 0; display: block; font-size: 13px; font-style: italic;">Planned: 2. Motor Types & Selection</span></li>
+                        <li><span style="color: var(--text-light); padding: 12px 0; display: block; font-size: 13px; font-style: italic;">Planned: 3. Safety Sensors & Loop Detectors</span></li>
+                        <li><span style="color: var(--text-light); padding: 12px 0; display: block; font-size: 13px; font-style: italic;">Planned: 4. IU & ANPR Integration</span></li>
+                        <li><span style="color: var(--text-light); padding: 12px 0; display: block; font-size: 13px; font-style: italic;">Planned: 5. SCDF Fire Safety Compliance</span></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT AREA -->
+            <main>
+                <section id="intro">
+                    <span class="eyebrow" style="color: var(--primary-pillar);">Vehicle Access Fundamentals</span>
+                    <h2 style="margin-bottom: 32px;">1. Introduction to Autogate & Barrier Systems</h2>
+                    <p class="lead">Vehicle access control is the first line of defence for any landed property, condominium, or industrial facility in Singapore. A well-engineered system balances security with traffic flow efficiency.</p>
+                    
+                    <div class="blog-row-wrap">
+                        <div class="blog-img-wrap blog-img-square">
+                            <img src="images/vehicle-boom-barrier.png" alt="Professional vehicle boom barrier installation in Singapore">
+                            <span class="blog-img-caption">Point of Entry: Intelligent barriers manage the flow of authorised vehicles.</span>
+                        </div>
+                        <p>Modern vehicle access systems have evolved beyond basic motors and remotes. Today's architectures integrate seamlessly with building management systems, security clouds, and Singapore's ERP Infrastructure through IU readers.</p>
+                        <p>Whether you are managing a single residential driveway or a high-traffic commercial loading bay, the principles of motor torque, safety sensing, and secure identification remain the foundation of a reliable installation.</p>
+                    </div>
+
+                    <div class="card mt-40" style="border-left: 4px solid var(--primary-pillar); background: var(--bg-light); padding: 32px;">
+                        <p style="font-weight: 500; font-style: italic; color: var(--text-dark); margin-bottom: 0;">Content for this technical guide is currently being populated. Check back soon for detailed sections on motor types, safety sensors, IU integration, and SCDF compliance.</p>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- ── FINAL CTA SECTION ── -->
+    <section id="final-cta" class="cta-section cta-skyline">
+        <div class="container">
+            <div class="cta-header-wrap text-center">
+                <span class="eyebrow-light" style="color: var(--primary-pillar); letter-spacing: 2px;">Ready to Secure Your Entrance?</span>
+                <h2 style="color: white; margin-bottom: 24px;">Get Your Free Assessment</h2>
+                <p class="subtitle" style="color: rgba(255,255,255,0.9) !important; max-width: 800px; margin: 0 auto 48px; font-size: 17px; line-height: 1.8;">Talk to our engineers today for a site-specific evaluation of your vehicle access requirements. From residential gates to industrial heavy-duty barriers.</p>
+            </div>
+            
+            <div class="grid-3">
+                <!-- WhatsApp -->
+                <div class="cta-card-glass">
+                    <div class="cta-icon" style="font-size: 40px; margin-bottom: 20px;">💬</div>
+                    <h3>Direct Chat</h3>
+                    <p>Quick budgetary pricing and motor compatibility checks.</p>
+                    <a href="https://wa.me/6593860466" class="btn btn-whatsapp" target="_blank">WhatsApp Us &rarr;</a>
+                </div>
+
+                <!-- Assessment -->
+                <div class="cta-card-prominent">
+                    <div class="cta-icon" style="font-size: 40px; margin-bottom: 20px;">📅</div>
+                    <h3>Smart Assessment</h3>
+                    <p>On-site survey for new installations and modernisations.</p>
+                    <a href="book-slot.html" class="btn btn-primary">Book Assessment &rarr;</a>
+                </div>
+
+                <!-- Hotline -->
+                <div class="cta-card-glass">
+                    <div class="cta-icon" style="font-size: 40px; margin-bottom: 20px;">📞</div>
+                    <h3>Technical Hotline</h3>
+                    <p>Immediate support for gate failures or barrier issues.</p>
+                    <a href="tel:+6562864796" class="btn btn-outline-light">Call Now &rarr;</a>
+                </div>
+            </div>
+            
+            <div class="footer-note" style="margin-top: 48px; font-size: 13px; color: rgba(255,255,255,0.45); text-align: center;">
+                <p>Serving Singapore Since 2006</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (Standardised) -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="f-logo-wrap">
+                        <img src="images/securevision-logo-white.png" alt="Securevision">
+                        <span class="brand-name">SECUREVISION</span>
+                    </div>
+                    <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since 2006.</p>
+                    <div class="footer-contact-item">
+                        <span>📞</span> <a href="tel:+6562864796">+65 6286 4796</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span>✉️</span> <a href="mailto:enquiry@securevision.com.sg">enquiry@securevision.com.sg</a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Solutions</h4>
+                    <ul>
+                        <li><a href="residential.html">Private Homes</a></li>
+                        <li><a href="condominiums.html">Condominiums</a></li>
+                        <li><a href="commercial.html">Commercial & Retail</a></li>
+                        <li><a href="industrial.html">Industrial & Logistics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Systems</h4>
+                    <ul>
+                        <li><a href="surveillance-systems.html">Surveillance & CCTV</a></li>
+                        <li><a href="people-access.html">People Access</a></li>
+                        <li><a href="vehicle-access.html">Vehicle Access</a></li>
+                        <li><a href="platform-integration.html">Platform Integration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="portfolio.html">Portfolio</a></li>
+                        <li><a href="insights.html">Insights</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Securevision Pte Ltd | Police License L/PS/000267/2023P | bizSAFE Level 3 | BCA Registered</p>
+                <div class="footer-bottom-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp -->
+    <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" aria-label="WhatsApp Us">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.181-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.171.823-.299.045-.691.063-1.097-.069-.262-.085-.596-.191-.994-.362-1.696-.728-2.763-2.433-2.847-2.546-.085-.113-.691-.915-.691-1.746 0-.831.433-1.24.587-1.411.154-.171.336-.214.448-.214.112 0 .224 0 .321.004.103.003.243-.038.379.29.144.35.49 1.196.531 1.281.041.085.068.184.01.299-.058.115-.087.188-.174.289-.086.101-.182.226-.26.303-.092.091-.188.19-.081.374.107.184.477.788 1.023 1.274.704.626 1.297.82 1.482.911.185.091.293.077.401-.047.108-.124.464-.54.587-.725.123-.185.247-.154.417-.092.17.062 1.077.508 1.262.599.185.091.308.137.354.215.045.078.045.451-.099.856zM12 2C6.477 2 2 6.477 2 12c0 1.885.539 3.642 1.477 5.137L2 22l4.981-1.309A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.706 0-3.292-.53-4.593-1.432l-.33-.21-2.755.724.737-2.693-.23-.362A7.957 7.957 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+        </svg>
+    </a>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+
+        function toggleTocMobile() {
+            if (window.innerWidth <= 991) {
+                document.getElementById('tocList').classList.toggle('active');
+                document.querySelector('.toc-title').classList.toggle('active');
+            }
+        }
+
+        function toggleSubmenu(id) {
+            document.getElementById(id).classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
