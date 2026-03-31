@@ -3,98 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Portfolio | Securevision Singapore</title>
-    <meta name="description" content="Explore Securevision's portfolio of 2,000+ security installations across Singapore. Real projects, real outcomes in residential, commercial, and industrial sectors.">
-    
+    <title>Security Project Portfolio | Securevision Singapore</title>
+    <meta name="description" content="Real security installations across Singapore — surveillance, access control, and intercom systems for condominiums, commercial, and industrial facilities.">
+    <meta property="og:title" content="Security Project Portfolio | Securevision Singapore">
+    <meta property="og:description" content="Explore our completed security installations — AI surveillance, access control, and smart building systems across Singapore.">
+    <meta property="og:image" content="https://securevision.com.sg/images/portfolio-hero.png">
+    <meta property="og:url" content="https://securevision.com.sg/portfolio.html">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://securevision.com.sg/portfolio.html">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="sv-shared.css">
-    
+
     <style>
-        /* PROJECT SPECIFIC STYLES */
-        :root {
-            --c-home: #38a169;
-            --c-condo: #3182ce;
-            --c-comm: #dd6b20;
-            --c-inst: #2c5282;
-            --c-indu: #805ad5;
-        }
-
-        /* FILTER BAR */
-        .filter-section { background: #fff; border-bottom: 1px solid var(--border-light); padding: 28px 0; position: sticky; top: 68px; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-        .filter-inner { display: flex; gap: 32px; align-items: flex-start; flex-wrap: wrap; }
-        .filter-group { display: flex; flex-direction: column; gap: 10px; }
-        .filter-group-label { font-family: 'Montserrat', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--text-light); }
-        .filter-pills { display: flex; gap: 8px; flex-wrap: wrap; }
-        .pill {
-            padding: 7px 16px; border-radius: 20px; font-size: 13px; font-weight: 500;
-            border: 1.5px solid var(--border-light); background: #fff; color: var(--text-gray);
-            cursor: pointer; transition: 0.25s ease; font-family: 'Inter', sans-serif;
-            white-space: nowrap;
-        }
-        .pill:hover { border-color: var(--primary-blue); color: var(--primary-blue); background: var(--bg-light); }
-        .pill.active { background: var(--primary-blue); color: #fff; border-color: var(--primary-blue); }
+        :root { --p-acc: #3182ce; --trs: all 0.3s ease; }
         
-        /* Property type pill colours when active */
-        .pill[data-solution="residential"].active { background: var(--c-home); border-color: var(--c-home); }
-        .pill[data-solution="condominium"].active { background: var(--c-condo); border-color: var(--c-condo); }
-        .pill[data-solution="commercial"].active { background: var(--c-comm); border-color: var(--c-comm); }
-        .pill[data-solution="institution"].active { background: var(--c-inst); border-color: var(--c-inst); }
-        .pill[data-solution="industrial"].active { background: var(--c-indu); border-color: var(--c-indu); }
-
-        /* RESULTS COUNT */
-        .results-bar { padding: 20px 0 0; }
-        .results-count { font-size: 13px; color: var(--text-light); font-weight: 500; }
-        .results-count span { color: var(--primary-blue); font-weight: 700; }
-
-        /* PROJECT GRID */
-        .projects-section { background: var(--bg-light); padding: 48px 0 96px; }
-        .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
-
-        /* PROJECT CARD */
-        .project-card {
-            background: #fff; border: 1px solid var(--border-light); border-radius: 14px;
-            overflow: hidden; transition: 0.25s ease;
-            display: flex; flex-direction: column; text-decoration: none; color: var(--text-dark);
+        /* HERO OVERRIDE */
+        .hero-portfolio {
+            padding: 140px 0 80px;
+            background: linear-gradient(rgba(14,26,43,0.8), rgba(14,26,43,0.8)), url('images/portfolio-hero.png');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
         }
-        .project-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.12); transform: translateY(-5px); }
-        .project-card.hidden { display: none; }
+        .hero-portfolio h1 { font-family: 'Outfit', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 15px; }
+        .hero-portfolio .subtitle { font-size: 1.2rem; opacity: 0.9; max-width: 800px; margin: 0 auto; line-height: 1.6; }
 
-        .card-visual { aspect-ratio: 16/9; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; background: #0E1A2B; }
-        .cv-content { position: relative; z-index: 1; text-align: center; color: #fff; padding: 20px; }
-        .cv-icon { font-size: 48px; margin-bottom: 8px; }
-        .cv-name { font-family: 'Montserrat', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 4px; }
-        .cv-loc { font-size: 12px; color: rgba(255,255,255,0.5); }
+        /* COMPACT FILTER BAR */
+        .filter-section {
+            background: #fff;
+            padding: 24px 0;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 70px;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .filter-bar {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .filter-item { flex: 1; min-width: 160px; }
+        .filter-item.search { flex: 2; min-width: 250px; position: relative; }
+        
+        .filter-item select, .filter-item input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e1;
+            font-family: inherit;
+            font-size: 0.9rem;
+            background: #f8fafc;
+            transition: var(--trs);
+        }
+        .filter-item select:focus, .filter-item input:focus {
+            border-color: var(--p-acc);
+            background: #fff;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);
+        }
 
-        .card-type-badge { position: absolute; top: 14px; left: 14px; z-index: 2; padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #fff; }
+        .filter-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #64748b;
+            margin-bottom: 6px;
+            display: block;
+        }
 
-        .card-body { padding: 22px; flex: 1; display: flex; flex-direction: column; }
-        .card-body h3 { font-size: 18px; margin-bottom: 6px; }
-        .card-body .card-location { font-size: 13px; color: var(--text-light); margin-bottom: 14px; display: flex; align-items: center; gap: 5px; }
-        .card-body p { font-size: 14px; color: var(--text-gray); line-height: 1.6; flex: 1; margin-bottom: 16px; }
+        /* PROJECT GRID - MORE SPACE */
+        .grid-container { padding: 60px 0 100px; }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .project-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+            transition: var(--trs);
+        }
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: var(--p-acc);
+        }
+        .card-img-w { position: relative; aspect-ratio: 16/9; overflow: hidden; background: #eee; }
+        .card-img-w img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .project-card:hover .card-img-w img { transform: scale(1.1); }
+        
+        .property-badge {
+            position: absolute; top: 15px; left: 15px;
+            background: rgba(255,255,255,0.9);
+            padding: 5px 12px; border-radius: 6px;
+            font-size: 11px; font-weight: 700; color: #1e293b;
+        }
 
-        .system-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
-        .sys-tag { padding: 3px 10px; border-radius: 10px; font-size: 11px; font-weight: 600; color: #fff; background: var(--primary-blue); }
+        .card-body { padding: 25px; flex: 1; display: flex; flex-direction: column; }
+        .card-body h3 { font-size: 1.4rem; margin-bottom: 8px; color: #0f172a; }
+        .card-body .loc { font-size: 0.8rem; color: #64748b; margin-bottom: 15px; }
+        .card-body .desc { font-size: 0.95rem; color: #475569; line-height: 1.6; margin-bottom: 20px; }
+        
+        .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+        .tag { font-size: 0.7rem; font-weight: 700; background: #f1f5f9; color: #475569; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; }
 
-        .card-metric { background: var(--bg-light); border-radius: 8px; padding: 12px 14px; display: flex; align-items: center; gap: 10px; border: 1px solid var(--border-light); }
-        .metric-num { font-family: 'Montserrat', sans-serif; font-size: 22px; font-weight: 700; color: var(--primary-blue); line-height: 1; white-space: nowrap; }
-        .metric-desc { font-size: 12px; color: var(--text-light); line-height: 1.4; }
+        .card-foot { border-top: 1px solid #f1f5f9; padding: 15px 25px; display: flex; justify-content: space-between; align-items: center; background: #fbfcfd; }
+        .m-val { font-size: 1.2rem; font-weight: 800; color: var(--p-acc); }
+        .m-lab { font-size: 0.65rem; color: #64748b; text-transform: uppercase; font-weight: 700; }
+        .c-date { font-size: 0.8rem; color: #94a3b8; }
 
-        .card-footer { padding: 16px 22px; border-top: 1px solid var(--border-light); display: flex; align-items: center; justify-content: space-between; }
-        .cf-testimonial { font-size: 12px; font-style: italic; color: var(--text-light); max-width: 240px; line-height: 1.4; }
-        .cf-link { font-size: 12px; font-weight: 700; font-family: 'Montserrat', sans-serif; color: var(--primary-blue); text-transform: uppercase; letter-spacing: 0.5px; white-space: nowrap; }
+        /* STATS OVERRIDE */
+        .stats-sec { padding: 80px 0; background: #0f172a; color: #fff; text-align: center; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+        .stats-grid .val { font-size: 3rem; font-weight: 800; color: #63b3ed; display: block; }
 
-        .no-results { text-align: center; padding: 80px 20px; display: none; }
-
-        @media (max-width: 992px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 600px) {
-            .projects-grid { grid-template-columns: 1fr; }
-            .filter-inner { gap: 20px; }
+        @media (max-width: 1024px) { .project-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) {
+            .project-grid { grid-template-columns: 1fr; }
+            .filter-bar { flex-direction: column; align-items: stretch; }
+            .filter-item { width: 100%; }
         }
     </style>
 </head>
 <body>
+
+<!-- NAVIGATION (Standard) -->
 <nav class="main-nav">
 <div class="nav-container">
   <!-- Logo + Wordmark — always left -->
@@ -136,7 +182,7 @@
         <a href="security-brands-singapore.html"><strong>&rarr; View All Technology Partners</strong></a>
       </div>
     </li>
-    <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+    <li class="nav-item"><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
     <li class="nav-item"><a href="resources.html" class="nav-link has-dropdown">Resources</a>
       <div class="simple-dropdown">
         <a href="resources.html#guides">Technical Guides</a>
@@ -186,224 +232,255 @@
   <a href="security-articles-singapore.html" class="mobile-menu-item">Insights</a>
   <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a><a href="contact.html">Contact Us</a></div></div>
 </div>
-</nav><header class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container z-2">
-            <span class="eyebrow-light">Proven Results</span>
-            <h1>2,000+ Sites. <em>Every Story Matters.</em></h1>
-            <p class="subtitle">Real installations. Real outcomes. Browse our featured projects by property type or security system &mdash; and see how Securevision designs security that actually works.</p>
-            
-            <div class="btn-group">
-                <div class="hero-stats" style="display: flex; gap: 48px; justify-content: center; margin-top: 24px;">
-                    <div class="hero-stat">
-                        <span class="hero-stat-num" style="display: block; font-size: 32px; font-weight: 700; color: #fff;">2,000+</span>
-                        <span class="hero-stat-label" style="font-size: 13px; opacity: 0.6; text-transform: uppercase;">Sites Protected</span>
-                    </div>
-                    <div class="hero-stat">
-                        <span class="hero-stat-num" style="display: block; font-size: 32px; font-weight: 700; color: #fff;">19+</span>
-                        <span class="hero-stat-label" style="font-size: 13px; opacity: 0.6; text-transform: uppercase;">Years Experience</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
+</nav>
 
-    <!-- BREADCRUMB -->
-    <nav class="sv-breadcrumb">
-        <div class="container">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li>Project Portfolio</li>
-            </ul>
-        </div>
-    </nav>
+<!-- HERO SECTION -->
+<section class="hero-portfolio" style="padding: 120px 0 80px; background: linear-gradient(rgba(14,26,43,0.85), rgba(14,26,43,0.85)), url('images/portfolio-hero.png'); background-size: cover; background-position: center; color: #fff; text-align: center;">
+    <div class="container">
+        <span class="eyebrow" style="color: #63b3ed; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 20px;">SECUREVISION OUTCOMES</span>
+        <h1 style="font-family: 'Outfit', sans-serif; font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px;">Our Work</h1>
+        <p class="subtitle" style="font-size: 1.5rem; font-weight: 600; margin-bottom: 24px; color: #cbd5e1;">Real Security Installations Across Singapore</p>
+        <p class="intro" style="font-size: 1.15rem; opacity: 0.95; max-width: 900px; margin: 0 auto; line-height: 1.8; color: #e2e8f0;">Over 500 projects delivered since 2006 — from 121-unit luxury condominiums to enterprise-scale AI surveillance systems. Every installation is engineered for reliability, documented for transparency, and backed by ongoing support.</p>
+    </div>
+</section>
 
-    <!-- FILTER BAR -->
-    <div class="filter-section">
-        <div class="container">
-            <div class="filter-inner">
-                <div class="filter-group">
-                    <div class="filter-group-label">Filter by Property Type</div>
-                    <div class="filter-pills" id="solutionFilters">
-                        <button class="pill active" data-solution="all">All Projects</button>
-                        <button class="pill" data-solution="residential">🏠 Private Homes</button>
-                        <button class="pill" data-solution="condominium">🏢 Condominiums</button>
-                        <button class="pill" data-solution="commercial">🏬 Commercial</button>
-                        <button class="pill" data-solution="institution">🏛️ Institutions</button>
-                        <button class="pill" data-solution="industrial">🏭 Industrial</button>
-                    </div>
-                </div>
-                <div class="filter-group">
-                    <div class="filter-group-label">Filter by System</div>
-                    <div class="filter-pills" id="systemFilters">
-                        <button class="pill active" data-system="all">All Systems</button>
-                        <button class="pill" data-system="surveillance">📷 Surveillance</button>
-                        <button class="pill" data-system="people-access">🚪 People Access</button>
-                        <button class="pill" data-system="vehicle-access">🚗 Vehicle Access</button>
-                        <button class="pill" data-system="platform">📊 Platform</button>
-                    </div>
-                </div>
+<!-- 1. COMPANY CREDENTIALS -->
+<section class="credentials-sec" style="background: #f8fafc; padding: 40px 0; border-bottom: 1px solid #e2e8f0;">
+    <div class="container" style="display: flex; justify-content: center; gap: 60px; flex-wrap: wrap;">
+        <div class="c-item" style="display: flex; align-items: center; gap: 15px;">
+            <div style="background: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 24px;">🛡️</div>
+            <div><strong style="display: block; font-size: 0.9rem; color: #1e293b;">SPF LICENSED</strong><span style="font-size: 0.75rem; color: #64748b;">L/PS/000267/2023P</span></div>
+        </div>
+        <div class="c-item" style="display: flex; align-items: center; gap: 15px;">
+            <div style="background: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 24px;">🏗️</div>
+            <div><strong style="display: block; font-size: 0.9rem; color: #1e293b;">BCA REGISTERED</strong><span style="font-size: 0.75rem; color: #64748b;">ME04 Grade</span></div>
+        </div>
+        <div class="c-item" style="display: flex; align-items: center; gap: 15px;">
+            <div style="background: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); font-size: 24px;">✅</div>
+            <div><strong style="display: block; font-size: 0.9rem; color: #1e293b;">BIZSAFE LEVEL 3</strong><span style="font-size: 0.75rem; color: #64748b;">Safety Certified</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- BREADCRUMB (Standard) -->
+<nav class="sv-breadcrumb">
+    <div class="container">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>Project Portfolio</li>
+        </ul>
+    </div>
+</nav>
+
+<!-- FILTER SECTION (Compact Dropdowns) -->
+<section class="filter-section">
+    <div class="container">
+        <div class="filter-bar">
+            <!-- Search -->
+            <div class="filter-item search">
+                <label class="filter-label">Search</label>
+                <input type="text" id="pSearch" placeholder="Project name, location, or feature..." onkeyup="filterP()">
             </div>
-            <div class="results-bar">
-                <span class="results-count">Showing <span id="visibleCount">4</span> of <span id="totalCount">4</span> projects</span>
+            <!-- Property -->
+            <div class="filter-item">
+                <label class="filter-label">Property Type</label>
+                <select id="fProp" onchange="filterP()">
+                    <option value="all">All Properties</option>
+                    <option value="Residential - Condominiums">Condominiums</option>
+                    <option value="Commercial - Offices">Offices</option>
+                    <option value="Industrial - Manufacturing">Industrial</option>
+                    <option value="Institutional - Government">Institutional</option>
+                    <option value="Civic & Community">Civic & Community</option>
+                </select>
+            </div>
+            <!-- System -->
+            <div class="filter-item">
+                <label class="filter-label">System Type</label>
+                <select id="fSys" onchange="filterP()">
+                    <option value="all">All Systems</option>
+                    <option value="AI Surveillance">AI Surveillance</option>
+                    <option value="Video Intercom">Video Intercom</option>
+                    <option value="Access Control">Access Control</option>
+                    <option value="Perimeter Security">Perimeter Security</option>
+                </select>
+            </div>
+            <!-- Year -->
+            <div class="filter-item">
+                <label class="filter-label">Year</label>
+                <select id="fYear" onchange="filterP()">
+                    <option value="all">All Years</option>
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                </select>
+            </div>
+            <!-- Sort -->
+            <div class="filter-item">
+                <label class="filter-label">Sort By</label>
+                <select id="pSort" onchange="sortP()">
+                    <option value="new">Newest First</option>
+                    <option value="old">Oldest First</option>
+                    <option value="az">Type (A-Z)</option>
+                </select>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- PROJECTS -->
-    <section class="projects-section">
-        <div class="container">
-            <div class="projects-grid" id="projectsGrid">
+<!-- PROJECT GRID -->
+<section class="grid-container">
+    <div class="container">
+        <div class="project-grid" id="pGrid">
+            
+            <!-- SCAPE -->
+            <a href="scape.html" class="project-card" data-prop="Civic & Community" data-sys="AI Surveillance, Face Recognition" data-year="2024" data-scale="200">
+                <div class="card-img-w"><img src="images/portfolio-scape.png" alt="SCAPE"><span class="property-badge">🏛️ Civic</span></div>
+                <div class="card-body"><h3>SCAPE</h3><div class="loc">📍 Orchard Road</div><p class="desc">200-camera AI surveillance with face recognition access control — 87% faster incident response and real-time crowd analytics.</p>
+                <div class="tag-row"><span class="tag">AI Surveillance</span><span class="tag">Access Control</span></div></div>
+                <div class="card-foot"><div class="metric"><span class="m-val">200+</span><span class="m-lab">Cameras</span></div><span class="c-date">Dec 2024</span></div>
+            </a>
 
-                <!-- PROJECT 1: THE L'VIV -->
-                <a href="lviv.html" class="project-card" data-solution="condominium" data-systems="surveillance people-access vehicle-access platform">
-                    <div class="card-visual">
-                        <div class="cv-content">
-                            <div class="cv-icon">🏢</div>
-                            <div class="cv-name">The L'viv</div>
-                            <div class="cv-loc">Buona Vista, Singapore</div>
-                        </div>
-                        <span class="card-type-badge" style="background: var(--c-condo);">Condominium</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>The L'viv</h3>
-                        <div class="card-location">📍 Buona Vista &middot; 450-unit development</div>
-                        <p>Full estate security upgrade for a 450-unit private condominium &mdash; from fragmented legacy systems to a unified VESTA&trade;-managed platform with GantryGo&trade; vehicle intercom and resident mobile app.</p>
-                        <div class="system-tags">
-                            <span class="sys-tag">Surveillance</span>
-                            <span class="sys-tag">People Access</span>
-                            <span class="sys-tag">Vehicle Access</span>
-                            <span class="sys-tag">VESTA&trade; Platform</span>
-                        </div>
-                        <div class="card-metric">
-                            <div class="metric-num">40%</div>
-                            <div class="metric-desc">Reduction in security guard workload through self-service resident access</div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="cf-testimonial">"Residents love the mobile gate release &mdash; support calls to the guardhouse dropped overnight."</div>
-                        <div class="cf-link">View Project &rarr;</div>
-                    </div>
-                </a>
+            <!-- L'viv -->
+            <a href="lviv.html" class="project-card" data-prop="Residential - Condominiums" data-sys="Video Intercom, Biometric Access" data-year="2025" data-scale="147">
+                <div class="card-img-w"><img src="images/portfolio-lviv.png" alt="L'viv"><span class="property-badge">🏘️ Condo</span></div>
+                <div class="card-body"><h3>L'viv Residences</h3><div class="loc">📍 Buona Vista</div><p class="desc">147-unit luxury condominium upgrade with Akuvox video intercom and ZKTeco biometric access — dual-system architecture.</p>
+                <div class="tag-row"><span class="tag">Video Intercom</span><span class="tag">Biometrics</span></div></div>
+                <div class="card-foot"><div class="metric"><span class="m-val">147</span><span class="m-lab">Units</span></div><span class="c-date">Jan 2025</span></div>
+            </a>
 
-                <!-- PROJECT 2: SCAPE -->
-                <a href="scape.html" class="project-card" data-solution="commercial" data-systems="surveillance platform">
-                    <div class="card-visual">
-                        <div class="cv-content">
-                            <div class="cv-icon">🏬</div>
-                            <div class="cv-name">SCAPE</div>
-                            <div class="cv-loc">Orchard Road, Singapore</div>
-                        </div>
-                        <span class="card-type-badge" style="background: var(--c-comm);">Commercial</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>SCAPE</h3>
-                        <div class="card-location">📍 Orchard Road &middot; Youth hub</div>
-                        <p>200-camera AI surveillance system with real-time crowd analytics, behaviour detection, and centralised monitoring. Designed to protect high foot-traffic public spaces without obtrusive presence.</p>
-                        <div class="system-tags">
-                            <span class="sys-tag">AI Surveillance</span>
-                            <span class="sys-tag">Centralised Platform</span>
-                        </div>
-                        <div class="card-metric">
-                            <div class="metric-num">87%</div>
-                            <div class="metric-desc">Faster incident response &mdash; from 15 minutes to under 2 minutes</div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="cf-testimonial">"The AI analytics changed how our ops team responds to incidents &mdash; we act before things escalate."</div>
-                        <div class="cf-link">View Project &rarr;</div>
-                    </div>
-                </a>
+            <!-- Light@Cairnhill -->
+            <a href="light-at-cairnhill.html" class="project-card" data-prop="Residential - Condominiums" data-sys="Video Intercom, Lift Access Control" data-year="2024" data-scale="121">
+                <div class="card-img-w"><img src="images/portfolio-light-cairnhill.png" alt="Light"><span class="property-badge">🏘️ Condo</span></div>
+                <div class="card-body"><h3>Light@Cairnhill</h3><div class="loc">📍 Cairnhill</div><p class="desc">121-unit private lift access control with unified video intercom — elevators opening directly into homes safely.</p>
+                <div class="tag-row"><span class="tag">Lift Access</span><span class="tag">Intercom</span></div></div>
+                <div class="card-foot"><div class="metric"><span class="m-val">8</span><span class="m-lab">Lifts</span></div><span class="c-date">2024</span></div>
+            </a>
 
-                <!-- PROJECT 3: STA -->
-                <a href="commercial-security-sta-building-singapore.html" class="project-card" data-solution="institution" data-systems="surveillance vehicle-access platform">
-                    <div class="card-visual">
-                        <div class="cv-content">
-                            <div class="cv-icon">🏛️</div>
-                            <div class="cv-name">STA Vehicle Inspection</div>
-                            <div class="cv-loc">Multi-site, Singapore</div>
-                        </div>
-                        <span class="card-type-badge" style="background: var(--c-inst);">Institution</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>STA Vehicle Inspection</h3>
-                        <div class="card-location">📍 Multi-site &middot; Mission-critical</div>
-                        <p>Integrated security and vehicle management system across two STA inspection centres &mdash; ANPR-triggered lane management and 24/7 remote diagnostics for regulatory compliance.</p>
-                        <div class="system-tags">
-                            <span class="sys-tag">Surveillance</span>
-                            <span class="sys-tag">Vehicle Access</span>
-                            <span class="sys-tag">Remote Monitoring</span>
-                        </div>
-                        <div class="card-metric">
-                            <div class="metric-num">99.7%</div>
-                            <div class="metric-desc">System uptime across both facilities with 24/7 remote diagnostics</div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="cf-testimonial">"Regulatory compliance requires our footage to be available at any time. Securevision's remote monitoring means we always know it's running."</div>
-                        <div class="cf-link">View Project &rarr;</div>
-                    </div>
-                </a>
-
-                <!-- PROJECT 4: CYRUS TECH -->
-                <a href="industrial-security-cyrus-tech-park-singapore.html" class="project-card" data-solution="industrial" data-systems="surveillance people-access vehicle-access">
-                    <div class="card-visual">
-                        <div class="cv-content">
-                            <div class="cv-icon">🏭</div>
-                            <div class="cv-name">Cyrus Tech</div>
-                            <div class="cv-loc">Jurong Industrial Estate</div>
-                        </div>
-                        <span class="card-type-badge" style="background: var(--c-indu);">Industrial</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>Cyrus Tech</h3>
-                        <div class="card-location">📍 Jurong Industrial Estate &middot; Manufacturing</div>
-                        <p>AI-powered perimeter security for a high-value manufacturing site &mdash; thermal + visible cameras, biometric zone access, and ANPR fleet management at entry points.</p>
-                        <div class="system-tags">
-                            <span class="sys-tag">AI + Thermal</span>
-                            <span class="sys-tag">Biometric Access</span>
-                            <span class="sys-tag">ANPR Fleet</span>
-                        </div>
-                        <div class="card-metric">
-                            <div class="metric-num">85%</div>
-                            <div class="metric-desc">Reduction in guard callouts &mdash; AI eliminated wildlife false alarms</div>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="cf-testimonial">"Before Securevision, our guards were responding to false alarms every night. The AI perimeter system changed everything."</div>
-                        <div class="cf-link">View Project &rarr;</div>
-                    </div>
-                </a>
-
+            <!-- STA -->
+            <div class="project-card" data-prop="Institutional - Government" data-sys="AI Surveillance" data-year="2024" data-scale="50">
+                <div class="card-img-w"><img src="images/portfolio-sta.png" alt="STA"><span class="property-badge">🏛️ Institutional</span></div>
+                <div class="card-body"><h3>STA Inspection Centre</h3><div class="loc">📍 Sin Ming</div><p class="desc">Regulatory-compliant surveillance and vehicle access management for mission-critical inspection facilities.</p>
+                <div class="tag-row"><span class="tag">Surveillance</span></div></div>
+                <div class="card-foot"><div class="metric"><span class="m-val">50+</span><span class="m-lab">Cameras</span></div><span class="c-date">2024</span></div>
             </div>
 
-            <div class="no-results" id="noResults">
-                <h3>No matching projects</h3>
-                <p>Try a different filter combination, or <a href="contact.html">contact us</a> &mdash; we may have unlisted projects in your sector.</p>
+            <!-- Cyrus -->
+            <div class="project-card" data-prop="Industrial - Manufacturing" data-sys="Perimeter Security, AI Surveillance" data-year="2023" data-scale="25">
+                <div class="card-img-w"><img src="images/portfolio-cyrus.png" alt="Cyrus"><span class="property-badge">🏭 Industrial</span></div>
+                <div class="card-body"><h3>Cyrus Tech Park</h3><div class="loc">📍 Jurong West</div><p class="desc">Advanced perimeter AI detection and centralized security platform for large-scale manufacturing facility.</p>
+                <div class="tag-row"><span class="tag">Perimeter</span><span class="tag">AI</span></div></div>
+                <div class="card-foot"><div class="metric"><span class="m-val">85%</span><span class="m-lab">Less Alarms</span></div><span class="c-date">2023</span></div>
             </div>
 
-            <div style="text-align:center; margin-top: 56px; padding-top: 48px; border-top: 1px solid var(--border-light);">
-                <p style="font-size:15px; color:var(--text-light); margin-bottom:8px;">Many more projects available across all sectors.</p>
-                <p style="font-size:14px; color:var(--text-light); margin-bottom:28px;">Some clients prefer privacy &mdash; ask us about unlisted work in your property type.</p>
-                <a href="contact.html" class="btn btn-primary">Enquire About Specific Projects</a>
+        </div>
+        <button id="loadB" onclick="this.innerText='All Loaded';this.disabled=true" style="display:block; margin:60px auto; padding:15px 40px; background:#fff; border:1px solid #cbd5e1; border-radius:12px; font-weight:700; cursor:pointer;">Load More Projects</button>
+    </div>
+</section>
+
+<!-- 3. PORTFOLIO STATS -->
+<section class="stats-sec" style="padding: 80px 0; background: #0f172a; color: #fff; text-align: center;">
+    <div class="container">
+        <div class="stats-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;">
+            <div class="s-item">
+                <span class="val" style="font-size: 3.5rem; font-weight: 800; color: #63b3ed; display: block; margin-bottom: 10px;">500+</span>
+                <span class="lab" style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase; color: #94a3b8;">Projects Delivered</span>
+            </div>
+            <div class="s-item">
+                <span class="val" style="font-size: 3.5rem; font-weight: 800; color: #63b3ed; display: block; margin-bottom: 10px;">18+</span>
+                <span class="lab" style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase; color: #94a3b8;">Industry Experience</span>
+            </div>
+            <div class="s-item">
+                <span class="val" style="font-size: 3.5rem; font-weight: 800; color: #63b3ed; display: block; margin-bottom: 10px;">20k+</span>
+                <span class="lab" style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase; color: #94a3b8;">Cameras Installed</span>
+            </div>
+            <div class="s-item">
+                <span class="val" style="font-size: 3.5rem; font-weight: 800; color: #63b3ed; display: block; margin-bottom: 10px;">2.5k+</span>
+                <span class="lab" style="font-size: 0.9rem; font-weight: 600; text-transform: uppercase; color: #94a3b8;">Door Access Points</span>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- FINAL CTA -->
-    <section class="cta-section" style="background: linear-gradient(rgba(14, 26, 43, 0.8), rgba(14, 26, 43, 0.8)), url('images/Expert Security Solutions For Every Property Type.png'); background-size: cover; background-position: center;">
-        <div class="container text-center">
-            <h2 style="color: #fff;">Want Results Like These?</h2>
-            <p class="subtitle" style="color: #fff; opacity: 0.9; margin-bottom: 48px;">Every project starts with a site assessment &mdash; no obligation, just an honest look at what your property needs.</p>
-            <div class="btn-group" style="justify-content: center;">
-                <a href="contact.html" class="btn btn-primary">Book a Site Assessment</a>
-                <a href="https://wa.me/6593860466" class="btn btn-whatsapp">💬 WhatsApp Us Now</a>
+<!-- 4. CLIENT TESTIMONIALS -->
+<section class="testimonials-sec" style="padding: 100px 0; background: #fff;">
+    <div class="container" style="text-align: center;">
+        <span class="eyebrow" style="color: var(--p-acc); font-weight: 700; letter-spacing: 2px;">TESTIMONIALS</span>
+        <h2 style="font-size: 2.5rem; margin-bottom: 50px;">What Our Partners Say</h2>
+        
+        <div class="t-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; text-align: left;">
+            <div class="t-card" style="background: #f8fafc; padding: 40px; border-radius: 20px; border: 1px solid #e2e8f0;">
+                <p style="font-size: 1.1rem; color: #475569; font-style: italic; margin-bottom: 30px;">"Securevision's transition of our old intercom system to a modern IP-based solution was seamless. Their engineering team understands the complexities of large-scale estate management."</p>
+                <div class="t-meta" style="display: flex; align-items: center; gap: 15px;">
+                    <div style="background: #ddd; width: 50px; height: 50px; border-radius: 50%;"></div>
+                    <div><strong style="display: block; color: #1e293b;">Estate Manager</strong><span style="font-size: 0.85rem; color: #64748b;">Luxury Condominium, Newton</span></div>
+                </div>
+            </div>
+            <div class="t-card" style="background: #f8fafc; padding: 40px; border-radius: 20px; border: 1px solid #e2e8f0;">
+                <p style="font-size: 1.1rem; color: #475569; font-style: italic; margin-bottom: 30px;">"The AI surveillance grid they implemented across our logistics park is incredibly accurate. We've seen a 90% reduction in false alarms compared to our previous system."</p>
+                <div class="t-meta" style="display: flex; align-items: center; gap: 15px;">
+                    <div style="background: #ddd; width: 50px; height: 50px; border-radius: 50%;"></div>
+                    <div><strong style="display: block; color: #1e293b;">Operations Director</strong><span style="font-size: 0.85rem; color: #64748b;">Industrial Tech Park</span></div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
+<!-- 5. SECURITY CAPABILITIES -->
+<section class="capabilities-sec" style="padding: 100px 0; background: #0f172a; color: #fff;">
+    <div class="container">
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 15px;">Engineered for Outcome</h2>
+            <p style="color: #94a3b8; font-size: 1.1rem;">We don't just sell equipment — we deliver technical outcomes.</p>
+        </div>
+        
+        <div class="cap-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;">
+            <div class="cap-item">
+                <h3 style="color: #63b3ed; font-size: 1.4rem; margin-bottom: 15px;">Unified Integration</h3>
+                <p style="color: #cbd5e1; line-height: 1.6;">Connecting CCTV, Access, and Intercom on a single secure network for easier management.</p>
+            </div>
+            <div class="cap-item">
+                <h3 style="color: #63b3ed; font-size: 1.4rem; margin-bottom: 15px;">AI-Driven Analytics</h3>
+                <p style="color: #cbd5e1; line-height: 1.6;">From face recognition to ANPR, we deploy production-ready AI solutions that save time.</p>
+            </div>
+            <div class="cap-item">
+                <h3 style="color: #63b3ed; font-size: 1.4rem; margin-bottom: 15px;">SPF-Licensed Team</h3>
+                <p style="color: #cbd5e1; line-height: 1.6;">Full compliance with Singapore's security regulations. Certified engineers for every project.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 6. INDUSTRY SECTORS -->
+<section class="sectors-sec" style="padding: 100px 0; background: #fff;">
+    <div class="container" style="text-align: center;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 50px;">Sectors we Support</h2>
+        <div class="s-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+            <div style="background: #f8fafc; padding: 25px; border-radius: 12px; font-weight: 700; color: #1e293b; border: 1px solid #e2e8f0;">🏘️ Condominiums</div>
+            <div style="background: #f8fafc; padding: 25px; border-radius: 12px; font-weight: 700; color: #1e293b; border: 1px solid #e2e8f0;">🏢 Commercial</div>
+            <div style="background: #f8fafc; padding: 25px; border-radius: 12px; font-weight: 700; color: #1e293b; border: 1px solid #e2e8f0;">🏭 Industrial</div>
+            <div style="background: #f8fafc; padding: 25px; border-radius: 12px; font-weight: 700; color: #1e293b; border: 1px solid #e2e8f0;">🏛️ Government</div>
+        </div>
+    </div>
+</section>
+
+<!-- 7. FINAL CTA -->
+<section class="cta-sec-final" style="padding: 140px 0; background: linear-gradient(rgba(14,26,43,0.85), rgba(14,26,43,0.85)), url('images/portfolio-cta.png'); background-size: cover; background-position: center; color: #fff; text-align: center;">
+    <div class="container">
+        <h2 style="font-family: 'Outfit', sans-serif; font-size: 3.5rem; margin-bottom: 25px; line-height: 1.2;">Ready to modernise your property's security?</h2>
+        <p style="font-size: 1.35rem; color: #cbd5e1; max-width: 850px; margin: 0 auto 50px; line-height: 1.8;">Our engineers are ready to assess your requirements — whether it's a 500-unit condominium upgrade or a high-security industrial grid.</p>
+        
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="request-site-assessment-singapore.html" class="btn" style="background: var(--p-acc); color: #fff; padding: 20px 50px; border-radius: 12px; font-weight: 700; text-decoration: none; border: none; font-size: 1.2rem; box-shadow: 0 10px 30px rgba(49, 130, 206, 0.4); transition: 0.3s;">📅 Request Site Assessment</a>
+            <a href="https://wa.me/6593860466" class="btn" style="background: transparent; color: #fff; padding: 20px 50px; border-radius: 12px; font-weight: 700; text-decoration: none; border: 2px solid #fff; font-size: 1.2rem; transition: 0.3s;">💬 WhatsApp Our Team</a>
+        </div>
+        
+        <p style="margin-top: 50px; font-size: 1rem; color: #94a3b8; font-weight: 600;">Or call us at <a href="tel:+6562864796" style="color: #63b3ed; text-decoration: none;">+65 6286 4796</a> for immediate advisory.</p>
+    </div>
+</section>
+
+<!-- FOOTER (Standard) -->
+<footer class="site-footer">
     <div class="footer-container">
         <div class="footer-grid">
             <div class="footer-brand">
@@ -499,8 +576,7 @@
     </div>
 </footer>
 
-    
-
+<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
 
 <script>
 function toggleMobileMenu() {
@@ -540,17 +616,31 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Auto-highlight active nav link
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.href === window.location.href || link.href.split('/').pop() === window.location.pathname.split('/').pop()) {
-    link.classList.add('active');
-  }
-});
+function filterP() {
+    const q = document.getElementById('pSearch').value.toLowerCase();
+    const prop = document.getElementById('fProp').value;
+    const sys = document.getElementById('fSys').value;
+    const year = document.getElementById('fYear').value;
 
-// Current Year
-const yearSpan = document.querySelector('.current-year');
-if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    const cards = document.querySelectorAll('.project-card');
+    cards.forEach(c => {
+        const cProp = c.getAttribute('data-prop'), cSys = c.getAttribute('data-sys'), cYear = c.getAttribute('data-year');
+        const txt = c.innerText.toLowerCase();
+        const mQ = txt.includes(q), mProp = prop === 'all' || cProp === prop, mSys = sys === 'all' || cSys.includes(sys), mYear = year === 'all' || cYear === year;
+        c.style.display = (mQ && mProp && mSys && mYear) ? 'flex' : 'none';
+    });
+}
+
+function sortP() {
+    const g = document.getElementById('pGrid'), c = Array.from(g.children), v = document.getElementById('pSort').value;
+    c.sort((a,b) => {
+        if(v==='new') return b.getAttribute('data-year')-a.getAttribute('data-year');
+        if(v==='old') return a.getAttribute('data-year')-b.getAttribute('data-year');
+        if(v==='az') return a.getAttribute('data-prop').localeCompare(b.getAttribute('data-prop'));
+        return 0;
+    });
+    c.forEach(x => g.appendChild(x));
+}
 </script>
 </body>
 </html>
-
