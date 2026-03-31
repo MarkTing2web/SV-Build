@@ -241,8 +241,8 @@ SECUREVISION.COM.SG
 │
 ├── PORTFOLIO (/portfolio/)
 │   ├── ✅ portfolio.html - Portfolio Overview
-│   ├── ✅ condominium-security-lviv-residences-singapore.html - L'viv Residences
-│   ├── ✅ cctv-access-control-scape-singapore.html - SCAPE Project
+│   ├── ✅ lviv.html - L'viv Residences
+│   ├── ✅ scape.html - SCAPE Project
 │   ├── ✅ commercial-security-sta-building-singapore.html - STA Building
 │   └── ✅ industrial-security-cyrus-tech-park-singapore.html - Cyrus Tech Park
 │
@@ -361,8 +361,8 @@ SECUREVISION.COM.SG
 | Section | Page | File | Nav Placement |
 |---------|------|------|---------------|
 | **Portfolio** | Overview | portfolio.html | PORTFOLIO |
-| | L'viv Residences | condominium-security-lviv-residences-singapore.html | Via portfolio.html |
-| | SCAPE | cctv-access-control-scape-singapore.html | Via portfolio.html |
+| | L'viv Residences | lviv.html | Via portfolio.html |
+| | SCAPE | scape.html | Via portfolio.html |
 | | STA Building | commercial-security-sta-building-singapore.html | Via portfolio.html |
 | | Cyrus Tech Park | industrial-security-cyrus-tech-park-singapore.html | Via portfolio.html |
 | **Insights** | Insights Hub | security-articles-singapore.html | INSIGHTS |
@@ -542,7 +542,7 @@ Taps WhatsApp button (sticky on mobile)
 - suprema-singapore.html → Links to people-access-control.html AND relevant sector pages
 
 ### **Portfolio Links to Everything:**
-- condominium-security-lviv-residences-singapore.html → Links to condominiums-mcst.html, akuvox-singapore.html, entrypass-singapore.html
+- lviv.html → Links to condominiums-mcst.html, akuvox-singapore.html, entrypass-singapore.html
 
 ---
 
@@ -723,8 +723,8 @@ All HTML pages built with full structure
 ├── auto-gate-singapore.html (Technical Guide)
 ├── [23 brand pages inclusive of Fanvil, Yeastar]
 ├── portfolio.html
-├── condominium-security-lviv-residences-singapore.html
-├── cctv-access-control-scape-singapore.html
+├── lviv.html
+├── scape.html
 ├── commercial-security-sta-building-singapore.html
 ├── industrial-security-cyrus-tech-park-singapore.html
 ├── security-articles-singapore.html
