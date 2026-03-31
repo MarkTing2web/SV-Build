@@ -1308,6 +1308,30 @@ The Securevision Design Framework is a 4-pillar architectural standard for techn
 
 ---
 
+## 14. PORTFOLIO CASE STUDY STANDARDS (60/40 High-Fidelity Standard)
+
+The Portfolio Case Study standard is designed to present technical complexity with architectural elegance. All project pages (L'viv, SCAPE, Light@Cairnhill) must adhere to these specific readability and layout constraints.
+
+### 1. Optimal Reading Width (75-Character Rule)
+To ensure long-form engineering narratives are readable on large displays, follow these constraints:
+- **Text Container**: Set `max-width: 1200px` with `margin: 0 auto;`.
+- **Line Length**: Paragraphs within `.section-text` must be constrained to **75ch (75 characters max per line)**.
+- **Line Height**: Use `line-height: 1.8` for all narrative text.
+- **Font Size**: Standardize on `16px` for body copy, using `#3C4043` or `--text-gray` for high-contrast clarity.
+
+### 2. 60/40 Visual Rhythm
+For sections with images (Challenge, Solution, Equipment), use the **60% Text / 40% Image** layout:
+- **Grid Layout**: Use `display: grid; grid-template-columns: 1fr 400px; gap: 60px;` (or similar float/flex ratio).
+- **Image Handling**: Images should be high-fidelity. Use `.img-placeholder-wrap` for assets not yet provided, ensuring a descriptive label (e.g., "PH 2: PROJECT CONTEXT") is present.
+- **Alternating Rhythm**: Alternate the image position (Left/Right) between major sections to maintain visual interest.
+
+### 3. Engineering-Led Narrative
+- **No Truncation**: Use the full provided project text, including technical specs (e.g., "2-wire IP retrofit", "EC33 lift controllers").
+- **Structure**: Follow the 5-part journey: Hero → Overview → Challenge → Solution → Equipment → Results → Gallery.
+- **Sitemap Parity**: Ensure every case study is indexed in `sitemap.html`, `sitemap.xml`, and the `Related Projects` section of neighboring pages.
+
+---
+
 ---
 
 *Securevision Global Design Instruction v1.0 — March 2026*

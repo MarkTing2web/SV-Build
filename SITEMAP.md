@@ -243,6 +243,7 @@ SECUREVISION.COM.SG
 │   ├── ✅ portfolio.html - Portfolio Overview
 │   ├── ✅ lviv.html - L'viv Residences
 │   ├── ✅ scape.html - SCAPE Project
+│   ├── ✅ Light-at-Cairnhill.html - Light@Cairnhill
 │   ├── ✅ commercial-security-sta-building-singapore.html - STA Building
 │   └── ✅ industrial-security-cyrus-tech-park-singapore.html - Cyrus Tech Park
 │
@@ -357,12 +358,13 @@ SECUREVISION.COM.SG
 | **Integration** | MicroEngine | microengine-singapore.html | Brands → Integration |
 | **Telephony** | Yeastar | yeastar-singapore.html | Brands → PBX |
 
-### **PORTFOLIO & INSIGHTS (7 pages)**
+### **PORTFOLIO & INSIGHTS (8 pages)**
 | Section | Page | File | Nav Placement |
 |---------|------|------|---------------|
 | **Portfolio** | Overview | portfolio.html | PORTFOLIO |
 | | L'viv Residences | lviv.html | Via portfolio.html |
 | | SCAPE | scape.html | Via portfolio.html |
+| | Light@Cairnhill | Light-at-Cairnhill.html | Via portfolio.html |
 | | STA Building | commercial-security-sta-building-singapore.html | Via portfolio.html |
 | | Cyrus Tech Park | industrial-security-cyrus-tech-park-singapore.html | Via portfolio.html |
 | **Insights** | Insights Hub | security-articles-singapore.html | INSIGHTS |
