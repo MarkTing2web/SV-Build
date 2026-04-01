@@ -261,7 +261,7 @@ SECUREVISION.COM.SG
     │   - Company story, founder, team
     │   - SECURE™ Framework explanation
     │   - What makes us different
-    │   - Certifications overview (links to awards page)
+    │   - Certifications overview (integrated into About page)
     │   - **CONTACT SECTION (integrated here)**
     │       • Address
     │       • Phone (clickable)
@@ -271,12 +271,6 @@ SECUREVISION.COM.SG
     │       • Contact form
     │       • Map embed (optional)
     │
-    └── ✅ awards-certifications.html - Awards & Certifications
-        - Police License L/PS/000267/2023P
-        - bizSAFE Level 3
-        - BCA Registered
-        - Partner awards (ADV, ZKTeco, etc.)
-        - Linked from About page
     │
     ├── ✅ request-site-assessment-singapore.html - Booking / Site Assessment Request
     ├── ✅ contact-gateway.html - Unified Contact Routing
@@ -294,7 +288,6 @@ SECUREVISION.COM.SG
 |------|------|---------------|-------|
 | Homepage | index.html | Logo click | Logo + "SECUREVISION" wordmark links here |
 | About (includes Contact) | about.html | ABOUT | Contact section integrated into this page |
-| Awards & Certifications | awards-certifications.html | Linked from About | Not in main nav |
 | Search Results | search.html | Search icon (🔍) | Displays search results, accessible via search icon |
 
 | Hub | File | Nav Placement | Purpose |
@@ -387,7 +380,6 @@ SECUREVISION.COM.SG
 ```
 securevision.com.sg/                          (Homepage)
 securevision.com.sg/about/                    (About + Contact)
-securevision.com.sg/awards-certifications/    (Awards)
 securevision.com.sg/solutions/                (Solutions Hub)
 securevision.com.sg/systems/                  (Systems Hub - security-systems-singapore.html)
 securevision.com.sg/brands/                   (Brands Hub)
@@ -701,7 +693,6 @@ All HTML pages built with full structure
 /mnt/user-data/uploads/
 ├── index.html (Homepage)
 ├── about.html (About + Contact)
-├── awards-certifications.html
 ├── security-solutions-singapore.html (Solutions Hub)
 ├── security-systems-singapore.html (Systems Hub)
 ├── security-brands-singapore.html (Brands Hub)
@@ -796,7 +787,6 @@ All HTML pages built with full structure
 - Update client testimonials
 
 ### **Annually:**
-- Update awards & certifications
 - Refresh homepage hero messaging
 - Comprehensive content audit
 - Professional photography update

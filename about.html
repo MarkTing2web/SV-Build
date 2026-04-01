@@ -12,72 +12,185 @@
     <script src="site-config.js"></script>
     
     <style>
-        /* ABOUT SPECIFIC STYLES */
+        /* ==========================================================
+           About Page Specific Styles
+           Aligned with GLOBAL-INSTRUCTION.md
+           ========================================================== */
+        
         :root {
-            --accent: #0056b3;
-            --dark: #003d82;
-            --radius: 10px;
-            --tr: all .25s ease;
+            --primary: #0056b3;
+            --primary-dark: #003d82;
+            --accent-blue: #5b9ee1;
+            --text-dark: #1B1F23;
+            --text-gray: #5F6368;
+            --text-light: #8a8f98;
+            --bg-light: #F8F9FA;
+            --border: #E8EAED;
+            --radius-lg: 14px;
+            --transition: all 0.25s ease;
+            --nav-height: 68px;
         }
 
-        section { padding: 72px 0; }
-        .eyebrow { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; display: block; }
-        
+        section { padding: 80px 0; }
+        .bg-light { background-color: var(--bg-light); }
+        .bg-white { background-color: #ffffff; }
+
+        .eyebrow { 
+            display: block; 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 11px; 
+            font-weight: 700; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            color: var(--primary); 
+            margin-bottom: 12px; 
+        }
+        .hero .eyebrow { color: rgba(255,255,255,0.5) !important; }
+
+        h2 { font-size: clamp(24px, 3.5vw, 40px); line-height: 1.2; margin-bottom: 16px; }
+        h3 { font-size: 20px; line-height: 1.3; margin-bottom: 12px; }
+        .subtitle { font-size: 17px; color: var(--text-gray); max-width: 750px; line-height: 1.7; margin-bottom: 40px; }
+
         /* HERO */
-        .hero-about { background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%); padding: 160px 0 80px; color: #fff; position: relative; overflow: hidden; }
-        .hero-about::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 60% 40%, rgba(0, 86, 179, 0.18) 0%, transparent 70%); }
-        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; position: relative; }
-        .hero-about h1 { font-size: clamp(30px, 4.5vw, 50px); margin-bottom: 16px; line-height: 1.15; color: #fff; }
-        .hero-about h1 em { font-style: normal; color: #5b9ee1; }
-        .hero-lead { font-size: 18px; color: rgba(255, 255, 255, 0.78); line-height: 1.7; margin-bottom: 28px; }
+        .hero-about { 
+            background: linear-gradient(rgba(14, 26, 43, 0.85), rgba(14, 26, 43, 0.85)), url('images/wee-meng-profile.jpg'); 
+            background-size: cover;
+            background-position: center 25%;
+            padding: calc(var(--nav-height) + 80px) 0 80px; 
+            color: #fff; 
+            position: relative; 
+            overflow: hidden; 
+        }
+        .hero-about::before { 
+            content: ''; 
+            position: absolute; 
+            inset: 0; 
+            background: radial-gradient(ellipse 60% 70% at 70% 40%, rgba(0, 86, 179, 0.18) 0%, transparent 70%); 
+        }
+        .hero-content { position: relative; z-index: 2; display: flex; align-items: center; min-height: 380px; }
+        .hero-text h1 { font-size: clamp(32px, 5.5vw, 56px); margin-bottom: 20px; line-height: 1.1; color: #fff; }
+        .hero-lead { font-size: 18px; color: rgba(255, 255, 255, 0.85); line-height: 1.7; margin-bottom: 32px; max-width: 800px; }
         
-        /* Founder card */
-        .founder-card { background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 16px; padding: 36px; position: relative; overflow: hidden; }
-        .founder-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at top right, rgba(0,86,179,0.2) 0%, transparent 60%); }
-        .founder-card > * { position: relative; z-index: 1; }
-        .founder-photo { width: 80px; height: 80px; border-radius: 50%; background: rgba(255, 255, 255, 0.1); border: 2px solid rgba(255, 255, 255, 0.15); display: flex; align-items: center; justify-content: center; font-size: 36px; margin-bottom: 16px; }
-        .founder-name { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700; color: #fff; margin-bottom: 4px; }
-        .founder-title { font-size: 13px; color: rgba(255, 255, 255, 0.5); margin-bottom: 20px; }
-        .founder-quals { display: flex; flex-direction: column; gap: 8px; }
-        .qual { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: rgba(255, 255, 255, 0.75); }
-        .qual::before { content: '🎓'; font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+        /* CARDS */
+        .card { 
+            background: #ffffff; 
+            border: 1px solid var(--border); 
+            border-radius: var(--radius-lg); 
+            padding: 32px; 
+            transition: var(--transition); 
+            height: 100%;
+        }
+        .card:hover { 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
+            transform: translateY(-4px); 
+        }
+        .stat-number { font-family: 'Montserrat', sans-serif; font-size: 32px; font-weight: 700; color: var(--primary); margin-bottom: 8px; line-height: 1; }
+        .stat-label { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-gray); }
 
         /* STORY GRID */
-        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-        .story-callout { background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%); border-radius: 16px; padding: 36px; color: #fff; position: relative; overflow: hidden; }
-        .sc-quote { font-size: 40px; color: var(--accent); line-height: 1; margin-bottom: 10px; }
-        .sc-text { font-size: 17px; font-style: italic; color: rgba(255, 255, 255, 0.88); line-height: 1.7; margin-bottom: 20px; }
-        .sc-attr strong { color: #fff; display: block; font-size: 14px; }
+        .story-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: start; }
+        .story-text .lead { font-size: 19px; font-weight: 500; color: var(--text-dark); margin-bottom: 28px; line-height: 1.7; }
+        .story-text p { font-size: 16px; line-height: 1.8; color: var(--text-gray); margin-bottom: 24px; }
         
-        /* PHILOSOPHY GRID */
-        .phil-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
-        .phil-card { background: #fff; border: 1px solid var(--border-light); border-radius: var(--radius); padding: 28px; border-top: 3px solid var(--accent); transition: var(--tr); }
-        .phil-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.08); transform: translateY(-3px); }
-        .phil-icon { font-size: 32px; margin-bottom: 14px; }
-        
-        /* CREDENTIALS */
-        .creds-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
-        .cred-card { background: #fff; border: 1px solid var(--border-light); border-radius: var(--radius); padding: 28px; text-align: center; transition: var(--tr); }
-        .cred-icon { font-size: 36px; margin-bottom: 14px; }
-        
-        /* BRAND PARTNERSHIPS */
-        .brands-intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-bottom: 48px; }
-        .brand-cats { display: flex; flex-direction: column; gap: 20px; }
-        .brand-cat { background: var(--bg-light); border: 1px solid var(--border-light); border-radius: var(--radius); padding: 20px 24px; }
-        .brand-cat-hdr { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-        .bc-icon { font-size: 18px; }
-        .bc-label { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dark); }
-        .brand-chips { display: flex; flex-wrap: wrap; gap: 8px; }
-        .brand-chip { padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; background: #fff; border: 1.5px solid var(--border-light); color: var(--text-dark); text-decoration: none; transition: var(--tr); }
-        .brand-chip:hover { border-color: var(--accent); color: var(--accent); }
+        .founder-photo-wrap { margin-bottom: 32px; }
+        .founder-photo { width: 100%; height: auto; border-radius: var(--radius-lg); display: block; object-fit: cover; box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+        .founder-photo-caption { font-size: 13px; color: var(--text-light); font-style: italic; margin-top: 12px; text-align: center; }
 
-        .key-facts { list-style: none; padding: 0; margin-top: 24px; }
-        .key-facts li { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border-light); font-size: 14px; }
-        .key-facts li::before { content: '✓'; color: var(--accent); font-weight: 700; }
+        .story-callout { 
+            background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%); 
+            border-radius: var(--radius-lg); 
+            padding: 40px; 
+            color: #fff; 
+            position: relative; 
+            overflow: hidden; 
+        }
+        .sc-quote { font-size: 44px; color: var(--accent-blue); line-height: 1; margin-bottom: 12px; opacity: 0.6; }
+        .sc-text { font-size: 17px; font-style: italic; color: rgba(255, 255, 255, 0.95); line-height: 1.7; margin-bottom: 24px; }
+        .sc-attr strong { display: block; font-size: 15px; color: #fff; margin-bottom: 2px; }
+
+        /* GRIDS */
+        .phil-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
+        .phil-grid.grid-4 { grid-template-columns: repeat(4, 1fr); }
+        .creds-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 48px; }
+        .creds-grid.centered-3 { 
+            grid-template-columns: repeat(3, 1fr); 
+            max-width: 900px; 
+            margin-left: auto !important; 
+            margin-right: auto !important; 
+        }
+        .phil-icon, .cred-icon { font-size: 36px; margin-bottom: 16px; display: block; }
+        
+        .check-list { list-style: none; padding: 0; margin-top: 32px; }
+        .check-list li { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 15px; color: var(--text-dark); align-items: flex-start; }
+        .check-list li::before { 
+            content: '✓'; 
+            width: 22px; height: 22px; 
+            background: var(--primary); 
+            color: #fff; 
+            border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center; 
+            font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 2px; 
+        }
+
+        /* BRANDS */
+        .brands-intro-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center; }
+        .brand-cats { display: flex; flex-direction: column; gap: 20px; }
+        .brand-cat { background: var(--bg-light); border: 1px solid var(--border); border-radius: 10px; padding: 24px; }
+        .bc-label { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dark); }
+        .brand-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+        .brand-chip { padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; background: #fff; border: 1.5px solid var(--border); color: var(--text-dark); text-decoration: none; transition: var(--transition); }
+        .brand-chip:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-2px); }
 
         @media (max-width: 992px) {
-            .hero-grid, .story-grid, .phil-grid, .creds-grid, .brands-intro-grid { grid-template-columns: 1fr; gap: 40px; }
-            .founder-card { max-width: 500px; margin: 0 auto; }
+            .story-grid, .phil-grid, .creds-grid, .brands-intro-grid, .brand-groups { grid-template-columns: 1fr; gap: 48px; }
+            .hero-content { min-height: auto; }
+        }
+        @media (max-width: 768px) {
+            section { padding: 56px 0; }
+            .phil-grid, .creds-grid, .brand-groups { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 480px) {
+            section { padding: 48px 0; }
+            .phil-grid, .creds-grid, .brand-groups { grid-template-columns: 1fr; }
+            .btn-group .btn { width: 100%; justify-content: center; margin-bottom: 12px; }
+        }
+
+        /* BRAND GROUPS */
+        .brand-grid-special { 
+            display: grid; 
+            grid-template-columns: repeat(6, 1fr); 
+            gap: 24px; 
+            margin-top: 48px;
+        }
+        .brand-card { 
+            background: #fff; 
+            border: 1px solid var(--border); 
+            border-radius: 12px; 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column;
+            transition: var(--transition);
+        }
+        .brand-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .bc-img { height: 140px; overflow: hidden; }
+        .bc-img img { width: 100%; height: 100%; object-fit: cover; }
+        .bc-content { padding: 24px; flex-grow: 1; display: flex; flex-direction: column; text-align: center; align-items: center; }
+        .bc-content h3 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; width: 100%; }
+        .brand-link-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; width: 100%; }
+        .brand-link { text-decoration: none; font-size: 14px; color: var(--text-dark); font-weight: 500; transition: color 0.2s; display: block; }
+        .brand-link:hover { color: var(--primary); }
+
+        /* Row 1: 3 items (span 2 each of 6 cols) */
+        .bc-r1 { grid-column: span 2; }
+        /* Row 2: 2 items (span 3 each of 6 cols) */
+        .bc-r2 { grid-column: span 3; }
+
+        @media (max-width: 992px) {
+            .brand-grid-special { grid-template-columns: repeat(2, 1fr); }
+            .bc-r1, .bc-r2 { grid-column: span 1; }
+        }
+        @media (max-width: 600px) {
+            .brand-grid-special { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -138,10 +251,7 @@
     <li class="nav-item"><a href="security-articles-singapore.html" class="nav-link">Insights</a></li>
     <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
       <div class="simple-dropdown">
-        <a href="about.html">Our Story</a>
-        <a href="about.html#founder">Founder&rsquo;s Story</a>
-        <a href="awards-certifications.html">Awards &amp; Certifications</a>
-        <a href="contact.html">Contact Us</a>
+        <a href="about.html">Our Story</a><a href="contact.html">Contact Us</a>
       </div>
     </li>
   </ul>
@@ -171,29 +281,18 @@
   <a href="portfolio.html" class="mobile-menu-item">Portfolio</a>
   <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources &#9662;<div class="mobile-submenu" id="resSub"><a href="resources.html"><strong>&rarr; All Resources</strong></a><a href="resources.html#guides">Technical Guides</a><a href="resources.html#tools">Planning Tools</a><a href="resources.html#library">Product Library</a><a href="resources.html#videos">Training Videos</a><a href="resources.html#faq">FAQ</a><a href="resources.html#trade">For Professionals</a></div></div>
   <a href="security-articles-singapore.html" class="mobile-menu-item">Insights</a>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a><a href="contact.html">Contact Us</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; Our Story</strong></a><a href="contact.html">Contact Us</a></div></div>
 </div>
 </nav><header class="hero-about">
         <div class="container">
-            <div class="hero-grid">
-                <div>
-                    <span class="eyebrow" style="color:rgba(255,255,255,0.45)">About Securevision</span>
-                    <h1>Built on <em>Engineering.</em><br>Backed by Law.</h1>
-                    <p class="hero-lead">Since <span class="sv-founded-year">2006</span>, Securevision has protected Singapore's homes, businesses, and institutions &mdash; not with off-the-shelf products, but with security systems designed from first principles by engineers who understand both the technology and the legal framework it operates within.</p>
+            <div class="hero-content">
+                <div class="hero-text" style="max-width: 850px;">
+                    <span class="eyebrow">About Securevision</span>
+                    <h1>Built by Experience.<br>Driven by Engineering.<br>Focused on Smarter Security.</h1>
+                    <p class="hero-lead">Securevision is a Singapore security systems specialist founded in <span class="sv-founded-year">2006</span> by Ler Wee Meng, an engineer and business leader with over <span class="sv-years-experience">35</span>+ years in the security industry. We help property owners, managing agents, and businesses design smarter, more connected security environments that go beyond standalone products.</p>
                     <div class="btn-group">
                         <a href="#founder" class="btn btn-primary">Our Story</a>
-                        <a href="contact.html" class="btn btn-outline-light">Work With Us</a>
-                    </div>
-                </div>
-                <div class="founder-card">
-                    <div class="founder-photo">👤</div>
-                    <div class="founder-name">Ler Wee Meng</div>
-                    <div class="founder-title">Founder & Managing Director, Securevision Pte Ltd</div>
-                    <div class="founder-quals">
-                        <div class="qual">Bachelor of Engineering &mdash; National University of Singapore (NUS)</div>
-                        <div class="qual">Bachelor of Laws (LLB) &mdash; University of London (UOL)</div>
-                        <div class="qual"><span class="sv-years-experience">37</span>+ years in the security systems industry</div>
-                        <div class="qual">Licensed under Singapore Police Force &mdash; <span class="sv-licence">L/PS/000267/2023P</span></div>
+                        <a href="contact.html" class="btn btn-outline-light">Talk to Us</a>
                     </div>
                 </div>
             </div>
@@ -205,44 +304,48 @@
         <div class="container">
             <div class="story-grid">
                 <div class="story-text">
-                    <span class="eyebrow">The Founder's Story</span>
+                    <span class="eyebrow">Founder’s Story</span>
                     <h2>Why Ler Wee Meng Started Securevision</h2>
-                    <p>Most security companies are started by salespeople. Securevision was started by an engineer with a law degree &mdash; and that difference shapes everything we do.</p>
-                    <p>After more than a decade working across Singapore's security systems industry, our founder Ler Wee Meng saw the same problem repeating: <strong>security systems that detected problems but couldn't tell you what was wrong.</strong> An alarm fires. Someone gets a call. But nobody knows if it's a break-in, a sensor fault, or a cat crossing the yard.</p>
-                    <p>He called it the <strong>"Blind Alarm Problem"</strong> &mdash; and in <span class="sv-founded-year">2006</span>, he founded Securevision specifically to solve it. The approach was different from the start: assess the site like an engineer, design the system like an architect, and stand behind it like a professional with something to lose.</p>
-                    <p>His engineering background means every system we design is specified for how it actually needs to work &mdash; not what's easiest to install. His legal background means we understand the regulatory framework, the liability implications, and the compliance requirements our clients operate under.</p>
-                    <ul class="key-facts">
-                        <li>Every system proposal is signed off by a qualified engineer &mdash; not a sales rep</li>
-                        <li>We hold a Police Licence under the Private Security Industry Act &mdash; legally required, not optional</li>
-                        <li>Our contracts are clear on what we deliver, when, and what happens if we don't</li>
-                        <li>We answer the phone after handover &mdash; because our reputation depends on it</li>
-                    </ul>
+                    <p class="lead">Most security companies sell equipment. Securevision was built to solve real security problems properly — with clearer thinking, better design, and long-term accountability.</p>
+                    <p>After years in the security industry, Ler Wee Meng saw the same problem repeated across many sites: systems were being installed, but they were not always designed around the client’s actual risks, operations, or long-term needs.</p>
+                    <p>He saw alarms that triggered without clear visibility, camera systems that recorded incidents but did little to prevent them, and installations that looked complete on paper but were weak in real-world use.</p>
+                    <p>That frustration led to the founding of Securevision in <span class="sv-founded-year">2006</span>.</p>
+                    <p>From the start, the company took a different approach: assess the site carefully, understand how the property actually operates, recommend the right combination of systems, and remain accountable long after handover.</p>
+                    <p>Today, Securevision serves clients across residential, commercial, and industrial environments in Singapore, with a focus on practical design, system integration, and long-term support.</p>
                 </div>
                 <div>
+                    <div class="founder-photo-wrap">
+                        <img
+                            src="images/wee-meng-akuvox-summit-2024.jpg"
+                            alt="Ler Wee Meng at Akuvox Partner Summit 2024 — Founder of Securevision Singapore"
+                            class="founder-photo"
+                        />
+                        <p class="founder-photo-caption">Akuvox Partner Summit 2024 — invited as authorised regional partner</p>
+                    </div>
                     <div class="story-callout">
                         <div class="sc-quote">"</div>
-                        <div class="sc-text">Security isn't a product you buy. It's a system you design, implement, and maintain. The moment you treat it as a one-time purchase, you've already lost.</div>
+                        <div class="sc-text">Security is not just about installing devices. It is about designing systems that work together, make sense operationally, and continue to serve the client well over time.</div>
                         <div class="sc-attr">
                             <strong>Ler Wee Meng</strong>
-                            <p style="color: rgba(255,255,255,0.6); font-size: 13px;">Founder, Securevision Pte Ltd</p>
+                            <p style="color: rgba(255,255,255,0.6); font-size: 13px;">Founder, Securevision</p>
                         </div>
                     </div>
                     <div class="grid-2 mt-48">
-                        <div class="card bg-light" style="padding: 24px; text-align: center; border-radius: 12px;">
-                            <div style="font-size: 24px; font-weight: 700; color: var(--primary-blue);">2006</div>
-                            <div style="font-size: 11px; text-transform: uppercase; color: var(--text-light);">Year Founded</div>
+                        <div class="card">
+                            <div class="stat-number"><span class="sv-founded-year">2006</span></div>
+                            <div class="stat-label">Founded</div>
                         </div>
-                        <div class="card bg-light" style="padding: 24px; text-align: center; border-radius: 12px;">
-                            <div style="font-size: 24px; font-weight: 700; color: var(--primary-blue);">19+</div>
-                            <div style="font-size: 11px; text-transform: uppercase; color: var(--text-light);">Years Operating</div>
+                        <div class="card">
+                            <div class="stat-number"><span class="sv-years-experience">35</span>+</div>
+                            <div class="stat-label">Years Experience</div>
                         </div>
-                        <div class="card bg-light" style="padding: 24px; text-align: center; border-radius: 12px;">
-                            <div style="font-size: 24px; font-weight: 700; color: var(--primary-blue);">2,000+</div>
-                            <div style="font-size: 11px; text-transform: uppercase; color: var(--text-light);">Sites Protected</div>
+                        <div class="card">
+                            <div class="stat-number"><span class="sv-sites">2,000+ Sites</span></div>
+                            <div class="stat-label">Sites Supported</div>
                         </div>
-                        <div class="card bg-light" style="padding: 24px; text-align: center; border-radius: 12px;">
-                            <div style="font-size: 24px; font-weight: 700; color: var(--primary-blue);">5</div>
-                            <div style="font-size: 11px; text-transform: uppercase; color: var(--text-light);">Sectors</div>
+                        <div class="card">
+                            <div class="stat-number"><span class="sv-years-business">20</span>+</div>
+                            <div class="stat-label">Serving Singapore</div>
                         </div>
                     </div>
                 </div>
@@ -250,181 +353,353 @@
         </div>
     </section>
 
-    <!-- PHILOSOPHY -->
+    <!-- WHAT MAKES US DIFFERENT -->
     <section class="bg-light">
         <div class="container">
-            <span class="eyebrow">Our Approach</span>
-            <h2>The Securevision Philosophy</h2>
-            <p class="subtitle">Three principles that have governed every project since <span class="sv-founded-year">2006</span> &mdash; and the reason clients come back, and refer others.</p>
+            <div class="section-header" style="text-align: center; margin-bottom: 56px;">
+                <span class="eyebrow">Why Securevision</span>
+                <h2>More Than an Installer</h2>
+                <p class="subtitle" style="margin: 0 auto;">We are not just here to supply cameras, alarms, or access devices. We help clients design and integrate security systems that are practical, scalable, and aligned with the way their properties actually operate.</p>
+            </div>
             <div class="phil-grid">
-                <div class="phil-card">
+                <div class="card">
                     <div class="phil-icon">🔬</div>
-                    <h3>Engineer First, Sell Second</h3>
-                    <p>Every engagement starts with a site assessment and risk analysis &mdash; not a product catalogue. We specify what your property actually needs.</p>
+                    <h3>Engineer-Led Thinking</h3>
+                    <p>Every engagement starts with understanding the site, the risks, and the operational requirements — not with pushing products.</p>
                 </div>
-                <div class="phil-card">
+                <div class="card">
                     <div class="phil-icon">🔗</div>
-                    <h3>Systems, Not Products</h3>
-                    <p>A camera that doesn't talk to your access control isn't a security system. We design systems where every component serves a defined role.</p>
+                    <h3>Integrated Systems</h3>
+                    <p>We believe security works best when CCTV, access control, intercom, alarms, and software platforms support one another as part of a wider ecosystem.</p>
                 </div>
-                <div class="phil-card">
-                    <div class="phil-icon">📞</div>
-                    <h3>Accountable After Handover</h3>
-                    <p>We answer the phone. Maintenance contracts, spare parts stocked, rapid response. We install it properly the first time.</p>
+                <div class="card">
+                    <div class="phil-icon">🛡️</div>
+                    <h3>Long-Term Accountability</h3>
+                    <p>We do not disappear after installation. We support maintenance, servicing, troubleshooting, upgrades, and the practical realities of operating security systems over time.</p>
                 </div>
-                <div class="phil-card">
-                    <div class="phil-icon">⚖️</div>
-                    <h3>Legal & Regulatory Clarity</h3>
-                    <p>Our founder's legal background means we understand compliance: PDPA, MAS TRM, BCA requirements, and SPF regulations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR APPROACH -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 56px;">
+                <span class="eyebrow">Our Approach</span>
+                <h2>How We Work</h2>
+                <p class="subtitle" style="margin: 0 auto;">Our work is guided by a simple philosophy: specify carefully, install properly, and support consistently.</p>
+            </div>
+            <div class="creds-grid">
+                <div class="card">
+                    <div class="cred-icon">1</div>
+                    <h3>Understand the Site</h3>
+                    <p>We begin by understanding the property, its vulnerabilities, traffic patterns, and operational needs.</p>
                 </div>
-                <div class="phil-card">
-                    <div class="phil-icon">💰</div>
-                    <h3>You Own Everything</h3>
-                    <p>No subscription lock-ins. No proprietary cloud you lose access to. Every system we install is fully owned by you.</p>
+                <div class="card">
+                    <div class="cred-icon">2</div>
+                    <h3>Design the Right System</h3>
+                    <p>We recommend the right level of security for the property, avoiding both under-specification and unnecessary complexity.</p>
                 </div>
-                <div class="phil-card">
-                    <div class="phil-icon">📍</div>
-                    <h3>Right-Sized for Your Property</h3>
-                    <p>A private home doesn't need an enterprise platform. We match the complexity and cost of the system to your genuinely needs.</p>
+                <div class="card">
+                    <div class="cred-icon">3</div>
+                    <h3>Implement with Care</h3>
+                    <p>We focus on proper execution, clean installation, reliable commissioning, and user readiness.</p>
                 </div>
+                <div class="card">
+                    <div class="cred-icon">4</div>
+                    <h3>Support for the Long Term</h3>
+                    <p>We remain available for servicing, upgrades, and improvements as your needs evolve.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE CAPABILITIES -->
+    <section class="bg-light">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 56px;">
+                <span class="eyebrow">Core Capabilities</span>
+                <h2>Security Solutions That Work Together</h2>
+                <p class="subtitle" style="margin: 0 auto;">Securevision provides integrated solutions across key areas of modern physical security.</p>
+            </div>
+            <div class="phil-grid grid-4" style="gap: 20px;">
+                <a href="surveillance-detection.html" class="card" style="text-decoration: none; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 160px; overflow: hidden;">
+                        <img src="images/cctv-guide-hero.png" alt="Surveillance & Detection" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 24px; flex-grow: 1;">
+                        <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--text-dark);">Surveillance & Detection</h3>
+                        <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);">AI-powered CCTV, video analytics, and intelligent monitoring for total premises visibility.</p>
+                    </div>
+                </a>
+                <a href="people-access-control.html" class="card" style="text-decoration: none; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 160px; overflow: hidden;">
+                        <img src="proprietary-assets/people-access-hero.png" alt="People Access Control" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 24px; flex-grow: 1;">
+                        <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--text-dark);">People Access Control</h3>
+                        <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);">Managing how people move through the property via facial recognition, cards, and mobile apps.</p>
+                    </div>
+                </a>
+                <a href="vehicle-access-control.html" class="card" style="text-decoration: none; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 160px; overflow: hidden;">
+                        <img src="proprietary-assets/vehicle-access-hero.png" alt="Vehicle Access Control" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 24px; flex-grow: 1;">
+                        <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--text-dark);">Vehicle Access Control</h3>
+                        <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);">Intelligent gantry systems and Licence Plate Recognition for seamless resident and visitor entry.</p>
+                    </div>
+                </a>
+                <a href="integrated-security-platform.html" class="card" style="text-decoration: none; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 160px; overflow: hidden;">
+                        <img src="images/comp-integration-v3.png" alt="Integrated Platform" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 24px; flex-grow: 1;">
+                        <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--text-dark);">Integrated Platform</h3>
+                        <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);">One dashboard to manage cameras, gates, intercoms, and alarms as a unified ecosystem.</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTORS WE SERVE -->
+    <section class="bg-light">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 56px;">
+                <span class="eyebrow">Who We Serve</span>
+                <h2>Solutions for Every Property Type</h2>
+                <p class="subtitle" style="margin: 0 auto;">Securevision provides specialised security architectures for various sectors across Singapore, ensuring compliance, safety, and operational efficiency.</p>
+            </div>
+            
+            <div class="phil-grid">
+                <a href="residential-security-singapore.html" class="card" style="text-decoration: none; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 180px; overflow: hidden;">
+                        <img src="images/solution-residential.png" alt="Private Homes" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 24px; flex-grow: 1;">
+                        <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--text-dark);">Private Homes</h3>
+                        <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);">Mobile control for landed properties &mdash; smart gates, CCTV, and intercoms in one hand.</p>
+                    </div>
+                </a>
+                <a href="condominiums.html" class="card" style="text-decoration: none; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 180px; overflow: hidden;">
+                        <img src="images/solution-condo.png" alt="Condominiums" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 24px; flex-grow: 1;">
+                        <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--text-dark);">Condominiums</h3>
+                        <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);">Digital visitor management and integrated security for estates of all sizes.</p>
+                    </div>
+                </a>
+                <a href="commercial-security-singapore.html" class="card" style="text-decoration: none; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 180px; overflow: hidden;">
+                        <img src="images/solution-commercial.png" alt="Commercial & Retail" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 24px; flex-grow: 1;">
+                        <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--text-dark);">Commercial & Retail</h3>
+                        <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);">Loss prevention, crowd monitoring, and AI analytics for business safety.</p>
+                    </div>
+                </a>
+                <a href="industrial-security-singapore.html" class="card" style="text-decoration: none; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 180px; overflow: hidden;">
+                        <img src="images/solution-industrial.png" alt="Industrial & Logistics" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 24px; flex-grow: 1;">
+                        <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--text-dark);">Industrial & Logistics</h3>
+                        <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);">Perimeter protection, ANPR gantry systems, and hazardous zone control.</p>
+                    </div>
+                </a>
+                <a href="government-institution-security-singapore.html" class="card" style="text-decoration: none; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 180px; overflow: hidden;">
+                        <img src="images/solution-institutions.png" alt="Institutions & Government" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 24px; flex-grow: 1;">
+                        <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--text-dark);">Institutions & Government</h3>
+                        <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);">Campus safety, smart attendance, and high-uptime diagnostic systems.</p>
+                    </div>
+                </a>
+                <a href="healthcare-security-singapore.html" class="card" style="text-decoration: none; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
+                    <div style="height: 180px; overflow: hidden;">
+                        <img src="images/solution-healthcare.png" alt="Healthcare & Managed Living" style="width: 100%; height: 100%; object-fit: cover;">
+                    </div>
+                    <div style="padding: 24px; flex-grow: 1;">
+                        <h3 style="font-size: 18px; margin-bottom: 8px; color: var(--text-dark);">Healthcare & Managed Living</h3>
+                        <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);">Elderly care monitoring, fall detection, and touchless staff identification.</p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- CREDENTIALS -->
-    <section class="bg-white">
+    <section class="bg-light">
         <div class="container">
-            <span class="eyebrow">Credentials</span>
-            <h2>Licensed, Certified, and Accountable</h2>
-            <p class="subtitle">Operating in Singapore's regulated security industry requires formal licensing. We hold every credential required.</p>
-            <div class="creds-grid">
-                <div class="cred-card">
+            <div class="section-header" style="text-align: center; margin-bottom: 56px;">
+                <span class="eyebrow">Credentials</span>
+                <h2>Licenced, Certified, and Accountable</h2>
+                <p class="subtitle" style="margin: 0 auto;">In security, trust is built not only on promises, but on competence, licencing, and the ability to deliver consistently.</p>
+            </div>
+            <div class="creds-grid centered-3" style="margin-top: 48px;">
+                <div class="card">
                     <div class="cred-icon">🛡️</div>
-                    <h3>Singapore Police Force</h3>
-                    <p><strong>Licence <span class="sv-licence">L/PS/000267/2023P</span></strong></p>
-                    <p>Licensed under the Private Security Industry Act. This licence is legally required to provide security systems installation services in Singapore.</p>
+                    <h3>Singapore Police Force Licence</h3>
+                    <p>Licenced under the Private Security Industry Act to provide security systems services in Singapore.</p>
                 </div>
-                <div class="cred-card">
+                <div class="card">
                     <div class="cred-icon">🏆</div>
                     <h3>bizSAFE Level 3</h3>
-                    <p><strong>Workplace Safety Certified</strong></p>
-                    <p>bizSAFE Level 3 certification demonstrates a robust Workplace Safety & Health management system required for institutional projects.</p>
+                    <p>Committed to workplace safety standards required for responsible project execution.</p>
                 </div>
-                <div class="cred-card">
+                <div class="card">
                     <div class="cred-icon">🏗️</div>
-                    <h3>BCA Registered Contractor</h3>
-                    <p><strong>Building & Construction Authority</strong></p>
-                    <p>Registration with Singapore's BCA confirms our technical competence for building-integrated security systems.</p>
+                    <h3>BCA Registered</h3>
+                    <p>Recognised for competence in building-related works and project delivery.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BRAND PARTNERSHIPS -->
-    <section class="bg-light">
+    <!-- TECHNOLOGY PARTNERS -->
+    <section class="bg-white">
         <div class="container">
-            <div class="brands-intro-grid">
-                <div class="brands-philosophy">
-                    <span class="eyebrow">Brand Partnerships</span>
-                    <h2>Why We're Selective About our Brands</h2>
-                    <p>We carry 20 brands across five system categories. Every brand we list is one we've evaluated, installed at scale, and are prepared to maintain and warrant.</p>
-                    <p>We don't carry brands because of margin. We carry brands because we can stand behind them when a client calls at 11pm.</p>
-                    <div class="grid-3 mt-48">
-                        <div class="card bg-white" style="padding: 24px; border-radius: 12px; border: 1px solid var(--border-light);">
-                            <div style="font-size: 24px; margin-bottom: 8px;">🔑</div>
-                            <h4 style="font-size: 14px;">Authorised Status</h4>
-                            <p style="font-size: 12px;">Formal manufacturer authorisation ensures technical support and genuine parts.</p>
-                        </div>
-                        <div class="card bg-white" style="padding: 24px; border-radius: 12px; border: 1px solid var(--border-light);">
-                            <div style="font-size: 24px; margin-bottom: 8px;">🔧</div>
-                            <h4 style="font-size: 14px;">Spare Parts</h4>
-                            <p style="font-size: 12px;">We hold local spare parts for faster repairs and no waiting for freight.</p>
-                        </div>
-                        <div class="card bg-white" style="padding: 24px; border-radius: 12px; border: 1px solid var(--border-light);">
-                            <div style="font-size: 24px; margin-bottom: 8px;">📋</div>
-                            <h4 style="font-size: 14px;">Full Warranty</h4>
-                            <p style="font-size: 12px;">Installations come with full manufacturer warranty via authorised channels.</p>
+            <div class="section-header" style="text-align: center; margin-bottom: 56px;">
+                <span class="eyebrow">Expertise Built on Trust</span>
+                <h2>Technology We Trust</h2>
+                <p class="subtitle" style="margin: 0 auto; max-width: 800px;">We work with carefully selected technology partners whose products we know, deploy, and support with confidence.</p>
+            </div>
+            
+            <div class="brand-grid-special">
+                <!-- CCTV -->
+                <div class="brand-card bc-r1">
+                    <div class="bc-img">
+                        <img src="images/cctv-guide-hero.png" alt="CCTV & Analytics">
+                    </div>
+                    <div class="bc-content">
+                        <h3>CCTV & Analytics</h3>
+                        <div class="brand-link-list">
+                            <a href="hikvision-singapore.html" class="brand-link">Hikvision</a>
+                            <a href="hanwha-samsung-singapore.html" class="brand-link">Hanwha Vision</a>
+                            <a href="uniview-singapore.html" class="brand-link">Uniview</a>
+                            <a href="milesight-singapore.html" class="brand-link">Milesight</a>
                         </div>
                     </div>
                 </div>
-                <div class="brand-cats">
-                    <div class="brand-cat">
-                        <div class="brand-cat-hdr">
-                            <span class="bc-icon">🎬</span>
-                            <span class="bc-label">Surveillance & CCTV</span>
-                        </div>
-                        <div class="brand-chips">
-                            <a href="hikvision-singapore.html" class="brand-chip">Hikvision</a>
-                            <a href="hanwha-samsung-singapore.html" class="brand-chip">Hanwha Vision</a>
-                            <a href="uniview-singapore.html" class="brand-chip">Uniview</a>
-                            <a href="milesight-singapore.html" class="brand-chip">Milesight</a>
+                <!-- Access -->
+                <div class="brand-card bc-r1">
+                    <div class="bc-img">
+                        <img src="images/access-control-guide-hero.png" alt="Access Control">
+                    </div>
+                    <div class="bc-content">
+                        <h3>Access Control</h3>
+                        <div class="brand-link-list">
+                            <a href="zkteco-singapore.html" class="brand-link">ZKTeco</a>
+                            <a href="suprema-singapore.html" class="brand-link">Suprema</a>
+                            <a href="hid-global-access-singapore.html" class="brand-link">HID Global</a>
+                            <a href="entrypass-singapore.html" class="brand-link">EntryPass</a>
                         </div>
                     </div>
-                    <div class="brand-cat">
-                        <div class="brand-cat-hdr">
-                            <span class="bc-icon">🔔</span>
-                            <span class="bc-label">Alarm Systems</span>
-                        </div>
-                        <div class="brand-chips">
-                            <a href="ajax-alarm-singapore.html" class="brand-chip">AJAX</a>
-                            <a href="risco-alarm-singapore.html" class="brand-chip">RISCO</a>
-                            <a href="paradox-alarm-singapore.html" class="brand-chip">Paradox</a>
-                            <a href="dsc-alarm-singapore.html" class="brand-chip">DSC</a>
-                            <a href="ge-caddx-alarm-singapore.html" class="brand-chip">GE Caddx</a>
+                </div>
+                <!-- Intercom -->
+                <div class="brand-card bc-r1">
+                    <div class="bc-img">
+                        <img src="images/intercom-guide-hero.png" alt="Intercom Systems">
+                    </div>
+                    <div class="bc-content">
+                        <h3>Intercom</h3>
+                        <div class="brand-link-list">
+                            <a href="akuvox-singapore.html" class="brand-link">Akuvox</a>
+                            <a href="aiphone-singapore.html" class="brand-link">Aiphone</a>
+                            <a href="kocom-singapore.html" class="brand-link">Kocom</a>
                         </div>
                     </div>
-                    <div class="brand-cat">
-                        <div class="brand-cat-hdr">
-                            <span class="bc-icon">👆</span>
-                            <span class="bc-label">Access Control</span>
-                        </div>
-                        <div class="brand-chips">
-                            <a href="zkteco-singapore.html" class="brand-chip">ZKTeco</a>
-                            <a href="suprema-singapore.html" class="brand-chip">Suprema</a>
-                            <a href="hid-global-access-singapore.html" class="brand-chip">HID Global</a>
-                            <a href="entrypass-singapore.html" class="brand-chip">EntryPass</a>
-                            <a href="microengine-singapore.html" class="brand-chip">MicroEngine</a>
+                </div>
+                <!-- Alarms -->
+                <div class="brand-card bc-r2">
+                    <div class="bc-img">
+                        <img src="images/alarm-guide-hero.png" alt="Alarm Systems">
+                    </div>
+                    <div class="bc-content">
+                        <h3>Alarm Systems</h3>
+                        <div class="brand-link-list">
+                            <a href="ajax-alarm-singapore.html" class="brand-link">AJAX</a>
+                            <a href="risco-alarm-singapore.html" class="brand-link">RISCO</a>
+                            <a href="paradox-alarm-singapore.html" class="brand-link">Paradox</a>
+                            <a href="dsc-alarm-singapore.html" class="brand-link">DSC</a>
                         </div>
                     </div>
-                    <div class="brand-cat">
-                        <div class="brand-cat-hdr">
-                            <span class="bc-icon">📞</span>
-                            <span class="bc-label">Intercom</span>
-                        </div>
-                        <div class="brand-chips">
-                            <a href="akuvox-singapore.html" class="brand-chip">Akuvox</a>
-                            <a href="aiphone-singapore.html" class="brand-chip">Aiphone</a>
-                            <a href="kocom-singapore.html" class="brand-chip">Kocom</a>
-                        </div>
+                </div>
+                <!-- Gates -->
+                <div class="brand-card bc-r2">
+                    <div class="bc-img">
+                        <img src="images/autogate-guide-hero.png" alt="Gates & Barriers">
                     </div>
-                    <div class="brand-cat">
-                        <div class="brand-cat-hdr">
-                            <span class="bc-icon">🚧</span>
-                            <span class="bc-label">Gates & Barriers</span>
-                        </div>
-                        <div class="brand-chips">
-                            <a href="faac-singapore.html" class="brand-chip">FAAC</a>
-                            <a href="mag-gates-singapore.html" class="brand-chip">MAG</a>
-                            <a href="dormer-auto-gate-singapore.html" class="brand-chip">Dormer</a>
+                    <div class="bc-content">
+                        <h3>Gates & Barriers</h3>
+                        <div class="brand-link-list">
+                            <a href="faac-singapore.html" class="brand-link">FAAC</a>
+                            <a href="mag-gates-singapore.html" class="brand-link">MAG</a>
+                            <a href="dormer-auto-gate-singapore.html" class="brand-link">Dormer</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div style="text-align:center;margin-top:24px">
-                <a href="security-brands-singapore.html" class="btn btn-primary">View All 20 Brands &rarr;</a>
+            
+            <div style="text-align: center; margin-top: 48px;">
+                <a href="security-brands-singapore.html" class="btn btn-outline" style="border-color: var(--primary); color: var(--primary);">View All 20 Technology Partners →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECT PROOF -->
+    <section id="proof" class="bg-light">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 56px;">
+                <span class="eyebrow">Selected Work</span>
+                <h2>From Standalone Systems to Smarter Environments</h2>
+                <p class="subtitle" style="margin: 0 auto; max-width: 900px;">Over the years, we have supported projects across condominiums, public-facing spaces, commercial premises, and industrial environments. Each project is approached with the same commitment to proper design, practical operation, and long-term support.</p>
+            </div>
+            <div class="phil-grid">
+                <div class="card" style="padding: 0; overflow: hidden; border: 1px solid var(--border);">
+                    <img src="images/portfolio-lviv.png" alt="The L'viv Smart Intercom Upgrade" style="height: 200px; width: 100%; object-fit: cover;">
+                    <div style="padding: 24px;">
+                        <h4 style="margin-bottom: 8px;">The L'viv &ndash; Smart Intercom Upgrade</h4>
+                        <p style="font-size: 13px; color: var(--text-light);">Modernising residential entry with Akuvox cloud-based intercoms.</p>
+                    </div>
+                </div>
+                <div class="card" style="padding: 0; overflow: hidden; border: 1px solid var(--border);">
+                    <img src="images/portfolio-scape.png" alt="SCAPE Building CCTV and Analytics" style="height: 200px; width: 100%; object-fit: cover;">
+                    <div style="padding: 24px;">
+                        <h4 style="margin-bottom: 8px;">SCAPE &ndash; CCTV with Analytics</h4>
+                        <p style="font-size: 13px; color: var(--text-light);">Wide-area surveillance and crowd analytics for public youth spaces.</p>
+                    </div>
+                </div>
+                <div class="card" style="padding: 0; overflow: hidden; border: 1px solid var(--border);">
+                    <img src="images/portfolio-light-cairnhill.png" alt="Light@Cairnhill Modernization" style="height: 200px; width: 100%; object-fit: cover;">
+                    <div style="padding: 24px;">
+                        <h4 style="margin-bottom: 8px;">Light@Cairnhill &ndash; Residential Modernisation</h4>
+                        <p style="font-size: 13px; color: var(--text-light);">Complete security refresh for high-end residential towers.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- FINAL CTA -->
-    <section class="cta-section" style="background: linear-gradient(rgba(14, 26, 43, 0.8), rgba(14, 26, 43, 0.9)), url('images/cta-singapore-skyline.png'); background-size: cover;">
-        <div class="container text-center">
-            <h2 style="color: #fff;">19 Years. 2,000+ Sites. Still Answering the Phone.</h2>
-            <p style="color: rgba(255,255,255,0.9); margin-bottom: 48px;">If you want a security system designed by engineers, installed by licensed specialists, and supported for the long term &mdash; let's talk.</p>
-            <div class="btn-group" style="justify-content: center;">
-                <a href="https://wa.me/6593860466" class="btn btn-whatsapp">💬 WhatsApp Us Now</a>
-                <a href="contact.html" class="btn btn-primary">Book a Site Assessment</a>
-                <a href="portfolio.html" class="btn btn-outline-light">View Our Work</a>
+    <section class="bg-white" style="padding: 0; overflow: hidden; min-height: 100vh; display: flex; align-items: stretch;">
+        <div style="width: 100%; display: grid; grid-template-columns: 1fr 1.1fr; align-items: stretch; gap: 0; background: var(--bg-light);">
+            <div style="padding: 100px 10%; display: flex; flex-direction: column; justify-content: center;">
+                <div style="max-width: 600px;">
+                    <span class="eyebrow">A Partner You Can Rely On</span>
+                    <h2 style="font-size: clamp(32px, 4vw, 44px); margin-bottom: 24px;">Looking for a Security Partner with Engineer-Led Thinking?</h2>
+                    <p style="font-size: 18px; line-height: 1.8; color: var(--text-gray); margin-bottom: 40px;">Professional security isn't about buying devices — it's about building an environment that protects and supports your operations. Whether you're upgrading an ageing system or planning a new installation, our team is ready to help from design to long-term support.</p>
+                    <div class="btn-group" style="justify-content: flex-start; gap: 20px;">
+                        <a href="contact.html" class="btn btn-primary" style="min-width: 240px; padding: 18px 32px;">Book a Site Assessment</a>
+                        <a href="https://wa.me/6593860466" class="btn btn-whatsapp" style="min-width: 240px; padding: 18px 32px;">💬 WhatsApp Our Team</a>
+                    </div>
+                </div>
+            </div>
+            <div style="position: relative; overflow: hidden;">
+                <img src="images/securevision-team-cta.png" alt="Securevision Team" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
             </div>
         </div>
     </section>
@@ -490,7 +765,7 @@
                 <h4>Company</h4>
                 <ul>
                     <li><a href="about.html">Our Story</a></li>
-                    <li><a href="awards-certifications.html">Awards &amp; Certs</a></li>
+                    
                     <li><a href="security-brands-singapore.html"><strong>Technology Partners</strong></a></li>
                     <li><a href="portfolio.html">Project Portfolio</a></li>
                     <li><a href="security-articles-singapore.html">Insights</a></li>
@@ -516,7 +791,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 Securevision Pte Ltd &middot; Police Licence <span class="sv-licence">L/PS/000267/2023P</span> &middot; bizSAFE Level 3 &middot; BCA Registered</p>
+            <p>&copy; <span class="sv-current-year">2026</span> Securevision Pte Ltd &middot; Police Licence <span class="sv-licence">L/PS/000267/2023P</span> &middot; bizSAFE Level 3 &middot; BCA Registered</p>
             <div class="footer-bottom-links">
                 <a href="sitemap.html">Sitemap</a>
                 <a href="privacy.html">Privacy Policy</a>
@@ -530,20 +805,47 @@
 
 
 <script>
+// Mobile Navigation Toggle
 function toggleMobileMenu() {
   const menu = document.getElementById('mobileMenu');
   if (menu) menu.classList.toggle('active');
 }
 
-function toggleSubmenu(id) {
-  const sub = document.getElementById(id);
-  if (sub) {
-    const isActive = sub.classList.contains('active');
-    document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
-    if (!isActive) sub.classList.add('active');
-  }
-}
+// Global Dynamic Hydration (Sync with site-config.js)
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof SECUREVISION !== 'undefined') {
+        const SV = SECUREVISION;
+        document.querySelectorAll('.sv-licence').forEach(el => el.textContent = SV.licenceNumber);
+        document.querySelectorAll('.sv-years-business').forEach(el => el.textContent = SV.yearsInBusiness);
+        document.querySelectorAll('.sv-years-experience').forEach(el => el.textContent = SV.yearsExperience);
+        document.querySelectorAll('.sv-sites').forEach(el => el.textContent = SV.siteDisplay);
+        document.querySelectorAll('.sv-founded-year').forEach(el => el.textContent = SV.foundedYear);
+        document.querySelectorAll('.sv-current-year').forEach(el => el.textContent = new Date().getFullYear());
+        
+        // Contact Links Sync
+        document.querySelectorAll('a[href^="https://wa.me/"]').forEach(link => link.href = "https://wa.me/" + SV.whatsapp);
+        document.querySelectorAll('a[href^="mailto:"]').forEach(link => link.href = "mailto:" + SV.email);
+    }
 
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.main-nav');
+        if (nav && window.scrollY > 20) {
+            nav.classList.add('scrolled');
+        } else if (nav) {
+            nav.classList.remove('scrolled');
+        }
+    });
+
+    // Auto-highlight active nav link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.href === window.location.href || link.href.split('/').pop() === window.location.pathname.split('/').pop()) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// Close mobile menu on clicking outside
 document.addEventListener('click', function (e) {
   const nav = document.querySelector('.main-nav');
   const menu = document.getElementById('mobileMenu');
@@ -551,33 +853,9 @@ document.addEventListener('click', function (e) {
     menu.classList.remove('active');
   }
 });
-
-// Header scroll effect
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('.main-nav');
-  const logo = document.querySelector('.nav-logo-img');
-  if (nav && logo) {
-    if (window.scrollY > 20) {
-      nav.classList.add('scrolled');
-      logo.src = 'images/securevision-logo-blue.png';
-    } else {
-      nav.classList.remove('scrolled');
-      logo.src = 'images/securevision-logo-white.png';
-    }
-  }
-});
-
-// Auto-highlight active nav link
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.href === window.location.href || link.href.split('/').pop() === window.location.pathname.split('/').pop()) {
-    link.classList.add('active');
-  }
-});
-
-// Current Year
-const yearSpan = document.querySelector('.current-year');
-if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
+
+
 
