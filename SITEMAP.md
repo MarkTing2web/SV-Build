@@ -369,6 +369,7 @@ SECUREVISION.COM.SG
 | | Cyrus Tech Park | industrial-security-cyrus-tech-park-singapore.html | Via portfolio.html |
 | **Insights** | Insights Hub | security-articles-singapore.html | INSIGHTS |
 | | Resources | resources.html | Via insights |
+| | Security System Refresh | insights-security-system-refresh.html | Resources / Insights |
 | | CCTV Guide | cctv.html | Resources / Insights |
 | | Burglar Alarm | burglar-alarm.html | Resources / Insights |
 | | Door Access Guide | door-access.html | Resources / Insights |
