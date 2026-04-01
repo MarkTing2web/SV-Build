@@ -16,6 +16,7 @@
         .hero-insights {
             background: linear-gradient(rgba(14, 26, 43, 0.85), rgba(14, 26, 43, 0.85)), url('images/Expert Security Solutions For Every Property Type.png');
             background-size: cover; background-position: center;
+            padding: 140px 0 80px;
         }
         
         /* Featured Card */
@@ -23,10 +24,14 @@
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 16px;
-            padding: 40px;
+            padding: 60px;
             margin-top: 48px;
             text-align: left;
             backdrop-filter: blur(10px);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
         }
         .featured-tag {
             display: inline-block;
@@ -40,53 +45,57 @@
             letter-spacing: 1px;
             margin-bottom: 16px;
         }
-        .featured-article h2 { font-size: 28px; margin-bottom: 16px; color: #fff; }
-        .featured-article p { font-size: 16px; color: rgba(255,255,255,0.7); margin-bottom: 24px; }
+        .featured-article h2 { font-size: 32px; margin-bottom: 20px; color: #fff; line-height: 1.2; font-family: 'Montserrat', sans-serif; }
+        .featured-article p { font-size: 1.1rem; color: rgba(255,255,255,0.85); margin-bottom: 30px; line-height: 1.6; }
+        .featured-article .btn { display: inline-block; padding: 15px 30px; }
+        
+        @media (max-width: 992px) {
+            .featured-article { grid-template-columns: 1fr; padding: 40px; }
+        }
         
         /* Filter Pills */
-        .filter-bar { background: #fff; border-bottom: 1px solid var(--border-light); padding: 20px 0; position: sticky; top: 68px; z-index: 100; }
+        .filter-bar { background: #fff; border-bottom: 1px solid var(--border-light); padding: 24px 0; position: sticky; top: 68px; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.02); }
         .pill-group { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
         .pill {
-            padding: 8px 18px; border-radius: 25px; border: 1.5px solid var(--border-light);
-            background: #fff; color: var(--text-gray); font-size: 13px; font-weight: 600;
-            cursor: pointer; transition: 0.25s;
+            padding: 10px 22px; border-radius: 25px; border: 1.5px solid #e2e8f0;
+            background: #fff; color: #64748b; font-size: 14px; font-weight: 600;
+            cursor: pointer; transition: 0.25s; text-decoration: none;
         }
         .pill:hover { border-color: var(--primary-blue); color: var(--primary-blue); }
         .pill.active { background: var(--primary-blue); color: #fff; border-color: var(--primary-blue); }
 
         /* Articles Grid */
-        .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; padding: 64px 0; }
+        .articles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 80px 0; }
         .article-card {
-            background: #fff; border: 1px solid var(--border-light); border-radius: 12px;
+            background: #fff; border: 1px solid #e2e8f0; border-radius: 12px;
             overflow: hidden; transition: 0.3s; display: flex; flex-direction: column;
             text-decoration: none; color: inherit;
         }
-        .article-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
+        .article-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-color: var(--primary-blue); }
         .ac-image {
-            aspect-ratio: 16/9; background: var(--bg-light); display: flex;
-            align-items: center; justify-content: center; font-size: 40px;
+            aspect-ratio: 16/9; background: #f8fafc; overflow: hidden;
         }
-        .ac-content { padding: 24px; flex: 1; display: flex; flex-direction: column; }
-        .ac-cat { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--primary-blue); margin-bottom: 8px; }
-        .ac-title { font-size: 18px; font-weight: 700; margin-bottom: 12px; line-height: 1.4; color: var(--text-dark); }
-        .ac-excerpt { font-size: 14px; color: var(--text-light); line-height: 1.6; margin-bottom: 20px; flex: 1; }
-        .ac-footer { border-top: 1px solid var(--border-light); padding-top: 16px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--text-light); }
+        .ac-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+        .article-card:hover .ac-image img { transform: scale(1.05); }
+        .ac-content { padding: 30px; flex: 1; display: flex; flex-direction: column; }
+        .ac-cat { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary-blue); margin-bottom: 12px; }
+        .ac-title { font-size: 20px; font-weight: 700; margin-bottom: 16px; line-height: 1.4; color: #1e293b; font-family: 'Montserrat', sans-serif; }
+        .ac-excerpt { font-size: 15px; color: #64748b; line-height: 1.6; margin-bottom: 24px; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .ac-footer { border-top: 1px solid #f1f5f9; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: #94a3b8; font-weight: 600; }
         
-        @media (max-width: 992px) { .articles-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 992px) { .articles-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; } }
         @media (max-width: 600px) { .articles-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
+
 <nav class="main-nav">
 <div class="nav-container">
-  <!-- Logo + Wordmark — always left -->
   <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
     <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
     <span class="wordmark nav-wordmark">SECUREVISION</span>
   </a>
-  <!-- Hamburger — centred absolutely on mobile (via CSS) -->
   <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
-  <!-- Desktop nav links -->
   <ul class="nav-menu">
     <li class="nav-item"><a href="security-solutions-singapore.html" class="nav-link has-dropdown">Solutions</a>
       <div class="simple-dropdown">
@@ -130,7 +139,7 @@
         <a href="resources.html"><strong>&rarr; All Resources</strong></a>
       </div>
     </li>
-    <li class="nav-item"><a href="security-articles-singapore.html" class="nav-link">Insights</a></li>
+    <li class="nav-item"><a href="security-articles-singapore.html" class="nav-link active">Insights</a></li>
     <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
       <div class="simple-dropdown">
         <a href="about.html">Our Story</a>
@@ -140,12 +149,9 @@
       </div>
     </li>
   </ul>
-  <!-- Desktop search icon -->
   <div class="nav-right">
     <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
   </div>
-  <!-- Mobile search icon — always right end on mobile -->
-  <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
 </div>
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="security-solutions-singapore.html"><strong>&rarr; View All Solutions</strong></a><a href="residential-security-singapore.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a href="commercial-security-singapore.html">Commercial &amp; Retail</a><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a><a href="government-institution-security-singapore.html">Institutions &amp; Government</a><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></div></div>
@@ -168,43 +174,290 @@
   <a href="security-articles-singapore.html" class="mobile-menu-item">Insights</a>
   <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; About Securevision</strong></a><a href="about.html#founder">Founder&rsquo;s Story</a><a href="awards-certifications.html">Awards</a><a href="contact.html">Contact Us</a></div></div>
 </div>
-</nav><header class="hero hero-insights">
-        <div class="hero-overlay"></div>
-        <div class="container z-2">
-            <span class="eyebrow-light">Security Intelligence</span>
-            <h1>Knowledge for <em>Smarter Operations</em></h1>
-            <p class="subtitle">Practical guides on security planning, technology, and case studies &mdash; written by engineers who install these systems every day.</p>
-            
-            <h2 style="color: #fff;">Need a Custom Security Assessment?</h2>
-            <p class="subtitle" style="color: #fff; opacity: 0.9; margin-bottom: 48px;">Our engineers provide honest, expert advice without the sales pressure. Let's discuss your property's unique needs.</p>
-            <div class="btn-group" style="justify-content: center;">
-                <a href="contact.html" class="btn btn-primary">Book a Site Assessment</a>
-                <a href="https://wa.me/6593860466" class="btn btn-whatsapp">💬 WhatsApp Us Now</a>
+</nav>
+
+<header class="hero-insights">
+    <div class="container">
+        <div style="max-width: 850px; text-align: center; margin: 0 auto;">
+            <span class="eyebrow" style="color: #63b3ed; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 20px;">Security Intelligence</span>
+            <h1 style="color: #fff; font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 25px; line-height: 1.2; font-family: 'Montserrat', sans-serif;">Knowledge for <em>Smarter Operations</em></h1>
+            <p style="color: #e2e8f0; font-size: 1.2rem; line-height: 1.8; margin-bottom: 40px; opacity: 0.9;">Practical guides on security planning, technology, and industry standards &mdash; written by engineers for property owners and facilities managers in Singapore.</p>
+        </div>
+
+        <div class="featured-article">
+            <div class="fa-image">
+                <img src="images/how-ip-cctv-works-cover.jpg" alt="Featured Article" style="width: 100%; border-radius: 12px; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+            </div>
+            <div class="fa-content">
+                <span class="featured-tag">Technology & AI</span>
+                <h2>How an IP CCTV Network Actually Works</h2>
+                <p>Between the camera lens and the recorded footage, six components are working together in real time. Understanding each one is what lets you spot a poorly specified system before it is installed.</p>
+                <a href="insights-how-ip-cctv-works.html" class="btn btn-primary">Read the full guide &rarr;</a>
             </div>
         </div>
-    </section>
+    </div>
+</header>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-    <div class="footer-container">
+<div class="filter-bar">
+    <div class="container">
+        <div class="pill-group">
+            <a href="#" class="pill active">All Insights</a>
+            <a href="#" class="pill">Technology & AI</a>
+            <a href="#" class="pill">Security Planning</a>
+            <a href="#" class="pill">Compliance & Regulations</a>
+            <a href="#" class="pill">Maintenance</a>
+        </div>
+    </div>
+</div>
+
+<main class="container">
+    <div class="articles-grid">
+        <!-- New Article 17 -->
+        <a href="insights-why-mechanical-locks-not-enough.html" class="article-card">
+            <div class="ac-image"><img src="images/mechanical-locks-cover.jpg" alt="Why Mechanical Locks Are Not Enough"></div>
+            <div class="ac-content">
+                <span class="ac-cat">Singapore Industry</span>
+                <h3 class="ac-title">Why Mechanical Locks Are Not Enough</h3>
+                <p class="ac-excerpt">Most homes and offices in Singapore still rely on a technology invented in ancient Egypt. Understand exactly how mechanical locks fail — and how quickly.</p>
+                <div class="ac-footer">
+                    <span>November 2025</span>
+                    <span>6 min read</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- New Article 18 -->
+        <a href="insights-choose-intercom-for-home.html" class="article-card">
+            <div class="ac-image"><img src="images/home-intercom-cover.jpg" alt="How to Choose an Intercom for Your Home"></div>
+            <div class="ac-content">
+                <span class="ac-cat">Security Planning</span>
+                <h3 class="ac-title">How to Choose an Intercom for Your Home</h3>
+                <p class="ac-excerpt">An intercom is the first point of contact between your home and the outside world. Getting the specification right means understanding six critical decisions.</p>
+                <div class="ac-footer">
+                    <span>November 2025</span>
+                    <span>7 min read</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- New Article 19 -->
+        <a href="insights-how-intercom-systems-work.html" class="article-card">
+            <div class="ac-image"><img src="images/how-intercom-works-cover.jpg" alt="How Intercom Systems Work"></div>
+            <div class="ac-content">
+                <span class="ac-cat">Technology & AI</span>
+                <h3 class="ac-title">How Intercom Systems Work</h3>
+                <p class="ac-excerpt">Intercom systems have evolved from simple two-wire audio handsets to cloud-connected IP devices. Understanding the architecture explains why some age well.</p>
+                <div class="ac-footer">
+                    <span>December 2025</span>
+                    <span>6 min read</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- New Article 13 -->
+        <a href="insights-using-your-burglar-alarm.html" class="article-card">
+            <div class="ac-image"><img src="images/using-alarm-cover.jpg" alt="How to Use Your Burglar Alarm Correctly"></div>
+            <div class="ac-content">
+                <span class="ac-cat">Security Planning</span>
+                <h3 class="ac-title">How to Use Your Burglar Alarm Correctly</h3>
+                <p class="ac-excerpt">Most alarm systems in Singapore are set up correctly and used incorrectly. Learn the difference between full and partial arming, and how to manage delays.</p>
+                <div class="ac-footer">
+                    <span>September 2025</span>
+                    <span>6 min read</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- New Article 14 -->
+        <a href="insights-reduce-false-alarms.html" class="article-card">
+            <div class="ac-image"><img src="images/reduce-false-alarm-cover.jpg" alt="How to Reduce False Alarms"></div>
+            <div class="ac-content">
+                <span class="ac-cat">Security Planning</span>
+                <h3 class="ac-title">How to Reduce False Alarms</h3>
+                <p class="ac-excerpt">Around 80% of burglar alarm activations in Singapore are false alarms. Learn how to eliminate each cause systematically, from user error to environment.</p>
+                <div class="ac-footer">
+                    <span>September 2025</span>
+                    <span>6 min read</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- New Article 15 -->
+        <a href="insights-maintain-burglar-alarm.html" class="article-card">
+            <div class="ac-image"><img src="images/alarm-maintenance-cover.jpg" alt="How to Maintain Your Burglar Alarm System"></div>
+            <div class="ac-content">
+                <span class="ac-cat">Security Planning</span>
+                <h3 class="ac-title">How to Maintain Your Burglar Alarm System</h3>
+                <p class="ac-excerpt">An alarm system that has never been tested is an alarm system you cannot rely on. Simple monthly and annual checks to keep your system in peak condition.</p>
+                <div class="ac-footer">
+                    <span>October 2025</span>
+                    <span>5 min read</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- New Article 16 -->
+        <a href="insights-standalone-door-access.html" class="article-card">
+            <div class="ac-image"><img src="images/standalone-door-access-cover.jpg" alt="How to Choose a Standalone Door Access System"></div>
+            <div class="ac-content">
+                <span class="ac-cat">Security Planning</span>
+                <h3 class="ac-title">How to Choose a Standalone Door Access System</h3>
+                <p class="ac-excerpt">A single door access system looks like a simple purchase. It is not. Decisions you make at installation determine its manageability years later.</p>
+                <div class="ac-footer">
+                    <span>October 2025</span>
+                    <span>6 min read</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Article 10 -->
+        <a href="insights-rackmount-nvr.html" class="article-card">
+            <div class="ac-image"><img src="images/rackmount-nvr-cover.jpg" alt="5 Reasons to Rack-Mount Your NVRs"></div>
+            <div class="ac-content">
+                <span class="ac-cat">Technology & AI</span>
+                <h3 class="ac-title">5 Reasons to Rack-Mount Your NVRs</h3>
+                <p class="ac-excerpt">Most NVRs in Singapore sit on a desk or a shelf. Most of those will be tampered with, overheat, or fail before their time. A rack-mounted NVR avoids all three.</p>
+                <div class="ac-footer">
+                    <span>July 2025</span>
+                    <span>5 min read</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- New Article 11 -->
+        <a href="insights-how-burglar-alarm-works.html" class="article-card">
+            <div class="ac-image"><img src="images/how-alarm-works-cover.jpg" alt="How Your Burglar Alarm Actually Works"></div>
+            <div class="ac-content">
+                <span class="ac-cat">Technology & AI</span>
+                <h3 class="ac-title">How Your Burglar Alarm Actually Works</h3>
+                <p class="ac-excerpt">A controller, keypads, detectors, and communication paths. Understanding each component separates a confident owner from one who ignores their system.</p>
+                <div class="ac-footer">
+                    <span>August 2025</span>
+                    <span>6 min read</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- New Article 12 -->
+        <a href="insights-burglar-alarm-detectors-sensors.html" class="article-card">
+            <div class="ac-image"><img src="images/alarm-detectors-cover.jpg" alt="Know Your Burglar Alarm Detectors and Sensors"></div>
+            <div class="ac-content">
+                <span class="ac-cat">Technology & AI</span>
+                <h3 class="ac-title">Know Your Burglar Alarm Detectors and Sensors</h3>
+                <p class="ac-excerpt">Specifying the wrong type for the location is the most common cause of persistent false alarms. Learn which sensors work where and why.</p>
+                <div class="ac-footer">
+                    <span>August 2025</span>
+                    <span>7 min read</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Existing: How to Choose CCTV -->
+        <a href="insights-how-to-choose-cctv.html" class="article-card">
+            <div class="ac-image"><img src="images/insight-how-to-choose-cctv-cover.jpg" alt="How to Choose the Right CCTV System"></div>
+            <div class="ac-content">
+                <span class="ac-cat">Security Planning</span>
+                <h3 class="ac-title">How to Choose the Right CCTV System</h3>
+                <p class="ac-excerpt">A practical guide to resolution, storage, and lens selection for Singapore commercial properties and private homes.</p>
+                <div class="ac-footer">
+                    <span>June 2025</span>
+                    <span>9 min read</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Existing: Multi-Door Access -->
+        <a href="insights-how-to-choose-multi-door-access.html" class="article-card">
+            <div class="ac-image"><img src="images/insight-how-to-choose-multi-door-access-cover.jpg" alt="How to Choose a Multi-Door Access System"></div>
+            <div class="ac-content">
+                <span class="ac-cat">Security Planning</span>
+                <h3 class="ac-title">How to Choose a Multi-Door Access System</h3>
+                <p class="ac-excerpt">Comparison of controller-based vs standalone systems for multi-tenanted buildings and corporate offices.</p>
+                <div class="ac-footer">
+                    <span>May 2025</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Existing: Card Access Works -->
+        <a href="insights-how-card-access-works.html" class="article-card">
+            <div class="ac-image"><img src="images/insight-how-card-access-works-cover.jpg" alt="How Card Access Systems Actually Work"></div>
+            <div class="ac-content">
+                <span class="ac-cat">Technology & AI</span>
+                <h3 class="ac-title">How Card Access Systems Actually Work</h3>
+                <p class="ac-excerpt">From Wiegand to OSDP. A technical look at how credentials talk to readers and how boards make decisions.</p>
+                <div class="ac-footer">
+                    <span>May 2025</span>
+                    <span>7 min read</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Existing: Burglar Alarm Design -->
+        <a href="insights-burglar-alarm-design.html" class="article-card">
+            <div class="ac-image"><img src="images/insight-burglar-alarm-design-cover.jpg" alt="Understanding Burglar Alarm System Design"></div>
+            <div class="ac-content">
+                <span class="ac-cat">Security Planning</span>
+                <h3 class="ac-title">Understanding Your Burglar Alarm System Design</h3>
+                <p class="ac-excerpt">Zone partitioning, entry/exit delays, and the importance of redundant communication paths.</p>
+                <div class="ac-footer">
+                    <span>April 2025</span>
+                    <span>7 min read</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Existing: 10 Tips -->
+        <a href="insights-10-tips-securing-your-premises.html" class="article-card">
+            <div class="ac-image"><img src="images/insight-10-tips-cover.jpg" alt="10 Tips for Securing Your Premises"></div>
+            <div class="ac-content">
+                <span class="ac-cat">Compliance & Regulations</span>
+                <h3 class="ac-title">10 Tips for Securing Your Premises in Singapore</h3>
+                <p class="ac-excerpt">A checklist for facility managers to audit their physical security and system performance.</p>
+                <div class="ac-footer">
+                    <span>March 2025</span>
+                    <span>6 min read</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Existing: Intercom Upgrade -->
+        <a href="insights-upgrade-condo-intercom.html" class="article-card">
+            <div class="ac-image"><img src="images/insight-upgrade-condo-intercom-cover.jpg" alt="When to Upgrade Your Condo Intercom"></div>
+            <div class="ac-content">
+                <span class="ac-cat">Maintenance</span>
+                <h3 class="ac-title">When Should Your Condo Upgrade Its Intercom System?</h3>
+                <p class="ac-excerpt">Recognize the signs of catastrophic failure before it happens. Modern IP intercom benefits for MCSTs.</p>
+                <div class="ac-footer">
+                    <span>February 2025</span>
+                    <span>8 min read</span>
+                </div>
+            </div>
+        </a>
+    </div>
+</main>
+
+<section class="cta-sec-final" style="padding: 100px 0; background: #0e1a2b; color: #fff; text-align: center;">
+    <div class="container">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 25px;">Need a custom security plan?</h2>
+        <p style="font-family: 'Inter', sans-serif; font-size: 1.1rem; color: #cbd5e1; max-width: 700px; margin: 0 auto 40px; line-height: 1.8;">Our engineers work directly with you to design systems that are engineered for your site, not sold off a catalogue.</p>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="contact.html" class="btn btn-primary" style="padding: 16px 40px; border-radius: 8px;">Book a Site Assessment</a>
+            <a href="https://wa.me/6593860466" class="btn btn-whatsapp" style="padding: 16px 40px; border-radius: 8px; border: 2px solid #fff; background: transparent;">💬 WhatsApp Us</a>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer" style="background: #0a1421; border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="container">
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="f-logo-wrap">
                     <img src="images/securevision-logo-white.png" alt="Securevision Logo">
                     <span class="brand-name">Securevision</span>
                 </div>
-                <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since 2006.</p>
-                <div class="f-socials">
-                    <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                    </a>
-                    <a href="https://www.youtube.com/@securevision" target="_blank" rel="noopener" aria-label="YouTube">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                    </a>
-                </div>
+                <p>Your partner in building smart, secure, and connected communities since 2006.</p>
             </div>
             
             <div class="footer-links">
@@ -213,85 +466,52 @@
                     <li><a href="residential-security-singapore.html">Private Homes</a></li>
                     <li><a href="condominiums.html">Condominiums</a></li>
                     <li><a href="commercial-security-singapore.html">Commercial &amp; Retail</a></li>
-                    <li><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a></li>
-                    <li><a href="government-institution-security-singapore.html">Institutions &amp; Government</a></li>
-                    <li><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></li>
+                    <li><a href="security-solutions-singapore.html"><strong>View All</strong></a></li>
                 </ul>
             </div>
             
             <div class="footer-links">
                 <h4>Systems</h4>
                 <ul>
-                    <li><a href="surveillance-detection.html">Surveillance &amp; Detection</a></li>
-                    <li><a href="people-access-control.html">People Access Control</a></li>
-                    <li><a href="vehicle-access-control.html">Vehicle Access &amp; Barriers</a></li>
-                    <li><a href="integrated-security-platform.html">Platform Management</a></li>
+                    <li><a href="surveillance-detection.html">CCTV Surveillance</a></li>
+                    <li><a href="people-access-control.html">Access Control</a></li>
+                    <li><a href="vehicle-access-control.html">Vehicle Barriers</a></li>
+                    <li><a href="integrated-security-platform.html">Integrated Platforms</a></li>
                 </ul>
             </div>
-            
+
             <div class="footer-links">
                 <h4>Resources</h4>
                 <ul>
                     <li><a href="resources.html#guides">Technical Guides</a></li>
                     <li><a href="resources.html#tools">Planning Tools</a></li>
-                    <li><a href="resources.html#library">Product Library</a></li>
-                    <li><a href="resources.html#videos">Training Videos</a></li>
-                    <li><a href="resources.html#faq">Search &amp; FAQ</a></li>
-                    <li><a href="resources.html"><strong>Full Resource Hub</strong></a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-links">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="about.html">Our Story</a></li>
-                    <li><a href="awards-certifications.html">Awards &amp; Certs</a></li>
-                    <li><a href="security-brands-singapore.html"><strong>Technology Partners</strong></a></li>
-                    <li><a href="portfolio.html">Project Portfolio</a></li>
-                    <li><a href="security-articles-singapore.html">Insights</a></li>
+                    <li><a href="security-articles-singapore.html">Security Insights</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
             
             <div class="footer-contact">
-                <h4>Get In Touch</h4>
-                <div class="footer-contact-item">
-                    <span>💬</span>
-                    <a href="https://wa.me/6593860466">WhatsApp Us</a>
-                </div>
-                <div class="footer-contact-item">
-                    <span>✉️</span>
-                    <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
-                </div>
-                <div class="footer-contact-item">
-                    <span>📞</span>
-                    <a href="tel:+6562864796">+65 6286 4796</a>
-                </div>
+                <h4>Quick Contact</h4>
+                <div class="footer-contact-item"><span>💬</span><a href="https://wa.me/6593860466">WhatsApp Support</a></div>
+                <div class="footer-contact-item"><span>✉️</span><a href="mailto:enquiry@securevision.com.sg">enquiry@securevision.com.sg</a></div>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 Securevision Pte Ltd &middot; Police Licence L/PS/000267/2023P &middot; bizSAFE Level 3 &middot; BCA Registered</p>
+            <p>&copy; 2026 Securevision Pte Ltd &middot; Police Licence L/PS/000267/2023P &middot; bizSAFE Level 3</p>
             <div class="footer-bottom-links">
                 <a href="sitemap.html">Sitemap</a>
                 <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
             </div>
         </div>
     </div>
 </footer>
-
-<!-- Floating WhatsApp Button -->
-<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-</a>
 
 <script>
 function toggleMobileMenu() {
   const menu = document.getElementById('mobileMenu');
   if (menu) menu.classList.toggle('active');
 }
-
 function toggleSubmenu(id) {
   const sub = document.getElementById(id);
   if (sub) {
@@ -300,16 +520,6 @@ function toggleSubmenu(id) {
     if (!isActive) sub.classList.add('active');
   }
 }
-
-document.addEventListener('click', function (e) {
-  const nav = document.querySelector('.main-nav');
-  const menu = document.getElementById('mobileMenu');
-  if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
-    menu.classList.remove('active');
-  }
-});
-
-// Header scroll effect
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('.main-nav');
   const logo = document.querySelector('.nav-logo-img');
@@ -323,17 +533,6 @@ window.addEventListener('scroll', () => {
     }
   }
 });
-
-// Auto-highlight active nav link
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.href === window.location.href || link.href.split('/').pop() === window.location.pathname.split('/').pop()) {
-    link.classList.add('active');
-  }
-});
-
-// Current Year
-const yearSpan = document.querySelector('.current-year');
-if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
