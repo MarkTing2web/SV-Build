@@ -13,6 +13,7 @@
     
     <!-- Shared Styles -->
     <link rel="stylesheet" href="sv-shared.css">
+    <script src="site-config.js"></script>
     <link rel="stylesheet" href="sv-guides.css">
     
     <style>
@@ -164,6 +165,15 @@
             </div>
         </div>
     </header>
+    <div class="container">
+      <div class="author-bio-strip">
+        <img src="images/ler-wee-meng-bio.jpeg" alt="Wee Meng Ler" class="author-bio-photo">
+        <div class="author-bio-text">
+          <span class="author-bio-name sv-author-name">Wee Meng Ler</span>
+          <span class="author-bio-credentials">Founder & CEO &middot; Securevision &middot; 37+ Years Experience</span>
+        </div>
+      </div>
+    </div>
 
     <!-- ── 2. BREADCRUMBS ── -->
     <div class="sv-breadcrumb">
@@ -1658,53 +1668,34 @@
 
 
 <script>
-function toggleMobileMenu() {
-  const menu = document.getElementById('mobileMenu');
-  if (menu) menu.classList.toggle('active');
-}
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof SECUREVISION !== 'undefined') {
+        const SV = SECUREVISION;
+        // Basic Facts
+        document.querySelectorAll('.sv-licence').forEach(el => el.textContent = SV.licenceNumber);
+        document.querySelectorAll('.sv-years-business').forEach(el => el.textContent = SV.yearsInBusiness);
+        document.querySelectorAll('.sv-years-experience').forEach(el => el.textContent = SV.yearsExperience);
+        document.querySelectorAll('.sv-sites').forEach(el => el.textContent = SV.siteDisplay);
+        document.querySelectorAll('.sv-founded-year').forEach(el => el.textContent = SV.foundedYear);
+        document.querySelectorAll('.sv-current-year').forEach(el => el.textContent = new Date().getFullYear());
+        
+        // Author Bio (New)
+        document.querySelectorAll('.sv-author-name').forEach(el => el.textContent = SV.authorName);
+        document.querySelectorAll('.sv-author-title').forEach(el => el.textContent = SV.authorTitle);
+        document.querySelectorAll('.sv-author-description').forEach(el => el.textContent = SV.authorDescription);
+        document.querySelectorAll('.sv-author-story').forEach(el => el.textContent = SV.authorStory);
+        document.querySelectorAll('.sv-author-expertise').forEach(el => el.textContent = SV.authorExpertise);
+        document.querySelectorAll('.sv-author-client-focus').forEach(el => el.textContent = SV.authorClientFocus);
 
-function toggleSubmenu(id) {
-  const sub = document.getElementById(id);
-  if (sub) {
-    const isActive = sub.classList.contains('active');
-    document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
-    if (!isActive) sub.classList.add('active');
-  }
-}
-
-document.addEventListener('click', function (e) {
-  const nav = document.querySelector('.main-nav');
-  const menu = document.getElementById('mobileMenu');
-  if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
-    menu.classList.remove('active');
-  }
-});
-
-// Header scroll effect
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('.main-nav');
-  const logo = document.querySelector('.nav-logo-img');
-  if (nav && logo) {
-    if (window.scrollY > 20) {
-      nav.classList.add('scrolled');
-      logo.src = 'images/securevision-logo-blue.png';
-    } else {
-      nav.classList.remove('scrolled');
-      logo.src = 'images/securevision-logo-white.png';
+        // Contact Links
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => link.href = "tel:" + SV.phone.replace(/[^0-9]/g, ""));
+        document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+            link.href = "mailto:" + SV.email;
+            if (link.textContent.includes('@')) link.textContent = SV.email;
+        });
+        document.querySelectorAll('a[href^="https://wa.me/"]').forEach(link => link.href = "https://wa.me/" + SV.whatsapp);
     }
-  }
 });
-
-// Auto-highlight active nav link
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.href === window.location.href || link.href.split('/').pop() === window.location.pathname.split('/').pop()) {
-    link.classList.add('active');
-  }
-});
-
-// Current Year
-const yearSpan = document.querySelector('.current-year');
-if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 </script>
 </body>
 </html>

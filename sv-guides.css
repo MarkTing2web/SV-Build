@@ -458,3 +458,47 @@ main { grid-area: content; }
         grid-template-columns: 1fr; 
     }
 }
+
+/* Author bio strip — pillar guide pages only */
+.author-bio-strip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0 32px 0;
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 40px;
+}
+
+.author-bio-photo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.author-bio-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.3;
+}
+
+.author-bio-credentials {
+  display: block;
+  font-size: 13px;
+  color: var(--text-gray);
+  line-height: 1.4;
+}
+
+/* Mobile — stack if screen is very narrow */
+@media (max-width: 480px) {
+  .author-bio-strip {
+    gap: 10px;
+  }
+  .author-bio-photo {
+    width: 36px;
+    height: 36px;
+  }
+}
