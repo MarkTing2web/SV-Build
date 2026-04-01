@@ -1,7 +1,7 @@
 # SECUREVISION WEBSITE SITEMAP
 
-**Last Updated:** March 31, 2026  
-**Total Pages Built:** 70+ HTML pages  
+**Last Updated:** April 1, 2026  
+**Total Pages Built:** 80+ HTML pages  
 **Navigation Items:** 6 main menu items + search (Solutions, Systems, Brands, Portfolio, Insights, About, Search)
 
 ---
@@ -248,10 +248,13 @@ SECUREVISION.COM.SG
 │   └── ✅ industrial-security-cyrus-tech-park-singapore.html - Cyrus Tech Park
 │
 ├── INSIGHTS (/insights/)
-│   ├── ✅ security-articles-singapore.html - Insights & Articles Hub
-│   ├── ✅ resources.html - Resources
-│   ├── ✅ cctv.html - Comprehensive CCTV Guide (Blog)
-│   └── ✅ burglar-alarm.html - Comprehensive Burglar Alarm Guide (Blog)
+│   ├── ✅ security-articles-singapore.html - Insights Hub (Refactored v1.6)
+│   ├── ✅ resources.html - Resources Gateway
+│   ├── ✅ cctv.html - Comprehensive CCTV Technical Guide
+│   ├── ✅ burglar-alarm.html - Comprehensive Burglar Alarm Technical Guide
+│   ├── ✅ door-access.html - Comprehensive Door Access Technical Guide
+│   ├── ✅ intercom-system-singapore.html - Comprehensive AV Intercom Technical Guide
+│   └── ✅ auto-gate-singapore.html - Comprehensive Auto Gates & Barriers Technical Guide
 │
 └── ABOUT (/about/)
     ├── ✅ about.html - About Securevision
@@ -367,13 +370,14 @@ SECUREVISION.COM.SG
 | | Light@Cairnhill | Light-at-Cairnhill.html | Via portfolio.html |
 | | STA Building | commercial-security-sta-building-singapore.html | Via portfolio.html |
 | | Cyrus Tech Park | industrial-security-cyrus-tech-park-singapore.html | Via portfolio.html |
-| **Insights** | Insights Hub | security-articles-singapore.html | INSIGHTS |
-| | Resources | resources.html | Via insights |
-| | Security System Refresh | insights-security-system-refresh.html | Resources / Insights |
-| | CCTV Guide | cctv.html | Resources / Insights |
-| | Burglar Alarm | burglar-alarm.html | Resources / Insights |
-| | Door Access Guide | door-access.html | Resources / Insights |
-| | AV Intercom Guide | intercom-system-singapore.html | Resources / Insights |
+| **Insights** | Insights Hub (Landing) | security-articles-singapore.html | INSIGHTS |
+| | 18 Technical Articles | (Grid active) | Via Insights Hub |
+| | CCTV Technical Guide | cctv.html | Systems / Insights |
+| | Burglar Alarm Guide | burglar-alarm.html | Systems / Insights |
+| | Door Access Guide | door-access.html | Systems / Insights |
+| | AV Intercom Guide | intercom-system-singapore.html | Systems / Insights |
+| | Auto Gate Guide | auto-gate-singapore.html | Systems / Insights |
+| | Resources Hub | resources.html | ABOUT / Insights |
 
 ---
 

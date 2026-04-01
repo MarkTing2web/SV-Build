@@ -1332,8 +1332,25 @@ For sections with images (Challenge, Solution, Equipment), use the **60% Text / 
 
 ---
 
+## 15. PROJECT STATUS & CONTENT ROADMAP (April 2026)
+
+### ⏳ **CONTENT TO ENHANCE**
+| Priority | Item | Details Needed |
+|----------|------|----------------|
+| **HIGH** | Portfolio case studies | More high-res photos and metrics |
+| **MEDIUM** | Search functionality | Final integration of Fuse.js overlay |
+| **COMPLETE** | Insights Landing Hub | Fully refactored April 1, 2026 (v1.6) |
+
+### 🔄 **PAGES TO BUILD (Future)**
+| Priority | Page | Purpose |
+|----------|------|---------|
+| **LOW** | Privacy Policy | Legal requirement |
+| **LOW** | Terms of Service | Legal requirement |
+| **LOW** | Sitemap (HTML) | SEO & user navigation |
+| **LOW** | 404 Page | Custom error page |
+
 ---
 
-*Securevision Global Design Instruction v1.0 — March 2026*
+*Securevision Global Design Instruction v1.6 — April 2026*
 *Do not modify without updating all dependent page prompts*
 
