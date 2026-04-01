@@ -77,6 +77,17 @@
             line-height: 1.4;
         }
         .art-nav-item.next { text-align: right; }
+
+        /* Navigation Cards - v1.2 Standard */
+        .prev-next-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 80px; border-top: none; padding-top: 0; }
+        .nav-card { padding: 30px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; }
+        .nav-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--primary-blue); }
+        .nav-card span { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 10px; font-weight: 700; }
+        .nav-card strong { display: block; font-size: 1.1rem; color: #1e293b; line-height: 1.4; }
+        
+        @media (max-width: 992px) { 
+            .prev-next-nav { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -183,32 +194,27 @@
             <p class="intro" style="font-family: 'Inter', sans-serif; font-size: 1.15rem; opacity: 0.95; line-height: 1.8; color: #e2e8f0;">IP cameras, HD analogue, or legacy analogue — after 35 years speccing systems across Singapore, here is how we actually make these decisions.</p>
             
             <div style="display: flex; align-items: center; gap: 20px; margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.15);">
-                <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng, Founder and CEO of Securevision Pte Ltd" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover;">
+                <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover;">
                 <div style="font-family: 'Inter', sans-serif;">
-                    <div style="margin-bottom: 4px;">
-                        <strong style="color: #fff; font-size: 1.1rem; margin-right: 12px;">Wee Meng Ler</strong>
-                        <span style="color: #94a3b8; font-size: 0.9rem;">Founder & CEO · Securevision</span>
-                    </div>
-                    <div style="color: #64748b; font-size: 0.85rem; display: flex; gap: 15px; align-items: center;">
-                        <span>March 2025</span>
-                        <span>•</span>
-                        <span>9 min read</span>
-                        <span>•</span>
-                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                            <span style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; color: #cbd5e1;">CCTV</span>
-                            <span style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; color: #cbd5e1;">NVR</span>
-                            <span style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; color: #cbd5e1;">Security Planning</span>
-                            <span style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; color: #cbd5e1;">Buying Guide</span>
-                            <span style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; color: #cbd5e1;">Homeowner</span>
-                            <span style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; color: #cbd5e1;">Commercial</span>
-                            <span style="background: rgba(255,255,255,0.1); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; color: #cbd5e1;">Singapore</span>
-                        </div>
-                    </div>
+                    <div style="color: #fff; font-size: 1.1rem; font-weight: 700; margin-bottom: 4px;">Wee Meng Ler</div>
+                    <div style="color: #94a3b8; font-size: 0.85rem;">Founder & CEO · Securevision · March 2025 · 9 min read</div>
                 </div>
             </div>
         </div>
     </div>
 </header>
+
+<!-- ── BREADCRUMBS ── -->
+<div class="container">
+    <div class="sv-breadcrumb" style="background: transparent; padding: 24px 0 0 0;">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="security-articles-singapore.html">Insights</a></li>
+            <li>Security Planning</li>
+            <li>How to Choose the Right CCTV System</li>
+        </ul>
+    </div>
+</div>
 
 <div class="article-body">
     <div class="container">
@@ -407,27 +413,24 @@
                     </div>
                 </div>
 
-                <div class="article-nav">
-                    <a href="#" class="art-nav-item">
+                <div class="article-tags" style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 10px;">
+                    <a href="#" class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; text-decoration: none;">CCTV</a>
+                    <a href="#" class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; text-decoration: none;">NVR</a>
+                    <a href="#" class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; text-decoration: none;">Security Planning</a>
+                    <a href="#" class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; text-decoration: none;">Buying Guide</a>
+                    <a href="#" class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; text-decoration: none;">Homeowner</a>
+                    <a href="#" class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; text-decoration: none;">Commercial</a>
+                    <a href="#" class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; text-decoration: none;">Singapore</a>
+                <div class="prev-next-nav">
+                    <a href="insights-wifi-remote-control-auto-gate.html" class="nav-card">
                         <span>Previous Article</span>
-                        <strong>How an IP CCTV Network Actually Works</strong>
+                        <strong>Adding WiFi Remote Control to Your Auto Gate</strong>
                     </a>
-                    <a href="insights-burglar-alarm-design.html" class="art-nav-item next">
+                    <a href="insights-burglar-alarm-design.html" class="nav-card">
                         <span>Next Article</span>
                         <strong>Understanding Your Burglar Alarm System Design</strong>
                     </a>
                 </div>
-
-                <div class="related-articles-section mt-56">
-                    <h3 style="margin-bottom: 24px;">Related articles</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 12px;"><a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 500;">How an IP CCTV Network Actually Works — Technology</a></li>
-                        <li style="margin-bottom: 12px;"><a href="#" style="color: var(--primary-blue); text-decoration: none; font-weight: 500;">5 Reasons to Rack-Mount Your NVRs — Technology</a></li>
-                        <li style="margin-bottom: 12px;"><a href="insights-burglar-alarm-design.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 500;">Understanding Your Burglar Alarm System Design — Security Planning</a></li>
-                        <li style="margin-bottom: 12px;"><a href="cctv.html" style="color: var(--primary-blue); text-decoration: none; font-weight: 500;">Full guide: CCTV & Surveillance Systems &rarr;</a></li>
-                    </ul>
-                </div>
-
             </main>
 
             <!-- STICKY SIDEBAR -->
@@ -440,7 +443,7 @@
                         <li><a href="#section3">3. Camera placement logic</a></li>
                         <li><a href="#section4">4. Choosing your NVR</a></li>
                         <li><a href="#section5">5. Night vision performance</a></li>
-                        <li><a href="#section6">6. Integrated value</a></li>
+                        <li><a href="#section6">6. Integration</a></li>
                         <li><a href="#section7">7. Hiring your installer</a></li>
                     </ul>
                     
@@ -461,8 +464,43 @@
     </div>
 </div>
 
+<!-- PREV/NEXT NAV -->
+<div class="container">
+    <div class="prev-next-nav">
+        <a href="insights-how-card-access-works.html" class="nav-card">
+            <span>Previous Article</span>
+            <strong>How Card Access Control Actually Works</strong>
+        </a>
+        <a href="insights-burglar-alarm-design.html" class="nav-card">
+            <span>Next Article</span>
+            <strong>Understanding Your Burglar Alarm System Design</strong>
+        </a>
+    </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<section class="related-articles-sec" style="padding: 80px 0; background: #fff; border-top: 1px solid #e2e8f0;">
+    <div class="container">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 40px; text-align: center; color: #1e293b; font-weight: 700;">Related Security Insights</h2>
+        <div class="prev-next-nav" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); border-top: none; padding-top: 0; margin-top: 0;">
+            <a href="insights-how-to-choose-cctv.html" class="nav-card">
+                <span>Security Planning</span>
+                <strong>How to Choose the Right CCTV System</strong>
+            </a>
+            <a href="insights-burglar-alarm-design.html" class="nav-card">
+                <span>Security Planning</span>
+                <strong>Understanding Your Burglar Alarm System Design</strong>
+            </a>
+            <a href="insights-10-tips-securing-your-premises.html" class="nav-card">
+                <span>Security Planning</span>
+                <strong>10 Tips for Securing Your Home or Office</strong>
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- FINAL CTA -->
-<section class="cta-sec-final" style="padding: 120px 0; background: linear-gradient(rgba(14,26,43,0.85), rgba(14,26,43,0.85)), url('images/cta-skyline.png'); background-size: cover; background-position: center; color: #fff; text-align: center;">
+<section class="cta-sec-final" style="padding: 120px 0; background: linear-gradient(rgba(14,26,43,0.85), rgba(14,26,43,0.85)), url('images/cctv-cta-image.png'); background-size: cover; background-position: center; color: #fff; text-align: center;">
     <div class="container">
         <h2 style="font-family: 'Montserrat', sans-serif; font-size: 3rem; margin-bottom: 25px;">Ready to spec your system?</h2>
         <p style="font-family: 'Inter', sans-serif; font-size: 1.25rem; color: #cbd5e1; max-width: 800px; margin: 0 auto 50px; line-height: 1.8;">Schedule a site assessment with our engineering team to design a system that actually solves your security challenges.</p>

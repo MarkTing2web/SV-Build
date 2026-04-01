@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Card Access Control Actually Works | Securevision Insights</title>
+    <meta name="description" content="Most people swipe their access card without thinking about what happens in the half-second between the swipe and the click. Understanding the mechanics helps you specify a system that actually does what you need.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sv-shared.css">
+    
+    <style>
+        .article-body { padding: 80px 0; background: #fff; }
+        .prose h2 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 700; color: #1e293b; margin: 60px 0 24px; scroll-margin-top: 100px; }
+        .prose h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; color: #334155; margin: 32px 0 16px; }
+        .prose p { font-family: 'Inter', sans-serif; margin-bottom: 24px; line-height: 1.8; color: #475569; }
+        .prose ul, .prose ol { margin-bottom: 24px; padding-left: 20px; color: #475569; }
+        .prose li { margin-bottom: 12px; line-height: 1.6; }
+        .callout-box { background: #eff6ff; border-left: 4px solid var(--primary-blue); padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .callout-box strong { display: block; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+        .verdict-box { background: #fff7ed; border: 1px solid #ffedd5; padding: 30px; border-radius: 12px; margin: 40px 0; position: relative; }
+        .verdict-box::before { content: 'Securevision Verdict'; position: absolute; top: -12px; left: 24px; background: #ea580c; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+        .nav-container { justify-content: flex-start !important; gap: 60px; }
+        .nav-right { margin-left: auto !important; }
+        @media (max-width: 992px) { .nav-container { gap: 0; justify-content: space-between !important; } }
+
+        .prev-next-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 80px; }
+        .nav-card { padding: 30px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; display: block; }
+        .nav-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--primary-blue); }
+        .nav-card span { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 10px; font-weight: 700; }
+        .nav-card strong { display: block; font-size: 1.1rem; color: #1e293b; line-height: 1.4; }
+        @media (max-width: 992px) { .prev-next-nav { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<nav class="main-nav">
+<div class="nav-container">
+  <a href="index.html" class="nav-logo-link">
+    <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
+    <span class="wordmark nav-wordmark">SECUREVISION</span>
+  </a>
+  <button class="mobile-toggle" onclick="toggleMobileMenu()"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+    <li class="nav-item"><a href="security-solutions-singapore.html" class="nav-link">Solutions</a></li>
+    <li class="nav-item"><a href="security-systems-singapore.html" class="nav-link">Systems</a></li>
+    <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+    <li class="nav-item"><a href="resources.html" class="nav-link">Resources</a></li>
+    <li class="nav-item"><a href="security-articles-singapore.html" class="nav-link">Insights</a></li>
+    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-search-btn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  </div>
+</div>
+</nav>
+
+<!-- HERO SECTION -->
+<header class="hero-portfolio" style="padding: 140px 0 80px; background: linear-gradient(rgba(14,26,43,0.85), rgba(14,26,43,0.85)), url('images/card-access-cover.png'); background-size: cover; background-position: center; color: #fff;">
+    <div class="container">
+        <div style="max-width: 850px;">
+            <span class="eyebrow" style="color: #63b3ed; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 20px;">Technology & AI</span>
+            <h1 style="font-family: 'Montserrat', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 25px; line-height: 1.2;">How Card Access Control Actually Works</h1>
+            <p class="intro" style="font-family: 'Inter', sans-serif; font-size: 1.15rem; opacity: 0.95; line-height: 1.8; color: #e2e8f0;">Most people swipe their access card without thinking about what happens in the half-second between the swipe and the click. Understanding the mechanics helps you specify a system that actually does what you need.</p>
+            
+            <div style="display: flex; align-items: center; gap: 20px; margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.15);">
+                <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover;">
+                <div style="font-family: 'Inter', sans-serif;">
+                    <div style="color: #fff; font-size: 1.1rem; font-weight: 700; margin-bottom: 4px;">Wee Meng Ler</div>
+                    <div style="color: #94a3b8; font-size: 0.85rem;">Founder & CEO · Securevision · May 2025 · 6 min read</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ── BREADCRUMBS ── -->
+<div class="container">
+    <div class="sv-breadcrumb" style="background: transparent; padding: 24px 0 0 0;">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="security-articles-singapore.html">Insights</a></li>
+            <li>Technology & AI</li>
+            <li>How Card Access Control Actually Works</li>
+        </ul>
+    </div>
+</div>
+
+<div class="article-body">
+    <div class="container">
+        <div class="layout-with-sidebar">
+            <main class="prose">
+                
+                <section id="section1">
+                    <h2>1. The components that make up a door access system</h2>
+                    <p>A card access system has four physical components working together. Understanding each one is what lets you ask the right questions when you are specifying or reviewing a system.</p>
+                    <p><strong>The card or credential.</strong> The most common type in Singapore commercial premises is a 13.56 MHz MIFARE card — the white or branded proximity card most office workers carry. The card contains a unique ID that it broadcasts when brought close to a reader. The card itself does not store access permissions — it only stores an ID number. The decision about whether that ID is allowed through the door is made elsewhere.</p>
+                    <p><strong>The reader.</strong> The device mounted on the wall beside the door. It reads the card's ID and passes it to the controller. Readers vary in read range (typically 3 to 10cm), in what they can read (card only, biometrics), and in how they communicate (Wiegand vs OSDP).</p>
+                    <p><strong>The controller.</strong> The brain of the system. It receives the card ID from the reader, looks it up against an access database, checks time restrictions, and sends a signal to the lock. The controller is typically installed in a secured location like a server room or electrical riser.</p>
+                    <p><strong>The lock.</strong> The physical mechanism that secures the door. Common types in Singapore include electromagnetic locks (EM locks), which release when power is cut, and electric strikes. The choice between fail-secure and fail-safe is critical.</p>
+                    
+                    <div class="callout-box">
+                        <strong>KEY POINT</strong>
+                        <p>The card does not grant access. The controller grants access based on the card ID. This distinction matters when diagnosing problems — a card that stops working is usually a database or permission issue, not a card hardware failure.</p>
+                    </div>
+                </section>
+
+                <section id="section2">
+                    <h2>2. The Wiegand protocol and why it matters</h2>
+                    <p>Most card access readers in Singapore still use Wiegand to communicate with controllers. Wiegand is a simple, reliable, decades-old protocol that sends the card ID as a stream of pulses down a cable. Its main limitation is that it transmits data unencrypted and in one direction only.</p>
+                    <p>This creates two practical issues. First, the card ID can be intercepted and cloned by someone with the right equipment. Second, Wiegand gives the controller no way to confirm the reader is legitimate. OSDP (Open Supervised Device Protocol) is the modern replacement—it is encrypted, bidirectional, and allows the controller to supervise the reader.</p>
+                    <p>For most Singapore office premises, Wiegand remains the practical standard, but for government or data centres, OSDP is essential.</p>
+                </section>
+
+                <section id="section3">
+                    <h2>3. Fail-safe vs fail-secure — the decision that matters most</h2>
+                    <p>This is the most important design decision in a door access system and the one most often made without proper consideration.</p>
+                    <p><strong>Fail-safe</strong> means the lock releases when power is cut. The door opens. This is required by fire safety regulations for emergency exit doors. EM locks are inherently fail-safe.</p>
+                    <p><strong>Fail-secure</strong> means the lock remains locked when power is cut. The door stays closed. This is appropriate for server rooms or high-security areas where preserving the perimeter is the priority.</p>
+                    
+                    <div class="callout-box">
+                        <strong>DESIGN RULE</strong>
+                        <p>Every door in your system needs a conscious fail-state decision. The wrong choice can mean a security breach during a power failure or, more critically, a fire safety violation. The Singapore Fire Code has specific requirements about egress doors that must be fail-safe.</p>
+                    </div>
+                </section>
+
+                <section id="section4">
+                    <h2>4. Standalone vs networked systems</h2>
+                    <p>Standalone systems have the controller built into the reader. Each door is independent. Adding a card means programming it at each door. Networked systems connect all controllers back to a central server. All cards are managed from a single interface, and access logs are centralised.</p>
+                    <p>For any installation of more than five doors, a networked system is the correct specification. The additional cost is recovered immediately in administration time.</p>
+
+                    <div style="margin: 40px 0;">
+                        <img src="images/card-access-controller-panel.png" alt="Access control controller panel in a neatly managed electrical riser" style="border-radius: 12px; width: 100%;">
+                        <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic; margin-top: 10px; text-align: center;">A well-organized access control panel — the backbone of any networked system.</p>
+                    </div>
+                </section>
+
+                <section id="section5">
+                    <h2>5. Biometrics — when to add them and when not to</h2>
+                    <p>Fingerprint readers and facial recognition solve a specific problem: cards can be shared or borrowed, biometrics cannot. If your concern is unauthorised credential sharing, biometrics are the answer.</p>
+                    <ul>
+                        <li><strong>Fingerprint.</strong> Reliable but has hygiene concerns for some. Theoretical 1-3% failure rate for certain populations.</li>
+                        <li><strong>Facial Recognition.</strong> High throughput and contactless. Higher hardware cost but premium experience.</li>
+                    </ul>
+                    
+                    <div class="verdict-box">
+                        <p>Do not add biometrics because they look modern. Add them if you have identified a specific problem — shared cards or high-security zones — that biometrics solve better than alternatives. Card plus PIN remains the best balance for most offices.</p>
+                    </div>
+                </section>
+
+                <section id="section6">
+                    <h2>6. What a well-specified system looks like</h2>
+                    <p>When reviewing a system, the specification should include:</p>
+                    <ol>
+                        <li>A door-by-door schedule with lock types and fail-state decisions</li>
+                        <li>Confirmation of fire code compliance for all egress doors</li>
+                        <li>The communication protocol (Wiegand or OSDP)</li>
+                        <li>Whether the system is standalone or networked</li>
+                        <li>Integration with CCTV systems</li>
+                    </ol>
+                    
+                    <div class="verdict-box">
+                        <p><strong>BOTTOM LINE:</strong> Card access mistakes are almost always design mistakes, not technology failures. Get the design right first, then the equipment choice is straightforward.</p>
+                    </div>
+                </section>
+
+                <hr style="margin: 60px 0; border: 0; border-top: 1px solid #e2e8f0;">
+
+                <div class="author-bio" style="background: #f8fafc; padding: 40px; border-radius: 12px; margin-bottom: 60px;">
+                    <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #94a3b8; margin-bottom: 24px;">ABOUT THE AUTHOR</span>
+                    <div style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap;">
+                        <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng, Founder and CEO of Securevision Pte Ltd" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover;">
+                        <div style="flex: 1; min-width: 300px;">
+                            <h4 style="font-family: 'Montserrat', sans-serif; font-size: 1.25rem; color: #1e293b; margin-bottom: 4px;">Ler Wee Meng</h4>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 20px; font-weight: 500;">Founder & CEO, Securevision Pte Ltd</p>
+                            <div style="font-size: 0.95rem; line-height: 1.7; color: #475569;">
+                                <p style="margin-bottom: 12px;">Wee Meng has over 35 years of experience in security systems engineering and integration. He holds a BEng in Electrical and Electronic Engineering from the National University of Singapore and a law degree from the University of London.</p>
+                                <p style="margin-bottom: 12px;">He founded Securevision in 2006 and has since led security system deployments across more than 1,000 sites in Singapore — spanning residential properties, condominiums, commercial buildings, industrial facilities, and institutions.</p>
+                                <p style="margin-bottom: 12px;">His technical focus spans CCTV and AI video analytics, IP intercom systems, access control, licence plate recognition, and integrated platform design. He is the architect behind VESTA, Securevision's unified security platform built specifically for condominium management in Singapore.</p>
+                                <p style="margin-bottom: 12px;">Wee Meng works directly with managing agents, MCSTs, property developers, architects, and security companies to design systems that are engineered for the site, not sold off a catalogue.</p>
+                                <p>Securevision holds Police Licence No. L/PS/000267/2023P and is registered with the Building and Construction Authority of Singapore.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-tags" style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 10px;">
+                    <a href="#" class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; text-decoration: none;">Door Access</a>
+                    <a href="#" class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; text-decoration: none;">Security Planning</a>
+                    <a href="#" class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; text-decoration: none;">Commercial</a>
+                    <a href="#" class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500; text-decoration: none;">Singapore</a>
+                </div>
+
+            </main>
+
+            <aside class="sidebar">
+                <div class="sticky-toc">
+                    <div class="toc-title">In this article</div>
+                    <ul class="toc-list">
+                        <li><a href="#section1">1. System components</a></li>
+                        <li><a href="#section2">2. Wiegand vs OSDP</a></li>
+                        <li><a href="#section3">3. Fail-safe vs Fail-secure</a></li>
+                        <li><a href="#section4">4. Standalone vs Networked</a></li>
+                        <li><a href="#section5">5. Biometric options</a></li>
+                        <li><a href="#section6">6. Good spec checklist</a></li>
+                    </ul>
+                    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0; font-size: 0.85rem; color: #64748b;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                            <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                            <div>
+                                <strong style="display: block; color: #1e293b;">Ler Wee Meng</strong>
+                                <span style="font-size: 0.75rem;">Founder & CEO · Securevision</span>
+                            </div>
+                        </div>
+                        <p><strong>Need expert advice?</strong> Discuss your site requirements with our engineering team.</p>
+                        <a href="https://wa.me/6593860466" style="display: block; margin-top: 15px; color: var(--primary-blue); font-weight: 700; text-decoration: none;">💬 WhatsApp Support &rarr;</a>
+                    </div>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<!-- PREV/NEXT NAV -->
+<div class="container">
+    <div class="prev-next-nav">
+        <a href="insights-upgrade-condo-intercom.html" class="nav-card">
+            <span>Previous Article</span>
+            <strong>When Should Your Condo Upgrade Its Intercom System?</strong>
+        </a>
+        <a href="insights-how-to-choose-multi-door-access.html" class="nav-card">
+            <span>Next Article</span>
+            <strong>How to Choose a Multi-Door Access Control System</strong>
+        </a>
+    </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<section class="related-articles-sec" style="padding: 80px 0; background: #fff; border-top: 1px solid #e2e8f0;">
+    <div class="container">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 40px; text-align: center; color: #1e293b; font-weight: 700;">Related Security Insights</h2>
+        <div class="prev-next-nav" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); border-top: none; padding-top: 0; margin-top: 0;">
+            <a href="insights-how-to-choose-cctv.html" class="nav-card">
+                <span>Security Planning</span>
+                <strong>How to Choose the Right CCTV System</strong>
+            </a>
+            <a href="insights-burglar-alarm-design.html" class="nav-card">
+                <span>Security Planning</span>
+                <strong>Understanding Your Burglar Alarm System Design</strong>
+            </a>
+            <a href="insights-10-tips-securing-your-premises.html" class="nav-card">
+                <span>Security Planning</span>
+                <strong>10 Tips for Securing Your Home or Office</strong>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-sec-final" style="padding: 120px 0; background: linear-gradient(rgba(14,26,43,0.85), rgba(14,26,43,0.85)), url('images/card-access-cta-image.png'); background-size: cover; background-position: center; color: #fff; text-align: center;">
+    <div class="container">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 3rem; margin-bottom: 25px;">Secure your premises today</h2>
+        <p style="font-family: 'Inter', sans-serif; font-size: 1.25rem; color: #cbd5e1; max-width: 800px; margin: 0 auto 50px; line-height: 1.8;">Schedule a site assessment with our engineering team to design a card access system that is both secure and operationally efficient.</p>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="request-site-assessment-singapore.html" class="btn" style="background: var(--p-acc); color: #fff; padding: 18px 45px; border-radius: 12px; font-weight: 700; text-decoration: none; border: none; font-size: 1.1rem;">📅 Get Your Free Assessment</a>
+            <a href="https://wa.me/6593860466" class="btn" style="background: transparent; color: #fff; padding: 18px 45px; border-radius: 12px; font-weight: 700; text-decoration: none; border: 2px solid #fff; font-size: 1.1rem;">💬 WhatsApp Our Team</a>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2026 Securevision Pte Ltd &middot; Police Licence L/PS/000267/2023P</p>
+    </div>
+</footer>
+
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  if (menu) menu.classList.toggle('active');
+}
+window.addEventListener('scroll', () => {
+    let current = '';
+    const headings = document.querySelectorAll('.prose section');
+    headings.forEach(h => {
+        if (window.pageYOffset >= h.offsetTop - 120) {
+            current = h.getAttribute('id');
+        }
+    });
+    document.querySelectorAll('.toc-list a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + current) {
+            a.classList.add('active');
+        }
+    });
+});
+</script>
+</body>
+</html>
