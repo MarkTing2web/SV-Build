@@ -184,39 +184,50 @@
                 <p>Most security systems are designed to detect problems &mdash; not solve them. They beep when something moves. But they can't tell you if it's a threat or a delivery driver at the wrong gate. They record footage &mdash; but you have to scrub through hours to find what matters.</p>
                 <p><strong>We built Securevision to fix that gap.</strong></p>
             </div>
-            <div class="factors-grid">
-                <!-- 1. See & Unify -->
-                <div class="factor-card">
+            <div class="factors-4">
+                <!-- 1. Surveillance -->
+                <a href="surveillance-detection.html" class="factor-card" style="text-decoration: none; color: inherit;">
                     <div class="proof-image-wrap">
                         <img src="images/Guard%20watching%20man%20jumped%20over%20fence.png" alt="Security Guard Monitoring Fence Intrusion via AI Systems">
                     </div>
                     <div class="proof-content">
-                        <h3>See &amp; Unify</h3>
+                        <h3>Surveillance &amp; Detection</h3>
                         <p>AI-powered analytics filter false alarms and alert you only when there's a real security event &mdash; saving time, stress, and guard callouts.</p>
                     </div>
-                </div>
+                </a>
 
-                <!-- 2. Control & Entry -->
-                <div class="factor-card">
+                <!-- 2. People Access -->
+                <a href="people-access-control.html" class="factor-card" style="text-decoration: none; color: inherit;">
                     <div class="proof-image-wrap">
                         <img src="images/logic-control-dashboard.png" alt="Securevision Unified Access Dashboard">
                     </div>
                     <div class="proof-content">
-                        <h3>Control &amp; Entry</h3>
-                        <p>One unified platform manages all your gates, doors, intercoms, and cameras. No more juggling five apps or chasing contractors for access.</p>
+                        <h3>People Access Control</h3>
+                        <p>Manage all gates, doors, lifts and rooms with our access readers and intercom for residents and visitors.</p>
                     </div>
-                </div>
+                </a>
 
-                <!-- 3. Respond & Engage -->
-                <div class="factor-card">
+                <!-- 3. Vehicle Access -->
+                <a href="vehicle-access-control.html" class="factor-card" style="text-decoration: none; color: inherit;">
+                    <div class="proof-image-wrap">
+                        <img src="images/vehicle-access-barriers-new.png" alt="Vehicle Gantry and Access Systems">
+                    </div>
+                    <div class="proof-content">
+                        <h3>Vehicle Access &amp; Barriers</h3>
+                        <p>Seamless entry with smart boom gates and ANPR. Manage guest parking and staff vehicle access through a single automated interface.</p>
+                    </div>
+                </a>
+
+                <!-- 4. Platform Management -->
+                <a href="integrated-security-platform.html" class="factor-card" style="text-decoration: none; color: inherit;">
                     <div class="proof-image-wrap">
                         <img src="images/logic-respond-engage-v2.png" alt="Securevision Security Guard on Voice Call">
                     </div>
                     <div class="proof-content">
-                        <h3>Respond &amp; Engage</h3>
+                        <h3>Platform Management</h3>
                         <p>Connect security staff, residents, and management through intelligent mobile platforms. Everyone knows what's happening, in real time.</p>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </section>
@@ -748,6 +759,42 @@
 
 
 <script>
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    if (menu) menu.classList.toggle('active');
+}
+
+function toggleSubmenu(id) {
+    const sub = document.getElementById(id);
+    if (sub) {
+        const isActive = sub.classList.contains('active');
+        document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
+        if (!isActive) sub.classList.add('active');
+    }
+}
+
+document.addEventListener('click', function (e) {
+    const nav = document.querySelector('.main-nav');
+    const menu = document.getElementById('mobileMenu');
+    if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
+        menu.classList.remove('active');
+    }
+});
+
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.main-nav');
+    const logo = document.querySelector('.nav-logo-img');
+    if (nav && logo) {
+        if (window.scrollY > 20) {
+            nav.classList.add('scrolled');
+            // logo.src = 'images/securevision-logo-blue.png'; // Handled by CSS filter in sv-shared.css for index.html
+        } else {
+            nav.classList.remove('scrolled');
+            // logo.src = 'images/securevision-logo-white.png';
+        }
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     if (typeof SECUREVISION !== 'undefined') {
         const SV = SECUREVISION;
@@ -775,6 +822,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         document.querySelectorAll('a[href^="https://wa.me/"]').forEach(link => link.href = "https://wa.me/" + SV.whatsapp);
     }
+
+    // Auto-highlight active nav link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        if (link.href === window.location.href || link.href.split('/').pop() === window.location.pathname.split('/').pop()) {
+            link.classList.add('active');
+        }
+    });
 });
 </script>
 </body>

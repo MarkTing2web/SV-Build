@@ -811,6 +811,15 @@ function toggleMobileMenu() {
   if (menu) menu.classList.toggle('active');
 }
 
+function toggleSubmenu(id) {
+  const sub = document.getElementById(id);
+  if (sub) {
+    const isActive = sub.classList.contains('active');
+    document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
+    if (!isActive) sub.classList.add('active');
+  }
+}
+
 // Global Dynamic Hydration (Sync with site-config.js)
 document.addEventListener('DOMContentLoaded', () => {
     if (typeof SECUREVISION !== 'undefined') {

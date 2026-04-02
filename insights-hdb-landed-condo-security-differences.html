@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HDB, Landed, or Condo — How Security Requirements Differ | Securevision Insights</title>
+    <meta name="description" content="Property type determines entry points and infrastructure. Explore the unique security needs of HDB flats, landed homes, and condominiums in Singapore.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sv-shared.css">
+    <script src="site-config.js"></script>
+    
+    <style>
+        .article-body { padding: 80px 0; background: #fff; }
+        .prose h2 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 700; color: #1e293b; margin: 60px 0 24px; scroll-margin-top: 100px; }
+        .prose h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; color: #334155; margin: 32px 0 16px; }
+        .prose p { font-family: 'Inter', sans-serif; margin-bottom: 24px; line-height: 1.8; color: #475569; }
+        .prose ul, .prose ol { margin-bottom: 24px; padding-left: 20px; color: #475569; }
+        .prose li { margin-bottom: 12px; line-height: 1.6; }
+        
+        .callout-box { background: #eff6ff; border-left: 4px solid var(--primary-blue); padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .callout-box strong { display: block; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+        
+        .verdict-box { background: #fff7ed; border: 1px solid #ffedd5; padding: 30px; border-radius: 12px; margin: 40px 0; position: relative; }
+        .verdict-box::before { content: 'Securevision Verdict'; position: absolute; top: -12px; left: 24px; background: #ea580c; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+        .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.9rem; border: 1px solid #e2e8f0; }
+        .compare-table th { background: #f8fafc; text-align: left; padding: 12px; font-weight: 700; color: #1e293b; border-bottom: 2px solid #cbd5e1; }
+        .compare-table td { padding: 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; color: #475569; }
+
+        .prev-next-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 80px; }
+        .nav-card { padding: 30px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; text-decoration: none; transition: 0.2s; display: block; }
+        .nav-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--primary-blue); }
+        .nav-card span { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 10px; font-weight: 700; }
+        .nav-card strong { display: block; font-size: 1.1rem; color: #1e293b; line-height: 1.4; }
+        
+        @media (max-width: 992px) { 
+            .prev-next-nav { grid-template-columns: 1fr; }
+            .prose h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="main-nav">
+<div class="nav-container">
+  <!-- Logo + Wordmark — always left -->
+  <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
+    <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
+    <span class="wordmark nav-wordmark">SECUREVISION</span>
+  </a>
+  <!-- Hamburger — centred absolutely on mobile (via CSS) -->
+  <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+  <!-- Desktop nav links -->
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="security-solutions-singapore.html" class="nav-link has-dropdown">Solutions</a>
+      <div class="simple-dropdown">
+        <a href="residential-security-singapore.html">Private Homes</a>
+        <a href="condominiums.html">Condominiums</a>
+        <a href="commercial-security-singapore.html">Commercial &amp; Retail</a>
+        <a href="industrial-security-singapore.html">Industrial &amp; Logistics</a>
+        <a href="government-institution-security-singapore.html">Institutions &amp; Government</a>
+        <a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a>
+        <a href="security-solutions-singapore.html"><strong>&rarr; View All Solutions</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="security-systems-singapore.html" class="nav-link has-dropdown">Systems</a>
+      <div class="simple-dropdown">
+        <a href="surveillance-detection.html">Surveillance &amp; Detection</a>
+        <a href="people-access-control.html">People Access Control</a>
+        <a href="vehicle-access-control.html">Vehicle Access &amp; Barriers</a>
+        <a href="integrated-security-platform.html">Platform Management</a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="security-brands-singapore.html" class="nav-link has-dropdown">Brands</a>
+      <div class="simple-dropdown wide-dropdown">
+        <a href="security-brands-singapore.html#surveillance"><strong>Surveillance</strong> &mdash; Hikvision &bull; Hanwha &bull; Uniview &bull; Milesight</a>
+        <a href="security-brands-singapore.html#access"><strong>Access Control</strong> &mdash; Suprema &bull; ZKTeco &bull; HID &bull; EntryPass</a>
+        <a href="security-brands-singapore.html#intercom"><strong>Intercoms</strong> &mdash; Akuvox &bull; Aiphone &bull; Kocom</a>
+        <a href="security-brands-singapore.html#alarms"><strong>Alarms</strong> &mdash; AJAX &bull; RISCO &bull; Paradox &bull; DSC</a>
+        <a href="security-brands-singapore.html#gates"><strong>Gates & Barriers</strong> &mdash; FAAC &bull; MAG &bull; Dormer</a>
+        <hr>
+        <a href="security-brands-singapore.html"><strong>&rarr; View All Technology Partners</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+    <li class="nav-item"><a href="resources.html" class="nav-link has-dropdown">Resources</a>
+      <div class="simple-dropdown">
+        <a href="resources.html#guides">Technical Guides</a>
+        <a href="resources.html#tools">Planning Tools</a>
+        <a href="resources.html#library">Product Library</a>
+        <a href="resources.html#videos">Training Videos</a>
+        <a href="resources.html#faq">FAQ</a>
+        <a href="resources.html#trade">For Professionals</a>
+        <a href="resources.html"><strong>&rarr; All Resources</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="security-articles-singapore.html" class="nav-link active">Insights</a></li>
+    <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
+      <div class="simple-dropdown">
+        <a href="about.html">Our Story</a><a href="contact.html">Contact Us</a>
+      </div>
+    </li>
+  </ul>
+  <!-- Desktop search icon -->
+  <div class="nav-right">
+    <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  </div>
+  <!-- Mobile search icon — always right end on mobile -->
+  <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="security-solutions-singapore.html"><strong>&rarr; View All Solutions</strong></a><a href="residential-security-singapore.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a href="commercial-security-singapore.html">Commercial &amp; Retail</a><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a><a href="government-institution-security-singapore.html">Institutions &amp; Government</a><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu" id="sysSub">
+      <a href="surveillance-detection.html">Surveillance &amp; Detection</a>
+      <a href="people-access-control.html">People Access Control</a>
+      <a href="vehicle-access-control.html">Vehicle Access &amp; Barriers</a>
+      <a href="integrated-security-platform.html">Platform Management</a>
+    </div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('brandSub')">Brands &#9662;<div class="mobile-submenu" id="brandSub">
+      <a href="security-brands-singapore.html"><strong>&rarr; View All Partners</strong></a>
+      <a href="security-brands-singapore.html#surveillance">Surveillance &mdash; Hik · Han · Uni · Mil</a>
+      <a href="security-brands-singapore.html#access">Access &mdash; Sup · ZK · HID · EP</a>
+      <a href="security-brands-singapore.html#intercom">Intercoms &mdash; Aku · Aip · Koc</a>
+      <a href="security-brands-singapore.html#alarms">Alarms &mdash; AJAX · RIS · Par · DSC</a>
+      <a href="security-brands-singapore.html#gates">Gates &mdash; FAAC · MAG · Dor</a>
+    </div></div>
+  <a href="portfolio.html" class="mobile-menu-item">Portfolio</a>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources &#9662;<div class="mobile-submenu" id="resSub"><a href="resources.html"><strong>&rarr; All Resources</strong></a><a href="resources.html#guides">Technical Guides</a><a href="resources.html#tools">Planning Tools</a><a href="resources.html#library">Product Library</a><a href="resources.html#videos">Training Videos</a><a href="resources.html#faq">FAQ</a><a href="resources.html#trade">For Professionals</a></div></div>
+  <a href="security-articles-singapore.html" class="mobile-menu-item">Insights</a>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; Our Story</strong></a><a href="contact.html">Contact Us</a></div></div>
+</div>
+</nav>
+
+<!-- HERO SECTION -->
+<header class="hero-portfolio" style="padding: 140px 0 80px; background: linear-gradient(rgba(14,26,43,0.85), rgba(14,26,43,0.85)), url('images/hdb-landed-condo-security-cover.jpg'); background-size: cover; background-position: center; color: #fff;">
+    <div class="container">
+        <div style="max-width: 850px;">
+            <span class="eyebrow" style="color: #63b3ed; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 20px;">Security Planning</span>
+            <h1 style="font-family: 'Montserrat', sans-serif; font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 25px; line-height: 1.2;">HDB, Landed, or Condo — How Security Requirements Differ</h1>
+            <p class="intro" style="font-family: 'Inter', sans-serif; font-size: 1.15rem; opacity: 0.95; line-height: 1.8; color: #e2e8f0;">The security challenges of an HDB flat, a landed home, and a condominium unit in Singapore are genuinely different. The system that works well for one will be incomplete, over-specified, or simply wrong for another.</p>
+            
+            <div style="display: flex; align-items: center; gap: 20px; margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.15);">
+                <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" style="width: 64px; height: 64px; border-radius: 50%; object-fit: cover;">
+                <div style="font-family: 'Inter', sans-serif;">
+                    <div style="color: #fff; font-size: 1.1rem; font-weight: 700; margin-bottom: 4px;">Wee Meng Ler</div>
+                    <div style="color: #94a3b8; font-size: 0.85rem;">Founder & CEO · Securevision · 2026 · 7 min read</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ── BREADCRUMBS ── -->
+<div class="container">
+    <div class="sv-breadcrumb" style="background: transparent; padding: 24px 0 0 0;">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="security-articles-singapore.html">Insights</a></li>
+            <li>Security Planning</li>
+            <li>Property Differences</li>
+        </ul>
+    </div>
+</div>
+
+<div class="article-body">
+    <div class="container">
+        <div class="layout-with-sidebar">
+            <main class="prose">
+                
+                <section id="section1">
+                    <h2>1. Why property type shapes system design</h2>
+                    <p>Security system design starts with a site survey, not a product catalogue. The first thing any competent installer assesses is the property type — because property type determines entry points, perimeter characteristics, existing infrastructure, and what the occupant actually controls.</p>
+                    <p>A homeowner in an HDB flat controls their front door and their unit. Everything outside that door is common property managed by the Town Council or MCST. A landed homeowner controls the entire plot — gate, perimeter walls, driveway, garden, all external doors and windows. A condominium unit owner is in a similar position to the HDB owner inside the unit, but in a building with more sophisticated shared infrastructure.</p>
+                    <p>These differences have direct consequences for what you can install, where you can install it, and what the system needs to cover.</p>
+                </section>
+
+                <section id="section2">
+                    <h2>2. HDB flats — what you control and what you do not</h2>
+                    <p>In an HDB flat, your security perimeter is essentially the front door, the service door if present, and your windows. The common corridor outside is Town Council territory — you cannot install cameras pointing into it, and you cannot attach anything to common walls without approval.</p>
+                    <h3>What makes sense for an HDB flat:</h3>
+                    <ul>
+                        <li><strong>Burglar alarm:</strong> Covering the front door contact, window contacts, and interior motion sensors. A wireless system (like AJAX) works particularly well to avoid cable-chasing through finished walls.</li>
+                        <li><strong>Video intercom:</strong> Replaces the doorbell to vet visitors without opening the door. Smartphone integration allows remote access even while away.</li>
+                        <li><strong>CCTV:</strong> Internal cameras for monitoring. Corridor-facing cameras are strictly limited to your own unit's immediate entrance.</li>
+                    </ul>
+                    
+                    <div class="callout-box">
+                        <strong>REGULATORY NOTICE</strong>
+                        <p>HDB residents should check HDB's guidelines on camera installation. Rules around common-area attachments and camera angles are strictly enforced.</p>
+                    </div>
+                </section>
+
+                <section id="section3">
+                    <h2>3. Landed homes — the full perimeter challenge</h2>
+                    <p>A landed property gives the owner full control but also full responsibility for securing the entire plot. The perimeter is yours to protect.</p>
+                    <h3>Perimeter coverage:</h3>
+                    <p>A typical terrace or semi-detached home has multiple entry points on several levels. Effective security must cover all of them, not just the primary front entrance.</p>
+                    <ul>
+                        <li><strong>CCTV:</strong> External cameras covering the driveway, gates, passages, and especially the backyard (a frequent vulnerability). Night-vision capability is essential for unlit gardens.</li>
+                        <li><strong>Burglar alarm:</strong> Magnetic contacts on all external doors and ground-floor windows. Interior motion sensors on each floor, with partial-arm capability for night-time security.</li>
+                        <li><strong>Gate intercom & Auto gate:</strong> A video intercom at the front gate integrated with the driveway's auto-gate motor for secure, app-based visitor verification and access.</li>
+                    </ul>
+
+                    <div style="margin: 40px 0;">
+                        <img src="images/landed-home-security-layout.jpg" alt="Bird's-eye layout of landed home security" style="border-radius: 12px; width: 100%;">
+                        <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic; margin-top: 10px; text-align: center;">Strategic component placement for a landing home perimeter.</p>
+                    </div>
+                </section>
+
+                <section id="section4">
+                    <h2>4. Condominium units — shared infrastructure vs unit responsibility</h2>
+                    <p>Common areas and lobby access are managed by the MCST. As a unit owner, your focus is on your front door and any windows accessible from balconies or adjacent units.</p>
+                    <div class="callout-box">
+                        <strong>KEY POINT</strong>
+                        <p>Shared infrastructure (lobby cameras, guards) does NOT protect your unit interior. Your unit door and private balconies are your individual responsibility.</p>
+                    </div>
+                    <h3>Unit-specific security:</h3>
+                    <ul>
+                        <li><strong>Private alarm:</strong> A separate system for the front door and windows to provide absolute peace of mind regardless of the condo's external security quality.</li>
+                        <li><strong>Intercom upgrades:</strong> Handset upgrades typically require coordination with the MCST as they integrate into a building-wide network.</li>
+                    </ul>
+                </section>
+
+                <section id="section5">
+                    <h2>5. Side-by-side comparison</h2>
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>HDB Flat</th>
+                                <th>Landed Home</th>
+                                <th>Condo Unit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Burglar alarm</strong></td>
+                                <td>Door, windows, 1-2 PIR</td>
+                                <td>Full perimeter + all floors</td>
+                                <td>Front door + balcony windows</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CCTV</strong></td>
+                                <td>Internal & Entrance area</td>
+                                <td>External perimeter + Interior</td>
+                                <td>Interior & Entrance</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Intercom</strong></td>
+                                <td>Wireless door camera</td>
+                                <td>Gate station + indoor monitor</td>
+                                <td>MCST Shared System</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Auto gate</strong></td>
+                                <td>N/A</td>
+                                <td>Driveway gate motor</td>
+                                <td>N/A (Shared Gantry)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section id="section6">
+                    <h2>6. The renovation timing question</h2>
+                    <p>The best time to upgrade security is during a renovation, before walls are closed. Cable runs that are easily concealed during works become significantly more expensive as retrofits on finished surfaces.</p>
+                    <div class="verdict-box">
+                        <p>We work across all three property types. If you aren't sure what applies to your situation, simply tell us your property type and your primary concerns — we'll advise what makes sense for your specific case before you book a site visit.</p>
+                    </div>
+                </section>
+
+                <hr style="margin: 60px 0; border: 0; border-top: 1px solid #e2e8f0;">
+
+                <!-- AUTHOR BIO -->
+                <div class="author-bio" style="background: #f8fafc; padding: 40px; border-radius: 12px; margin-bottom: 60px;">
+                    <span style="display: block; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #94a3b8; margin-bottom: 24px;">ABOUT THE AUTHOR</span>
+                    <div style="display: flex; gap: 30px; align-items: flex-start; flex-wrap: wrap;">
+                        <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover;">
+                        <div style="flex: 1; min-width: 300px;">
+                            <h4 style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem; margin-bottom: 5px; color: #1e293b;">Ler Wee Meng</h4>
+                            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 20px; font-weight: 500;">Founder & CEO, Securevision Pte Ltd</p>
+                            <div style="font-size: 0.95rem; line-height: 1.7; color: #475569;">
+                                <p>Wee Meng has over 37 years of experience in security systems engineering and integration. He holds a BEng in Electrical and Electronic Engineering from the National University of Singapore and a law degree from the University of London.</p>
+                                <p>He founded Securevision in 2006 and has since led security system deployments across more than 1,000+ Sites in Singapore — spanning residential properties, condominiums, commercial buildings, industrial facilities, and institutions.</p>
+                                <p>His technical focus spans CCTV and AI video analytics, IP intercom systems, access control, licence plate recognition, and integrated platform design. He is the architect behind VESTA, Securevision's unified security platform built specifically for condominium management in Singapore.</p>
+                                <p>Securevision holds Police Licence No. <span class="sv-licence">L/PS/000267/2023P</span> and is registered with the Building and Construction Authority of Singapore.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-tags" style="margin-top: 40px; display: flex; flex-wrap: wrap; gap: 10px;">
+                    <span class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">CCTV</span>
+                    <span class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">Burglar Alarm</span>
+                    <span class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">Intercom</span>
+                    <span class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">Security Planning</span>
+                    <span class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">Buying Guide</span>
+                    <span class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">Owner</span>
+                    <span class="tag-pill" style="background: #f1f5f9; color: #475569; padding: 6px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">Singapore</span>
+                </div>
+
+            </main>
+
+            <aside class="sidebar">
+                <div class="sticky-toc">
+                    <div class="toc-title">In this article</div>
+                    <ul class="toc-list">
+                        <li><a href="#section1">1. Property Shape</a></li>
+                        <li><a href="#section2">2. HDB Controls</a></li>
+                        <li><a href="#section3">3. Landed Perimeter</a></li>
+                        <li><a href="#section4">4. Condo Unit</a></li>
+                        <li><a href="#section5">5. Comparison Table</a></li>
+                        <li><a href="#section6">6. Renovation Timing</a></li>
+                    </ul>
+                    
+                    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e2e8f0; font-size: 0.85rem; color: #64748b;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 15px;">
+                            <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
+                            <div>
+                                <strong style="display: block; color: #1e293b;">Ler Wee Meng</strong>
+                                <span style="font-size: 0.75rem;">Founder & CEO · Securevision</span>
+                            </div>
+                        </div>
+                        <p><strong>Need expert advice?</strong> Discuss your site requirements with our engineering team.</p>
+                        <a href="https://wa.me/6593860466" style="display: block; margin-top: 15px; color: var(--primary-blue); font-weight: 700; text-decoration: none;">💬 WhatsApp Support &rarr;</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<section style="padding: 80px 0; background: #f8fafc; border-top: 1px solid #e2e8f0;">
+    <div class="container">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 40px; text-align: center; color: #1e293b; font-weight: 700;">Related Security Insights</h2>
+        <div class="prev-next-nav" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); border-top: none; padding-top: 0; margin-top: 0;">
+            <a href="insights-home-security-system-cost-singapore.html" class="nav-card">
+                <span>Security Planning</span>
+                <strong>How Much Does a Home Security System Cost?</strong>
+            </a>
+            <a href="insights-burglar-alarm-design.html" class="nav-card">
+                <span>Security Planning</span>
+                <strong>Understanding Your Burglar Alarm System Design</strong>
+            </a>
+            <a href="insights-how-to-choose-cctv.html" class="nav-card">
+                <span>Security Planning</span>
+                <strong>How to Choose the Right CCTV System</strong>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-sec-final" style="padding: 120px 0; background: linear-gradient(rgba(14,26,43,0.85), rgba(14,26,43,0.85)), url('images/cta-skyline.png'); background-size: cover; background-position: center; color: #fff; text-align: center;">
+    <div class="container">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 3rem; margin-bottom: 25px;">Secure Your Home Correctly</h2>
+        <p style="font-family: 'Inter', sans-serif; font-size: 1.25rem; color: #cbd5e1; max-width: 800px; margin: 0 auto 50px; line-height: 1.8;">Different properties require different strategies. Get a professional site assessment to ensure your system is perfectly matched to your property type.</p>
+        
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="request-site-assessment-singapore.html" class="btn" style="background: var(--p-acc); color: #fff; padding: 18px 45px; border-radius: 12px; font-weight: 700; text-decoration: none; border: none; font-size: 1.1rem;">📅 Book Assessment</a>
+            <a href="https://wa.me/6593860466" class="btn" style="background: transparent; color: #fff; padding: 18px 45px; border-radius: 12px; font-weight: 700; text-decoration: none; border: 2px solid #fff; font-size: 1.1rem;">💬 WhatsApp Engineering</a>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="f-logo-wrap">
+                    <img src="images/securevision-logo-white.png" alt="Securevision Logo">
+                    <span class="brand-name">Securevision</span>
+                </div>
+                <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since <span class="sv-founded-year">2006</span>.</p>
+                <div class="f-socials">
+                    <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@securevision" target="_blank" rel="noopener" aria-label="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="residential-security-singapore.html">Private Homes</a></li>
+                    <li><a href="condominiums.html">Condominiums</a></li>
+                    <li><a href="commercial-security-singapore.html">Commercial &amp; Retail</a></li>
+                    <li><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a></li>
+                    <li><a href="government-institution-security-singapore.html">Institutions &amp; Government</a></li>
+                    <li><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Systems</h4>
+                <ul>
+                    <li><a href="surveillance-detection.html">Surveillance &amp; Detection</a></li>
+                    <li><a href="people-access-control.html">People Access Control</a></li>
+                    <li><a href="vehicle-access-control.html">Vehicle Access &amp; Barriers</a></li>
+                    <li><a href="integrated-security-platform.html">Platform Management</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="resources.html#guides">Technical Guides</a></li>
+                    <li><a href="resources.html#tools">Planning Tools</a></li>
+                    <li><a href="resources.html#library">Product Library</a></li>
+                    <li><a href="resources.html#videos">Training Videos</a></li>
+                    <li><a href="resources.html#faq">Search &amp; FAQ</a></li>
+                    <li><a href="resources.html"><strong>Full Resource Hub</strong></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="security-brands-singapore.html"><strong>Technology Partners</strong></a></li>
+                    <li><a href="portfolio.html">Project Portfolio</a></li>
+                    <li><a href="security-articles-singapore.html">Insights</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Get In Touch</h4>
+                <div class="footer-contact-item">
+                    <span>💬</span>
+                    <a href="https://wa.me/6593860466">WhatsApp Us</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span>✉️</span>
+                    <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span>📞</span>
+                    <a href="tel:+6562864796">+65 6286 4796</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; <span class="sv-current-year">2026</span> Securevision Pte Ltd &middot; Police Licence <span class="sv-licence">L/PS/000267/2023P</span> &middot; bizSAFE Level 3 &middot; BCA Registered</p>
+            <div class="footer-bottom-links">
+                <a href="sitemap.html">Sitemap</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    if (menu) menu.classList.toggle('active');
+}
+
+function toggleSubmenu(id) {
+    const sub = document.getElementById(id);
+    if (sub) {
+        const isActive = sub.classList.contains('active');
+        document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
+        if (!isActive) sub.classList.add('active');
+    }
+}
+
+document.addEventListener('click', function (e) {
+    const nav = document.querySelector('.main-nav');
+    const menu = document.getElementById('mobileMenu');
+    if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
+        menu.classList.remove('active');
+    }
+});
+
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.main-nav');
+    const logo = document.querySelector('.nav-logo-img');
+    if (nav && logo) {
+        if (window.scrollY > 20) {
+            nav.classList.add('scrolled');
+            logo.src = 'images/securevision-logo-blue.png';
+        } else {
+            nav.classList.remove('scrolled');
+            logo.src = 'images/securevision-logo-white.png';
+        }
+    }
+});
+
+// TOC Active State
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('.prose section');
+    sections.forEach(s => {
+        if (window.pageYOffset >= s.offsetTop - 120) {
+            current = s.getAttribute('id');
+        }
+    });
+    document.querySelectorAll('.toc-list a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + current) {
+            a.classList.add('active');
+        }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof SECUREVISION !== 'undefined') {
+        const SV = SECUREVISION;
+        document.querySelectorAll('.sv-licence').forEach(el => el.textContent = SV.licenceNumber);
+        document.querySelectorAll('.sv-founded-year').forEach(el => el.textContent = SV.foundedYear);
+        document.querySelectorAll('.sv-current-year').forEach(el => el.textContent = new Date().getFullYear());
+    }
+});
+</script>
+</body>
+</html>
