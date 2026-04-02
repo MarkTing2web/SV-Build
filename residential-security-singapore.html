@@ -315,6 +315,103 @@
             margin-bottom: 8px;
         }
     </style>
+    <style>
+        /* INSIGHTS SECTION */
+        .insights-section {
+            background-color: #f8fafc; /* Light neutral offset */
+            padding: 80px 0;
+        }
+        .insights-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px;
+            margin-top: 48px;
+        }
+        .insight-card {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 32px;
+            width: calc(33.333% - 22px);
+            display: flex;
+            flex-direction: column;
+            transition: 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+        .insight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 86, 179, 0.08);
+            border-color: var(--primary-blue);
+        }
+        .insight-card .category-pill {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary-blue);
+            background: rgba(0, 86, 179, 0.08);
+            padding: 4px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 16px;
+            align-self: flex-start;
+        }
+        .insight-card h3 {
+            font-size: 19px;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            color: var(--text-dark);
+        }
+        .insight-card p {
+            font-size: 14px;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .insight-card .read-more {
+            margin-top: auto;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        @media (max-width: 992px) {
+            .insight-card { width: calc(50% - 16px); }
+        }
+        @media (max-width: 768px) {
+            .insight-card { width: 100%; }
+            .insights-grid { gap: 24px; }
+        }
+
+        .browse-all-wrap {
+            text-align: center;
+            margin-top: 56px;
+        }
+        .browse-all-link {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid transparent;
+            transition: 0.3s;
+        }
+        .browse-all-link:hover {
+            border-bottom-color: var(--primary-blue);
+        }
+    </style>
 </head>
 <body>
 <nav class="main-nav">
@@ -688,7 +785,65 @@
     </div>
 </section>
 
-<!-- ── 8. INVESTMENT GUIDE ── -->
+<!-- ── 8. INSIGHTS DESK ── -->
+<section class="insights-section border-top">
+    <div class="container">
+        <div class="text-center">
+            <span class="eyebrow">From the Insights Desk</span>
+            <h2>Real answers to the questions Singapore homeowners ask most.</h2>
+            <p class="subtitle" style="max-width: 900px; margin-left: auto; margin-right: auto;">These are not generic security tips. They are articles written from 35 years of assessing and installing security systems in Singapore homes — HDB flats, landed terraces, semi-detached, and GCBs. If you have a question before you are ready to talk to us, the answer is probably here.</p>
+        </div>
+
+        <div class="insights-grid">
+            <!-- Card 1 -->
+            <a href="insights-home-security-system-cost-singapore.html" class="insight-card">
+                <span class="category-pill">Security Planning</span>
+                <h3>How Much Does a Home Security System Cost in Singapore?</h3>
+                <p>The actual numbers — what drives cost up, what keeps it down, and what a realistic budget looks like for your property type.</p>
+                <span class="read-more">Read article &rarr;</span>
+            </a>
+
+            <!-- Card 2 -->
+            <a href="insights-hdb-landed-condo-security-differences.html" class="insight-card">
+                <span class="category-pill">Security Planning</span>
+                <h3>HDB, Landed, or Condo — How Security Requirements Actually Differ</h3>
+                <p>Your property type determines your perimeter, your entry points, and what you actually control. The system that works for one will not suit another.</p>
+                <span class="read-more">Read article &rarr;</span>
+            </a>
+
+            <!-- Card 3 -->
+            <a href="insights-upgrade-existing-security-system.html" class="insight-card">
+                <span class="category-pill">Security Planning</span>
+                <h3>Can You Keep Your Existing System and Just Upgrade Parts?</h3>
+                <p>Sometimes yes, sometimes no, and sometimes it depends on a question you have not thought to ask. Here is how to work out which situation you are in.</p>
+                <span class="read-more">Read article &rarr;</span>
+            </a>
+
+            <!-- Card 4 -->
+            <a href="insights-after-security-installation-support.html" class="insight-card">
+                <span class="category-pill">Security Planning</span>
+                <h3>After Installation — Who Do You Call, and What Should You Expect?</h3>
+                <p>What should happen on installation day, what the warranty covers, and what a professional long-term relationship with your security company looks like.</p>
+                <span class="read-more">Read article &rarr;</span>
+            </a>
+
+            <!-- Card 5 -->
+            <a href="insights-is-my-security-system-still-working.html" class="insight-card">
+                <span class="category-pill">Security Planning</span>
+                <h3>How Do You Know If Your Current Security System Is Still Working?</h3>
+                <p>Most systems appear to be working right up until the moment they are not. Here is how to check — without waiting for the wrong kind of proof.</p>
+                <span class="read-more">Read article &rarr;</span>
+            </a>
+        </div>
+
+        <div class="browse-all-wrap">
+            <a href="security-articles-singapore.html" class="browse-all-link">&rarr; Browse all security articles at the Insights page</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- ── 9. INVESTMENT GUIDE ── -->
 <section id="investment-guide" class="bg-light border-top">
     <div class="container">
         <div class="text-center" style="margin-bottom: 56px;">
@@ -791,7 +946,7 @@
     </div>
 </section>
 
-<!-- ── 9. THE RESIDENTIAL JOURNEY ── -->
+<!-- ── 10. THE RESIDENTIAL JOURNEY ── -->
 <section id="residential-journey" class="bg-light">
     <div class="container">
         <div class="text-center">
@@ -829,7 +984,7 @@
     </div>
 </section>
 
-<!-- ── 10. THE SECUREVISION EDGE ── -->
+<!-- ── 11. THE SECUREVISION EDGE ── -->
 <section id="securevision-edge" class="bg-white border-top">
     <div class="container">
         <div class="text-center">
@@ -878,7 +1033,7 @@
     </div>
 </section>
 
-<!-- ── 11. FINAL CTA ── -->
+<!-- ── 12. FINAL CTA ── -->
 <section id="get-started" class="cta-section" style="background: linear-gradient(rgba(14, 26, 43, 0.7), rgba(14, 26, 43, 0.7)), url('images/cta-landed-dusk.png'); background-size: cover; background-position: center;">
     <div class="container text-center">
         <h2>Ready to Secure Your Home & Legacy?</h2>
@@ -891,7 +1046,7 @@
     </div>
 </section>
 
-<!-- ── 12. FOOTER ── -->
+<!-- ── 13. FOOTER ── -->
 <footer class="site-footer">
     <div class="footer-container">
         <div class="footer-grid">
