@@ -354,23 +354,52 @@ SECUREVISION.COM.SG
 | **Integration** | MicroEngine | microengine-singapore.html | Brands → Integration |
 | **Telephony** | Yeastar | yeastar-singapore.html | Brands → PBX |
 
-### **PORTFOLIO & INSIGHTS (8 pages)**
-| Section | Page | File | Nav Placement |
-|---------|------|------|---------------|
-| **Portfolio** | Overview | portfolio.html | PORTFOLIO |
-| | L'viv Residences | lviv.html | Via portfolio.html |
-| | SCAPE | scape.html | Via portfolio.html |
-| | Light@Cairnhill | Light-at-Cairnhill.html | Via portfolio.html |
-| | STA Building | commercial-security-sta-building-singapore.html | Via portfolio.html |
-| | Cyrus Tech Park | industrial-security-cyrus-tech-park-singapore.html | Via portfolio.html |
-| **Insights** | Insights Hub (Landing) | security-articles-singapore.html | INSIGHTS |
-| | 18 Technical Articles | (Grid active) | Via Insights Hub |
-| | CCTV Technical Guide | cctv.html | Systems / Insights |
-| | Burglar Alarm Guide | burglar-alarm.html | Systems / Insights |
-| | Door Access Guide | door-access.html | Systems / Insights |
-| | AV Intercom Guide | intercom-system-singapore.html | Systems / Insights |
-| | Auto Gate Guide | auto-gate-singapore.html | Systems / Insights |
-| | Resources Hub | resources.html | ABOUT / Insights |
+### **PORTFOLIO & INSIGHTS (35+ pages)**
+| Page | Description | Purpose | Routing |
+| :--- | :--- | :--- | :--- |
+| `portfolio.html` | Case Study Hub | Social Proof | Global Nav → Portfolio |
+| `lviv.html` | Project: L'viv | GCB Case Study | Portfolio Grid |
+| `security-articles-singapore.html` | Insights Hub | Authority/SEO | Global Nav → Insights |
+| (See Below) | 29 Technical Articles | Educational SEO | Insights Grid |
+
+### **TECHNICAL INSIGHTS INVENTORY (Category Filter Mapping)**
+| Category | Topic/Article | File |
+| :--- | :--- | :--- |
+| **Security Planning** | Is Your Security System Still Working? | `insights-is-my-security-system-still-working.html` |
+| | After Installation — Who Do You Call? | `insights-after-security-installation-support.html` |
+| | Upgrade Existing System vs Starting Fresh | `insights-upgrade-existing-security-system.html` |
+| | HDB, Landed, or Condo — Requirements | `insights-hdb-landed-condo-security-differences.html` |
+| | Home Security System Cost in Singapore | `insights-home-security-system-cost-singapore.html` |
+| | 10 Tips for Securing Your Premises | `insights-10-tips-securing-your-premises.html` |
+| | After Installation — Who Do You Call? | `insights-after-security-installation-support.html` |
+| | Is Your Security System Actually Working? | `insights-is-my-security-system-still-working.html` |
+| | Upgrade Current System vs Starting Fresh | `insights-upgrade-existing-security-system.html` |
+| | HDB, Landed, or Condo — Requirements | `insights-hdb-landed-condo-security-differences.html` |
+| | Home Security System Cost in Singapore | `insights-home-security-system-cost-singapore.html` |
+| | How to Choose an Auto Gate Motor | `insights-how-to-choose-auto-gate-motor.html` |
+| **CCTV** | How to Choose the Right CCTV System | `insights-how-to-choose-cctv.html` |
+| | How an IP CCTV Network Actually Works | `insights-how-ip-cctv-works.html` |
+| | 5 Reasons to Rack-Mount Your NVRs | `insights-rackmount-nvr.html` |
+| **Burglar Alarm** | Understanding Your Alarm Design | `insights-burglar-alarm-design.html` |
+| | How to Use Your Burglar Alarm Correctly | `insights-using-your-burglar-alarm.html` |
+| | How to Reduce False Alarms | `insights-reduce-false-alarms.html` |
+| | How to Maintain Your Burglar Alarm | `insights-maintain-burglar-alarm.html` |
+| | How Your Burglar Alarm Actually Works | `insights-how-burglar-alarm-works.html` |
+| | Know Your Detectors and Sensors | `insights-burglar-alarm-detectors-sensors.html` |
+| **Door Access** | How to Choose a Multi-Door System | `insights-how-to-choose-multi-door-access.html` |
+| | How to Choose a Standalone System | `insights-standalone-door-access.html` |
+| | How Card Access Systems Actually Work | `insights-how-card-access-works.html` |
+| | Why Mechanical Locks Are Not Enough | `insights-why-mechanical-locks-not-enough.html` |
+| **Intercom** | How to Choose an Intercom for Home | `insights-choose-intercom-for-home.html` |
+| | How Intercom Systems Work | `insights-how-intercom-systems-work.html` |
+| | When to Upgrade Your Condo Intercom | `insights-upgrade-condo-intercom.html` |
+| **Auto Gates** | WiFi Remote Control for Auto Gates | `insights-wifi-remote-control-auto-gate.html` |
+| **Singapore Industry** | What Does a Security Upgrade Proposal Look Like? | `insights-condo-security-upgrade-proposal.html` |
+| | How Do I Get Quotes for an AGM Upgrade? | `insights-condo-security-upgrade-quotes.html` |
+| | How Do I Compare Two Integrators Fairly? | `insights-compare-security-integrators.html` |
+| | What Are the MCST's Legal Obligations? | `insights-mcst-legal-obligations-security.html` |
+| | Realistic Timeline and Disruption Plan | `insights-condo-security-upgrade-timeline.html` |
+| | Why Your System Needs a Refresh | `insights-security-system-refresh.html` |
 
 ---
 
