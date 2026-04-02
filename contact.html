@@ -50,8 +50,29 @@
 
         .map-placeholder { background: linear-gradient(135deg, #0E1A2B, #1a2942); border-radius: 16px; padding: 48px; color: #fff; text-align: center; min-height: 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; position: relative; }
         
+        .process-strip-section { background: #f8f9fa; padding: 64px 0; border-top: 1px solid var(--border-light); border-bottom: 1px solid var(--border-light); }
+        .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 32px; position: relative; }
+        .process-step { text-align: center; position: relative; }
+        .process-step-num { font-size: 11px; font-weight: 700; color: var(--primary-blue); opacity: 0.5; margin-bottom: 12px; display: block; text-transform: uppercase; letter-spacing: 1px; }
+        .process-icon { font-size: 32px; margin-bottom: 20px; background: #fff; width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin: 0 auto 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.04); border: 1px solid var(--border-light); }
+        .process-step h4 { font-size: 18px; margin-bottom: 12px; color: var(--text-dark); }
+        .process-step p { font-size: 14px; color: var(--text-gray); line-height: 1.6; max-width: 280px; margin: 0 auto; }
+
+        @media (min-width: 993px) {
+            .process-step:not(:last-child)::after {
+                content: '→';
+                position: absolute;
+                top: 40px;
+                right: -24px;
+                font-size: 24px;
+                color: var(--border-light);
+                font-family: inherit;
+            }
+        }
+
         @media (max-width: 992px) {
-            .channels-grid, .contact-grid, .faq-grid { grid-template-columns: 1fr; }
+            .channels-grid, .contact-grid, .faq-grid, .process-grid { grid-template-columns: 1fr; }
+            .process-step:not(:last-child) { margin-bottom: 40px; }
         }
     </style>
 </head>
@@ -149,6 +170,7 @@
             <span class="eyebrow" style="color:rgba(255,255,255,0.45)">Get In Touch</span>
             <h1>Let's Talk About<br><em>Your Security</em></h1>
             <p>Whether you're planning a new system, upgrading an existing one, or need urgent help with something that's stopped working &mdash; we're here. WhatsApp gets the fastest response.</p>
+            <p style='font-size:13px; color:rgba(255,255,255,0.5); margin-top:-20px;'>Mon – Fri: 8:00am – 5:00pm &nbsp;·&nbsp; Sat: By appointment &nbsp;·&nbsp; WhatsApp monitored outside hours</p>
         </div>
     </header>
 
@@ -178,6 +200,33 @@
                     <p>Leave your number and a good time to call. One of our specialists will call you back &mdash; no call centres, no scripts.</p>
                     <div class="channel-response">Scheduled callback</div>
                     <a href="#callback" class="btn btn-outline" style="width:100%; justify-content:center;">Request a Callback</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- WHAT HAPPENS NEXT -->
+    <section class="process-strip-section">
+        <div class="container">
+            <span class="eyebrow text-center display-block" style="margin-bottom: 8px;">What Happens Next</span>
+            <div class="process-grid">
+                <div class="process-step">
+                    <span class="process-step-num">Step 1</span>
+                    <div class="process-icon">💬</div>
+                    <h4>You reach out</h4>
+                    <p>WhatsApp, call, or fill the form. Tell us your property type and what you need.</p>
+                </div>
+                <div class="process-step">
+                    <span class="process-step-num">Step 2</span>
+                    <div class="process-icon">🏠</div>
+                    <h4>We do a site visit</h4>
+                    <p>A specialist visits your property to assess coverage, access points, and existing infrastructure.</p>
+                </div>
+                <div class="process-step">
+                    <span class="process-step-num">Step 3</span>
+                    <div class="process-icon">📋</div>
+                    <h4>You receive a proposal</h4>
+                    <p>A clear, itemised proposal within 3 working days. No pressure, no obligation.</p>
                 </div>
             </div>
         </div>
