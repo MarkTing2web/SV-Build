@@ -260,24 +260,25 @@
                             </div>
                         </div>
 
-                        <form id="enquiryForm">
+                        <form id="enquiryForm" action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="b7a3f96f-49ed-4315-9589-0d8db8c9fa40">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label>First Name *</label>
-                                    <input type="text" placeholder="Your name" required>
+                                    <input type="text" name="name" placeholder="Your name" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Phone / WhatsApp *</label>
-                                    <input type="tel" placeholder="+65 9XXX XXXX" required>
+                                    <input type="tel" name="phone" placeholder="+65 9XXX XXXX" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Email</label>
-                                <input type="email" placeholder="your@email.com">
+                                <input type="email" name="email" placeholder="your@email.com">
                             </div>
                             <div class="form-group">
                                 <label>Property Type *</label>
-                                <select required>
+                                <select name="property_type" required>
                                     <option value="" disabled selected>Select property type</option>
                                     <option>Private Home (Landed)</option>
                                     <option>Condominium</option>
@@ -288,27 +289,29 @@
                             </div>
                             <div class="form-group">
                                 <label>Tell Us About Your Project</label>
-                                <textarea placeholder="Describe your requirements..."></textarea>
+                                <textarea name="message" placeholder="Describe your requirements..."></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 16px;">Send Enquiry &rarr;</button>
                         </form>
                     </div>
 
                     <!-- CALLBACK PANEL -->
-                    <div class="form-card" id="callback" style="margin-top: 24px;">
+                    <div class="form-card" style="margin-top: 24px;">
                         <div style="font-size: 18px; font-weight: 700; margin-bottom: 8px;">📞 Request a Callback</div>
                         <p style="font-size: 13px; margin-bottom: 20px;">Leave your number and preferred time and we'll call you back.</p>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; align-items: end;">
+                        <form id="callbackForm" action="https://api.web3forms.com/submit" method="POST" style="display: grid; grid-template-columns: 1fr 1fr auto; gap: 12px; align-items: end;">
+                            <input type="hidden" name="access_key" value="b7a3f96f-49ed-4315-9589-0d8db8c9fa40">
+                            <input type="hidden" name="subject" value="New Callback Request">
                             <div class="form-group" style="margin:0">
                                 <label>Your Number</label>
-                                <input type="tel" placeholder="+65 9XXX XXXX">
+                                <input type="tel" name="phone" placeholder="+65 9XXX XXXX" required>
                             </div>
                             <div class="form-group" style="margin:0">
                                 <label>Preferred Time</label>
-                                <input type="text" placeholder="e.g. Mon 2pm">
+                                <input type="text" name="preferred_time" placeholder="e.g. Mon 2pm" required>
                             </div>
-                            <button class="btn btn-primary" style="padding: 12px 20px;">Request</button>
-                        </div>
+                            <button type="submit" class="btn btn-primary" style="padding: 12px 20px;">Request</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -358,12 +361,7 @@
                     </div>
                     <a href="https://maps.google.com/?q=1013+Geylang+East+Avenue+3+Singapore" target="_blank" class="btn btn-primary">Open in Google Maps &rarr;</a>
                 </div>
-                <div class="map-placeholder">
-                    <div style="font-size: 48px;">🗺️</div>
-                    <div><strong>Geylang East Avenue 3 #02-142</strong></div>
-                    <div style="font-size: 13px; opacity: 0.7;">Singapore 389728 · Opposite Paya Lebar MRT</div>
-                    <a href="https://maps.google.com/?q=1013+Geylang+East+Avenue+3+Singapore" target="_blank" class="btn btn-outline-light">View Maps &rarr;</a>
-                </div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4617.198693800151!2d103.88816831114265!3d1.3190409616673124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da18228680cd4d%3A0x622bcfe15c5ad324!2s1013%20Geylang%20East%20Ave%203%2C%20Singapore%20389728!5e1!3m2!1sen!2ssg!4v1775108430282!5m2!1sen!2ssg" style="border:0; border-radius:16px; width:100%; height:400px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </div>
     </section>
@@ -516,6 +514,59 @@ document.querySelectorAll('.nav-link').forEach(link => {
 // Current Year
 const yearSpan = document.querySelector('.current-year');
 if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+// Form Submission Handling
+document.querySelectorAll('form[action="https://api.web3forms.com/submit"]').forEach(form => {
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending...';
+
+        try {
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            });
+            
+            const result = await response.json();
+            
+            if (response.status === 200) {
+                // Success message
+                const container = form.parentElement;
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 20px 0;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">✅</div>
+                        <h3 style="margin-bottom: 12px;">Thank you!</h3>
+                        <p style="font-size: 15px; color: var(--text-gray); line-height: 1.6;">
+                            We'll be in touch within one business day.<br>
+                            For faster response, <strong><a href="https://wa.me/6593860466" style="color: var(--primary-blue); text-decoration: none;">WhatsApp us at +65 9386 0466</a></strong>.
+                        </p>
+                    </div>
+                `;
+            } else {
+                console.log(response);
+                alert('Something went wrong. Please try again or WhatsApp us directly.');
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalBtnText;
+            }
+        } catch (error) {
+            console.log(error);
+            alert('Something went wrong. Please try again or WhatsApp us directly.');
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        }
+    });
+});
 </script>
 </body>
 </html>
