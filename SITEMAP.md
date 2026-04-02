@@ -167,9 +167,9 @@ SECUREVISION.COM.SG
 │   ├── BY PROPERTY TYPE
 │   │   │
 │   │   ├── 1. RESIDENTIAL (/residential/)
-│   │   │   ├── ✅ residential-building.html - For New Builds
+│   │   │   ├── ✅ new-build-security-singapore.html - For New Builds
 │   │   │   ├── ✅ home-security-upgrade-singapore.html - For Existing Homes
-│   │   │   └── ✅ security-trade-partners-singapore.html - For Trade Professionals
+│   │   │   └── ✅ security-partner-architects-singapore.html - For Trade Professionals
 │   │   │
 │   │   ├── 2. CONDOMINIUMS (/condominiums/)
 │   │   │   ├── ✅ condominiums.html - Main Landing
@@ -301,9 +301,9 @@ SECUREVISION.COM.SG
 | Sector | Page | File | Nav Path |
 |--------|------|------|----------|
 | **Residential** | Main Landing | residential-security-singapore.html | Solutions → Residential |
-| | New Builds | residential-building.html | Solutions → Residential |
+| | New Builds | new-build-security-singapore.html | Solutions → Residential |
 | | Existing Homes | home-security-upgrade-singapore.html | Solutions → Residential |
-| | Trade Professionals | security-trade-partners-singapore.html | Solutions → Residential |
+| | Trade Professionals | security-partner-architects-singapore.html | Solutions → Residential |
 | **Condominiums** | Main Landing | condominiums.html | Solutions → Condominiums |
 | | MCST & Managing Agents | condominiums-mcst.html | Solutions → Condominiums |
 | | Security Partners | condominiums-security.html | Solutions → Condominiums |
@@ -697,9 +697,9 @@ All HTML pages built with full structure
 ├── security-systems-singapore.html (Systems Hub)
 ├── security-brands-singapore.html (Brands Hub)
 ├── residential-security-singapore.html (Main Landing)
-├── residential-building.html
+├── new-build-security-singapore.html
 ├── home-security-upgrade-singapore.html
-├── security-trade-partners-singapore.html
+├── security-partner-architects-singapore.html
 ├── condominiums.html
 ├── condominiums-mcst.html
 ├── condominiums-security.html

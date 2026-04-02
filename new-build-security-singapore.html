@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Build Home Security Planning | Securevision</title>
+    <meta name="description" content="Plan your home security right from the start. Pre-wiring, budget guidance, timeline coordination for new build and A&A projects.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sv-shared.css">
+    <script src="site-config.js"></script>
+    <style>
+    :root {
+        --primary-accent: #38b000; /* Bright Green for Residential */
+        --charcoal: #1B1F23;
+        --medium-gray: #5F6368;
+        --light-gray: #F8F9FA;
+        --border-color: #E8EAED;
+        --container-width: 1200px;
+    }
+
+    /* Core Layout Utilities */
+    .bg-white { background: #fff; }
+    .bg-light { background: var(--light-gray); }
+    .mt-56 { margin-top: 56px; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .pos-relative { position: relative; }
+    .z-2 { z-index: 2; }
+    .text-center { text-align: center; }
+
+    /* Typography & Headers */
+    .eyebrow { 
+        display: block; 
+        font-size: 14px; 
+        font-weight: 700; 
+        text-transform: uppercase; 
+        color: var(--primary-accent); 
+        letter-spacing: 1.5px; 
+        margin-bottom: 12px; 
+    }
+    .eyebrow-light { 
+        display: block; 
+        font-size: 14px; 
+        font-weight: 700; 
+        text-transform: uppercase; 
+        color: #fff; 
+        letter-spacing: 1.5px; 
+        margin-bottom: 12px; 
+        opacity: 0.8;
+    }
+
+    /* Components */
+    .btn-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    .btn-outline-light {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+    }
+    .btn-outline-light:hover { background: rgba(255,255,255,0.1); }
+    .btn-whatsapp { 
+        background: #25D366; 
+        color: white; 
+        border: none; 
+    }
+
+    /* HERO Section */
+    .hero {
+        padding: 140px 0 100px;
+        color: white;
+        text-align: center;
+        position: relative;
+    }
+    .hero h1 { font-size: clamp(36px, 6vw, 64px); margin-bottom: 24px; line-height: 1.1; }
+
+    /* GRID Sections */
+    .challenges-grid, .solutions-grid, .why-grid, .proof-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+    }
+    .challenge-card, .solution-card, .why-card {
+        background: white;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 40px 32px;
+        transition: all 0.3s ease;
+    }
+    .challenge-card:hover, .solution-card:hover {
+        border-color: var(--primary-accent);
+        box-shadow: 0 4px 12px rgba(56, 176, 0, 0.1);
+    }
+
+    /* METHODOLOGY Section */
+    .methodology-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+    }
+    .method-step { text-align: center; }
+    .step-number {
+        width: 64px;
+        height: 64px;
+        background: var(--primary-accent);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        font-weight: 700;
+        margin: 0 auto 20px;
+    }
+
+    /* FINAL CTA Section */
+    .final-cta {
+        background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
+        color: white;
+        text-align: center;
+        padding: 100px 0;
+    }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+
+    @media (max-width: 992px) {
+        .grid-2 { grid-template-columns: 1fr; }
+        .challenges-grid, .solutions-grid, .why-grid, .proof-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+        .challenges-grid, .solutions-grid, .why-grid, .proof-grid, .methodology-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    </style>
+</head>
+<body style="padding-top:68px">
+<nav class="main-nav">
+<div class="nav-container">
+  <!-- Logo + Wordmark — always left -->
+  <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
+    <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
+    <span class="wordmark nav-wordmark">SECUREVISION</span>
+  </a>
+  <!-- Hamburger — centred absolutely on mobile (via CSS) -->
+  <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+  <!-- Desktop nav links -->
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="security-solutions-singapore.html" class="nav-link has-dropdown">Solutions</a>
+      <div class="simple-dropdown">
+        <a href="residential-security-singapore.html">Private Homes</a>
+        <a href="condominiums.html">Condominiums</a>
+        <a href="commercial-security-singapore.html">Commercial &amp; Retail</a>
+        <a href="industrial-security-singapore.html">Industrial &amp; Logistics</a>
+        <a href="government-institution-security-singapore.html">Institutions &amp; Government</a>
+        <a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a>
+        <a href="security-solutions-singapore.html"><strong>&rarr; View All Solutions</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="security-systems-singapore.html" class="nav-link has-dropdown">Systems</a>
+      <div class="simple-dropdown">
+        <a href="surveillance-detection.html">Surveillance &amp; Detection</a>
+        <a href="people-access-control.html">People Access Control</a>
+        <a href="vehicle-access-control.html">Vehicle Access &amp; Barriers</a>
+        <a href="integrated-security-platform.html">Platform Management</a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="security-brands-singapore.html" class="nav-link has-dropdown">Brands</a>
+      <div class="simple-dropdown wide-dropdown">
+        <a href="security-brands-singapore.html#surveillance"><strong>Surveillance</strong> &mdash; Hikvision &bull; Hanwha &bull; Uniview &bull; Milesight</a>
+        <a href="security-brands-singapore.html#access"><strong>Access Control</strong> &mdash; Suprema &bull; ZKTeco &bull; HID &bull; EntryPass</a>
+        <a href="security-brands-singapore.html#intercom"><strong>Intercoms</strong> &mdash; Akuvox &bull; Aiphone &bull; Kocom</a>
+        <a href="security-brands-singapore.html#alarms"><strong>Alarms</strong> &mdash; AJAX &bull; RISCO &bull; Paradox &bull; DSC</a>
+        <a href="security-brands-singapore.html#gates"><strong>Gates & Barriers</strong> &mdash; FAAC &bull; MAG &bull; Dormer</a>
+        <hr>
+        <a href="security-brands-singapore.html"><strong>&rarr; View All Technology Partners</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+    <li class="nav-item"><a href="resources.html" class="nav-link has-dropdown">Resources</a>
+      <div class="simple-dropdown">
+        <a href="resources.html#guides">Technical Guides</a>
+        <a href="resources.html#tools">Planning Tools</a>
+        <a href="resources.html#library">Product Library</a>
+        <a href="resources.html#videos">Training Videos</a>
+        <a href="resources.html#faq">FAQ</a>
+        <a href="resources.html#trade">For Professionals</a>
+        <a href="resources.html"><strong>&rarr; All Resources</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="security-articles-singapore.html" class="nav-link">Insights</a></li>
+    <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
+      <div class="simple-dropdown">
+        <a href="about.html">Our Story</a><a href="contact.html">Contact Us</a>
+      </div>
+    </li>
+  </ul>
+  <!-- Desktop search icon -->
+  <div class="nav-right">
+    <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  </div>
+  <!-- Mobile search icon — always right end on mobile -->
+  <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="security-solutions-singapore.html"><strong>&rarr; View All Solutions</strong></a><a href="residential-security-singapore.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a href="commercial-security-singapore.html">Commercial &amp; Retail</a><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a><a href="government-institution-security-singapore.html">Institutions &amp; Government</a><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu" id="sysSub">
+      <a href="surveillance-detection.html">Surveillance &amp; Detection</a>
+      <a href="people-access-control.html">People Access Control</a>
+      <a href="vehicle-access-control.html">Vehicle Access &amp; Barriers</a>
+      <a href="integrated-security-platform.html">Platform Management</a>
+    </div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('brandSub')">Brands &#9662;<div class="mobile-submenu" id="brandSub">
+      <a href="security-brands-singapore.html"><strong>&rarr; View All Partners</strong></a>
+      <a href="security-brands-singapore.html#surveillance">Surveillance &mdash; Hik · Han · Uni · Mil</a>
+      <a href="security-brands-singapore.html#access">Access &mdash; Sup · ZK · HID · EP</a>
+      <a href="security-brands-singapore.html#intercom">Intercoms &mdash; Aku · Aip · Koc</a>
+      <a href="security-brands-singapore.html#alarms">Alarms &mdash; AJAX · RIS · Par · DSC</a>
+      <a href="security-brands-singapore.html#gates">Gates &mdash; FAAC · MAG · Dor</a>
+    </div></div>
+  <a href="portfolio.html" class="mobile-menu-item">Portfolio</a>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources &#9662;<div class="mobile-submenu" id="resSub"><a href="resources.html"><strong>&rarr; All Resources</strong></a><a href="resources.html#guides">Technical Guides</a><a href="resources.html#tools">Planning Tools</a><a href="resources.html#library">Product Library</a><a href="resources.html#videos">Training Videos</a><a href="resources.html#faq">FAQ</a><a href="resources.html#trade">For Professionals</a></div></div>
+  <a href="security-articles-singapore.html" class="mobile-menu-item">Insights</a>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; Our Story</strong></a><a href="contact.html">Contact Us</a></div></div>
+</div>
+</nav>
+
+    <header class="hero" style="background: linear-gradient(rgba(14, 26, 43, 0.8), rgba(14, 26, 43, 0.8)), url('images/hero-cctv-planning.png'); background-size: cover; background-position: center;">
+        <div class="container pos-relative z-2">
+            <span class="eyebrow-light">Residential Strategy</span>
+            <h1>Security Planned In.<br>Not Bolted On.</h1>
+            <p class="subtitle" style="font-size: 22px; font-weight: 600; margin-bottom: 24px;">For Singapore homeowners building new or doing major A&A — the security decisions that need to be made before the walls close.</p>
+            <p class="body-text" style="max-width: 850px; margin: 0 auto 40px; line-height: 1.8; opacity: 0.95;">Most security problems in new homes trace back to a single decision point: security was briefed too late. Once walls are plastered and ceilings are closed, every cable run costs two to three times more and every camera position is a compromise. We have been the security specialist on Singapore new builds and A&A projects since 2006. Here is how we work with you from before construction starts.</p>
+            <div class="btn-group">
+                <a href="request-site-assessment-singapore.html" class="btn btn-primary">Request a Planning Session</a>
+                <a href="#process" class="btn btn-outline-light">See How We Work</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- SECTION 2: NEW BUILD VS A&A -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="eyebrow">Strategic Approach</span>
+                <h2>Are You Building New or Renovating?</h2>
+                <p>The engineering approach is fundamentally different. Tell us which situation you are in.</p>
+            </div>
+            <div class="grid-2 mt-56" style="gap: 48px;">
+                <div class="card" style="padding: 40px; border: 1px solid var(--border-color); border-radius: 16px;">
+                    <div style="font-size: 48px; margin-bottom: 24px;">🏗️</div>
+                    <h3 style="font-size: 24px; margin-bottom: 16px;">New Build: From the Ground Up</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.7;">A new build gives you the cleanest opportunity to design security into the structure from day one. Conduit routes, cable trays, power points, and device positions can all be specified before a single wall goes up. The result is a system that is invisible where it should be invisible, and effective where it counts. We work from your floor plans and provide a full pre-wiring schedule to your M&E contractor before construction starts.</p>
+                </div>
+                <div class="card" style="padding: 40px; border: 1px solid var(--border-color); border-radius: 16px;">
+                    <div style="font-size: 48px; margin-bottom: 24px;">🏡</div>
+                    <h3 style="font-size: 24px; margin-bottom: 16px;">A&A Renovation: Existing Home</h3>
+                    <p style="color: var(--medium-gray); line-height: 1.7;">An A&A renovation is more complex. Existing cable runs may be reusable or may need replacing. Existing gate motors, alarm panels, and intercoms may be worth retaining or may have reached end of life. We assess what is there, advise what is worth keeping, and plan new cable routes before walls are closed — so you are not chasing cables through finished plaster six months later.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: THE SIX QUESTIONS -->
+    <section class="bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="eyebrow">Expert FAQ</span>
+                <h2>Questions Every Homeowner Asks Us</h2>
+                <p>We have answered all of these before. Here are the honest answers.</p>
+            </div>
+            <div class="challenges-grid mt-56">
+                <div class="challenge-card">
+                    <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--charcoal);">What systems do I actually need?</h3>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--medium-gray);"><strong>The Answer:</strong> It depends on your property size, number of entry points, and how you live. We map this for you after reviewing your floor plans — before you spend anything.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--charcoal);">How do I choose technology that will not be outdated?</h3>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--medium-gray);"><strong>The Answer:</strong> We only specify brands with a proven Singapore distribution and support track record — Hikvision, Akuvox, AJAX, RISCO, FAAC. Nothing generic, nothing without local parts availability.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--charcoal);">When should I bring security in?</h3>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--medium-gray);"><strong>The Answer:</strong> Before walls close. Ideally at the same time as your M&E contractor is engaged. If you have already started, call us now — there is usually still a window before plastering.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--charcoal);">What is a realistic budget for my home size?</h3>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--medium-gray);"><strong>The Answer:</strong> For a landed terrace with full alarm, CCTV, intercom, and gate — expect $8,000 to $18,000 depending on specification. We provide a detailed breakdown after your site assessment.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--charcoal);">My electrician says he will handle the wiring.</h3>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--medium-gray);"><strong>The Answer:</strong> Electricians wire for power. Security requires specific cable types and routing discipline that most electricians do not follow. We provide a schedule so they run the right cable, then we verify it.</p>
+                </div>
+                <div class="challenge-card">
+                    <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--charcoal);">How do I coordinate security with my ID?</h3>
+                    <p style="font-size: 14px; line-height: 1.6; color: var(--medium-gray);"><strong>The Answer:</strong> We work directly with your ID, architect, and contractor. We issue a pre-wiring schedule and fit our timeline around your handover date — not the other way around.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: THE PROCESS -->
+    <section id="process" class="bg-white">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="eyebrow">Engineering Workflow</span>
+                <h2>How We Work With Your Build</h2>
+                <p>Four stages, coordinated with your construction timeline.</p>
+            </div>
+            <div class="methodology-grid mt-56">
+                <div class="method-step">
+                    <div class="step-number">1</div>
+                    <h3 style="font-size: 20px; margin-bottom: 12px;">Planning Session</h3>
+                    <p style="font-size: 14px; color: var(--medium-gray); line-height: 1.6;">We review floor plans, discuss lifestyle and security priorities, and provide a preliminary system recommendation with budget range. This happens before construction starts and costs you nothing.</p>
+                </div>
+                <div class="method-step">
+                    <div class="step-number">2</div>
+                    <h3 style="font-size: 20px; margin-bottom: 12px;">Pre-Wiring Package</h3>
+                    <p style="font-size: 14px; color: var(--medium-gray); line-height: 1.6;">We produce a detailed pre-wiring schedule: cable specifications, conduit routes, device locations, and power requirement. This goes directly to your M&E contractor and eliminates guesswork on site.</p>
+                </div>
+                <div class="method-step">
+                    <div class="step-number">3</div>
+                    <h3 style="font-size: 20px; margin-bottom: 12px;">Rough-In Check</h3>
+                    <p style="font-size: 14px; color: var(--medium-gray); line-height: 1.6;">We visit site before plastering to verify the electrician's cable runs against our schedule. Problems caught here are fixed in minutes. The same problems found after handover cost days.</p>
+                </div>
+                <div class="method-step">
+                    <div class="step-number">4</div>
+                    <h3 style="font-size: 20px; margin-bottom: 12px;">Final Install & Training</h3>
+                    <p style="font-size: 14px; color: var(--medium-gray); line-height: 1.6;">We install all equipment, commission and test every system, and conduct a full handover training with you and your household. You leave knowing how to use everything — not hoping the manual is in a drawer.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: WHAT A PROPERLY PLANNED SYSTEM INCLUDES -->
+    <section class="bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="eyebrow">The Infrastructure</span>
+                <h2>What Goes Into a Well-Planned System</h2>
+                <p>Most new builds need some combination of these four layers.</p>
+            </div>
+            <div class="solutions-grid mt-56">
+                <div class="solution-card">
+                    <div style="font-size: 32px; margin-bottom: 16px;">📹</div>
+                    <h3 style="font-size: 20px; margin-bottom: 12px;">Surveillance</h3>
+                    <p style="font-size: 14px; color: var(--medium-gray); line-height: 1.6;">A perimeter camera system covering the driveway, gate, and passages. Positioned during construction so cables are concealed. AI distingue between people and animals — useful in landed areas with wildlife.</p>
+                </div>
+                <div class="solution-card">
+                    <div style="font-size: 32px; margin-bottom: 16px;">🚨</div>
+                    <h3 style="font-size: 20px; margin-bottom: 12px;">Alarm System</h3>
+                    <p style="font-size: 14px; color: var(--medium-gray); line-height: 1.6;">Wired systems are significantly cleaner than wireless retrofits. Sensors on every external door and motion detection on each floor. Pre-wiring means detectors are flush-mounted and cables are invisible.</p>
+                </div>
+                <div class="solution-card">
+                    <div style="font-size: 32px; margin-bottom: 16px;">📞</div>
+                    <h3 style="font-size: 20px; margin-bottom: 12px;">Intercom and Gate</h3>
+                    <p style="font-size: 14px; color: var(--medium-gray); line-height: 1.6;">Video intercom at the main gate, connected to indoor monitors on each floor and a smartphone app. Gate motor automation integrated with the intercom so the gate can be released from anywhere.</p>
+                </div>
+                <div class="solution-card">
+                    <div style="font-size: 32px; margin-bottom: 16px;">🔐</div>
+                    <h3 style="font-size: 20px; margin-bottom: 12px;">Door Access</h3>
+                    <p style="font-size: 14px; color: var(--medium-gray); line-height: 1.6;">Digital locks on all main access points. Biometric or card access configured so that each person has their own credential — not a shared key that cannot be revoked if lost or if a contractor leaves.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: PROJECTS -->
+    <section class="bg-white">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="eyebrow">Proven Experience</span>
+                <h2>New Build and A&A Projects</h2>
+                <p>A selection of residential projects across Singapore delivered to engineering standards.</p>
+            </div>
+            <div class="proof-grid mt-56">
+                <div class="proof-card" style="padding: 0; overflow: hidden; background: #fff; border: 1px solid var(--border-color);">
+                    <img src="images/project-bt-semi-d.png" alt="Bukit Timah Semi-D" style="width: 100%; height: 240px; object-fit: cover;">
+                    <div style="padding: 24px;">
+                        <h3 style="font-size: 18px; margin-bottom: 8px;">Semi-D, Bukit Timah</h3>
+                        <p style="font-size: 11px; font-weight: 700; color: var(--primary-accent); text-transform: uppercase; margin-bottom: 12px;">New Build</p>
+                        <p style="font-size: 14px; color: var(--medium-gray); line-height: 1.6;">Full smart home integration from day one. AI-CCTV, wired internal sensors, and fiber-ready network architecture planned before the foundation was laid.</p>
+                    </div>
+                </div>
+                <div class="proof-card" style="padding: 0; overflow: hidden; background: #fff; border: 1px solid var(--border-color);">
+                    <img src="images/Hero-modern house with secured by securevision.png" alt="Sentosa Cove Bungalow" style="width: 100%; height: 240px; object-fit: cover;">
+                    <div style="padding: 24px;">
+                        <h3 style="font-size: 18px; margin-bottom: 8px;">Bungalow, Sentosa Cove</h3>
+                        <p style="font-size: 11px; font-weight: 700; color: var(--primary-accent); text-transform: uppercase; margin-bottom: 12px;">Major A&A Renovation</p>
+                        <p style="font-size: 14px; color: var(--medium-gray); line-height: 1.6;">Comprehensive security overhaul coordinated with architect and interior designer. Custom perimeter beams integrated seamlessly into the new landscape design.</p>
+                    </div>
+                </div>
+                <div class="proof-card" style="padding: 0; overflow: hidden; background: #fff; border: 1px solid var(--border-color);">
+                    <img src="images/project-terrace-east.png" alt="Katong Terrace" style="width: 100%; height: 240px; object-fit: cover;">
+                    <div style="padding: 24px;">
+                        <h3 style="font-size: 18px; margin-bottom: 8px;">Terrace, Katong</h3>
+                        <p style="font-size: 11px; font-weight: 700; color: var(--primary-accent); text-transform: uppercase; margin-bottom: 12px;">A&A Extension</p>
+                        <p style="font-size: 14px; color: var(--medium-gray); line-height: 1.6;">Strategic security extension for a modern rear-wing upgrade. New IP-based intercom and surveillance synchronized with existing front-gate motors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: INSIGHTS -->
+    <section class="bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="eyebrow">Strategic Reading</span>
+                <h2>Before You Start — Read These First</h2>
+                <p>Two questions every homeowner should be able to answer before their contractor lays the first cable.</p>
+            </div>
+            <div class="grid-2 mt-56" style="gap: 32px;">
+                <a href="insights-home-security-system-cost-singapore.html" class="card card-hover" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden;">
+                    <img src="images/home-security-cost-cover.jpg" alt="Home Security Cost Guide" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 24px;">
+                        <h3 style="font-size: 20px; margin-bottom: 12px;">How Much Should You Budget?</h3>
+                        <p style="font-size: 14px; color: var(--medium-gray); line-height: 1.6;">A transparent breakdown of security costs for different property types in Singapore, from equipment to labor and pre-wiring services.</p>
+                        <span style="display: block; margin-top: 16px; font-weight: 700; color: var(--primary-accent); font-size: 13px;">Read the Guide &rarr;</span>
+                    </div>
+                </a>
+                <a href="insights-hdb-landed-condo-security-differences.html" class="card card-hover" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--border-color); border-radius: 12px; overflow: hidden;">
+                    <img src="images/hdb-landed-condo-security-cover.jpg" alt="Property Type Differences" style="width: 100%; height: 200px; object-fit: cover;">
+                    <div style="padding: 24px;">
+                        <h3 style="font-size: 20px; margin-bottom: 12px;">Property Type Requirements</h3>
+                        <p style="font-size: 14px; color: var(--medium-gray); line-height: 1.6;">Why the security needs for a landed home differ fundamentally from a condo, and how to avoid the "most expensive mistake" in planning.</p>
+                        <span style="display: block; margin-top: 16px; font-weight: 700; color: var(--primary-accent); font-size: 13px;">Read the Article &rarr;</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: FINAL CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 style="font-size: 36px; margin-bottom: 16px;">Ready to Plan Your Build Security?</h2>
+            <p style="font-size: 18px; max-width: 750px; margin: 0 auto 32px; line-height: 1.6;">A planning session costs you nothing and takes about an hour. We review your floor plans, identify what your home needs, and give you a realistic budget range before you commit to anything. Most homeowners who do this early save significantly on their overall security budget — and end up with a better system.</p>
+            <div class="cta-buttons">
+                <a href="request-site-assessment-singapore.html" class="btn btn-primary">Request a Planning Session</a>
+                <a href="https://wa.me/6593860466" class="btn btn-whatsapp" target="_blank">WhatsApp Us</a>
+            </div>
+            <p style="margin-top: 24px; font-size: 14px; opacity: .7;">Serving Singapore homeowners since 2006 | Police Licensed <span class="sv-licence">L/PS/000267/2023P</span></p>
+        </div>
+    </section>
+
+<!-- FOOTER -->
+<footer class="main-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Col 1: Brand & Basic Info -->
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="footer-logo">
+          <img src="images/securevision-logo-white.png" alt="Securevision Logo">
+          <span>SECUREVISION</span>
+        </a>
+        <p class="footer-tagline">Engineering security solutions across Singapore since <span class="sv-founded-year">2006</span>. NUS engineering-led and police-licensed.</p>
+        <div class="footer-contact-info">
+          <p><strong>Securevision Pte Ltd</strong></p>
+          <p>Police License: <span class="sv-licence">L/PS/000267/2023P</span></p>
+          <p>bizSAFE Level 3</p>
+        </div>
+      </div>
+
+      <!-- Col 2: Solutions -->
+      <div class="footer-col">
+        <h4 class="footer-title">Solutions</h4>
+        <ul class="footer-links">
+          <li><a href="residential-security-singapore.html">Private Homes</a></li>
+          <li><a href="condominiums.html">Condominiums (MCST)</a></li>
+          <li><a href="commercial-security-singapore.html">Commercial & Retail</a></li>
+          <li><a href="government-institution-security-singapore.html">Institutions</a></li>
+          <li><a href="industrial-security-singapore.html">Industrial & Logistics</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Systems -->
+      <div class="footer-col">
+        <h4 class="footer-title">Systems</h4>
+        <ul class="footer-links">
+          <li><a href="surveillance-detection.html">Surveillance & Detection</a></li>
+          <li><a href="people-access-control.html">People Access Systems</a></li>
+          <li><a href="vehicle-access-control.html">Vehicle Access Systems</a></li>
+          <li><a href="integrated-security-platform.html">Platform & Integration</a></li>
+          <li><a href="security-brands-singapore.html">Hardware Brands</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Reach Us -->
+      <div class="footer-col">
+        <h4 class="footer-title">Reach Us</h4>
+        <ul class="footer-links">
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="portfolio.html">Project Portfolio</a></li>
+          <li><a href="security-articles-singapore.html">Security Insights</a></li>
+          <li><a href="https://wa.me/6593860466" class="footer-whatsapp"><strong>WhatsApp: +65 9386 0466</strong></a></li>
+        </ul>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/securevision" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.linkedin.com/company/securevision-pte-ltd" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p>&copy; 2026 Securevision Pte Ltd. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.414 0 .018 5.393 0 12.03a11.782 11.782 0 001.583 5.867L0 24l6.117-1.605a11.772 11.772 0 005.925 1.603h.005c6.635 0 12.022-5.392 12.026-12.033a11.742 11.742 0 00-3.504-8.508z"/></svg>
+</a>
+
+<script>
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    menu.classList.toggle('active');
+}
+
+function toggleSubmenu(id) {
+    const sub = document.getElementById(id);
+    const allSubs = document.querySelectorAll('.mobile-submenu');
+    allSubs.forEach(s => { if(s.id !== id) s.classList.remove('active'); });
+    sub.classList.toggle('active');
+}
+
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('.main-nav');
+    if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});
+</script>
+</body>
+</html>
