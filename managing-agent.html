@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Managing Agent Security Solutions | Securevision Singapore</title>
-    <meta name="description" content="Operational security infrastructure designed for Singapore's Managing Agents. Written SLAs, VESTA portfolio visibility, and 24/7 technical accountability for your estates.">
+    <title>Managing Agent Operational Support | Securevision Singapore</title>
+    <meta name="description" content="Portfolio-wide security infrastructure for Singapore Managing Agents. One integrator for every estate, 24/7 SLA accountability, and VESTA management oversight.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,63 +13,94 @@
     <script src="site-config.js"></script>
     
     <style>
-        /* Section-specific overrides to match sv-shared precision */
-        #managing-agent-hero {
-            background: #0E1A2B;
-            position: relative;
-            padding: 160px 0 120px;
-            color: #fff;
-            text-align: center;
+        /* INHERITED FROM COMMERCIAL REFERENCE */
+        #trust-bar.assurance-section { padding: 40px 0; }
+        #trust-bar .assurance-card {
+            flex-direction: row;
+            padding: 24px 32px;
+            text-align: left;
+            align-items: center;
+            gap: 20px;
         }
-        
-        .sla-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 48px;
+        #trust-bar .assurance-icon {
+            margin-bottom: 0;
+            width: 40px;
+            flex-shrink: 0;
+            font-size: 24px;
         }
-        
-        .sla-tier {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 12px;
+        #trust-bar .assurance-content h3 {
+            margin-bottom: 2px;
+            font-size: 16px;
+        }
+        #trust-bar .assurance-content p {
+            font-size: 13px;
+        }
+
+        /* PILLAR CARDS (System Architecture) */
+        #system-architecture .factors-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
+        .pillar-card {
+            background: #fff;
             border: 1px solid var(--border-light);
+            border-radius: 12px;
+            overflow: hidden;
             display: flex;
             flex-direction: column;
+            height: 100%;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .pillar-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12); border-color: var(--primary-blue); }
+        .pillar-image-wrap { height: 180px; overflow: hidden; }
+        .pillar-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .pillar-card:hover .pillar-image-wrap img { transform: scale(1.05); }
+        .pillar-content { padding: 32px; flex-grow: 1; display: flex; flex-direction: column; }
+        .pillar-header { margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+        .pillar-header h3 { font-size: 18px; color: var(--text-dark); margin: 0; line-height: 1.3; }
+        .pillar-badge { font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px; letter-spacing: 0.5px; flex-shrink: 0; margin-top: 4px; }
+        .badge-essential { background: rgba(0, 86, 179, 0.1); color: var(--primary-blue); }
+        .badge-portfolio { background: rgba(56, 176, 0, 0.1); color: #38B000; }
+
+        .pillar-content p { font-size: 14px; color: var(--text-gray); line-height: 1.6; margin-bottom: 24px; }
+        .pillar-components { margin-bottom: 32px; }
+        .pillar-components strong { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); margin-bottom: 12px; }
+        .pillar-components ul { list-style: none; padding: 0; margin: 0; }
+        .pillar-components li { font-size: 13px; color: var(--text-gray); margin-bottom: 8px; position: relative; padding-left: 18px; }
+        .pillar-components li::before { content: '•'; position: absolute; left: 0; color: var(--primary-blue); font-weight: bold; }
+        .pillar-link { font-size: 14px; font-weight: 600; color: var(--primary-blue); text-decoration: none; margin-top: auto; display: inline-block; transition: 0.2s; }
+        .pillar-link:hover { color: var(--dark-blue); text-decoration: underline; }
+        
+        .pillar-closing-note { text-align: center; max-width: 800px; margin: 56px auto 0; font-size: 15px; color: var(--text-gray); line-height: 1.8; padding: 28px; background: var(--bg-light); border-radius: 12px; border: 1px solid var(--border-light); }
+        
+        /* PRICING CARDS */
+        .pricing-card {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 40px 32px;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
             transition: 0.3s;
         }
-        .sla-tier:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); border-color: var(--primary-blue); }
-        
-        .tier-label { 
-            font-size: 11px; font-weight: 700; color: #ef4444; text-transform: uppercase; 
-            letter-spacing: 1.5px; margin-bottom: 16px; display: block; 
-        }
-        .sla-tier.tier-high .tier-label { color: #f59e0b; }
-        .sla-tier.tier-standard .tier-label { color: #10b981; }
+        .pricing-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12); border-color: var(--primary-blue); }
+        .size-badge { display: inline-block; background: var(--bg-light); color: var(--text-light); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; margin-bottom: 16px; text-transform: uppercase; }
+        .pricing-card h3 { font-size: 20px; margin-bottom: 8px; color: var(--text-dark); line-height: 1.3; }
+        .prop-types { font-size: 13px; color: var(--text-light); margin-bottom: 24px; }
+        .price-wrap { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border-light); }
+        .price-range { font-size: 24px; font-weight: 700; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; display: block; }
+        .pricing-body { flex-grow: 1; margin-bottom: 32px; }
+        .pricing-body ul { list-style: none; padding: 0; margin: 0; }
+        .pricing-body li { font-size: 14px; color: var(--text-gray); margin-bottom: 12px; position: relative; padding-left: 20px; line-height: 1.5; }
+        .pricing-body li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold; }
 
-        .journey-timeline {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px 24px;
-            margin-top: 56px;
-            text-align: left;
-        }
-        .journey-step { position: relative; padding: 32px; background: #fff; border: 1px solid var(--border-light); border-radius: 12px; transition: 0.3s; }
-        .journey-step:hover { transform: translateY(-5px); border-color: var(--primary-blue); box-shadow: 0 8px 24px rgba(0,0,0,0.05); }
-        .step-num { 
-            width: 36px; height: 36px; background: var(--primary-blue); color: #fff; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 14px; margin-bottom: 24px;
-        }
-        .step-label { font-size: 10px; font-weight: 700; color: var(--primary-blue); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; display: block; }
-
-        .quote-block { position: relative; padding-left: 48px; }
-        .quote-icon { 
-            position: absolute; left: 0; top: -10px; font-size: 80px; 
-            color: var(--primary-blue); opacity: 0.1; font-family: serif; line-height: 1; 
-        }
+        /* SCENARIO CARDS (Pathfinder) */
+        .pathfinder-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 48px; }
+        .pathfinder-card { background: #fff; border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; }
 
         @media (max-width: 992px) {
-            .sla-grid, .journey-timeline { grid-template-columns: 1fr; }
+            #system-architecture .factors-4, .grid-3, .pathfinder-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 576px) {
+            #system-architecture .factors-4, .grid-3, .pathfinder-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -134,30 +165,25 @@
     </li>
   </ul>
 </div>
-<div class="mobile-menu" id="mobileMenu">
-  <!-- (Mobile menu items same as standard) -->
-  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="security-solutions-singapore.html"><strong>&rarr; View All Solutions</strong></a><a href="residential-security-singapore.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a href="commercial-security-singapore.html">Commercial &amp; Retail</a><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a><a href="government-institution-security-singapore.html">Institutions &amp; Government</a><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></div></div>
-  <!-- ... remaining mobile items ... -->
-</div>
 </nav>
 
-<!-- ── SECTION 1: HERO ── -->
-<header id="managing-agent-hero" class="hero">
-    <img src="images/managing-agent-hero-singapore.png" class="hero-image" alt="Managing Agent Security Portfolio Solutions Singapore">
-    <div class="hero-overlay"></div>
-    <div class="container pos-relative z-2">
-        <span class="eyebrow-light">For Managing Agents</span>
-        <h1>One Integrator. Every Estate.<br>Every Call Answered.</h1>
-        <p class="subtitle">We built our service model around how managing agents actually work — multiple estates, multiple committees, and a phone that rings at all hours. From written SLAs to per-estate project managers, we give MAs the infrastructure they depend on.</p>
-        <div class="btn-group">
-            <a href="contact.html?ref=managing-agent" class="btn btn-primary">Book an Estate Advisory</a>
-            <a href="insights-managing-agents-guide-estate-security-systems.html" class="btn btn-outline-light">Read the MA's Guide</a>
-        </div>
-        <p class="hero-trust-note">Police Licensed L/PS/000267/2023P &bull; BCA Registered &bull; bizSAFE Level 3 &bull; Est. 2006</p>
-    </div>
+<!-- ── 1. HERO ── -->
+<header class="hero">
+  <img src="images/managing-agent-hero-singapore.png" class="hero-video" alt="Managing Agent Security Support">
+  <div class="hero-overlay"></div>
+  <div class="container pos-relative z-2">
+      <span class="eyebrow-light">For Managing Agents</span>
+      <h1>One Integrator. Every Estate.<br>Every Call Answered.</h1>
+      <p class="subtitle">We built our service model around how managing agents actually work &mdash; multiple estates, multiple committees, and a phone that rings at all hours. From written SLAs to per-estate project managers, we give MAs the infrastructure they depend on.</p>
+      <div class="btn-group">
+        <a href="contact.html?ref=managing-agent" class="btn btn-primary">Book an Estate Advisory &rarr;</a>
+        <a href="#systems-thinking" class="btn btn-outline-light">Our Service Model</a>
+      </div>
+      <p class="hero-trust-note">Serving property management firms across Singapore since <span class="sv-founded-year">2006</span></p>
+  </div>
 </header>
 
-<!-- ── BREADCRUMBS ── -->
+<!-- ── 2. BREADCRUMBS ── -->
 <nav class="sv-breadcrumb">
     <div class="container">
         <ul>
@@ -169,341 +195,367 @@
     </div>
 </nav>
 
-<!-- ── SECTION 2: THE MA'S REALITY ── -->
-<section id="the-reality" class="bg-white">
+<!-- ── 3. PHILOSOPHY ── -->
+<section id="systems-thinking" class="bg-white">
     <div class="container">
-        <div class="grid-2 align-center">
-            <div>
-                <span class="eyebrow">We Understand Your Position</span>
-                <h2>You Are Accountable to Every Committee, Every Resident, and Every System — Simultaneously.</h2>
-                <p>Managing agents in Singapore carry a weight that most people outside the industry do not fully appreciate. You are simultaneously accountable to multiple MCST committees, responsible for hundreds of residents across different estates, and expected to make informed decisions about technical systems you were never trained on.</p>
-                <p>Security systems are one of the most consistent sources of friction. They fail at inconvenient hours, generate complaints, and create documentation burdens before AGMs. When something goes wrong &mdash; a jammed gantry or a CCTV outage &mdash; you are the first call.</p>
-                <p>We operate differently. Our service model is built around the MA relationship &mdash; because we understand that your ability to manage your estates effectively depends on having an integrator who is genuinely accountable to you, not just to the contract.</p>
-            </div>
-            <div class="img-frame pos-relative">
-                <img src="images/managing-agent-night-call.png" alt="Reliable 24/7 Security Support for Managing Agents" style="border-radius: var(--border-radius); box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-                <div style="position: absolute; bottom: -20px; right: -20px; background: var(--primary-blue); color: #fff; padding: 24px; border-radius: 12px; max-width: 280px; box-shadow: 0 10px 30px rgba(0,86,179,0.2);">
-                    <p style="font-size: 14px; line-height: 1.5; margin: 0; font-weight: 500;">Reliable 24/7 accountability for your entire estate portfolio.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ── SECTION 3: THE FOUR CHALLENGES ── -->
-<section id="challenges" class="bg-light border-top">
-    <div class="container">
-        <div class="text-center">
-            <span class="eyebrow">What We Help You Navigate</span>
-            <h2 style="max-width: 900px; margin: 0 auto;">The Four Questions Every Managing Agent Should Have Answered Before Signing a Maintenance Contract</h2>
+        <div class="text-center" style="max-width:800px; margin: 0 auto 56px;">
+            <span class="eyebrow">OUR PHILOSOPHY</span>
+            <h2>Better Infrastructure for Better Management.</h2>
+            <p class="subtitle">We believe your security integrator should work quietly in the background, making your portfolio management smoother and your team's life easier. We don't just sell hardware; we engineer the supportive accountability your MCSTs deserve.</p>
         </div>
         
-        <div class="grid-4 mt-56">
-            <div class="card">
-                <div style="font-size: 32px; margin-bottom: 20px;">📊</div>
-                <h3>How Do I Get Visibility Across All My Estates?</h3>
-                <p>VESTA gives you a management view of every estate you manage — access logs, vehicle records, incident reports, and MCST audit documentation.</p>
-                <a href="insights-managing-multiple-estates-with-vesta.html" class="link-arrow">Read about VESTA &rarr;</a>
+        <div class="grid-3 mt-40">
+            <div class="factor-card" style="text-align: center;">
+                <div class="factor-image" style="margin-bottom: 24px; border-radius: 8px; overflow: hidden; height: 180px;">
+                    <img src="images/managing_agent_remote_vesta.png" alt="Portfolio Visibility">
+                </div>
+                <h3>Portfolio Visibility</h3>
+                <p style="font-size: 15px; color: var(--text-light); line-height: 1.6;">One login, every estate. VESTA™ provides you with a management view of all your estates &mdash; access logs, gantry data, and system health &mdash; from any device.</p>
             </div>
-            <div class="card">
-                <div style="font-size: 32px; margin-bottom: 20px;">⚙️</div>
-                <h3>What Is the Difference Between Maintaining and Upgrading?</h3>
-                <p>We give you a clear written system health report that separates what needs routine maintenance from what needs capital replacement.</p>
-                <a href="insights-managing-agents-guide-estate-security-systems.html#maintaining" class="link-arrow">Read the Guide &rarr;</a>
+            
+            <div class="factor-card" style="text-align: center;">
+                <div class="factor-image" style="margin-bottom: 24px; border-radius: 8px; overflow: hidden; height: 180px;">
+                    <img src="images/managing_agent_night_call.png" alt="2AM Accountability">
+                </div>
+                <h3>2AM Accountability</h3>
+                <p style="font-size: 15px; color: var(--text-light); line-height: 1.6;">You shouldn't dread the midnight call. Our written SLAs commit to 2hr critical fault acknowledgement and 4hr on-site response, 24/7, for your whole portfolio.</p>
             </div>
-            <div class="card">
-                <div style="font-size: 32px; margin-bottom: 20px;">🚨</div>
-                <h3>What Happens When a System Fails at 2am?</h3>
-                <p>You reach a human, not a voicemail. Our contracts specify 2hr critical fault acknowledgement and 4hr on-site response, 24/7.</p>
-                <a href="insights-managing-agents-guide-estate-security-systems.html#2am" class="link-arrow">Handling Failures &rarr;</a>
-            </div>
-            <div class="card">
-                <div style="font-size: 32px; margin-bottom: 20px;">📜</div>
-                <h3>What SLA Should I Be Holding My Integrator To?</h3>
-                <p>Response time tiers, parts availability, and preventive maintenance schedules — all in writing, before you sign.</p>
-                <a href="insights-after-security-installation-support.html" class="link-arrow">SLA Standards &rarr;</a>
+            
+            <div class="factor-card" style="text-align: center;">
+                <div class="factor-image" style="margin-bottom: 24px; border-radius: 8px; overflow: hidden; height: 180px;">
+                    <img src="images/securevision_sla_review.png" alt="Audit Readiness">
+                </div>
+                <h3>Audit Readiness</h3>
+                <p style="font-size: 15px; color: var(--text-light); line-height: 1.6;">Prepare for AGMs in minutes. We provide bi-annual preventive maintenance health reports and unified incident documentation for every MCST you manage.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ── SECTION 4: WHAT WE PROVIDE ── -->
-<section id="provisions" class="bg-white border-top">
+<!-- ── 4. SYSTEM ARCHITECTURE ── -->
+<section id="system-architecture" class="bg-white border-top">
     <div class="container">
-        <div class="grid-2" style="gap: 80px;">
-            <div>
-                <span class="eyebrow">The MA Service Model</span>
-                <h2>Built Around Accountability, Not Just Installation</h2>
-                
-                <div class="mt-32">
-                    <h4 class="section-divider" style="border: none; padding: 0; margin-bottom: 24px; color: var(--primary-blue);">Operational Support</h4>
-                    <div style="margin-bottom: 32px;">
-                        <strong style="display: block; font-size: 18px; margin-bottom: 8px;">Written SLA With Tiered Response Times</strong>
-                        <p style="font-size: 14px; color: var(--text-gray);">Critical faults acknowledged within 2 hours, on-site within 4 hours, 24/7. Standard faults within 3&ndash;5 business days. Defined in writing.</p>
+        <div class="text-center">
+            <span class="eyebrow">System Architecture</span>
+            <h2>The Managing Agent's Security Stack</h2>
+            <p class="subtitle" style="max-width: 900px; margin-left: auto; margin-right: auto;">We engineer security infrastructure specifically designed for the operational burdens of managing multiple estates. Here is how we build accountability into the technical stack.</p>
+        </div>
+
+        <div class="factors-4 mt-56">
+            <!-- Card 1: VESTA Management Platform -->
+            <div class="pillar-card">
+                <div class="pillar-image-wrap">
+                    <img src="images/pillar_platform.png" alt="VESTA Management Platform">
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-header">
+                        <h3>VESTA™ Platform</h3>
+                        <span class="pillar-badge badge-essential">ESSENTIAL</span>
                     </div>
-                    <div style="margin-bottom: 32px;">
-                        <strong style="display: block; font-size: 18px; margin-bottom: 8px;">Named Project Manager Per Estate</strong>
-                        <p style="font-size: 14px; color: var(--text-gray);">Every estate has a named Securevision project manager. You always know who to call &mdash; not a generic support hotline.</p>
+                    <p>The unified dashboard that connects you to every estate. Manage QR visitor invites, vehicle white-lists, and access credentials across your entire portfolio.</p>
+                    <div class="pillar-components">
+                        <strong>Typical components:</strong>
+                        <ul>
+                            <li>Unified Portfolio Dashboard</li>
+                            <li>Multi-Estate Gantry Logs</li>
+                            <li>Resident Service Portal</li>
+                            <li>Remote System Health Oversight</li>
+                        </ul>
                     </div>
-                    <div style="margin-bottom: 32px;">
-                        <strong style="display: block; font-size: 18px; margin-bottom: 8px;">Remote Diagnosis Before Site Attendance</strong>
-                        <p style="font-size: 14px; color: var(--text-gray);">We identify whether it is a power, network, or hardware failure remotely, saving hours of downtime.</p>
-                    </div>
+                    <a href="integrated-security-platform.html" class="pillar-link">Learn More About VESTA &rarr;</a>
                 </div>
             </div>
-            <div>
-                <div class="img-frame" style="margin-bottom: 48px;">
-                    <img src="images/securevision-sla-review.png" alt="Collaborative Security SLA Review with Managing Agent" style="border-radius: var(--border-radius); box-shadow: 0 15px 35px rgba(0,0,0,0.08);">
+
+            <!-- Card 2: AI Surveillance Grid -->
+            <div class="pillar-card">
+                <div class="pillar-image-wrap">
+                    <img src="images/pillar_surveillance.png" alt="AI Surveillance">
                 </div>
-                <div>
-                    <h4 class="section-divider" style="border: none; padding: 0; margin-bottom: 24px; color: var(--primary-blue);">Documentation and Reporting</h4>
-                    <div style="display: grid; gap: 24px;">
-                        <div class="card" style="padding: 24px;">
-                            <strong style="display: block; margin-bottom: 8px;">Bi-Annual Preventive Maintenance</strong>
-                            <p style="font-size: 13px;">Cleaning, firmware updates, and battery testing with a written health report provided after every scheduled visit.</p>
-                        </div>
-                        <div class="card" style="padding: 24px;">
-                            <strong style="display: block; margin-bottom: 8px;">MCST Audit Reports on Demand</strong>
-                            <p style="font-size: 13px;">Access summaries, incident logs, and expenditure tracking generated directly from VESTA for your AGM presentations.</p>
-                        </div>
-                        <div class="card" style="padding: 24px;">
-                            <strong style="display: block; margin-bottom: 8px;">End-of-Life Notification</strong>
-                            <p style="font-size: 13px;">We notify you 18 months before a major component reaches manufacture end-of-life, allowing for planned CAPEX advice.</p>
-                        </div>
+                <div class="pillar-content">
+                    <div class="pillar-header">
+                        <h3>AI Surveillance</h3>
+                        <span class="pillar-badge badge-essential">ESSENTIAL</span>
                     </div>
+                    <p>High-resolution AI cameras that alert you to loitering or perimeter breaches before a resident complains. One number to call for footage retrieval support.</p>
+                    <div class="pillar-components">
+                        <strong>Typical components:</strong>
+                        <ul>
+                            <li>4K Perimeter AI Cameras</li>
+                            <li>Centralized NVR Storage</li>
+                            <li>Incident Detection Alerts</li>
+                            <li>Remote Viewing Apps</li>
+                        </ul>
+                    </div>
+                    <a href="surveillance-detection.html" class="pillar-link">Learn More About Surveillance &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Card 3: Unified Access/Intercom -->
+            <div class="pillar-card">
+                <div class="pillar-image-wrap">
+                    <img src="images/pillar_people_access.png" alt="Unified Access Control">
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-header">
+                        <h3>Integrated Access</h3>
+                        <span class="pillar-badge badge-essential">ESSENTIAL</span>
+                    </div>
+                    <p>Facial recognition or mobile access for residents. IP Intercoms that ring on mobile, reducing the burden of fixing in-unit intercom handsets.</p>
+                    <div class="pillar-components">
+                        <strong>Typical components:</strong>
+                        <ul>
+                            <li>Facial/Mobile Access Points</li>
+                            <li>IP Intercom Infrastructure</li>
+                            <li>Resident QR Self-Service</li>
+                            <li>Visitor Management Kiosks</li>
+                        </ul>
+                    </div>
+                    <a href="people-access-control.html" class="pillar-link">Learn More About Access &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Card 4: Maintenance Infrastructure -->
+            <div class="pillar-card">
+                <div class="pillar-image-wrap">
+                    <img src="images/securevision_sla_review.png" alt="Maintenance Infrastructure">
+                </div>
+                <div class="pillar-content">
+                    <div class="pillar-header">
+                        <h3>Maintenance & SLA</h3>
+                        <span class="pillar-badge badge-portfolio">PORTFOLIO</span>
+                    </div>
+                    <p>A structured support ecosystem including bi-annual health checks and a named project manager. Written reports provided after every site visit.</p>
+                    <div class="pillar-components">
+                        <strong>Typical components:</strong>
+                        <ul>
+                            <li>24/7 Emergency Response</li>
+                            <li>Named Estate PM</li>
+                            <li>Bi-annual Written Audits</li>
+                            <li>Fixed-Price CAPEX Planning</li>
+                        </ul>
+                    </div>
+                    <a href="insights-managing-agents-guide-estate-security-systems.html" class="pillar-link">Review Support Standards &rarr;</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="pillar-closing-note">
+            <p>For MAs managing large portfolios, we recommend a phased integration of VESTA™ to consolidate visibility across estates, while maintaining individual SLA accountability per MCST.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ── 5. SCENARIO PATHFINDER ── -->
+<section id="market-pathfinder" class="bg-light border-top">
+    <div class="container">
+        <h2 class="text-center">Engineered Solutions for MA Challenges</h2>
+        <p class="text-center" style="max-width:800px; margin: 0 auto 56px; color:var(--text-light); font-size: 17px;">Select the scenario that best describes your current estate pressure. We engineer the specific operational outcomes you need.</p>
+        
+        <div class="pathfinder-grid">
+            <!-- Scenario 1: The Failing Gantry -->
+            <div class="pathfinder-card">
+                <img src="images/Hero-modern condo with gantrygo and guards.png" alt="Vehicle Access Maintenance" style="width: 100%; height: 220px; object-fit: cover;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <h3 style="margin-bottom: 20px; font-size: 22px; color: var(--text-dark); text-align: left;">The Failing Gantry</h3>
+                    <div style="font-size: 15px; line-height: 1.6; color: var(--text-light); flex-grow: 1;">
+                        <p style="margin-bottom: 12px;"><strong style="color: var(--primary-blue);">Challenge:</strong> Constant breakdowns at peak hour causing resident congestion and council complaints.</p>
+                        <p><strong style="color: var(--primary-blue);">How We Help:</strong> Swapping to high-cycle barriers with ANPR recognition and providing 4hr on-site emergency response whenever it fails.</p>
+                    </div>
+                    <a href="vehicle-access-control.html" class="btn btn-primary" style="width: 100%; margin-top: 32px;">Secure Your Entry &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Scenario 2: The Upcoming AGM -->
+            <div class="pathfinder-card">
+                <img src="images/mcst-committee-member-support.png" alt="Strategic Planning for AGM" style="width: 100%; height: 220px; object-fit: cover;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <h3 style="margin-bottom: 20px; font-size: 22px; color: var(--text-dark); text-align: left;">The Upcoming AGM</h3>
+                    <div style="font-size: 15px; line-height: 1.6; color: var(--text-light); flex-grow: 1;">
+                        <p style="margin-bottom: 12px;"><strong style="color: var(--primary-blue);">Challenge:</strong> Needing to explain $80k in capital expenditure for a dated system to a room full of residents.</p>
+                        <p><strong style="color: var(--primary-blue);">How We Help:</strong> Providing engineering-led technical proposals that focus on long-term ROIs, safety, and operational efficiency.</p>
+                    </div>
+                    <a href="insights-presenting-security-upgrade-condo-agm.html" class="btn btn-primary" style="width: 100%; margin-top: 32px;">Prepare for AGM &rarr;</a>
+                </div>
+            </div>
+
+            <!-- Scenario 3: Portfolio Onboarding -->
+            <div class="pathfinder-card">
+                <img src="images/insight-vesta-portfolio-oversight-1775211178764.png" alt="New Estate Takeover" style="width: 100%; height: 220px; object-fit: cover;">
+                <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
+                    <h3 style="margin-bottom: 20px; font-size: 22px; color: var(--text-dark); text-align: left;">Portfolio Onboarding</h3>
+                    <div style="font-size: 15px; line-height: 1.6; color: var(--text-light); flex-grow: 1;">
+                        <p style="margin-bottom: 12px;"><strong style="color: var(--primary-blue);">Challenge:</strong> Taking over a new estate with a fragmented, poorly documented security mess.</p>
+                        <p><strong style="color: var(--primary-blue);">How We Help:</strong> Conducting a full site audit to establish a baseline of system health and a clear modernisation roadmap.</p>
+                    </div>
+                    <a href="contact.html?ref=ma-onboarding" class="btn btn-primary" style="width: 100%; margin-top: 32px;">Book Site Audit &rarr;</a>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ── SECTION 5: VESTA HIGHLIGHT ── -->
-<section id="vesta-overview" class="bg-light border-top">
+<!-- ── 6. INVESTMENT GUIDE ── -->
+<section id="investment-guide" class="bg-white border-top">
     <div class="container">
-        <div class="grid-2 align-center" style="gap: 64px;">
-            <div class="img-frame">
-                <img src="images/managing-agent-remote-vesta.png" alt="VESTA Management Dashboard for Managing Agents" style="border-radius: var(--border-radius); box-shadow: 0 20px 50px rgba(0,0,0,0.12);">
-            </div>
-            <div>
-                <span class="eyebrow">Your Operational Platform</span>
-                <h2>VESTA &mdash; One Platform, Three Views, One Estate Running Smoothly</h2>
-                <p>VESTA connects residents, the guard house, and estate management into one coherent operational system. As the managing agent, you sit at the centre of that connection with visibility and control previously only possible on-site.</p>
-                <div class="mt-32">
-                    <ul class="pricing-body" style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 16px; position: relative; padding-left: 24px; font-size: 14px;">
-                            <span style="position: absolute; left: 0; color: var(--primary-blue); font-weight: 700;">&check;</span>
-                            <strong>Management View:</strong> Access logs, vehicle records, incident logs, and real-time system health status.
-                        </li>
-                        <li style="margin-bottom: 16px; position: relative; padding-left: 24px; font-size: 14px;">
-                            <span style="position: absolute; left: 0; color: var(--primary-blue); font-weight: 700;">&check;</span>
-                            <strong>Resident App:</strong> Self-service facility booking, guest QR invites, and intercom on mobile.
-                        </li>
-                        <li style="margin-bottom: 16px; position: relative; padding-left: 24px; font-size: 14px;">
-                            <span style="position: absolute; left: 0; color: var(--primary-blue); font-weight: 700;">&check;</span>
-                            <strong>Guard Interface:</strong> Digital visitor logging, incident reporting, and digital shift handover.
-                        </li>
+        <div class="text-center" style="margin-bottom: 56px;">
+            <span class="eyebrow">Service Transparency</span>
+            <h2>Portfolio Maintenance & Upgrade Guide</h2>
+            <p class="subtitle" style="max-width: 900px; margin-left: auto; margin-right: auto;">Budget clarity is essential for MCST planning. Here is what to expect for maintenance contracts and modernisation projects across Singapore estates.</p>
+        </div>
+
+        <div class="grid-3 mt-48">
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="size-badge">MAINTENANCE CONTRACTS</span>
+                    <h3>The Care & Support Plan</h3>
+                    <p class="prop-types">Scheduled Maintenance • SLA Accountability</p>
+                </div>
+                <div class="price-wrap">
+                    <span class="price-range">Fixed Monthly Fee</span>
+                </div>
+                <div class="pricing-body">
+                    <ul>
+                        <li>Bi-annual preventive maintenance</li>
+                        <li>24/7 emergency site attendance</li>
+                        <li>Named project manager per estate</li>
+                        <li>Written system health audit reports</li>
+                        <li>VESTA Cloud dashboard management</li>
                     </ul>
                 </div>
-                <a href="insights-managing-multiple-estates-with-vesta.html" class="link-arrow">Read the Full VESTA Guide &rarr;</a>
+                <div class="pricing-footer">
+                    <p>Calculated per estate based on system complexity and total camera/door count.</p>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="size-badge">SYSTEM REFRESH</span>
+                    <h3>Mid-Scale Modernisation</h3>
+                    <p class="prop-types">CCTV Upgrade • Cloud Access Adoption</p>
+                </div>
+                <div class="price-wrap">
+                    <span class="price-range">$35k – $85k average</span>
+                </div>
+                <div class="pricing-body">
+                    <ul>
+                        <li>Refit of existing analogue cameras to 4K AI</li>
+                        <li>Migration of gantry to ANPR recognition</li>
+                        <li>Adoption of VESTA on-site dashboard</li>
+                        <li>Full network cabling certification</li>
+                        <li>3-year comprehensive warranty</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <p>Common range for mid-sized condominiums (150-300 units) upgrading core pillars.</p>
+                </div>
+            </div>
+
+            <div class="pricing-card">
+                <div class="pricing-header">
+                    <span class="size-badge">TOTAL INTEGRATION</span>
+                    <h3>Large Scale Transformation</h3>
+                    <p class="prop-types">Full Estate Stack • VESTA Platform</p>
+                </div>
+                <div class="price-wrap">
+                    <span class="price-range">$100k – $350k+</span>
+                </div>
+                <div class="pricing-body">
+                    <ul>
+                        <li>Intercom, Access, Gantry, & CCTV Refresh</li>
+                        <li>Total migration to VESTA Portfolio View</li>
+                        <li>Facial recognition resident entry grid</li>
+                        <li>Complete security network infrastructure</li>
+                        <li>5-year extended project warranty</li>
+                    </ul>
+                </div>
+                <div class="pricing-footer">
+                    <p>Reserved for landmark estates or large-scale modernisation programmes (500+ units).</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ── SECTION 6: PROVEN OUTCOMES ── -->
-<section id="outcomes" class="bg-white border-top">
-    <div class="container text-center">
-        <span class="eyebrow">Proven Outcomes</span>
-        <h2>What We Have Delivered for Singapore Estates</h2>
-        
-        <div class="grid-3 mt-56">
-            <div class="card text-center" style="padding: 40px 32px;">
-                <span style="font-size: 11px; font-weight: 700; color: var(--primary-blue); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 12px;">Visitor & Vehicle</span>
-                <h3>The L'viv, Newton</h3>
-                <p style="font-size: 14px; margin-bottom: 24px;">VESTA and ANPR gantry deployment. Visitor queues eliminated and manual paperwork reduced by 100%. Instant MCST audit reports.</p>
-                <a href="lviv.html" class="link-arrow">View Project &rarr;</a>
-            </div>
-            <div class="card text-center" style="padding: 40px 32px;">
-                <span style="font-size: 11px; font-weight: 700; color: var(--primary-blue); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 12px;">AI Surveillance</span>
-                <h3>Light@Cairnhill</h3>
-                <p style="font-size: 14px; margin-bottom: 24px;">AI camera grid covering all perimeter blind spots. 24/7 remote visibility for the MA without requiring site visits.</p>
-                <a href="Light-at-Cairnhill.html" class="link-arrow">View Project &rarr;</a>
-            </div>
-            <div class="card text-center" style="padding: 40px 32px;">
-                <span style="font-size: 11px; font-weight: 700; color: var(--primary-blue); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 12px;">Integrated Access</span>
-                <h3>Village@Pasir Panjang</h3>
-                <p style="font-size: 14px; margin-bottom: 24px;">Seamless IP intercom across multiple residential blocks. Centralized credential management for all residents and contractors.</p>
-                <a href="portfolio.html" class="link-arrow">View Project &rarr;</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ── SECTION 7: SLA TABLE ── -->
-<section id="sla-commitment" class="bg-light border-top">
+<!-- ── 7. THE JOURNEY ── -->
+<section id="journey" class="bg-light">
     <div class="container">
         <div class="text-center">
-            <span class="eyebrow">Our Service Commitment</span>
-            <h2>Our SLA in Plain Language</h2>
-            <p class="subtitle" style="margin-bottom: 0;">Every estate we maintain operates under a written SLA with three clear response tiers. This is the professional standard we commit to in every contract.</p>
+            <span class="eyebrow">The Engineering Process</span>
+            <h2>The Managing Agent's Journey</h2>
+            <p class="subtitle">A structured, professional pathway from your initial site assessment to a fully operational and modernised premises.</p>
         </div>
-
-        <div class="sla-grid">
-            <div class="sla-tier">
-                <span class="tier-label">Tier 1 &mdash; Critical</span>
-                <h4 style="margin-bottom: 12px;">Complete Failure</h4>
-                <p style="font-size: 13px; color: var(--text-light); margin-bottom: 24px;">Gantry failure blocking all access or complete CCTV/Intercom outage.</p>
-                <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid var(--border-light); font-weight: 700; color: var(--text-dark); line-height: 1.8;">
-                    <div style="font-size: 14px;">Acknowledged in 2 hours</div>
-                    <div style="font-size: 14px;">On-site in 4 hours</div>
-                    <div style="font-size: 11px; text-transform: uppercase; color: var(--text-light); margin-top: 4px;">24 / 7 Response</div>
-                </div>
+        
+        <div class="step-row mt-48">
+            <div class="step-item">
+                <div class="step-num">1</div>
+                <h3>Portfolio Audit</h3>
+                <p>We map your current estate security health, highlighting critical failures and long-term risks.</p>
             </div>
-            <div class="sla-tier tier-high">
-                <span class="tier-label" style="color: #f59e0b;">Tier 2 &mdash; High Priority</span>
-                <h4 style="margin-bottom: 12px;">System Degradation</h4>
-                <p style="font-size: 13px; color: var(--text-light); margin-bottom: 24px;">Partial camera outage or single access entrance point failure.</p>
-                <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid var(--border-light); font-weight: 700; color: var(--text-dark); line-height: 1.8;">
-                    <div style="font-size: 14px;">Acknowledged in 4 hours</div>
-                    <div style="font-size: 14px;">Resolved in 1 business day</div>
-                </div>
+            <div class="step-item">
+                <div class="step-num">2</div>
+                <h3>SLA Alignment</h3>
+                <p>We agree on response times and maintenance frequency tailored to your MCST's specific needs.</p>
             </div>
-            <div class="sla-tier tier-standard">
-                <span class="tier-label" style="color: #10b981;">Tier 3 &mdash; Standard</span>
-                <h4 style="margin-bottom: 12px;">Minor Maintenance</h4>
-                <p style="font-size: 13px; color: var(--text-light); margin-bottom: 24px;">Software configuration or individual camera adjustment.</p>
-                <div style="margin-top: auto; padding-top: 24px; border-top: 1px solid var(--border-light); font-weight: 700; color: var(--text-dark); line-height: 1.8;">
-                    <div style="font-size: 14px;">Acknowledged in 1 business day</div>
-                    <div style="font-size: 14px;">Resolved in 3&ndash;5 business days</div>
-                </div>
+            <div class="step-item">
+                <div class="step-num">3</div>
+                <h3>Phased Rollout</h3>
+                <p>Deployment of hardware and VESTA™ platform with minimal disruption to resident movements.</p>
             </div>
-        </div>
-        <p class="text-center mt-32" style="font-size: 13px; color: var(--text-light); font-style: italic;">Every maintenance visit and fault call is documented &mdash; your protection for MCST audits.</p>
-    </div>
-</section>
-
-<!-- ── SECTION 8: FOUNDER NOTE ── -->
-<section id="founder-note" class="bg-white border-top">
-    <div class="container">
-        <div class="grid-2 align-center" style="gap: 80px;">
-            <div class="quote-block">
-                <span class="quote-icon">&ldquo;</span>
-                <span class="eyebrow">A Note From Our Founder</span>
-                <p style="font-size: 1.6rem; font-style: italic; line-height: 1.6; color: var(--text-dark); margin: 24px 0; font-family: 'Montserrat', sans-serif;">
-                    "A managing agent who has the right integrator relationship does not dread the 2am call. They have a team that answers, a system that tells them what failed before a resident complains, and documentation that protects them at every MCST audit."
-                </p>
-                <div class="mt-32">
-                    <strong style="display: block; font-size: 18px; color: var(--primary-blue);">Ler Wee Meng</strong>
-                    <span style="font-size: 14px; color: var(--text-light);">Founder & CEO · Securevision &bull; NUS Engineering &bull; 37 Years Experience</span>
-                </div>
-            </div>
-            <div class="founder-headshot-wrap">
-                <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng, Founder of Securevision" style="border-radius: var(--border-radius); border: 1px solid var(--border-light);">
+            <div class="step-item">
+                <div class="step-num">4</div>
+                <h3>Active Reporting</h3>
+                <p>Bi-annual written health checks and 24/7 technical accountability for your entire portfolio.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ── SECTION 9: THE JOURNEY ── -->
-<section id="journey" class="bg-light border-top">
+<!-- ── 8. COMPLIANCE ── -->
+<section id="compliance" class="bg-white border-top">
     <div class="container text-center">
-        <span class="eyebrow">How We Work With MAs</span>
-        <h2>From First Conversation to Long-Term Partnership</h2>
-        
-        <div class="journey-timeline">
-            <div class="journey-step">
-                <span class="step-num">1</span>
-                <span class="step-label">Week 1</span>
-                <strong style="display: block; margin-bottom: 8px;">Portfolio Conversation</strong>
-                <p style="font-size: 13px;">We discuss your current estate portfolio and identify operational pain points without commitment.</p>
+        <span class="eyebrow">Peace of Mind for your MCST</span>
+        <h2>Credentialed for Zero Management Liability</h2>
+        <div class="grid-3 mt-56">
+            <div class="card" style="padding: 40px;">
+                <h4 style="color: var(--primary-blue); margin-bottom: 12px;">Police Licensed</h4>
+                <p style="font-size: 14px;">Licensed by the PLRD (L/PS/000267/2023P) to design and install security systems for every estate type in Singapore.</p>
             </div>
-            <div class="journey-step">
-                <span class="step-num">2</span>
-                <span class="step-label">Weeks 2&ndash;3</span>
-                <strong style="display: block; margin-bottom: 8px;">Estate Assessments</strong>
-                <p style="font-size: 13px;">On-site checking of infrastructure and maintenance records. You get a written assessment per estate.</p>
+            <div class="card" style="padding: 40px;">
+                <h4 style="color: var(--primary-blue); margin-bottom: 12px;">bizSAFE Level 3</h4>
+                <p style="font-size: 14px;">Strict adherence to Singapore's workplace safety standards for all on-site technician activity.</p>
             </div>
-            <div class="journey-step">
-                <span class="step-num">3</span>
-                <span class="step-label">Weeks 3&ndash;4</span>
-                <strong style="display: block; margin-bottom: 8px;">Committee Proposals</strong>
-                <p style="font-size: 13px;">Fixed-price proposals formatted for MCST presentation to win approval without technical confusion.</p>
-            </div>
-            <div class="journey-step">
-                <span class="step-num">4</span>
-                <span class="step-label">Execution</span>
-                <strong style="display: block; margin-bottom: 8px;">Phased Deployment</strong>
-                <p style="font-size: 13px;">Works phased to avoid simultaneous disruption, with milestones documented for the committee.</p>
-            </div>
-            <div class="journey-step">
-                <span class="step-num">5</span>
-                <span class="step-label">Handover</span>
-                <strong style="display: block; margin-bottom: 8px;">Adoption & Training</strong>
-                <p style="font-size: 13px;">Guard training, resident onboarding, and your named project manager assigned from Day 1.</p>
-            </div>
-            <div class="journey-step">
-                <span class="step-num">6</span>
-                <span class="step-label">Ongoing</span>
-                <strong style="display: block; margin-bottom: 8px;">Reporting & SLA</strong>
-                <p style="font-size: 13px;">Active written SLA, bi-annual maintenance, and quarterly audit reporting ready for your portfolio.</p>
+            <div class="card" style="padding: 40px;">
+                <h4 style="color: var(--primary-blue); margin-bottom: 12px;">BCA Registered</h4>
+                <p style="font-size: 14px;">Qualified under the Building and Construction Authority for government and large-scale residential projects.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ── SECTION 10: INSIGHTS FEED ── -->
-<section id="ma-knowledge" class="bg-white border-top">
-    <div class="container">
-        <div class="text-center mb-56">
-            <span class="eyebrow">Knowledge for Managing Agents</span>
-            <h2>Written by Engineers. Designed for Realities of Estate Management.</h2>
-        </div>
-        
-        <div class="grid-2 mt-48">
-            <a href="insights-managing-agents-guide-estate-security-systems.html" style="text-decoration: none; color: inherit;">
-                <div class="card" style="padding: 40px; border-color: var(--primary-blue);">
-                    <span style="font-size: 11px; font-weight: 700; color: var(--primary-blue); text-transform: uppercase;">7 MIN READ</span>
-                    <h3 style="margin: 12px 0;">The Managing Agent's Guide to Estate Security Systems</h3>
-                    <p style="font-size: 14px;">The four questions every MA should be able to answer &mdash; multi-estate visibility, maintenance vs upgrades, and SLAs.</p>
-                    <span class="link-arrow" style="margin-top: 24px;">Read Article &rarr;</span>
-                </div>
-            </a>
-            <a href="insights-managing-multiple-estates-with-vesta.html" style="text-decoration: none; color: inherit;">
-                <div class="card" style="padding: 40px; border-color: var(--primary-blue);">
-                    <span style="font-size: 11px; font-weight: 700; color: var(--primary-blue); text-transform: uppercase;">6 MIN READ</span>
-                    <h3 style="margin: 12px 0;">Managing Multiple Estates with VESTA</h3>
-                    <p style="font-size: 14px;">What VESTA delivers for residents, guards, and MAs today &mdash; and the future of multi-estate portfolio visibility.</p>
-                    <span class="link-arrow" style="margin-top: 24px;">Read Article &rarr;</a>
-                </div>
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- ── SECTION 11: FINAL CTA ── -->
+<!-- ── 9. FINAL CTA ── -->
 <section class="cta-section cta-skyline">
     <div class="container">
-        <h2>Ready to Talk About Your Estate Portfolio?</h2>
-        <p>Whether you have one estate coming up for renewal or fifteen that need a systematic review, the right first step is a conversation about where your estates are and what they actually need.</p>
+        <h2>Ready to Stabilise Your Portfolio Security?</h2>
+        <p>Whether you have a single estate gantry issue or fifteen properties that need a systematic review, our engineering team is ready to talk portfolio ops.</p>
         
         <div class="grid-3 mt-48 text-center" style="gap: 24px;">
             <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
                 <span style="font-size: 2rem; display: block; margin-bottom: 20px;">📅</span>
-                <h4 style="color: #fff; margin-bottom: 12px;">Book an Estate Advisory</h4>
-                <p style="font-size: 14px; margin-bottom: 32px; color: rgba(255,255,255,0.7) !important;">Best for portfolio reviews and MCST proposal preparations.</p>
-                <a href="contact.html?ref=managing-agent" class="btn btn-primary" style="width: 100%;">Book Advisory</a>
+                <h4 style="color: #fff; margin-bottom: 12px;">Request Portfolio Audit</h4>
+                <p style="font-size: 14px; margin-bottom: 32px; color: rgba(255,255,255,0.7) !important;">A deep-dive assessment into your most problematic estate.</p>
+                <a href="contact.html?ref=ma-audit" class="btn btn-primary" style="width: 100%;">Book Audit</a>
+            </div>
+            <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                <span style="font-size: 2rem; display: block; margin-bottom: 20px;">📜</span>
+                <h4 style="color: #fff; margin-bottom: 12px;">SLA Benchmarking</h4>
+                <p style="font-size: 14px; margin-bottom: 32px; color: rgba(255,255,255,0.7) !important;">Compare your current maintenance contract against professional standards.</p>
+                <a href="insights-after-security-installation-support.html" class="btn btn-outline-light" style="width: 100%;">View SLA Standards</a>
             </div>
             <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
                 <span style="font-size: 2rem; display: block; margin-bottom: 20px;">💬</span>
-                <h4 style="color: #fff; margin-bottom: 12px;">WhatsApp Our Team</h4>
-                <p style="font-size: 14px; margin-bottom: 32px; color: rgba(255,255,255,0.7) !important;">Best for quick questions, SLA benchmarks, and health checks.</p>
-                <a href="https://wa.me/6593860466" class="btn btn-whatsapp" style="width: 100%;">WhatsApp Support</a>
-            </div>
-            <div style="background: rgba(255,255,255,0.05); padding: 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
-                <span style="font-size: 2rem; display: block; margin-bottom: 20px;">📞</span>
-                <h4 style="color: #fff; margin-bottom: 12px;">Priority Hotline</h4>
-                <p style="font-size: 14px; margin-bottom: 32px; color: rgba(255,255,255,0.7) !important;">Immediate support for urgent system failures on any estate.</p>
-                <a href="tel:+6562864796" class="btn btn-outline-light" style="width: 100%;">+65 6286 4796</a>
+                <h4 style="color: #fff; margin-bottom: 12px;">WhatsApp Hotline</h4>
+                <p style="font-size: 14px; margin-bottom: 32px; color: rgba(255,255,255,0.7) !important;">Direct access to our senior engineers for urgent MA enquiries.</p>
+                <a href="https://wa.me/6593860466" class="btn btn-whatsapp" style="width: 100%;">WhatsApp Us</a>
             </div>
         </div>
     </div>
@@ -518,14 +570,6 @@
                     <span class="brand-name">Securevision</span>
                 </div>
                 <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since <span class="sv-founded-year">2006</span>.</p>
-                <div class="f-socials">
-                    <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-                    </a>
-                    <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                    </a>
-                </div>
             </div>
             <!-- (Remaining footer same as other v1.6 pages) -->
         </div>
@@ -536,14 +580,6 @@
 function toggleMobileMenu() {
   const menu = document.getElementById('mobileMenu');
   if (menu) menu.classList.toggle('active');
-}
-function toggleSubmenu(id) {
-  const sub = document.getElementById(id);
-  if (sub) {
-    const isActive = sub.classList.contains('active');
-    document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
-    if (!isActive) sub.classList.add('active');
-  }
 }
 window.addEventListener('scroll', () => {
     const nav = document.querySelector('.main-nav');
