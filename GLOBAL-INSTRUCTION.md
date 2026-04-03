@@ -430,7 +430,7 @@ nav {
 
 | Menu Item | Dropdown Content | Behavior |
 |-----------|------------------|----------|
-| **Solutions** | Private Homes, Condominiums, Commercial & Retail, Industrial & Logistics, Institutions & Government, Healthcare & Managed Living | Simple dropdown to `security-solutions-singapore.html` |
+| **Solutions** | Private Homes, Condominiums (MCST Hub), Commercial & Retail, Industrial & Logistics, Institutions & Government, Healthcare & Managed Living | Simple dropdown to `security-solutions-singapore.html` |
 | **Systems** | Surveillance & CCTV, People Access Control, Burglar Alarm, Intercom Systems, Auto Gates & Barriers, **All Technical Systems Hub** | Simple dropdown to `security-systems-singapore.html` |
 | **Brands** | Surveillance, Access Control, Intercom, Alarms, Gates & Barriers, **Technology Partners Hub** | Simple dropdown to `security-brands-singapore.html` |
 | **Portfolio** | (none) | Direct link to `portfolio.html` |

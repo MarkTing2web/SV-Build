@@ -1,6 +1,6 @@
 # SECUREVISION WEBSITE SITEMAP
 
-**Last Updated:** April 1, 2026  
+**Last Updated:** April 3, 2026  
 **Total Pages Built:** 80+ HTML pages  
 **Navigation Items:** 6 main menu items + search (Solutions, Systems, Brands, Portfolio, Insights, About, Search)
 
@@ -21,6 +21,7 @@ SOLUTIONS (click → security-solutions-singapore.html)
 └─ On Hover:
    ├─ Private Homes
    ├─ Condominiums
+   │  └─ (MCST Support Hub)
    ├─ Commercial & Retail
    ├─ Industrial & Logistics
    ├─ Institutions & Government
@@ -173,7 +174,7 @@ SECUREVISION.COM.SG
 │   │   │
 │   │   ├── 2. CONDOMINIUMS (/condominiums/)
 │   │   │   ├── ✅ condominiums.html - Main Landing
-│   │   │   ├── ✅ mcst-committee-member.html - For MCST Committee Members
+│   │   │   ├── ✅ mcst-committee-member.html - Support Hub for Committee Members
 │   │   │   ├── ✅ condominiums-mcst.html - For Managing Agents
 │   │   │   └── ✅ condominiums-security.html - For Security Partners
 │   │   │
@@ -403,6 +404,7 @@ SECUREVISION.COM.SG
 | | What Are the MCST's Legal Obligations? | `insights-mcst-legal-obligations-security.html` |
 | | Realistic Timeline and Disruption Plan | `insights-condo-security-upgrade-timeline.html` |
 | | Why Your System Needs a Refresh | `insights-security-system-refresh.html` |
+| | 10 Expert Tips for MCST Security Upgrades | `insights-10-tips-securing-your-premises.html` |
 
 ---
 
