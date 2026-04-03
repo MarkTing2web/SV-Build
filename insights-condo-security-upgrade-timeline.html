@@ -17,23 +17,20 @@
         .prose h2 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 700; color: #1e293b; margin: 60px 0 24px; scroll-margin-top: 100px; }
         .prose h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; color: #334155; margin: 32px 0 16px; }
         .prose p { font-family: 'Inter', sans-serif; margin-bottom: 24px; line-height: 1.8; color: #475569; }
-        
+        .prose ul, .prose ol { margin-bottom: 24px; padding-left: 20px; }
+        .prose li { font-family: 'Inter', sans-serif; margin-bottom: 12px; line-height: 1.6; color: #475569; }
+
         .callout-box { background: #eff6ff; border-left: 4px solid var(--primary-blue); padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
         .callout-box strong { display: block; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
-        
-        .verdict-box { background: #fff7ed; border: 1px solid #ffedd5; padding: 30px; border-radius: 12px; margin: 40px 0; position: relative; }
-        .verdict-box::before { content: 'Securevision Verdict'; position: absolute; top: -12px; left: 24px; background: #ea580c; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .callout-box p { margin-bottom: 0; }
 
-        .article-img-wrap { margin: 48px 0; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .article-img-wrap img { width: 100%; display: block; }
-        .img-caption { padding: 16px 24px; background: #f8fafc; border-top: 1px solid #e2e8f0; font-size: 0.9rem; color: #64748b; font-style: italic; }
+        .verdict-box { background: #fff7ed; border-left: 4px solid #ea580c; padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .verdict-box p { margin-bottom: 0; color: #9a3412; font-weight: 500; }
 
-        .nav-container { justify-content: flex-start !important; gap: 60px; }
-        .nav-right { margin-left: auto !important; }
-        .nav-logo-link { flex-shrink: 0; }
-        .nav-menu { flex-grow: 0; }
-        @media (max-width: 992px) {
-            .nav-container { gap: 0; justify-content: space-between !important; }
+        @media (max-width: 992px) { 
+            .article-body { padding: 40px 0; }
+            .prose h2 { font-size: 1.8rem; }
+            .prev-next-nav { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -54,7 +51,6 @@
       <div class="simple-dropdown">
         <a href="residential-security-singapore.html">Private Homes</a>
         <a href="condominiums.html">Condominiums</a>
-        <a href="mcst-committee-member.html" style="padding-left: 20px; font-size: 13px; color: #64748b; font-weight: 500;">(MCST Support Hub)</a>
         <a href="mcst-committee-member.html" style="padding-left: 20px; font-size: 13px; color: #64748b; font-weight: 500;">(MCST Support Hub)</a>
         <a href="commercial-security-singapore.html">Commercial &amp; Retail</a>
         <a href="industrial-security-singapore.html">Industrial &amp; Logistics</a>
@@ -94,7 +90,7 @@
         <a href="resources.html"><strong>&rarr; All Resources</strong></a>
       </div>
     </li>
-    <li class="nav-item"><a href="security-articles-singapore.html" class="nav-link">Insights</a></li>
+    <li class="nav-item"><a href="security-articles-singapore.html" class="nav-link active">Insights</a></li>
     <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
       <div class="simple-dropdown">
         <a href="about.html">Our Story</a><a href="contact.html">Contact Us</a>
@@ -140,10 +136,10 @@
             <p class="intro" style="font-family: 'Inter', sans-serif; font-size: 1.15rem; opacity: 0.95; line-height: 1.8; color: #e2e8f0;">The timeline in most security upgrade proposals is written to win the contract, not to reflect reality. Here is what a realistic schedule actually looks like — and how to plan for the disruption that residents will notice.</p>
             
             <div class="hero-byline">
-                <img src="images/ler-wee-meng-bio.jpeg" alt="Wee Meng Ler">
+                <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
                 <div class="hero-byline-text">
-                    <strong>Wee Meng Ler</strong>
-                    <span>Founder & CEO · April 2, 2026 · 7 min read</span>
+                    <strong>Ler Wee Meng</strong>
+                    <span>Founder & CEO · 37+ Years Experience</span>
                 </div>
             </div>
         </div>
@@ -167,72 +163,86 @@
         <div class="layout-with-sidebar">
             <main class="prose">
                 
-                <h2 id="section1">1. Why timelines get underestimated</h2>
-                <p>Security upgrade timelines in condominiums are consistently underestimated for three reasons: <strong>Procurement takes longer</strong> (AGM to contract typically takes 4-8 weeks), <strong>Equipment lead times</strong> are real (2-6 weeks), and <strong>Installation in live premises</strong> is slower than empty buildings. Residents are present, and noisy works must be scheduled around their peak usage.</p>
-                <p>A project that an integrator estimates will take three weeks in an empty building will typically take five to seven weeks in a live condominium. The committee and the MA should plan for the longer duration and communicate accordingly.</p>
+                <section id="section1">
+                    <h2>1. Why timelines get underestimated</h2>
+                    <p>Security upgrade timelines in condominiums are consistently underestimated for three reasons: <strong>Procurement takes longer</strong> (AGM to contract typically takes 4-8 weeks), <strong>Equipment lead times</strong> are real (2-6 weeks), and <strong>Installation in live premises</strong> is slower than empty buildings. Residents are present, and noisy works must be scheduled around their peak usage.</p>
+                    <p>A project that an integrator estimates will take three weeks in an empty building will typically take five to seven weeks in a live condominium. The committee and the MA should plan for the longer duration and communicate accordingly.</p>
+                </section>
 
-                <h2 id="section2">2. The realistic project phases</h2>
-                <p>A full condominium security upgrade covering CCTV, access control, and intercom typically runs through these phases:</p>
-                <ul>
-                    <li><strong>Phase 1 — Preparation (2-4 weeks):</strong> Finalise drawings, order equipment, prepare communication.</li>
-                    <li><strong>Phase 2 — Infrastructure (1-2 weeks):</strong> New cable runs and conduit installation (noisiness).</li>
-                    <li><strong>Phase 3 — CCTV Installation (1-2 weeks):</strong> Camera installation and NVR setup.</li>
-                    <li><strong>Phase 4 — Access Control (1-2 weeks):</strong> Reader replacement and card migration.</li>
-                    <li><strong>Phase 5 — Intercom Installation (1 week):</strong> Door station replacement.</li>
-                    <li><strong>Phase 6 — Testing & Handover (1-2 weeks):</strong> Final commissioning and staff training.</li>
-                </ul>
+                <section id="section2">
+                    <h2>2. The realistic project phases</h2>
+                    <p>A full condominium security upgrade covering CCTV, access control, and intercom typically runs through these phases:</p>
+                    <ul>
+                        <li><strong>Phase 1 — Preparation (2-4 weeks):</strong> Finalise drawings, order equipment, prepare communication.</li>
+                        <li><strong>Phase 2 — Infrastructure (1-2 weeks):</strong> New cable runs and conduit installation (noisiness).</li>
+                        <li><strong>Phase 3 — CCTV Installation (1-2 weeks):</strong> Camera installation and NVR setup.</li>
+                        <li><strong>Phase 4 — Access Control (1-2 weeks):</strong> Reader replacement and card migration.</li>
+                        <li><strong>Phase 5 — Intercom Installation (1 week):</strong> Door station replacement.</li>
+                        <li><strong>Phase 6 — Testing & Handover (1-2 weeks):</strong> Final commissioning and staff training.</li>
+                    </ul>
+                </section>
 
-                <div class="article-img-wrap">
-                    <img src="images/condo-installation-phases.png" alt="High-fidelity condominium upgrade phases chart">
-                    <div class="img-caption">A detailed infographic showing the seven critical phases of a condominium security upgrade, from award to final resident training.</div>
+                <div class="article-img-wrap" style="margin: 40px 0;">
+                    <img src="images/condo-installation-phases.png" alt="High-fidelity condominium upgrade phases chart" style="width: 100%; border-radius: 12px;">
+                    <div class="img-caption" style="text-align: center; color: #64748b; font-size: 0.9rem; font-style: italic; margin-top: 10px;">A detailed infographic showing the seven critical phases of a condominium security upgrade, from award to final resident training.</div>
                 </div>
 
-                <h2 id="section3">3. The access card migration — the most underestimated task</h2>
-                <p>In a development of 200 units, each with 2-3 residents, you are distributing 400 to 600 new access cards. Each distribution must be documented. If biometric systems are in use, every user needs to enrol in person. This logistics exercise should not be rushed. Allow a minimum of two weeks for card migration alone.</p>
+                <section id="section3">
+                    <h2>3. The access card migration — the most underestimated task</h2>
+                    <p>In a development of 200 units, each with 2-3 residents, you are distributing 400 to 600 new access cards. Each distribution must be documented. If biometric systems are in use, every user needs to enrol in person. This logistics exercise should not be rushed. Allow a minimum of two weeks for card migration alone.</p>
+                </section>
 
-                <h2 id="section4">4. Resident communication — what to send, when</h2>
-                <p>Resident communication is a project management requirement. Pre-start notices should be sent two weeks in advance. Phase-specific notices (e.g., Block 3 corridors) should be sent 3-5 days ahead of work. Access card collection notices are mandatory two weeks before deactivation of old systems.</p>
+                <section id="section4">
+                    <h2>4. Resident communication — what to send, when</h2>
+                    <p>Resident communication is a project management requirement. Pre-start notices should be sent two weeks in advance. Phase-specific notices (e.g., Block 3 corridors) should be sent 3-5 days ahead of work. Access card collection notices are mandatory two weeks before deactivation of old systems.</p>
+                </section>
 
-                <div class="article-img-wrap">
-                    <img src="images/condo-resident-notice.png" alt="Securevision staff placing a resident notice on a condo board">
-                    <div class="img-caption">A Securevision staff member placing a detailed notice to residents in a lobby area, ensuring transparency during the upgrade works.</div>
+                <div class="article-img-wrap" style="margin: 40px 0;">
+                    <img src="images/condo-resident-notice.png" alt="Securevision staff placing a resident notice on a condo board" style="width: 100%; border-radius: 12px;">
+                    <div class="img-caption" style="text-align: center; color: #64748b; font-size: 0.9rem; font-style: italic; margin-top: 10px;">A Securevision staff member placing a detailed notice to residents in a lobby area, ensuring transparency during the upgrade works.</div>
                 </div>
 
-                <h2 id="section5">5. Managing the disruption — what the integrator should provide</h2>
-                <p>The contractor's disruption management plan should address restricted working hours (9am to 5pm), dust and waste management, security during system downtime, and clear contractor identification. Residents seeing unidentified workers in corridors generates anxiety — proper identification (branded Securevision uniforms) and site access controls manage this.</p>
+                <section id="section5">
+                    <h2>5. Managing the disruption — what the integrator should provide</h2>
+                    <p>The contractor's disruption management plan should address restricted working hours (9am to 5pm), dust and waste management, security during system downtime, and clear contractor identification. Residents seeing unidentified workers in corridors generates anxiety — proper identification (branded Securevision uniforms) and site access controls manage this.</p>
+                </section>
 
                 <div class="verdict-box">
                     <p>We build our project timelines conservatively because we would rather finish ahead of schedule than explain delays. For every project, we produce a written disruption management plan, provide weekly updates, and ensure our on-site team is identifiable and professional. Residents accept disruption when they are informed.</p>
                 </div>
 
-                <section class="author-bio-footer">
+                <section id="author" class="author-bio-footer">
                     <div class="abf-flex">
-                        <img src="images/ler-wee-meng-bio.jpeg" alt="Wee Meng Ler" class="abf-img">
+                        <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
                         <div class="abf-content">
                             <h3>About the Author</h3>
-                            <p>Wee Meng Ler is the Founder and CEO of Securevision. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London. With over 37 years of experience in the security industry, he has personally overseen the design and implementation of security systems for more than 1,000 sites across Singapore, ranging from Good Class Bungalows (GCBs) and large-scale condominiums to industrial complexes and institutional facilities.</p>
-                            <p>He is the principal architect of the Securevision SECURE™ Framework and spearheaded the development of the VESTA integration platform. His direct field experience across thousands of residential units ensures that every system designed by Securevision is practical, maintainable, and built to withstand the unique technical challenges of Singapore's climate and regulatory landscape.</p>
+                            <p>Ler Wee Meng is the Founder and CEO of Securevision. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London. With over 37 years of experience in the security industry, he has personally overseen the design and implementation of security systems for more than 1,000 sites across Singapore, ranging from Good Class Bungalows (GCBs) and large-scale condominiums to industrial complexes and institutional facilities.</p>
+                            <p>He is the principal architect of the Securevision SECURE™ Framework and spearheaded the development of the VESTA integration platform. His direct field experience across thousands of residential units ensures that every system designed by Securevision is practical, maintainable, and built to withstand the unique technical challenges of Singapore's climate and regulatory landscape. His engineering-first approach continues to define the standards for intelligent security integration in Singapore.</p>
                         </div>
                     </div>
                 </section>
 
-                <div class="article-tags">
-                    <a href="security-articles-singapore.html?category=Singapore-Industry" class="tag-pill">Singapore Industry</a>
-                    <a href="security-articles-singapore.html?category=Condominium" class="tag-pill">Condominium</a>
-                    <a href="security-articles-singapore.html?category=MCST" class="tag-pill">MCST</a>
-                    <a href="security-articles-singapore.html?category=Security-Planning" class="tag-pill">Security Planning</a>
+
+
+                <div class="article-tags" style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #e2e8f0;">
+                    <span class="tag-pill">Condo Security</span>
+                    <span class="tag-pill">Project Timeline</span>
+                    <span class="tag-pill">MCST Guidelines</span>
+                    <span class="tag-pill">Property Management</span>
                 </div>
 
-                <div class="prev-next-nav">
+                <!-- PREV/NEXT NAV -->
+                <div class="prev-next-nav" style="margin-top: 80px; margin-bottom: 60px;">
                     <a href="insights-mcst-legal-obligations-security.html" class="nav-card">
-                        <span>Previous Post</span>
+                        <span>Previous Article</span>
                         <strong>What Are the MCST's Legal Obligations?</strong>
                     </a>
                     <a href="insights-condo-security-upgrade-proposal.html" class="nav-card">
-                        <span>Next Post</span>
+                        <span>Next Article</span>
                         <strong>What Does a Security Upgrade Proposal Look Like?</strong>
                     </a>
                 </div>
+
             </main>
 
             <aside class="sidebar">
@@ -244,17 +254,18 @@
                         <li><a href="#section3">3. Access card migration</a></li>
                         <li><a href="#section4">4. Communication strategy</a></li>
                         <li><a href="#section5">5. Managing disruption</a></li>
+                        <li><a href="#author">Meet the Author</a></li>
                     </ul>
-                    
-                    <div class="founder-card">
+
+                    <div class="founder-card" style="margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 30px; background: transparent; border-radius: 0; box-shadow: none;">
                         <div class="fc-head">
-                            <img src="images/ler-wee-meng-bio.jpeg" alt="Wee Meng Ler">
+                            <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
                             <div>
                                 <strong>Ler Wee Meng</strong>
                                 <span>Founder & CEO · Securevision</span>
                             </div>
                         </div>
-                        <p>Need expert advice? Discuss your site requirements with our engineering team.</p>
+                        <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px;">Need expert advice on planning your condo's security upgrade timeline? Discuss your requirements with our team.</p>
                         <a href="https://wa.me/6593860466" class="fc-wa-link">💬 WhatsApp Support &rarr;</a>
                     </div>
                 </div>
@@ -263,21 +274,22 @@
     </div>
 </div>
 
+<!-- RELATED ARTICLES -->
 <section class="related-articles-sec" style="padding: 80px 0; background: #fff; border-top: 1px solid #e2e8f0;">
     <div class="container">
-        <h2 style="text-align: center; font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 0; color: #1e293b; font-weight: 700;">Related Security Insights</h2>
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 40px; text-align: center; color: #1e293b; font-weight: 700;">Related Committee Guides</h2>
         <div class="related-grid">
             <a href="insights-condo-security-upgrade-proposal.html" class="nav-card">
-                <span>Security Planning</span>
-                <strong>The Anatomy of a Perfect Security Proposal</strong>
+                <span>Proposals</span>
+                <strong>Anatomy of a Perfect Proposal</strong>
             </a>
             <a href="insights-condo-security-upgrade-quotes.html" class="nav-card">
-                <span>Security Planning</span>
-                <strong>How to Get Quotes for an AGM Upgrade</strong>
+                <span>Quoting</span>
+                <strong>How to Get Quotes for AGM</strong>
             </a>
             <a href="insights-upgrade-condo-intercom.html" class="nav-card">
                 <span>System Upgrades</span>
-                <strong>When to Upgrade Your Condo Intercom</strong>
+                <strong>When to Upgrade Your Intercom</strong>
             </a>
         </div>
     </div>
@@ -392,64 +404,57 @@
 
 <script>
 function toggleMobileMenu() {
-    const menu = document.getElementById('mobileMenu');
-    if (menu) menu.classList.toggle('active');
+  const menu = document.getElementById('mobileMenu');
+  if (menu) menu.classList.toggle('active');
 }
 
 function toggleSubmenu(id) {
-    const sub = document.getElementById(id);
-    if (sub) {
-        const isActive = sub.classList.contains('active');
-        document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
-        if (!isActive) sub.classList.add('active');
-    }
+  const sub = document.getElementById(id);
+  if (sub) {
+    const isActive = sub.classList.contains('active');
+    document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
+    if (!isActive) sub.classList.add('active');
+  }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.sv-current-year').forEach(el => el.textContent = new Date().getFullYear());
-    // TOC Active State
-    window.addEventListener('scroll', () => {
-        let current = '';
-        const headings = document.querySelectorAll('.prose h2');
-        headings.forEach(h => {
-            if (window.pageYOffset >= h.offsetTop - 120) {
-                current = h.getAttribute('id');
-            }
-        });
-        document.querySelectorAll('.toc-list a').forEach(a => {
-            a.classList.remove('active');
-            if (a.getAttribute('href') === '#' + current) {
-                a.classList.add('active');
-            }
-        });
-    });
+document.addEventListener('click', function (e) {
+  const nav = document.querySelector('.main-nav');
+  const menu = document.getElementById('mobileMenu');
+  if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
+    menu.classList.remove('active');
+  }
+});
 
-    // Header Scroll Logic
+// Header scroll effect
+window.addEventListener('scroll', () => {
     const nav = document.querySelector('.main-nav');
     const logo = document.querySelector('.nav-logo-img');
     if (nav && logo) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                nav.classList.add('scrolled');
-                logo.src = 'images/securevision-logo-blue.png';
-            } else {
-                nav.classList.remove('scrolled');
-                logo.src = 'images/securevision-logo-white.png';
-            }
-        });
-    }
-
-    if (typeof SECUREVISION !== 'undefined') {
-        const SV = SECUREVISION;
-        document.querySelectorAll('.sv-licence').forEach(el => el.textContent = SV.licenceNumber);
-        document.querySelectorAll('.sv-founded-year').forEach(el => el.textContent = SV.foundedYear);
+        if (window.scrollY > 20) {
+            nav.classList.add('scrolled');
+            logo.src = 'images/securevision-logo-blue.png';
+        } else {
+            nav.classList.remove('scrolled');
+            logo.src = 'images/securevision-logo-white.png';
+        }
     }
 });
 
-function toggleMobileMenu() {
-    const menu = document.getElementById('mobileMenu');
-    if (menu) menu.classList.toggle('active');
-}
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('.prose h2');
+    sections.forEach(s => {
+        if (window.pageYOffset >= s.offsetTop - 120) {
+            current = s.getAttribute('id');
+        }
+    });
+    document.querySelectorAll('.toc-list a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + current) {
+            a.classList.add('active');
+        }
+    });
+});
 </script>
 </body>
 </html>

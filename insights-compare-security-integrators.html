@@ -19,39 +19,23 @@
         .prose p { font-family: 'Inter', sans-serif; margin-bottom: 24px; line-height: 1.8; color: #475569; }
         .prose ul, .prose ol { margin-bottom: 24px; padding-left: 20px; }
         .prose li { font-family: 'Inter', sans-serif; margin-bottom: 12px; line-height: 1.6; color: #475569; }
-        
-        .article-img-wrap { margin: 48px 0; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .article-img-wrap img { width: 100%; display: block; }
-        .img-caption { text-align: center; font-size: 0.9rem; color: #64748b; margin-top: 16px; font-style: italic; }
 
-        .notice-box { background: #f8fafc; border-left: 4px solid var(--primary-blue); padding: 20px; font-size: 0.9rem; color: #475569; margin: 10px 0 30px; border-radius: 0 8px 8px 0; }
-        .notice-box strong { display: block; margin-bottom: 5px; color: #1e293b; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 1px; }
+        .callout-box { background: #eff6ff; border-left: 4px solid var(--primary-blue); padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .callout-box strong { display: block; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+        .callout-box p { margin-bottom: 0; }
 
-        .comparison-table-wrapper { overflow-x: auto; margin: 40px 0; border-radius: 12px; border: 1px solid #e2e8f0; }
-        .comparison-table { width: 100%; border-collapse: collapse; min-width: 600px; }
-        .comparison-table th { background: #f8fafc; text-align: left; padding: 16px; border-bottom: 1px solid #e2e8f0; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 700; color: #1e293b; }
-        .comparison-table td { padding: 16px; border-bottom: 1px solid #f1f5f9; font-family: 'Inter', sans-serif; font-size: 0.9rem; color: #475569; vertical-align: top; }
-        .comparison-table tr:last-child td { border-bottom: none; }
+        .verdict-box { background: #fff7ed; border-left: 4px solid #ea580c; padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .verdict-box p { margin-bottom: 0; color: #9a3412; font-weight: 500; }
 
-        .prev-next-nav { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 40px; }
-        .nav-card { padding: 30px; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; text-decoration: none; transition: 0.2s; display: block; }
-        .nav-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--primary-blue); }
-        .nav-card span { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; margin-bottom: 10px; font-weight: 700; }
-        .nav-card strong { display: block; font-size: 1.1rem; color: #1e293b; line-height: 1.4; }
+        .comparison-table-wrapper { overflow-x: auto; margin: 32px 0; border-radius: 12px; border: 1px solid #f1f5f9; }
+        .comparison-table { width: 100%; border-collapse: collapse; min-width: 600px; font-size: 0.95rem; }
+        .comparison-table th { background: #f1f5f9; text-align: left; padding: 16px; font-weight: 700; color: #334155; border-bottom: 2px solid #e2e8f0; }
+        .comparison-table td { padding: 16px; border-bottom: 1px solid #f1f5f9; color: #475569; }
 
-        /* Author bio in sidebar or footer */
-        .founder-card { background: #f8fafc; padding: 24px; border-radius: 12px; border: 1px solid #e2e8f0; margin-top: 40px; }
-        .fc-head { display: flex; align-items: center; gap: 16px; margin-bottom: 16px; }
-        .fc-head img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
-        .fc-head div { display: flex; flex-direction: column; }
-        .fc-head strong { font-size: 0.95rem; color: #1e293b; }
-        .fc-head span { font-size: 0.75rem; color: #64748b; }
-        .founder-card p { font-size: 0.85rem; color: #475569; line-height: 1.5; margin-bottom: 16px; }
-        .fc-wa-link { color: var(--primary-blue); font-weight: 700; text-decoration: none; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
-
-        @media (max-width: 768px) {
+        @media (max-width: 992px) { 
             .article-body { padding: 40px 0; }
             .prose h2 { font-size: 1.8rem; }
+            .prev-next-nav { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -69,6 +53,7 @@
       <div class="simple-dropdown">
         <a href="residential-security-singapore.html">Private Homes</a>
         <a href="condominiums.html">Condominiums</a>
+        <a href="mcst-committee-member.html" style="padding-left: 20px; font-size: 13px; color: #64748b; font-weight: 500;">(MCST Support Hub)</a>
         <a href="commercial-security-singapore.html">Commercial &amp; Retail</a>
         <a href="industrial-security-singapore.html">Industrial &amp; Logistics</a>
         <a href="government-institution-security-singapore.html">Institutions &amp; Government</a>
@@ -150,25 +135,21 @@
             <h1 style="font-family: 'Montserrat', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 25px; line-height: 1.2;">How to Compare Two Security Integrators Fairly — Even If You Know Nothing About Security Systems</h1>
             <p class="intro" style="font-family: 'Inter', sans-serif; font-size: 1.15rem; opacity: 0.95; line-height: 1.8; color: #e2e8f0;">The cheapest quote is rarely the best value. Here is a structured framework for evaluating integrators that goes beyond price — so your committee can make a decision it can defend at any AGM.</p>
             
-            <div style="display: flex; align-items: center; gap: 20px; margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.15);">
-                <div style="background: #63b3ed; color: #0f172a; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-family: 'Montserrat', sans-serif;">LW</div>
-                <div>
-                    <strong style="display: block; font-size: 1rem; color: #fff;">Ler Wee Meng</strong>
-                    <span style="font-size: 0.85rem; color: #94a3b8;">Written by Ler Wee Meng, Founder, Securevision Pte Ltd · NUS Engineering · UOL Law · 37 years in security systems</span>
+            <div class="hero-byline">
+                <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
+                <div class="hero-byline-text">
+                    <strong>Ler Wee Meng</strong>
+                    <span>Founder & CEO · 37+ Years Experience</span>
                 </div>
             </div>
             
-            <div class="notice-box" style="margin-top: 24px; background: rgba(255,255,255,0.1); border-left: 4px solid #63b3ed; color: #e2e8f0;">
-                <strong>Note From the Author</strong>
-                This article is written to be useful to any MCST committee evaluating any security integrator — including Securevision. We believe honest advice builds better relationships than self-promotion. Use this framework on us.
-            </div>
         </div>
     </div>
 </header>
 
 <!-- ── BREADCRUMBS ── -->
-<div class="container">
-    <div class="sv-breadcrumb" style="background: transparent; padding: 24px 0 0 0;">
+<nav class="sv-breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
         <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="security-articles-singapore.html">Insights</a></li>
@@ -176,7 +157,7 @@
             <li>Comparing Security Integrators</li>
         </ul>
     </div>
-</div>
+</nav>
 
 <div class="article-body">
     <div class="container">
@@ -201,10 +182,11 @@
                     <h2>Step Two — Build a Scope Table</h2>
                     <p>Do not look at the price until you have extracted the following information into a simple comparison table. Unstated scope is unbudgeted scope — it will appear as an additional cost later.</p>
                     
-                    <div class="article-img-wrap">
-                        <img src="images/insights-agm-document.png" alt="Careful comparison of security proposal documents">
-                        <div class="img-caption">Building a comparison table reveals the true differences in integrator proposals.</div>
+                    <div class="article-img-wrap" style="margin-bottom: 60px;">
+                        <img src="images/insights-agm-document.png" alt="Reviewing security proposal documents">
                     </div>
+
+                    <h3 style="text-align: center; margin-bottom: 40px; font-size: 1.8rem; color: #1e293b;">Building a Comparison Table</h3>
 
                     <div class="comparison-table-wrapper">
                         <table class="comparison-table">
@@ -218,19 +200,23 @@
                             <tbody>
                                 <tr>
                                     <td>Camera Specs</td>
-                                    <td colspan="2">Resolution, retention period, and outdoor rating?</td>
+                                    <td>Verify...</td>
+                                    <td>Verify...</td>
                                 </tr>
                                 <tr>
                                     <td>Access Control</td>
-                                    <td colspan="2">Includes gantry, visitor app, and contractor logs?</td>
+                                    <td>Verify...</td>
+                                    <td>Verify...</td>
                                 </tr>
                                 <tr>
                                     <td>Cabling</td>
-                                    <td colspan="2">New cabling included or reusing legacy wires?</td>
+                                    <td>Verify...</td>
+                                    <td>Verify...</td>
                                 </tr>
                                 <tr>
                                     <td>Support</td>
-                                    <td colspan="2">Response times, parts + labour coverage?</td>
+                                    <td>Verify...</td>
+                                    <td>Verify...</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -293,24 +279,41 @@
                     <p>Score each integrator on a three-point scale (Strong, Adequate, Weak) across: Credentials, Scope Clarity, Brand Quality, References, and Response Time Commitment. The integrator with the most "Strong" ratings is your best choice — even if they aren't the cheapest.</p>
                 </section>
 
-                <div class="author-bio-footer" style="margin-top: 80px; padding-top: 60px; border-top: 1px solid #e2e8f0;">
-                    <h2 style="font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 25px;">The Right Integrator is Always the Most Transparent</h2>
-                    <p>The estates that are happiest five years after installation are the ones that asked the most questions before signing. An integrator who welcomes scrutiny is an integrator you can trust.</p>
-                    
-                    <div style="display: flex; gap: 30px; align-items: flex-start; margin-top: 40px; background: #f8fafc; padding: 40px; border-radius: 12px;">
-                        <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover;">
-                        <div>
-                            <h4 style="font-family: 'Montserrat', sans-serif; font-size: 1.4rem; margin-bottom: 8px;">Ler Wee Meng</h4>
-                            <p style="font-size: 0.95rem; color: #475569; line-height: 1.7; margin-bottom: 0;">Founder & CEO of Securevision. NUS Engineering and UOL Law graduate. 37 years experience. Wee Meng believes that high-standard engineering is the only way to build lasting security infrastructure for Singapore's estates.</p>
+                <section id="author" class="author-bio-footer">
+                    <div class="abf-flex">
+                        <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
+                        <div class="abf-content">
+                            <h3>About the Author</h3>
+                            <p>Ler Wee Meng is the Founder and CEO of Securevision. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London. With over 37 years of experience in the security industry, he has personally overseen the design and implementation of security systems for more than 1,000 sites across Singapore, ranging from Good Class Bungalows (GCBs) and large-scale condominiums to industrial complexes and institutional facilities.</p>
+                            <p>He is the principal architect of the Securevision SECURE™ Framework and spearheaded the development of the VESTA integration platform. His direct field experience across thousands of residential units ensures that every system designed by Securevision is practical, maintainable, and built to withstand the unique technical challenges of Singapore's climate and regulatory landscape. His engineering-first approach continues to define the standards for intelligent security integration in Singapore.</p>
                         </div>
                     </div>
+                </section>
+
+                <div class="article-tags" style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #e2e8f0;">
+                    <span class="tag-pill">MCST Security</span>
+                    <span class="tag-pill">Procurement</span>
+                    <span class="tag-pill">Integrator Comparison</span>
+                    <span class="tag-pill">Property Management</span>
+                </div>
+
+                <!-- PREV/NEXT NAV -->
+                <div class="prev-next-nav" style="margin-top: 80px; margin-bottom: 60px;">
+                    <a href="insights-presenting-security-upgrade-condo-agm.html" class="nav-card">
+                        <span>Previous Article</span>
+                        <strong>How to Present a Security Upgrade at Your Condo AGM</strong>
+                    </a>
+                    <a href="insights-mcst-legal-obligations-security.html" class="nav-card">
+                        <span>Next Article</span>
+                        <strong>What Are the MCST's Legal Obligations for Security Systems?</strong>
+                    </a>
                 </div>
 
             </main>
 
             <aside class="sidebar">
                 <div class="sticky-toc">
-                    <div class="toc-title">Evaluation Framework</div>
+                    <div class="toc-title">In this article</div>
                     <ul class="toc-list">
                         <li><a href="#section1">1. Legal Verification</a></li>
                         <li><a href="#section2">2. Scope Comparison</a></li>
@@ -318,41 +321,44 @@
                         <li><a href="#section4">4. The Five-Year Test</a></li>
                         <li><a href="#section5">5. Reference Checks</a></li>
                         <li><a href="#section6">6. Final Scoring</a></li>
+                        <li><a href="#author">Meet the Author</a></li>
                     </ul>
-                </div>
 
-                <div class="founder-card">
+                <div class="founder-card" style="margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 30px; background: transparent; border-radius: 0; box-shadow: none;">
                     <div class="fc-head">
                         <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
                         <div>
                             <strong>Ler Wee Meng</strong>
-                            <span>Founder & CEO</span>
+                            <span>Founder & CEO · Securevision</span>
                         </div>
                     </div>
-                    <p>Want us to walk you through our proposal against this framework? We welcome the comparison.</p>
+                    <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px;">Want us to walk you through our proposal against this framework? We welcome the comparison.</p>
                     <a href="https://wa.me/6593860466" class="fc-wa-link">💬 WhatsApp Support &rarr;</a>
                 </div>
-            </aside>
+            </div>
+        </aside>
+        </div>
+    </div>
         </div>
     </div>
 </div>
 
 <!-- RELATED ARTICLES -->
-<section style="padding: 80px 0; background: #f8fafc; border-top: 1px solid #e2e8f0;">
+<section class="related-articles-sec" style="padding: 80px 0; background: #fff; border-top: 1px solid #e2e8f0;">
     <div class="container">
-        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2.2rem; margin-bottom: 40px; text-align: center; color: #1e293b;">Related Committee Guides</h2>
-        <div class="prev-next-nav">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 1.50rem; margin-bottom: 40px; text-align: center; color: #1e293b; font-weight: 700;">Related Committee Guides</h2>
+        <div class="related-grid">
             <a href="insights-presenting-security-upgrade-condo-agm.html" class="nav-card">
                 <span>AGM Strategy</span>
-                <strong>How to Present a Security Upgrade at Your Condo AGM</strong>
+                <strong>Presenting to the AGM</strong>
             </a>
             <a href="insights-mcst-legal-obligations-security.html" class="nav-card">
-                <span>Compliance</span>
-                <strong>What Are the MCST's Legal Obligations for Security Systems?</strong>
+                <span>Legal</span>
+                <strong>MCST Legal Obligations</strong>
             </a>
             <a href="mcst-committee-member.html" class="nav-card">
                 <span>MCST Solutions</span>
-                <strong>Dedicated Support for MCST Committee Members</strong>
+                <strong>Committee Support Hub</strong>
             </a>
         </div>
     </div>
@@ -396,7 +402,8 @@
                 <h4>Solutions</h4>
                 <ul>
                     <li><a href="residential-security-singapore.html">Private Homes</a></li>
-                    <li><a href="condominiums.html">Condominiums</a></li>
+                    <li><a href="condominiums.html">Condominiums</a>
+        <a href="mcst-committee-member.html" style="padding-left: 20px; font-size: 13px; color: #64748b; font-weight: 500;">(MCST Support Hub)</a></li>
                     <li><a href="commercial-security-singapore.html">Commercial &amp; Retail</a></li>
                     <li><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a></li>
                     <li><a href="government-institution-security-singapore.html">Institutions &amp; Government</a></li>
@@ -467,59 +474,56 @@
 
 <script>
 function toggleMobileMenu() {
-    const menu = document.getElementById('mobileMenu');
-    if (menu) menu.classList.toggle('active');
+  const menu = document.getElementById('mobileMenu');
+  if (menu) menu.classList.toggle('active');
 }
 
 function toggleSubmenu(id) {
-    const sub = document.getElementById(id);
-    if (sub) {
-        const isActive = sub.classList.contains('active');
-        document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
-        if (!isActive) sub.classList.add('active');
-    }
+  const sub = document.getElementById(id);
+  if (sub) {
+    const isActive = sub.classList.contains('active');
+    document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
+    if (!isActive) sub.classList.add('active');
+  }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.sv-current-year').forEach(el => el.textContent = new Date().getFullYear());
-    
-    // TOC Active State
-    window.addEventListener('scroll', () => {
-        let current = '';
-        const sections = document.querySelectorAll('.prose section');
-        sections.forEach(h => {
-            if (window.pageYOffset >= h.offsetTop - 120) {
-                current = h.getAttribute('id');
-            }
-        });
-        document.querySelectorAll('.toc-list a').forEach(a => {
-            a.classList.remove('active');
-            if (a.getAttribute('href') === '#' + current) {
-                a.classList.add('active');
-            }
-        });
-    });
+document.addEventListener('click', function (e) {
+  const nav = document.querySelector('.main-nav');
+  const menu = document.getElementById('mobileMenu');
+  if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
+    menu.classList.remove('active');
+  }
+});
 
-    // Header Scroll Logic
+// Header scroll effect
+window.addEventListener('scroll', () => {
     const nav = document.querySelector('.main-nav');
     const logo = document.querySelector('.nav-logo-img');
     if (nav && logo) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                nav.classList.add('scrolled');
-                logo.src = 'images/securevision-logo-blue.png';
-            } else {
-                nav.classList.remove('scrolled');
-                logo.src = 'images/securevision-logo-white.png';
-            }
-        });
+        if (window.scrollY > 20) {
+            nav.classList.add('scrolled');
+            logo.src = 'images/securevision-logo-blue.png';
+        } else {
+            nav.classList.remove('scrolled');
+            logo.src = 'images/securevision-logo-white.png';
+        }
     }
+});
 
-    if (typeof SECUREVISION !== 'undefined') {
-        const SV = SECUREVISION;
-        document.querySelectorAll('.sv-licence').forEach(el => el.textContent = SV.licenceNumber);
-        document.querySelectorAll('.sv-founded-year').forEach(el => el.textContent = SV.foundedYear);
-    }
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('.prose section');
+    sections.forEach(s => {
+        if (window.pageYOffset >= s.offsetTop - 120) {
+            current = s.getAttribute('id');
+        }
+    });
+    document.querySelectorAll('.toc-list a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + current) {
+            a.classList.add('active');
+        }
+    });
 });
 </script>
 </body>

@@ -17,23 +17,20 @@
         .prose h2 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 700; color: #1e293b; margin: 60px 0 24px; scroll-margin-top: 100px; }
         .prose h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; color: #334155; margin: 32px 0 16px; }
         .prose p { font-family: 'Inter', sans-serif; margin-bottom: 24px; line-height: 1.8; color: #475569; }
-        
+        .prose ul, .prose ol { margin-bottom: 24px; padding-left: 20px; }
+        .prose li { font-family: 'Inter', sans-serif; margin-bottom: 12px; line-height: 1.6; color: #475569; }
+
         .callout-box { background: #eff6ff; border-left: 4px solid var(--primary-blue); padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
         .callout-box strong { display: block; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
-        
-        .verdict-box { background: #fff7ed; border: 1px solid #ffedd5; padding: 30px; border-radius: 12px; margin: 40px 0; position: relative; }
-        .verdict-box::before { content: 'Securevision Verdict'; position: absolute; top: -12px; left: 24px; background: #ea580c; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .callout-box p { margin-bottom: 0; }
 
-        .article-img-wrap { margin: 48px 0; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .article-img-wrap img { width: 100%; display: block; }
-        .img-caption { padding: 16px 24px; background: #f8fafc; border-top: 1px solid #e2e8f0; font-size: 0.9rem; color: #64748b; font-style: italic; }
+        .verdict-box { background: #fff7ed; border-left: 4px solid #ea580c; padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .verdict-box p { margin-bottom: 0; color: #9a3412; font-weight: 500; }
 
-        .nav-container { justify-content: flex-start !important; gap: 60px; }
-        .nav-right { margin-left: auto !important; }
-        .nav-logo-link { flex-shrink: 0; }
-        .nav-menu { flex-grow: 0; }
-        @media (max-width: 992px) {
-            .nav-container { gap: 0; justify-content: space-between !important; }
+        @media (max-width: 992px) { 
+            .article-body { padding: 40px 0; }
+            .prose h2 { font-size: 1.8rem; }
+            .prev-next-nav { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -51,7 +48,6 @@
       <div class="simple-dropdown">
         <a href="residential-security-singapore.html">Private Homes</a>
         <a href="condominiums.html">Condominiums</a>
-        <a href="mcst-committee-member.html" style="padding-left: 20px; font-size: 13px; color: #64748b; font-weight: 500;">(MCST Support Hub)</a>
         <a href="mcst-committee-member.html" style="padding-left: 20px; font-size: 13px; color: #64748b; font-weight: 500;">(MCST Support Hub)</a>
         <a href="commercial-security-singapore.html">Commercial &amp; Retail</a>
         <a href="industrial-security-singapore.html">Industrial &amp; Logistics</a>
@@ -91,7 +87,7 @@
         <a href="resources.html"><strong>&rarr; All Resources</strong></a>
       </div>
     </li>
-    <li class="nav-item"><a href="security-articles-singapore.html" class="nav-link">Insights</a></li>
+    <li class="nav-item"><a href="security-articles-singapore.html" class="nav-link active">Insights</a></li>
     <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
       <div class="simple-dropdown">
         <a href="about.html">Our Story</a><a href="contact.html">Contact Us</a>
@@ -135,10 +131,10 @@
             <p class="intro" style="font-family: 'Inter', sans-serif; font-size: 1.15rem; opacity: 0.95; line-height: 1.8; color: #e2e8f0;">Before residents vote on a security upgrade at an AGM or EGM, they need to understand what they are voting on. A well-structured proposal makes that possible. A poorly structured one creates objections, delays, and mistrust — even when the upgrade is genuinely needed.</p>
             
             <div class="hero-byline">
-                <img src="images/ler-wee-meng-bio.jpeg" alt="Wee Meng Ler">
+                <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
                 <div class="hero-byline-text">
-                    <strong>Wee Meng Ler</strong>
-                    <span>Founder & CEO · April 2, 2026 · 7 min read</span>
+                    <strong>Ler Wee Meng</strong>
+                    <span>Founder & CEO · 37+ Years Experience</span>
                 </div>
             </div>
         </div>
@@ -162,90 +158,106 @@
         <div class="layout-with-sidebar">
             <main class="prose">
                 
-                <h2 id="section1">1. Why the proposal is the hardest part</h2>
-                <p>Security upgrades in condominiums fail at the proposal stage more often than at the budget stage. The systems are available. The cost is reasonable. The need is clear to anyone who has looked at the existing infrastructure. But residents vote no — or table the motion indefinitely — because the proposal did not give them enough to make a confident decision.</p>
-                <p>The most common failure is a proposal that presents a solution before it establishes the problem. Residents are asked to approve $180,000 for a new CCTV and access control system without first understanding what is wrong with the current one, why the current one cannot simply be repaired, and what specific outcomes the new system will deliver.</p>
-                <p>A well-structured proposal works through the problem before it arrives at the solution, and supports every major claim with evidence — photographs, maintenance records, incident logs, or independent assessment reports. This article walks through what that looks like in practice.</p>
+                <section id="section1">
+                    <h2>1. Why the proposal is the hardest part</h2>
+                    <p>Security upgrades in condominiums fail at the proposal stage more often than at the budget stage. The systems are available. The cost is reasonable. The need is clear to anyone who has looked at the existing infrastructure. But residents vote no — or table the motion indefinitely — because the proposal did not give them enough to make a confident decision.</p>
+                    <p>The most common failure is a proposal that presents a solution before it establishes the problem. Residents are asked to approve $180,000 for a new CCTV and access control system without first understanding what is wrong with the current one, why the current one cannot simply be repaired, and what specific outcomes the new system will deliver.</p>
+                    <p>A well-structured proposal works through the problem before it arrives at the solution, and supports every major claim with evidence — photographs, maintenance records, incident logs, or independent assessment reports. This article walks through what that looks like in practice.</p>
+                </section>
 
-                <h2 id="section2">2. Section 1 — the current situation</h2>
-                <p>The first section of any security upgrade proposal should document the existing system honestly and specifically. Not "the system is old and outdated" — that tells residents nothing. What they need to understand is:</p>
-                <p><strong>What systems are currently installed.</strong> Name the system types — CCTV, access control, intercom, guard management — and where they are deployed. Lobby cameras, carpark cameras, perimeter cameras, lift lobby access readers, main gate intercom. Be specific about coverage.</p>
-                <p><strong>When the current systems were installed.</strong> Include the original installation year and, where known, the last major upgrade or replacement. Residents in an eighteen-year-old development often do not realise the security system has not been meaningfully updated since the building was completed.</p>
-                <p><strong>What the maintenance record shows.</strong> How many service calls in the past twelve months? Which systems required repeated attention? What faults recur despite repair? This is where the maintenance log becomes an asset — a record of recurring camera faults, persistent access reader failures, or intercom handsets that have been repaired three times in two years tells a story that words alone cannot.</p>
-                <p><strong>What the gaps are.</strong> Not just what is failing, but what is missing. Blind spots in camera coverage that the original design did not address. Access control that covers the main lobby but not the secondary entrance that was added in a later phase. A carpark intercom that has no video capability. Map these gaps visually if possible — a floor plan showing camera coverage zones makes blind spots immediately visible to residents who would not otherwise understand the concept.</p>
+                <section id="section2">
+                    <h2>2. Section 1 — the current situation</h2>
+                    <p>The first section of any security upgrade proposal should document the existing system honestly and specifically. Not "the system is old and outdated" — that tells residents nothing. What they need to understand is:</p>
+                    <p><strong>What systems are currently installed.</strong> Name the system types — CCTV, access control, intercom, guard management — and where they are deployed. Lobby cameras, carpark cameras, perimeter cameras, lift lobby access readers, main gate intercom. Be specific about coverage.</p>
+                    <p><strong>When the current systems were installed.</strong> Include the original installation year and, where known, the last major upgrade or replacement. Residents in an eighteen-year-old development often do not realise the security system has not been meaningfully updated since the building was completed.</p>
+                    <p><strong>What the maintenance record shows.</strong> How many service calls in the past twelve months? Which systems required repeated attention? What faults recur despite repair? This is where the maintenance log becomes an asset — a record of recurring camera faults, persistent access reader failures, or intercom handsets that have been repaired three times in two years tells a story that words alone cannot.</p>
+                    <p><strong>What the gaps are.</strong> Not just what is failing, but what is missing. Blind spots in camera coverage that the original design did not address. Access control that covers the main lobby but not the secondary entrance that was added in a later phase. A carpark intercom that has no video capability. Map these gaps visually if possible — a floor plan showing camera coverage zones makes blind spots immediately visible to residents who would not otherwise understand the concept.</p>
 
-                <div class="article-img-wrap">
-                    <img src="images/condo-cctv-coverage-map.png" alt="Condominium CCTV coverage map showing blind spots">
-                    <div class="img-caption">A schematic layout of a condominium carpark showing existing camera coverage zones (blue) and identified security blind spots (red).</div>
-                </div>
+                    <div class="article-img-wrap" style="margin: 40px 0;">
+                        <img src="images/condo-cctv-coverage-map.png" alt="Condominium CCTV coverage map showing blind spots" style="width: 100%; border-radius: 12px;">
+                        <div class="img-caption" style="text-align: center; color: #64748b; font-size: 0.9rem; font-style: italic; margin-top: 10px;">A schematic layout of a condominium carpark showing existing camera coverage zones (blue) and identified security blind spots (red).</div>
+                    </div>
+                </section>
 
-                <h2 id="section3">3. Section 2 — why repair is not the answer</h2>
-                <p>Residents will always ask: why can we not simply repair what is broken? This is a reasonable question and the proposal must answer it directly, not sidestep it.</p>
-                <p>The answer varies by situation. Common reasons why repair is not the right path:</p>
-                <ul>
-                    <li>The system manufacturer has discontinued the product line and spare parts are no longer available in Singapore. A repair today is possible, but the next failure has no fix.</li>
-                    <li>The recording technology is so outdated that the footage it produces is not usable for incident investigation. A system recording at 352×240 produces images where faces and licenses are unidentifiable.</li>
-                    <li>The access control system database is proprietary to the original installer and cannot be migrated to a new system, creating dependency and inflexibility.</li>
-                    <li>The cumulative cost of maintaining an ageing system over the next five years — based on the maintenance log — exceeds the cost of replacement.</li>
-                </ul>
-                <p>State whichever of these applies, with supporting evidence. Do not ask residents to take this on faith.</p>
+                <section id="section3">
+                    <h2>3. Section 2 — why repair is not the answer</h2>
+                    <p>Residents will always ask: why can we not simply repair what is broken? This is a reasonable question and the proposal must answer it directly, not sidestep it.</p>
+                    <p>The answer varies by situation. Common reasons why repair is not the right path:</p>
+                    <ul>
+                        <li>The system manufacturer has discontinued the product line and spare parts are no longer available in Singapore. A repair today is possible, but the next failure has no fix.</li>
+                        <li>The recording technology is so outdated that the footage it produces is not usable for incident investigation. A system recording at 352×240 produces images where faces and licenses are unidentifiable.</li>
+                        <li>The access control system database is proprietary to the original installer and cannot be migrated to a new system, creating dependency and inflexibility.</li>
+                        <li>The cumulative cost of maintaining an ageing system over the next five years — based on the maintenance log — exceeds the cost of replacement.</li>
+                    </ul>
+                    <p>State whichever of these applies, with supporting evidence. Do not ask residents to take this on faith.</p>
+                </section>
 
-                <h2 id="section4">4. Section 3 — the proposed solution</h2>
-                <p>This section describes what the upgrade will deliver — specific, concrete, and linked back to the gaps identified in Section 1.</p>
-                <p>For each gap or failing identified earlier, the proposal should show the corresponding fix. Residents are not approving $180,000 for a "security upgrade." They are approving coverage of a specific blind spot, replacement of a specific failing system, and addition of a specific new capability — each of which maps to a documented problem.</p>
-                
-                <div class="callout-box">
-                    <strong>KEY POINT</strong>
-                    <p>A proposal that says "we will install 24 Hikvision AcuSense cameras replacing the existing 16 analogue cameras, extending coverage to the secondary carpark entrance, with 30-day retention on a RAID-protected NVR" gives residents something tangible they can evaluate.</p>
-                </div>
+                <section id="section4">
+                    <h2>4. Section 3 — the proposed solution</h2>
+                    <p>This section describes what the upgrade will deliver — specific, concrete, and linked back to the gaps identified in Section 1.</p>
+                    <p>For each gap or failing identified earlier, the proposal should show the corresponding fix. Residents are not approving $180,000 for a "security upgrade." They are approving coverage of a specific blind spot, replacement of a specific failing system, and addition of a specific new capability — each of which maps to a documented problem.</p>
+                    
+                    <div class="callout-box">
+                        <strong>KEY POINT</strong>
+                        <p>A proposal that says "we will install 24 Hikvision AcuSense cameras replacing the existing 16 analogue cameras, extending coverage to the secondary carpark entrance, with 30-day retention on a RAID-protected NVR" gives residents something tangible they can evaluate.</p>
+                    </div>
+                </section>
 
-                <h2 id="section5">5. Section 4 — the budget</h2>
-                <p>The budget section should be itemised — not a single lump sum. Residents who see a single number with no breakdown will create their own assumptions about where the money is going, and those assumptions are usually more alarming than the reality.</p>
-                <p>A properly itemised budget shows: equipment cost by system type, installation labour, cabling and civil works, project management, testing and commissioning, training, and the warranty and maintenance arrangement for the first one to three years after installation.</p>
+                <section id="section5">
+                    <h2>5. Section 4 — the budget</h2>
+                    <p>The budget section should be itemised — not a single lump sum. Residents who see a single number with no breakdown will create their own assumptions about where the money is going, and those assumptions are usually more alarming than the reality.</p>
+                    <p>A properly itemised budget shows: equipment cost by system type, installation labour, cabling and civil works, project management, testing and commissioning, training, and the warranty and maintenance arrangement for the first one to three years after installation.</p>
+                </section>
 
-                <h2 id="section6">6. Section 5 — disruption and timeline</h2>
-                <p>Residents will want to know how the installation will affect their daily lives. This section should cover: total installation duration, which systems will be offline and when, what temporary measures will be in place during the upgrade, and how residents will be notified at each stage.</p>
+                <section id="section6">
+                    <h2>6. Section 5 — disruption and timeline</h2>
+                    <p>Residents will want to know how the installation will affect their daily lives. This section should cover: total installation duration, which systems will be offline and when, what temporary measures will be in place during the upgrade, and how residents will be notified at each stage.</p>
 
-                <div class="article-img-wrap">
-                    <img src="images/condo-upgrade-timeline-chart.png" alt="Condominium security upgrade project timeline">
-                    <div class="img-caption">A realistic 6-week timeline for a condominium security upgrade, from site preparation through to final resident handover and training.</div>
-                </div>
+                    <div class="article-img-wrap" style="margin: 40px 0;">
+                        <img src="images/condo-upgrade-timeline-chart.png" alt="Condominium security upgrade project timeline" style="width: 100%; border-radius: 12px;">
+                        <div class="img-caption" style="text-align: center; color: #64748b; font-size: 0.9rem; font-style: italic; margin-top: 10px;">A realistic 6-week timeline for a condominium security upgrade, from site preparation through to final resident handover and training.</div>
+                    </div>
+                </section>
 
-                <h2 id="section7">7. What makes residents vote yes</h2>
-                <p>In over 35 years of security work, the proposals that succeed at AGMs and EGMs share four characteristics: They document the problem before presenting the solution. They answer the repair question directly. They present a specific, itemised budget. And they acknowledge the disruption honestly with a plan to manage it.</p>
+                <section id="section7">
+                    <h2>7. What makes residents vote yes</h2>
+                    <p>In over 35 years of security work, the proposals that succeed at AGMs and EGMs share four characteristics: They document the problem before presenting the solution. They answer the repair question directly. They present a specific, itemised budget. And they acknowledge the disruption honestly with a plan to manage it.</p>
+                </section>
 
                 <div class="verdict-box">
                     <p>We have supported managing agents and MCST committees through this process many times. We provide the technical assessment documentation, the gap analysis, and the itemised budget that a proper upgrade proposal requires. If you want your proposal to succeed, start with a site assessment — the documentation it produces is the foundation everything else is built on.</p>
                 </div>
 
-                <section class="author-bio-footer">
+                <section id="author" class="author-bio-footer">
                     <div class="abf-flex">
-                        <img src="images/ler-wee-meng-bio.jpeg" alt="Wee Meng Ler" class="abf-img">
+                        <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
                         <div class="abf-content">
                             <h3>About the Author</h3>
-                            <p>Wee Meng Ler is the Founder and CEO of Securevision. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London. With over 37 years of experience in the security industry, he has personally overseen the design and implementation of security systems for more than 1,000 sites across Singapore, ranging from Good Class Bungalows (GCBs) and large-scale condominiums to industrial complexes and institutional facilities.</p>
-                            <p>He is the principal architect of the Securevision SECURE™ Framework and spearheaded the development of the VESTA integration platform. His direct field experience across thousands of residential units ensures that every system designed by Securevision is practical, maintainable, and built to withstand the unique technical challenges of Singapore's climate and regulatory landscape.</p>
+                            <p>Ler Wee Meng is the Founder and CEO of Securevision. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London. With over 37 years of experience in the security industry, he has personally overseen the design and implementation of security systems for more than 1,000 sites across Singapore, ranging from Good Class Bungalows (GCBs) and large-scale condominiums to industrial complexes and institutional facilities.</p>
+                            <p>He is the principal architect of the Securevision SECURE™ Framework and spearheaded the development of the VESTA integration platform. His direct field experience across thousands of residential units ensures that every system designed by Securevision is practical, maintainable, and built to withstand the unique technical challenges of Singapore's climate and regulatory landscape. His engineering-first approach continues to define the standards for intelligent security integration in Singapore.</p>
                         </div>
                     </div>
                 </section>
 
-                <div class="article-tags">
-                    <a href="security-articles-singapore.html?category=Singapore-Industry" class="tag-pill">Singapore Industry</a>
-                    <a href="security-articles-singapore.html?category=Condominium" class="tag-pill">Condominium</a>
-                    <a href="security-articles-singapore.html?category=MCST" class="tag-pill">MCST</a>
-                    <a href="security-articles-singapore.html?category=Security-Planning" class="tag-pill">Security Planning</a>
+                <div class="article-tags" style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #e2e8f0;">
+                    <span class="tag-pill">Singapore Industry</span>
+                    <span class="tag-pill">Condominium</span>
+                    <span class="tag-pill">MCST</span>
+                    <span class="tag-pill">Security Planning</span>
                 </div>
 
-                <div class="prev-next-nav">
+                <!-- PREV/NEXT NAV -->
+                <div class="prev-next-nav" style="margin-top: 80px; margin-bottom: 60px;">
                     <a href="insights-condo-security-upgrade-timeline.html" class="nav-card">
-                        <span>Previous Post</span>
+                        <span>Previous Article</span>
                         <strong>Realistic Timeline and Disruption Plan</strong>
                     </a>
                     <a href="insights-condo-security-upgrade-quotes.html" class="nav-card">
-                        <span>Next Post</span>
+                        <span>Next Article</span>
                         <strong>How to Get Quotes for an AGM Upgrade</strong>
                     </a>
                 </div>
+
             </main>
 
             <aside class="sidebar">
@@ -259,17 +271,18 @@
                         <li><a href="#section5">5. Budgeting correctly</a></li>
                         <li><a href="#section6">6. Disruption planning</a></li>
                         <li><a href="#section7">7. Success factors</a></li>
+                        <li><a href="#author">Meet the Author</a></li>
                     </ul>
-                    
-                    <div class="founder-card">
+
+                    <div class="founder-card" style="margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 30px; background: transparent; border-radius: 0; box-shadow: none;">
                         <div class="fc-head">
-                            <img src="images/ler-wee-meng-bio.jpeg" alt="Wee Meng Ler">
+                            <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
                             <div>
                                 <strong>Ler Wee Meng</strong>
                                 <span>Founder & CEO · Securevision</span>
                             </div>
                         </div>
-                        <p>Need expert advice? Discuss your site requirements with our engineering team.</p>
+                        <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px;">Need expert advice on your condo's security upgrade proposal? Discuss your requirements with our team.</p>
                         <a href="https://wa.me/6593860466" class="fc-wa-link">💬 WhatsApp Support &rarr;</a>
                     </div>
                 </div>
@@ -278,21 +291,22 @@
     </div>
 </div>
 
+<!-- RELATED ARTICLES -->
 <section class="related-articles-sec" style="padding: 80px 0; background: #fff; border-top: 1px solid #e2e8f0;">
     <div class="container">
-        <h2 style="text-align: center; font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 0; color: #1e293b; font-weight: 700;">Related Security Insights</h2>
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 40px; text-align: center; color: #1e293b; font-weight: 700;">Related Committee Guides</h2>
         <div class="related-grid">
             <a href="insights-condo-security-upgrade-timeline.html" class="nav-card">
-                <span>Security Planning</span>
-                <strong>Realistic Timeline & Disruption Plan</strong>
+                <span>Timeline</span>
+                <strong>Timeline & Disruption Plan</strong>
             </a>
             <a href="insights-condo-security-upgrade-quotes.html" class="nav-card">
-                <span>Security Planning</span>
-                <strong>How to Get Quotes for an AGM Upgrade</strong>
+                <span>Quoting</span>
+                <strong>How to Get Quotes</strong>
             </a>
             <a href="insights-mcst-legal-obligations-security.html" class="nav-card">
-                <span>MCST Compliance</span>
-                <strong>MCST Legal Obligations for Security</strong>
+                <span>MCST Legal</span>
+                <strong>Legal Obligations for MCST</strong>
             </a>
         </div>
     </div>
@@ -406,70 +420,58 @@
 </footer>
 
 <script>
-// Load Site Config & Hydrate
-document.addEventListener('DOMContentLoaded', () => {
-    // Current Year
-    document.querySelectorAll('.sv-current-year').forEach(el => el.textContent = new Date().getFullYear());
-    
-    // Auto-highlight active nav link
-    document.querySelectorAll('.nav-link').forEach(link => {
-        if (link.href === window.location.href || link.href.split('/').pop() === window.location.pathname.split('/').pop()) {
-            link.classList.add('active');
-        }
-    });
-
-    // TOC Active State
-    window.addEventListener('scroll', () => {
-        let current = '';
-        const headings = document.querySelectorAll('.prose h2');
-        headings.forEach(h => {
-            if (window.pageYOffset >= h.offsetTop - 120) {
-                current = h.getAttribute('id');
-            }
-        });
-        document.querySelectorAll('.toc-list a').forEach(a => {
-            a.classList.remove('active');
-            if (a.getAttribute('href') === '#' + current) {
-                a.classList.add('active');
-            }
-        });
-    });
-
-    // Header Scroll Logic
-    const nav = document.querySelector('.main-nav');
-    const logo = document.querySelector('.nav-logo-img');
-    if (nav && logo) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 20) {
-                nav.classList.add('scrolled');
-                logo.src = 'images/securevision-logo-blue.png';
-            } else {
-                nav.classList.remove('scrolled');
-                logo.src = 'images/securevision-logo-white.png';
-            }
-        });
-    }
-
-    if (typeof SECUREVISION !== 'undefined') {
-        const SV = SECUREVISION;
-        document.querySelectorAll('.sv-licence').forEach(el => el.textContent = SV.licenceNumber);
-        document.querySelectorAll('.sv-founded-year').forEach(el => el.textContent = SV.foundedYear);
-    }
-});
-
 function toggleMobileMenu() {
-    const menu = document.getElementById('mobileMenu');
-    if (menu) menu.classList.toggle('active');
+  const menu = document.getElementById('mobileMenu');
+  if (menu) menu.classList.toggle('active');
 }
 
 function toggleSubmenu(id) {
-    const sub = document.getElementById(id);
-    if (sub) {
-        const isActive = sub.classList.contains('active');
-        document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
-        if (!isActive) sub.classList.add('active');
-    }
+  const sub = document.getElementById(id);
+  if (sub) {
+    const isActive = sub.classList.contains('active');
+    document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
+    if (!isActive) sub.classList.add('active');
+  }
 }
+
+document.addEventListener('click', function (e) {
+  const nav = document.querySelector('.main-nav');
+  const menu = document.getElementById('mobileMenu');
+  if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
+    menu.classList.remove('active');
+  }
+});
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.main-nav');
+    const logo = document.querySelector('.nav-logo-img');
+    if (nav && logo) {
+        if (window.scrollY > 20) {
+            nav.classList.add('scrolled');
+            logo.src = 'images/securevision-logo-blue.png';
+        } else {
+            nav.classList.remove('scrolled');
+            logo.src = 'images/securevision-logo-white.png';
+        }
+    }
+});
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('.prose h2');
+    sections.forEach(s => {
+        if (window.pageYOffset >= s.offsetTop - 120) {
+            current = s.getAttribute('id');
+        }
+    });
+    document.querySelectorAll('.toc-list a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + current) {
+            a.classList.add('active');
+        }
+    });
+});
 </script>
 </body>
 </html>
