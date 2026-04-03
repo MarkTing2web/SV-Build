@@ -379,7 +379,9 @@ SECUREVISION.COM.SG
 | | HDB, Landed, or Condo — Requirements | `insights-hdb-landed-condo-security-differences.html` |
 | | Home Security System Cost in Singapore | `insights-home-security-system-cost-singapore.html` |
 | | How to Choose an Auto Gate Motor | `insights-how-to-choose-auto-gate-motor.html` |
-| **CCTV** | How to Choose the Right CCTV System | `insights-how-to-choose-cctv.html` |
+| **CCTV** | Can I Add AI Analytics to My Existing Hikvision Cameras? | `insights-ai-analytics-hikvision.html` |
+| | How Do I Migrate from Analogue to IP CCTV Without Full Replacement? | `insights-analogue-to-ip-migration.html` |
+| | How to Choose the Right CCTV System | `insights-how-to-choose-cctv.html` |
 | | How an IP CCTV Network Actually Works | `insights-how-ip-cctv-works.html` |
 | | 5 Reasons to Rack-Mount Your NVRs | `insights-rackmount-nvr.html` |
 | **Burglar Alarm** | Understanding Your Alarm Design | `insights-burglar-alarm-design.html` |
@@ -396,7 +398,10 @@ SECUREVISION.COM.SG
 | | How Intercom Systems Work | `insights-how-intercom-systems-work.html` |
 | | When to Upgrade Your Condo Intercom | `insights-upgrade-condo-intercom.html` |
 | **Auto Gates** | WiFi Remote Control for Auto Gates | `insights-wifi-remote-control-auto-gate.html` |
-| **Singapore Industry** | How to Present a Security Upgrade at Your Condo AGM &mdash; and Get It Approved | `insights-presenting-security-upgrade-condo-agm.html` |
+| **Singapore Industry** | My System Is X Years Old &mdash; Should I Upgrade or Repair? | `insights-upgrade-or-repair.html` |
+| | What Does a Maintenance Contract Include? | `insights-maintenance-contract.html` |
+| | The Architect and ID's Guide to Security Systems in Singapore | `insights-architect-id-guide-security.html` |
+| | How to Present a Security Upgrade at Your Condo AGM &mdash; and Get It Approved | `insights-presenting-security-upgrade-condo-agm.html` |
 | | The Managing Agent's Guide to Estate Security Systems | `insights-managing-agents-guide-estate-security-systems.html` |
 | | What Does a Security Upgrade Proposal Look Like? | `insights-condo-security-upgrade-proposal.html` |
 | | How Do I Get Quotes for an AGM Upgrade? | `insights-condo-security-upgrade-quotes.html` |

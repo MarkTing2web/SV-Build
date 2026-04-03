@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My System Is X Years Old — Should I Upgrade or Repair? | Securevision Insights</title>
+    <meta name="description" content="A practical engineering framework for Singapore property owners facing that critical decision on their ageing CCTV, access control or alarm system.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="sv-shared.css">
+    <script src="site-config.js"></script>
+    
+    <style>
+        .article-body { padding: 80px 0; background: #fff; }
+        .prose h2 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 700; color: #1e293b; margin: 60px 0 24px; scroll-margin-top: 100px; }
+        .prose h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; color: #334155; margin: 32px 0 16px; }
+        .prose p { font-family: 'Inter', sans-serif; margin-bottom: 24px; line-height: 1.8; color: #475569; }
+        .prose ul, .prose ol { margin-bottom: 24px; padding-left: 20px; }
+        .prose li { font-family: 'Inter', sans-serif; margin-bottom: 12px; line-height: 1.6; color: #475569; }
+
+        .callout-box { background: #eff6ff; border-left: 4px solid var(--primary-blue); padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .callout-box strong { display: block; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+        .callout-box p { margin-bottom: 0; }
+
+        .verdict-box { background: #fff7ed; border-left: 4px solid #ea580c; padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .verdict-box p { margin-bottom: 0; color: #9a3412; font-weight: 500; }
+
+        .article-image-box { margin: 40px 0; }
+        .article-image-box img { border-radius: 12px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .image-caption { font-size: 0.85rem; color: #94a3b8; font-style: italic; margin-top: 12px; text-align: center; }
+
+        @media (max-width: 992px) { 
+            .article-body { padding: 40px 0; }
+            .prose h2 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="main-nav">
+<div class="nav-container">
+  <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
+    <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
+    <span class="wordmark nav-wordmark">SECUREVISION</span>
+  </a>
+  <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="security-solutions-singapore.html" class="nav-link has-dropdown">Solutions</a>
+      <div class="simple-dropdown">
+        <a href="residential-security-singapore.html">Private Homes</a>
+        <a href="condominiums.html">Condominiums</a>
+        <a href="mcst-committee-member.html" style="padding-left: 20px; font-size: 13px; color: #64748b; font-weight: 500;">(MCST Support Hub)</a>
+        <a href="commercial-security-singapore.html">Commercial &amp; Retail</a>
+        <a href="industrial-security-singapore.html">Industrial &amp; Logistics</a>
+        <a href="government-institution-security-singapore.html">Institutions &amp; Government</a>
+        <a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a>
+        <a href="security-solutions-singapore.html"><strong>&rarr; View All Solutions</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="security-systems-singapore.html" class="nav-link has-dropdown">Systems</a>
+      <div class="simple-dropdown">
+        <a href="surveillance-detection.html">Surveillance &amp; Detection</a>
+        <a href="people-access-control.html">People Access Control</a>
+        <a href="vehicle-access-control.html">Vehicle Access &amp; Barriers</a>
+        <a href="integrated-security-platform.html">Platform Management</a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="security-brands-singapore.html" class="nav-link has-dropdown">Brands</a>
+      <div class="simple-dropdown wide-dropdown">
+        <a href="security-brands-singapore.html#surveillance"><strong>Surveillance</strong> &mdash; Hikvision &bull; Hanwha &bull; Uniview &bull; Milesight</a>
+        <a href="security-brands-singapore.html#access"><strong>Access Control</strong> &mdash; Suprema &bull; ZKTeco &bull; HID &bull; EntryPass</a>
+        <a href="security-brands-singapore.html#intercom"><strong>Intercoms</strong> &mdash; Akuvox &bull; Aiphone &bull; Kocom</a>
+        <a href="security-brands-singapore.html#alarms"><strong>Alarms</strong> &mdash; AJAX &bull; RISCO &bull; Paradox &bull; DSC</a>
+        <a href="security-brands-singapore.html#gates"><strong>Gates & Barriers</strong> &mdash; FAAC &bull; MAG &bull; Dormer</a>
+        <hr>
+        <a href="security-brands-singapore.html"><strong>&rarr; View All Technology Partners</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+    <li class="nav-item"><a href="resources.html" class="nav-link has-dropdown">Resources</a>
+      <div class="simple-dropdown">
+        <a href="resources.html#guides">Technical Guides</a>
+        <a href="resources.html#tools">Planning Tools</a>
+        <a href="resources.html#library">Product Library</a>
+        <a href="resources.html#videos">Training Videos</a>
+        <a href="resources.html#faq">FAQ</a>
+        <a href="resources.html#trade">For Professionals</a>
+        <a href="resources.html"><strong>&rarr; All Resources</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="security-articles-singapore.html" class="nav-link active">Insights</a></li>
+    <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
+      <div class="simple-dropdown">
+        <a href="about.html">Our Story</a><a href="contact.html">Contact Us</a>
+      </div>
+    </li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+  </div>
+  <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="security-solutions-singapore.html"><strong>&rarr; View All Solutions</strong></a><a href="residential-security-singapore.html">Private Homes</a><a href="condominiums.html">Condominiums</a>
+        <a href="mcst-committee-member.html" style="padding-left: 20px; font-size: 13px; color: #64748b; font-weight: 500;">(MCST Support Hub)</a><a href="commercial-security-singapore.html">Commercial &amp; Retail</a><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a><a href="government-institution-security-singapore.html">Institutions &amp; Government</a><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu" id="sysSub">
+      <a href="surveillance-detection.html">Surveillance &amp; Detection</a>
+      <a href="people-access-control.html">People Access Control</a>
+      <a href="vehicle-access-control.html">Vehicle Access &amp; Barriers</a>
+      <a href="integrated-security-platform.html">Platform Management</a>
+    </div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('brandSub')">Brands &#9662;<div class="mobile-submenu" id="brandSub">
+      <a href="security-brands-singapore.html"><strong>&rarr; View All Partners</strong></a>
+      <a href="security-brands-singapore.html#surveillance">Surveillance &mdash; Hik · Han · Uni · Mil</a>
+      <a href="security-brands-singapore.html#access">Access &mdash; Sup · ZK · HID · EP</a>
+      <a href="security-brands-singapore.html#intercom">Intercoms &mdash; Aku · Aip · Koc</a>
+      <a href="security-brands-singapore.html#alarms">Alarms &mdash; AJAX · RIS · Par · DSC</a>
+      <a href="security-brands-singapore.html#gates">Gates &mdash; FAAC · MAG · Dor</a>
+    </div></div>
+  <a href="portfolio.html" class="mobile-menu-item">Portfolio</a>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources &#9662;<div class="mobile-submenu" id="resSub"><a href="resources.html"><strong>&rarr; All Resources</strong></a><a href="resources.html#guides">Technical Guides</a><a href="resources.html#tools">Planning Tools</a><a href="resources.html#library">Product Library</a><a href="resources.html#videos">Training Videos</a><a href="resources.html#faq">FAQ</a><a href="resources.html#trade">For Professionals</a></div></div>
+  <a href="security-articles-singapore.html" class="mobile-menu-item">Insights</a>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; Our Story</strong></a><a href="contact.html">Contact Us</a></div></div>
+</div>
+</nav>
+
+<!-- HERO SECTION -->
+<header class="hero-portfolio" style="padding: 140px 0 80px; background: linear-gradient(rgba(14,26,43,0.85), rgba(14,26,43,0.85)), url('images/insight-upgrade-or-repair-cover.jpg'); background-size: cover; background-position: center; color: #fff;">
+    <div class="container">
+        <div style="max-width: 850px;">
+            <span class="eyebrow" style="color: #63b3ed; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 20px;">For Property Owners &amp; Managers</span>
+            <h1 style="font-family: 'Montserrat', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 25px; line-height: 1.2;">My System Is X Years Old — Should I Upgrade or Repair?</h1>
+            <p class="intro" style="font-family: 'Inter', sans-serif; font-size: 1.15rem; opacity: 0.95; line-height: 1.8; color: #e2e8f0;">A practical engineering framework for Singapore property owners facing that critical decision on their ageing CCTV, access control or alarm system.</p>
+            
+            <div class="hero-byline">
+                <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
+                <div class="hero-byline-text">
+                    <strong>Ler Wee Meng</strong>
+                    <span>Founder &amp; CEO · Securevision · 8 min read</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- ── BREADCRUMBS ── -->
+<div class="container">
+    <div class="sv-breadcrumb" style="background: transparent; padding: 24px 0 0 0;">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="security-articles-singapore.html">Insights</a></li>
+            <li>My System Is X Years Old — Should I Upgrade or Repair?</li>
+        </ul>
+    </div>
+</div>
+
+<div class="article-body">
+    <div class="container">
+        <div class="layout-with-sidebar">
+            <main class="prose">
+                
+                <section id="section1">
+                    <h2>The Real Cost of "Just Repairing"</h2>
+                    <div class="callout-box">
+                        <strong>KEY POINTS</strong>
+                        <p>Repairing an ageing system feels cheaper upfront. But repeated service calls, parts scarcity, and compatibility gaps can cost more over 24 months than a targeted upgrade.</p>
+                    </div>
+                    <p>When a technician visits your site and replaces a faulty DVR board or a seized camera motor, the job is done — on paper. What the invoice does not show is the compounding cost of operating infrastructure that was never designed for today's demands. Analogue DVRs from 2012 record at resolutions that modern investigations find largely unusable. Access control panels from the same era often lack any audit log export, which is now a basic compliance expectation for commercial tenants in Singapore.</p>
+                    <p>The conversation should not start with "how much to fix this?" It should start with "what am I actually getting back for that money?"</p>
+                </section>
+
+                <section id="section2">
+                    <h2>The 5-Year Rule Explained</h2>
+                    <div class="article-image-box">
+                        <img src="images/insight-upgrade-or-repair-timeline.jpg" alt="Securevision technician inspecting wall-mounted NVR unit">
+                        <p class="image-caption">Technical inspection of recording infrastructure is the first step in the framework.</p>
+                    </div>
+                    <p>In the security systems industry, five years is the threshold at which the engineering calculus begins to shift. It is not a hard rule, but it reflects a consistent pattern across three variables:</p>
+                    <ul>
+                        <li><strong>Firmware support.</strong> Most manufacturers — Hikvision, Dahua, Bosch — issue firmware updates for approximately five to seven years post-manufacture. Once a device exits this window, vulnerabilities go unpatched. In Singapore, where MAS and PDPA compliance increasingly touch physical security infrastructure, an unpatched NVR is an organisational liability.</li>
+                        <li><strong>Parts availability.</strong> After five years, replacement components for proprietary hardware become harder to source locally. Lead times lengthen. Costs rise. For mission-critical systems — a hospital access control panel, a multi-tenant carpark barrier — downtime carries real operational consequences.</li>
+                        <li><strong>Performance gap.</strong> The resolution, compression, and analytics capabilities of a 2018 camera versus a 2024 camera are not comparable. H.265+ compression alone can halve your storage footprint. The upgrade often pays for itself in reduced NAS costs within eighteen months.</li>
+                    </ul>
+                </section>
+
+                <section id="section3">
+                    <h2>Signs Your System Has Reached End-of-Life</h2>
+                    <ul>
+                        <li>Your DVR or NVR has not received a firmware update in over two years</li>
+                        <li>Replacement cameras for your existing system are no longer stocked by local distributors</li>
+                        <li>Your recorded footage resolution falls below 1080p full frame</li>
+                        <li>You have experienced more than two hardware failures in the past twelve months</li>
+                        <li>Your access control system cannot generate a timestamped audit log</li>
+                        <li>Remote viewing via your existing app has become unreliable or the app itself is no longer supported</li>
+                    </ul>
+                    <div class="callout-box">
+                        <strong>KEY POINTS</strong>
+                        <p>Three or more of the above signals indicate your system is in the end-of-life phase. Continued repair spending beyond this point rarely recovers its value.</p>
+                    </div>
+                </section>
+
+                <section id="section4">
+                    <h2>When Repair Still Makes Sense</h2>
+                    <p>Repair is the right answer in three specific scenarios. First, when the system is under five years old and the failure is isolated — a single camera with a damaged cable, a reader with a faulty PCB. The core architecture remains sound and supported.</p>
+                    <p>Second, when you are within twelve to eighteen months of a planned full upgrade. In this window, a targeted repair bridges operations without committing capital prematurely.</p>
+                    <p>Third, when the system is proprietary and the client organisation has a contractual or compliance reason to maintain it in its current form — for instance, a security system integrated into a building management platform that is also being replaced on a fixed schedule.</p>
+                    <p>Outside these three scenarios, repair is often the more expensive long-term choice.</p>
+                </section>
+
+                <section id="section5">
+                    <h2>The Hybrid Path: Selective Upgrade</h2>
+                    <div class="article-image-box">
+                        <img src="images/insight-upgrade-or-repair-hybrid.jpg" alt="Securevision technicians collaborating in a Singapore comms room">
+                        <p class="image-caption">A hybrid approach often yields the best balance of performance and budget.</p>
+                    </div>
+                    <p>A full rip-and-replace is rarely necessary and rarely the best use of budget. The more intelligent approach is to audit the system layer by layer and determine which components retain engineering value.</p>
+                    <p>In a typical mixed-age Hikvision system, for example, the cabling infrastructure — conduit, trunking, and cable runs — often has fifteen or more years of useful life remaining. Replacing cameras and the NVR while retaining the cable plant and power infrastructure can achieve a 70 to 80 percent performance improvement at 40 to 50 percent of a full replacement cost.</p>
+                    <p>The same logic applies to access control. A panel that still reads Wiegand cards reliably may simply need a controller upgrade and a new reader head to support mobile credentials — extending the system's useful life by another five to eight years without rewiring a single door.</p>
+                </section>
+
+                <section id="section6">
+                    <h2>What a System Assessment Covers</h2>
+                    <p>A professional system assessment — not a sales visit — should cover the following areas:</p>
+                    <ul>
+                        <li><strong>Hardware audit.</strong> Every device is catalogued: make, model, manufacture date, firmware version, and current operational status. Devices are categorised as retain, repair, or replace.</li>
+                        <li><strong>Cabling and infrastructure review.</strong> Cable type, condition, and routing are assessed. Coaxial runs that can be converted to IP over coax (using HDCVI or similar) are identified.</li>
+                        <li><strong>Software and integration review.</strong> VMS platforms, access control software, and third-party integrations are assessed for current vendor support status.</li>
+                        <li><strong>Compliance gap analysis.</strong> The system is reviewed against relevant standards — for instance, the Singapore Civil Defence Force (SCDF) requirements for fire alarm integration, or MOM workplace monitoring guidelines.</li>
+                        <li><strong>Upgrade roadmap.</strong> The output is a phased plan — not a single invoice — that sequences replacement in order of urgency and business impact.</li>
+                    </ul>
+                </section>
+
+                <section id="section7">
+                    <h2>Securevision Verdict</h2>
+                    <div class="verdict-box">
+                        <p>If your system is over five years old and you have experienced recurring faults, the honest answer is that continued repair spending is eroding your budget without recovering capability. A structured assessment takes half a day and gives you a defensible, phased roadmap. It is the most efficient first step — and at Securevision, we provide it without obligation. The goal is clarity, not a sales pitch.</p>
+                    </div>
+                </section>
+
+                <hr style="margin: 60px 0; border: 0; border-top: 1px solid #e2e8f0;">
+
+                <section id="author" class="author-bio-footer">
+                    <div class="abf-flex">
+                        <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
+                        <div class="abf-content">
+                            <h3>About the Author</h3>
+                            <p>Ler Wee Meng is the Founder and CEO of Securevision. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London. With over 37 years of experience in the security industry, he has personally overseen the design and implementation of security systems for more than 1,000 sites across Singapore, ranging from Good Class Bungalows (GCBs) and large-scale condominiums to industrial complexes and institutional facilities.</p>
+                            <p>He is the principal architect of the Securevision SECURE™ Framework and spearheaded the development of the VESTA integration platform. His direct field experience across thousands of residential units ensures that every system designed by Securevision is practical, maintainable, and built to withstand the unique technical challenges of Singapore's climate and regulatory landscape. His engineering-first approach continues to define the standards for intelligent security integration in Singapore.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="article-tags" style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #e2e8f0;">
+                    <span class="tag-pill">CCTV Maintenance</span>
+                    <span class="tag-pill">System Upgrade</span>
+                    <span class="tag-pill">Security Assessment</span>
+                    <span class="tag-pill">Hikvision</span>
+                    <span class="tag-pill">IP Camera</span>
+                    <span class="tag-pill">Singapore Security</span>
+                    <span class="tag-pill">Access Control</span>
+                    <span class="tag-pill">DVR NVR</span>
+                </div>
+
+                <!-- PREV/NEXT NAV -->
+                <div class="prev-next-nav" style="margin-top: 80px; margin-bottom: 60px;">
+                    <a href="insights-is-my-security-system-still-working.html" class="nav-card">
+                        <span>Previous Article</span>
+                        <strong>Is Your Security System Actually Still Working?</strong>
+                    </a>
+                    <a href="insights-maintenance-contract.html" class="nav-card">
+                        <span>Next Article</span>
+                        <strong>What Does a Maintenance Contract Include?</strong>
+                    </a>
+                </div>
+
+            </main>
+
+            <aside class="sidebar">
+                <div class="sticky-toc">
+                    <div class="toc-title">In this article</div>
+                    <ul class="toc-list">
+                        <li><a href="#section1">The Real Cost of Repair</a></li>
+                        <li><a href="#section2">The 5-Year Rule</a></li>
+                        <li><a href="#section3">Signs of End-of-Life</a></li>
+                        <li><a href="#section4">When Repair Makes Sense</a></li>
+                        <li><a href="#section5">The Hybrid Path</a></li>
+                        <li><a href="#section6">System Assessment</a></li>
+                        <li><a href="#section7">Securevision Verdict</a></li>
+                    </ul>
+
+                    <div class="founder-card" style="margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 30px; background: transparent; border-radius: 0; box-shadow: none;">
+                        <div class="fc-head">
+                            <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
+                            <div>
+                                <strong>Ler Wee Meng</strong>
+                                <span>Founder &amp; CEO · Securevision</span>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px;">Faced with an ageing system? Discuss your site's engineering roadmap with our specialist team.</p>
+                        <a href="https://wa.me/6593860466" class="fc-wa-link">💬 WhatsApp Support &rarr;</a>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+</div>
+
+<!-- RELATED ARTICLES -->
+<section class="related-articles-sec" style="padding: 80px 0; background: #fff; border-top: 1px solid #e2e8f0;">
+    <div class="container">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 40px; text-align: center; color: #1e293b; font-weight: 700;">Related Security Insights</h2>
+        <div class="related-grid">
+            <a href="insights-is-my-security-system-still-working.html" class="nav-card">
+                <span>Verification</span>
+                <strong>Is Your Security System Actually Still Working?</strong>
+            </a>
+            <a href="insights-after-security-installation-support.html" class="nav-card">
+                <span>Support</span>
+                <strong>After Installation — Who Do You Call?</strong>
+            </a>
+            <a href="insights-upgrade-existing-security-system.html" class="nav-card">
+                <span>Planning</span>
+                <strong>Upgrade Current System vs Starting Fresh</strong>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta-sec-final" style="padding: 120px 0; background: linear-gradient(rgba(14,26,43,0.85), rgba(14,26,43,0.85)), url('images/insight-upgrade-or-repair-cta.jpg'); background-size: cover; background-position: center; color: #fff; text-align: center;">
+    <div class="container">
+        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 3rem; margin-bottom: 25px;">Not Sure Whether to Repair or Upgrade?</h2>
+        <p style="font-family: 'Inter', sans-serif; font-size: 1.25rem; color: #cbd5e1; max-width: 800px; margin: 0 auto 50px; line-height: 1.8;">Our engineering team will assess your existing system, identify what is worth keeping, and give you a clear, phased upgrade plan — with no obligation.</p>
+        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="https://wa.me/6593860466" class="btn" style="background: var(--p-acc); color: #fff; padding: 18px 45px; border-radius: 12px; font-weight: 700; text-decoration: none; border: none; font-size: 1.1rem;">📅 Request a System Assessment</a>
+            <a href="https://wa.me/6593860466" class="btn" style="background: transparent; color: #fff; padding: 18px 45px; border-radius: 12px; font-weight: 700; text-decoration: none; border: 2px solid #fff; font-size: 1.1rem;">💬 WhatsApp Our Team</a>
+        </div>
+    </div>
+</section>
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="f-logo-wrap">
+                    <img src="images/securevision-logo-white.png" alt="Securevision Logo">
+                    <span class="brand-name">Securevision</span>
+                </div>
+                <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since <span class="sv-founded-year">2006</span>.</p>
+                <div class="f-socials">
+                    <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@securevision" target="_blank" rel="noopener" aria-label="YouTube">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="residential-security-singapore.html">Private Homes</a></li>
+                    <li><a href="condominiums.html">Condominiums</a></li>
+                    <li><a href="commercial-security-singapore.html">Commercial &amp; Retail</a></li>
+                    <li><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a></li>
+                    <li><a href="government-institution-security-singapore.html">Institutions &amp; Government</a></li>
+                    <li><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Systems</h4>
+                <ul>
+                    <li><a href="surveillance-detection.html">Surveillance &amp; Detection</a></li>
+                    <li><a href="people-access-control.html">People Access Control</a></li>
+                    <li><a href="vehicle-access-control.html">Vehicle Access &amp; Barriers</a></li>
+                    <li><a href="integrated-security-platform.html">Platform Management</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="resources.html#guides">Technical Guides</a></li>
+                    <li><a href="resources.html#tools">Planning Tools</a></li>
+                    <li><a href="resources.html#library">Product Library</a></li>
+                    <li><a href="resources.html#videos">Training Videos</a></li>
+                    <li><a href="resources.html#faq">Search &amp; FAQ</a></li>
+                    <li><a href="resources.html"><strong>Full Resource Hub</strong></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="security-brands-singapore.html"><strong>Technology Partners</strong></a></li>
+                    <li><a href="portfolio.html">Project Portfolio</a></li>
+                    <li><a href="security-articles-singapore.html">Insights</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Get In Touch</h4>
+                <div class="footer-contact-item">
+                    <span>💬</span>
+                    <a href="https://wa.me/6593860466">WhatsApp Us</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span>✉️</span>
+                    <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
+                </div>
+                <div class="footer-contact-item">
+                    <span>📞</span>
+                    <a href="tel:+6562864796">+65 6286 4796</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; <span class="sv-current-year">2026</span> Securevision Pte Ltd &middot; Police Licence <span class="sv-licence">L/PS/000267/2023P</span> &middot; bizSAFE Level 3 &middot; BCA Registered</p>
+            <div class="footer-bottom-links">
+                <a href="sitemap.html">Sitemap</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  if (menu) menu.classList.toggle('active');
+}
+
+function toggleSubmenu(id) {
+  const sub = document.getElementById(id);
+  if (sub) {
+    const isActive = sub.classList.contains('active');
+    document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
+    if (!isActive) sub.classList.add('active');
+  }
+}
+
+document.addEventListener('click', function (e) {
+  const nav = document.querySelector('.main-nav');
+  const menu = document.getElementById('mobileMenu');
+  if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
+    menu.classList.remove('active');
+  }
+});
+
+// Header scroll effect
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('.main-nav');
+  const logo = document.querySelector('.nav-logo-img');
+  if (nav && logo) {
+    if (window.scrollY > 20) {
+      nav.classList.add('scrolled');
+      logo.src = 'images/securevision-logo-blue.png';
+    } else {
+      nav.classList.remove('scrolled');
+      logo.src = 'images/securevision-logo-white.png';
+    }
+  }
+});
+
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('.prose section');
+    sections.forEach(s => {
+        if (window.pageYOffset >= s.offsetTop - 120) {
+            current = s.getAttribute('id');
+        }
+    });
+    document.querySelectorAll('.toc-list a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + current) {
+            a.classList.add('active');
+        }
+    });
+});
+</script>
+</body>
+</html>
