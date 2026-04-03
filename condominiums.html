@@ -168,6 +168,69 @@
         .compliance-callout { text-align: center; max-width: 800px; margin: 64px auto 0; background: var(--primary-blue); color: #fff; padding: 40px; border-radius: 16px; }
         .compliance-callout h3 { font-size: 22px; margin-bottom: 12px; color: #fff; }
         .compliance-callout p { font-size: 16px; color: rgba(255,255,255,0.9); margin: 0; line-height: 1.6; }
+
+        /* Journey Timeline (Section 2) */
+        .journey-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .journey-step { 
+            background: #fff; 
+            padding: 32px; 
+            border-radius: 12px; 
+            border: 1px solid var(--border-light); 
+            transition: 0.3s; 
+            height: 100%;
+        }
+        .journey-step:hover { 
+            transform: translateY(-5px); 
+            border-color: var(--primary-blue); 
+            box-shadow: 0 12px 30px rgba(0, 86, 179, 0.08); 
+        }
+        .step-label { 
+            display: inline-block; 
+            font-size: 11px; 
+            font-weight: 700; 
+            color: var(--primary-blue); 
+            background: rgba(0, 86, 179, 0.05); 
+            padding: 4px 10px; 
+            border-radius: 4px; 
+            margin-bottom: 16px; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px;
+        }
+        .journey-step h4 { font-size: 17px; margin-bottom: 12px; color: var(--text-dark); }
+        .journey-step p { font-size: 14px; color: var(--text-gray); line-height: 1.6; margin: 0; }
+
+        @media (max-width: 992px) {
+            .journey-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 576px) {
+            .journey-grid { grid-template-columns: 1fr; }
+        }
+
+        /* Founder Note (Section 3) */
+        .quote-block { position: relative; padding-left: 48px; }
+        .quote-icon { 
+            position: absolute; 
+            left: 0; 
+            top: -10px; 
+            font-size: 80px; 
+            color: var(--primary-blue); 
+            opacity: 0.1; 
+            font-family: serif; 
+            line-height: 1; 
+        }
+        .founder-headshot-wrap { position: relative; }
+        .founder-headshot-wrap::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--primary-blue);
+            border-radius: 16px;
+            z-index: -1;
+            opacity: 0.1;
+        }
     </style>
 </head>
 <body>
@@ -186,6 +249,7 @@
       <div class="simple-dropdown">
         <a href="residential-security-singapore.html">Private Homes</a>
         <a href="condominiums.html">Condominiums</a>
+        <a href="mcst-committee-member.html" style="padding-left: 20px; font-size: 13px; color: var(--text-gray);">&bull; MCST Committee Member Hub</a>
         <a href="commercial-security-singapore.html">Commercial &amp; Retail</a>
         <a href="industrial-security-singapore.html">Industrial &amp; Logistics</a>
         <a href="government-institution-security-singapore.html">Institutions &amp; Government</a>
@@ -239,7 +303,7 @@
   <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
 </div>
 <div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="security-solutions-singapore.html"><strong>&rarr; View All Solutions</strong></a><a href="residential-security-singapore.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a href="commercial-security-singapore.html">Commercial &amp; Retail</a><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a><a href="government-institution-security-singapore.html">Institutions &amp; Government</a><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="security-solutions-singapore.html"><strong>&rarr; View All Solutions</strong></a><a href="residential-security-singapore.html">Private Homes</a><a href="condominiums.html">Condominiums</a><a href="mcst-committee-member.html" style="padding-left: 20px;">MCST Committee Member Hub</a><a href="commercial-security-singapore.html">Commercial &amp; Retail</a><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a><a href="government-institution-security-singapore.html">Institutions &amp; Government</a><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></div></div>
   <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu" id="sysSub">
       <a href="surveillance-detection.html">Surveillance &amp; Detection</a>
       <a href="people-access-control.html">People Access Control</a>
@@ -412,7 +476,7 @@
                 </div>
             </div>
 
-            <!-- Card 4: Platform Integration -->
+                        <!-- Card 4: Platform Integration -->
             <div class="pillar-card">
                 <div class="pillar-image-wrap">
                     <img src="images/pillar_platform.png" alt="Platform Integration">
@@ -422,13 +486,16 @@
                         <h3>Platform Integration</h3>
                         <span class="pillar-badge badge-essential">ESSENTIAL</span>
                     </div>
-                    <p>Unified VESTA™ dashboard connecting surveillance, access control, and vehicle management. MCST-ready audit reports for AGMs. Multi-block coordination. Remote monitoring for managing agents.</p>
+                    <p>Unified VESTA™ platform connecting every part of your estate into one coherent system. For residents — a mobile app to book facilities, submit forms, manage their own access, handle intercom calls on their phone, and invite guests with a QR code or pre-registered vehicle plate. For management — a dashboard with full estate visibility, MCST audit reports, and multi-block coordination.</p>
                     <div class="pillar-components">
                         <strong>Typical components:</strong>
                         <ul>
-                            <li>VESTA™ unified platform</li>
+                            <li>VESTA™ resident mobile app (iOS and Android)</li>
+                            <li>Facility booking and form submission</li>
+                            <li>Guest invitation — pedestrian QR and vehicle pre-registration</li>
+                            <li>Resident intercom on mobile phone</li>
                             <li>MCST audit report generation</li>
-                            <li>Multi-site/multi-block management</li>
+                            <li>Multi-site / multi-block management dashboard</li>
                             <li>Guard handover automation</li>
                         </ul>
                     </div>
@@ -449,55 +516,117 @@
     </div>
 </section>
 
-<!-- ── 5. PATHFINDER (Market Groups) ── -->
-<section id="pathfinder" class="bg-light border-top">
+<!-- ── 5. ROLE SELECTOR ── -->
+<section id="role-selector" class="bg-light border-top">
     <div class="container">
         <div class="text-center">
-            <h2>How can we support you?</h2>
+            <span class="eyebrow">Who We Support</span>
+            <h2>How Can We Support You?</h2>
             <p class="subtitle">Select your role to see how our engineering team helps your estate flourish.</p>
         </div>
         
-        <div class="grid-2 mt-32">
-            <!-- MCST Path -->
+        <div class="grid-3 mt-48">
+            <!-- Card 1: MCST Committee Member -->
             <div class="persona-card">
                 <div class="card-image-wrap">
-                    <img src="images/mcst-managing agent discussing securevision proposal.png" alt="MCST / Managing Agent Discussion">
+                    <img src="images/mcst-committee-meeting.png" alt="MCST Committee Members reviewing proposal">
                 </div>
                 <div class="persona-content">
-                    <h3 class="card-title">MCST / Managing Agent</h3>
-                    <p class="card-description">Enhancing estate value, improving resident safety, and maintaining community harmony through modern, reliable infrastructure.</p>
+                    <h3 class="card-title">MCST Committee Member</h3>
+                    <p class="card-description">You are accountable to your residents — but you are not a security expert, and you should not need to be. We give committees the technical knowledge, MCST-ready documentation, and AGM support they need to make confident, defensible decisions.</p>
                     <ul class="card-features">
-                        <li>Seamless Intercom & Access upgrades</li>
-                        <li>Reduce recurrent maintenance costs</li>
-                        <li>Full estate-wide visibility for MAs</li>
-                        <li>Long-term project reliability</li>
+                        <li>Fixed-price proposals formatted for AGM presentation and resident approval</li>
+                        <li>Written guidance on MCST legal obligations — PDPA, BMSMA, SCDF Fire Code</li>
+                        <li>Site assessment and system health report before you commit to anything</li>
+                        <li>AGM attendance to answer resident questions directly if needed</li>
                     </ul>
-                    <a href="contact.html?ref=mcst" class="btn btn-primary">Get Estate Advisory &rarr;</a>
+                    <div class="btn-group-vertical mt-32">
+                        <a href="mcst-committee-member.html" class="btn btn-primary" style="width: 100%;">Visit the MCST Committee Member Hub &rarr;</a>
+                        <a href="insights-presenting-security-upgrade-condo-agm.html" class="link-arrow" style="margin-top: 15px; display: inline-block;">Read: How to Get AGM Approval &rarr;</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- Security Partner Path -->
+            <!-- Card 2: Managing Agent -->
             <div class="persona-card">
                 <div class="card-image-wrap">
-                    <img src="images/Securevision sales discussing with security guarding company on technology implementation.png" alt="Security Guarding Partner Collaboration">
+                    <img src="images/mcst-managing agent discussing securevision proposal.png" alt="Managing Agent at dashboard">
+                </div>
+                <div class="persona-content">
+                    <h3 class="card-title">Managing Agent</h3>
+                    <p class="card-description">You are accountable to multiple MCSTs simultaneously. When a system fails, you need one number to call, one dashboard to check, and one integrator who answers at 2am. We built our service model around how MAs actually work.</p>
+                    <ul class="card-features">
+                        <li>Single VESTA™ dashboard across all your estates — one login, all camera feeds, all access logs, all vehicles</li>
+                        <li>Written SLA with tiered response times — critical faults acknowledged in two hours, on-site in four, 24/7</li>
+                        <li>Bi-annual preventive maintenance with written health reports for every MCST audit</li>
+                        <li>Named project manager per estate — you always know who to call</li>
+                    </ul>
+                    <div class="btn-group-vertical mt-32">
+                        <a href="managing-agent.html" class="btn btn-primary" style="width: 100%;">Visit the Managing Agent Hub &rarr;</a>
+                        <a href="insights-managing-agents-guide-estate-security-systems.html" class="link-arrow" style="margin-top: 15px; display: inline-block;">Read: The MA's Guide to Estate Security &rarr;</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Security Guarding Partner -->
+            <div class="persona-card">
+                <div class="card-image-wrap">
+                    <img src="images/Securevision sales discussing with security guarding company on technology implementation.png" alt="Securevision staff with guarding operations manager">
                 </div>
                 <div class="persona-content">
                     <h3 class="card-title">Security Guarding Partner</h3>
-                    <p class="card-description">Empowering onsite guarding teams with the high-reliability technical tools they need to perform their duties effectively.</p>
+                    <p class="card-description">Your guards are the human layer in every estate's security infrastructure. We are the technology layer. When both work together — with the right systems, the right training, and the right escalation protocols — the result is an estate that is genuinely more secure and operationally more efficient.</p>
                     <ul class="card-features">
-                        <li>Technical RFP & Tender support</li>
-                        <li>Detailed maintenance reporting</li>
-                        <li>Premium service level assurance</li>
-                        <li>Collaborative implementation</li>
+                        <li>Technical RFP and tender support for your estate pitches</li>
+                        <li>Guard-facing VESTA™ dashboard training and handover</li>
+                        <li>Detailed maintenance reporting for your SLA compliance</li>
+                        <li>Collaborative implementation — we work to your timeline, not ours</li>
                     </ul>
-                    <a href="contact.html?ref=ma" class="btn btn-primary">Partner With Us &rarr;</a>
+                    <div class="btn-group-vertical mt-32">
+                        <a href="security-guarding-partner.html" class="btn btn-primary" style="width: 100%;">Visit the Guarding Partner Hub &rarr;</a>
+                        <a href="https://wa.me/6593860466" class="link-arrow" style="margin-top: 15px; display: inline-block;">WhatsApp Our Team &rarr;</a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ── 6. PROVEN OUTCOMES ── -->
+<!-- ── 6. ASK US MOST ── -->
+<section id="ask-us-most" class="bg-light border-top" style="padding: 100px 0;">
+    <div class="container">
+        <div class="text-center">
+            <span class="eyebrow">What MCST Committees Ask Us Most</span>
+            <h2>The Questions We Hear Before Every Estate Assessment</h2>
+            <p class="subtitle" style="max-width: 900px; margin-left: auto; margin-right: auto;">After 20 years working with Singapore's estates, these are the questions every committee asks — before they are ready to book an assessment.</p>
+        </div>
+        
+        <div class="grid-4 mt-56 gap-32">
+            <div>
+                <h4 style="margin-bottom: 16px;">How do I get a proposal the AGM will approve?</h4>
+                <p style="font-size: 14px; margin-bottom: 20px;">We prepare fixed-price MCST documentation with system drawings, compliance references, and a disruption plan. Everything your residents need to vote yes with confidence.</p>
+                <a href="insights-presenting-security-upgrade-condo-agm.html" class="link-arrow">Read the AGM Guide &rarr;</a>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 16px;">How do I compare two integrators fairly?</h4>
+                <p style="font-size: 14px; margin-bottom: 20px;">Ask for their Police Licence number, system architecture drawings, and maintenance SLA in writing. We show you exactly what to look for — including how to evaluate us.</p>
+                <a href="insights-compare-security-integrators.html" class="link-arrow">Read the Comparison Guide &rarr;</a>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 16px;">What are our legal obligations as an MCST?</h4>
+                <p style="font-size: 14px; margin-bottom: 20px;">Singapore MCSTs have obligations under BMSMA, PDPA, and the SCDF Fire Code. We engineer to these standards and document compliance for your records.</p>
+                <a href="insights-mcst-legal-obligations-security.html" class="link-arrow">Read the Legal Guide &rarr;</a>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 16px;">How long does an upgrade take and how disruptive is it?</h4>
+                <p style="font-size: 14px; margin-bottom: 20px;">A typical estate upgrade takes 4–12 weeks. We phase all works so no block or resident loses access at any time. A written programme is provided before works begin.</p>
+                <a href="request-site-assessment-singapore.html" class="link-arrow">Book an Assessment &rarr;</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── 7. PROVEN OUTCOMES ── -->
 <section id="outcomes" class="bg-white">
     <div class="container">
         <div class="text-center">
@@ -549,10 +678,9 @@
     </div>
 </section>
 
-    </div>
-</section>
 
-<!-- ── 7. INVESTMENT GUIDE ── -->
+
+<!-- ── 8. INVESTMENT GUIDE ── -->
 <section id="investment-guide" class="bg-light border-top">
     <div class="container">
         <div class="text-center" style="margin-bottom: 56px;">
@@ -605,7 +733,7 @@
                         <li>2-3 automated gantries with ANPR</li>
                         <li>Full video intercom integration</li>
                         <li>Visitor & delivery management system</li>
-                        <li>VESTA™ platform for multi-block coordination</li>
+                        <li>VESTA™ platform (resident app — facility booking, access control, intercom on mobile, guest invitation) for multi-block coordination</li>
                         <li>MCST audit-ready reporting</li>
                         <li>Professional installation + 3-year warranty</li>
                     </ul>
@@ -632,7 +760,7 @@
                         <li>3-5 automated gantries with full ANPR integration</li>
                         <li>Comprehensive video intercom (all units + facilities)</li>
                         <li>Advanced visitor & contractor management</li>
-                        <li>Full VESTA™ platform with MA remote access</li>
+                        <li>Full VESTA™ platform (resident app — facility booking, access control, intercom on mobile, guest invitation) with MA remote access</li>
                         <li>Facilities integration (pool, gym, BBQ areas)</li>
                         <li>Network infrastructure upgrades</li>
                         <li>Professional installation + 5-year warranty</li>
@@ -659,41 +787,90 @@
     </div>
 </section>
 
-<!-- ── 8. THE JOURNEY ── -->
-<section id="journey" class="bg-white">
+
+
+<!-- ── 9. THE JOURNEY ── -->
+<section id="journey" class="bg-white border-top">
     <div class="container">
         <div class="text-center">
             <span class="eyebrow">The Engineering Process</span>
-            <h2>The Condominium Journey</h2>
-            <p class="subtitle">A structured, supportive pathway from your first inquiry to a fully modernised and operational estate.</p>
+            <h2>From First Question to AGM Approval — The Condominium Journey</h2>
+            <p class="subtitle">A structured, supportive pathway from your first enquiry to a fully modernised estate. We stay with you at every stage — not just during installation.</p>
         </div>
         
-        <div class="step-row mt-48">
-            <div class="step-item">
-                <div class="step-num">1</div>
-                <h3>Discovery Call</h3>
-                <p>We discuss your estate's current pain points, bypass hurdles, and long-term security goals.</p>
+        <div class="grid-3 mt-56 gap-32">
+            <div class="card" style="padding: 32px; border: 1px solid var(--border-light); border-radius: 12px;">
+                <span class="step-label" style="background: var(--bg-light); color: var(--primary-blue); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Week 1</span>
+                <h3 style="font-size: 1.25rem; margin-top: 15px; margin-bottom: 12px;">Discovery Call</h3>
+                <p style="font-size: 14px; color: var(--text-gray); line-height: 1.6;">We discuss your estate's current setup, known issues, and what your committee wants to achieve. No commitment, no pressure. We help you frame the problem before we propose a solution.</p>
             </div>
-            <div class="step-item">
-                <div class="step-num">2</div>
-                <h3>Site Survey</h3>
-                <p>A hands-on mapping of your perimeter, guard house flow, and existing cabling constraints.</p>
+            <div class="card" style="padding: 32px; border: 1px solid var(--border-light); border-radius: 12px;">
+                <span class="step-label" style="background: var(--bg-light); color: var(--primary-blue); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Weeks 2–3</span>
+                <h3 style="font-size: 1.25rem; margin-top: 15px; margin-bottom: 12px;">Estate Assessment</h3>
+                <p style="font-size: 14px; color: var(--text-gray); line-height: 1.6;">Our engineer walks the full estate — guard house, perimeter, car park, all blocks. We map coverage gaps, check existing cabling, and document what is currently installed. You receive a written assessment report.</p>
             </div>
-            <div class="step-item">
-                <div class="step-num">3</div>
-                <h3>Technical Proposal</h3>
-                <p>A transparent, fixed-price plan using the SECURE&trade; framework for MCST/MA board approval.</p>
+            <div class="card" style="padding: 32px; border: 1px solid var(--border-light); border-radius: 12px;">
+                <span class="step-label" style="background: var(--bg-light); color: var(--primary-blue); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Weeks 3–4</span>
+                <h3 style="font-size: 1.25rem; margin-top: 15px; margin-bottom: 12px;">MCST-Ready Proposal</h3>
+                <p style="font-size: 14px; color: var(--text-gray); line-height: 1.6;">Fixed-price proposal with full system drawings, brand specifications, regulatory compliance references, and a phased disruption programme. Formatted for AGM presentation and managing agent review.</p>
             </div>
-            <div class="step-item">
-                <div class="step-num">4</div>
-                <h3>Implementation</h3>
-                <p>Professional deployment by our SPF-licensed team, with resident communication and handover support.</p>
+            <div class="card" style="padding: 32px; border: 1px solid var(--border-light); border-radius: 12px;">
+                <span class="step-label" style="background: var(--bg-light); color: var(--primary-blue); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">AGM / EGM</span>
+                <h3 style="font-size: 1.25rem; margin-top: 15px; margin-bottom: 12px;">Resident Approval</h3>
+                <p style="font-size: 14px; color: var(--text-gray); line-height: 1.6;">We attend committee meetings if needed to answer technical questions directly. Our documentation is designed so residents can read it, understand it, and vote yes with confidence.</p>
+            </div>
+            <div class="card" style="padding: 32px; border: 1px solid var(--border-light); border-radius: 12px;">
+                <span class="step-label" style="background: var(--bg-light); color: var(--primary-blue); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Implementation</span>
+                <h3 style="font-size: 1.25rem; margin-top: 15px; margin-bottom: 12px;">Phased Installation</h3>
+                <p style="font-size: 14px; color: var(--text-gray); line-height: 1.6;">All works phased so no block or resident loses access at any time. Written progress reports to committee and managing agent at every milestone. Our SPF-licensed team handles everything.</p>
+            </div>
+            <div class="card" style="padding: 32px; border: 1px solid var(--border-light); border-radius: 12px;">
+                <span class="step-label" style="background: var(--bg-light); color: var(--primary-blue); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; text-transform: uppercase;">Handover & Beyond</span>
+                <h3 style="font-size: 1.25rem; margin-top: 15px; margin-bottom: 12px;">Training, Documentation and Ongoing Support</h3>
+                <p style="font-size: 14px; color: var(--text-gray); line-height: 1.6;">Guard team training, resident VESTA onboarding, full as-built drawings, system manuals, and a named project manager from Day 1. Written SLA with tiered response times. We do not disappear after handover.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- ── 9. COMPLIANCE & MCST ASSURANCE ── -->
+<!-- ── 10. POST-INSTALLATION SUPPORT ── -->
+<section id="post-installation" class="bg-white border-top">
+    <div class="container">
+        <div class="grid-2 align-center gap-64">
+            <div class="content">
+                <span class="eyebrow">Already Managing This Estate?</span>
+                <h2>What We Do Differently After Installation</h2>
+                <p>Most integrators hand over a system and move on. We stay. Every estate we maintain has a named Securevision project manager, a written SLA, and remote monitoring that alerts us before a resident calls you.</p>
+                <p>When your MCST needs audit documentation, we generate it automatically. When a component reaches end-of-life, we tell you before it fails — not after. When something goes wrong at 2am, there is a human on the other end of the line.</p>
+                <p>This is not a premium tier. It is how we run every maintenance relationship, because a security system that is not properly supported is not a security system — it is a liability waiting to happen.</p>
+            </div>
+            <div class="stats-column">
+                <div class="grid-1 gap-24">
+                    <div style="background: var(--bg-light); padding: 32px; border-radius: 16px; border-left: 4px solid var(--primary-blue);">
+                        <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 8px;">2 Hours</div>
+                        <div style="font-size: 14px; color: var(--text-gray); font-weight: 600;">Critical fault acknowledgement time — 24/7, in writing</div>
+                    </div>
+                    <div style="background: var(--bg-light); padding: 32px; border-radius: 16px; border-left: 4px solid var(--primary-blue);">
+                        <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 8px;">2× Per Year</div>
+                        <div style="font-size: 14px; color: var(--text-gray); font-weight: 600;">Scheduled preventive maintenance visits with written health report</div>
+                    </div>
+                    <div style="background: var(--bg-light); padding: 32px; border-radius: 16px; border-left: 4px solid var(--primary-blue);">
+                        <div style="font-size: 2.5rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 8px;">Quarterly</div>
+                        <div style="font-size: 14px; color: var(--text-gray); font-weight: 600;">Automated MCST audit reports — no manual compilation required</div>
+                    </div>
+                </div>
+                <div class="mt-32">
+                    <a href="contact.html?ref=maintenance" class="btn btn-primary" style="width: 100%; text-align: center;">Discuss a Maintenance Contract &rarr;</a>
+                </div>
+            </div>
+        </div>
+        <div class="mt-64 rounded-16 overflow-hidden shadow-lg">
+            <img src="images/Securevision Technician maintaining camera at condo.png" alt="Securevision engineer monitoring estate status" class="w-100">
+        </div>
+    </div>
+</section>
+
+<!-- ── 11. COMPLIANCE & MCST ASSURANCE ── -->
 <section id="compliance-assurance" class="bg-white border-top">
     <div class="container">
         <div class="text-center">
@@ -795,56 +972,62 @@
     </div>
 </section>
 
-<!-- ── 10. TRUST BAR ── -->
-<section id="trust-bar" class="assurance-section bg-light">
+
+
+<!-- ── 12. FROM OUR FOUNDER ── -->
+<section id="founder-editorial" class="bg-dark text-white" style="padding: 100px 0; background-image: linear-gradient(rgba(14,26,43,0.9), rgba(14,26,43,0.9)), url('images/shophouse-texture-bg.png'); background-size: cover;">
     <div class="container">
-        <div class="assurance-grid">
-            <!-- 1. Police Licensed -->
-            <div class="assurance-card">
-                <div class="assurance-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+        <div class="grid-2 align-center gap-64">
+            <div class="prose text-white">
+                <span class="eyebrow" style="color: #63b3ed;">From Our Founder</span>
+                <h2 style="color: #fff; margin-bottom: 32px;">A Note to MCST Committees</h2>
+                <blockquote style="font-size: 1.5rem; line-height: 1.6; color: #cbd5e1; font-style: italic; border-left: 4px solid #63b3ed; padding-left: 24px; margin-bottom: 32px;">
+                    "In 20 years of working with condominiums across Singapore, the committees I respect most are the ones who ask hard questions before they sign anything. Ask about the licence. Ask what happens when something fails at 2am. Ask who will still be there in five years. These are the right questions — and any integrator worth hiring should be able to answer them without hesitation. We can."
+                </blockquote>
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <img src="images/founder-wee-meng-portrait.png" alt="Ler Wee Meng" style="width: 80px; height: 80px; border-radius: 50%; border: 3px solid #63b3ed;">
+                    <div>
+                        <strong style="display: block; font-size: 1.25rem;">Ler Wee Meng</strong>
+                        <span style="font-size: 0.9rem; color: #94a3b8;">Founder, Securevision Pte Ltd &bull; NUS Engineering (Hons) &bull; UOL Law &bull; 37 years in security systems</span>
+                    </div>
                 </div>
-                <div class="assurance-content">
-                    <h3>Police Licensed</h3>
-                    <p><span class="sv-licence">L/PS/000267/2023P</span></p>
-                </div>
-            </div>
-
-            <!-- 2. Longevity -->
-            <div class="assurance-card">
-                <div class="assurance-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                </div>
-                <div class="assurance-content">
-                    <h3>Expertise</h3>
-                    <p>Since <span class="sv-founded-year">2006</span></p>
+                <div class="mt-48">
+                    <p style="color: #cbd5e1;">The MCST Committee Member Hub has everything your committee needs — from AGM preparation to legal obligations to comparing integrators fairly. All written by engineers. All designed for committees, not technical specialists.</p>
+                    <a href="mcst-committee-member.html" class="btn btn-primary" style="background: #2563eb; border-color: #2563eb;">Visit the MCST Committee Member Hub &rarr;</a>
                 </div>
             </div>
-
-            <!-- 3. Certification -->
-            <div class="assurance-card">
-                <div class="assurance-icon">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="m9 12 2 2 4-4"/></svg>
-                </div>
-                <div class="assurance-content">
-                    <h3>Certified</h3>
-                    <p>BCA & bizSAFE 3</p>
-                </div>
+            <div class="hide-mobile">
+                <img src="images/founder-wee-meng-headshot.png" alt="Ler Wee Meng in Securevision office" class="rounded-16 shadow-2xl w-100">
             </div>
         </div>
     </div>
 </section>
 
-<!-- ── 11. FINAL CTA ── -->
-<section id="get-started" class="cta-section" style="background: linear-gradient(rgba(14, 26, 43, 0.8), rgba(14, 26, 43, 0.8)), url('images/secureviison support mcst through the years.png'); background-size: cover; background-position: center;">
+<!-- ── 13. FINAL CTA ── -->
+<section id="get-started" class="bg-white" style="padding: 100px 0;">
     <div class="container text-center">
         <h2>Ready to Modernise Your Estate?</h2>
-        <p class="subtitle">Our engineering team is ready to help you synchronise your security with your operations.</p>
+        <p class="subtitle">Our engineering team is ready. Whether you are preparing for an AGM, dealing with a failing system, or planning a full upgrade — the right first step is a conversation.</p>
         
-        <div class="btn-group mt-32">
-            <a href="request-site-assessment-singapore.html" class="btn btn-primary">Book Audit</a>
-            <a href="https://wa.me/6593860466" class="btn btn-outline-light">WhatsApp Engineers</a>
-            <a href="tel:+6562864796" class="btn btn-outline-light">Call Support</a>
+        <div class="grid-3 mt-56 gap-32" style="text-align: left;">
+            <div class="card" style="padding: 40px; background: #f8fafc; border-radius: 20px; transition: 0.3s; display: flex; flex-direction: column;">
+                <div style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 24px;">📋</div>
+                <h3 style="font-size: 1.4rem; margin-bottom: 12px;">Book an Estate Assessment</h3>
+                <p style="font-size: 14px; color: var(--text-gray); line-height: 1.6; flex-grow: 1; margin-bottom: 32px;">Best for new projects, full upgrades, or preparing an AGM proposal. We walk your estate and give you a written assessment before you commit to anything.</p>
+                <a href="request-site-assessment-singapore.html" class="btn btn-primary" style="width: 100%; text-align: center;">Book Assessment &rarr;</a>
+            </div>
+            <div class="card" style="padding: 40px; background: #f8fafc; border-radius: 20px; transition: 0.3s; display: flex; flex-direction: column;">
+                <div style="font-size: 2.5rem; color: #25d366; margin-bottom: 24px;">💬</div>
+                <h3 style="font-size: 1.4rem; margin-bottom: 12px;">WhatsApp Our Engineers</h3>
+                <p style="font-size: 14px; color: var(--text-gray); line-height: 1.6; flex-grow: 1; margin-bottom: 32px;">Best for quick questions, budget guidance, system health checks, or finding out if your current system can be upgraded rather than replaced.</p>
+                <a href="https://wa.me/6593860466" class="btn btn-whatsapp" style="width: 100%; text-align: center;">WhatsApp Now &rarr;</a>
+            </div>
+            <div class="card" style="padding: 40px; background: #f8fafc; border-radius: 20px; transition: 0.3s; display: flex; flex-direction: column;">
+                <div style="font-size: 2.5rem; color: #ef4444; margin-bottom: 24px;">📞</div>
+                <h3 style="font-size: 1.4rem; margin-bottom: 12px;">Priority Hotline</h3>
+                <p style="font-size: 14px; color: var(--text-gray); line-height: 1.6; flex-grow: 1; margin-bottom: 32px;">Immediate support for urgent system failures — gantry down, intercom failure, CCTV outage. We answer.</p>
+                <a href="tel:+6562864796" class="btn btn-outline-primary" style="width: 100%; text-align: center;">+65 6286 4796 &rarr;</a>
+            </div>
         </div>
     </div>
 </section>

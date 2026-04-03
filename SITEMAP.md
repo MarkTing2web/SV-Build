@@ -173,7 +173,8 @@ SECUREVISION.COM.SG
 │   │   │
 │   │   ├── 2. CONDOMINIUMS (/condominiums/)
 │   │   │   ├── ✅ condominiums.html - Main Landing
-│   │   │   ├── ✅ condominiums-mcst.html - For MCST & Managing Agents
+│   │   │   ├── ✅ mcst-committee-member.html - For MCST Committee Members
+│   │   │   ├── ✅ condominiums-mcst.html - For Managing Agents
 │   │   │   └── ✅ condominiums-security.html - For Security Partners
 │   │   │
 │   │   ├── 3. COMMERCIAL (/commercial/)
@@ -394,7 +395,9 @@ SECUREVISION.COM.SG
 | | How Intercom Systems Work | `insights-how-intercom-systems-work.html` |
 | | When to Upgrade Your Condo Intercom | `insights-upgrade-condo-intercom.html` |
 | **Auto Gates** | WiFi Remote Control for Auto Gates | `insights-wifi-remote-control-auto-gate.html` |
-| **Singapore Industry** | What Does a Security Upgrade Proposal Look Like? | `insights-condo-security-upgrade-proposal.html` |
+| **Singapore Industry** | How to Present a Security Upgrade at Your Condo AGM &mdash; and Get It Approved | `insights-presenting-security-upgrade-condo-agm.html` |
+| | The Managing Agent's Guide to Estate Security Systems | `insights-managing-agents-guide-estate-security-systems.html` |
+| | What Does a Security Upgrade Proposal Look Like? | `insights-condo-security-upgrade-proposal.html` |
 | | How Do I Get Quotes for an AGM Upgrade? | `insights-condo-security-upgrade-quotes.html` |
 | | How Do I Compare Two Integrators Fairly? | `insights-compare-security-integrators.html` |
 | | What Are the MCST's Legal Obligations? | `insights-mcst-legal-obligations-security.html` |

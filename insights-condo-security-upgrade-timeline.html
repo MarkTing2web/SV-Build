@@ -292,7 +292,7 @@
 </section>
 
 <footer class="site-footer">
-    <div class="container">
+    <div class="footer-container">
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="f-logo-wrap">
@@ -387,6 +387,20 @@
 </footer>
 
 <script>
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobileMenu');
+    if (menu) menu.classList.toggle('active');
+}
+
+function toggleSubmenu(id) {
+    const sub = document.getElementById(id);
+    if (sub) {
+        const isActive = sub.classList.contains('active');
+        document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
+        if (!isActive) sub.classList.add('active');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.sv-current-year').forEach(el => el.textContent = new Date().getFullYear());
     // TOC Active State
