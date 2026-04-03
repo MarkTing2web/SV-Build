@@ -1,6 +1,6 @@
 # SECUREVISION WEBSITE SITEMAP
 
-**Last Updated:** April 3, 2026  
+**Last Updated:** April 3, 2026 (18:30)  
 **Total Pages Built:** 80+ HTML pages  
 **Navigation Items:** 6 main menu items + search (Solutions, Systems, Brands, Portfolio, Insights, About, Search)
 
@@ -175,7 +175,8 @@ SECUREVISION.COM.SG
 │   │   ├── 2. CONDOMINIUMS (/condominiums/)
 │   │   │   ├── ✅ condominiums.html - Main Landing
 │   │   │   ├── ✅ mcst-committee-member.html - Support Hub for Committee Members
-│   │   │   ├── ✅ condominiums-mcst.html - For Managing Agents
+│   │   │   ├── ✅ managing-agent.html - For Managing Agents
+│   │   │   ├── ✅ condominiums-mcst.html - Technical Guide for Managing Agents
 │   │   │   └── ✅ condominiums-security.html - For Security Partners
 │   │   │
 │   │   ├── 3. COMMERCIAL (/commercial/)
@@ -307,7 +308,7 @@ SECUREVISION.COM.SG
 | | Existing Homes | home-security-upgrade-singapore.html | Solutions → Residential |
 | | Trade Professionals | security-partner-architects-singapore.html | Solutions → Residential |
 | **Condominiums** | Main Landing | condominiums.html | Solutions → Condominiums |
-| | MCST & Managing Agents | condominiums-mcst.html | Solutions → Condominiums |
+| | MCST & Managing Agents | managing-agent.html | Solutions → Condominiums |
 | | Security Partners | condominiums-security.html | Solutions → Condominiums |
 | **Commercial** | Main Landing | commercial-security-singapore.html | Solutions → Commercial |
 | | Office Solutions | commercial-office.html | Solutions → Commercial |
