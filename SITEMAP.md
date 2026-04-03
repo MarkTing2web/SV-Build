@@ -176,8 +176,7 @@ SECUREVISION.COM.SG
 │   │   │   ├── ✅ condominiums.html - Main Landing
 │   │   │   ├── ✅ mcst-committee-member.html - Support Hub for Committee Members
 │   │   │   ├── ✅ managing-agent.html - For Managing Agents
-│   │   │   ├── ✅ condominiums-mcst.html - Technical Guide for Managing Agents
-│   │   │   └── ✅ condominiums-security.html - For Security Partners
+│   │   │   └── ✅ security-guarding-partner.html - For Security Guarding Partners (New)
 │   │   │
 │   │   ├── 3. COMMERCIAL (/commercial/)
 │   │   │   ├── ✅ commercial-security-singapore.html - Main Landing
@@ -309,7 +308,7 @@ SECUREVISION.COM.SG
 | | Trade Professionals | security-partner-architects-singapore.html | Solutions → Residential |
 | **Condominiums** | Main Landing | condominiums.html | Solutions → Condominiums |
 | | MCST & Managing Agents | managing-agent.html | Solutions → Condominiums |
-| | Security Partners | condominiums-security.html | Solutions → Condominiums |
+| | Security Partners | security-guarding-partner.html | Solutions → Condominiums |
 | **Commercial** | Main Landing | commercial-security-singapore.html | Solutions → Commercial |
 | | Office Solutions | commercial-office.html | Solutions → Commercial |
 | | Retail Solutions | commercial-retail.html | Solutions → Commercial |
@@ -406,6 +405,7 @@ SECUREVISION.COM.SG
 | | Realistic Timeline and Disruption Plan | `insights-condo-security-upgrade-timeline.html` |
 | | Why Your System Needs a Refresh | `insights-security-system-refresh.html` |
 | | Managing Multiple Estates with VESTA | `insights-managing-multiple-estates-with-vesta.html` |
+| | How Technology Makes Your Guarding Team More Competitive | `insights-how-technology-makes-your-guarding-team-more-competitive.html` |
 | | 10 Expert Tips for MCST Security Upgrades | `insights-10-tips-securing-your-premises.html` |
 
 ---
