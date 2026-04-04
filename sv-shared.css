@@ -150,10 +150,10 @@ aside { grid-area: sidebar; }
 .btn {
     font-family: 'Montserrat', sans-serif; font-weight: 600;
     padding: 14px 32px; border-radius: 8px;
-    text-decoration: none; font-size: 13px;
-    text-transform: none; letter-spacing: 0;
-    transition: 0.3s; display: inline-block; cursor: pointer;
-    border: 2px solid transparent;
+    text-decoration: none; font-size: 14px;
+    text-transform: none; letter-spacing: 0.3px;
+    transition: 0.3s; display: inline-flex; align-items: center; justify-content: center; 
+    cursor: pointer; border: 2px solid transparent;
 }
 
 /* -- UTILITIES -- */
@@ -453,7 +453,17 @@ section { padding: 100px 0; }
     text-transform: uppercase; margin-bottom: 12px; display: block;
     text-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
-.btn-group { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 48px; }
+.btn-group {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+}
+.btn-group .btn {
+  width: 240px;
+  text-align: center;
+}
 .btn-primary { background: var(--primary-blue); color: white; border-color: var(--primary-blue); }
 .btn-primary:hover { background: var(--dark-blue); transform: translateY(-2px); }
 .btn-outline { border: 2px solid rgba(255,255,255,0.5); color: white; background: transparent; }
@@ -465,11 +475,7 @@ section { padding: 100px 0; }
 .hero-trust-note {
     font-size: 13px; opacity: 0.6; font-weight: 500; color: #fff;
 }
-/* Hero CTA buttons — always equal width */
-.hero .btn-group .btn {
-    min-width: 230px;
-    text-align: center;
-}
+/* Removed specific hero button rule as it is now covered by the global .btn-group .btn rule */
 
 /* ── 2. TRUST BAR ── */
 .trust-bar { background: white; padding: 20px 0; border-bottom: 1px solid var(--border-light); }
@@ -608,14 +614,15 @@ section { padding: 100px 0; }
 .rel-card {
     background: white; padding: 32px 28px; border-radius: 12px;
     border: 1px solid var(--border-light); transition: 0.3s;
-    text-decoration: none; color: var(--text-dark); display: block;
+    text-decoration: none; color: var(--text-dark); 
+    display: flex; flex-direction: column; height: 100%;
 }
 .rel-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); border-color: var(--primary-blue); }
 .rel-card h3 { font-size: 18px; margin-bottom: 10px; }
 .rel-card strong { display: block; color: var(--primary-blue); font-size: 13px; margin-bottom: 8px; font-family: 'Montserrat', sans-serif; }
 .rel-card p { margin: 0; color: var(--text-gray); font-size: 15px; line-height: 1.6; }
 .rel-card-footer {
-    margin-top: 16px; padding-top: 16px;
+    margin-top: auto; padding-top: 16px;
     border-top: 1px solid var(--border-light);
     font-size: 13px; color: var(--primary-blue);
     font-weight: 600; font-family: 'Montserrat', sans-serif;
@@ -672,7 +679,7 @@ section { padding: 100px 0; }
     border-radius: 10px; padding: 24px 20px;
     border-top: 3px solid; transition: 0.3s;
     text-decoration: none; color: var(--text-dark);
-    display: flex; flex-direction: column;
+    display: flex; flex-direction: column; height: 100%;
 }
 .subsys-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.1); transform: translateY(-4px); background: #fff; }
 .subsys-card.c-surv { border-top-color: var(--c-surveillance); }
@@ -1214,6 +1221,7 @@ section { padding: 100px 0; }
 .persona-card .btn {
     text-align: center;
     width: 100%;
+    margin-top: auto;
 }
 
 /* ── 15. PROOF & PROJECTS (Proof Cards) ── */
@@ -1386,8 +1394,8 @@ section { padding: 100px 0; }
     }
     
     /* Buttons equal length when stacked */
-    .btn-group { flex-direction: column; align-items: stretch; max-width: 400px; margin: 0 auto 48px; }
-    .btn-group .btn { width: 100%; min-width: unset; }
+    .btn-group { flex-direction: column; align-items: stretch; max-width: 340px; margin: 0 auto 48px; }
+    .btn-group .btn { width: 100%; min-width: unset; padding: 12px 24px; }
 
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
     .footer-brand { grid-column: 1 / -1; }
