@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="sv-shared.css">
     <script src="site-config.js"></script>
     <style>
-        /* Custom Trust Bar Overrides for a Shorter Card Height */
+        /* Custom Trust Bar Overrides */
         #trust-bar.assurance-section { padding: 40px 0; }
         #trust-bar .assurance-card {
             flex-direction: row;
@@ -61,7 +61,7 @@
         .pillar-components strong { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); margin-bottom: 12px; }
         .pillar-components ul { list-style: none; padding: 0; margin: 0; }
         .pillar-components li { font-size: 13px; color: var(--text-gray); margin-bottom: 8px; position: relative; padding-left: 18px; }
-        .pillar-components li::before { content: 'â€¢'; position: absolute; left: 0; color: var(--primary-blue); font-weight: bold; }
+        .pillar-components li::before { content: '·'; position: absolute; left: 0; color: var(--primary-blue); font-weight: bold; }
         .pillar-link { font-size: 14px; font-weight: 600; color: var(--primary-blue); text-decoration: none; margin-top: auto; display: inline-block; transition: 0.2s; }
         .pillar-link:hover { color: var(--dark-blue); text-decoration: underline; }
         
@@ -91,7 +91,7 @@
         .pricing-body { flex-grow: 1; margin-bottom: 32px; }
         .pricing-body ul { list-style: none; padding: 0; margin: 0; }
         .pricing-body li { font-size: 14px; color: var(--text-gray); margin-bottom: 12px; position: relative; padding-left: 20px; line-height: 1.5; }
-        .pricing-body li::before { content: 'âœ“'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold; }
+        .pricing-body li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold; }
         .pricing-footer p { font-size: 12px; color: var(--text-light); font-style: italic; margin: 0; }
         .pricing-callout { background: #fff; border: 1px solid var(--border-light); border-radius: 12px; padding: 40px; text-align: center; max-width: 850px; margin: 64px auto 0; }
         .pricing-callout h3 { margin-bottom: 16px; color: var(--text-dark); }
@@ -128,7 +128,7 @@
         .compliance-list strong { display: block; font-size: 12px; text-transform: uppercase; color: var(--text-light); margin-bottom: 12px; letter-spacing: 0.5px; }
         .compliance-list ul { list-style: none; padding: 0; margin: 0; }
         .compliance-list li { font-size: 13px; color: var(--text-gray); margin-bottom: 8px; position: relative; padding-left: 18px; }
-        .compliance-list li::before { content: 'âœ“'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold; }
+        .compliance-list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold; }
         .compliance-footer p { font-size: 12px; color: var(--text-light); font-style: italic; margin: 0; border-top: 1px solid var(--border-light); padding-top: 16px; }
         
         .compliance-callout { text-align: center; max-width: 800px; margin: 64px auto 0; background: var(--primary-blue); color: #fff; padding: 40px; border-radius: 16px; }
@@ -141,107 +141,6 @@
         @media (max-width: 576px) {
             #system-architecture .factors-4, .grid-3 { grid-template-columns: 1fr; }
         }
-
-        /* PILLAR CARDS (System Architecture) */
-        #system-architecture .factors-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 48px; }
-        .pillar-card {
-            background: #fff;
-            border: 1px solid var(--border-light);
-            border-radius: 12px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .pillar-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12); border-color: var(--primary-blue); }
-        .pillar-image-wrap { height: 180px; overflow: hidden; }
-        .pillar-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .pillar-card:hover .pillar-image-wrap img { transform: scale(1.05); }
-        .pillar-content { padding: 32px; flex-grow: 1; display: flex; flex-direction: column; }
-        .pillar-header { margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
-        .pillar-header h3 { font-size: 18px; color: var(--text-dark); margin: 0; line-height: 1.3; }
-        .pillar-badge { font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px; letter-spacing: 0.5px; flex-shrink: 0; margin-top: 4px; }
-        .badge-essential { background: rgba(0, 86, 179, 0.1); color: var(--primary-blue); }
-        .badge-optional { background: rgba(100, 116, 139, 0.1); color: #64748b; }
-        .pillar-content p { font-size: 14px; color: var(--text-gray); line-height: 1.6; margin-bottom: 24px; }
-        .pillar-components { margin-bottom: 32px; }
-        .pillar-components strong { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); margin-bottom: 12px; }
-        .pillar-components ul { list-style: none; padding: 0; margin: 0; }
-        .pillar-components li { font-size: 13px; color: var(--text-gray); margin-bottom: 8px; position: relative; padding-left: 18px; }
-        .pillar-components li::before { content: 'â€¢'; position: absolute; left: 0; color: var(--primary-blue); font-weight: bold; }
-        .pillar-link { font-size: 14px; font-weight: 600; color: var(--primary-blue); text-decoration: none; margin-top: auto; display: inline-block; transition: 0.2s; }
-        .pillar-link:hover { color: var(--dark-blue); text-decoration: underline; }
-        
-        .pillar-closing-note { text-align: center; max-width: 800px; margin: 56px auto 0; font-size: 15px; color: var(--text-gray); line-height: 1.8; padding: 28px; background: var(--bg-light); border-radius: 12px; border: 1px solid var(--border-light); }
-        
-        .section-cta { text-align: center; max-width: 800px; margin: 64px auto 0; }
-        .section-cta h3 { font-size: 22px; margin-bottom: 12px; color: var(--text-dark); }
-        .section-cta p { font-size: 16px; color: var(--text-gray); margin-bottom: 24px; }
-
-        /* PRICING CARDS (Investment Guide) */
-        .pricing-card {
-            background: #fff;
-            border: 1px solid var(--border-light);
-            border-radius: 12px;
-            padding: 40px 32px;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            transition: 0.3s;
-        }
-        .pricing-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12); border-color: var(--primary-blue); }
-        .size-badge { display: inline-block; background: var(--bg-light); color: var(--text-light); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; margin-bottom: 16px; text-transform: uppercase; }
-        .pricing-card h3 { font-size: 20px; margin-bottom: 8px; color: var(--text-dark); line-height: 1.3; }
-        .prop-types { font-size: 13px; color: var(--text-light); margin-bottom: 24px; }
-        .price-wrap { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border-light); }
-        .price-range { font-size: 24px; font-weight: 700; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; display: block; }
-        .pricing-body { flex-grow: 1; margin-bottom: 32px; }
-        .pricing-body ul { list-style: none; padding: 0; margin: 0; }
-        .pricing-body li { font-size: 14px; color: var(--text-gray); margin-bottom: 12px; position: relative; padding-left: 20px; line-height: 1.5; }
-        .pricing-body li::before { content: 'âœ“'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold; }
-        .pricing-footer p { font-size: 12px; color: var(--text-light); font-style: italic; margin: 0; }
-        .pricing-callout { background: #fff; border: 1px solid var(--border-light); border-radius: 12px; padding: 40px; text-align: center; max-width: 850px; margin: 64px auto 0; }
-        .pricing-callout h3 { font-size: 20px; margin-bottom: 16px; color: var(--text-dark); }
-        .pricing-callout p { font-size: 15px; color: var(--text-gray); line-height: 1.7; margin: 0; }
-        .pricing-callout ol { display: inline-block; text-align: left; margin: 24px auto; color: var(--text-gray); font-size: 15px; line-height: 1.8; padding-left: 40px; }
-        .pricing-callout ol li { margin-bottom: 8px; }
-
-        /* COMPLIANCE CARDS (Section 9) */
-        .compliance-card {
-            background: #fff;
-            border: 1px solid var(--border-light);
-            border-radius: 12px;
-            padding: 32px;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            transition: 0.3s;
-        }
-        .compliance-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0, 86, 179, 0.08); border-color: var(--primary-blue); }
-        .compliance-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--bg-light);
-            color: var(--primary-blue);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            margin-bottom: 24px;
-        }
-        .compliance-card h3 { font-size: 18px; margin-bottom: 12px; color: var(--text-dark); line-height: 1.4; }
-        .compliance-card p { font-size: 14px; color: var(--text-gray); line-height: 1.6; margin-bottom: 20px; }
-        .compliance-list { flex-grow: 1; margin-bottom: 24px; }
-        .compliance-list strong { display: block; font-size: 12px; text-transform: uppercase; color: var(--text-light); margin-bottom: 12px; letter-spacing: 0.5px; }
-        .compliance-list ul { list-style: none; padding: 0; margin: 0; }
-        .compliance-list li { font-size: 13px; color: var(--text-gray); margin-bottom: 8px; position: relative; padding-left: 18px; }
-        .compliance-list li::before { content: 'âœ“'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold; }
-        .compliance-footer p { font-size: 12px; color: var(--text-light); font-style: italic; margin: 0; border-top: 1px solid var(--border-light); padding-top: 16px; }
-        
-        .compliance-callout { text-align: center; max-width: 800px; margin: 64px auto 0; background: var(--primary-blue); color: #fff; padding: 40px; border-radius: 16px; }
-        .compliance-callout h3 { font-size: 22px; margin-bottom: 12px; color: #fff; }
-        .compliance-callout p { font-size: 16px; color: rgba(255,255,255,0.9); margin: 0; line-height: 1.6; }
 
         @media (max-width: 992px) {
             #system-architecture .factors-4, .grid-3 { grid-template-columns: repeat(2, 1fr); }
@@ -254,12 +153,12 @@
 <body>
 <nav class="main-nav">
 <div class="nav-container">
-  <!-- Logo + Wordmark â€” always left -->
+  <!-- Logo + Wordmark — always left -->
   <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
     <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
     <span class="wordmark nav-wordmark">SECUREVISION</span>
   </a>
-  <!-- Hamburger â€” centred absolutely on mobile (via CSS) -->
+  <!-- Hamburger — centred absolutely on mobile (via CSS) -->
   <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
   <!-- Desktop nav links -->
   <ul class="nav-menu">
@@ -317,7 +216,7 @@
   <div class="nav-right">
     <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
   </div>
-  <!-- Mobile search icon â€” always right end on mobile -->
+  <!-- Mobile search icon — always right end on mobile -->
   <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
 </div>
 <div class="mobile-menu" id="mobileMenu">
@@ -331,11 +230,11 @@
     </div></div>
   <div class="mobile-menu-item" onclick="toggleSubmenu('brandSub')">Brands &#9662;<div class="mobile-submenu" id="brandSub">
       <a href="security-brands-singapore.html"><strong>&rarr; View All Partners</strong></a>
-      <a href="security-brands-singapore.html#surveillance">Surveillance &mdash; Hik Â· Han Â· Uni Â· Mil</a>
-      <a href="security-brands-singapore.html#access">Access &mdash; Sup Â· ZK Â· HID Â· EP</a>
-      <a href="security-brands-singapore.html#intercom">Intercoms &mdash; Aku Â· Aip Â· Koc</a>
-      <a href="security-brands-singapore.html#alarms">Alarms &mdash; AJAX Â· RIS Â· Par Â· DSC</a>
-      <a href="security-brands-singapore.html#gates">Gates &mdash; FAAC Â· MAG Â· Dor</a>
+      <a href="security-brands-singapore.html#surveillance">Surveillance — Hik · Han · Uni · Mil</a>
+      <a href="security-brands-singapore.html#access">Access — Sup · ZK · HID · EP</a>
+      <a href="security-brands-singapore.html#intercom">Intercoms — Aku · Aip · Koc</a>
+      <a href="security-brands-singapore.html#alarms">Alarms — AJAX · RIS · Par · DSC</a>
+      <a href="security-brands-singapore.html#gates">Gates — FAAC · MAG · Dor</a>
     </div></div>
   <a href="portfolio.html" class="mobile-menu-item">Portfolio</a>
   <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources &#9662;<div class="mobile-submenu" id="resSub"><a href="resources.html"><strong>&rarr; All Resources</strong></a><a href="resources.html#guides">Technical Guides</a><a href="resources.html#tools">Planning Tools</a><a href="resources.html#library">Product Library</a><a href="resources.html#videos">Training Videos</a><a href="resources.html#faq">FAQ</a><a href="resources.html#trade">For Trade &amp; Professionals</a></div></div>
@@ -347,7 +246,7 @@
     <div class="container">
         <span class="eyebrow-light">Commercial & Retail Security</span>
         <h1 class="hero-title-main">Supporting Your Business,<br>Protecting Your Growth</h1>
-        <p class="hero-subtitle-main">We believe a secure workplace should feel open and inviting. Our team engineers simple, intelligent systems for Singapore's retail shops and offices â€” giving you the peace of mind to focus on what you do best.</p>
+        <p class="hero-subtitle-main">We believe a secure workplace should feel open and inviting. Our team engineers simple, intelligent systems for Singapore's retail shops and offices — giving you the peace of mind to focus on what you do best.</p>
         <div class="btn-group equal-width">
             <a href="request-site-assessment-singapore.html?intent=commercial-assessment" class="btn btn-primary">Book Site Assessment</a>
             <a href="https://wa.me/6593860466" class="btn btn-whatsapp-standard">WhatsApp an Engineer</a>
@@ -355,7 +254,7 @@
     </div>
 </header>
 
-<!-- â”€â”€ 2. BREADCRUMBS â”€â”€ -->
+<!-- ── 2. BREADCRUMBS ── -->
 <nav class="sv-breadcrumb">
     <div class="container">
         <ul>
@@ -366,7 +265,7 @@
     </div>
 </nav>
 
-<!-- â”€â”€ 3. PHILOSOPHY â”€â”€ -->
+<!-- ── 3. PHILOSOPHY ── -->
 <section id="systems-thinking" class="bg-white">
     <div class="container">
         <div class="text-center" style="max-width:800px; margin: 0 auto 56px;">
@@ -379,7 +278,7 @@
             <!-- Column 1: A Seamless Welcome -->
             <div class="factor-card" style="text-align: center;">
                 <div class="factor-image" style="margin-bottom: 24px; border-radius: 8px; overflow: hidden; height: 180px;">
-                    <img src="images/keyless entry of a girl with coffee in a office.png" alt="Keyless Entry" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="images/keyless-entry-of-a-girl-with-coffee-in-a-office.webp" alt="Keyless Entry" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <h3>A Seamless Welcome</h3>
                 <p style="font-size: 15px; color: var(--text-light); line-height: 1.6;">We engineer keyless, facial-recognition, or mobile entry systems that make arriving at work a breeze for your team and create a professional first impression for your guests.</p>
@@ -388,7 +287,7 @@
             <!-- Column 2: Intelligent Retail Insights -->
             <div class="factor-card" style="text-align: center;">
                 <div class="factor-image" style="margin-bottom: 24px; border-radius: 8px; overflow: hidden; height: 180px;">
-                    <img src="images/video analytics of a retail shop.png" alt="Retail Video Analytics" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="images/video-analytics-of-a-retail-shop.webp" alt="Retail Video Analytics" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <h3>Intelligent Retail Insights</h3>
                 <p style="font-size: 15px; color: var(--text-light); line-height: 1.6;">Our video analytics do more than just watch; they help you understand your shop better. By identifying footfall patterns and customer demographics, we provide the data you need to curate a better experience.</p>
@@ -397,7 +296,7 @@
             <!-- Column 3: One Point of Accountability -->
             <div class="factor-card" style="text-align: center;">
                 <div class="factor-image" style="margin-bottom: 24px; border-radius: 8px; overflow: hidden; height: 180px;">
-                    <img src="images/successful handover of building project to building manager.png" alt="Successful Project Handover" style="width: 100%; height: 100%; object-fit: cover;">
+                    <img src="images/successful-handover-of-building-project-to-building-manager.webp" alt="Successful Project Handover" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
                 <h3>One Point of Accountability</h3>
                 <p style="font-size: 15px; color: var(--text-light); line-height: 1.6;">From cabling to final handover, we handle everything. You only ever have one friendly engineering team to call for your cameras, access, and intercoms, ensuring your modernisation programme is stress-free.</p>
@@ -406,7 +305,7 @@
     </div>
 </section>
 
-<!-- â”€â”€ 4. SYSTEM ARCHITECTURE â”€â”€ -->
+<!-- ── 4. SYSTEM ARCHITECTURE ── -->
 <section id="system-architecture" class="bg-white border-top">
     <div class="container">
         <div class="text-center">
@@ -419,7 +318,7 @@
             <!-- Card 1: Surveillance & Detection -->
             <div class="pillar-card">
                 <div class="pillar-image-wrap">
-                    <img src="images/pillar_surveillance.png" alt="Surveillance & Detection">
+                    <img src="images/pillar_surveillance.webp" alt="Surveillance & Detection">
                 </div>
                 <div class="pillar-content">
                     <div class="pillar-header">
@@ -443,7 +342,7 @@
             <!-- Card 2: People Access Control -->
             <div class="pillar-card">
                 <div class="pillar-image-wrap">
-                    <img src="images/pillar_people_access.png" alt="People Access Control">
+                    <img src="images/pillar_people_access.webp" alt="People Access Control">
                 </div>
                 <div class="pillar-content">
                     <div class="pillar-header">
@@ -467,7 +366,7 @@
             <!-- Card 3: Vehicle Access & Barriers -->
             <div class="pillar-card">
                 <div class="pillar-image-wrap">
-                    <img src="images/pillar_vehicle_access.png" alt="Vehicle Access & Barriers">
+                    <img src="images/pillar_vehicle_access.webp" alt="Vehicle Access & Barriers">
                 </div>
                 <div class="pillar-content">
                     <div class="pillar-header">
@@ -491,18 +390,18 @@
             <!-- Card 4: Platform Integration -->
             <div class="pillar-card">
                 <div class="pillar-image-wrap">
-                    <img src="images/pillar_platform.png" alt="Platform Integration">
+                    <img src="images/pillar_platform.webp" alt="Platform Integration">
                 </div>
                 <div class="pillar-content">
                     <div class="pillar-header">
                         <h3>Platform Integration</h3>
                         <span class="pillar-badge badge-essential">ESSENTIAL</span>
                     </div>
-                    <p>Unified VESTAâ„¢ dashboard for retail chains and multi-tenant buildings. Single login for centralized monitoring, incident logging, and real-time facility manager alerts.</p>
+                    <p>Unified VESTA™ dashboard for retail chains and multi-tenant buildings. Single login for centralized monitoring, incident logging, and real-time facility manager alerts.</p>
                     <div class="pillar-components">
                         <strong>Typical components:</strong>
                         <ul>
-                            <li>VESTAâ„¢ unified platform</li>
+                            <li>VESTA™ unified platform</li>
                             <li>Multi-site / multi-store management</li>
                             <li>Centralized monitoring & reporting</li>
                             <li>Remote access for facility managers</li>
@@ -525,7 +424,7 @@
     </div>
 </section>
 
-<!-- â”€â”€ 5. PATHFINDER â”€â”€ -->
+<!-- ── 5. PATHFINDER ── -->
 <section id="market-pathfinder" class="bg-light border-top">
     <div class="container">
         <span class="eyebrow">Solutions by Sector</span>
@@ -535,7 +434,7 @@
         <div class="pathfinder-grid">
             <!-- 1. Offices & SMEs -->
             <div class="pathfinder-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
-                <img src="images/office lady entering office using face recognition.png" alt="Offices & SMEs" style="width: 100%; height: 220px; object-fit: cover;">
+                <img src="images/office-lady-entering-office-using-face-recognition.webp" alt="Offices & SMEs" style="width: 100%; height: 220px; object-fit: cover;">
                 <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
                     <h3 style="margin-bottom: 20px; font-size: 22px; color: var(--text-dark); text-align: left;">Offices & SMEs</h3>
                     <div style="font-size: 15px; line-height: 1.6; color: var(--text-light); flex-grow: 1;">
@@ -548,7 +447,7 @@
 
             <!-- 2. Retail & F&B -->
             <div class="pathfinder-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
-                <img src="images/F&B Restaurant video analytics.png" alt="Retail & F&B" style="width: 100%; height: 220px; object-fit: cover;">
+                <img src="images/f&amp;b-restaurant-video-analytics.webp" alt="Retail & F&B" style="width: 100%; height: 220px; object-fit: cover;">
                 <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
                     <h3 style="margin-bottom: 20px; font-size: 22px; color: var(--text-dark); text-align: left;">Retail & F&B</h3>
                     <div style="font-size: 15px; line-height: 1.6; color: var(--text-light); flex-grow: 1;">
@@ -561,7 +460,7 @@
 
             <!-- 3. Buildings & Facilities -->
             <div class="pathfinder-card" style="padding: 0; overflow: hidden; display: flex; flex-direction: column;">
-                <img src="images/office lobby turnstile and face recognition.png" alt="Buildings & Facilities" style="width: 100%; height: 220px; object-fit: cover;">
+                <img src="images/office-lobby-turnstile-and-face-recognition.webp" alt="Buildings & Facilities" style="width: 100%; height: 220px; object-fit: cover;">
                 <div style="padding: 30px; display: flex; flex-direction: column; flex-grow: 1;">
                     <h3 style="margin-bottom: 20px; font-size: 22px; color: var(--text-dark); text-align: left;">Buildings & Facilities</h3>
                     <div style="font-size: 15px; line-height: 1.6; color: var(--text-light); flex-grow: 1;">
@@ -575,7 +474,7 @@
     </div>
 </section>
 
-<!-- â”€â”€ 6. PROVEN OUTCOMES â”€â”€ -->
+<!-- ── 6. PROVEN ENGINEERING ── -->
 <section id="outcomes" class="bg-white">
     <div class="container">
         <div class="text-center" style="max-width:800px; margin: 0 auto 56px;">
@@ -588,7 +487,7 @@
             <!-- 1. Offices -->
             <div class="proof-card">
                 <div class="proof-image-wrap">
-                    <img src="images/modern-cbd-office.png" alt="CBD Office Interior">
+                    <img src="images/modern-cbd-office.webp" alt="CBD Office Interior">
                 </div>
                 <div class="proof-content">
                     <h3>Corporate Office Modernisation</h3>
@@ -601,7 +500,7 @@
             <!-- 2. Retail -->
             <div class="proof-card">
                 <div class="proof-image-wrap">
-                    <img src="images/high-end-boutique.png" alt="Boutique Storefront">
+                    <img src="images/high-end-boutique.webp" alt="Boutique Storefront">
                 </div>
                 <div class="proof-content">
                     <h3>Retail Chain Intelligence</h3>
@@ -614,7 +513,7 @@
             <!-- 3. Buildings -->
             <div class="proof-card">
                 <div class="proof-image-wrap">
-                    <img src="images/project-scape.png" alt="SCAPE Orchard Road">
+                    <img src="images/project-scape.webp" alt="SCAPE Orchard Road">
                 </div>
                 <div class="proof-content">
                     <h3>*SCAPE, Orchard Road</h3>
@@ -627,7 +526,7 @@
     </div>
 </section>
 
-<!-- â”€â”€ 7. INVESTMENT GUIDE â”€â”€ -->
+<!-- ── 7. INVESTMENT GUIDE ── -->
 <section id="investment-guide" class="bg-light border-top">
     <div class="container">
         <div class="text-center" style="margin-bottom: 56px;">
@@ -640,12 +539,12 @@
             <!-- Tier 1: Small Offices & Single Retail Stores -->
             <div class="pricing-card">
                 <div class="pricing-header">
-                    <span class="size-badge">1,000 â€“ 3,000 sqft â€¢ 1 Location</span>
+                    <span class="size-badge">1,000 – 3,000 sqft · 1 Location</span>
                     <h3>Small Offices & Single Retail Stores</h3>
-                    <p class="prop-types">SME Offices â€¢ Boutique Shops â€¢ Single F&B Outlets</p>
+                    <p class="prop-types">SME Offices · Boutique Shops · Single F&B Outlets</p>
                 </div>
                 <div class="price-wrap">
-                    <span class="price-range">$8,000 â€“ $20,000</span>
+                    <span class="price-range">$8,000 – $20,000</span>
                 </div>
                 <div class="pricing-body">
                     <ul>
@@ -664,18 +563,18 @@
             <!-- Tier 2: Medium Offices & Multi-Store Retail -->
             <div class="pricing-card">
                 <div class="pricing-header">
-                    <span class="size-badge">3,000 â€“ 8,000 sqft â€¢ 2-5 Locations</span>
+                    <span class="size-badge">3,000 – 8,000 sqft · 2-5 Locations</span>
                     <h3>Medium Offices & Multi-Store Retail</h3>
-                    <p class="prop-types">Growing SMEs â€¢ Small Retail Chains â€¢ Multi-Floor Offices</p>
+                    <p class="prop-types">Growing SMEs · Small Retail Chains · Multi-Floor Offices</p>
                 </div>
                 <div class="price-wrap">
-                    <span class="price-range">$20,000 â€“ $60,000</span>
+                    <span class="price-range">$20,000 – $60,000</span>
                 </div>
                 <div class="pricing-body">
                     <ul>
                         <li>15-40 IP cameras (comprehensive coverage)</li>
                         <li>Integrated access control (staff + visitors + contractors)</li>
-                        <li>VESTAâ„¢ platform for multi-site management</li>
+                        <li>VESTA™ platform for multi-site management</li>
                         <li>Video analytics & heat mapping (retail)</li>
                         <li>POS integration (retail chains)</li>
                         <li>Professional installation + 3-year warranty</li>
@@ -689,12 +588,12 @@
             <!-- Tier 3: Large Buildings & Retail Chains -->
             <div class="pricing-card">
                 <div class="pricing-header">
-                    <span class="size-badge">8,000+ sqft â€¢ 5+ Locations</span>
+                    <span class="size-badge">8,000+ sqft · 5+ Locations</span>
                     <h3>Large Buildings & Retail Chains</h3>
-                    <p class="prop-types">Commercial Buildings â€¢ Large Retail Chains â€¢ Corporate Offices</p>
+                    <p class="prop-types">Commercial Buildings · Large Retail Chains · Corporate Offices</p>
                 </div>
                 <div class="price-wrap">
-                    <span class="price-range">$60,000 â€“ $200,000+</span>
+                    <span class="price-range">$60,000 – $200,000+</span>
                 </div>
                 <div class="pricing-body">
                     <ul>
@@ -702,7 +601,7 @@
                         <li>Enterprise access control (multi-tenant, multi-floor)</li>
                         <li>Automated gantries with ANPR</li>
                         <li>Advanced AI analytics (loss prevention)</li>
-                        <li>Full VESTAâ„¢ platform with centralized command</li>
+                        <li>Full VESTA™ platform with centralized command</li>
                         <li>Network infrastructure upgrades</li>
                         <li>Professional installation + 5-year warranty</li>
                     </ul>
@@ -728,7 +627,7 @@
     </div>
 </section>
 
-<!-- â”€â”€ 8. THE JOURNEY â”€â”€ -->
+<!-- ── 8. THE JOURNEY ── -->
 <section id="journey" class="bg-white">
     <div class="container">
         <div class="text-center">
@@ -762,7 +661,7 @@
     </div>
 </section>
 
-<!-- â”€â”€ 9. COMPLIANCE & STANDARDS â”€â”€ -->
+<!-- ── 9. STANDARDS & COMPLIANCE ── -->
 <section id="compliance-standards" class="bg-white border-top">
     <div class="container">
         <div class="text-center">
@@ -864,7 +763,7 @@
     </div>
 </section>
 
-<!-- â”€â”€ 10. TRUST BAR â”€â”€ -->
+<!-- ── 10. TRUST BAR ── -->
 <section id="trust-bar" class="assurance-section bg-light">
     <div class="container">
         <div class="assurance-grid">
@@ -904,11 +803,12 @@
     </div>
 </section>
 
-<section class="cta-high-impact cta-com">
+<section class="cta-high-impact cta-skyline">
     <div class="container">
         <div style="max-width: 850px; margin: 0 auto; text-align: center;">
-            <h2>Ready to Modernise Your Business Infrastructure?</h2>
-            <p style="font-size: 18px; opacity: 0.9; line-height: 1.8; margin-bottom: 48px;">Join businesses across Singapore who have streamlined their premises with a single, supportive engineering partner.</p>
+            <span class="eyebrow-light">Infrastructure Modernisation</span>
+            <h2>Ready to modernise your business infrastructure?</h2>
+            <p style="font-size: 18px; opacity: 0.9; line-height: 1.8; margin-bottom: 48px;">Join businesses across Singapore who have streamlined their premises with a single, supportive engineering partner. We take care of the technical complexity so you can focus on growth.</p>
             <div class="btn-group equal-width">
                 <a href="https://wa.me/6593860466" class="btn btn-whatsapp-standard">WhatsApp an Engineer</a>
                 <a href="request-site-assessment-singapore.html?intent=commercial-assessment" class="btn btn-primary">Book Site Assessment</a>
@@ -917,7 +817,25 @@
     </div>
 </section>
 
-<!-- â”€â”€ 12. FOOTER â”€â”€ -->
+<style>
+  /* Fixed Footer Grid to match index.html exactly */
+  .site-footer .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr repeat(5, 1fr);
+    gap: 48px;
+    margin-bottom: 64px;
+  }
+  @media (max-width: 1200px) {
+    .site-footer .footer-grid { grid-template-columns: 1fr 1fr 1fr; gap: 40px; }
+  }
+  @media (max-width: 768px) {
+    .site-footer .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  }
+  @media (max-width: 480px) {
+    .site-footer .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+</style>
+
 <footer class="site-footer">
     <div class="footer-container">
         <div class="footer-grid">
@@ -926,7 +844,7 @@
                     <img src="images/securevision-logo-white.png" alt="Securevision Logo">
                     <span class="brand-name">Securevision</span>
                 </div>
-                <p>Your partner in building smart, secure, and connected communities â€” powered by intelligent security systems since <span class="sv-founded-year">2006</span>.</p>
+                <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since <span class="sv-founded-year">2006</span>.</p>
                 <div class="f-socials">
                     <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -944,8 +862,7 @@
                 <h4>Solutions</h4>
                 <ul>
                     <li><a href="residential-security-singapore.html">Private Homes</a></li>
-                    <li><a href="condominiums.html">Condominiums</a>
-        </li>
+                    <li><a href="condominiums.html">Condominiums</a></li>
                     <li><a href="commercial-security-singapore.html">Commercial &amp; Retail</a></li>
                     <li><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a></li>
                     <li><a href="government-institution-security-singapore.html">Institutions &amp; Government</a></li>
@@ -979,8 +896,7 @@
                 <h4>Company</h4>
                 <ul>
                     <li><a href="about.html">Our Story</a></li>
-                    
-                    <li><a href="security-brands-singapore.html"><strong>Technology Partners</strong></a></li>
+                    <li><a href="security-brands-singapore.html">Technology Partners</a></li>
                     <li><a href="portfolio.html">Project Portfolio</a></li>
                     <li><a href="security-articles-singapore.html">Insights</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
@@ -990,22 +906,22 @@
             <div class="footer-contact">
                 <h4>Get In Touch</h4>
                 <div class="footer-contact-item">
-                    <span>ðŸ’¬</span>
+                    <span>💬</span>
                     <a href="https://wa.me/6593860466">WhatsApp an Engineer</a>
                 </div>
                 <div class="footer-contact-item">
-                    <span>âœ‰ï¸</span>
+                    <span>✉️</span>
                     <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
                 </div>
                 <div class="footer-contact-item">
-                    <span>ðŸ“ž</span>
+                    <span>📞</span>
                     <a href="tel:+6562864796">+65 6286 4796</a>
                 </div>
             </div>
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 Securevision Pte Ltd &middot; Police Licence <span class="sv-licence">L/PS/000267/2023P</span> &middot; bizSAFE Level 3 &middot; BCA Registered</p>
+            <p>&copy; <span class="sv-current-year">2026</span> Securevision Pte Ltd &middot; Police Licence <span class="sv-licence">L/PS/000267/2023P</span> &middot; bizSAFE Level 3 &middot; BCA Registered</p>
             <div class="footer-bottom-links">
                 <a href="sitemap.html">Sitemap</a>
                 <a href="privacy.html">Privacy Policy</a>
@@ -1015,8 +931,10 @@
     </div>
 </footer>
 
-
-
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+</a>
 
 <script>
 function toggleMobileMenu() {
@@ -1064,7 +982,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
 });
 
 // Current Year
-const yearSpan = document.querySelector('.current-year');
+const yearSpan = document.querySelector('.sv-current-year');
 if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 </script>
 </body>
