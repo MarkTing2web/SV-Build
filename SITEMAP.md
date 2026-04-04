@@ -1,7 +1,7 @@
 # SECUREVISION WEBSITE SITEMAP
 
-**Last Updated:** April 3, 2026 (18:30)  
-**Total Pages Built:** 80+ HTML pages  
+**Last Updated:** April 5, 2026 (00:15)  
+**Total Pages Built:** 85+ HTML pages  
 **Navigation Items:** 6 main menu items + search (Solutions, Systems, Brands, Portfolio, Insights, About, Search)
 
 ---
@@ -77,7 +77,7 @@ Menu Expanded (when ☰ tapped):
 │ Insights            │ ← Links to security-articles-singapore.html
 │ About               │ ← Links to about.html
 ├─────────────────────┤
-│ 💬 WhatsApp Us      │
+│ 💬 WhatsApp an Engineer │
 └─────────────────────┘
 
 Notes:
@@ -657,6 +657,8 @@ Taps WhatsApp button (sticky on mobile)
   - Body: Inter (400, 500)
 - **Logo:** securevision-logo-dark.svg
 - **Mobile Breakpoints:** 768px (tablet), 1024px (desktop)
+- **Design Version:** v1.6 (High-Impact Rollout)
+- **CTA Pattern:** Equal-width buttons, "WhatsApp an Engineer" primary conversion
 
 ### **Navigation Specifications:**
 - **Desktop:** Logo left, nav items center/right, 6 items
