@@ -382,7 +382,7 @@
                 <h4>Get In Touch</h4>
                 <div class="footer-contact-item">
                     <span>💬</span>
-                    <a href="https://wa.me/6593860466">WhatsApp Us</a>
+                    <a href="https://wa.me/6593860466">WhatsApp an Engineer</a>
                 </div>
                 <div class="footer-contact-item">
                     <span>✉️</span>
@@ -415,6 +415,103 @@
 
 
 <script>
+/**
+ * DYNAMIC INTENT HANDLING
+ * Parses 'intent' URL parameter and pre-fills form fields
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const intent = urlParams.get('intent');
+    
+    if (!intent) return;
+
+    const pageTitle = document.querySelector('.section-header h1');
+    const propertySelect = document.getElementById('prop_type');
+    
+    // Helper to check interest boxes
+    const checkInterests = (values) => {
+        values.forEach(val => {
+            const cb = document.querySelector(`input[name="interests"][value="${val}"]`);
+            if (cb) cb.checked = true;
+        });
+    };
+
+    // Intent Mapping Logic
+    switch(intent) {
+        case 'condo-assessment':
+            if (pageTitle) pageTitle.textContent = 'Estate Advisory Booking';
+            if (propertySelect) propertySelect.value = 'Condominium';
+            checkInterests(['CCTV', 'Access', 'Intercom']);
+            break;
+            
+        case 'residential-assessment':
+            if (pageTitle) pageTitle.textContent = 'Home Security Audit';
+            if (propertySelect) propertySelect.value = 'Private Home';
+            checkInterests(['CCTV', 'Alarms', 'Intercom']);
+            break;
+            
+        case 'commercial-assessment':
+            if (pageTitle) pageTitle.textContent = 'Business Security Assessment';
+            if (propertySelect) propertySelect.value = 'Commercial/Retail';
+            checkInterests(['CCTV', 'Access']);
+            break;
+            
+        case 'industrial-assessment':
+            if (pageTitle) pageTitle.textContent = 'Industrial Facility Audit';
+            if (propertySelect) propertySelect.value = 'Industrial';
+            checkInterests(['CCTV', 'Access', 'Autogate']);
+            break;
+            
+        case 'gov-assessment':
+            if (pageTitle) pageTitle.textContent = 'Institutional Safety Audit';
+            if (propertySelect) propertySelect.value = 'Institutions';
+            checkInterests(['CCTV', 'Access']);
+            break;
+
+        case 'healthcare-assessment':
+            if (pageTitle) pageTitle.textContent = 'Healthcare Facility Survey';
+            if (propertySelect) propertySelect.value = 'Institutions';
+            checkInterests(['CCTV', 'Access', 'Intercom']);
+            break;
+
+        case 'cctv-assessment':
+        case 'surveillance-assessment':
+        case 'thermal-assessment':
+        case 'ai-assessment':
+            if (pageTitle) pageTitle.textContent = 'Surveillance System Survey';
+            checkInterests(['CCTV']);
+            break;
+
+        case 'access-assessment':
+            if (pageTitle) pageTitle.textContent = 'Access Control Audit';
+            checkInterests(['Access']);
+            break;
+
+        case 'vehicle-assessment':
+            if (pageTitle) pageTitle.textContent = 'Vehicle Access Survey';
+            checkInterests(['Autogate']);
+            break;
+
+        case 'alarm-assessment':
+            if (pageTitle) pageTitle.textContent = 'Intrusion Alarm Survey';
+            checkInterests(['Alarms']);
+            break;
+            
+        case 'perimeter-assessment':
+            if (pageTitle) pageTitle.textContent = 'Perimeter Security Survey';
+            checkInterests(['CCTV', 'Alarms']);
+            break;
+            
+        case 'platform-assessment':
+            if (pageTitle) pageTitle.textContent = 'System Integration Preview';
+            checkInterests(['CCTV', 'Access']);
+            break;
+            
+        case 'homepage-assessment':
+            if (pageTitle) pageTitle.textContent = 'Site Assessment Request';
+            break;
+    }
+});
 function toggleMobileMenu() {
   const menu = document.getElementById('mobileMenu');
   if (menu) menu.classList.toggle('active');

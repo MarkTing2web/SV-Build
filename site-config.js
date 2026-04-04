@@ -34,5 +34,10 @@ const SECUREVISION = {
   },
   get siteDisplay() {
     return this.totalSites.toLocaleString() + '+ Sites';
-  }
+  },
+
+  // Strategic Endpoints
+  assessmentLink: 'request-site-assessment-singapore.html',
+  whatsappLink: 'https://wa.me/6593860466',
+  generalContactLink: 'contact.html'
 };
