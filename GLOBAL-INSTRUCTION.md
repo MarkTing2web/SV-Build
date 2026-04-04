@@ -435,7 +435,7 @@ nav {
 | **Brands** | Surveillance, Access Control, Intercom, Alarms, Gates & Barriers, **Technology Partners Hub** | Simple dropdown to `security-brands-singapore.html` |
 | **Portfolio** | (none) | Direct link to `portfolio.html` |
 | **Insights** | (none) | Direct link to `security-articles-singapore.html` |
-| **About** | Our Story, Awards & Certifications, Technology Partners, Resources Hub, Project Portfolio, Contact Us | Simple dropdown to `about.html` |
+| **About** | Our Story, Technology Partners, Resources Hub, Project Portfolio, Contact Us | Simple dropdown to `about.html` |
 
 ### Mobile Menu
 ```css
@@ -788,7 +788,7 @@ About          → about.html
 
 **Resources:** Technical Guides · Planning Tools · Product Library · Training Videos · Search & FAQ · `resources.html`
 
-**Company:** Our Story · Awards & Certs · Technology Partners · Project Portfolio · Insights · `security-brands-singapore.html`
+**Company:** Our Story · Technology Partners · Project Portfolio · Insights · `security-brands-singapore.html`
 
 **Contact:** WhatsApp Us · Email Us · +65 6286 4796 · Global Location Hub
 
