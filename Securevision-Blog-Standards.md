@@ -1,5 +1,5 @@
 # Securevision Insights: Article Build Standards
-**Version 1.6 — April 2026** (Personnel & Brand Refinement)
+**Version 1.7 — April 2026** (Personnel & Global Style Refinement)
 
 ---
 
@@ -11,28 +11,33 @@
 
 ---
 
-## 2. Mandatory Local Standards (UNCHANGEABLE)
-1. **Breadcrumbs**: (MANDATORY) Below the nav bar.
-2. **Hero Byline**: Exactly 2 lines (Name vs. Role/Metadata).
-3. **Sidebar (Sticky)**:
-   - **TOC**: With active scroll-spy.
-   - **Founder Card**: Mandatory card with 40px circle photo, name/title, and "Need expert advice?" text leading to a WhatsApp CTA. This must be present in EVERY article.
-4. **Author Bio (BOTTOM)**: 
-   - The **FULL, long-form bio** (150-200 words) describing Wee Meng's 35-year engineering experience, NUS/UoL degrees, and the building of over 1,000 sites in Singapore. 
-   - DO NOT shorten or paraphrase this section.
-5. **Tags**: Mandatory tag pills directly after the Full Bio.
-6. **Related Insights**: Centered 3-card grid using `.nav-card`.
-7. **Final CTA**: Full-width section with article-specific imagery (following Personnel Standards above).
+## 2. Global Style Components (sv-shared.css)
+The following components are standardized in the global stylesheet. Do not use local `<style>` overrides for these:
 
----
-- **Hero Section**: Cinematic, context-relevant security image with a dark gradient overlay.
-- **Layout**: `layout-with-sidebar` grid (1fr 280px).
-- **Footer**: Standard `site-footer` from `sv-shared.css`.
+1.  **Layout**: Use `<div class="layout-with-sidebar">` for the main content grid (1fr 280px).
+2.  **Hero Byline**: Exactly 2 lines inside `.hero-byline-text` (`<strong>` name and `<span>` role/metadata).
+3.  **Breadcrumbs**: Mandatory `.sv-breadcrumb` below the nav bar.
+4.  **Sticky Sidebar**: Includes `.sticky-toc` (with scroll-spy) and the `.founder-card`.
+5.  **Author Bio (Bottom)**: Use `.author-bio-footer` for the full 150–200 word biography.
+6.  **Tags**: Positioned directly after the Author Bio using `.article-tags` and `.tag-pill`.
+7.  **Callout Boxes**: Use `.callout-box` for "Key Points" or "Planning Points".
+8.  **Verdict Boxes**: Use `.verdict-box` for the "Securevision Verdict" or "Securevision View".
+9.  **Image Scaling**: Wrap images in `.article-image-box` with an optional `.image-caption`.
+10. **Related Insights**: Centered 3-card grid using `.related-grid` and `.nav-card`.
 
 ---
 
-## 2. Image Standards
-Images must be professional, high-fidelity, and reflect the Singapore security landscape.
+## 3. Formatting & Structure (Prose)
+- **Eyebrows**: Every major section should begin with an eyebrow span: `<span class="eyebrow">Category</span>`.
+- **Section Headings**: Use `<h2>` for main sections and `<h3>` for subsections.
+- **Anchor Navigation**: 
+    - Wrap sections in `<section id="section1">`.
+    - TOC links must match: `<a href="#section1">`.
+- **Spacing**: Maintain 80px vertical padding on the `.article-body`.
+
+---
+
+## 4. Image Dimensions & Naming
 
 | Type | Dimensions | Naming Convention | Use Case |
 | :--- | :--- | :--- | :--- |
@@ -44,7 +49,7 @@ Images must be professional, high-fidelity, and reflect the Singapore security l
 
 ---
 
-## 3. Sidebar Requirements (Sticky)
+## 5. Sidebar Requirements (Sticky)
 The sidebar must remain sticky on desktop and include:
 1. **Sticky TOC**: Table of contents with active scroll-spy highlighting.
 2. **Author Row Card**: 
@@ -57,14 +62,7 @@ The sidebar must remain sticky on desktop and include:
 
 ---
 
-## 4. Prose & Visual Components
-- **Callout Boxes**: `class="callout-box"`. Blue theme for "Key Points" or "Design Rules".
-- **Verdict Boxes**: `class="verdict-box"`. Orange theme for "Securevision Verdict".
-- **Section Headings**: Numbered (1. Title, 2. Title). Anchor IDs: `section1`, `section2`.
-
----
-
-## 5. Article Footer & Navigation
+## 6. Article Footer & Navigation
 1. **Author Bio (Full)**: Positioned at the very end of the article prose.
    - 120px photo, full details of NUS BEng, UoL LLB, and 35+ years experience.
    - Must mention VESTA platform and 1,000+ site track record.
@@ -76,22 +74,22 @@ The sidebar must remain sticky on desktop and include:
    - Cards: 3 cards showing other relevant articles.
    - Layout: 3-column grid using `.nav-card`.
 5. **Final CTA**: High-impact section positioned **directly above the footer**.
-   - Background image MUST correspond to the article's theme (e.g., an audit image for a tips article).
+   - Background image MUST correspond to the article's theme.
 
 ---
 
-## Tracking Table: Insights Article Pipeline
+## 7. Tracking Table: Insights Article Pipeline
 
 | Article Slug | Status | Build Date | Visuals Loaded |
 | :--- | :--- | :--- | :--- |
 | `insights-how-to-choose-cctv` | LIVE | March 2025 | 100% |
 | `insights-burglar-alarm-design` | LIVE | March 2025 | 100% |
 | `insights-10-tips-securing-your-premises` | LIVE | April 2025 | 100% |
-
+| `insights-ai-analytics-hikvision` | LIVE | April 2026 | 100% |
 
 ---
 
-## 10. Technical Imagery Library (Article-Specific)
+## 8. Technical Imagery Library (Article-Specific)
 
 ### Multi-Door Access Control Guide
 - **Hero**: `images/multi-door-access-cover.jpg` (1200x480). Modern Singapore commercial lobby, glass doors, card readers. Sharp, architectural.
@@ -102,10 +100,6 @@ The sidebar must remain sticky on desktop and include:
 - **Hero**: `images/auto-gate-motor-cover.jpg` (1200x480). Motorised auto gate at a Singapore landed home at dusk. Gate closing or closed. Motor arm or track visible. Clean residential setting. No people.
 - **In-Article 1**: `images/auto-gate-concealed-motor.jpg` (800x500). Concealed recessed swing gate motor housing set into the ground near the gate hinge. Singapore residential setting.
 - **In-Article 2**: `images/auto-gate-swing-arm-motor.jpg` (800x500). FAAC swing arm motor mounted on a gate pillar, arm extended to the gate leaf. Clean installation.
-
-### WiFi Remote Gate Control Guide
-- **Hero**: `images/wifi-auto-gate-cover.jpg` (1200x480). Smartphone screen showing a gate control app (Tuya style) with open/close button visible. Gate or driveway blurred in background.
-- **In-Article**: `images/wifi-gate-yet402-receiver.jpg` (800x500). YET402 WiFi 2-channel receiver module, small white unit, shown in hand or mounted inside a gate motor control panel.
 
 ---
 *Securevision Pte Ltd · Police Licence L/PS/000267/2023P*
