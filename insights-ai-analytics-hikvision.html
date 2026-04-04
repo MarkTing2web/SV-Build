@@ -14,8 +14,8 @@
     
     <style>
         .article-body { padding: 80px 0; background: #fff; }
-        .prose h2 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 700; color: #1e293b; margin: 60px 0 24px; scroll-margin-top: 100px; }
-        .prose h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; color: #334155; margin: 32px 0 16px; }
+        .prose h2 { margin: 60px 0 24px; scroll-margin-top: 100px; }
+        .prose h3 { margin: 32px 0 16px; }
         .prose p { font-family: 'Inter', sans-serif; margin-bottom: 24px; line-height: 1.8; color: #475569; }
         .prose ul, .prose ol { margin-bottom: 24px; padding-left: 20px; }
         .prose li { font-family: 'Inter', sans-serif; margin-bottom: 12px; line-height: 1.6; color: #475569; }
@@ -162,6 +162,7 @@
             <main class="prose">
                 
                 <section id="section1">
+                    <span class="eyebrow">Definitions</span>
                     <h2>What AI Analytics Actually Means in a CCTV Context</h2>
                     <p>The term AI analytics has become one of the most overloaded phrases in the security industry. Used loosely, it covers everything from basic motion detection to deep-learning facial recognition running on dedicated GPU hardware. For a property owner asking whether they can add it to an existing system, the relevant question is more specific: which class of analytics, and at which layer of the system does it run?</p>
                     <p>For the purposes of this article, we define AI analytics as computer-vision functions that go beyond simple pixel-change motion detection. This includes perimeter intrusion detection with object classification (human vs. vehicle vs. animal), loitering detection, people counting, line-crossing alerts, and face detection — not to be confused with facial recognition, which carries its own legal and infrastructure requirements.</p>
@@ -172,6 +173,7 @@
                 </section>
 
                 <section id="section2">
+                    <span class="eyebrow">Product Tiering</span>
                     <h2>The Hikvision Ecosystem: Where Analytics Live</h2>
                     <p>Hikvision operates a tiered product architecture. At the base level are standard IP cameras with no onboard processing beyond compression. In the mid-tier are cameras with embedded DSP chips capable of running limited analytics — typically line crossing and intrusion detection. At the top are Hikvision's AcuSense and DeepinMind series, which use dedicated neural processing units for deep-learning classification.</p>
                     <p>The critical point for retrofit planning is that analytics capability is hardware-bound. A standard DS-2CD2143G0-I camera from 2019 cannot be upgraded via firmware to run AcuSense-class analytics. The DSP is not capable of it. Firmware updates improve stability and add minor features — they do not unlock processing classes the chip was not designed for.</p>
@@ -179,6 +181,7 @@
                 </section>
 
                 <section id="section3">
+                    <span class="eyebrow">Edge Computing</span>
                     <h2>Camera-Level AI: What Your Existing Hardware Can Do</h2>
                     <div class="article-image-box">
                         <img src="images/insight-ai-analytics-hikvision-camera.jpg" alt="Hikvision IP cameras comparison">
@@ -190,6 +193,7 @@
                 </section>
 
                 <section id="section4">
+                    <span class="eyebrow">Recording Layer</span>
                     <h2>NVR-Level AI: Offloading Analytics to the Recorder</h2>
                     <p>Hikvision's AcuSense NVRs — models such as the DS-7608NXI-I2/S — include a dedicated AI processing chip that can run deep-learning analytics on connected camera streams, regardless of whether the cameras themselves are AcuSense-capable. This is the most cost-effective retrofit path for sites with functioning standard IP cameras in good condition.</p>
                     <p>The NVR pulls the video stream and performs the classification processing centrally. The trade-off is processing channel limits. A mid-range AcuSense NVR may process four to eight channels with full AI analytics — meaning that on a sixteen-camera site, you may need to select which cameras receive AI-level alerting and which revert to standard motion detection.</p>
@@ -197,6 +201,7 @@
                 </section>
 
                 <section id="section5">
+                    <span class="eyebrow">Secondary Hardware</span>
                     <h2>Edge AI Box: The Retrofit Appliance Option</h2>
                     <div class="article-image-box">
                         <img src="images/insight-ai-analytics-hikvision-edgebox.jpg" alt="Securevision technician with edge AI appliance">
@@ -208,6 +213,7 @@
                 </section>
 
                 <section id="section6">
+                    <span class="eyebrow">Technical Limits</span>
                     <h2>What Cannot Be Retrofitted</h2>
                     <p>Clarity is important here. The following capabilities cannot be added to an existing standard Hikvision system through any retrofit path without full camera replacement:</p>
                     <ul>
@@ -222,6 +228,7 @@
                 </section>
 
                 <section id="section7">
+                    <span class="eyebrow">Case Studies</span>
                     <h2>Practical Retrofit Scenarios for Singapore Sites</h2>
                     <ul>
                         <li><strong>Scenario A — HDB Commercial Unit, 4 cameras, Hikvision DVR (2018):</strong> The cameras are analogue HD-TVI. No IP analytics are possible at the camera level. Recommend replacing the DVR with an AcuSense NVR and converting cameras to IP, or adding a hybrid NVR with AI processing channels. Phased replacement of cameras over twelve months achieves full AcuSense coverage at manageable cost.</li>
@@ -231,6 +238,7 @@
                 </section>
 
                 <section id="section8">
+                    <span class="eyebrow">Conclusion</span>
                     <h2>Securevision Verdict</h2>
                     <div class="verdict-box">
                         <p>Yes — AI analytics can be added to most existing Hikvision systems, but the method depends entirely on your camera model numbers and NVR generation. The worst approach is to assume a firmware update will unlock capabilities that the hardware was never designed for. The best approach is a thirty-minute engineering review of your existing equipment list. In most Singapore commercial sites we assess, partial AI coverage is achievable within existing infrastructure at a fraction of full replacement cost.</p>
@@ -309,7 +317,8 @@
 <!-- RELATED ARTICLES -->
 <section class="related-articles-sec" style="padding: 80px 0; background: #fff; border-top: 1px solid #e2e8f0;">
     <div class="container">
-        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 40px; text-align: center; color: #1e293b; font-weight: 700;">Related Security Insights</h2>
+        <span class="eyebrow">Recommended Reading</span>
+        <h2>Related Security Insights</h2>
         <div class="related-grid">
             <a href="insights-how-ip-cctv-works.html" class="nav-card">
                 <span>Technology</span>
@@ -330,7 +339,8 @@
 <!-- FINAL CTA -->
 <section class="cta-sec-final" style="padding: 120px 0; background: linear-gradient(rgba(14,26,43,0.85), rgba(14,26,43,0.85)), url('images/insight-ai-analytics-hikvision-cover.jpg'); background-size: cover; background-position: center; color: #fff; text-align: center;">
     <div class="container">
-        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 3rem; margin-bottom: 25px;">Find Out What Your Existing Hikvision System Can Do</h2>
+        <span class="eyebrow-light">Get Started</span>
+        <h2>Find Out What Your Existing Hikvision System Can Do</h2>
         <p style="font-family: 'Inter', sans-serif; font-size: 1.25rem; color: #cbd5e1; max-width: 800px; margin: 0 auto 50px; line-height: 1.8;">Send us your camera and NVR model numbers and our engineering team will tell you exactly which AI analytics your system can support — and what a retrofit would involve.</p>
         <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
             <a href="https://wa.me/6593860466" class="btn" style="background: var(--p-acc); color: #fff; padding: 18px 45px; border-radius: 12px; font-weight: 700; text-decoration: none; border: none; font-size: 1.1rem;">📅 Get an AI Analytics Assessment</a>
