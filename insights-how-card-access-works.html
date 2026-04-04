@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,12 +12,29 @@
     <link rel="stylesheet" href="sv-shared.css">
     <script src="site-config.js"></script>
     
-        <style>
+    <style>
+        .article-body { padding: 80px 0; background: #fff; }
+        .prose h2 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 700; color: #1e293b; margin: 60px 0 24px; scroll-margin-top: 100px; }
+        .prose h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; color: #334155; margin: 32px 0 16px; }
+        .prose p { font-family: 'Inter', sans-serif; margin-bottom: 24px; line-height: 1.8; color: #475569; }
+        .prose ul, .prose ol { margin-bottom: 24px; padding-left: 20px; }
+        .prose li { font-family: 'Inter', sans-serif; margin-bottom: 12px; line-height: 1.6; color: #475569; }
+
+        .callout-box { background: #eff6ff; border-left: 4px solid var(--primary-blue); padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .callout-box strong { display: block; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+        .callout-box p { margin-bottom: 0; }
+
+        .verdict-box { background: #fff7ed; border-left: 4px solid #ea580c; padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .verdict-box p { margin-bottom: 0; color: #9a3412; font-weight: 500; }
+
         .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.95rem; }
         .compare-table th { background: #f1f5f9; text-align: left; padding: 16px; font-weight: 700; color: #334155; border-bottom: 2px solid #e2e8f0; }
         .compare-table td { padding: 16px; border-bottom: 1px solid #f1f5f9; color: #475569; }
-        @media (max-width: 992px) {
-        .prev-next-nav { grid-template-columns: 1fr; }
+
+        @media (max-width: 992px) { 
+            .article-body { padding: 40px 0; }
+            .prose h2 { font-size: 1.8rem; }
+            .prev-next-nav { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -26,7 +43,7 @@
 <nav class="main-nav">
 <div class="nav-container">
   <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
-    <picture><source srcset="images/securevision-logo-white.webp" type="image/webp"><img width="500" height="500" src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img"></picture>
+    <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
     <span class="wordmark nav-wordmark">SECUREVISION</span>
   </a>
   <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
@@ -119,7 +136,7 @@
             <p class="intro" style="font-family: 'Inter', sans-serif; font-size: 1.15rem; opacity: 0.95; line-height: 1.8; color: #e2e8f0;">Most people swipe their access card without thinking about what happens in the half-second between the swipe and the click. Understanding the mechanics helps you specify a system that actually does what you need.</p>
             
             <div class="hero-byline">
-                <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng"></picture>
+                <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
                 <div class="hero-byline-text">
                     <strong>Ler Wee Meng</strong>
                     <span>Founder & CEO · 37+ Years Experience</span>
@@ -149,26 +166,26 @@
                 <section id="section1">
                     <h2>1. The components that make up a door access system</h2>
                     <p>A card access system has four physical components working together. Understanding each one is what lets you ask the right questions when you are specifying or reviewing a system.</p>
-                    <p><strong>The card or credential.</strong> The most common type in Singapore commercial premises is a 13.56 MHz MIFARE card &mdash; the white or branded proximity card most office workers carry. The card contains a unique ID that it broadcasts when brought close to a reader. The card itself does not store access permissions &mdash; it only stores an ID number. The decision about whether that ID is allowed through the door is made elsewhere.</p>
+                    <p><strong>The card or credential.</strong> The most common type in Singapore commercial premises is a 13.56 MHz MIFARE card — the white or branded proximity card most office workers carry. The card contains a unique ID that it broadcasts when brought close to a reader. The card itself does not store access permissions — it only stores an ID number. The decision about whether that ID is allowed through the door is made elsewhere.</p>
                     <p><strong>The reader.</strong> The device mounted on the wall beside the door. It reads the card's ID and passes it to the controller. Readers vary in read range (typically 3 to 10cm), in what they can read (card only, biometrics), and in how they communicate (Wiegand vs OSDP).</p>
                     <p><strong>The controller.</strong> The brain of the system. It receives the card ID from the reader, looks it up against an access database, checks time restrictions, and sends a signal to the lock. The controller is typically installed in a secured location like a server room or electrical riser.</p>
                     <p><strong>The lock.</strong> The physical mechanism that secures the door. Common types in Singapore include electromagnetic locks (EM locks), which release when power is cut, and electric strikes. The choice between fail-secure and fail-safe is critical.</p>
                     
                     <div class="callout-box">
                         <strong>KEY POINT</strong>
-                        <p>The card does not grant access. The controller grants access based on the card ID. This distinction matters when diagnosing problems &mdash; a card that stops working is usually a database or permission issue, not a card hardware failure.</p>
+                        <p>The card does not grant access. The controller grants access based on the card ID. This distinction matters when diagnosing problems — a card that stops working is usually a database or permission issue, not a card hardware failure.</p>
                     </div>
                 </section>
 
                 <section id="section2">
                     <h2>2. The Wiegand protocol and why it matters</h2>
                     <p>Most card access readers in Singapore still use Wiegand to communicate with controllers. Wiegand is a simple, reliable, decades-old protocol that sends the card ID as a stream of pulses down a cable. Its main limitation is that it transmits data unencrypted and in one direction only.</p>
-                    <p>This creates two practical issues. First, the card ID can be intercepted and cloned by someone with the right equipment. Second, Wiegand gives the controller no way to confirm the reader is legitimate. OSDP (Open Supervised Device Protocol) is the modern replacement&mdash;it is encrypted, bidirectional, and allows the controller to supervise the reader.</p>
+                    <p>This creates two practical issues. First, the card ID can be intercepted and cloned by someone with the right equipment. Second, Wiegand gives the controller no way to confirm the reader is legitimate. OSDP (Open Supervised Device Protocol) is the modern replacement—it is encrypted, bidirectional, and allows the controller to supervise the reader.</p>
                     <p>For most Singapore office premises, Wiegand remains the practical standard, but for government or data centres, OSDP is essential.</p>
                 </section>
 
                 <section id="section3">
-                    <h2>3. Fail-safe vs fail-secure &mdash; the decision that matters most</h2>
+                    <h2>3. Fail-safe vs fail-secure — the decision that matters most</h2>
                     <p>This is the most important design decision in a door access system and the one most often made without proper consideration.</p>
                     <p><strong>Fail-safe</strong> means the lock releases when power is cut. The door opens. This is required by fire safety regulations for emergency exit doors. EM locks are inherently fail-safe.</p>
                     <p><strong>Fail-secure</strong> means the lock remains locked when power is cut. The door stays closed. This is appropriate for server rooms or high-security areas where preserving the perimeter is the priority.</p>
@@ -185,13 +202,13 @@
                     <p>For any installation of more than five doors, a networked system is the correct specification. The additional cost is recovered immediately in administration time.</p>
 
                     <div style="margin: 40px 0;">
-                        <picture><source srcset="images/card-access-controller-panel.webp" type="image/webp"><img width="1024" height="1024" loading="lazy" src="images/card-access-controller-panel.png" alt="Access control controller panel in a neatly managed electrical riser" style="border-radius: 12px; width: 100%;"></picture>
-                        <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic; margin-top: 10px; text-align: center;">A well-organized access control panel &mdash; the backbone of any networked system.</p>
+                        <img src="images/card-access-controller-panel.png" alt="Access control controller panel in a neatly managed electrical riser" style="border-radius: 12px; width: 100%;">
+                        <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic; margin-top: 10px; text-align: center;">A well-organized access control panel — the backbone of any networked system.</p>
                     </div>
                 </section>
 
                 <section id="section5">
-                    <h2>5. Biometrics &mdash; when to add them and when not to</h2>
+                    <h2>5. Biometrics — when to add them and when not to</h2>
                     <p>Fingerprint readers and facial recognition solve a specific problem: cards can be shared or borrowed, biometrics cannot. If your concern is unauthorised credential sharing, biometrics are the answer.</p>
                     <ul>
                         <li><strong>Fingerprint.</strong> Reliable but has hygiene concerns for some. Theoretical 1-3% failure rate for certain populations.</li>
@@ -199,7 +216,7 @@
                     </ul>
                     
                     <div class="verdict-box">
-                        <p>Do not add biometrics because they look modern. Add them if you have identified a specific problem &mdash; shared cards or high-security zones &mdash; that biometrics solve better than alternatives. Card plus PIN remains the best balance for most offices.</p>
+                        <p>Do not add biometrics because they look modern. Add them if you have identified a specific problem — shared cards or high-security zones — that biometrics solve better than alternatives. Card plus PIN remains the best balance for most offices.</p>
                     </div>
                 </section>
 
@@ -223,7 +240,7 @@
 
                 <section id="author" class="author-bio-footer">
                     <div class="abf-flex">
-                        <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img"></picture>
+                        <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
                         <div class="abf-content">
                             <h3>About the Author</h3>
                             <p>Ler Wee Meng is the Founder and CEO of Securevision. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London. With over 37 years of experience in the security industry, he has personally overseen the design and implementation of security systems for more than 1,000 sites across Singapore, ranging from Good Class Bungalows (GCBs) and large-scale condominiums to industrial complexes and institutional facilities.</p>
@@ -269,7 +286,7 @@
 
                     <div class="founder-card" style="margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 30px; background: transparent; border-radius: 0; box-shadow: none;">
                         <div class="fc-head">
-                            <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng"></picture>
+                            <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
                             <div>
                                 <strong>Ler Wee Meng</strong>
                                 <span>Founder & CEO · Securevision</span>
@@ -322,10 +339,10 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="f-logo-wrap">
-                    <picture><source srcset="images/securevision-logo-white.webp" type="image/webp"><img width="500" height="500" src="images/securevision-logo-white.png" alt="Securevision Logo"></picture>
+                    <img src="images/securevision-logo-white.png" alt="Securevision Logo">
                     <span class="brand-name">Securevision</span>
                 </div>
-                <p>Your partner in building smart, secure, and connected communities &mdash; powered by intelligent security systems since <span class="sv-founded-year">2006</span>.</p>
+                <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since <span class="sv-founded-year">2006</span>.</p>
                 <div class="f-socials">
                     <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -388,15 +405,15 @@
             <div class="footer-contact">
                 <h4>Get In Touch</h4>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'/></svg>
+                    <span>💬</span>
                     <a href="https://wa.me/6593860466">WhatsApp an Engineer</a>
                 </div>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/><polyline points='22,6 12,13 2,6'/></svg>
+                    <span>✉️</span>
                     <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
                 </div>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.11-2.11a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/></svg>
+                    <span>📞</span>
                     <a href="tel:+6562864796">+65 6286 4796</a>
                 </div>
             </div>
@@ -477,7 +494,5 @@ window.addEventListener('scroll', () => {
 </script>
 </body>
 </html>
-
-
 
 

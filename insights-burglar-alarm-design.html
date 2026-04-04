@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,9 +12,25 @@
     <link rel="stylesheet" href="sv-shared.css">
     <script src="site-config.js"></script>
     
-        <style>
-        @media (max-width: 992px) {
-        .prev-next-nav { grid-template-columns: 1fr; }
+    <style>
+        .article-body { padding: 80px 0; background: #fff; }
+        .prose h2 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 700; color: #1e293b; margin: 60px 0 24px; scroll-margin-top: 100px; }
+        .prose h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; color: #334155; margin: 32px 0 16px; }
+        .prose p { font-family: 'Inter', sans-serif; margin-bottom: 24px; line-height: 1.8; color: #475569; }
+        .prose ul, .prose ol { margin-bottom: 24px; padding-left: 20px; }
+        .prose li { font-family: 'Inter', sans-serif; margin-bottom: 12px; line-height: 1.6; color: #475569; }
+
+        .callout-box { background: #eff6ff; border-left: 4px solid var(--primary-blue); padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .callout-box strong { display: block; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+        .callout-box p { margin-bottom: 0; }
+
+        .verdict-box { background: #fff7ed; border-left: 4px solid #ea580c; padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .verdict-box p { margin-bottom: 0; color: #9a3412; font-weight: 500; }
+
+        @media (max-width: 992px) { 
+            .article-body { padding: 40px 0; }
+            .prose h2 { font-size: 1.8rem; }
+            .prev-next-nav { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -22,12 +38,12 @@
 
 <nav class="main-nav">
 <div class="nav-container">
-  <!-- Logo + Wordmark &mdash; always left -->
+  <!-- Logo + Wordmark — always left -->
   <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
-    <picture><source srcset="images/securevision-logo-white.webp" type="image/webp"><img width="500" height="500" src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img"></picture>
+    <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
     <span class="wordmark nav-wordmark">SECUREVISION</span>
   </a>
-  <!-- Hamburger &mdash; centred absolutely on mobile (via CSS) -->
+  <!-- Hamburger — centred absolutely on mobile (via CSS) -->
   <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
   <!-- Desktop nav links -->
   <ul class="nav-menu">
@@ -85,7 +101,7 @@
   <div class="nav-right">
     <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
   </div>
-  <!-- Mobile search icon &mdash; always right end on mobile -->
+  <!-- Mobile search icon — always right end on mobile -->
   <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
 </div>
 <div class="mobile-menu" id="mobileMenu">
@@ -120,7 +136,7 @@
             <p class="intro" style="font-family: 'Inter', sans-serif; font-size: 1.15rem; opacity: 0.95; line-height: 1.8; color: #e2e8f0;">Most alarm systems are zoned wrong from day one. Here is how we think about scope, zones, and response priorities before a single detector goes on the wall.</p>
             
             <div class="hero-byline">
-                <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng"></picture>
+                <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
                 <div class="hero-byline-text">
                     <strong>Ler Wee Meng</strong>
                     <span>Founder & CEO · 37+ Years Experience</span>
@@ -150,7 +166,7 @@
                 
                 <section id="section1">
                     <h2>1. Why system design matters before any equipment decision</h2>
-                    <p>Burglars are three times more likely to target a property without an alarm. That statistic is well known. What is less understood is that a poorly designed alarm system can be almost as useless as none at all &mdash; if zones are wrong, detectors are in the wrong positions, or the response priorities are misconfigured, the system generates false alarms, gets ignored, or misses the actual breach.</p>
+                    <p>Burglars are three times more likely to target a property without an alarm. That statistic is well known. What is less understood is that a poorly designed alarm system can be almost as useless as none at all — if zones are wrong, detectors are in the wrong positions, or the response priorities are misconfigured, the system generates false alarms, gets ignored, or misses the actual breach.</p>
                     <p>The design stage is where the real work happens. Equipment is secondary. Before we specify a single panel or detector, we do a threat and vulnerability assessment of the site. We look at how the property is used, who is in it and when, what the realistic intrusion scenarios are, and what level of disruption a false alarm causes the occupants.</p>
                     <p>Only after that do we start drawing zones.</p>
                     
@@ -161,9 +177,9 @@
                 </section>
 
                 <section id="section2">
-                    <h2>2. Scope of protection &mdash; how far do you go?</h2>
+                    <h2>2. Scope of protection — how far do you go?</h2>
                     <p>The first question is always: how much of the property do you protect, and to what depth?</p>
-                    <p>For most homes, the answer is a layered approach. The outermost layer is the perimeter &mdash; doors, windows, and any ground-floor entry points. The inner layer is the interior &mdash; motion detection in the living spaces. Not every window and door needs a detector. What matters is covering every realistic entry route.</p>
+                    <p>For most homes, the answer is a layered approach. The outermost layer is the perimeter — doors, windows, and any ground-floor entry points. The inner layer is the interior — motion detection in the living spaces. Not every window and door needs a detector. What matters is covering every realistic entry route.</p>
                     <p>For a typical Singapore landed home, a common scope looks like this:</p>
                     <ul>
                         <li>All ground-floor doors including the main gate entry if there is a direct connection</li>
@@ -171,8 +187,8 @@
                         <li>Interior motion sensors covering the living room, dining area, and staircase landing</li>
                         <li>A panic button in the master bedroom</li>
                     </ul>
-                    <p>For apartments and condominiums, the scope is narrower because the perimeter is smaller &mdash; typically the front door, any accessible windows, and interior motion.</p>
-                    <p>For commercial premises, the scope expands significantly. You are covering not just entry points but internal zones around high-value areas: server rooms, cash handling areas, storage. The system also needs to account for staff access patterns &mdash; who is legitimately in the building at what hours.</p>
+                    <p>For apartments and condominiums, the scope is narrower because the perimeter is smaller — typically the front door, any accessible windows, and interior motion.</p>
+                    <p>For commercial premises, the scope expands significantly. You are covering not just entry points but internal zones around high-value areas: server rooms, cash handling areas, storage. The system also needs to account for staff access patterns — who is legitimately in the building at what hours.</p>
                     
                     <div class="callout-box">
                         <strong>PLANNING POINT</strong>
@@ -181,44 +197,44 @@
                 </section>
 
                 <section id="section3">
-                    <h2>3. Alarm zones &mdash; the building blocks of the system</h2>
-                    <p>A zone is a discrete segment of the alarm system. Each detector or group of detectors in a defined area forms a zone. When a detector in that zone is triggered, the panel identifies exactly which zone was breached &mdash; which tells the monitoring centre and the police where to look.</p>
+                    <h2>3. Alarm zones — the building blocks of the system</h2>
+                    <p>A zone is a discrete segment of the alarm system. Each detector or group of detectors in a defined area forms a zone. When a detector in that zone is triggered, the panel identifies exactly which zone was breached — which tells the monitoring centre and the police where to look.</p>
                     <p>We number zones from the outside in, front to back. Front door is Zone 1. Living room is Zone 2. And so on. The numbering should be intuitive enough that a police officer unfamiliar with the property can orient themselves from the zone report alone.</p>
                     
                     <h3>Zone types</h3>
                     <p>There are three zone types and each behaves differently:</p>
                     <ul>
-                        <li><strong>Perimeter zones</strong> cover all the ways an intruder can enter &mdash; doors, windows, perimeter walls. Any breach triggers the alarm regardless of whether the system is on full arm or partial arm.</li>
-                        <li><strong>Interior zones</strong> cover areas inside the property using motion sensors. Living rooms, corridors, staircases. These zones are only active when the system is on full arm &mdash; meaning everyone has left. If you arm the system with people still inside, interior zones are bypassed so occupants can move around without triggering the alarm.</li>
+                        <li><strong>Perimeter zones</strong> cover all the ways an intruder can enter — doors, windows, perimeter walls. Any breach triggers the alarm regardless of whether the system is on full arm or partial arm.</li>
+                        <li><strong>Interior zones</strong> cover areas inside the property using motion sensors. Living rooms, corridors, staircases. These zones are only active when the system is on full arm — meaning everyone has left. If you arm the system with people still inside, interior zones are bypassed so occupants can move around without triggering the alarm.</li>
                         <li><strong>Emergency zones</strong> cover panic buttons and fire detectors. These trigger the alarm whether the system is armed or not. They cannot be bypassed.</li>
                     </ul>
                     
                     <div class="callout-box">
                         <strong>KEY POINT</strong>
-                        <p>Interior zones being bypassed on partial arm is not a weakness &mdash; it is the correct design. If a family is home at night and arms the perimeter only, they are protected against entry without trapping themselves inside an armed space.</p>
+                        <p>Interior zones being bypassed on partial arm is not a weakness — it is the correct design. If a family is home at night and arms the perimeter only, they are protected against entry without trapping themselves inside an armed space.</p>
                     </div>
                 </section>
 
                 <section id="section4">
-                    <h2>4. Detector selection &mdash; matching the detector to the zone</h2>
+                    <h2>4. Detector selection — matching the detector to the zone</h2>
                     <p>Different zones need different detectors. Using the wrong detector type is one of the most common causes of persistent false alarms.</p>
                     
                     <h3>Passive Infrared (PIR)</h3>
-                    <p>The most common interior detector. Detects changes in heat signature as a person moves through its field of view. Effective range is typically 10 to 12 metres at 90 degrees. PIR detectors are not suitable for spaces with large temperature fluctuations &mdash; direct sunlight through a window, air-conditioning vents blowing directly at the unit, or pets moving through the zone.</p>
+                    <p>The most common interior detector. Detects changes in heat signature as a person moves through its field of view. Effective range is typically 10 to 12 metres at 90 degrees. PIR detectors are not suitable for spaces with large temperature fluctuations — direct sunlight through a window, air-conditioning vents blowing directly at the unit, or pets moving through the zone.</p>
                     
                     <div style="margin: 40px 0;">
-                        <picture><source srcset="images/burglar-alarm-pir-detector.webp" type="image/webp"><img width="1024" height="1024" loading="lazy" src="images/burglar-alarm-pir-detector.jpg" alt="PIR motion detector mounted in a corner of a room" style="border-radius: 12px; width: 100%;"></picture>
+                        <img src="images/burglar-alarm-pir-detector.jpg" alt="PIR motion detector mounted in a corner of a room" style="border-radius: 12px; width: 100%;">
                         <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic; margin-top: 10px; text-align: center;">Typical PIR installation for interior motion detection.</p>
                     </div>
 
                     <h3>Dual-technology detectors</h3>
-                    <p>Combine PIR with microwave detection. Both technologies must trigger simultaneously for the alarm to activate. Significantly reduces false alarms in environments where PIR alone is unreliable &mdash; kitchens, spaces with direct sun exposure, or anywhere with temperature variation. Cost more than standard PIR but the reduction in false alarms is worth it in the right environment.</p>
+                    <p>Combine PIR with microwave detection. Both technologies must trigger simultaneously for the alarm to activate. Significantly reduces false alarms in environments where PIR alone is unreliable — kitchens, spaces with direct sun exposure, or anywhere with temperature variation. Cost more than standard PIR but the reduction in false alarms is worth it in the right environment.</p>
                     
                     <h3>Magnetic door and window contacts</h3>
-                    <p>The simplest and most reliable detector type. A magnet on the door or window frame, a reed switch on the fixed frame. When they separate &mdash; door opens &mdash; the zone triggers. No technology to go wrong, no calibration needed. We use these on every door and accessible window in the perimeter zone.</p>
+                    <p>The simplest and most reliable detector type. A magnet on the door or window frame, a reed switch on the fixed frame. When they separate — door opens — the zone triggers. No technology to go wrong, no calibration needed. We use these on every door and accessible window in the perimeter zone.</p>
                     
                     <h3>Glass break detectors</h3>
-                    <p>Acoustic detectors tuned to the frequency of breaking glass. Useful for large glazed areas &mdash; shopfronts, floor-to-ceiling windows &mdash; where running a contact on every panel is impractical. Require careful positioning: too far from the glass and they miss the event, too close to hard surfaces and they pick up other impacts.</p>
+                    <p>Acoustic detectors tuned to the frequency of breaking glass. Useful for large glazed areas — shopfronts, floor-to-ceiling windows — where running a contact on every panel is impractical. Require careful positioning: too far from the glass and they miss the event, too close to hard surfaces and they pick up other impacts.</p>
                     
                     <div class="callout-box">
                         <strong>DESIGN RULE</strong>
@@ -227,33 +243,33 @@
                 </section>
 
                 <section id="section5">
-                    <h2>5. Alarm response priorities &mdash; what happens when a zone triggers</h2>
+                    <h2>5. Alarm response priorities — what happens when a zone triggers</h2>
                     <p>Not all alarms get the same response. Monitoring companies and the police prioritise based on zone type.</p>
                     
-                    <h3>Emergency zones &mdash; top priority</h3>
-                    <p>Panic buttons and fire detectors. Monitoring companies act immediately &mdash; police, ambulance, or fire services depending on the detector type. No verification call to the owner first. These are treated as life-safety events.</p>
+                    <h3>Emergency zones — top priority</h3>
+                    <p>Panic buttons and fire detectors. Monitoring companies act immediately — police, ambulance, or fire services depending on the detector type. No verification call to the owner first. These are treated as life-safety events.</p>
                     
-                    <h3>Perimeter zones &mdash; second priority</h3>
+                    <h3>Perimeter zones — second priority</h3>
                     <p>A door or window breach. Monitoring companies will typically attempt to verify with the owner before dispatching police, unless the account is set to immediate dispatch. The verification call takes 60 to 90 seconds. If there is no answer or the owner confirms it is not a false alarm, police are dispatched.</p>
                     
-                    <h3>Interior zones &mdash; third priority</h3>
+                    <h3>Interior zones — third priority</h3>
                     <p>Motion detector activation inside the property. Treated as lower priority because interior triggers have a higher false-alarm rate. Most monitoring companies will call the owner twice before escalating.</p>
                     
                     <div class="verdict-box">
-                        <p>These priorities are generalisations. Different monitoring companies operate differently and some offer immediate dispatch on all zones at a higher monthly fee. If your property has a high burglary risk profile &mdash; corner unit, ground floor, isolated location &mdash; pay for immediate dispatch. The 60-second verification window is enough time for a smash-and-grab to be completed.</p>
+                        <p>These priorities are generalisations. Different monitoring companies operate differently and some offer immediate dispatch on all zones at a higher monthly fee. If your property has a high burglary risk profile — corner unit, ground floor, isolated location — pay for immediate dispatch. The 60-second verification window is enough time for a smash-and-grab to be completed.</p>
                     </div>
                 </section>
 
                 <section id="section6">
-                    <h2>6. Wired vs wireless &mdash; the Singapore context</h2>
+                    <h2>6. Wired vs wireless — the Singapore context</h2>
                     <p>Both technologies work. The choice depends on the property and the budget.</p>
-                    <p><strong>Wired systems</strong> run detection cables from each detector back to the panel. More reliable over the long term, no battery maintenance, harder to jam. The trade-off is installation disruption &mdash; cable runs through walls, under floors, around door frames. For new builds or major renovations, wired is almost always the right choice.</p>
-                    <p><strong>Wireless systems</strong> use radio frequency communication between detectors and the panel. Faster to install, no cabling disruption, and increasingly reliable with brands like AJAX using encrypted two-way communication that actively resists jamming. The trade-off is battery maintenance &mdash; detectors typically need battery replacement every 18 to 36 months depending on usage.</p>
-                    <p>In Singapore's high-rise residential environment &mdash; apartments, condominiums &mdash; wireless is frequently the only practical option. Running cables through reinforced concrete walls and across common corridor areas is either impossible or prohibitively expensive. AJAX wireless systems are our standard recommendation for these environments.</p>
+                    <p><strong>Wired systems</strong> run detection cables from each detector back to the panel. More reliable over the long term, no battery maintenance, harder to jam. The trade-off is installation disruption — cable runs through walls, under floors, around door frames. For new builds or major renovations, wired is almost always the right choice.</p>
+                    <p><strong>Wireless systems</strong> use radio frequency communication between detectors and the panel. Faster to install, no cabling disruption, and increasingly reliable with brands like AJAX using encrypted two-way communication that actively resists jamming. The trade-off is battery maintenance — detectors typically need battery replacement every 18 to 36 months depending on usage.</p>
+                    <p>In Singapore's high-rise residential environment — apartments, condominiums — wireless is frequently the only practical option. Running cables through reinforced concrete walls and across common corridor areas is either impossible or prohibitively expensive. AJAX wireless systems are our standard recommendation for these environments.</p>
                     
                     <div style="margin: 40px 0;">
-                        <picture><source srcset="images/burglar-alarm-ajax-panel.webp" type="image/webp"><img width="1024" height="1024" loading="lazy" src="images/burglar-alarm-ajax-panel.jpg" alt="AJAX wireless alarm panel and hub" style="border-radius: 12px; width: 100%;"></picture>
-                         <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic; margin-top: 10px; text-align: center;">AJAX wireless hub &mdash; the modern standard for non-intrusive installations.</p>
+                        <img src="images/burglar-alarm-ajax-panel.jpg" alt="AJAX wireless alarm panel and hub" style="border-radius: 12px; width: 100%;">
+                         <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic; margin-top: 10px; text-align: center;">AJAX wireless hub — the modern standard for non-intrusive installations.</p>
                     </div>
 
                     <div class="verdict-box">
@@ -265,10 +281,10 @@
                     <h2>7. What to check before you sign off on an installation</h2>
                     <p>When the installation is complete, before you accept it and sign off, walk through these checks with the installer:</p>
                     <ul>
-                        <li>Walk-test every zone &mdash; arm the system, open every door and window in sequence, trigger every motion sensor, and confirm each zone registers correctly on the panel keypad</li>
-                        <li>Confirm zone labels on the panel match the actual locations &mdash; Zone 1 should say Front Door, not Zone 1</li>
-                        <li>Test the panic button &mdash; confirm the monitoring centre receives the signal and responds within the SLA</li>
-                        <li>Confirm the entry and exit delay timings &mdash; you need enough time to arm and disarm without triggering the alarm, but not so long that an intruder has a free window</li>
+                        <li>Walk-test every zone — arm the system, open every door and window in sequence, trigger every motion sensor, and confirm each zone registers correctly on the panel keypad</li>
+                        <li>Confirm zone labels on the panel match the actual locations — Zone 1 should say Front Door, not Zone 1</li>
+                        <li>Test the panic button — confirm the monitoring centre receives the signal and responds within the SLA</li>
+                        <li>Confirm the entry and exit delay timings — you need enough time to arm and disarm without triggering the alarm, but not so long that an intruder has a free window</li>
                         <li>Get the installer to demonstrate how to arm and disarm, including partial arm for nights when people are home</li>
                         <li>Ask for the monitoring centre contact number and confirm the account is active before the installer leaves</li>
                     </ul>
@@ -282,7 +298,7 @@
 
                 <section id="author" class="author-bio-footer">
                     <div class="abf-flex">
-                        <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img"></picture>
+                        <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
                         <div class="abf-content">
                             <h3>About the Author</h3>
                             <p>Ler Wee Meng is the Founder and CEO of Securevision. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London. With over 37 years of experience in the security industry, he has personally overseen the design and implementation of security systems for more than 1,000 sites across Singapore, ranging from Good Class Bungalows (GCBs) and large-scale condominiums to industrial complexes and institutional facilities.</p>
@@ -329,7 +345,7 @@
                     
                     <div class="founder-card" style="margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 30px; background: transparent; border-radius: 0; box-shadow: none;">
                         <div class="fc-head">
-                            <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;"></picture>
+                            <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" style="width: 40px; height: 40px; border-radius: 50%; object-fit: cover;">
                             <div>
                                 <strong>Ler Wee Meng</strong>
                                 <span>Founder & CEO · Securevision</span>
@@ -382,10 +398,10 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="f-logo-wrap">
-                    <picture><source srcset="images/securevision-logo-white.webp" type="image/webp"><img width="500" height="500" src="images/securevision-logo-white.png" alt="Securevision Logo"></picture>
+                    <img src="images/securevision-logo-white.png" alt="Securevision Logo">
                     <span class="brand-name">Securevision</span>
                 </div>
-                <p>Your partner in building smart, secure, and connected communities &mdash; powered by intelligent security systems since <span class="sv-founded-year">2006</span>.</p>
+                <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since <span class="sv-founded-year">2006</span>.</p>
                 <div class="f-socials">
                     <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -448,15 +464,15 @@
             <div class="footer-contact">
                 <h4>Get In Touch</h4>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'/></svg>
+                    <span>💬</span>
                     <a href="https://wa.me/6593860466">WhatsApp an Engineer</a>
                 </div>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/><polyline points='22,6 12,13 2,6'/></svg>
+                    <span>✉️</span>
                     <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
                 </div>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.11-2.11a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/></svg>
+                    <span>📞</span>
                     <a href="tel:+6562864796">+65 6286 4796</a>
                 </div>
             </div>
@@ -530,7 +546,5 @@ window.addEventListener('scroll', () => {
 </script>
 </body>
 </html>
-
-
 
 

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
@@ -12,13 +12,30 @@
     <link rel="stylesheet" href="sv-shared.css">
     <script src="site-config.js"></script>
     
-        <style>
+    <style>
+        .article-body { padding: 80px 0; background: #fff; }
+        .prose h2 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 700; color: #1e293b; margin: 60px 0 24px; scroll-margin-top: 100px; }
+        .prose h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; color: #334155; margin: 32px 0 16px; }
+        .prose p { font-family: 'Inter', sans-serif; margin-bottom: 24px; line-height: 1.8; color: #475569; }
+        .prose ul, .prose ol { margin-bottom: 24px; padding-left: 20px; }
+        .prose li { font-family: 'Inter', sans-serif; margin-bottom: 12px; line-height: 1.6; color: #475569; }
+
+        .callout-box { background: #eff6ff; border-left: 4px solid var(--primary-blue); padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .callout-box strong { display: block; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+        .callout-box p { margin-bottom: 0; }
+
+        .verdict-box { background: #fff7ed; border-left: 4px solid #ea580c; padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .verdict-box p { margin-bottom: 0; color: #9a3412; font-weight: 500; }
+
         .comparison-table-wrapper { overflow-x: auto; margin: 32px 0; border-radius: 12px; border: 1px solid #f1f5f9; }
         .comparison-table { width: 100%; border-collapse: collapse; min-width: 600px; font-size: 0.95rem; }
         .comparison-table th { background: #f1f5f9; text-align: left; padding: 16px; font-weight: 700; color: #334155; border-bottom: 2px solid #e2e8f0; }
         .comparison-table td { padding: 16px; border-bottom: 1px solid #f1f5f9; color: #475569; }
-        @media (max-width: 992px) {
-        .prev-next-nav { grid-template-columns: 1fr; }
+
+        @media (max-width: 992px) { 
+            .article-body { padding: 40px 0; }
+            .prose h2 { font-size: 1.8rem; }
+            .prev-next-nav { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -27,7 +44,7 @@
 <nav class="main-nav">
 <div class="nav-container">
   <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
-    <picture><source srcset="images/securevision-logo-white.webp" type="image/webp"><img width="500" height="500" src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img"></picture>
+    <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
     <span class="wordmark nav-wordmark">SECUREVISION</span>
   </a>
   <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
@@ -115,11 +132,11 @@
     <div class="container">
         <div style="max-width: 850px;">
             <span class="eyebrow" style="color: #63b3ed; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 20px;">Property Management</span>
-            <h1 style="font-family: 'Montserrat', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 25px; line-height: 1.2;">How to Compare Two Security Integrators Fairly &mdash; Even If You Know Nothing About Security Systems</h1>
-            <p class="intro" style="font-family: 'Inter', sans-serif; font-size: 1.15rem; opacity: 0.95; line-height: 1.8; color: #e2e8f0;">The cheapest quote is rarely the best value. Here is a structured framework for evaluating integrators that goes beyond price &mdash; so your committee can make a decision it can defend at any AGM.</p>
+            <h1 style="font-family: 'Montserrat', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 25px; line-height: 1.2;">How to Compare Two Security Integrators Fairly — Even If You Know Nothing About Security Systems</h1>
+            <p class="intro" style="font-family: 'Inter', sans-serif; font-size: 1.15rem; opacity: 0.95; line-height: 1.8; color: #e2e8f0;">The cheapest quote is rarely the best value. Here is a structured framework for evaluating integrators that goes beyond price — so your committee can make a decision it can defend at any AGM.</p>
             
             <div class="hero-byline">
-                <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng"></picture>
+                <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
                 <div class="hero-byline-text">
                     <strong>Ler Wee Meng</strong>
                     <span>Founder & CEO · 37+ Years Experience</span>
@@ -148,13 +165,13 @@
             <main class="prose">
                 <div class="intro-text">
                     <p>When your MCST invites two or three integrators to quote for a security upgrade, you will almost always receive proposals that are impossible to compare directly. One quotes for 24 cameras. Another quotes for 16. One includes a five-year maintenance contract. Another quotes only for installation.</p>
-                    <p>Proposals that cannot be compared directly protect the integrator, not the client. When your committee cannot make a like-for-like comparison, the decision defaults to the number at the bottom of the page &mdash; and the cheapest number wins, regardless of what it actually includes.</p>
+                    <p>Proposals that cannot be compared directly protect the integrator, not the client. When your committee cannot make a like-for-like comparison, the decision defaults to the number at the bottom of the page — and the cheapest number wins, regardless of what it actually includes.</p>
                     <p>This article gives you a framework for comparing integrators that goes beyond price. It takes approximately two hours to apply properly. It will save your estate from the most common and most costly mistake in security procurement.</p>
                 </div>
 
                 <section id="section1">
                     <span class="eyebrow" style="color: var(--primary-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;">Before You Compare Anything</span>
-                    <h2>Step One &mdash; Legal Verification</h2>
+                    <h2>Step One — Legal Verification</h2>
                     <p>This step takes two minutes and immediately eliminates any integrator who should not be on your shortlist.</p>
                     <p>Under the Private Security Industry Act, only contractors licensed by the Singapore Police Force are permitted to install, maintain, or repair security systems in Singapore. Ask for every integrator's <strong>SPF licence number</strong> before you evaluate their proposal.</p>
                     <p>Engaging an unlicensed contractor exposes your MCST to legal liability that no price saving justifies. Beyond the SPF licence, check for <strong>BCA registration</strong> and <strong>bizSAFE certification</strong>. These indicate a company that operates at a professional standard across multiple regulatory frameworks.</p>
@@ -162,11 +179,11 @@
 
                 <section id="section2">
                     <span class="eyebrow" style="color: var(--primary-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;">Making the Proposals Comparable</span>
-                    <h2>Step Two &mdash; Build a Scope Table</h2>
-                    <p>Do not look at the price until you have extracted the following information into a simple comparison table. Unstated scope is unbudgeted scope &mdash; it will appear as an additional cost later.</p>
+                    <h2>Step Two — Build a Scope Table</h2>
+                    <p>Do not look at the price until you have extracted the following information into a simple comparison table. Unstated scope is unbudgeted scope — it will appear as an additional cost later.</p>
                     
                     <div class="article-img-wrap" style="margin-bottom: 60px;">
-                        <picture><source srcset="images/insights-agm-document.webp" type="image/webp"><img width="1024" height="1024" loading="lazy" src="images/insights-agm-document.png" alt="Reviewing security proposal documents"></picture>
+                        <img src="images/insights-agm-document.png" alt="Reviewing security proposal documents">
                     </div>
 
                     <h3 style="text-align: center; margin-bottom: 40px; font-size: 1.8rem; color: #1e293b;">Building a Comparison Table</h3>
@@ -217,7 +234,7 @@
 
                 <section id="section3">
                     <span class="eyebrow" style="color: var(--primary-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;">Understanding Price Differences</span>
-                    <h2>Step Three &mdash; When One Quote is Significantly Cheaper</h2>
+                    <h2>Step Three — When One Quote is Significantly Cheaper</h2>
                     <p>A price difference of 10–15% is normal. A difference of 30% or more almost always means one of four things:</p>
                     <ul>
                         <li><strong>Scope is different:</strong> The cheaper quote is just a smaller job (e.g., fewer cameras or omitted cabling).</li>
@@ -229,11 +246,11 @@
 
                 <section id="section4">
                     <span class="eyebrow" style="color: var(--primary-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;">Evaluating Long-Term Fit</span>
-                    <h2>Step Four &mdash; The Five-Year Test</h2>
+                    <h2>Step Four — The Five-Year Test</h2>
                     <p>Security is a relationship, not a transaction. Switching integrators mid-lifecycle is expensive and disruptive.</p>
                     
                     <div class="article-img-wrap">
-                        <picture><source srcset="images/insights-mcst-legal-meeting.webp" type="image/webp"><img width="1024" height="1024" loading="lazy" src="images/insights-mcst-legal-meeting.png" alt="Collaborative MCST committee meeting"></picture>
+                        <img src="images/insights-mcst-legal-meeting.png" alt="Collaborative MCST committee meeting">
                         <div class="img-caption">The right integrator builds a long-term working relationship with the committee.</div>
                     </div>
 
@@ -247,7 +264,7 @@
 
                 <section id="section5">
                     <span class="eyebrow" style="color: var(--primary-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;">Reference Checks</span>
-                    <h2>Step Five &mdash; Verification</h2>
+                    <h2>Step Five — Verification</h2>
                     <p>Ask for contacts at similar residential estates. When you call them, don't ask if they are "happy." Ask specific questions:</p>
                     <ul>
                         <li>"When something went wrong, how did they respond?"</li>
@@ -258,13 +275,13 @@
 
                 <section id="section6">
                     <span class="eyebrow" style="color: var(--primary-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;">Final Evaluation</span>
-                    <h2>Step Six &mdash; The Scoring Summary</h2>
-                    <p>Score each integrator on a three-point scale (Strong, Adequate, Weak) across: Credentials, Scope Clarity, Brand Quality, References, and Response Time Commitment. The integrator with the most "Strong" ratings is your best choice &mdash; even if they aren't the cheapest.</p>
+                    <h2>Step Six — The Scoring Summary</h2>
+                    <p>Score each integrator on a three-point scale (Strong, Adequate, Weak) across: Credentials, Scope Clarity, Brand Quality, References, and Response Time Commitment. The integrator with the most "Strong" ratings is your best choice — even if they aren't the cheapest.</p>
                 </section>
 
                 <section id="author" class="author-bio-footer">
                     <div class="abf-flex">
-                        <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img"></picture>
+                        <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
                         <div class="abf-content">
                             <h3>About the Author</h3>
                             <p>Ler Wee Meng is the Founder and CEO of Securevision. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London. With over 37 years of experience in the security industry, he has personally overseen the design and implementation of security systems for more than 1,000 sites across Singapore, ranging from Good Class Bungalows (GCBs) and large-scale condominiums to industrial complexes and institutional facilities.</p>
@@ -309,7 +326,7 @@
 
                 <div class="founder-card" style="margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 30px; background: transparent; border-radius: 0; box-shadow: none;">
                     <div class="fc-head">
-                        <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng"></picture>
+                        <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
                         <div>
                             <strong>Ler Wee Meng</strong>
                             <span>Founder & CEO · Securevision</span>
@@ -351,7 +368,7 @@
 <section class="cta-sec-final" style="padding: 120px 0; background: linear-gradient(rgba(14,26,43,0.85), rgba(14,26,43,0.85)), url('images/cta-skyline-polo.png'); background-size: cover; background-position: center; color: #fff; text-align: center;">
     <div class="container">
         <h2 style="font-family: 'Montserrat', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); margin-bottom: 25px;">Ready to Compare fairly?</h2>
-        <p style="font-family: 'Inter', sans-serif; font-size: 1.25rem; color: #cbd5e1; max-width: 800px; margin: 0 auto 50px; line-height: 1.8;">We welcome the scrutiny. Book an estate assessment and we will show you exactly how our proposal addresses every item on this comparison list &mdash; scope, brands, and commitment.</p>
+        <p style="font-family: 'Inter', sans-serif; font-size: 1.25rem; color: #cbd5e1; max-width: 800px; margin: 0 auto 50px; line-height: 1.8;">We welcome the scrutiny. Book an estate assessment and we will show you exactly how our proposal addresses every item on this comparison list — scope, brands, and commitment.</p>
         <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
             <a href="request-site-assessment-singapore.html" class="btn" style="background: var(--p-acc); color: #fff; padding: 18px 45px; border-radius: 12px; font-weight: 700; text-decoration: none; border: none; font-size: 1.1rem;">📅 Request an Estate Assessment</a>
             <a href="https://wa.me/6593860466" class="btn" style="background: transparent; color: #fff; padding: 18px 45px; border-radius: 12px; font-weight: 700; text-decoration: none; border: 2px solid #fff; font-size: 1.1rem;">💬 WhatsApp Our Team</a>
@@ -364,10 +381,10 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="f-logo-wrap">
-                    <picture><source srcset="images/securevision-logo-white.webp" type="image/webp"><img width="500" height="500" src="images/securevision-logo-white.png" alt="Securevision Logo"></picture>
+                    <img src="images/securevision-logo-white.png" alt="Securevision Logo">
                     <span class="brand-name">Securevision</span>
                 </div>
-                <p>Your partner in building smart, secure, and connected communities &mdash; powered by intelligent security systems since <span class="sv-founded-year">2006</span>.</p>
+                <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since <span class="sv-founded-year">2006</span>.</p>
                 <div class="f-socials">
                     <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -430,15 +447,15 @@
             <div class="footer-contact">
                 <h4>Get In Touch</h4>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'/></svg>
+                    <span>💬</span>
                     <a href="https://wa.me/6593860466">WhatsApp an Engineer</a>
                 </div>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/><polyline points='22,6 12,13 2,6'/></svg>
+                    <span>✉️</span>
                     <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
                 </div>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.11-2.11a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/></svg>
+                    <span>📞</span>
                     <a href="tel:+6562864796">+65 6286 4796</a>
                 </div>
             </div>
@@ -511,5 +528,3 @@ window.addEventListener('scroll', () => {
 </script>
 </body>
 </html>
-
-

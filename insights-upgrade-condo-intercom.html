@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,9 +12,25 @@
     <link rel="stylesheet" href="sv-shared.css">
     <script src="site-config.js"></script>
     
-        <style>
-        @media (max-width: 992px) {
-        .prev-next-nav { grid-template-columns: 1fr; }
+    <style>
+        .article-body { padding: 80px 0; background: #fff; }
+        .prose h2 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 700; color: #1e293b; margin: 60px 0 24px; scroll-margin-top: 100px; }
+        .prose h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; color: #334155; margin: 32px 0 16px; }
+        .prose p { font-family: 'Inter', sans-serif; margin-bottom: 24px; line-height: 1.8; color: #475569; }
+        .prose ul, .prose ol { margin-bottom: 24px; padding-left: 20px; }
+        .prose li { font-family: 'Inter', sans-serif; margin-bottom: 12px; line-height: 1.6; color: #475569; }
+
+        .callout-box { background: #eff6ff; border-left: 4px solid var(--primary-blue); padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .callout-box strong { display: block; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+        .callout-box p { margin-bottom: 0; }
+
+        .verdict-box { background: #fff7ed; border-left: 4px solid #ea580c; padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .verdict-box p { margin-bottom: 0; color: #9a3412; font-weight: 500; }
+
+        @media (max-width: 992px) { 
+            .article-body { padding: 40px 0; }
+            .prose h2 { font-size: 1.8rem; }
+            .prev-next-nav { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -22,12 +38,12 @@
 
 <nav class="main-nav">
 <div class="nav-container">
-  <!-- Logo + Wordmark &mdash; always left -->
+  <!-- Logo + Wordmark — always left -->
   <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
-    <picture><source srcset="images/securevision-logo-white.webp" type="image/webp"><img width="500" height="500" src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img"></picture>
+    <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
     <span class="wordmark nav-wordmark">SECUREVISION</span>
   </a>
-  <!-- Hamburger &mdash; centred absolutely on mobile (via CSS) -->
+  <!-- Hamburger — centred absolutely on mobile (via CSS) -->
   <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
   <!-- Desktop nav links -->
   <ul class="nav-menu">
@@ -85,7 +101,7 @@
   <div class="nav-right">
     <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
   </div>
-  <!-- Mobile search icon &mdash; always right end on mobile -->
+  <!-- Mobile search icon — always right end on mobile -->
   <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
 </div>
 <div class="mobile-menu" id="mobileMenu">
@@ -121,7 +137,7 @@
             <p class="intro" style="font-family: 'Inter', sans-serif; font-size: 1.15rem; opacity: 0.95; line-height: 1.8; color: #e2e8f0;">Ageing intercom systems are one of the most common and most deferred maintenance issues in Singapore condominiums. Here is how to know when deferral stops being practical.</p>
             
             <div class="hero-byline">
-                <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng"></picture>
+                <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
                 <div class="hero-byline-text">
                     <strong>Ler Wee Meng</strong>
                     <span>Founder & CEO · 37+ Years Experience</span>
@@ -150,21 +166,21 @@
                 
                 <section id="section1">
                     <h2>1. Why condo intercoms get neglected for so long</h2>
-                    <p>Intercom systems in Singapore condominiums have a long service life. A system installed in the 1990s or early 2000s may still be partially functioning in 2025. Residents have learned to work around the units that no longer function. Guard staff have developed informal workarounds. And because the system still mostly works &mdash; some of the time &mdash; the MCST defers the capital expenditure year after year.</p>
+                    <p>Intercom systems in Singapore condominiums have a long service life. A system installed in the 1990s or early 2000s may still be partially functioning in 2025. Residents have learned to work around the units that no longer function. Guard staff have developed informal workarounds. And because the system still mostly works — some of the time — the MCST defers the capital expenditure year after year.</p>
                     <p>This is understandable. A full intercom replacement in a condominium of 200 to 500 units is a significant spend. But deferral has its own costs: rising maintenance bills, parts that are no longer available, resident complaints that accumulate into AGM motions, and security gaps when the system fails completely at a critical moment.</p>
                     <p>The question is not whether to upgrade. In most estates with systems over 12 to 15 years old, the answer to that question is already yes. The question is how to do it in a way that delivers genuine improvement without unnecessary disruption or cost.</p>
                 </section>
 
                 <section id="section2">
                     <h2>2. Signs your system has reached end of life</h2>
-                    <p><strong>Parts are no longer available.</strong> Once a manufacturer has discontinued a product line, spare parts come from diminishing stock. When those run out, a single faulty unit cannot be repaired &mdash; it becomes an inoperable intercom point that either gets taped over or ignored. If your maintenance contractor is already telling you certain components are difficult to source, you are approaching this point.</p>
-                    <p><strong>More than 10% of units are non-functional.</strong> In a 300-unit condominium, 30 non-functioning intercom handsets is not a maintenance issue &mdash; it is a system failure. Security is compromised because residents cannot vet visitors, and the cost of individually repairing each unit typically exceeds the cost of a phased replacement.</p>
+                    <p><strong>Parts are no longer available.</strong> Once a manufacturer has discontinued a product line, spare parts come from diminishing stock. When those run out, a single faulty unit cannot be repaired — it becomes an inoperable intercom point that either gets taped over or ignored. If your maintenance contractor is already telling you certain components are difficult to source, you are approaching this point.</p>
+                    <p><strong>More than 10% of units are non-functional.</strong> In a 300-unit condominium, 30 non-functioning intercom handsets is not a maintenance issue — it is a system failure. Security is compromised because residents cannot vet visitors, and the cost of individually repairing each unit typically exceeds the cost of a phased replacement.</p>
                     <p><strong>Resident complaints are escalating.</strong> Intercom complaints that appear repeatedly in MCST correspondence, management committee meetings, or AGM minutes are a reliable indicator that the system has degraded below acceptable threshold. One or two complaints a year is normal. Monthly complaints about different failures are a pattern.</p>
                     <p><strong>The system is analogue with no mobile integration.</strong> Modern residents expect to be able to receive visitor calls on their mobile phone. A system that requires the resident to be physically present at a handset to vet a visitor is not meeting 2025 expectations and will generate ongoing friction regardless of how well it functions technically.</p>
                     
                     <div class="callout-box">
                         <strong>KEY POINT</strong>
-                        <p>If your maintenance contractor is advising you to replace rather than repair, take that seriously. They have a financial incentive to keep the existing system running &mdash; when they recommend replacement, it usually means the system is genuinely past the point of cost-effective repair.</p>
+                        <p>If your maintenance contractor is advising you to replace rather than repair, take that seriously. They have a financial incentive to keep the existing system running — when they recommend replacement, it usually means the system is genuinely past the point of cost-effective repair.</p>
                     </div>
                 </section>
 
@@ -173,32 +189,32 @@
                     <p>The difference between a 2005 analogue intercom and a 2025 IP intercom is not merely cosmetic. The underlying architecture is completely different and the operational capabilities are substantially expanded.</p>
                     
                     <h3>Mobile integration</h3>
-                    <p>With an IP intercom system like the Akuvox R29, the visitor call goes to the resident's smartphone app wherever they are &mdash; in Singapore or overseas. The resident can see the visitor via the door camera, speak to them, and grant or deny access from their phone. No handset required in the apartment unit. This alone resolves the majority of resident complaints about missed visitors.</p>
+                    <p>With an IP intercom system like the Akuvox R29, the visitor call goes to the resident's smartphone app wherever they are — in Singapore or overseas. The resident can see the visitor via the door camera, speak to them, and grant or deny access from their phone. No handset required in the apartment unit. This alone resolves the majority of resident complaints about missed visitors.</p>
                     
                     <h3>No re-cabling of individual units</h3>
-                    <p>This is the practical advantage that makes IP intercoms viable for Singapore condominiums. The Akuvox R29 connects to the internet via Cat6 cable at the Visitor Call Panel or via a SIM card. It communicates with resident phones via cloud. The individual apartments do not need new cabling &mdash; only the lobby or guardhouse panel needs to be connected to the network. For buildings where running cable to each unit would be prohibitively disruptive, this is the practical solution.</p>
+                    <p>This is the practical advantage that makes IP intercoms viable for Singapore condominiums. The Akuvox R29 connects to the internet via Cat6 cable at the Visitor Call Panel or via a SIM card. It communicates with resident phones via cloud. The individual apartments do not need new cabling — only the lobby or guardhouse panel needs to be connected to the network. For buildings where running cable to each unit would be prohibitively disruptive, this is the practical solution.</p>
                     
                     <h3>Door access integration</h3>
-                    <p>The Visitor Call Panel doubles as an access control point. The R29 supports card access, face recognition, and PIN entry at the same unit. A visitor can be issued a temporary PIN valid for a specific time window &mdash; no need for a guard to manually open the gate. Regular access cards for residents work through the same system.</p>
+                    <p>The Visitor Call Panel doubles as an access control point. The R29 supports card access, face recognition, and PIN entry at the same unit. A visitor can be issued a temporary PIN valid for a specific time window — no need for a guard to manually open the gate. Regular access cards for residents work through the same system.</p>
 
                     <div style="margin: 40px 0;">
-                        <picture><source srcset="images/condo-intercom-akuvox-r29.webp" type="image/webp"><img width="1024" height="1024" loading="lazy" src="images/condo-intercom-akuvox-r29.png" alt="Akuvox R29 IP Video Door Phone mounted at a condominium entrance" style="border-radius: 12px; width: 100%;"></picture>
-                        <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic; margin-top: 10px; text-align: center;">Akuvox R29 &mdash; The modern standard for condominium intercom upgrades.</p>
+                        <img src="images/condo-intercom-akuvox-r29.png" alt="Akuvox R29 IP Video Door Phone mounted at a condominium entrance" style="border-radius: 12px; width: 100%;">
+                        <p style="font-size: 0.85rem; color: #94a3b8; font-style: italic; margin-top: 10px; text-align: center;">Akuvox R29 — The modern standard for condominium intercom upgrades.</p>
                     </div>
 
                     <p><strong>Visitor log.</strong> Every entry and every call is time-stamped and logged. For MCSTs dealing with security incidents or disputes about visitor access, a verifiable log is significantly more useful than relying on guard records.</p>
-                    <p><strong>Optional indoor panel.</strong> Residents who prefer a dedicated screen can add the Akuvox C313 indoor panel, which connects to their home router via Wi-Fi or network cable. This is purely optional &mdash; residents who are comfortable using the mobile app do not need the indoor panel at all.</p>
+                    <p><strong>Optional indoor panel.</strong> Residents who prefer a dedicated screen can add the Akuvox C313 indoor panel, which connects to their home router via Wi-Fi or network cable. This is purely optional — residents who are comfortable using the mobile app do not need the indoor panel at all.</p>
                 </section>
 
                 <section id="section4">
-                    <h2>4. The MCST decision &mdash; how to frame it for the AGM</h2>
+                    <h2>4. The MCST decision — how to frame it for the AGM</h2>
                     <p>Intercom replacement proposals often fail at the AGM not because residents disagree with the upgrade but because the proposal is framed as a cost rather than an investment. The framing matters.</p>
                     
                     <h3>A stronger framing puts three things in front of residents:</h3>
                     <ul>
                         <li><strong>Current cost trajectory.</strong> How much has the estate spent on intercom maintenance in the last three years? What is the contractor's assessment of likely maintenance spend over the next three years if the system is kept running? If that number approaches or exceeds the cost of a replacement, the financial case for continuing to maintain the old system disappears.</li>
                         <li><strong>Security implications.</strong> How many units currently have non-functioning intercoms? What is the security procedure when a visitor arrives and cannot reach the resident? If the honest answer is "the guard opens the gate anyway," that is a security gap worth naming explicitly.</li>
-                        <li><strong>Resident experience improvement.</strong> Mobile integration and temporary visitor PINs are concrete, tangible improvements that residents understand. The appeal of being able to grant access from their phone while overseas is not abstract &mdash; it is something that solves a real problem they have experienced.</li>
+                        <li><strong>Resident experience improvement.</strong> Mobile integration and temporary visitor PINs are concrete, tangible improvements that residents understand. The appeal of being able to grant access from their phone while overseas is not abstract — it is something that solves a real problem they have experienced.</li>
                     </ul>
                     
                     <div class="verdict-box">
@@ -210,10 +226,10 @@
                     <h2>5. What the upgrade process looks like</h2>
                     <p>For a condominium of 200 to 500 units upgrading to an IP system with no re-cabling:</p>
                     <ul>
-                        <li><strong>Phase 1 &mdash; Assessment.</strong> Site survey of all existing Visitor Call Panels, guard posts, and access points. Confirmation of network connectivity at each panel location. Inventory of non-functioning units in individual apartments.</li>
-                        <li><strong>Phase 2 &mdash; VCP replacement.</strong> Visitor Call Panels at guardhouse, lobby, and secondary access points are replaced with IP units. Network connection confirmed at each point. System tested end-to-end before resident app rollout.</li>
-                        <li><strong>Phase 3 &mdash; Resident onboarding.</strong> App credentials issued to all units. A simple one-page instruction sheet distributed to each resident. A support period of two to four weeks where the old system may run in parallel if technically feasible.</li>
-                        <li><strong>Phase 4 &mdash; Optional indoor panels.</strong> Residents who want the indoor panel order and install separately. This is not part of the main project scope unless the MCST has decided to include it in the upgrade budget.</li>
+                        <li><strong>Phase 1 — Assessment.</strong> Site survey of all existing Visitor Call Panels, guard posts, and access points. Confirmation of network connectivity at each panel location. Inventory of non-functioning units in individual apartments.</li>
+                        <li><strong>Phase 2 — VCP replacement.</strong> Visitor Call Panels at guardhouse, lobby, and secondary access points are replaced with IP units. Network connection confirmed at each point. System tested end-to-end before resident app rollout.</li>
+                        <li><strong>Phase 3 — Resident onboarding.</strong> App credentials issued to all units. A simple one-page instruction sheet distributed to each resident. A support period of two to four weeks where the old system may run in parallel if technically feasible.</li>
+                        <li><strong>Phase 4 — Optional indoor panels.</strong> Residents who want the indoor panel order and install separately. This is not part of the main project scope unless the MCST has decided to include it in the upgrade budget.</li>
                     </ul>
                     <p><strong>Typical project timeline:</strong> six to ten weeks from survey to resident onboarding. Most of that time is procurement and scheduling, not installation work.</p>
                 </section>
@@ -222,11 +238,11 @@
                     <h2>6. Questions to ask any contractor before you appoint</h2>
                     <ol>
                         <li>Do you have existing installations of this system in Singapore condominiums, and can I visit one?</li>
-                        <li>Is this an authorised installation &mdash; can you show the brand authorisation letter?</li>
+                        <li>Is this an authorised installation — can you show the brand authorisation letter?</li>
                         <li>What is the warranty on the hardware and what does it cover?</li>
-                        <li>How are software updates handled after installation &mdash; is there a support contract?</li>
-                        <li>What happens if the internet connection at the VCP goes down &mdash; is there a fallback mode?</li>
-                        <li>How are residents onboarded &mdash; do you provide an instruction document, and in what languages?</li>
+                        <li>How are software updates handled after installation — is there a support contract?</li>
+                        <li>What happens if the internet connection at the VCP goes down — is there a fallback mode?</li>
+                        <li>How are residents onboarded — do you provide an instruction document, and in what languages?</li>
                     </ol>
                     <p>On the last point: a significant proportion of residents in many Singapore condominiums are more comfortable in Mandarin, Tamil, or Malay than in English. An installer who provides onboarding materials only in English will generate a wave of support calls and resident complaints in the first month.</p>
                     
@@ -239,7 +255,7 @@
 
                 <section id="author" class="author-bio-footer">
                     <div class="abf-flex">
-                        <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img"></picture>
+                        <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
                         <div class="abf-content">
                             <h3>About the Author</h3>
                             <p>Ler Wee Meng is the Founder and CEO of Securevision. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London. With over 37 years of experience in the security industry, he has personally overseen the design and implementation of security systems for more than 1,000 sites across Singapore, ranging from Good Class Bungalows (GCBs) and large-scale condominiums to industrial complexes and institutional facilities.</p>
@@ -286,7 +302,7 @@
 
                     <div class="founder-card" style="margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 30px; background: transparent; border-radius: 0; box-shadow: none;">
                         <div class="fc-head">
-                            <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng"></picture>
+                            <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
                             <div>
                                 <strong>Ler Wee Meng</strong>
                                 <span>Founder & CEO · Securevision</span>
@@ -339,10 +355,10 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="f-logo-wrap">
-                    <picture><source srcset="images/securevision-logo-white.webp" type="image/webp"><img width="500" height="500" src="images/securevision-logo-white.png" alt="Securevision Logo"></picture>
+                    <img src="images/securevision-logo-white.png" alt="Securevision Logo">
                     <span class="brand-name">Securevision</span>
                 </div>
-                <p>Your partner in building smart, secure, and connected communities &mdash; powered by intelligent security systems since <span class="sv-founded-year">2006</span>.</p>
+                <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since <span class="sv-founded-year">2006</span>.</p>
                 <div class="f-socials">
                     <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -405,15 +421,15 @@
             <div class="footer-contact">
                 <h4>Get In Touch</h4>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'/></svg>
+                    <span>💬</span>
                     <a href="https://wa.me/6593860466">WhatsApp an Engineer</a>
                 </div>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/><polyline points='22,6 12,13 2,6'/></svg>
+                    <span>✉️</span>
                     <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
                 </div>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.11-2.11a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/></svg>
+                    <span>📞</span>
                     <a href="tel:+6562864796">+65 6286 4796</a>
                 </div>
             </div>
@@ -486,7 +502,5 @@ window.addEventListener('scroll', () => {
 </script>
 </body>
 </html>
-
-
 
 

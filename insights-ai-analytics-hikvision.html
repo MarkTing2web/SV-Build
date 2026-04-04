@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Can I Add AI Analytics to My Existing Hikvision Cameras? | Securevision Insights</title>
-    <meta name="description" content="A technical guide to retrofitting AI-powered video analytics onto existing Hikvision infrastructure &mdash; what is genuinely possible, and where the limits are.">
+    <meta name="description" content="A technical guide to retrofitting AI-powered video analytics onto existing Hikvision infrastructure — what is genuinely possible, and where the limits are.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,8 +12,28 @@
     <link rel="stylesheet" href="sv-shared.css">
     <script src="site-config.js"></script>
     
-        <style>
-        @media (max-width: 992px) {
+    <style>
+        .article-body { padding: 80px 0; background: #fff; }
+        .prose h2 { margin: 60px 0 24px; scroll-margin-top: 100px; }
+        .prose h3 { margin: 32px 0 16px; }
+        .prose p { font-family: 'Inter', sans-serif; margin-bottom: 24px; line-height: 1.8; color: #475569; }
+        .prose ul, .prose ol { margin-bottom: 24px; padding-left: 20px; }
+        .prose li { font-family: 'Inter', sans-serif; margin-bottom: 12px; line-height: 1.6; color: #475569; }
+
+        .callout-box { background: #eff6ff; border-left: 4px solid var(--primary-blue); padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .callout-box strong { display: block; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+        .callout-box p { margin-bottom: 0; }
+
+        .verdict-box { background: #fff7ed; border-left: 4px solid #ea580c; padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .verdict-box p { margin-bottom: 0; color: #9a3412; font-weight: 500; }
+
+        .article-image-box { margin: 40px 0; }
+        .article-image-box img { border-radius: 12px; width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .image-caption { font-size: 0.85rem; color: #94a3b8; font-style: italic; margin-top: 12px; text-align: center; }
+
+        @media (max-width: 992px) { 
+            .article-body { padding: 40px 0; }
+            .prose h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -22,7 +42,7 @@
 <nav class="main-nav">
 <div class="nav-container">
   <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
-    <picture><source srcset="images/securevision-logo-white.webp" type="image/webp"><img width="500" height="500" src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img"></picture>
+    <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
     <span class="wordmark nav-wordmark">SECUREVISION</span>
   </a>
   <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
@@ -112,10 +132,10 @@
         <div style="max-width: 850px;">
             <span class="eyebrow" style="color: #63b3ed; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 20px;">For Property Owners &amp; Tech Enthusiasts</span>
             <h1 style="font-family: 'Montserrat', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 25px; line-height: 1.2;">Can I Add AI Analytics to My Existing Hikvision Cameras?</h1>
-            <p class="intro" style="font-family: 'Inter', sans-serif; font-size: 1.15rem; opacity: 0.95; line-height: 1.8; color: #e2e8f0;">A technical guide to retrofitting AI-powered video analytics onto existing Hikvision infrastructure &mdash; what is genuinely possible, and where the limits are.</p>
+            <p class="intro" style="font-family: 'Inter', sans-serif; font-size: 1.15rem; opacity: 0.95; line-height: 1.8; color: #e2e8f0;">A technical guide to retrofitting AI-powered video analytics onto existing Hikvision infrastructure — what is genuinely possible, and where the limits are.</p>
             
             <div class="hero-byline">
-                <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng"></picture>
+                <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
                 <div class="hero-byline-text">
                     <strong>Ler Wee Meng</strong>
                     <span>Founder &amp; CEO · Securevision · 9 min read</span>
@@ -145,7 +165,7 @@
                     <span class="eyebrow">Definitions</span>
                     <h2>What AI Analytics Actually Means in a CCTV Context</h2>
                     <p>The term AI analytics has become one of the most overloaded phrases in the security industry. Used loosely, it covers everything from basic motion detection to deep-learning facial recognition running on dedicated GPU hardware. For a property owner asking whether they can add it to an existing system, the relevant question is more specific: which class of analytics, and at which layer of the system does it run?</p>
-                    <p>For the purposes of this article, we define AI analytics as computer-vision functions that go beyond simple pixel-change motion detection. This includes perimeter intrusion detection with object classification (human vs. vehicle vs. animal), loitering detection, people counting, line-crossing alerts, and face detection &mdash; not to be confused with facial recognition, which carries its own legal and infrastructure requirements.</p>
+                    <p>For the purposes of this article, we define AI analytics as computer-vision functions that go beyond simple pixel-change motion detection. This includes perimeter intrusion detection with object classification (human vs. vehicle vs. animal), loitering detection, people counting, line-crossing alerts, and face detection — not to be confused with facial recognition, which carries its own legal and infrastructure requirements.</p>
                     <div class="callout-box">
                         <strong>KEY POINTS</strong>
                         <p>AI analytics in CCTV systems run at one of three layers: the camera itself (edge processing), the NVR/recorder, or a standalone analytics appliance. Which layer is viable for a retrofit depends entirely on your existing hardware model numbers.</p>
@@ -155,41 +175,41 @@
                 <section id="section2">
                     <span class="eyebrow">Product Tiering</span>
                     <h2>The Hikvision Ecosystem: Where Analytics Live</h2>
-                    <p>Hikvision operates a tiered product architecture. At the base level are standard IP cameras with no onboard processing beyond compression. In the mid-tier are cameras with embedded DSP chips capable of running limited analytics &mdash; typically line crossing and intrusion detection. At the top are Hikvision's AcuSense and DeepinMind series, which use dedicated neural processing units for deep-learning classification.</p>
-                    <p>The critical point for retrofit planning is that analytics capability is hardware-bound. A standard DS-2CD2143G0-I camera from 2019 cannot be upgraded via firmware to run AcuSense-class analytics. The DSP is not capable of it. Firmware updates improve stability and add minor features &mdash; they do not unlock processing classes the chip was not designed for.</p>
-                    <p>This is not a limitation unique to Hikvision. It applies across the industry. The question is not whether your camera can be upgraded &mdash; it cannot &mdash; but whether your system architecture can accommodate analytics at another layer.</p>
+                    <p>Hikvision operates a tiered product architecture. At the base level are standard IP cameras with no onboard processing beyond compression. In the mid-tier are cameras with embedded DSP chips capable of running limited analytics — typically line crossing and intrusion detection. At the top are Hikvision's AcuSense and DeepinMind series, which use dedicated neural processing units for deep-learning classification.</p>
+                    <p>The critical point for retrofit planning is that analytics capability is hardware-bound. A standard DS-2CD2143G0-I camera from 2019 cannot be upgraded via firmware to run AcuSense-class analytics. The DSP is not capable of it. Firmware updates improve stability and add minor features — they do not unlock processing classes the chip was not designed for.</p>
+                    <p>This is not a limitation unique to Hikvision. It applies across the industry. The question is not whether your camera can be upgraded — it cannot — but whether your system architecture can accommodate analytics at another layer.</p>
                 </section>
 
                 <section id="section3">
                     <span class="eyebrow">Edge Computing</span>
                     <h2>Camera-Level AI: What Your Existing Hardware Can Do</h2>
                     <div class="article-image-box">
-                        <picture><source srcset="images/insight-ai-analytics-hikvision-camera.webp" type="image/webp"><img width="1024" height="1024" loading="lazy" src="images/insight-ai-analytics-hikvision-camera.jpg" alt="Hikvision IP cameras comparison"></picture>
+                        <img src="images/insight-ai-analytics-hikvision-camera.jpg" alt="Hikvision IP cameras comparison">
                         <p class="image-caption">The G2 model designation is the key indicator of native AcuSense support in the Hikvision ecosystem.</p>
                     </div>
-                    <p>Check your camera's model number against Hikvision's current product matrix. Cameras with "G2" in the model designation (e.g., DS-2CD2143G2-I) generally include AcuSense &mdash; Hikvision's term for their deep-learning human and vehicle classification engine. These cameras can run perimeter intrusion detection, line crossing, and loitering detection with classification, sending alerts only when a human or vehicle triggers the rule rather than a cat or swaying tree.</p>
-                    <p>Cameras without AcuSense designation &mdash; and this covers a large proportion of systems installed in Singapore before 2020 &mdash; are limited to pixel-based motion detection. This is useful but generates significantly higher false-alert rates, which is the primary operational complaint from sites relying on older hardware.</p>
+                    <p>Check your camera's model number against Hikvision's current product matrix. Cameras with "G2" in the model designation (e.g., DS-2CD2143G2-I) generally include AcuSense — Hikvision's term for their deep-learning human and vehicle classification engine. These cameras can run perimeter intrusion detection, line crossing, and loitering detection with classification, sending alerts only when a human or vehicle triggers the rule rather than a cat or swaying tree.</p>
+                    <p>Cameras without AcuSense designation — and this covers a large proportion of systems installed in Singapore before 2020 — are limited to pixel-based motion detection. This is useful but generates significantly higher false-alert rates, which is the primary operational complaint from sites relying on older hardware.</p>
                     <p>If your cameras are AcuSense-capable, the retrofit question is largely solved at the camera level. If they are not, you have three paths: replace the cameras, add an NVR with onboard AI processing, or deploy a standalone edge analytics appliance.</p>
                 </section>
 
                 <section id="section4">
                     <span class="eyebrow">Recording Layer</span>
                     <h2>NVR-Level AI: Offloading Analytics to the Recorder</h2>
-                    <p>Hikvision's AcuSense NVRs &mdash; models such as the DS-7608NXI-I2/S &mdash; include a dedicated AI processing chip that can run deep-learning analytics on connected camera streams, regardless of whether the cameras themselves are AcuSense-capable. This is the most cost-effective retrofit path for sites with functioning standard IP cameras in good condition.</p>
-                    <p>The NVR pulls the video stream and performs the classification processing centrally. The trade-off is processing channel limits. A mid-range AcuSense NVR may process four to eight channels with full AI analytics &mdash; meaning that on a sixteen-camera site, you may need to select which cameras receive AI-level alerting and which revert to standard motion detection.</p>
-                    <p>For most Singapore commercial sites &mdash; a shopfront, a small office, a landed residential property &mdash; this trade-off is entirely workable. Prioritise the perimeter cameras and the primary entry points for AI channels. Internal cameras covering low-risk zones can remain on standard motion.</p>
+                    <p>Hikvision's AcuSense NVRs — models such as the DS-7608NXI-I2/S — include a dedicated AI processing chip that can run deep-learning analytics on connected camera streams, regardless of whether the cameras themselves are AcuSense-capable. This is the most cost-effective retrofit path for sites with functioning standard IP cameras in good condition.</p>
+                    <p>The NVR pulls the video stream and performs the classification processing centrally. The trade-off is processing channel limits. A mid-range AcuSense NVR may process four to eight channels with full AI analytics — meaning that on a sixteen-camera site, you may need to select which cameras receive AI-level alerting and which revert to standard motion detection.</p>
+                    <p>For most Singapore commercial sites — a shopfront, a small office, a landed residential property — this trade-off is entirely workable. Prioritise the perimeter cameras and the primary entry points for AI channels. Internal cameras covering low-risk zones can remain on standard motion.</p>
                 </section>
 
                 <section id="section5">
                     <span class="eyebrow">Secondary Hardware</span>
                     <h2>Edge AI Box: The Retrofit Appliance Option</h2>
                     <div class="article-image-box">
-                        <picture><source srcset="images/insight-ai-analytics-hikvision-edgebox.webp" type="image/webp"><img width="1024" height="1024" loading="lazy" src="images/insight-ai-analytics-hikvision-edgebox.jpg" alt="Securevision technician with edge AI appliance"></picture>
+                        <img src="images/insight-ai-analytics-hikvision-edgebox.jpg" alt="Securevision technician with edge AI appliance">
                         <p class="image-caption">Edge appliances offer a high-density analytics retrofit without replacing core recording infrastructure.</p>
                     </div>
-                    <p>For larger sites &mdash; multi-tenant buildings, industrial facilities, logistics hubs &mdash; where the camera count is high and the existing NVR infrastructure is relatively recent and not due for replacement, a standalone edge analytics appliance is the most viable retrofit option.</p>
-                    <p>Devices in this category include Hikvision's own DeepinMind series as well as third-party appliances from vendors such as Verkada and Milestone's partner ecosystem. These appliances sit between the camera and the NVR in the network architecture, pulling the RTSP stream, processing analytics, and pushing alerts to a management platform &mdash; leaving the existing NVR untouched.</p>
-                    <p>The advantage is scalability: a single appliance can process twelve to sixteen channels simultaneously with no channel cap trade-offs. The disadvantage is cost &mdash; these units range from S$2,000 to S$8,000 depending on channel count and processing class &mdash; and the added complexity of managing an additional network device.</p>
+                    <p>For larger sites — multi-tenant buildings, industrial facilities, logistics hubs — where the camera count is high and the existing NVR infrastructure is relatively recent and not due for replacement, a standalone edge analytics appliance is the most viable retrofit option.</p>
+                    <p>Devices in this category include Hikvision's own DeepinMind series as well as third-party appliances from vendors such as Verkada and Milestone's partner ecosystem. These appliances sit between the camera and the NVR in the network architecture, pulling the RTSP stream, processing analytics, and pushing alerts to a management platform — leaving the existing NVR untouched.</p>
+                    <p>The advantage is scalability: a single appliance can process twelve to sixteen channels simultaneously with no channel cap trade-offs. The disadvantage is cost — these units range from S$2,000 to S$8,000 depending on channel count and processing class — and the added complexity of managing an additional network device.</p>
                 </section>
 
                 <section id="section6">
@@ -203,7 +223,7 @@
                     </ul>
                     <div class="callout-box">
                         <strong>KEY POINTS</strong>
-                        <p>If a vendor tells you they can enable facial recognition or ANPR on your existing standard cameras through software, ask for a live demonstration on your actual hardware. Retrofitting analytics is genuinely powerful &mdash; but it has real hardware boundaries that no software can cross.</p>
+                        <p>If a vendor tells you they can enable facial recognition or ANPR on your existing standard cameras through software, ask for a live demonstration on your actual hardware. Retrofitting analytics is genuinely powerful — but it has real hardware boundaries that no software can cross.</p>
                     </div>
                 </section>
 
@@ -211,9 +231,9 @@
                     <span class="eyebrow">Case Studies</span>
                     <h2>Practical Retrofit Scenarios for Singapore Sites</h2>
                     <ul>
-                        <li><strong>Scenario A &mdash; HDB Commercial Unit, 4 cameras, Hikvision DVR (2018):</strong> The cameras are analogue HD-TVI. No IP analytics are possible at the camera level. Recommend replacing the DVR with an AcuSense NVR and converting cameras to IP, or adding a hybrid NVR with AI processing channels. Phased replacement of cameras over twelve months achieves full AcuSense coverage at manageable cost.</li>
-                        <li><strong>Scenario B &mdash; Strata Office, 16 cameras, Hikvision NVR (2021), mixed G1/G2 cameras:</strong> G2 cameras already run AcuSense at the camera level. G1 cameras can be offloaded to the NVR's AI channels if the NVR is an NXI series. Audit NVR model to confirm AI channel capacity. This site likely achieves 80 percent AI coverage with zero hardware replacement.</li>
-                        <li><strong>Scenario C &mdash; Industrial Facility, 32 cameras, third-party NVR:</strong> Camera replacement is not warranted given age (2022). Deploy a DeepinMind edge appliance for perimeter zones (eight to twelve cameras). Integrate via RTSP. Existing NVR retained for recording. Full perimeter AI coverage achieved within the appliance's channel capacity.</li>
+                        <li><strong>Scenario A — HDB Commercial Unit, 4 cameras, Hikvision DVR (2018):</strong> The cameras are analogue HD-TVI. No IP analytics are possible at the camera level. Recommend replacing the DVR with an AcuSense NVR and converting cameras to IP, or adding a hybrid NVR with AI processing channels. Phased replacement of cameras over twelve months achieves full AcuSense coverage at manageable cost.</li>
+                        <li><strong>Scenario B — Strata Office, 16 cameras, Hikvision NVR (2021), mixed G1/G2 cameras:</strong> G2 cameras already run AcuSense at the camera level. G1 cameras can be offloaded to the NVR's AI channels if the NVR is an NXI series. Audit NVR model to confirm AI channel capacity. This site likely achieves 80 percent AI coverage with zero hardware replacement.</li>
+                        <li><strong>Scenario C — Industrial Facility, 32 cameras, third-party NVR:</strong> Camera replacement is not warranted given age (2022). Deploy a DeepinMind edge appliance for perimeter zones (eight to twelve cameras). Integrate via RTSP. Existing NVR retained for recording. Full perimeter AI coverage achieved within the appliance's channel capacity.</li>
                     </ul>
                 </section>
 
@@ -221,7 +241,7 @@
                     <span class="eyebrow">Conclusion</span>
                     <h2>Securevision Verdict</h2>
                     <div class="verdict-box">
-                        <p>Yes &mdash; AI analytics can be added to most existing Hikvision systems, but the method depends entirely on your camera model numbers and NVR generation. The worst approach is to assume a firmware update will unlock capabilities that the hardware was never designed for. The best approach is a thirty-minute engineering review of your existing equipment list. In most Singapore commercial sites we assess, partial AI coverage is achievable within existing infrastructure at a fraction of full replacement cost.</p>
+                        <p>Yes — AI analytics can be added to most existing Hikvision systems, but the method depends entirely on your camera model numbers and NVR generation. The worst approach is to assume a firmware update will unlock capabilities that the hardware was never designed for. The best approach is a thirty-minute engineering review of your existing equipment list. In most Singapore commercial sites we assess, partial AI coverage is achievable within existing infrastructure at a fraction of full replacement cost.</p>
                     </div>
                 </section>
 
@@ -229,7 +249,7 @@
 
                 <section id="author" class="author-bio-footer">
                     <div class="abf-flex">
-                        <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img"></picture>
+                        <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
                         <div class="abf-content">
                             <h3>About the Author</h3>
                             <p>Ler Wee Meng is the Founder and CEO of Securevision. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London. With over 37 years of experience in the security industry, he has personally overseen the design and implementation of security systems for more than 1,000 sites across Singapore, ranging from Good Class Bungalows (GCBs) and large-scale condominiums to industrial complexes and institutional facilities.</p>
@@ -279,7 +299,7 @@
 
                     <div class="founder-card" style="margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 30px; background: transparent; border-radius: 0; box-shadow: none;">
                         <div class="fc-head">
-                            <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng"></picture>
+                            <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
                             <div>
                                 <strong>Ler Wee Meng</strong>
                                 <span>Founder &amp; CEO · Securevision</span>
@@ -321,7 +341,7 @@
     <div class="container">
         <span class="eyebrow-light">Get Started</span>
         <h2>Find Out What Your Existing Hikvision System Can Do</h2>
-        <p style="font-family: 'Inter', sans-serif; font-size: 1.25rem; color: #cbd5e1; max-width: 800px; margin: 0 auto 50px; line-height: 1.8;">Send us your camera and NVR model numbers and our engineering team will tell you exactly which AI analytics your system can support &mdash; and what a retrofit would involve.</p>
+        <p style="font-family: 'Inter', sans-serif; font-size: 1.25rem; color: #cbd5e1; max-width: 800px; margin: 0 auto 50px; line-height: 1.8;">Send us your camera and NVR model numbers and our engineering team will tell you exactly which AI analytics your system can support — and what a retrofit would involve.</p>
         <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
             <a href="https://wa.me/6593860466" class="btn" style="background: var(--p-acc); color: #fff; padding: 18px 45px; border-radius: 12px; font-weight: 700; text-decoration: none; border: none; font-size: 1.1rem;">📅 Get an AI Analytics Assessment</a>
             <a href="https://wa.me/6593860466" class="btn" style="background: transparent; color: #fff; padding: 18px 45px; border-radius: 12px; font-weight: 700; text-decoration: none; border: 2px solid #fff; font-size: 1.1rem;">💬 WhatsApp Our Team</a>
@@ -334,10 +354,10 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="f-logo-wrap">
-                    <picture><source srcset="images/securevision-logo-white.webp" type="image/webp"><img width="500" height="500" src="images/securevision-logo-white.png" alt="Securevision Logo"></picture>
+                    <img src="images/securevision-logo-white.png" alt="Securevision Logo">
                     <span class="brand-name">Securevision</span>
                 </div>
-                <p>Your partner in building smart, secure, and connected communities &mdash; powered by intelligent security systems since <span class="sv-founded-year">2006</span>.</p>
+                <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since <span class="sv-founded-year">2006</span>.</p>
                 <div class="f-socials">
                     <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -399,15 +419,15 @@
             <div class="footer-contact">
                 <h4>Get In Touch</h4>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'/></svg>
+                    <span>💬</span>
                     <a href="https://wa.me/6593860466">WhatsApp an Engineer</a>
                 </div>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/><polyline points='22,6 12,13 2,6'/></svg>
+                    <span>✉️</span>
                     <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
                 </div>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.11-2.11a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/></svg>
+                    <span>📞</span>
                     <a href="tel:+6562864796">+65 6286 4796</a>
                 </div>
             </div>
@@ -480,5 +500,3 @@ window.addEventListener('scroll', () => {
 </script>
 </body>
 </html>
-
-

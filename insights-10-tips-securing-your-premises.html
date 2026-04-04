@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,9 +12,25 @@
     <link rel="stylesheet" href="sv-shared.css">
     <script src="site-config.js"></script>
     
-        <style>
-        @media (max-width: 992px) {
-        .prev-next-nav { grid-template-columns: 1fr; }
+    <style>
+        .article-body { padding: 80px 0; background: #fff; }
+        .prose h2 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 700; color: #1e293b; margin: 60px 0 24px; scroll-margin-top: 100px; }
+        .prose h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; color: #334155; margin: 32px 0 16px; }
+        .prose p { font-family: 'Inter', sans-serif; margin-bottom: 24px; line-height: 1.8; color: #475569; }
+        .prose ul, .prose ol { margin-bottom: 24px; padding-left: 20px; }
+        .prose li { font-family: 'Inter', sans-serif; margin-bottom: 12px; line-height: 1.6; color: #475569; }
+
+        .callout-box { background: #eff6ff; border-left: 4px solid var(--primary-blue); padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .callout-box strong { display: block; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
+        .callout-box p { margin-bottom: 0; }
+
+        .verdict-box { background: #fff7ed; border-left: 4px solid #ea580c; padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
+        .verdict-box p { margin-bottom: 0; color: #9a3412; font-weight: 500; }
+
+        @media (max-width: 992px) { 
+            .article-body { padding: 40px 0; }
+            .prose h2 { font-size: 1.8rem; }
+            .prev-next-nav { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -22,12 +38,12 @@
 
 <nav class="main-nav">
 <div class="nav-container">
-  <!-- Logo + Wordmark &mdash; always left -->
+  <!-- Logo + Wordmark — always left -->
   <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
-    <picture><source srcset="images/securevision-logo-white.webp" type="image/webp"><img width="500" height="500" src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img"></picture>
+    <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
     <span class="wordmark nav-wordmark">SECUREVISION</span>
   </a>
-  <!-- Hamburger &mdash; centred absolutely on mobile (via CSS) -->
+  <!-- Hamburger — centred absolutely on mobile (via CSS) -->
   <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button>
   <!-- Desktop nav links -->
   <ul class="nav-menu">
@@ -85,7 +101,7 @@
   <div class="nav-right">
     <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
   </div>
-  <!-- Mobile search icon &mdash; always right end on mobile -->
+  <!-- Mobile search icon — always right end on mobile -->
   <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
 </div>
 <div class="mobile-menu" id="mobileMenu">
@@ -118,10 +134,10 @@
         <div style="max-width: 850px;">
             <span class="eyebrow" style="color: #63b3ed; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 20px;">Security Planning</span>
             <h1 style="font-family: 'Montserrat', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 25px; line-height: 1.2;">10 Tips for Securing Your Home or Office in Singapore</h1>
-            <p class="intro" style="font-family: 'Inter', sans-serif; font-size: 1.15rem; opacity: 0.95; line-height: 1.8; color: #e2e8f0;">There is no such thing as a burglar-proof property. There are only properties that are harder to break into than others &mdash; and that difference is what burglars are assessing before they choose their target.</p>
+            <p class="intro" style="font-family: 'Inter', sans-serif; font-size: 1.15rem; opacity: 0.95; line-height: 1.8; color: #e2e8f0;">There is no such thing as a burglar-proof property. There are only properties that are harder to break into than others — and that difference is what burglars are assessing before they choose their target.</p>
             
             <div class="hero-byline">
-                <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng"></picture>
+                <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
                 <div class="hero-byline-text">
                     <strong>Ler Wee Meng</strong>
                     <span>Founder & CEO · 37+ Years Experience</span>
@@ -150,7 +166,7 @@
                 
                 <section id="section1">
                     <h2>1. How burglars actually make their decision</h2>
-                    <p>Before we get to the tips, it helps to understand the calculus a burglar uses. It is not random. They are assessing two things: how quickly they can get in, and how likely they are to be seen doing it. A property that scores badly on both &mdash; slow entry and high visibility &mdash; gets passed over for an easier target nearby.</p>
+                    <p>Before we get to the tips, it helps to understand the calculus a burglar uses. It is not random. They are assessing two things: how quickly they can get in, and how likely they are to be seen doing it. A property that scores badly on both — slow entry and high visibility — gets passed over for an easier target nearby.</p>
                     <p>This means that most residential and commercial security is not about making your property impenetrable. It is about making it more trouble than it is worth compared to the next property along. Layered deterrence, not a single line of defence, is what achieves that.</p>
                     
                     <div class="callout-box">
@@ -160,9 +176,9 @@
                 </section>
 
                 <section id="section2">
-                    <h2>2. Layer your defences &mdash; one is never enough</h2>
-                    <p>A single lock on a door is a single obstacle. A lock, a grille, a motion-triggered light, and an alarm is four obstacles &mdash; each one adding time and noise and the risk of being seen. This is the principle behind layered security and it applies whether you are protecting a HDB flat, a landed home, or a commercial shophouse.</p>
-                    <p>The layers do not all need to be expensive. Visible deterrents &mdash; a prominent alarm siren box, a CCTV camera over the main entrance, good lighting &mdash; cost relatively little and do a disproportionate amount of work because they change the burglar's assessment before he even tries the gate.</p>
+                    <h2>2. Layer your defences — one is never enough</h2>
+                    <p>A single lock on a door is a single obstacle. A lock, a grille, a motion-triggered light, and an alarm is four obstacles — each one adding time and noise and the risk of being seen. This is the principle behind layered security and it applies whether you are protecting a HDB flat, a landed home, or a commercial shophouse.</p>
+                    <p>The layers do not all need to be expensive. Visible deterrents — a prominent alarm siren box, a CCTV camera over the main entrance, good lighting — cost relatively little and do a disproportionate amount of work because they change the burglar's assessment before he even tries the gate.</p>
                 </section>
 
                 <section id="section3">
@@ -176,24 +192,24 @@
                     </ul>
                     <p>If you can spot a weakness from outside, so can someone who is casing the property. The audit takes twenty minutes and tells you where to prioritise.</p>
                     
-                    <picture><source srcset="images/10-tips-security-perimeter-audit.webp" type="image/webp"><img width="1024" height="1024" loading="lazy" src="images/10-tips-security-perimeter-audit.jpg" alt="Person doing a perimeter walk of a Singapore home exterior" style="width: 100%; border-radius: 12px; margin: 24px 0;"></picture>
+                    <img src="images/10-tips-security-perimeter-audit.jpg" alt="Person doing a perimeter walk of a Singapore home exterior" style="width: 100%; border-radius: 12px; margin: 24px 0;">
                 </section>
 
                 <section id="section4">
-                    <h2>4. The lock is not enough &mdash; think about the frame</h2>
-                    <p>Most residential door locks in Singapore can be bypassed not by picking the lock but by attacking the door frame around it. A cheap lock set into a weak frame means the door gives way before the lock does. The same applies to sliding doors &mdash; a thin blade slid into the gap between frame and door can release most standard window latches.</p>
+                    <h2>4. The lock is not enough — think about the frame</h2>
+                    <p>Most residential door locks in Singapore can be bypassed not by picking the lock but by attacking the door frame around it. A cheap lock set into a weak frame means the door gives way before the lock does. The same applies to sliding doors — a thin blade slid into the gap between frame and door can release most standard window latches.</p>
                     <p>What to check:</p>
                     <ul>
-                        <li>All external doors should have deadbolts, not just latch locks. Test by trying to depress the tongue with your finger when the door is locked &mdash; a properly graded lock will not move.</li>
+                        <li>All external doors should have deadbolts, not just latch locks. Test by trying to depress the tongue with your finger when the door is locked — a properly graded lock will not move.</li>
                         <li>Door frames on external doors should be reinforced metal or solid hardwood, not hollow MDF or thin timber.</li>
-                        <li>Sliding doors benefit from a security bar in the track &mdash; a length of metal rod that prevents the door being slid open even if the latch is compromised.</li>
+                        <li>Sliding doors benefit from a security bar in the track — a length of metal rod that prevents the door being slid open even if the latch is compromised.</li>
                         <li>Window grilles remain one of the most cost-effective physical barriers for ground floor and accessible upper floor windows in Singapore's terrace and semi-detached housing.</li>
                     </ul>
                 </section>
 
                 <section id="section5">
                     <h2>5. Lighting is underrated as a deterrent</h2>
-                    <p>Motion-triggered lights at all approach paths to the property &mdash; front gate, side access, rear garden &mdash; are one of the cheapest and most effective deterrents available. A burglar who suddenly finds himself illuminated while approaching a property will typically abandon the attempt immediately.</p>
+                    <p>Motion-triggered lights at all approach paths to the property — front gate, side access, rear garden — are one of the cheapest and most effective deterrents available. A burglar who suddenly finds himself illuminated while approaching a property will typically abandon the attempt immediately.</p>
                     <p>Key points on lighting:</p>
                     <ul>
                         <li>Motion sensors should cover the full approach, not just the immediate door area</li>
@@ -204,9 +220,9 @@
                 </section>
 
                 <section id="section6">
-                    <h2>6. CCTV &mdash; visible cameras change behaviour</h2>
+                    <h2>6. CCTV — visible cameras change behaviour</h2>
                     <p>A camera that is seen is doing deterrence work even when it is not being watched. Position at least one camera to be clearly visible from the main approach to the property. The goal is for anyone approaching to know they are being recorded before they reach the entrance.</p>
-                    <p>For CCTV to do evidence work &mdash; to actually identify a perpetrator after an incident &mdash; it needs to be positioned correctly and have adequate resolution. The camera over the entrance should be at face height or slightly above, not mounted at roofline pointing down at the top of a head. A 4MP IP camera with good night vision is the minimum standard for meaningful evidence capture in 2025.</p>
+                    <p>For CCTV to do evidence work — to actually identify a perpetrator after an incident — it needs to be positioned correctly and have adequate resolution. The camera over the entrance should be at face height or slightly above, not mounted at roofline pointing down at the top of a head. A 4MP IP camera with good night vision is the minimum standard for meaningful evidence capture in 2025.</p>
 
                     <div class="callout-box">
                         <strong>PLANNING POINT</strong>
@@ -215,14 +231,14 @@
                 </section>
 
                 <section id="section7">
-                    <h2>7. Alarm systems &mdash; make it loud and monitored</h2>
+                    <h2>7. Alarm systems — make it loud and monitored</h2>
                     <p>An audible siren does two things: it alerts neighbours and passers-by, and it creates urgency for the intruder to leave. A monitored alarm does a third thing: it triggers a response. The combination of the two is significantly more effective than either alone.</p>
                     <p>Key points:</p>
                     <ul>
-                        <li>A siren box mounted visibly on the exterior &mdash; even before the alarm is triggered &mdash; deters entry attempts</li>
+                        <li>A siren box mounted visibly on the exterior — even before the alarm is triggered — deters entry attempts</li>
                         <li>Monitoring services in Singapore can dispatch a response within minutes of a confirmed alarm</li>
                         <li>The alarm panel should be positioned away from the front door so there is no easy opportunity to smash it before the entry delay expires</li>
-                        <li>Test your alarm system regularly &mdash; a system that has not been tested in six months may not work when you need it</li>
+                        <li>Test your alarm system regularly — a system that has not been tested in six months may not work when you need it</li>
                     </ul>
                 </section>
 
@@ -233,8 +249,8 @@
                     <ul>
                         <li>Anti-lift pins or bolts prevent the door being lifted out of the track</li>
                         <li>Security bars in the track prevent the door being slid open</li>
-                        <li>Safety film on glass panels makes breaking through a significantly slower process &mdash; it does not stop the glass breaking but holds the shards together and requires sustained effort to penetrate</li>
-                        <li>For condominium units, the main door and service door both need attention &mdash; service entrances are frequently overlooked</li>
+                        <li>Safety film on glass panels makes breaking through a significantly slower process — it does not stop the glass breaking but holds the shards together and requires sustained effort to penetrate</li>
+                        <li>For condominium units, the main door and service door both need attention — service entrances are frequently overlooked</li>
                     </ul>
                 </section>
 
@@ -250,8 +266,8 @@
                 </section>
 
                 <section id="section10">
-                    <h2>10. The alarm is your last line &mdash; not your only line</h2>
-                    <p>The most common mistake we see is treating the alarm system as the security system. The alarm activates after entry has been made or attempted. Everything before that moment &mdash; the lighting, the locks, the grilles, the camera visibility, the neighbourhood awareness &mdash; is what actually prevents the incident from happening.</p>
+                    <h2>10. The alarm is your last line — not your only line</h2>
+                    <p>The most common mistake we see is treating the alarm system as the security system. The alarm activates after entry has been made or attempted. Everything before that moment — the lighting, the locks, the grilles, the camera visibility, the neighbourhood awareness — is what actually prevents the incident from happening.</p>
                     <p>Invest in the deterrence layers first. Then invest in the alarm and monitoring to handle the failures. A well-secured property with no alarm is better protected than a poorly secured property with an expensive monitoring contract.</p>
 
                     <div class="verdict-box">
@@ -262,7 +278,7 @@
 
                 <section id="author" class="author-bio-footer">
                     <div class="abf-flex">
-                        <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img"></picture>
+                        <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
                         <div class="abf-content">
                             <h3>About the Author</h3>
                             <p>Ler Wee Meng is the Founder and CEO of Securevision. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London. With over 37 years of experience in the security industry, he has personally overseen the design and implementation of security systems for more than 1,000 sites across Singapore, ranging from Good Class Bungalows (GCBs) and large-scale condominiums to industrial complexes and institutional facilities.</p>
@@ -311,7 +327,7 @@
                     
                     <div class="founder-card" style="margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 30px; background: transparent; border-radius: 0; box-shadow: none;">
                         <div class="fc-head">
-                            <picture><source srcset="images/ler-wee-meng-bio.webp" type="image/webp"><img width="400" height="400" loading="lazy" src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng"></picture>
+                            <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
                             <div>
                                 <strong>Ler Wee Meng</strong>
                                 <span>Founder & CEO · Securevision</span>
@@ -364,10 +380,10 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <div class="f-logo-wrap">
-                    <picture><source srcset="images/securevision-logo-white.webp" type="image/webp"><img width="500" height="500" src="images/securevision-logo-white.png" alt="Securevision Logo"></picture>
+                    <img src="images/securevision-logo-white.png" alt="Securevision Logo">
                     <span class="brand-name">Securevision</span>
                 </div>
-                <p>Your partner in building smart, secure, and connected communities &mdash; powered by intelligent security systems since <span class="sv-founded-year">2006</span>.</p>
+                <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since <span class="sv-founded-year">2006</span>.</p>
                 <div class="f-socials">
                     <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -430,15 +446,15 @@
             <div class="footer-contact">
                 <h4>Get In Touch</h4>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'/></svg>
+                    <span>💬</span>
                     <a href="https://wa.me/6593860466">WhatsApp an Engineer</a>
                 </div>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/><polyline points='22,6 12,13 2,6'/></svg>
+                    <span>✉️</span>
                     <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
                 </div>
                 <div class="footer-contact-item">
-                    <svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' style='opacity: 0.8;'><path d='M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l2.11-2.11a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z'/></svg>
+                    <span>📞</span>
                     <a href="tel:+6562864796">+65 6286 4796</a>
                 </div>
             </div>
@@ -519,7 +535,5 @@ window.addEventListener('scroll', () => {
 </script>
 </body>
 </html>
-
-
 
 
