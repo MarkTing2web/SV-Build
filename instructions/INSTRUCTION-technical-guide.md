@@ -1,8 +1,9 @@
 # SECUREVISION — TECHNICAL PILLAR GUIDE INSTRUCTION
 ## Page Type: Technical Guide (sv-guides)
 ## Applies to: cctv.html · burglar-alarm.html · door-access.html · auto-gate-singapore.html · intercom-system-singapore.html · and future pillar guides
-## Version 1.0 — April 2026
+## Version 2.0 — April 2026
 ## This file lives at: /_instructions/INSTRUCTION-technical-guide.md
+## Changelog: v2.0 — Added Mode A / Mode B content framework. Migration rules strengthened.
 
 ---
 
@@ -12,14 +13,15 @@
 2. **All layout, typography, and component classes** come from `sv-guides.css` or `sv-shared.css`. Do not invent new class names.
 3. **Do not number the final CTA section.** It is never listed in the TOC.
 4. **Sidebar must include** both the TOC and the founder card — no exceptions.
-5. **Section IDs must match TOC hrefs exactly** — e.g. `<section id="section1">` links to `<a href="#section1">`.
+5. **Section IDs must match TOC hrefs exactly** — e.g. `<section id="what-is-cctv">` links to `<a href="#what-is-cctv">`.
 6. **The layout wrapper closes before the final CTA.** CTA is full-width outside the sidebar layout.
+7. **Migration = restructure only. Never rewrite.** See Section 8B and Section 12 for full rules.
 
 ---
 
-## 1. PAGE STRUCTURE (5-Part Architectural Standard)
+## 1. PAGE STRUCTURE
 
-Every technical guide follows this exact sequence — no more, no fewer sections:
+Every technical guide uses the same architectural wrapper — this is fixed and must not change:
 
 ```
 [Head + CSS]
@@ -29,11 +31,7 @@ Every technical guide follows this exact sequence — no more, no fewer sections
 [Breadcrumb — sv-breadcrumb]
 [Layout wrapper — layout-with-sidebar]
   [main — content column]
-    Part 1: Conceptual Logic (The Why)
-    Part 2: Anatomy of the Tech (The How)
-    Part 3: Securevision Design Standard (The Expertise)
-    Part 4: System Integration (The Unification)
-    Part 5: Architect's Checklist (The Action)
+    [Content — Mode A or Mode B — see Section 8]
   [aside — sidebar column]
     Sticky TOC
     Founder card
@@ -43,6 +41,32 @@ Every technical guide follows this exact sequence — no more, no fewer sections
 [WhatsApp float]
 [Scripts]
 ```
+
+### Content Mode Selection
+
+The content inside `<main>` follows one of two modes depending on the page:
+
+**MODE A — Framework Guide**
+For new pages or short-form guides. Uses the strict 5-part structure defined in Section 8A.
+TOC shows 5 entries. Section IDs use `section1` through `section5`.
+
+**MODE B — Deep Technical Reference**
+For existing content-rich pages with many sections. The 5-part framework becomes
+grouping logic only — each part may contain multiple subsections with their own
+section IDs and TOC entries. Section IDs use descriptive slugs matching the content
+(e.g. `#what-is-cctv`, `#resolution-image-quality`).
+
+| Page | Mode |
+|---|---|
+| cctv.html | Mode B |
+| burglar-alarm.html | Mode B |
+| door-access.html | Mode B |
+| auto-gate-singapore.html | Mode B |
+| intercom-system-singapore.html | Mode A (new build) |
+| Future new pages | Mode A unless brief specifies otherwise |
+
+In both modes: the wrapper, nav, footer, hero, author bio, breadcrumb, sidebar, and CTA
+structure are identical and frozen.
 
 ---
 
@@ -162,7 +186,7 @@ Placed immediately after `</header>`, before breadcrumb:
 
     <!-- MAIN CONTENT — left column -->
     <main>
-      [Parts 1–5 go here — see Section 8]
+      [Content — Mode A or Mode B — see Section 8]
     </main>
 
     <!-- SIDEBAR — right column -->
@@ -170,9 +194,10 @@ Placed immediately after `</header>`, before breadcrumb:
       <div class="sticky-toc">
         <h3 class="toc-title" onclick="toggleToc()">Guide Navigator</h3>
         <ul class="toc-list" id="tocList">
-          <li><a href="#section1">1. [Section Name]</a></li>
-          <li><a href="#section2">2. [Section Name]</a></li>
-          <!-- one entry per section -->
+          <li><a href="#[section-id]">1. [Section Name]</a></li>
+          <li><a href="#[section-id]">2. [Section Name]</a></li>
+          <!-- one entry per section or subsection — no limit -->
+          <!-- Do NOT list the final CTA here -->
         </ul>
         <!-- Founder card below TOC -->
         <div class="founder-card">
@@ -180,7 +205,7 @@ Placed immediately after `</header>`, before breadcrumb:
             <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
             <div>
               <strong>Ler Wee Meng</strong>
-              <span>Founder & CEO · 37+ Years</span>
+              <span>Founder & CEO · <span class="sv-years-experience"></span>+ Years</span>
             </div>
           </div>
           <p>Need expert advice? Discuss your site requirements with our engineering team.</p>
@@ -197,16 +222,20 @@ Placed immediately after `</header>`, before breadcrumb:
 
 ## 7. CONTENT SECTION STRUCTURE
 
-Each of the 5 parts uses `<section>` with an `id`. Sections alternate white and bg-light:
+Each section uses `<section>` with an `id`. Sections alternate white and bg-light.
+
+**Mode A** — IDs are `section1`, `section2`, `section3`, `section4`, `section5`.
+**Mode B** — IDs are descriptive slugs matching the existing page content exactly
+(e.g. `what-is-cctv`, `how-it-works`, `camera-types`). Copy IDs verbatim from
+the source file — do not rename them.
 
 ```html
-<section id="section1">
-  <!-- Part 1: white background — no class needed -->
-  <span class="eyebrow">The Basics</span>
+<section id="[section-id]">
+  <!-- white background — no class needed -->
+  <span class="eyebrow">[Eyebrow label]</span>
   <h2>[Section Heading]</h2>
-  <p class="lead">[Opening paragraph — 18px, first para only]</p>
+  <p class="lead">[Opening paragraph — use .lead on first paragraph of each section only]</p>
 
-  <!-- Standard text + image row (non-wrapping) -->
   <div class="blog-row">
     <div class="blog-text">
       <h3>[Subsection heading]</h3>
@@ -219,8 +248,8 @@ Each of the 5 parts uses `<section>` with an `id`. Sections alternate white and 
 
 </section>
 
-<section id="section2" class="bg-light">
-  <!-- Part 2: bg-light background -->
+<section id="[section-id]" class="bg-light">
+  <!-- bg-light background — alternate with white -->
 </section>
 ```
 
@@ -317,14 +346,16 @@ Each of the 5 parts uses `<section>` with an `id`. Sections alternate white and 
 
 ---
 
-## 8. THE 5-PART CONTENT FRAMEWORK
+## 8A. MODE A — 5-PART CONTENT FRAMEWORK (new pages)
+
+Use this for new page builds only (e.g. intercom-system-singapore.html).
 
 ### Part 1 — Conceptual Logic (The "Why")
 - Section ID: `section1`
 - Background: white
 - Content: Define what this system IS and WHY it exists in a security architecture.
 - Use `.lead` for opening paragraph.
-- Include the stat grid if applicable (3 key numbers from this system's performance).
+- Include stat grid if applicable (3 key numbers from this system's performance).
 
 ### Part 2 — Anatomy of the Tech (The "How")
 - Section ID: `section2`
@@ -344,14 +375,61 @@ Each of the 5 parts uses `<section>` with an `id`. Sections alternate white and 
 - Section ID: `section4`
 - Background: `bg-light`
 - Content: How this system connects to others. If-This-Then-That logic. Cross-system triggers.
-- Show how CCTV triggers access events, how alarms trigger recording, etc.
 
 ### Part 5 — Architect's Checklist (The "Action")
 - Section ID: `section5`
 - Background: white
 - Content: 5–6 self-audit questions that help the reader assess their own property.
 - Close with a `.recommendation-box` pointing to the site assessment.
-- Do NOT number this in the TOC. Do NOT add a CTA banner inside this section (the full-width CTA follows after).
+- Do NOT list in TOC. Do NOT add a CTA banner inside this section.
+
+---
+
+## 8B. MODE B — DEEP TECHNICAL REFERENCE (existing pages)
+
+Use this for cctv.html, burglar-alarm.html, door-access.html, auto-gate-singapore.html.
+
+### Core Rule
+This is a structural migration — not a rewrite. The source HTML contains the
+final approved copy. The task is to move that copy into the correct template
+wrapper and replace old CSS classes with the correct ones.
+
+### What changes in a Mode B migration
+- Old inline `<style>` blocks → removed entirely
+- Old `style=""` attributes → removed (except hero background-image)
+- Old div wrapper patterns → replaced with correct template components
+  (e.g. old feature box → `.component-card`, old tip box → `.recommendation-box`)
+- Old class names → replaced with correct sv-guides.css / sv-shared.css classes
+- Nav and footer → replaced verbatim with frozen template versions
+- Author bio strip → added if missing
+- Breadcrumb → added if missing
+- Sidebar with sticky TOC → added if missing
+- Final CTA → replaced with correct template CTA
+
+### What does NOT change in a Mode B migration
+- Every word of body copy — preserved exactly
+- Every heading — preserved exactly, word for word
+- Every table and its data — preserved exactly
+- Every image src and alt attribute — preserved exactly
+- The order of sections — preserved exactly
+- Section IDs — preserved exactly as they are in the source file
+- TOC entries — updated to match the existing section IDs verbatim
+
+### Class mapping guide (old → new)
+When you encounter old class names, map them to these correct classes:
+
+| If source has... | Replace with... |
+|---|---|
+| Any inline `<style>` block | Remove entirely |
+| Any `style="..."` attribute (except hero bg) | Remove entirely |
+| Old feature/tip/callout box | `.recommendation-box` |
+| Old numbered component block | `.component-card` + `.component-header` + `.component-number` |
+| Old text+image side-by-side | `.blog-row` + `.blog-text` + `.blog-img-wrap` |
+| Old text+image wrap-around | `.blog-row-wrap` + `.blog-img-wrap` |
+| Old comparison table | `.blog-table-wrap` + `.blog-table` |
+| Old FAQ/accordion item | `.faq-grid` + `.faq-item` |
+| Old subsection divider | `.subsection` |
+| Old image with caption | `.blog-img-wrap` + `.blog-img-caption` |
 
 ---
 
@@ -432,37 +510,94 @@ window.addEventListener('scroll', () => {
 
 ---
 
-## 11. ANTI-GRAVITY PROMPT FORMAT
+## 11. CONTENT AUDIT (required before accepting any output)
 
-When using Anti-Gravity to build or update a technical guide page, use this exact format:
+After Anti-Gravity produces the migrated file, send this follow-up prompt:
+
+```
+Before I accept this output, run a content audit against the source file.
+
+List every H2 and H3 from the SOURCE file.
+Confirm each one is present in the OUTPUT, word for word.
+Confirm no new sentences have been added.
+Confirm no source sentences have been removed.
+
+If any check fails, correct it and reissue the full file.
+```
+
+---
+
+## 12. ANTI-GRAVITY PROMPT FORMAT
+
+### For a MODE B MIGRATION (existing pages):
 
 ```
 [Paste GLOBAL-INSTRUCTION.md in full]
-
----
-
 [Paste INSTRUCTION-technical-guide.md in full]
 
----
+--- PAGE BRIEF ---
+Template:    _template-technical-guide.html
+File:        [filename.html]
+Mode:        B — Deep Technical Reference (migration)
+Page name:   [Full page name]
+Accent:      #[hex] ([colour name])
+Hero class:  hero-[name]
+CTA class:   cta-[name]
+Intent:      [page]-assessment
+
+THIS IS A MIGRATION — NOT A REWRITE.
+The source file is attached. It contains the final approved copy.
+
+YOUR ONLY TASKS ARE:
+1. Add the correct template wrapper (nav, hero, author bio,
+   breadcrumb, layout-with-sidebar, CTA, footer, scripts)
+   copying each frozen component verbatim from the template.
+2. Remove all inline <style> blocks and style="" attributes.
+3. Replace old CSS class names with correct template classes
+   using the mapping table in Section 8B.
+4. Preserve every heading, paragraph, table, image, and
+   section ID exactly as they appear in the source.
+5. Update the TOC <li> entries to match the existing
+   section IDs in the source file.
+
+DO NOT rewrite, rephrase, condense, or expand any content.
+DO NOT add new content to fill any section.
+DO NOT rename any section IDs.
+DO NOT reorder any content.
+```
+
+### For a MODE A NEW BUILD:
+
+```
+[Paste GLOBAL-INSTRUCTION.md in full]
+[Paste INSTRUCTION-technical-guide.md in full]
 
 --- PAGE BRIEF ---
-Template:   _templates/_template-technical-guide.html
-File:       [filename.html]
-Page name:  [Full page name]
-Accent:     #[hex] ([colour name])
-Hero class: hero-[name]
-CTA class:  cta-[name]
-TOC items:
-  1. [Section name]
-  2. [Section name]
-  3. [Section name]
-  4. [Section name]
-  5. [Section name]
+Template:    _template-technical-guide.html
+File:        [filename.html]
+Mode:        A — Framework Guide (new build)
+Page name:   [Full page name]
+Accent:      #[hex] ([colour name])
+Hero class:  hero-[name]
+CTA class:   cta-[name]
+Intent:      [page]-assessment
 
-CONTENT:
-[Provide the full content brief for each of the 5 parts]
+TOC items:
+  1. [Section 1 name]
+  2. [Section 2 name]
+  3. [Section 3 name]
+  4. [Section 4 name]
+  (Part 5 — Architect's Checklist — not listed in TOC)
+
+CONTENT BRIEF:
+  Part 1 — [Summary of what to cover]
+  Part 2 — [Summary]
+  Part 3 — [Summary]
+  Part 4 — [Summary]
+  Part 5 — [Summary]
 ```
 
 ---
 
-*Securevision · INSTRUCTION-technical-guide.md · v1.0 · April 2026*
+*Securevision · INSTRUCTION-technical-guide.md · v2.0 · April 2026*
+*Do not modify without updating version number and date*
