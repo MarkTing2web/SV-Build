@@ -21,6 +21,7 @@
             flex-wrap: wrap;
             justify-content: center;
         }
+        .jump-nav a { text-decoration: none; }
         .jump-btn {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -29,7 +30,6 @@
             border-radius: 100px;
             font-size: 13px;
             font-weight: 700;
-            text-decoration: none;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
         }
@@ -81,11 +81,21 @@
             display: flex;
             flex-direction: column;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative; /* Added for stretched link */
         }
         .brand-full-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 30px 60px rgba(0,0,0,0.08);
             border-color: var(--primary-blue);
+        }
+        .btn-stretched-link::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10;
         }
 
         .b-name { font-family: 'Montserrat', sans-serif; font-size: 28px; font-weight: 700; color: var(--text-dark); margin-bottom: 24px; letter-spacing: -0.5px; }
@@ -129,30 +139,30 @@
         <a href="residential-security-singapore.html">Private Homes</a>
         <a href="condominiums.html">Condominiums</a>
         
-        <a href="commercial-security-singapore.html">Commercial &amp; Retail</a>
-        <a href="industrial-security-singapore.html">Industrial &amp; Logistics</a>
-        <a href="government-institution-security-singapore.html">Institutions &amp; Government</a>
-        <a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a>
-        <a href="security-solutions-singapore.html"><strong>&rarr; View All Solutions</strong></a>
+        <a href="commercial-security-singapore.html">Commercial & Retail</a>
+        <a href="industrial-security-singapore.html">Industrial & Logistics</a>
+        <a href="government-institution-security-singapore.html">Institutions & Government</a>
+        <a href="healthcare-security-singapore.html">Healthcare & Managed Living</a>
+        <a href="security-solutions-singapore.html"><strong>→ View All Solutions</strong></a>
       </div>
     </li>
     <li class="nav-item"><a href="security-systems-singapore.html" class="nav-link has-dropdown">Systems</a>
       <div class="simple-dropdown">
-        <a href="surveillance-detection.html">Surveillance &amp; Detection</a>
+        <a href="surveillance-detection.html">Surveillance & Detection</a>
         <a href="people-access-control.html">People Access Control</a>
-        <a href="vehicle-access-control.html">Vehicle Access &amp; Barriers</a>
+        <a href="vehicle-access-control.html">Vehicle Access & Barriers</a>
         <a href="integrated-security-platform.html">Platform Management</a>
       </div>
     </li>
     <li class="nav-item"><a href="security-brands-singapore.html" class="nav-link has-dropdown">Brands</a>
       <div class="simple-dropdown wide-dropdown">
-        <a href="security-brands-singapore.html#surveillance"><strong>Surveillance</strong> &mdash; Hikvision &bull; Hanwha &bull; Uniview &bull; Milesight</a>
-        <a href="security-brands-singapore.html#access"><strong>Access Control</strong> &mdash; Suprema &bull; ZKTeco &bull; HID &bull; EntryPass</a>
-        <a href="security-brands-singapore.html#intercom"><strong>Intercoms</strong> &mdash; Akuvox &bull; Aiphone &bull; Kocom</a>
-        <a href="security-brands-singapore.html#alarms"><strong>Alarms</strong> &mdash; AJAX &bull; RISCO &bull; Paradox &bull; DSC</a>
-        <a href="security-brands-singapore.html#gates"><strong>Gates & Barriers</strong> &mdash; FAAC &bull; MAG &bull; Dormer</a>
+        <a href="security-brands-singapore.html#surveillance"><strong>Surveillance</strong> — Hikvision · Hanwha · Uniview · Milesight</a>
+        <a href="security-brands-singapore.html#access"><strong>Access Control</strong> — Suprema · ZKTeco · HID · EntryPass · MicroEngine</a>
+        <a href="security-brands-singapore.html#intercom"><strong>Intercoms</strong> — Akuvox · Aiphone · Kocom</a>
+        <a href="security-brands-singapore.html#alarms"><strong>Alarms</strong> — AJAX · RISCO · Paradox · DSC · GE Caddx</a>
+        <a href="security-brands-singapore.html#gates"><strong>Gates & Barriers</strong> — FAAC · MAG · Dormer</a>
         <hr>
-        <a href="security-brands-singapore.html"><strong>&rarr; View All Technology Partners</strong></a>
+        <a href="security-brands-singapore.html"><strong>→ View All Technology Partners</strong></a>
       </div>
     </li>
     <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
@@ -163,8 +173,8 @@
         <a href="resources.html#library">Product Library</a>
         <a href="resources.html#videos">Training Videos</a>
         <a href="resources.html#faq">FAQ</a>
-        <a href="resources.html#trade">For Trade &amp; Professionals</a>
-        <a href="resources.html"><strong>&rarr; All Resources</strong></a>
+        <a href="resources.html#trade">For Trade & Professionals</a>
+        <a href="resources.html"><strong>→ All Resources</strong></a>
       </div>
     </li>
     <li class="nav-item"><a href="security-articles-singapore.html" class="nav-link">Insights</a></li>
@@ -182,26 +192,26 @@
   <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
 </div>
 <div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions &#9662;<div class="mobile-submenu" id="solSub"><a href="security-solutions-singapore.html"><strong>&rarr; View All Solutions</strong></a><a href="residential-security-singapore.html">Private Homes</a><a href="condominiums.html">Condominiums</a>
-        <a href="commercial-security-singapore.html">Commercial &amp; Retail</a><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a><a href="government-institution-security-singapore.html">Institutions &amp; Government</a><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems &#9662;<div class="mobile-submenu" id="sysSub">
-      <a href="surveillance-detection.html">Surveillance &amp; Detection</a>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions ▾<div class="mobile-submenu" id="solSub"><a href="security-solutions-singapore.html"><strong>→ View All Solutions</strong></a><a href="residential-security-singapore.html">Private Homes</a><a href="condominiums.html">Condominiums</a>
+        <a href="commercial-security-singapore.html">Commercial & Retail</a><a href="industrial-security-singapore.html">Industrial & Logistics</a><a href="government-institution-security-singapore.html">Institutions & Government</a><a href="healthcare-security-singapore.html">Healthcare & Managed Living</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems ▾<div class="mobile-submenu" id="sysSub">
+      <a href="surveillance-detection.html">Surveillance & Detection</a>
       <a href="people-access-control.html">People Access Control</a>
-      <a href="vehicle-access-control.html">Vehicle Access &amp; Barriers</a>
+      <a href="vehicle-access-control.html">Vehicle Access & Barriers</a>
       <a href="integrated-security-platform.html">Platform Management</a>
     </div></div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('brandSub')">Brands &#9662;<div class="mobile-submenu" id="brandSub">
-      <a href="security-brands-singapore.html"><strong>&rarr; View All Partners</strong></a>
-      <a href="security-brands-singapore.html#surveillance">Surveillance &mdash; Hik · Han · Uni · Mil</a>
-      <a href="security-brands-singapore.html#access">Access &mdash; Sup · ZK · HID · EP</a>
-      <a href="security-brands-singapore.html#intercom">Intercoms &mdash; Aku · Aip · Koc</a>
-      <a href="security-brands-singapore.html#alarms">Alarms &mdash; AJAX · RIS · Par · DSC</a>
-      <a href="security-brands-singapore.html#gates">Gates &mdash; FAAC · MAG · Dor</a>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('brandSub')">Brands ▾<div class="mobile-submenu" id="brandSub">
+      <a href="security-brands-singapore.html"><strong>→ View All Partners</strong></a>
+      <a href="security-brands-singapore.html#surveillance">Surveillance — Hik · Han · Uni · Mil</a>
+      <a href="security-brands-singapore.html#access">Access — Sup · ZK · HID · EP · ME</a>
+      <a href="security-brands-singapore.html#intercom">Intercoms — Aku · Aip · Koc</a>
+      <a href="security-brands-singapore.html#alarms">Alarms — AJAX · RIS · Par · DSC · GE</a>
+      <a href="security-brands-singapore.html#gates">Gates — FAAC · MAG · Dor</a>
     </div></div>
   <a href="portfolio.html" class="mobile-menu-item">Portfolio</a>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources &#9662;<div class="mobile-submenu" id="resSub"><a href="resources.html"><strong>&rarr; All Resources</strong></a><a href="resources.html#guides">Technical Guides</a><a href="resources.html#tools">Planning Tools</a><a href="resources.html#library">Product Library</a><a href="resources.html#videos">Training Videos</a><a href="resources.html#faq">FAQ</a><a href="resources.html#trade">For Trade &amp; Professionals</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources ▾<div class="mobile-submenu" id="resSub"><a href="resources.html"><strong>→ All Resources</strong></a><a href="resources.html#guides">Technical Guides</a><a href="resources.html#tools">Planning Tools</a><a href="resources.html#library">Product Library</a><a href="resources.html#videos">Training Videos</a><a href="resources.html#faq">FAQ</a><a href="resources.html#trade">For Trade & Professionals</a></div></div>
   <a href="security-articles-singapore.html" class="mobile-menu-item">Insights</a>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>&rarr; Our Story</strong></a><a href="contact.html">Contact Us</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About ▾<div class="mobile-submenu" id="abtSub"><a href="about.html"><strong>→ Our Story</strong></a><a href="contact.html">Contact Us</a></div></div>
 </div>
 </nav><header class="hero" style="background: linear-gradient(rgba(14, 26, 43, 0.8), rgba(14, 26, 43, 0.8)), url('images/security-brands-hero.png'); background-size: cover; background-position: center;">
         <div class="container z-2">
@@ -226,7 +236,7 @@
                 <h2>Surveillance & Detection Partners</h2>
                 <p class="section-intro">For surveillance, we partner with four brands that cover the full spectrum — from cost-effective IP cameras for landed homes to enterprise-grade AI analytics platforms for large commercial and institutional sites. Every brand we specify integrates natively with our chosen VMS platforms and supports the AI analytics capabilities that define modern surveillance.</p>
                 <a href="surveillance-detection.html" class="cross-link-box">
-                    These brands are deployed as part of our <strong>Surveillance & Detection</strong> system design. &rarr; Learn how we design surveillance systems
+                    These brands are deployed as part of our <strong>Surveillance & Detection</strong> system design. → Learn how we design surveillance systems
                 </a>
             </div>
 
@@ -242,7 +252,7 @@
                         <span class="s-tag">Large-scale deployment</span>
                         <span class="s-tag">VMS integration</span>
                     </div>
-                    <a href="hikvision-singapore.html" class="btn btn-outline">View Hikvision Singapore &rarr;</a>
+                    <a href="hikvision-singapore.html" class="btn btn-outline btn-stretched-link">View Hikvision Singapore →</a>
                 </div>
 
                 <!-- Hanwha -->
@@ -256,7 +266,7 @@
                         <span class="s-tag">WDR technology</span>
                         <span class="s-tag">Korean engineering</span>
                     </div>
-                    <a href="hanwha-samsung-singapore.html" class="btn btn-outline">View Hanwha Singapore &rarr;</a>
+                    <a href="hanwha-singapore.html" class="btn btn-outline btn-stretched-link">View Hanwha Singapore →</a>
                 </div>
 
                 <!-- Uniview -->
@@ -270,7 +280,7 @@
                         <span class="s-tag">Residential fit</span>
                         <span class="s-tag">Good VMS support</span>
                     </div>
-                    <a href="uniview-singapore.html" class="btn btn-outline">View Uniview Singapore &rarr;</a>
+                    <a href="uniview-singapore.html" class="btn btn-outline btn-stretched-link">View Uniview Singapore →</a>
                 </div>
 
                 <!-- Milesight -->
@@ -284,7 +294,7 @@
                         <span class="s-tag">Smart building</span>
                         <span class="s-tag">Occupancy analytics</span>
                     </div>
-                    <a href="milesight-singapore.html" class="btn btn-outline">View Milesight Singapore &rarr;</a>
+                    <a href="milesight-singapore.html" class="btn btn-outline btn-stretched-link">View Milesight Singapore →</a>
                 </div>
             </div>
         </div>
@@ -297,7 +307,7 @@
                 <h2>Access Control Partners</h2>
                 <p class="section-intro">For access control, the key variables are security tier, throughput volume, and credential type — card, fingerprint, face, or palm. We specify across four brands to match the right technology to the right environment, from a single office door to a multi-building enterprise campus with thousands of daily users.</p>
                 <a href="people-access-control.html" class="cross-link-box">
-                    These brands are deployed as part of our <strong>Entry & Access</strong> system design. &rarr; Learn how we design access control systems
+                    These brands are deployed as part of our <strong>Entry & Access</strong> system design. → Learn how we design access control systems
                 </a>
             </div>
 
@@ -313,7 +323,7 @@
                         <span class="s-tag">Face recognition</span>
                         <span class="s-tag">High throughput</span>
                     </div>
-                    <a href="suprema-singapore.html" class="btn btn-outline">View Suprema Singapore &rarr;</a>
+                    <a href="suprema-singapore.html" class="btn btn-outline btn-stretched-link">View Suprema Singapore →</a>
                 </div>
 
                 <!-- ZKTeco -->
@@ -327,7 +337,7 @@
                         <span class="s-tag">Multi-modal</span>
                         <span class="s-tag">Cost-effective</span>
                     </div>
-                    <a href="zkteco-singapore.html" class="btn btn-outline">View ZKTeco Singapore &rarr;</a>
+                    <a href="zkteco-singapore.html" class="btn btn-outline btn-stretched-link">View ZKTeco Singapore →</a>
                 </div>
 
                 <!-- HID -->
@@ -341,21 +351,35 @@
                         <span class="s-tag">Legacy compatibility</span>
                         <span class="s-tag">Multinational</span>
                     </div>
-                    <a href="hid-global-access-singapore.html" class="btn btn-outline">View HID Singapore &rarr;</a>
+                    <a href="hid-singapore.html" class="btn btn-outline btn-stretched-link">View HID Singapore →</a>
                 </div>
 
                 <!-- EntryPass -->
                 <div class="brand-full-card">
                     <h3 class="b-name">EntryPass</h3>
-                    <span class="b-spec-label">Why we specify:</span>
-                    <p class="b-spec-text">A Singapore-developed access control system with strong local support and a proven track record in medium-scale commercial and industrial deployments. EntryPass is our recommendation for clients who prioritise local technical support and a system designed with Singapore's operating environment in mind.</p>
+                    <span class="b-spec-label">Service & Support:</span>
+                    <p class="b-spec-text">One of the most widely installed access control brands in Singapore's SME sector. We provide comprehensive technical support, software management, and hardware servicing for existing EntryPass N-Series and i-Series installations across Singapore.</p>
                     <div class="tag-wrap">
-                        <span class="s-tag">Singapore-developed</span>
-                        <span class="s-tag">Local support</span>
-                        <span class="s-tag">Commercial fit</span>
-                        <span class="s-tag">Proven locally</span>
+                        <span class="s-tag">SME Sector Support</span>
+                        <span class="s-tag">Local technical service</span>
+                        <span class="s-tag">Hardware Repair</span>
+                        <span class="s-tag">Migration Advice</span>
                     </div>
-                    <a href="entrypass-singapore.html" class="btn btn-outline">View EntryPass Singapore &rarr;</a>
+                    <a href="entrypass-singapore.html" class="btn btn-outline btn-stretched-link">View EntryPass Service →</a>
+                </div>
+
+                <!-- MicroEngine -->
+                <div class="brand-full-card">
+                    <h3 class="b-name">MicroEngine</h3>
+                    <span class="b-spec-label">Service & Support:</span>
+                    <p class="b-spec-text">A prominent biometric and card access brand in Singapore's industrial and warehouse market. Securevision services and maintains all MicroEngine ME-series controllers and fingerprint terminals, providing reliable support for existing site operators.</p>
+                    <div class="tag-wrap">
+                        <span class="s-tag">Industrial Support</span>
+                        <span class="s-tag">Time Attendance Service</span>
+                        <span class="s-tag">Terminal Repair</span>
+                        <span class="s-tag">Legacy Migration</span>
+                    </div>
+                    <a href="microengine-singapore.html" class="btn btn-outline btn-stretched-link">View MicroEngine Service →</a>
                 </div>
             </div>
         </div>
@@ -368,7 +392,7 @@
                 <h2>Intercom & Video Door Station Partners</h2>
                 <p class="section-intro">Modern intercom systems are no longer just door phones — they are the primary interface between residents, visitors, and security staff. We specify IP-based SIP intercoms that integrate with access control, mobile apps, and management platforms, moving clients away from legacy analogue systems that cannot scale or integrate.</p>
                 <a href="people-access-control.html" class="cross-link-box">
-                    These brands are deployed as part of our <strong>Entry & Access</strong> system design. &rarr; Learn how we design intercom systems
+                    These brands are deployed as part of our <strong>Entry & Access</strong> system design. → Learn how we design intercom systems
                 </a>
             </div>
 
@@ -384,35 +408,35 @@
                         <span class="s-tag">Mobile unlock</span>
                         <span class="s-tag">Condominium-proven</span>
                     </div>
-                    <a href="akuvox-singapore.html" class="btn btn-outline">View Akuvox Singapore &rarr;</a>
+                    <a href="akuvox-singapore.html" class="btn btn-outline btn-stretched-link">View Akuvox Singapore →</a>
                 </div>
 
                 <!-- Aiphone -->
                 <div class="brand-full-card">
                     <h3 class="b-name">Aiphone</h3>
-                    <span class="b-spec-label">Why we specify:</span>
-                    <p class="b-spec-text">The benchmark for commercial and institutional intercom — government buildings, hospitals, schools, and high-security facilities where reliability and audio-video quality are non-negotiable. Aiphone's build quality and 50-year track record make it the right choice where longevity matters more than feature richness.</p>
+                    <span class="b-spec-label">Service & Support:</span>
+                    <p class="b-spec-text">The benchmark for reliability in Singapore's residential and commercial intercom market for over 30 years. Securevision provides full servicing, component replacement, and expansion support for existing Aiphone JO, GT, and IX series installations.</p>
                     <div class="tag-wrap">
-                        <span class="s-tag">Commercial-grade</span>
-                        <span class="s-tag">Institutional proven</span>
-                        <span class="s-tag">Audio quality</span>
-                        <span class="s-tag">Long-term reliability</span>
+                        <span class="s-tag">Residential Support</span>
+                        <span class="s-tag">Commercial Service</span>
+                        <span class="s-tag">Component Replacement</span>
+                        <span class="s-tag">Fault Diagnosis</span>
                     </div>
-                    <a href="aiphone-singapore.html" class="btn btn-outline">View Aiphone Singapore &rarr;</a>
+                    <a href="aiphone-singapore.html" class="btn btn-outline btn-stretched-link">View Aiphone Service →</a>
                 </div>
 
                 <!-- Kocom -->
                 <div class="brand-full-card">
                     <h3 class="b-name">Kocom</h3>
-                    <span class="b-spec-label">Why we specify:</span>
-                    <p class="b-spec-text">A cost-effective intercom option for residential projects — landed homes and smaller developments — where the requirement is straightforward door communication without the complexity of full IP integration. Kocom delivers reliable, well-priced intercom for budget-conscious residential clients.</p>
+                    <span class="b-spec-label">Service & Support:</span>
+                    <p class="b-spec-text">A popular residential intercom choice in Singapore's private landed estates. We service and maintain all analogue Kocom video door stations and monitors, offering straightforward repairs and upgrade advice for existing homeowners.</p>
                     <div class="tag-wrap">
-                        <span class="s-tag">Residential fit</span>
-                        <span class="s-tag">Value-for-money</span>
-                        <span class="s-tag">Simple deployment</span>
-                        <span class="s-tag">Reliable</span>
+                        <span class="s-tag">Landed Residential</span>
+                        <span class="s-tag">Analogue Service</span>
+                        <span class="s-tag">Monitor Replacement</span>
+                        <span class="s-tag">Repair Specialist</span>
                     </div>
-                    <a href="kocom-singapore.html" class="btn btn-outline">View Kocom Singapore &rarr;</a>
+                    <a href="kocom-singapore.html" class="btn btn-outline btn-stretched-link">View Kocom Service →</a>
                 </div>
             </div>
         </div>
@@ -425,7 +449,7 @@
                 <h2>Burglar Alarm & Intrusion Detection Partners</h2>
                 <p class="section-intro">Alarm systems are about one thing: reliable detection without false alarms. We carry four brands that cover the full range from wireless residential systems to professional-grade wired commercial installations, each chosen for detection accuracy, false alarm resistance, and integration capability with our broader security architecture.</p>
                 <a href="surveillance-detection.html" class="cross-link-box">
-                    These brands are deployed as part of our <strong>Surveillance & Detection</strong> system design. &rarr; Learn how we design alarm systems
+                    These brands are deployed as part of our <strong>Surveillance & Detection</strong> system design. → Learn how we design alarm systems
                 </a>
             </div>
 
@@ -441,7 +465,7 @@
                         <span class="s-tag">Fast installation</span>
                         <span class="s-tag">Reliable detection</span>
                     </div>
-                    <a href="ajax-alarm-singapore.html" class="btn btn-outline">View AJAX Singapore &rarr;</a>
+                    <a href="ajax-singapore.html" class="btn btn-outline btn-stretched-link">View AJAX Singapore →</a>
                 </div>
 
                 <!-- RISCO -->
@@ -455,7 +479,7 @@
                         <span class="s-tag">Commercial-grade</span>
                         <span class="s-tag">Audit trail</span>
                     </div>
-                    <a href="risco-alarm-singapore.html" class="btn btn-outline">View RISCO Singapore &rarr;</a>
+                    <a href="risco-singapore.html" class="btn btn-outline btn-stretched-link">View RISCO Singapore →</a>
                 </div>
 
                 <!-- Paradox -->
@@ -469,7 +493,7 @@
                         <span class="s-tag">Proven locally</span>
                         <span class="s-tag">Competitive pricing</span>
                     </div>
-                    <a href="paradox-alarm-singapore.html" class="btn btn-outline">View Paradox Singapore &rarr;</a>
+                    <a href="paradox-singapore.html" class="btn btn-outline btn-stretched-link">View Paradox Singapore →</a>
                 </div>
 
                 <!-- DSC -->
@@ -483,7 +507,21 @@
                         <span class="s-tag">Wide detector range</span>
                         <span class="s-tag">Established</span>
                     </div>
-                    <a href="dsc-alarm-singapore.html" class="btn btn-outline">View DSC Singapore &rarr;</a>
+                    <a href="dsc-singapore.html" class="btn btn-outline btn-stretched-link">View DSC Singapore →</a>
+                </div>
+
+                <!-- GE Caddx -->
+                <div class="brand-full-card">
+                    <h3 class="b-name">GE Caddx</h3>
+                    <span class="b-spec-label">Legacy Maintenance:</span>
+                    <p class="b-spec-text">A foundational brand in Singapore's intrusion detection market. Securevision provides expert maintenance, battery replacement, and fault diagnosis for existing GE Caddx Networx panels, ensuring continued operation and migration planning for legacy sites.</p>
+                    <div class="tag-wrap">
+                        <span class="s-tag">Legacy Support</span>
+                        <span class="s-tag">Wired Hybrid</span>
+                        <span class="s-tag">Board Repair</span>
+                        <span class="s-tag">NX-Series Specialist</span>
+                    </div>
+                    <a href="gecaddx-singapore.html" class="btn btn-outline btn-stretched-link">View GE Caddx Service →</a>
                 </div>
             </div>
         </div>
@@ -496,7 +534,7 @@
                 <h2>Gate Motor & Barrier Partners</h2>
                 <p class="section-intro">Vehicle access is a mechanical as much as an electronic challenge. Gate motors and boom barriers must handle Singapore's humidity, duty cycle demands, and safety requirements — a gate that fails open is a security breach, and a gate that fails closed is an operational crisis. We specify brands whose mechanical engineering matches the electronic integration.</p>
                 <a href="auto-gate-singapore.html" class="cross-link-box">
-                    These brands are deployed as part of our <strong>Vehicle Access & Control</strong> system design. &rarr; Learn how we design vehicle access systems
+                    These brands are deployed as part of our <strong>Vehicle Access & Control</strong> system design. → Learn how we design vehicle access systems
                 </a>
             </div>
 
@@ -512,7 +550,7 @@
                         <span class="s-tag">GantryGo integration</span>
                         <span class="s-tag">Condominium-proven</span>
                     </div>
-                    <a href="faac-singapore.html" class="btn btn-outline">View FAAC Singapore &rarr;</a>
+                    <a href="faac-singapore.html" class="btn btn-outline btn-stretched-link">View FAAC Singapore →</a>
                 </div>
 
                 <!-- MAG -->
@@ -526,7 +564,7 @@
                         <span class="s-tag">Cost-effective</span>
                         <span class="s-tag">Reliable</span>
                     </div>
-                    <a href="mag-gates-singapore.html" class="btn btn-outline">View MAG Singapore &rarr;</a>
+                    <a href="mag-singapore.html" class="btn btn-outline btn-stretched-link">View MAG Singapore →</a>
                 </div>
 
                 <!-- Dormer -->
@@ -540,7 +578,7 @@
                         <span class="s-tag">High frequency</span>
                         <span class="s-tag">Large gates</span>
                     </div>
-                    <a href="dormer-auto-gate-singapore.html" class="btn btn-outline">View Dormer Singapore &rarr;</a>
+                    <a href="dormer-singapore.html" class="btn btn-outline btn-stretched-link">View Dormer Singapore →</a>
                 </div>
             </div>
         </div>
@@ -553,7 +591,7 @@
             <p class="subtitle" style="color: #fff; opacity: 0.8; max-width: 700px; margin: 24px auto 48px;">Every brand we carry has a specific application sweet spot. The wrong brand for your use case costs more to maintain and underperforms over its lifetime. Our engineers will assess your site, your usage patterns, and your budget — then specify the right brands for each system layer.</p>
             
             <div class="btn-group" style="justify-content: center;">
-                <a href="request-site-assessment-singapore.html" class="btn btn-primary">Book a Smart Assessment &rarr;</a>
+                <a href="request-site-assessment-singapore.html" class="btn btn-primary">Book a Smart Assessment →</a>
                 <a href="https://wa.me/6593860466" class="btn btn-outline-white">WhatsApp an Engineer</a>
             </div>
         </div>
@@ -588,19 +626,19 @@
                     <li><a href="residential-security-singapore.html">Private Homes</a></li>
                     <li><a href="condominiums.html">Condominiums</a>
         </li>
-                    <li><a href="commercial-security-singapore.html">Commercial &amp; Retail</a></li>
-                    <li><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a></li>
-                    <li><a href="government-institution-security-singapore.html">Institutions &amp; Government</a></li>
-                    <li><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></li>
+                    <li><a href="commercial-security-singapore.html">Commercial & Retail</a></li>
+                    <li><a href="industrial-security-singapore.html">Industrial & Logistics</a></li>
+                    <li><a href="government-institution-security-singapore.html">Institutions & Government</a></li>
+                    <li><a href="healthcare-security-singapore.html">Healthcare & Managed Living</a></li>
                 </ul>
             </div>
             
             <div class="footer-links">
                 <h4>Systems</h4>
                 <ul>
-                    <li><a href="surveillance-detection.html">Surveillance &amp; Detection</a></li>
+                    <li><a href="surveillance-detection.html">Surveillance & Detection</a></li>
                     <li><a href="people-access-control.html">People Access Control</a></li>
-                    <li><a href="vehicle-access-control.html">Vehicle Access &amp; Barriers</a></li>
+                    <li><a href="vehicle-access-control.html">Vehicle Access & Barriers</a></li>
                     <li><a href="integrated-security-platform.html">Platform Management</a></li>
                 </ul>
             </div>
@@ -612,7 +650,7 @@
                     <li><a href="resources.html#tools">Planning Tools</a></li>
                     <li><a href="resources.html#library">Product Library</a></li>
                     <li><a href="resources.html#videos">Training Videos</a></li>
-                    <li><a href="resources.html#faq">Search &amp; FAQ</a></li>
+                    <li><a href="resources.html#faq">Search & FAQ</a></li>
                     <li><a href="resources.html"><strong>Full Resource Hub</strong></a></li>
                 </ul>
             </div>
@@ -647,7 +685,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2026 Securevision Pte Ltd &middot; Police Licence <span class="sv-licence">L/PS/000267/2023P</span> &middot; bizSAFE Level 3 &middot; BCA Registered</p>
+            <p>&copy; 2026 Securevision Pte Ltd · Police Licence <span class="sv-licence">L/PS/000267/2023P</span> · bizSAFE Level 3 · BCA Registered</p>
             <div class="footer-bottom-links">
                 <a href="sitemap.html">Sitemap</a>
                 <a href="privacy.html">Privacy Policy</a>
@@ -658,7 +696,6 @@
 </footer>
 
     
-
 
 <script>
 function toggleMobileMenu() {
@@ -711,5 +748,3 @@ if (yearSpan) yearSpan.textContent = new Date().getFullYear();
 </script>
 </body>
 </html>
-
-

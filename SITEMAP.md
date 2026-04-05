@@ -212,7 +212,7 @@ SECUREVISION.COM.SG
 │   ├── SURVEILLANCE BRANDS
 │   │   ├── ✅ hikvision-singapore.html - Hikvision
 │   │   ├── ✅ uniview-singapore.html - Uniview
-│   │   ├── ✅ hanwha-samsung-singapore.html - Hanwha (Samsung)
+│   │   ├── ✅ hanwha-singapore.html - Hanwha (Samsung)
 │   │   └── ✅ milesight-singapore.html - Milesight
 │   │
 │   ├── ACCESS CONTROL BRANDS
@@ -335,7 +335,7 @@ SECUREVISION.COM.SG
 |----------|-------|------|----------|
 | **Surveillance** | Hikvision | hikvision-singapore.html | Brands → Surveillance |
 | | Uniview | uniview-singapore.html | Brands → Surveillance |
-| | Hanwha (Samsung) | hanwha-samsung-singapore.html | Brands → Surveillance |
+| | Hanwha (Samsung) | hanwha-singapore.html | Brands → Surveillance |
 | | Milesight | milesight-singapore.html | Brands → Surveillance |
 | **Access Control** | Suprema | suprema-singapore.html | Brands → Access Control |
 | | ZKTeco | zkteco-singapore.html | Brands → Access Control |
