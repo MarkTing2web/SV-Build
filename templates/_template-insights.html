@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══ SEO: UPDATE THESE PER ARTICLE ═══ -->
+  <title>[ARTICLE TITLE] | Securevision Insights</title>
+  <meta name="description" content="[140–160 chars — compelling reason to read, not a summary]">
+  <link rel="canonical" href="https://www.securevision.com.sg/[slug].html">
+  <meta property="og:title" content="[ARTICLE TITLE] | Securevision Insights">
+  <meta property="og:description" content="[SAME AS META DESCRIPTION]">
+  <meta property="og:image" content="https://www.securevision.com.sg/images/insight-[slug]-cover.jpg">
+  <meta property="og:url" content="https://www.securevision.com.sg/[slug].html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Securevision">
+  <meta property="article:author" content="Ler Wee Meng">
+  <meta property="article:published_time" content="[YYYY-MM-DD]">
+  <!-- ═══════════════════════════════════════ -->
+
+  <!-- Google Fonts — do not modify -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS stack — both files required for insights articles -->
+  <link rel="stylesheet" href="sv-shared.css">
+  <script src="site-config.js"></script>
+  <link rel="stylesheet" href="sv-guides.css">
+
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     NAV — FROZEN. DO NOT MODIFY ANY PART OF THIS BLOCK.
+     ═══════════════════════════════════════════════════════════════════ -->
+<nav class="main-nav">
+<div class="nav-container">
+  <a href="index.html" class="nav-logo-link" aria-label="Securevision Home">
+    <img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
+    <span class="wordmark nav-wordmark">SECUREVISION</span>
+  </a>
+  <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </button>
+  <ul class="nav-menu">
+    <li class="nav-item"><a href="security-solutions-singapore.html" class="nav-link has-dropdown">Solutions</a>
+      <div class="simple-dropdown">
+        <a href="residential-security-singapore.html">Private Homes</a>
+        <a href="condominiums.html">Condominiums</a>
+        <a href="commercial-security-singapore.html">Commercial &amp; Retail</a>
+        <a href="industrial-security-singapore.html">Industrial &amp; Logistics</a>
+        <a href="government-institution-security-singapore.html">Institutions &amp; Government</a>
+        <a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a>
+        <a href="security-solutions-singapore.html"><strong>→ View All Solutions</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="security-systems-singapore.html" class="nav-link has-dropdown">Systems</a>
+      <div class="simple-dropdown">
+        <a href="surveillance-detection.html">Surveillance &amp; Detection</a>
+        <a href="people-access-control.html">People Access Control</a>
+        <a href="vehicle-access-control.html">Vehicle Access &amp; Barriers</a>
+        <a href="integrated-security-platform.html">Platform Management</a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="security-brands-singapore.html" class="nav-link has-dropdown">Brands</a>
+      <div class="simple-dropdown wide-dropdown">
+        <a href="security-brands-singapore.html#surveillance"><strong>Surveillance</strong> — Hikvision · Hanwha · Uniview · Milesight</a>
+        <a href="security-brands-singapore.html#access"><strong>Access Control</strong> — Suprema · ZKTeco · HID · EntryPass</a>
+        <a href="security-brands-singapore.html#intercom"><strong>Intercoms</strong> — Akuvox · Aiphone · Kocom</a>
+        <a href="security-brands-singapore.html#alarms"><strong>Alarms</strong> — AJAX · RISCO · Paradox · DSC</a>
+        <a href="security-brands-singapore.html#gates"><strong>Gates &amp; Barriers</strong> — FAAC · MAG · Dormer</a>
+        <hr>
+        <a href="security-brands-singapore.html"><strong>→ View All Technology Partners</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+    <li class="nav-item"><a href="resources.html" class="nav-link has-dropdown">Resources</a>
+      <div class="simple-dropdown">
+        <a href="resources.html#guides">Technical Guides</a>
+        <a href="resources.html#tools">Planning Tools</a>
+        <a href="resources.html#library">Product Library</a>
+        <a href="resources.html#videos">Training Videos</a>
+        <a href="resources.html#faq">FAQ</a>
+        <a href="resources.html#trade">For Trade &amp; Professionals</a>
+        <a href="resources.html"><strong>→ All Resources</strong></a>
+      </div>
+    </li>
+    <li class="nav-item"><a href="security-articles-singapore.html" class="nav-link">Insights</a></li>
+    <li class="nav-item"><a href="about.html" class="nav-link has-dropdown">About</a>
+      <div class="simple-dropdown">
+        <a href="about.html">Our Story</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+    </button>
+  </div>
+  <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+  </button>
+</div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions ▾
+    <div class="mobile-submenu" id="solSub">
+      <a href="security-solutions-singapore.html"><strong>→ View All Solutions</strong></a>
+      <a href="residential-security-singapore.html">Private Homes</a>
+      <a href="condominiums.html">Condominiums</a>
+      <a href="commercial-security-singapore.html">Commercial &amp; Retail</a>
+      <a href="industrial-security-singapore.html">Industrial &amp; Logistics</a>
+      <a href="government-institution-security-singapore.html">Institutions &amp; Government</a>
+      <a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a>
+    </div>
+  </div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems ▾
+    <div class="mobile-submenu" id="sysSub">
+      <a href="surveillance-detection.html">Surveillance &amp; Detection</a>
+      <a href="people-access-control.html">People Access Control</a>
+      <a href="vehicle-access-control.html">Vehicle Access &amp; Barriers</a>
+      <a href="integrated-security-platform.html">Platform Management</a>
+    </div>
+  </div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('brandSub')">Brands ▾
+    <div class="mobile-submenu" id="brandSub">
+      <a href="security-brands-singapore.html"><strong>→ View All Partners</strong></a>
+      <a href="security-brands-singapore.html#surveillance">Surveillance — Hik · Han · Uni · Mil</a>
+      <a href="security-brands-singapore.html#access">Access — Sup · ZK · HID · EP</a>
+      <a href="security-brands-singapore.html#intercom">Intercoms — Aku · Aip · Koc</a>
+      <a href="security-brands-singapore.html#alarms">Alarms — AJAX · RIS · Par · DSC</a>
+      <a href="security-brands-singapore.html#gates">Gates — FAAC · MAG · Dor</a>
+    </div>
+  </div>
+  <a href="portfolio.html" class="mobile-menu-item">Portfolio</a>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources ▾
+    <div class="mobile-submenu" id="resSub">
+      <a href="resources.html"><strong>→ All Resources</strong></a>
+      <a href="resources.html#guides">Technical Guides</a>
+      <a href="resources.html#tools">Planning Tools</a>
+      <a href="resources.html#library">Product Library</a>
+      <a href="resources.html#videos">Training Videos</a>
+      <a href="resources.html#faq">FAQ</a>
+      <a href="resources.html#trade">For Trade &amp; Professionals</a>
+    </div>
+  </div>
+  <a href="security-articles-singapore.html" class="mobile-menu-item">Insights</a>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About ▾
+    <div class="mobile-submenu" id="abtSub">
+      <a href="about.html"><strong>→ Our Story</strong></a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+  </div>
+</div>
+</nav>
+<!-- ═══ END NAV ═══ -->
+
+
+<!-- ═══ ARTICLE HEADER — UPDATE: category badge, h1, publish date ═══ -->
+<!-- Insights articles do NOT use hero-high-impact — compact dark header only -->
+<!-- Category options: Security Planning | Technology | Case Studies | Singapore Industry -->
+<header style="background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%); padding: calc(68px + 48px) 0 48px; color:#fff;">
+  <div class="container" style="max-width:900px;">
+    <span class="badge badge-primary" style="margin-bottom:20px; display:inline-block;">[CATEGORY]</span>
+    <h1 style="font-family:'Montserrat',sans-serif; font-size:clamp(26px,4vw,44px); font-weight:800; line-height:1.2; margin-bottom:24px; color:#fff;">
+      [ARTICLE TITLE]
+    </h1>
+    <!-- Author byline — exactly 2 lines per Blog Standards. Do not add a 3rd line. -->
+    <div class="hero-byline">
+      <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="hero-byline-img" style="width:44px; height:44px; border-radius:50%; object-fit:cover; border:2px solid rgba(255,255,255,0.3); flex-shrink:0;">
+      <div class="hero-byline-text">
+        <strong>Ler Wee Meng</strong>
+        <span>Founder &amp; CEO · Securevision · <span class="sv-years-experience"></span>+ Years Experience · [PUBLISH DATE e.g. April 2026]</span>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- ═══ END ARTICLE HEADER ═══ -->
+
+
+<!-- ═══ BREADCRUMB — update category name, category slug, and article title ═══ -->
+<nav class="sv-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="security-articles-singapore.html">Insights</a></li>
+      <li><a href="security-articles-singapore.html?cat=[CATEGORY-SLUG]">[CATEGORY NAME]</a></li>
+      <li>[ARTICLE SHORT TITLE — max 40 chars]</li>
+    </ul>
+  </div>
+</nav>
+<!-- ═══ END BREADCRUMB ═══ -->
+
+
+<!-- ═══ MAIN LAYOUT ═══ -->
+<div class="container mt-64 mb-64" style="max-width:1280px;">
+  <div class="layout-with-sidebar">
+
+
+    <!-- ═══════════════════════════════════════════════════════
+         ARTICLE BODY — Anti-Gravity fills this section
+         Follow numbered H2 sections. Alternate white/bg-light.
+         Use .callout-box, .verdict-box, .article-image-box.
+         ═══════════════════════════════════════════════════════ -->
+    <main style="padding: 80px 0;">
+
+      <!-- ── SECTION 1 ── -->
+      <section id="section1">
+        <h2>1. [Section heading]</h2>
+        <p>[Body paragraph — Inter, 16px, line-height 1.8]</p>
+        <p>[Continue...]</p>
+
+        <!-- Callout box — use where there is a key takeaway -->
+        <div class="callout-box">
+          <p class="callout-label">KEY POINT</p>
+          <p>[Key takeaway — 1–3 sentences. Bold, clear, actionable.]</p>
+        </div>
+
+      </section>
+
+
+      <!-- ── SECTION 2 ── -->
+      <section id="section2" class="bg-light">
+        <h2>2. [Section heading]</h2>
+        <p>[Body paragraph]</p>
+
+        <!-- In-article image — use .article-image-box wrapper -->
+        <div class="article-image-box">
+          <img src="images/insight-[slug]-[desc].jpg" alt="[Descriptive alt text — specific, not generic]">
+          <p class="image-caption">[Caption — what the image shows and why it matters]</p>
+        </div>
+
+        <p>[Continue...]</p>
+
+        <!-- Comparison table — use .blog-table-wrap -->
+        <div class="blog-table-wrap">
+          <table class="blog-table">
+            <thead>
+              <tr>
+                <th>[Column 1]</th>
+                <th>[Column 2]</th>
+                <th>[Column 3]</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>[Data]</td>
+                <td>[Data]</td>
+                <td>[Data]</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </section>
+
+
+      <!-- ── SECTION 3 ── -->
+      <section id="section3">
+        <h2>3. [Section heading]</h2>
+        <p>[Body paragraph]</p>
+
+        <!-- Subsection — use H3 -->
+        <h3>[Subsection heading]</h3>
+        <p>[Subsection content]</p>
+
+      </section>
+
+
+      <!-- ── ADD MORE SECTIONS AS NEEDED following the same pattern ── -->
+      <!-- Alternate class="bg-light" on even-numbered sections -->
+
+
+      <!-- ── VERDICT BOX — place near end of article, before author bio ── -->
+      <div class="verdict-box">
+        <p class="verdict-label">Securevision Verdict</p>
+        <p>[Ler Wee Meng's professional position on this topic — 2–4 sentences. Engineering-led, specific. First person. Not generic advice.]</p>
+      </div>
+
+
+      <!-- ── AUTHOR BIO FOOTER — mandatory, end of article prose ── -->
+      <!-- Do not modify the biography text — it is fixed -->
+      <div class="author-bio-footer">
+        <div class="abf-flex">
+          <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
+          <div class="abf-content">
+            <h3>About the Author</h3>
+            <p>Ler Wee Meng is the Founder and CEO of Securevision Pte Ltd, Singapore's integrated security systems specialist. He holds a Bachelor of Engineering from the National University of Singapore and a Bachelor of Laws from the University of London, and brings 37 years of hands-on experience spanning R&D, engineering, project management, and systems integration.</p>
+            <p>Securevision has protected over <span class="sv-sites"></span> sites across Singapore — from Good Class Bungalows and MCST-managed condominiums to government institutions and industrial facilities. Ler is also the architect of the VESTA™ platform, Securevision's unified security management and estate operations system.</p>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ── TAGS — mandatory, directly after author bio ── -->
+      <!-- UPDATE: category slug, category name, and 3–4 topic tags -->
+      <div class="article-tags">
+        <a href="security-articles-singapore.html?cat=[CATEGORY-SLUG]" class="tag-pill">[Category Name]</a>
+        <a href="security-articles-singapore.html?tag=[tag-1]" class="tag-pill">[Tag 1]</a>
+        <a href="security-articles-singapore.html?tag=[tag-2]" class="tag-pill">[Tag 2]</a>
+        <a href="security-articles-singapore.html?tag=[tag-3]" class="tag-pill">[Tag 3]</a>
+      </div>
+
+
+      <!-- ── ARTICLE NAVIGATION — prev/next ── -->
+      <!-- UPDATE: both article titles and their filenames -->
+      <nav class="prev-next-nav" aria-label="Article navigation">
+        <a href="[PREV-ARTICLE-FILENAME].html" class="nav-card">
+          <span>← Previous Article</span>
+          <strong>[Previous article title]</strong>
+        </a>
+        <a href="[NEXT-ARTICLE-FILENAME].html" class="nav-card" style="text-align:right;">
+          <span>Next Article →</span>
+          <strong>[Next article title]</strong>
+        </a>
+      </nav>
+
+    </main>
+    <!-- ═══ END ARTICLE BODY ═══ -->
+
+
+    <!-- ═══ SIDEBAR — do not modify structure. Update TOC items only. ═══ -->
+    <aside>
+      <div class="sticky-toc">
+
+        <h3 class="toc-title" onclick="toggleToc()">In This Article</h3>
+
+        <!-- UPDATE: one <li> per H2 section. Do NOT include author bio, tags, or nav. -->
+        <ul class="toc-list" id="tocList">
+          <li><a href="#section1">1. [Section 1 heading]</a></li>
+          <li><a href="#section2">2. [Section 2 heading]</a></li>
+          <li><a href="#section3">3. [Section 3 heading]</a></li>
+          <!-- Add more as needed -->
+        </ul>
+
+        <!-- Founder card — do not modify -->
+        <div class="founder-card">
+          <div class="fc-head">
+            <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
+            <div>
+              <strong>Ler Wee Meng</strong>
+              <span>Founder &amp; CEO · <span class="sv-years-experience"></span>+ Years</span>
+            </div>
+          </div>
+          <p>Need expert advice? Discuss your site requirements with our engineering team.</p>
+          <a href="https://wa.me/6593860466" class="fc-wa-link">💬 WhatsApp an Engineer</a>
+        </div>
+
+      </div>
+    </aside>
+    <!-- ═══ END SIDEBAR ═══ -->
+
+
+  </div><!-- end layout-with-sidebar -->
+</div><!-- end container -->
+
+
+<!-- ═══ RELATED INSIGHTS — outside layout wrapper, full width ═══ -->
+<!-- UPDATE: 3 related article titles and filenames. Category label per card. -->
+<section style="padding:80px 0; background:var(--bg-light);">
+  <div class="container">
+    <h2 style="text-align:center; font-family:'Montserrat',sans-serif; margin-bottom:40px;">Related Security Insights</h2>
+    <div class="related-grid">
+      <a href="[ARTICLE-1-FILENAME].html" class="nav-card">
+        <span>[Category 1]</span>
+        <strong>[Related article 1 title]</strong>
+      </a>
+      <a href="[ARTICLE-2-FILENAME].html" class="nav-card">
+        <span>[Category 2]</span>
+        <strong>[Related article 2 title]</strong>
+      </a>
+      <a href="[ARTICLE-3-FILENAME].html" class="nav-card">
+        <span>[Category 3]</span>
+        <strong>[Related article 3 title]</strong>
+      </a>
+    </div>
+  </div>
+</section>
+<!-- ═══ END RELATED INSIGHTS ═══ -->
+
+
+<!-- ═══ FINAL CTA — outside all wrappers ═══ -->
+<!-- cta-skyline is the default for insights. Update heading and subtitle per article topic. -->
+<section class="cta-section cta-high-impact cta-skyline" style="text-align:center; padding:120px 0;">
+  <div class="container">
+    <span class="eyebrow-light">Talk to an Engineer</span>
+    <h2 style="color:#fff; font-family:'Montserrat',sans-serif; margin-bottom:20px;">Have a Question About Your Security System?</h2>
+    <p class="subtitle">Our engineering team is available to assess your site, answer technical questions, and design a system that fits your property and budget — at no cost.</p>
+    <div class="btn-group">
+      <a href="request-site-assessment-singapore.html" class="btn btn-primary">Book Free Site Assessment</a>
+      <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 WhatsApp an Engineer</a>
+    </div>
+    <p style="font-family:'Inter',sans-serif; color:rgba(255,255,255,0.45); font-size:13px; margin-top:32px;">
+      Police Licence <span class="sv-licence"></span> · Serving Singapore Since <span class="sv-founded"></span>
+    </p>
+  </div>
+</section>
+<!-- ═══ END FINAL CTA ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     FOOTER — FROZEN. DO NOT MODIFY ANY PART OF THIS BLOCK.
+     ═══════════════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="f-logo-wrap">
+          <img src="images/securevision-logo-white.png" alt="Securevision Logo">
+          <span class="brand-name">Securevision</span>
+        </div>
+        <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since <span class="sv-founded"></span>.</p>
+        <div class="f-socials">
+          <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@securevision" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Solutions</h4>
+        <ul>
+          <li><a href="residential-security-singapore.html">Private Homes</a></li>
+          <li><a href="condominiums.html">Condominiums</a></li>
+          <li><a href="commercial-security-singapore.html">Commercial &amp; Retail</a></li>
+          <li><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a></li>
+          <li><a href="government-institution-security-singapore.html">Institutions &amp; Government</a></li>
+          <li><a href="healthcare-security-singapore.html">Healthcare &amp; Managed Living</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Systems</h4>
+        <ul>
+          <li><a href="surveillance-detection.html">Surveillance &amp; Detection</a></li>
+          <li><a href="people-access-control.html">People Access Control</a></li>
+          <li><a href="vehicle-access-control.html">Vehicle Access &amp; Barriers</a></li>
+          <li><a href="integrated-security-platform.html">Platform Management</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="resources.html#guides">Technical Guides</a></li>
+          <li><a href="resources.html#tools">Planning Tools</a></li>
+          <li><a href="resources.html#library">Product Library</a></li>
+          <li><a href="resources.html#videos">Training Videos</a></li>
+          <li><a href="resources.html#faq">Search &amp; FAQ</a></li>
+          <li><a href="resources.html"><strong>Full Resource Hub</strong></a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="security-brands-singapore.html"><strong>Technology Partners</strong></a></li>
+          <li><a href="portfolio.html">Project Portfolio</a></li>
+          <li><a href="security-articles-singapore.html">Insights</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Get In Touch</h4>
+        <div class="footer-contact-item"><span>💬</span><a href="https://wa.me/6593860466">WhatsApp an Engineer</a></div>
+        <div class="footer-contact-item"><span>✉️</span><a href="mailto:enquiry@securevision.com.sg">Email Us</a></div>
+        <div class="footer-contact-item"><span>📞</span><a href="tel:+6562864796">+65 6286 4796</a></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; <span class="sv-current-year">2026</span> Securevision Pte Ltd · Police Licence <span class="sv-licence">L/PS/000267/2023P</span> · bizSAFE Level 3 · BCA Registered</p>
+      <div class="footer-bottom-links">
+        <a href="sitemap.html">Sitemap</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- ═══ END FOOTER ═══ -->
+
+
+<!-- ═══ WHATSAPP FLOAT — do not modify ═══ -->
+<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+  </svg>
+</a>
+
+
+<!-- ═══ SCRIPTS — do not modify ═══ -->
+<script>
+// Dynamic values injected by site-config.js
+
+
+
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  if (menu) menu.classList.toggle('active');
+}
+
+function toggleSubmenu(id) {
+  const sub = document.getElementById(id);
+  if (sub) {
+    const isActive = sub.classList.contains('active');
+    document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
+    if (!isActive) sub.classList.add('active');
+  }
+}
+
+document.addEventListener('click', function(e) {
+  const nav = document.querySelector('.main-nav');
+  const menu = document.getElementById('mobileMenu');
+  if (nav && menu && !nav.contains(e.target)) menu.classList.remove('active');
+
+
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('.main-nav');
+  if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
+
+
+function toggleToc() {
+  const list = document.getElementById('tocList');
+  const title = document.querySelector('.toc-title');
+  if (list) list.classList.toggle('active');
+  if (title) title.classList.toggle('active');
+}
+
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('main section[id]');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 150) current = s.getAttribute('id');
+  
+  tocLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+  
+
+</script>
+
+</body>
+</html>
