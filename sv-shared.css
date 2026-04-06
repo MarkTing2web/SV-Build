@@ -25,13 +25,32 @@
     --c-people: #319795;
     --c-vehicle: #dd6b20;
     --c-platform: #38a169;
-    /* property sector colors */
-    --c-homes:          #38B000;
-    --c-condos:         #4361EE;
-    --c-commercial:     #FF6D00;
-    --c-industrial:     #7209B7;
-    --c-institutions:   #0056b3;
-    --c-healthcare:     #0056b3;
+    /*
+      SECTOR COLOUR SYSTEM — WCAG 2.1 AA COMPLIANT
+      Each sector has two values:
+        -dark  = text, buttons, badges, card accents — passes AA on white, bg-light, and dark hero bg
+        -light = decorative hero tints, background elements only — NOT for text
+      All ratios verified. Do not change without re-running contrast check.
+
+      Private Homes    dark #257000 (6.18 AA)   light #38B000
+      Condominiums     dark #2d45c4 (7.61 AAA)  light #4361EE
+      Commercial       dark #B54E00 (5.18 AA)   light #FF6D00
+      Industrial       dark #5a0892 (11.1 AAA)  light #7209B7
+      Institutions     dark #1B4F72 (8.72 AAA)  light #2471A3
+      Healthcare       dark #0D7377 (5.62 AA)   light #17A2A7
+    */
+    --c-homes:              #257000;
+    --c-homes-light:        #38B000;
+    --c-condos:             #2d45c4;
+    --c-condos-light:       #4361EE;
+    --c-commercial:         #B54E00;
+    --c-commercial-light:   #FF6D00;
+    --c-industrial:         #5a0892;
+    --c-industrial-light:   #7209B7;
+    --c-institutions:       #1B4F72;
+    --c-institutions-light: #2471A3;
+    --c-healthcare:         #0D7377;
+    --c-healthcare-light:   #17A2A7;
     /* Copyright year (can be updated dynamically or manually) */
     --current-year: "2026";
 }
@@ -470,7 +489,7 @@ section { padding: 100px 0; }
 .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
 .btn-outline-light { border: 2px solid rgba(255,255,255,0.6); color: #fff; background: transparent; }
 .btn-outline-light:hover { border-color: #fff; background: rgba(255,255,255,0.1); transform: translateY(-2px); }
-.btn-whatsapp { background: #25d366; color: white; border-color: #25d366; }
+.btn-whatsapp { background: #25d366; color: var(--text-dark); border-color: #25d366; } /* dark text on WA green — white fails WCAG at 1.98 */
 .btn-whatsapp:hover { background: #1da851; transform: translateY(-2px); }
 .hero-trust-note {
     font-size: 13px; opacity: 0.6; font-weight: 500; color: #fff;
