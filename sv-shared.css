@@ -1287,7 +1287,9 @@ section { padding: 100px 0; }
     /* Standardise: All 3-card and 4-card grids stack to 2 columns at 992px */
     .grid-3, .grid-4, .subsystem-grid, .factors-grid, .factors-4, .property-hub-grid, .proof-grid, 
     .pathfinder-grid, .comparison-grid, .logos-grid, .products-intro-grid,
-    .why-grid, .testimonials-grid, .assurance-grid, .assurance-section .assurance-grid { grid-template-columns: repeat(2, 1fr); }
+    .why-grid, .testimonials-grid, .assurance-grid, .assurance-section .assurance-grid,
+    .solution-personas, .solution-related, .solution-lifecycle,
+    .brand-grid-3 { grid-template-columns: repeat(2, 1fr); }
     
     .property-grid { grid-template-columns: 1fr; }
 }
@@ -1690,10 +1692,16 @@ section { padding: 100px 0; }
     .hero .subtitle { font-size: 16px; }
     .hero-nav-pills { display: none; }
     
+    /* Trust bar — hide on mobile, not needed at small screen */
+    .sv-trust-bar { display: none; }
+
     /* Standardise: All grids stack into a single column at 768px */
     .grid-2, .grid-3, .grid-4, .subsystem-grid, .factors-grid, .factors-4, .property-hub-grid, .proof-grid, 
     .pathfinder-grid, .comparison-grid, .logos-grid, .products-intro-grid,
-    .why-grid, .testimonials-grid, .assurance-grid, .assurance-section .assurance-grid, .step-row, .infinity-box { grid-template-columns: 1fr; }
+    .why-grid, .testimonials-grid, .assurance-grid, .assurance-section .assurance-grid, .step-row, .infinity-box,
+    .solution-personas, .solution-pillars, .solution-related, .solution-lifecycle,
+    .brand-grid-3 { grid-template-columns: 1fr; }
+    .solution-proof-card { flex-direction: column !important; gap: 24px !important; }
 
     .system-side { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.12); padding-right: 0; padding-bottom: 28px; }
     .people-side { padding-left: 0; padding-top: 28px; }
@@ -1714,7 +1722,7 @@ section { padding: 100px 0; }
 
 /* Intermediate tablet stack for 4-column grids */
 @media (max-width: 992px) and (min-width: 769px) {
-    .factors-4, .grid-4, .logos-grid { grid-template-columns: repeat(2, 1fr); }
+    .factors-4, .grid-4, .logos-grid, .solution-lifecycle { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (min-width: 769px) {

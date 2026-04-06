@@ -29,12 +29,13 @@
   <!-- ═══ PAGE ACCENT — only permitted inline style. Change hex only. ═══ -->
   <!-- Homes=#38B000 | Condos=#4361EE | Commercial=#FF6D00 | Industrial=#7209B7 | Institutions/Healthcare=#0056b3 -->
   <style>
+    /*
+      RESPONSIVE GRID RULES for solution page classes are in sv-shared.css.
+      Only the page accent colour is set here.
+      Homes=#38B000 | Condos=#4361EE | Commercial=#FF6D00
+      Industrial=#7209B7 | Institutions/Healthcare=#0056b3
+    */
     :root { --page-accent: #38B000; }
-    @media (max-width: 768px) {
-      .solution-pillars { grid-template-columns: 1fr !important; }
-      .solution-personas { grid-template-columns: 1fr !important; }
-      .solution-related { grid-template-columns: 1fr !important; }
-    }
   </style>
   <!-- ══════════════════════════════════════════════════════════════════ -->
 
@@ -193,19 +194,16 @@
 
 
 <!-- ═══ TRUST BAR — between hero and breadcrumb, do not move or remove ═══ -->
-<!-- Establishes credentials before the visitor reads any content -->
-<div style="background:#fff; border-bottom:1px solid var(--border-light); padding:16px 0;">
+<div class="sv-trust-bar" style="background:#fff; border-bottom:1px solid var(--border-light); padding:12px 0;">
   <div class="container">
-    <div style="display:flex; flex-wrap:wrap; gap:24px; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-size:12px; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:1px;">
-      <span>🛡️ Police Licence <span class="sv-licence"></span></span>
-      <span style="color:var(--border-light);">|</span>
-      <span>✅ bizSAFE Level 3</span>
-      <span style="color:var(--border-light);">|</span>
-      <span>🏗️ BCA Registered Contractor</span>
-      <span style="color:var(--border-light);">|</span>
-      <span>📅 Est. <span class="sv-founded"></span> — <span class="sv-years-business"></span>+ Years</span>
-      <span style="color:var(--border-light);">|</span>
-      <span>📍 <span class="sv-sites"></span> Sites Protected</span>
+    <div style="display:flex; flex-wrap:nowrap; gap:20px; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.8px;">
+      <span style="white-space:nowrap;">🛡️ <span class="sv-licence"></span></span>
+      <span style="color:var(--border-light); flex-shrink:0;">|</span>
+      <span style="white-space:nowrap;" class="sv-bizsafe"></span>
+      <span style="color:var(--border-light); flex-shrink:0;">|</span>
+      <span style="white-space:nowrap;">BCA Registered</span>
+      <span style="color:var(--border-light); flex-shrink:0;">|</span>
+      <span style="white-space:nowrap;"><span class="sv-sites"></span> Sites</span>
     </div>
   </div>
 </div>
@@ -223,6 +221,31 @@
   </div>
 </nav>
 <!-- ═══ END BREADCRUMB ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     CONTENT ZONE — TWO MODES, READ BEFORE FILLING
+     ═══════════════════════════════════════════════════════════════════
+
+     MODE A — NEW BUILD (no existing page):
+       Fill each section below (1–6) from the PAGE BRIEF.
+       Replace all [PLACEHOLDER] text.
+       This is the standard 6-section structure.
+
+     MODE B — MIGRATION (existing page with content):
+       DELETE sections 1–6 below entirely.
+       PASTE the existing page content sections here verbatim —
+       every section from after the breadcrumb to before the
+       final CTA. Preserve every heading, paragraph, image,
+       table, and section ID exactly as written.
+       Only fix: remove inline <style> blocks, update
+       frozen nav/footer to template versions, add trust bar
+       if missing.
+       DO NOT rewrite, restructure, or remove any content.
+
+     IN BOTH MODES: Nav, trust bar, breadcrumb, final CTA,
+     footer, WA float, and scripts are FROZEN.
+     ═══════════════════════════════════════════════════════════════════ -->
 
 
 <!-- ═══ SECTION 1: PHILOSOPHY — white ═══ -->
@@ -282,7 +305,7 @@
         <img src="images/pillar_surveillance.png" alt="Surveillance & Detection" style="width:100%; border-radius:8px; margin-bottom:20px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
           <h3 style="margin:0;">Surveillance & Detection</h3>
-          <span class="badge badge-primary">ESSENTIAL</span>
+          <span style="font-family:'Montserrat',sans-serif; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; background:rgba(0,86,179,0.1); color:var(--primary-blue); padding:4px 10px; border-radius:4px; white-space:nowrap;">ESSENTIAL</span>
         </div>
         <p>[2–3 sentences — surveillance use case for this property type. Camera counts, AI analytics, coverage areas specific to this sector.]</p>
         <p style="font-weight:700; font-size:14px; margin-bottom:8px;">Typical components:</p>
@@ -300,7 +323,7 @@
         <img src="images/pillar_people_access.png" alt="People Access Control" style="width:100%; border-radius:8px; margin-bottom:20px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
           <h3 style="margin:0;">People Access Control</h3>
-          <span class="badge badge-primary">[ESSENTIAL / RECOMMENDED]</span>
+          <span style="font-family:'Montserrat',sans-serif; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; background:rgba(0,86,179,0.1); color:var(--primary-blue); padding:4px 10px; border-radius:4px; white-space:nowrap;">[ESSENTIAL / RECOMMENDED]</span>
         </div>
         <p>[2–3 sentences — access control use case for this property type.]</p>
         <p style="font-weight:700; font-size:14px; margin-bottom:8px;">Typical components:</p>
@@ -318,7 +341,7 @@
         <img src="images/pillar_vehicle_access.png" alt="Vehicle Access & Barriers" style="width:100%; border-radius:8px; margin-bottom:20px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
           <h3 style="margin:0;">Vehicle Access & Barriers</h3>
-          <span class="badge badge-primary">[ESSENTIAL / RECOMMENDED / OPTIONAL]</span>
+          <span style="font-family:'Montserrat',sans-serif; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; background:rgba(0,86,179,0.1); color:var(--primary-blue); padding:4px 10px; border-radius:4px; white-space:nowrap;">[ESSENTIAL / RECOMMENDED / OPTIONAL]</span>
         </div>
         <p>[2–3 sentences — vehicle access use case for this property type.]</p>
         <p style="font-weight:700; font-size:14px; margin-bottom:8px;">Typical components:</p>
@@ -336,7 +359,7 @@
         <img src="images/pillar_platform.png" alt="Platform Management" style="width:100%; border-radius:8px; margin-bottom:20px;">
         <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
           <h3 style="margin:0;">Platform Management</h3>
-          <span class="badge badge-primary">[ESSENTIAL / RECOMMENDED / OPTIONAL]</span>
+          <span style="font-family:'Montserrat',sans-serif; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; background:rgba(0,86,179,0.1); color:var(--primary-blue); padding:4px 10px; border-radius:4px; white-space:nowrap;">[ESSENTIAL / RECOMMENDED / OPTIONAL]</span>
         </div>
         <p>[2–3 sentences — platform integration use case for this property type.]</p>
         <p style="font-weight:700; font-size:14px; margin-bottom:8px;">Typical components:</p>
@@ -435,9 +458,9 @@
     <span class="eyebrow">Proof of Outcome</span>
     <h2>Real [Property Type]. Real Results.</h2>
 
-    <div class="card" style="max-width:800px; margin:40px auto 0; display:flex; gap:40px; align-items:center; flex-wrap:wrap;">
+    <div class="card solution-proof-card" style="max-width:800px; margin:40px auto 0; display:flex; gap:40px; align-items:center; flex-wrap:wrap;">
       <div style="flex:1; min-width:240px;">
-        <span class="badge badge-primary" style="margin-bottom:16px;">[PROPERTY TYPE BADGE]</span>
+        <span style="font-family:'Montserrat',sans-serif; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; background:rgba(0,86,179,0.1); color:var(--primary-blue); padding:4px 10px; border-radius:4px; display:inline-block; margin-bottom:16px;">[PROPERTY TYPE BADGE]</span>
         <h3>[PROJECT NAME]</h3>
         <p>[1–2 sentences: what the challenge was and what Securevision delivered.]</p>
         <div style="font-family:'Montserrat',sans-serif; font-size:36px; font-weight:800; color:var(--primary-blue); margin:16px 0 4px;">[KEY STAT]</div>
@@ -490,7 +513,7 @@
     <!-- Support lifecycle strip — always include, update description text only -->
     <div style="margin-top:40px; background:var(--bg-light); border-radius:12px; padding:32px 40px;">
       <p style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-light); margin-bottom:24px;">The Securevision Support Lifecycle</p>
-      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px;" class="solution-personas">
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px;" class="solution-lifecycle">
         <div style="text-align:center;">
           <div style="font-size:28px; margin-bottom:10px;">📋</div>
           <p style="font-family:'Montserrat',sans-serif; font-size:13px; font-weight:700; color:var(--text-dark); margin-bottom:6px;">Site Assessment</div>
