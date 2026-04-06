@@ -108,6 +108,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (el.tagName === 'A') el.href = SECUREVISION.whatsappLink;
   });
 
+  // bizSAFE level — class: .sv-bizsafe
+  document.querySelectorAll('.sv-bizsafe').forEach(el => {
+    el.textContent = 'bizSAFE ' + SECUREVISION.bizSafe;
+  });
+
   // Tagline — class: .sv-tagline
   document.querySelectorAll('.sv-tagline').forEach(el => {
     el.textContent = SECUREVISION.tagline;
