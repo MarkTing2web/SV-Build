@@ -23,9 +23,9 @@
 
 | Project | File | Sector | Solution page link |
 |---|---|---|---|
-| L'viv Residences | lviv.html | Residential — Luxury Condominium | condominiums.html |
+| L'viv Residences | lviv.html | Residential — Luxury Condominium | condominiums-security-singapore.html |
 | \*SCAPE | scape.html | Commercial — Youth Hub | commercial-security-singapore.html |
-| Light@Cairnhill | Light-at-Cairnhill.html | Residential — Condominium | condominiums.html |
+| Light@Cairnhill | Light-at-Cairnhill.html | Residential — Condominium | condominiums-security-singapore.html |
 | STA Building | commercial-security-sta-building-singapore.html | Institutional | government-institution-security-singapore.html |
 | Cyrus Tech Park | industrial-security-cyrus-tech-park-singapore.html | Industrial | industrial-security-singapore.html |
 

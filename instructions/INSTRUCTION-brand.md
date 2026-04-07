@@ -209,7 +209,7 @@ Property type tiles linking to Solution pages only.
 **Canonical solution page URLs (use these exactly):**
 ```
 Private Homes       → residential-security-singapore.html
-Condominiums        → condominiums.html
+Condominiums        → condominiums-security-singapore.html
 Commercial & Retail → commercial-security-singapore.html
 Industrial          → industrial-security-singapore.html
 Institutions        → government-institution-security-singapore.html

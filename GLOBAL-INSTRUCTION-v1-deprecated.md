@@ -1139,7 +1139,7 @@ YouTube:          http://www.youtube.com/@securevision
 
 ### 6-Sector Solution Architecture (New Order)
 1. **Private Homes** (residential-security-singapore.html)
-2. **Condominiums** (condominiums.html)
+2. **Condominiums** (condominiums-security-singapore.html)
 3. **Commercial & Retail** (commercial-security-singapore.html)
 4. **Industrial & Logistics** (industrial-security-singapore.html)
 5. **Institutions & Government** (government-institution-security-singapore.html)
@@ -1169,7 +1169,7 @@ YouTube:          http://www.youtube.com/@securevision
                 <h4>Solutions</h4>
                 <ul>
                     <li><a href="residential-security-singapore.html">Private Homes</a></li>
-                    <li><a href="condominiums.html">Condominiums</a></li>
+                    <li><a href="condominiums-security-singapore.html">Condominiums</a></li>
                     <li><a href="commercial-security-singapore.html">Commercial &amp; Retail</a></li>
                     <li><a href="industrial-security-singapore.html">Industrial &amp; Logistics</a></li>
                     <li><a href="government-institution-security-singapore.html">Institutions &amp; Government</a></li>

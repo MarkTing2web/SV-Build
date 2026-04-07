@@ -1,6 +1,6 @@
 # SECUREVISION — SOLUTION PAGE INSTRUCTION
 ## Page Type: Solution Pages (by Property Sector)
-## Applies to: residential-security-singapore.html · condominiums.html · commercial-security-singapore.html · industrial-security-singapore.html · government-institution-security-singapore.html · healthcare-security-singapore.html
+## Applies to: residential-security-singapore.html · condominiums-security-singapore.html · commercial-security-singapore.html · industrial-security-singapore.html · government-institution-security-singapore.html · healthcare-security-singapore.html
 ## Version 1.0 — April 2026
 ## This file lives at: /_instructions/INSTRUCTION-solution.md
 
@@ -23,7 +23,7 @@
 | Page | File | Accent | Hero class | CTA class | Primary audience |
 |---|---|---|---|---|---|
 | Private Homes | residential-security-singapore.html | `#38B000` | `hero-res` | `cta-res` | Homeowners, developers, architects |
-| Condominiums | condominiums.html | `#4361EE` | `hero-condo` | `cta-condo` | MCST, Managing Agents, estate managers |
+| Condominiums | condominiums-security-singapore.html | `#4361EE` | `hero-condo` | `cta-condo` | MCST, Managing Agents, estate managers |
 | Commercial & Retail | commercial-security-singapore.html | `#FF6D00` | `hero-com` | `cta-com` | Business owners, facilities managers, retail operators |
 | Industrial & Logistics | industrial-security-singapore.html | `#7209B7` | `hero-indus` | `cta-indus` | Operations directors, EHS managers, logistics heads |
 | Institutions & Government | government-institution-security-singapore.html | `#0056b3` | `hero-gov` | `cta-gov` | Procurement officers, facilities managers, IT/security heads |
@@ -280,7 +280,7 @@ Links to the other 5 solution pages. Use a 3-column card grid. Show only 3 most 
 Always use these exact hrefs:
 ```
 residential-security-singapore.html
-condominiums.html
+condominiums-security-singapore.html
 commercial-security-singapore.html
 industrial-security-singapore.html
 government-institution-security-singapore.html

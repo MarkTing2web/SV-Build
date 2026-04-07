@@ -173,7 +173,7 @@ SECUREVISION.COM.SG
 │   │   │   └── ✅ security-partner-architects-singapore.html - For Trade Professionals
 │   │   │
 │   │   ├── 2. CONDOMINIUMS (/condominiums/)
-│   │   │   ├── ✅ condominiums.html - Main Landing
+│   │   │   ├── ✅ condominiums-security-singapore.html - Main Landing
 │   │   │   ├── ✅ mcst-committee-member.html - Support Hub for Committee Members
 │   │   │   ├── ✅ managing-agent.html - For Managing Agents
 │   │   │   └── ✅ security-guarding-partner.html - For Security Guarding Partners (New)
@@ -306,7 +306,7 @@ SECUREVISION.COM.SG
 | | New Builds | new-build-security-singapore.html | Solutions → Residential |
 | | Existing Homes | home-security-upgrade-singapore.html | Solutions → Residential |
 | | Trade Professionals | security-partner-architects-singapore.html | Solutions → Residential |
-| **Condominiums** | Main Landing | condominiums.html | Solutions → Condominiums |
+| **Condominiums** | Main Landing | condominiums-security-singapore.html | Solutions → Condominiums |
 | | MCST & Managing Agents | managing-agent.html | Solutions → Condominiums |
 | | Security Partners | security-guarding-partner.html | Solutions → Condominiums |
 | **Commercial** | Main Landing | commercial-security-singapore.html | Solutions → Commercial |
@@ -487,7 +487,7 @@ Lands on security-solutions-singapore.html
 ↓
 Clicks "Condominiums"
 ↓
-Lands on condominiums.html (main landing)
+Lands on condominiums-security-singapore.html (main landing)
 ↓
 Clicks "For MCST & Managing Agents"
 ↓
@@ -743,7 +743,7 @@ All HTML pages built with full structure
 ├── new-build-security-singapore.html
 ├── home-security-upgrade-singapore.html
 ├── security-partner-architects-singapore.html
-├── condominiums.html
+├── condominiums-security-singapore.html
 ├── condominiums-mcst.html
 ├── condominiums-security.html
 ├── commercial-security-singapore.html

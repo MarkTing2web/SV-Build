@@ -185,7 +185,7 @@ Final CTA:  dark gradient with background image (cta-skyline or page-specific)
 Logo              → index.html
 Solutions         → security-solutions-singapore.html
   Private Homes   → residential-security-singapore.html
-  Condominiums    → condominiums.html
+  Condominiums    → condominiums-security-singapore.html
   Commercial      → commercial-security-singapore.html
   Industrial      → industrial-security-singapore.html
   Institutions    → government-institution-security-singapore.html
