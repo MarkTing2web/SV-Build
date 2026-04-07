@@ -242,10 +242,10 @@ SECUREVISION.COM.SG
 │       └── ✅ microengine-singapore.html - MicroEngine
 │
 ├── PORTFOLIO (/portfolio/)
-│   ├── ✅ portfolio.html - Portfolio Overview
-│   ├── ✅ lviv.html - L'viv Residences
-│   ├── ✅ scape.html - SCAPE Project
-│   ├── ✅ Light-at-Cairnhill.html - Light@Cairnhill
+│   ├── portfolio.html           # Project landing
+│   ├── portfolio/lviv.html      # Case study: L'viv Condominium
+│   ├── portfolio/scape.html     # Case study: SCAPE Project
+│   ├── ✅ portfolio/light-at-cairnhill.html - Light@Cairnhill
 │   ├── ✅ commercial-security-sta-building-singapore.html - STA Building
 │   └── ✅ industrial-security-cyrus-tech-park-singapore.html - Cyrus Tech Park
 │
@@ -360,7 +360,7 @@ SECUREVISION.COM.SG
 | Page | Description | Purpose | Routing |
 | :--- | :--- | :--- | :--- |
 | `portfolio.html` | Case Study Hub | Social Proof | Global Nav → Portfolio |
-| `lviv.html` | Project: L'viv | GCB Case Study | Portfolio Grid |
+| `portfolio/lviv.html` | Project: L'viv | GCB Case Study | Portfolio Grid |
 | `security-articles-singapore.html` | Insights Hub | Authority/SEO | Global Nav → Insights |
 | (See Below) | 29 Technical Articles | Educational SEO | Insights Grid |
 
@@ -463,8 +463,8 @@ securevision.com.sg/brands/faac/
 ### **Portfolio & Insights**
 ```
 securevision.com.sg/portfolio/
-securevision.com.sg/portfolio/lviv/
-securevision.com.sg/portfolio/scape/
+securevision.com.sg/portfolio/lviv.html
+securevision.com.sg/portfolio/scape.html
 securevision.com.sg/portfolio/sta/
 securevision.com.sg/portfolio/cyrus/
 securevision.com.sg/insights/
@@ -764,8 +764,8 @@ All HTML pages built with full structure
 ├── auto-gate-singapore.html (Technical Guide)
 ├── [23 brand pages inclusive of Fanvil, Yeastar]
 ├── portfolio.html
-├── lviv.html
-├── scape.html
+├── portfolio/lviv.html
+├── portfolio/scape.html
 ├── commercial-security-sta-building-singapore.html
 ├── industrial-security-cyrus-tech-park-singapore.html
 ├── security-articles-singapore.html
