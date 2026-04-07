@@ -524,12 +524,12 @@ document.addEventListener('click', function(e) {
   const nav = document.querySelector('.main-nav');
   const menu = document.getElementById('mobileMenu');
   if (nav && menu && !nav.contains(e.target)) menu.classList.remove('active');
-
+});
 
 window.addEventListener('scroll', () => {
   const nav = document.querySelector('.main-nav');
   if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
-
+});
 
 function toggleToc() {
   const list = document.getElementById('tocList');
@@ -544,11 +544,12 @@ window.addEventListener('scroll', () => {
   let current = '';
   sections.forEach(s => {
     if (window.scrollY >= s.offsetTop - 150) current = s.getAttribute('id');
-  
+  });
   tocLinks.forEach(link => {
     link.classList.remove('active');
     if (link.getAttribute('href') === '#' + current) link.classList.add('active');
-  
+  });
+});
 
 </script>
 
