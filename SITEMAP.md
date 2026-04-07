@@ -1,6 +1,6 @@
 # SECUREVISION WEBSITE SITEMAP
 
-**Last Updated:** April 5, 2026 (00:15)  
+**Last Updated:** April 8, 2026 (00:15)  
 **Total Pages Built:** 85+ HTML pages  
 **Navigation Items:** 6 main menu items + search (Solutions, Systems, Brands, Portfolio, Insights, About, Search)
 
@@ -196,11 +196,12 @@ SECUREVISION.COM.SG
 │   │
 │   ├── BY SYSTEM TYPE
 │   │   ├── ✅ surveillance-detection.html - Surveillance & Detection Hub
-│   │   ├── ✅ cctv.html - Comprehensive CCTV Technical Guide
-│   │   ├── ✅ burglar-alarm.html - Comprehensive Burglar Alarm Technical Guide
-│   │   ├── ✅ door-access.html - Comprehensive Door Access Technical Guide
-│   │   ├── ✅ intercom-system-singapore.html - Comprehensive AV Intercom Technical Guide
-│   │   ├── ✅ auto-gate-singapore.html - Comprehensive Auto Gates & Barriers Technical Guide
+│   │   ├── ✅ resources/guides/cctv-guide.html - Comprehensive CCTV Technical Guide
+│   │   ├── ✅ resources/guides/burglar-alarm-guide.html - Comprehensive Burglar Alarm Technical Guide
+│   │   ├── ✅ resources/guides/door-access-guide.html - Comprehensive Door Access Technical Guide
+│   │   ├── ✅ resources/guides/intercom-guide.html - Comprehensive AV Intercom Technical Guide
+│   │   ├── ✅ resources/guides/office-telephone-guide.html - Comprehensive Office IP Telephone Technical Guide
+│   │   ├── ✅ resources/guides/auto-gate-guide.html - Comprehensive Auto Gates & Barriers Technical Guide
 │   │   ├── ✅ people-access-control.html - People Access Control Hub
 │   │   ├── ✅ vehicle-access-control.html - Vehicle Access & Barriers Hub
 │   │   └── ✅ integrated-security-platform.html - Platform Management Hub
@@ -235,8 +236,8 @@ SECUREVISION.COM.SG
 │   │
 │   ├── GATE & BARRIER BRANDS
 │   │   ├── ✅ faac-singapore.html - FAAC
-│   │   ├── ✅ mag-gates-singapore.html - MAG Gates
-│   │   └── ✅ dormer-auto-gate-singapore.html - Dormer
+│   │   ├── ✅ mag-singapore.html - MAG Gates
+│   │   └── ✅ dormer-singapore.html - Dormer
 │   │
 │   └── INTEGRATION PLATFORMS
 │       └── ✅ microengine-singapore.html - MicroEngine
@@ -252,11 +253,12 @@ SECUREVISION.COM.SG
 ├── INSIGHTS (/insights/)
 │   ├── ✅ security-articles-singapore.html - Insights Hub (Refactored v1.6)
 │   ├── ✅ resources.html - Resources Gateway
-│   ├── ✅ cctv.html - Comprehensive CCTV Technical Guide
-│   ├── ✅ burglar-alarm.html - Comprehensive Burglar Alarm Technical Guide
-│   ├── ✅ door-access.html - Comprehensive Door Access Technical Guide
-│   ├── ✅ intercom-system-singapore.html - Comprehensive AV Intercom Technical Guide
-│   └── ✅ auto-gate-singapore.html - Comprehensive Auto Gates & Barriers Technical Guide
+│   ├── ✅ resources/guides/cctv-guide.html - Comprehensive CCTV Technical Guide
+│   ├── ✅ resources/guides/burglar-alarm-guide.html - Comprehensive Burglar Alarm Technical Guide
+│   ├── ✅ resources/guides/door-access-guide.html - Comprehensive Door Access Technical Guide
+│   ├── ✅ resources/guides/intercom-guide.html - Comprehensive AV Intercom Technical Guide
+│   ├── ✅ resources/guides/office-telephone-guide.html - Comprehensive Office IP Telephone Technical Guide
+│   └── ✅ resources/guides/auto-gate-guide.html - Comprehensive Auto Gates & Barriers Technical Guide
 │
 └── ABOUT (/about/)
     ├── ✅ about.html - About Securevision
@@ -324,11 +326,12 @@ SECUREVISION.COM.SG
 | People Access Control | people-access-control.html | Systems → Access Control |
 | Vehicle Access & Barriers | vehicle-access-control.html | Systems → Vehicle Access |
 | Platform Management | integrated-security-platform.html | Systems → Integration |
-| **Technical Guides** | CCTV Guide | cctv.html | Systems → Surveillance |
-| | Burglar Alarm | burglar-alarm.html | Systems → Surveillance |
-| | Door Access Guide | door-access.html | Systems → Access Control |
-| | AV Intercom Guide | intercom-system-singapore.html | Systems → Access Control |
-| | Auto Gates & Barriers | auto-gate-singapore.html | Systems → Vehicle Access |
+| **Technical Guides** | CCTV Guide | resources/guides/cctv-guide.html | Systems → Surveillance |
+| | Burglar Alarm | resources/guides/burglar-alarm-guide.html | Systems → Surveillance |
+| | Door Access Guide | resources/guides/door-access-guide.html | Systems → Access Control |
+| | AV Intercom Guide | resources/guides/intercom-guide.html | Systems → Access Control |
+| | Office IP Telephone Guide | resources/guides/office-telephone-guide.html | Systems → Integrated Systems |
+| | Auto Gates & Barriers | resources/guides/auto-gate-guide.html | Systems → Vehicle Access |
 
 ### **BRAND PAGES (21 pages)**
 | Category | Brand | File | Nav Path |
@@ -351,8 +354,8 @@ SECUREVISION.COM.SG
 | | DSC | dsc-alarm-singapore.html | Brands → Alarms |
 | | GE/Caddx | ge-caddx-alarm-singapore.html | Brands → Alarms |
 | **Gates/Barriers** | FAAC | faac-singapore.html | Brands → Gates |
-| | MAG Gates | mag-gates-singapore.html | Brands → Gates |
-| | Dormer | dormer-auto-gate-singapore.html | Brands → Gates |
+| | MAG Gates | mag-singapore.html | Brands → Gates |
+| | Dormer | dormer-singapore.html | Brands → Gates |
 | **Integration** | MicroEngine | microengine-singapore.html | Brands → Integration |
 | **Telephony** | Yeastar | yeastar-singapore.html | Brands → PBX |
 
@@ -757,11 +760,11 @@ All HTML pages built with full structure
 ├── people-access-control.html
 ├── vehicle-people-access-control.html
 ├── integrated-security-platform.html
-├── cctv.html (Technical Guide)
-├── burglar-alarm.html (Technical Guide)
-├── door-access.html (Technical Guide)
-├── intercom-system-singapore.html (Technical Guide)
-├── auto-gate-singapore.html (Technical Guide)
+├── resources/guides/cctv-guide.html (Technical Guide)
+├── resources/guides/burglar-alarm-guide.html (Technical Guide)
+├── resources/guides/door-access-guide.html (Technical Guide)
+├── resources/guides/intercom-guide.html (Technical Guide)
+├── resources/guides/auto-gate-guide.html (Technical Guide)
 ├── [23 brand pages inclusive of Fanvil, Yeastar]
 ├── portfolio.html
 ├── portfolio/lviv.html
