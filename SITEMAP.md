@@ -1,914 +1,129 @@
 # SECUREVISION WEBSITE SITEMAP
 
-**Last Updated:** April 8, 2026 (12:45)  
-**Total Pages Built:** 85+ HTML pages  
-**Navigation Items:** 6 main menu items + search (Solutions, Systems, Brands, Portfolio, Insights, About, Search)
+**Last Updated:** April 8, 2026 (17:45)
+**Total Pages Built:** 90+ HTML pages
+**Navigation Items:** 7 main menu items (Solutions, Systems, Brands, Portfolio, Resources, Insights, About)
 
 ---
 
-## NAVIGATION STRUCTURE
+## 🏗️ SYSTEM ARCHITECTURE (Physical Structure)
 
-### **Desktop Navigation:**
-```
-[LOGO + SECUREVISION] | SOLUTIONS | SYSTEMS | BRANDS | PORTFOLIO | INSIGHTS | ABOUT | [🔍]
-         ↓                  ↓          ↓         ↓                                      ↓
-    (Links to home)    (Hover menu) (Hover menu) (Hover menu)                    (Search overlay)
-```
+All paths below are root-relative (e.g. `/solutions/index.html`).
 
-### **Solutions Dropdown (Hover):**
-```
-SOLUTIONS (click → solutions/index.html)
-└─ On Hover:
-   ├─ Private Homes
-   ├─ Condominiums
-   │  └─ (MCST Support Hub)
-   ├─ Commercial & Retail
-   ├─ Industrial & Logistics
-   ├─ Institutions & Government
-   └─ Healthcare & Managed Living
-```
+### 1. CORE PAGES (Root)
+| File Name | Purpose |
+| :--- | :--- |
+| `/index.html` | Homepage |
+| `/about.html` | About Securevision & Founder Profile |
+| `/contact.html` | Contact Page |
+| `/contact-gateway.html` | Internal Contact Routing |
+| `/request-site-assessment-singapore.html` | Lead Generation / Site Assessment Form |
+| `/security-brands-singapore.html` | Technology Partner Portfolio (Hub) |
+| `/resources.html` | Resource Gateway |
+| `/sitemap.html` | User-facing HTML Sitemap |
+| `/sitemap.xml` | Search Engine XML Sitemap |
+| `/privacy.html` | Privacy Policy |
+| `/terms.html` | Terms of Service |
 
-### **Systems Dropdown (Hover):**
-```
-SYSTEMS (click → security-systems-singapore.html)
-└─ On Hover:
-   ├─ Surveillance & Detection
-   ├─ People Access Control
-   ├─ Vehicle Access & Barriers
-   └─ Platform Management
-```
+### 2. PROPERTY SOLUTIONS (`/solutions/`)
+| File Path | Sector |
+| :--- | :--- |
+| `/solutions/index.html` | Solutions Hub (Grid Overview) |
+| `/solutions/residential.html` | Private Homes Main |
+| `/solutions/residential/new-build.html` | New Property Builds |
+| `/solutions/residential/home-upgrade.html` | Existing Home Refits |
+| `/solutions/residential/architects.html` | For Architects & SME Partners |
+| `/solutions/condominiums.html` | Condominiums Main |
+| `/solutions/condominiums/mcst.html` | For MCST & Managing Agents |
+| `/solutions/condominiums/security-contractors.html` | For Security Contractors |
+| `/solutions/commercial.html` | Commercial & Retail Main |
+| `/solutions/commercial/office.html` | Office & HQ Security |
+| `/solutions/commercial/retail.html` | Retail & Shop Lots |
+| `/solutions/commercial/hotel.html` | Hotels & Hospitality |
+| `/solutions/industrial.html` | Industrial & Logistics |
+| `/solutions/institutions.html` | Institutions & Government |
+| `/solutions/healthcare.html` | Healthcare & Managed Living |
 
-### **Brands Dropdown (Hover):**
-```
-BRANDS (click → brands/index.html)
-└─ On Hover (Simple Dropdown):
-   ├─ Surveillance
-   ├─ Access Control
-   ├─ Intercom
-   ├─ Alarms
-   ├─ Gates & Barriers
-   ├─ ─────────────
-   └─ View All Brands →
+### 3. INTEGRATED SYSTEMS (`/systems/`)
+| File Path | Subsystem |
+| :--- | :--- |
+| `/systems/index.html` | Systems Hub (SECURE™ Framework) |
+| `/systems/surveillance.html` | Surveillance & Detection |
+| `/systems/access-control.html` | People Access Control |
+| `/systems/vehicle-access.html` | Vehicle Access & Barriers |
+| `/systems/platform.html` | Platform Management |
 
-Note: Categories are section headers on brands/index.html page
-Individual brands: Hikvision, Uniview, Hanwha, Milesight (Surveillance),
-Suprema, ZKTeco, HID, EntryPass (Access), Akuvox, Aiphone, Kocom, Fanvil (Intercom),
-Ajax, RISCO, Paradox, DSC, GE/Caddx (Alarms), FAAC, MAG, Dormer (Gates),
-Yeastar (PBX/Comms)
-```
+### 4. TECHNOLOGY BRANDS (`/brands/`)
+| File Path | Brand |
+| :--- | :--- |
+| `/brands/index.html` | Brands Index Page |
+| `/brands/hikvision.html` | Hikvision |
+| `/brands/hanwha.html` | Hanwha (Samsung) |
+| `/brands/uniview.html` | Uniview |
+| `/brands/milesight.html` | Milesight |
+| `/brands/suprema.html` | Suprema |
+| `/brands/zkteco.html` | ZKTeco |
+| `/brands/hid.html` | HID Global |
+| `/brands/entrypass.html` | EntryPass |
+| `/brands/akuvox.html` | Akuvox |
+| `/brands/aiphone.html` | Aiphone |
+| `/brands/kocom.html` | Kocom |
+| `/brands/ajax.html` | AJAX Alarm |
+| `/brands/risco.html` | Risco Group |
+| `/brands/paradox.html` | Paradox |
+| `/brands/dsc.html` | DSC Security |
+| `/brands/ge-caddx.html` | GE Caddx |
+| `/brands/faac.html` | FAAC Barriers |
+| `/brands/mag.html` | MAG Gates |
+| `/brands/dormer.html` | Dormer |
+| `/brands/microengine.html` | MicroEngine |
+| `/brands/yeastar.html` | Yeastar (IP Voice) |
+| `/brands/fanvil.html` | Fanvil |
 
-### **Mobile Navigation (Hamburger Menu):**
-```
-Mobile Header Layout:
-┌─────────────────────────┐
-│ [Logo] SECURE  [☰] [🔍] │
-│   ↑            ↑    ↑    │
-│ Left       Center Right  │
-└─────────────────────────┘
+### 5. TECHNICAL GUIDES (`/resources/guides/`)
+| File Path | Guide Topic |
+| :--- | :--- |
+| `/resources/guides/index.html` | Guides Index |
+| `/resources/guides/cctv-guide.html` | CCTV Camera Systems |
+| `/resources/guides/burglar-alarm-guide.html` | Burglar Alarm Systems |
+| `/resources/guides/door-access-guide.html` | Door Access Control |
+| `/resources/guides/intercom-guide.html` | AV Intercom Systems |
+| `/resources/guides/office-telephone-guide.html` | Office IP Telephone Systems |
+| `/resources/guides/auto-gate-guide.html` | Auto Gates & Barriers |
 
-Menu Expanded (when ☰ tapped):
-┌─────────────────────┐
-│ ✕ MENU             │
-├─────────────────────┤
-│ Solutions           │ ← Links to solutions/index.html
-│ Systems             │ ← Links to security-systems-singapore.html
-│ Brands              │ ← Links to security-brands-singapore.html
-│ Portfolio           │ ← Links to portfolio.html
-│ Insights            │ ← Links to security-articles-singapore.html
-│ About               │ ← Links to about.html
-├─────────────────────┤
-│ 💬 WhatsApp an Engineer │
-└─────────────────────┘
+### 6. PROJECT PORTFOLIO (`/portfolio/`)
+| File Path | Case Study |
+| :--- | :--- |
+| `/portfolio/index.html` | Portfolio Landing (Grid) |
+| `/portfolio/lviv.html" | The L’viv Residences |
+| `/portfolio/scape.html` | *SCAPE Singapore |
+| `/portfolio/light-at-cairnhill.html` | Light@Cairnhill |
+| `/commercial-security-sta-building-singapore.html` | STA Building (Legacy Flat Path) |
+| `/industrial-security-cyrus-tech-park-singapore.html` | Cyrus Tech Park (Legacy Flat Path) |
 
-Notes:
-- Logo scales down on mobile (40px → 32px → 28px)
-- Wordmark scales down (22px → 18px → 16px on phones)
-- **Interactive Dropdowns:** Mobile menu now features accordion-style sub-menus for deep navigation.
-- WhatsApp NOT in desktop nav (only mobile menu + floating button)
-```
-
-### **Search Functionality:**
-
-**Desktop Search (Click 🔍 icon):**
-```
-┌────────────────────────────────────────────────────────────┐
-│ [←] [Search for products, systems, brands...          ] ✕ │
-├────────────────────────────────────────────────────────────┤
-│ Popular Searches:                                          │
-│ • Hikvision    • Access Control    • Condo Intercom       │
-│ • Ajax Alarm   • CCTV              • Auto Gates            │
-└────────────────────────────────────────────────────────────┘
-
-As user types:
-┌────────────────────────────────────────────────────────────┐
-│ [←] [access control                                    ] ✕ │
-├────────────────────────────────────────────────────────────┤
-│ Suggestions:                                               │
-│ 🚪 People Access Control Systems                          │
-│ 🏢 Commercial Office - Access Control                     │
-│ 🏗️ Access Control Brands (Suprema, ZKTeco, HID...)        │
-│ 🏘️ Condominiums - Access Control Solutions                │
-└────────────────────────────────────────────────────────────┘
-```
-
-**Mobile Search (Tap 🔍 icon):**
-```
-┌─────────────────────────┐
-│ [←] [Search...      ] ⌨️ │
-├─────────────────────────┤
-│                         │
-│ Popular:                │
-│ • Hikvision             │
-│ • Access Control        │
-│ • Ajax Alarm            │
-│ • Condo Intercom        │
-│                         │
-│ (Results appear below   │
-│  as user types)         │
-│                         │
-└─────────────────────────┘
-```
-
-**What Search Indexes:**
-- ✅ All page titles
-- ✅ Main headings (H1, H2)
-- ✅ Product/brand names (Hikvision, Suprema, Ajax, etc.)
-- ✅ System names (Surveillance, Access Control, Intercom, etc.)
-- ✅ Sector names (Residential, Condominiums, Commercial, etc.)
-- ✅ Key features and specifications
-- ✅ FAQ questions
-
-**Search Features:**
-- Auto-complete suggestions as you type
-- Categorized results (Systems, Brands, Solutions)
-- "Did you mean..." for typos
-- Popular searches displayed when empty
-- Mobile-optimized full-screen overlay
-- Fast client-side search (instant results)
-
-**Implementation:**
-- Phase 1: Client-side search using Lunr.js or Fuse.js
-- Phase 2: Track search analytics (what users look for)
-- Phase 3: Optimize based on user behavior
+### 7. INSIGHTS & ARTICLES (`/insights/`)
+| File Path | Hub / Article |
+| :--- | :--- |
+| `/insights/index.html` | Insights Hub |
+| `/insights/security-articles-singapore.html` | Legacy Hub |
+| (Multiple Articles) | See insights-*.html files for full list |
 
 ---
 
-## COMPLETE SITE STRUCTURE
+## 🛠️ DESIGN STANDARDS (v2.0 Migration)
 
-```
-SECUREVISION.COM.SG
-│
-├── HOME (/)
-│   └── ✅ index.html - Homepage
-│       - Logo in header links back here
-│       - "Home" removed from navigation (logo serves this purpose)
-│
-├── SOLUTIONS (Hub: solutions/index.html)
-│   │
-│   ├── BY PROPERTY TYPE (Subdirectory: /solutions/)
-│   │   │
-│   │   ├── 1. RESIDENTIAL (/solutions/residential.html)
-│   │   │   ├── ✅ solutions/residential.html - Main Landing
-│   │   │   ├── ✅ new-build-security-singapore.html - For New Builds
-│   │   │   ├── ✅ home-security-upgrade-singapore.html - For Existing Homes
-│   │   │   └── ✅ security-partner-architects-singapore.html - For Trade Professionals
-│   │   │
-│   │   ├── 2. CONDOMINIUMS (/solutions/condominiums.html)
-│   │   │   ├── ✅ solutions/condominiums.html - Main Landing
-│   │   │   ├── ✅ mcst-committee-member.html - Support Hub for Committee Members
-│   │   │   ├── ✅ managing-agent.html - For Managing Agents
-│   │   │   └── ✅ security-guarding-partner.html - For Security Guarding Partners (New)
-│   │   │
-│   │   ├── 3. COMMERCIAL (/solutions/commercial.html)
-│   │   │   ├── ✅ solutions/commercial.html - Main Landing
-│   │   │   ├── ✅ commercial-office.html - Office Solutions
-│   │   │   ├── ✅ commercial-retail.html - Retail Solutions
-│   │   │   └── ✅ commercial-hotel.html - Hotel Solutions
-│   │   │
-│   │   ├── 4. INDUSTRIAL (/solutions/industrial.html)
-│   │   │   └── ✅ solutions/industrial.html - Industrial Solutions
-│   │   │
-│   │   └── 5. INSTITUTIONS (/solutions/institutions.html)
-│   │       ├── ✅ solutions/institutions.html - Main Landing
-│   │       └── ✅ solutions/healthcare.html - Healthcare & Managed Living
-│   │
-│   └── Cross-link to SYSTEMS hub at bottom of page
-│
-├── SYSTEMS (Hub: security-systems-singapore.html)
-│   │
-│   ├── BY SYSTEM TYPE
-│   │   ├── ✅ surveillance-detection.html - Surveillance & Detection Hub
-│   │   ├── ✅ resources/guides/cctv-guide.html - Comprehensive CCTV Technical Guide
-│   │   ├── ✅ resources/guides/burglar-alarm-guide.html - Comprehensive Burglar Alarm Technical Guide
-│   │   ├── ✅ resources/guides/door-access-guide.html - Comprehensive Door Access Technical Guide
-│   │   ├── ✅ resources/guides/intercom-guide.html - Comprehensive AV Intercom Technical Guide
-│   │   ├── ✅ resources/guides/office-telephone-guide.html - Comprehensive Office IP Telephone Technical Guide
-│   │   ├── ✅ resources/guides/auto-gate-guide.html - Comprehensive Auto Gates & Barriers Technical Guide
-│   │   ├── ✅ people-access-control.html - People Access Control Hub
-│   │   ├── ✅ vehicle-access-control.html - Vehicle Access & Barriers Hub
-│   │   └── ✅ integrated-security-platform.html - Platform Management Hub
-│   │
-│   └── Cross-link to SOLUTIONS hub at top of page
-│
-├── BRANDS (Hub: brands/index.html)
-│   │
-│   ├── SURVEILLANCE BRANDS
-│   │   ├── ✅ brands/hikvision.html - Hikvision
-│   │   ├── ✅ brands/uniview.html - Uniview
-│   │   ├── ✅ brands/hanwha.html - Hanwha (Samsung)
-│   │   └── ✅ brands/milesight.html - Milesight
-│   │
-│   ├── ACCESS CONTROL BRANDS
-│   │   ├── ✅ brands/suprema.html - Suprema
-│   │   ├── ✅ brands/zkteco.html - ZKTeco
-│   │   ├── ✅ brands/hid.html - HID Global
-│   │   └── ✅ brands/entrypass.html - EntryPass
-│   │
-│   ├── INTERCOM BRANDS
-│   │   ├── ✅ brands/akuvox.html - Akuvox
-│   │   ├── ✅ brands/aiphone.html - Aiphone
-│   │   └── ✅ brands/kocom.html - Kocom
-│   │
-│   ├── ALARM BRANDS
-│   │   ├── ✅ brands/ajax.html - Ajax Alarm
-│   │   ├── ✅ brands/risco.html - RISCO Alarm
-│   │   ├── ✅ brands/paradox.html - Paradox Alarm
-│   │   ├── ✅ brands/dsc.html - DSC Alarm
-│   │   └── ✅ brands/ge-caddx.html - GE/Caddx Alarm
-│   │
-│   ├── GATE & BARRIER BRANDS
-│   │   ├── ✅ brands/faac.html - FAAC
-│   │   ├── ✅ brands/mag.html - MAG Gates
-│   │   └── ✅ brands/dormer.html - Dormer
-│   │
-│   └── INTEGRATION PLATFORMS
-│       └── ✅ brands/microengine.html - MicroEngine
-│       └── ✅ brands/fanvil.html - Fanvil
-│       └── ✅ brands/yeastar.html - Yeastar
-│
-├── PORTFOLIO (/portfolio/)
-│   ├── portfolio.html           # Project landing
-│   ├── portfolio/lviv.html      # Case study: L'viv Condominium
-│   ├── portfolio/scape.html     # Case study: SCAPE Project
-│   ├── ✅ portfolio/light-at-cairnhill.html - Light@Cairnhill
-│   ├── ✅ commercial-security-sta-building-singapore.html - STA Building
-│   └── ✅ industrial-security-cyrus-tech-park-singapore.html - Cyrus Tech Park
-│
-├── INSIGHTS (/insights/)
-│   ├── ✅ security-articles-singapore.html - Insights Hub (Refactored v1.6)
-│   ├── ✅ resources.html - Resources Gateway
-│   ├── ✅ resources/guides/cctv-guide.html - Comprehensive CCTV Technical Guide
-│   ├── ✅ resources/guides/burglar-alarm-guide.html - Comprehensive Burglar Alarm Technical Guide
-│   ├── ✅ resources/guides/door-access-guide.html - Comprehensive Door Access Technical Guide
-│   ├── ✅ resources/guides/intercom-guide.html - Comprehensive AV Intercom Technical Guide
-│   ├── ✅ resources/guides/office-telephone-guide.html - Comprehensive Office IP Telephone Technical Guide
-│   └── ✅ resources/guides/auto-gate-guide.html - Comprehensive Auto Gates & Barriers Technical Guide
-│
-└── ABOUT (/about/)
-    ├── ✅ about.html - About Securevision
-    │   - Company story, founder, team
-    │   - SECURE™ Framework explanation
-    │   - What makes us different
-    │   - Certifications overview (integrated into About page)
-    │   - **CONTACT SECTION (integrated here)**
-    │       • Address
-    │       • Phone (clickable)
-    │       • WhatsApp (+65 9386 0466)
-    │       • Email (clickable)
-    │       • Business hours
-    │       • Contact form
-    │       • Map embed (optional)
-    │
-    │
-    ├── ✅ request-site-assessment-singapore.html - Booking / Site Assessment Request
-    ├── ✅ contact-gateway.html - Unified Contact Routing
-    ├── ✅ sitemap.html - HTML Sitemap for Users
-    ├── ✅ privacy.html - Privacy Policy
-    └── ✅ terms.html - Terms of Service
-```
+1.  **Navigation & Footer:** Strict verbatim implementation of `_templates/` frozen components.
+2.  **Pathing:** Absolute root-relative paths starting with `/` (e.g. `/images/`, `/solutions/`).
+3.  **Dynamic Data:** Spans like `.sv-licence`, `.sv-founded`, `.sv-years-business` are injected via `site-config.js`.
+4.  **Fonts:** Montserrat for H1-H4, Inter for Body text.
+5.  **Colors:** Primary: `#004de6` (Secure Blue), Accent: `#25d366` (WhatsApp Green).
 
 ---
 
-## COMPLETE PAGE INVENTORY (54 Pages)
-
-### **CORE PAGES (4 pages)**
-| Page | File | Nav Placement | Notes |
-|------|------|---------------|-------|
-| Homepage | index.html | Logo click | Logo + "SECUREVISION" wordmark links here |
-| About (includes Contact) | about.html | ABOUT | Contact section integrated into this page |
-| Search Results | search.html | Search icon (🔍) | Displays search results, accessible via search icon |
-
-| Hub | File | Nav Placement | Purpose |
-|-----|------|---------------|---------|
-| Solutions Hub | solutions/index.html | SOLUTIONS (click) | Property type gateway |
-| Systems Hub | security-systems-singapore.html | SYSTEMS (click) | Technical systems gateway |
-| Brands Hub | brands/index.html | BRANDS (click) | Technology partners gateway |
-| Resources Hub | resources.html | ABOUT (dropdown) | Technical materials hub |
-
-### **SECTOR SOLUTIONS (11 pages)**
-| Sector | Page | File | Nav Path |
-|--------|------|------|----------|
-| **Residential** | Main Landing | solutions/residential.html | Solutions → Residential |
-| | New Builds | new-build-security-singapore.html | Solutions → Residential |
-| | Existing Homes | home-security-upgrade-singapore.html | Solutions → Residential |
-| | Trade Professionals | security-partner-architects-singapore.html | Solutions → Residential |
-| **Condominiums** | Main Landing | solutions/condominiums.html | Solutions → Condominiums |
-| | MCST & Managing Agents | managing-agent.html | Solutions → Condominiums |
-| | Security Partners | security-guarding-partner.html | Solutions → Condominiums |
-| **Commercial** | Main Landing | solutions/commercial.html | Solutions → Commercial |
-| | Office Solutions | commercial-office.html | Solutions → Commercial |
-| | Retail Solutions | commercial-retail.html | Solutions → Commercial |
-| | Hotel Solutions | commercial-hotel.html | Solutions → Commercial |
-| **Industrial** | Main Landing | solutions/industrial.html | Solutions → Industrial |
-| **Institutions** | Main Landing | solutions/institutions.html | Solutions → Institutions |
-| | Healthcare | solutions/healthcare.html | Solutions → Institutions |
-
-### **SYSTEM SOLUTIONS (4 pages)**
-| System | File | Nav Path |
-|--------|------|----------|
-| Surveillance & Detection | surveillance-detection.html | Systems → Surveillance |
-| People Access Control | people-access-control.html | Systems → Access Control |
-| Vehicle Access & Barriers | vehicle-access-control.html | Systems → Vehicle Access |
-| Platform Management | integrated-security-platform.html | Systems → Integration |
-| **Technical Guides** | CCTV Guide | resources/guides/cctv-guide.html | Systems → Surveillance |
-| | Burglar Alarm | resources/guides/burglar-alarm-guide.html | Systems → Surveillance |
-| | Door Access Guide | resources/guides/door-access-guide.html | Systems → Access Control |
-| | AV Intercom Guide | resources/guides/intercom-guide.html | Systems → Access Control |
-| | Office IP Telephone Guide | resources/guides/office-telephone-guide.html | Systems → Integrated Systems |
-| | Auto Gates & Barriers | resources/guides/auto-gate-guide.html | Systems → Vehicle Access |
-
-### **BRAND PAGES (21 pages)**
-| Category | Brand | File | Nav Path |
-|----------|-------|------|----------|
-| **Surveillance** | Hikvision | brands/hikvision.html | Brands → Surveillance |
-| | Uniview | brands/uniview.html | Brands → Surveillance |
-| | Hanwha (Samsung) | brands/hanwha.html | Brands → Surveillance |
-| | Milesight | brands/milesight.html | Brands → Surveillance |
-| **Access Control** | Suprema | brands/suprema.html | Brands → Access Control |
-| | ZKTeco | brands/zkteco.html | Brands → Access Control |
-| | HID Global | brands/hid.html | Brands → Access Control |
-| | EntryPass | brands/entrypass.html | Brands → Access Control |
-| **Intercom** | Akuvox | brands/akuvox.html | Brands → Intercom |
-| | Aiphone | brands/aiphone.html | Brands → Intercom |
-| | Kocom | brands/kocom.html | Brands → Intercom |
-| | Fanvil | brands/fanvil.html | Brands → Intercom |
-| **Alarm** | Ajax | brands/ajax.html | Brands → Alarms |
-| | RISCO | brands/risco.html | Brands → Alarms |
-| | Paradox | brands/paradox.html | Brands → Alarms |
-| | DSC | brands/dsc.html | Brands → Alarms |
-| | GE/Caddx | brands/ge-caddx.html | Brands → Alarms |
-| **Gates/Barriers** | FAAC | brands/faac.html | Brands → Gates |
-| | MAG Gates | brands/mag.html | Brands → Gates |
-| | Dormer | brands/dormer.html | Brands → Gates |
-| **Integration** | MicroEngine | brands/microengine.html | Brands → Integration |
-| **Telephony** | Yeastar | brands/yeastar.html | Brands → PBX |
-
-### **PORTFOLIO & INSIGHTS (35+ pages)**
-| Page | Description | Purpose | Routing |
-| :--- | :--- | :--- | :--- |
-| `portfolio.html` | Case Study Hub | Social Proof | Global Nav → Portfolio |
-| `portfolio/lviv.html` | Project: L'viv | GCB Case Study | Portfolio Grid |
-| `security-articles-singapore.html` | Insights Hub | Authority/SEO | Global Nav → Insights |
-| (See Below) | 29 Technical Articles | Educational SEO | Insights Grid |
-
-### **TECHNICAL INSIGHTS INVENTORY (Category Filter Mapping)**
-| Category | Topic/Article | File |
-| :--- | :--- | :--- |
-| **Security Planning** | Is Your Security System Still Working? | `insights-is-my-security-system-still-working.html` |
-| | After Installation — Who Do You Call? | `insights-after-security-installation-support.html` |
-| | Upgrade Existing System vs Starting Fresh | `insights-upgrade-existing-security-system.html` |
-| | HDB, Landed, or Condo — Requirements | `insights-hdb-landed-condo-security-differences.html` |
-| | Home Security System Cost in Singapore | `insights-home-security-system-cost-singapore.html` |
-| | 10 Tips for Securing Your Premises | `insights-10-tips-securing-your-premises.html` |
-| | After Installation — Who Do You Call? | `insights-after-security-installation-support.html` |
-| | Is Your Security System Actually Working? | `insights-is-my-security-system-still-working.html` |
-| | Upgrade Current System vs Starting Fresh | `insights-upgrade-existing-security-system.html` |
-| | HDB, Landed, or Condo — Requirements | `insights-hdb-landed-condo-security-differences.html` |
-| | Home Security System Cost in Singapore | `insights-home-security-system-cost-singapore.html` |
-| | How to Choose an Auto Gate Motor | `insights-how-to-choose-auto-gate-motor.html` |
-| **CCTV** | Can I Add AI Analytics to My Existing Hikvision Cameras? | `insights-ai-analytics-hikvision.html` |
-| | How Do I Migrate from Analogue to IP CCTV Without Full Replacement? | `insights-analogue-to-ip-migration.html` |
-| | How to Choose the Right CCTV System | `insights-how-to-choose-cctv.html` |
-| | How an IP CCTV Network Actually Works | `insights-how-ip-cctv-works.html` |
-| | 5 Reasons to Rack-Mount Your NVRs | `insights-rackmount-nvr.html` |
-| **Burglar Alarm** | Understanding Your Alarm Design | `insights-burglar-alarm-design.html` |
-| | How to Use Your Burglar Alarm Correctly | `insights-using-your-burglar-alarm.html` |
-| | How to Reduce False Alarms | `insights-reduce-false-alarms.html` |
-| | How to Maintain Your Burglar Alarm | `insights-maintain-burglar-alarm.html` |
-| | How Your Burglar Alarm Actually Works | `insights-how-burglar-alarm-works.html` |
-| | Know Your Detectors and Sensors | `insights-burglar-alarm-detectors-sensors.html` |
-| **Door Access** | How to Choose a Multi-Door System | `insights-how-to-choose-multi-door-access.html` |
-| | How to Choose a Standalone System | `insights-standalone-door-access.html` |
-| | How Card Access Systems Actually Work | `insights-how-card-access-works.html` |
-| | Why Mechanical Locks Are Not Enough | `insights-why-mechanical-locks-not-enough.html` |
-| **Intercom** | How to Choose an Intercom for Home | `insights-choose-intercom-for-home.html` |
-| | How Intercom Systems Work | `insights-how-intercom-systems-work.html` |
-| | When to Upgrade Your Condo Intercom | `insights-upgrade-condo-intercom.html` |
-| **Auto Gates** | WiFi Remote Control for Auto Gates | `insights-wifi-remote-control-auto-gate.html` |
-| **Singapore Industry** | My System Is X Years Old &mdash; Should I Upgrade or Repair? | `insights-upgrade-or-repair.html` |
-| | What Does a Maintenance Contract Include? | `insights-maintenance-contract.html` |
-| | The Architect and ID's Guide to Security Systems in Singapore | `insights-architect-id-guide-security.html` |
-| | How to Present a Security Upgrade at Your Condo AGM &mdash; and Get It Approved | `insights-presenting-security-upgrade-condo-agm.html` |
-| | The Managing Agent's Guide to Estate Security Systems | `insights-managing-agents-guide-estate-security-systems.html` |
-| | What Does a Security Upgrade Proposal Look Like? | `insights-condo-security-upgrade-proposal.html` |
-| | How Do I Get Quotes for an AGM Upgrade? | `insights-condo-security-upgrade-quotes.html` |
-| | How Do I Compare Two Integrators Fairly? | `insights-compare-security-integrators.html` |
-| | What Are the MCST's Legal Obligations? | `insights-mcst-legal-obligations-security.html` |
-| | Realistic Timeline and Disruption Plan | `insights-condo-security-upgrade-timeline.html` |
-| | Why Your System Needs a Refresh | `insights-security-system-refresh.html` |
-| | Managing Multiple Estates with VESTA | `insights-managing-multiple-estates-with-vesta.html` |
-| | How Technology Makes Your Guarding Team More Competitive | `insights-how-technology-makes-your-guarding-team-more-competitive.html` |
-| | 10 Expert Tips for MCST Security Upgrades | `insights-10-tips-securing-your-premises.html` |
-
----
-
-## URL STRUCTURE (Production)
-
-### **Core & Hub Pages**
-```
-securevision.com.sg/                          (Homepage)
-securevision.com.sg/about/                    (About + Contact)
-securevision.com.sg/solutions/                (Solutions Hub)
-securevision.com.sg/systems/                  (Systems Hub - security-systems-singapore.html)
-securevision.com.sg/brands/                   (Brands Hub)
-```
-
-### **Sector Solutions**
-```
-securevision.com.sg/residential/building/
-securevision.com.sg/residential/existing/
-securevision.com.sg/residential/trade/
-securevision.com.sg/condominiums/
-securevision.com.sg/condominiums/mcst/
-securevision.com.sg/condominiums/security/
-securevision.com.sg/commercial/
-securevision.com.sg/commercial/office/
-securevision.com.sg/commercial/retail/
-securevision.com.sg/commercial/hotel/
-securevision.com.sg/industrial/
-securevision.com.sg/institutions/
-```
-
-### **System Solutions**
-```
-securevision.com.sg/surveillance-systems/
-securevision.com.sg/people-access/
-securevision.com.sg/vehicle-access/
-securevision.com.sg/platform-integration/
-```
-
-### **Brand Pages**
-```
-securevision.com.sg/brands/hikvision/
-securevision.com.sg/brands/suprema/
-securevision.com.sg/brands/akuvox/
-securevision.com.sg/brands/ajax/
-securevision.com.sg/brands/faac/
-[etc. for all 21 brand pages]
-```
-
-### **Portfolio & Insights**
-```
-securevision.com.sg/portfolio/
-securevision.com.sg/portfolio/lviv.html
-securevision.com.sg/portfolio/scape.html
-securevision.com.sg/portfolio/sta/
-securevision.com.sg/portfolio/cyrus/
-securevision.com.sg/insights/
-securevision.com.sg/resources/
-```
-
----
-
-## USER JOURNEY EXAMPLES
-
-### **Journey 1: Property Owner (Solutions-First)**
-```
-User: "I need security for my condo"
-↓
-Clicks Logo/Homepage
-↓
-Sees hero or clicks "SOLUTIONS" in nav
-↓
-Lands on security-solutions-singapore.html
-↓
-Clicks "Condominiums"
-↓
-Lands on condominiums-security-singapore.html (main landing)
-↓
-Clicks "For MCST & Managing Agents"
-↓
-Lands on condominiums-mcst.html
-↓
-Sees integrated systems for condos
-↓
-Clicks WhatsApp CTA or Request Assessment
-```
-
-### **Journey 2: Tech-Savvy User (System-First)**
-```
-User: "I want to understand access control"
-↓
-Google search: "access control systems Singapore"
-↓
-Lands on people-access-control.html
-↓
-Reads system overview
-↓
-Sees "This system is used in:" links to sectors
-↓
-Clicks "Commercial Offices"
-↓
-Lands on commercial-office.html
-↓
-Sees complete office security solution
-↓
-Clicks WhatsApp CTA
-```
-
-### **Journey 3: Brand Searcher**
-```
-User: "Hikvision Singapore authorized dealer"
-↓
-Google search
-↓
-Lands on hikvision-singapore.html
-↓
-Reads about Hikvision systems we install
-↓
-Sees "Where we install Hikvision:" links
-↓
-Clicks relevant sector (e.g., "Commercial")
-↓
-Lands on commercial-security-singapore.html
-↓
-Explores solutions
-↓
-Clicks Contact via About page
-```
-
-### **Journey 4: Mobile User**
-```
-User on mobile
-↓
-Lands on homepage
-↓
-Taps hamburger menu ☰
-↓
-Taps "Solutions"
-↓
-Lands on security-solutions-singapore.html (no dropdown on mobile)
-↓
-Browses property types
-↓
-Taps "Residential"
-↓
-Browses residential sub-pages
-↓
-Taps WhatsApp button (sticky on mobile)
-```
-
----
-
-## CROSS-LINKING STRATEGY
-
-### **Hub Pages Cross-Link:**
-- **security-solutions-singapore.html** → "Looking for a specific system? Browse by System Type →" links to security-systems-singapore.html
-- **security-systems-singapore.html** → "Not sure what you need? Find solutions for your property type →" links to security-solutions-singapore.html
-
-### **Sector Pages Link to Systems:**
-- condominiums-mcst.html → Links to people-access-control.html, surveillance-detection.html, etc.
-- commercial-office.html → Links to people-access-control.html, surveillance-detection.html, etc.
-
-### **System Pages Link to Sectors:**
-- surveillance-detection.html → "Used in: Residential, Condominiums, Commercial, Industrial"
-- people-access-control.html → "Used in: Condominiums, Commercial, Industrial, Institutions"
-
-### **Brand Pages Link Both Ways:**
-- hikvision-singapore.html → Links to surveillance-detection.html AND relevant sector pages
-- suprema-singapore.html → Links to people-access-control.html AND relevant sector pages
-
-### **Portfolio Links to Everything:**
-- lviv.html → Links to condominiums-mcst.html, akuvox-singapore.html, entrypass-singapore.html
-
----
-
-## CONVERSION POINTS
-
-### **Every Page Includes:**
-1. **Primary CTA:** "Request Free Assessment" button/form
-2. **Secondary CTA:** WhatsApp button (+65 9386 0466)
-3. **Trust Elements:** 
-   - Police License L/PS/000267/2023P
-   - 19+ years experience
-   - bizSAFE Level 3, BCA certifications
-   - Client logos/testimonials (where relevant)
-
-### **Contact Accessibility:**
-| Method | Location | Implementation |
-|--------|----------|----------------|
-| Contact Form | About page | Embedded form section |
-| WhatsApp | Sticky button | Bottom-right on all pages |
-| Phone | About page + Footer | Clickable tel: link |
-| Email | About page + Footer | Clickable mailto: link |
-| Address | About page + Footer | With map embed |
-
-### **Footer CTA (All Pages):**
-```
-┌─────────────────────────────────────────────────────────┐
-│  READY TO UPGRADE YOUR SECURITY?                        │
-│                                                         │
-│  [Request Free Assessment]  [WhatsApp: +65 9386 0466]  │
-│                                                         │
-│  📞 [Phone]  |  ✉️ [Email]  |  📍 [Address]             │
-│                                                         │
-│  Police License: L/PS/000267/2023P  |  bizSAFE Level 3   │
-└─────────────────────────────────────────────────────────┘
-```
-
----
-
-## SEO OPTIMIZATION
-
-### **Primary Keywords by Section:**
-| Section | Primary Keywords | Secondary Keywords |
-|---------|-----------------|-------------------|
-| Homepage | security systems Singapore | CCTV, access control, alarm |
-| Residential | home security Singapore, auto gate | video intercom, home CCTV |
-| Condominiums | condo security upgrade, IP intercom | MCST security, visitor management |
-| Commercial | office security Singapore, retail CCTV | loss prevention, time attendance |
-| Industrial | warehouse security, perimeter | LPR, vehicle barriers |
-| Institutions | school security, hospital access | campus security, compliance |
-
-### **Brand SEO (Each Page):**
-- Primary: `[Brand] Singapore` (e.g., "Hikvision Singapore")
-- Secondary: `[Brand] authorized dealer Singapore`
-- Tertiary: `[Brand] installer Singapore`, `[System] [Brand]`
-
-### **Long-tail SEO:**
-- "Best CCTV for condominiums Singapore"
-- "Access control system for office Singapore"
-- "Hikvision authorized dealer Singapore"
-- "Condo intercom upgrade Singapore"
-- "Retail security camera system Singapore"
-
----
-
-## TECHNICAL SPECIFICATIONS
-
-### **Design System:**
-- **Primary Color:** #0056b3 (Blue)
-- **Accent Color:** #25d366 (WhatsApp Green)
-- **Fonts:** 
-  - Headings: Montserrat (600, 700)
-  - Body: Inter (400, 500)
-- **Logo:** securevision-logo-dark.svg
-- **Mobile Breakpoints:** 768px (tablet), 1024px (desktop)
-- **Design Version:** v1.6 (High-Impact Rollout)
-- **CTA Pattern:** Equal-width buttons, "WhatsApp an Engineer" primary conversion
-
-### **Navigation Specifications:**
-- **Desktop:** Logo left, nav items center/right, 6 items
-- **Mobile:** Hamburger menu, logo center, WhatsApp in menu
-- **Hover:** Dropdowns on Solutions, Systems, Brands
-- **Click:** All items link to hub/main pages
-
-### **Responsive Behavior:**
-- **Desktop (>1024px):** Full navigation with hover dropdowns
-- **Tablet (768px-1024px):** Full navigation, may collapse some items
-- **Mobile (<768px):** Hamburger menu, no dropdowns, direct links to hubs
-
-### **Common Elements (All Pages):**
-- Hero sections with value propositions
-- Trust badges (Police License, bizSAFE 4, BCA, 19+ years)
-- System-by-system breakdowns
-- Size/scale-based configurations (where applicable)
-- FAQ sections (7-8 questions)
-- CTA sections (Request Assessment + WhatsApp)
-- Footer with contact info and quick links
-
----
-
-## FRAMEWORK CONSISTENCY
-
-### **CLARITY Framework Applied:**
-All pages follow this structure:
-- **C**apture - Hero with problem/opportunity statement
-- **L**ogic - Systems/solutions breakdown with reasoning
-- **A**ssurance - Credentials, licensing, certifications, case studies
-- **R**elevance - Sector-specific pain points and solutions
-- **I**llustrate - Visual examples, configurations, diagrams
-- **T**ech Fit - System/product recommendations
-- **Y**ield - ROI, benefits, outcomes, results
-
-### **Recurring Page Elements:**
-- Persona routing (where applicable)
-- System-by-system deep dives
-- Configuration by property size/type
-- Case study placeholders
-- Brand showcases with "Why we choose X" sections
-- Integration value propositions
-- Clear next steps (CTA)
-
----
-
-## CONTENT STATUS
-
-### ✅ **COMPLETE (50 pages)**
-All HTML pages built with full structure
-
-### ⏳ **CONTENT TO ENHANCE**
-| Priority | Item | Details Needed |
-|----------|------|----------------|
-| **HIGH** | About page | Integrate contact section, company story, team |
-| **HIGH** | Portfolio case studies | Photos, metrics, client testimonials |
-| **HIGH** | Brand page content | Product images, installation photos |
-| **MEDIUM** | Hub pages | Ensure strong routing, cross-linking |
-| **MEDIUM** | Client testimonials | Quotes from satisfied clients |
-| **MEDIUM** | Insights articles | Blog posts, how-to guides, industry updates |
-| **LOW** | Video content | Installation videos, product demos |
-
-### 🔄 **PAGES TO BUILD (Future)**
-| Priority | Page | Purpose |
-|----------|------|---------|
-| **LOW** | Privacy Policy | Legal requirement |
-| **LOW** | Terms of Service | Legal requirement |
-| **LOW** | Sitemap (HTML) | SEO & user navigation |
-| **LOW** | 404 Page | Custom error page |
-
----
-
-### **Current Files (Physical Inventory):**
-```
-/mnt/user-data/uploads/
-├── index.html (Homepage)
-├── about.html (About + Contact)
-├── security-solutions-singapore.html (Solutions Hub)
-├── security-systems-singapore.html (Systems Hub)
-├── security-brands-singapore.html (Brands Hub)
-├── residential-security-singapore.html (Main Landing)
-├── new-build-security-singapore.html
-├── home-security-upgrade-singapore.html
-├── security-partner-architects-singapore.html
-├── condominiums-security-singapore.html
-├── condominiums-mcst.html
-├── condominiums-security.html
-├── commercial-security-singapore.html
-├── commercial-office.html
-├── commercial-retail.html
-├── commercial-hotel.html
-├── industrial-security-singapore.html
-├── government-institution-security-singapore.html
-├── healthcare-security-singapore.html
-├── surveillance-detection.html
-├── people-access-control.html
-├── vehicle-people-access-control.html
-├── integrated-security-platform.html
-├── resources/guides/cctv-guide.html (Technical Guide)
-├── resources/guides/burglar-alarm-guide.html (Technical Guide)
-├── resources/guides/door-access-guide.html (Technical Guide)
-├── resources/guides/intercom-guide.html (Technical Guide)
-├── resources/guides/auto-gate-guide.html (Technical Guide)
-├── [23 brand pages inclusive of Fanvil, Yeastar]
-├── portfolio.html
-├── portfolio/lviv.html
-├── portfolio/scape.html
-├── commercial-security-sta-building-singapore.html
-├── industrial-security-cyrus-tech-park-singapore.html
-├── security-articles-singapore.html
-├── resources.html
-├── sitemap.html
-├── privacy.html
-├── terms.html
-├── request-site-assessment-singapore.html
-└── contact-gateway.html
-```
-
-### **Tasks Underway:**
-1. **Coordination:** Ensure all pages cross-link between Systems and Solutions Hubs correctly.
-2. **Implementation:** Search functionality (client-side with Lunr.js or Fuse.js)
-3. **Verification:** All technical guides (cctv, burglar-alarm, etc.) meet the 65/35 design standard.
-
----
-
-## ANALYTICS & TRACKING (To Implement)
-
-### **Key Metrics:**
-| Metric | Purpose |
-|--------|---------|
-| Page views by sector | Identify hottest sectors |
-| Hub page interactions | See which path users take |
-| CTA click rates | Conversion optimization |
-| WhatsApp clicks | Direct inquiry tracking |
-| Form submissions | Lead generation |
-| Time on page | Content engagement |
-| Scroll depth | Content consumption |
-| Bounce rate | Content relevance |
-| Mobile vs Desktop | Device optimization |
-
-### **Conversion Goals:**
-1. Contact form submission (About page)
-2. WhatsApp click (sticky button)
-3. Phone click (About page, footer)
-4. Email click (About page, footer)
-5. Request Assessment button clicks
-6. Portfolio case study views
-7. Brand page engagement
-8. Hub page → sector page flow
-
----
-
-## MAINTENANCE SCHEDULE
-
-### **Weekly:**
-- Monitor WhatsApp inquiries from website
-- Track which pages generate most leads
-- Review form submissions
-
-### **Monthly:**
-- Update portfolio with new projects (if any)
-- Add new insights/blog posts
-- Review analytics for user behavior patterns
-
-### **Quarterly:**
-- Update brand product information
-- Refresh case study metrics
-- Review SEO performance
-- Update client testimonials
-
-### **Annually:**
-- Refresh homepage hero messaging
-- Comprehensive content audit
-- Professional photography update
-- Review and update hub page routing
-
----
-
-## BRAND CONSISTENCY
-
-### **Company Information:**
-- **Founded:** 2006 (19+ years experience)
-- **License:** Police License L/PS/000267/2023P
-- **Certifications:** bizSAFE Level 3, BCA Registered
-- **Founder:** Ler Wee Meng
-- **Service Area:** Singapore
-- **Installations:** 2,000+ sites
-- **Contact:** +65 9386 0466 (WhatsApp)
-
-### **Positioning:**
-- **Not:** Product sellers, box movers, retailers
-- **But:** Systems integrators, professional installers, solution architects
-- **Framework:** SECURE™ Framework
-- **Proprietary Systems:** GantryGo™ (vehicle access rental), VESTA™ (people access)
-- **Tagline:** "Stop Guessing. Start Seeing." / "Stop Operating Blind. Start Operating Smart."
-
-### **Messaging Pillars:**
-1. **Integration over products** - Complete systems, not boxes
-2. **Professional installation** - Police licensed, 19+ years
-3. **Systems thinking** - How components work together
-4. **Outcome-focused** - Results, not features
-5. **Sector expertise** - Deep understanding of each market
-
----
-
-## NOTES
-
-- **Navigation simplified to 6 items + search** for cleaner UX
-- **Search icon (🔍) added** to far right of navigation for easy access
-- **Logo + SECUREVISION links to home** (removed "Home" from nav)
-- **About page includes contact section** (removed "Contact" from nav)
-- **WhatsApp removed from desktop nav** for cleaner, more professional look
-  - Still accessible via: floating button (always visible), mobile menu, About dropdown, footer
-- **Simplified dropdowns** - Mega menus replaced with clean, simple dropdowns
-  - Portfolio and Insights: No dropdown (direct links)
-  - Solutions, Systems, Brands, About: Simple dropdowns
-- **Hub pages** (security-solutions-singapore.html, systems.html, security-brands-singapore.html) are critical for user routing
-- **Search functionality** uses client-side search (Lunr.js/Fuse.js) for instant results
-- **Mobile-first approach** - All dropdowns become simple links on mobile, search opens full-screen overlay
-- **Mobile layout:** Logo (left) | Menu (center) | Search (right)
-- **Responsive logo sizing:** 40px desktop → 32px tablet → 28px phone
-- **WhatsApp CTA** prominent throughout site (+65 9386 0466) via floating button, mobile menu, footer
-- **All pages mobile-responsive** with tested breakpoints
-- **Consistent color scheme** (blue #0056b3, green #25d366)
-- **Consistent typography** (Montserrat headings, Inter body)
-
----
-
-**END OF SITEMAP**
-
-*This sitemap reflects the final approved navigation structure with 6 main menu items. Update whenever pages are added, navigation changes, or major content updates occur.*
-
-**Key Changes from Previous Version:**
-- Removed "HOME" from navigation (logo serves this purpose)
-- Removed "CONTACT" from navigation (integrated into About page)
-- Renamed "TECHNOLOGY" to "SYSTEMS"
-- **Added search icon (🔍)** to navigation for easy site-wide search
-- **Removed WhatsApp from desktop nav** (kept in mobile menu + floating button for cleaner header)
-- **Simplified all mega menus to simple dropdowns** for faster, cleaner UX
-- Clarified hub page structure (security-solutions-singapore.html, systems.html, security-brands-singapore.html)
-- Updated navigation to 6 clean items + search: Solutions, Systems, Brands, Portfolio, Insights, About, Search
-- Added mobile-specific navigation behavior (no dropdowns, direct hub links)
-- Mobile layout: Logo (left) | Menu (center) | Search (right) with responsive logo sizing
-- Search opens full-screen overlay on mobile with keyboard
-- Emphasized cross-linking between Solutions and Systems hubs
-
+## 🔍 SEO & DISCOVERABILITY
+
+- **Sitemap.html:** User-facing guide for hierarchical discovery.
+- **Sitemap.xml:** Search engine indexing guide.
+- **Title Structure:** `[Page Subject] | Securevision [Sub-heading] Singapore`.
+- **Meta Descriptions:** Descriptive summaries for all primary landing pages.
+- **Canonical URLs:** All internal links point to the absolute production path.
