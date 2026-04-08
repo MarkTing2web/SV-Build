@@ -17,7 +17,7 @@
 
 ### **Solutions Dropdown (Hover):**
 ```
-SOLUTIONS (click → security-solutions-singapore.html)
+SOLUTIONS (click → solutions/index.html)
 └─ On Hover:
    ├─ Private Homes
    ├─ Condominiums
@@ -40,7 +40,7 @@ SYSTEMS (click → security-systems-singapore.html)
 
 ### **Brands Dropdown (Hover):**
 ```
-BRANDS (click → security-brands-singapore.html)
+BRANDS (click → brands/index.html)
 └─ On Hover (Simple Dropdown):
    ├─ Surveillance
    ├─ Access Control
@@ -50,7 +50,7 @@ BRANDS (click → security-brands-singapore.html)
    ├─ ─────────────
    └─ View All Brands →
 
-Note: Categories are section headers on security-brands-singapore.html page
+Note: Categories are section headers on brands/index.html page
 Individual brands: Hikvision, Uniview, Hanwha, Milesight (Surveillance),
 Suprema, ZKTeco, HID, EntryPass (Access), Akuvox, Aiphone, Kocom, Fanvil (Intercom),
 Ajax, RISCO, Paradox, DSC, GE/Caddx (Alarms), FAAC, MAG, Dormer (Gates),
@@ -70,7 +70,7 @@ Menu Expanded (when ☰ tapped):
 ┌─────────────────────┐
 │ ✕ MENU             │
 ├─────────────────────┤
-│ Solutions           │ ← Links to security-solutions-singapore.html
+│ Solutions           │ ← Links to solutions/index.html
 │ Systems             │ ← Links to security-systems-singapore.html
 │ Brands              │ ← Links to security-brands-singapore.html
 │ Portfolio           │ ← Links to portfolio.html
@@ -163,32 +163,34 @@ SECUREVISION.COM.SG
 │       - Logo in header links back here
 │       - "Home" removed from navigation (logo serves this purpose)
 │
-├── SOLUTIONS (Hub: security-solutions-singapore.html)
+├── SOLUTIONS (Hub: solutions/index.html)
 │   │
-│   ├── BY PROPERTY TYPE
+│   ├── BY PROPERTY TYPE (Subdirectory: /solutions/)
 │   │   │
-│   │   ├── 1. RESIDENTIAL (/residential/)
+│   │   ├── 1. RESIDENTIAL (/solutions/residential.html)
+│   │   │   ├── ✅ solutions/residential.html - Main Landing
 │   │   │   ├── ✅ new-build-security-singapore.html - For New Builds
 │   │   │   ├── ✅ home-security-upgrade-singapore.html - For Existing Homes
 │   │   │   └── ✅ security-partner-architects-singapore.html - For Trade Professionals
 │   │   │
-│   │   ├── 2. CONDOMINIUMS (/condominiums/)
-│   │   │   ├── ✅ condominiums-security-singapore.html - Main Landing
+│   │   ├── 2. CONDOMINIUMS (/solutions/condominiums.html)
+│   │   │   ├── ✅ solutions/condominiums.html - Main Landing
 │   │   │   ├── ✅ mcst-committee-member.html - Support Hub for Committee Members
 │   │   │   ├── ✅ managing-agent.html - For Managing Agents
 │   │   │   └── ✅ security-guarding-partner.html - For Security Guarding Partners (New)
 │   │   │
-│   │   ├── 3. COMMERCIAL (/commercial/)
-│   │   │   ├── ✅ commercial-security-singapore.html - Main Landing
+│   │   ├── 3. COMMERCIAL (/solutions/commercial.html)
+│   │   │   ├── ✅ solutions/commercial.html - Main Landing
 │   │   │   ├── ✅ commercial-office.html - Office Solutions
 │   │   │   ├── ✅ commercial-retail.html - Retail Solutions
 │   │   │   └── ✅ commercial-hotel.html - Hotel Solutions
 │   │   │
-│   │   ├── 4. INDUSTRIAL (/industrial/)
-│   │   │   └── ✅ industrial-security-singapore.html - Industrial Solutions
+│   │   ├── 4. INDUSTRIAL (/solutions/industrial.html)
+│   │   │   └── ✅ solutions/industrial.html - Industrial Solutions
 │   │   │
-│   │   └── 5. INSTITUTIONS (/institutions/)
-│   │       └── ✅ government-institution-security-singapore.html - Educational & Healthcare
+│   │   └── 5. INSTITUTIONS (/solutions/institutions.html)
+│   │       ├── ✅ solutions/institutions.html - Main Landing
+│   │       └── ✅ solutions/healthcare.html - Healthcare & Managed Living
 │   │
 │   └── Cross-link to SYSTEMS hub at bottom of page
 │
@@ -208,7 +210,7 @@ SECUREVISION.COM.SG
 │   │
 │   └── Cross-link to SOLUTIONS hub at top of page
 │
-├── BRANDS (Hub: security-brands-singapore.html)
+├── BRANDS (Hub: brands/index.html)
 │   │
 │   ├── SURVEILLANCE BRANDS
 │   │   ├── ✅ brands/hikvision.html - Hikvision
@@ -298,28 +300,28 @@ SECUREVISION.COM.SG
 
 | Hub | File | Nav Placement | Purpose |
 |-----|------|---------------|---------|
-| Solutions Hub | security-solutions-singapore.html | SOLUTIONS (click) | Property type gateway |
+| Solutions Hub | solutions/index.html | SOLUTIONS (click) | Property type gateway |
 | Systems Hub | security-systems-singapore.html | SYSTEMS (click) | Technical systems gateway |
-| Brands Hub | security-brands-singapore.html | BRANDS (click) | Technology partners gateway |
+| Brands Hub | brands/index.html | BRANDS (click) | Technology partners gateway |
 | Resources Hub | resources.html | ABOUT (dropdown) | Technical materials hub |
 
 ### **SECTOR SOLUTIONS (11 pages)**
 | Sector | Page | File | Nav Path |
 |--------|------|------|----------|
-| **Residential** | Main Landing | residential-security-singapore.html | Solutions → Residential |
+| **Residential** | Main Landing | solutions/residential.html | Solutions → Residential |
 | | New Builds | new-build-security-singapore.html | Solutions → Residential |
 | | Existing Homes | home-security-upgrade-singapore.html | Solutions → Residential |
 | | Trade Professionals | security-partner-architects-singapore.html | Solutions → Residential |
-| **Condominiums** | Main Landing | condominiums-security-singapore.html | Solutions → Condominiums |
+| **Condominiums** | Main Landing | solutions/condominiums.html | Solutions → Condominiums |
 | | MCST & Managing Agents | managing-agent.html | Solutions → Condominiums |
 | | Security Partners | security-guarding-partner.html | Solutions → Condominiums |
-| **Commercial** | Main Landing | commercial-security-singapore.html | Solutions → Commercial |
+| **Commercial** | Main Landing | solutions/commercial.html | Solutions → Commercial |
 | | Office Solutions | commercial-office.html | Solutions → Commercial |
 | | Retail Solutions | commercial-retail.html | Solutions → Commercial |
 | | Hotel Solutions | commercial-hotel.html | Solutions → Commercial |
-| **Industrial** | Main Landing | industrial-security-singapore.html | Solutions → Industrial |
-| **Institutions** | Main Landing | government-institution-security-singapore.html | Solutions → Institutions |
-| | Healthcare | healthcare-security-singapore.html | Solutions → Institutions |
+| **Industrial** | Main Landing | solutions/industrial.html | Solutions → Industrial |
+| **Institutions** | Main Landing | solutions/institutions.html | Solutions → Institutions |
+| | Healthcare | solutions/healthcare.html | Solutions → Institutions |
 
 ### **SYSTEM SOLUTIONS (4 pages)**
 | System | File | Nav Path |
