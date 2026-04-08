@@ -211,38 +211,38 @@ SECUREVISION.COM.SG
 ├── BRANDS (Hub: security-brands-singapore.html)
 │   │
 │   ├── SURVEILLANCE BRANDS
-│   │   ├── ✅ brands/hikvision-singapore.html - Hikvision
-│   │   ├── ✅ brands/uniview-singapore.html - Uniview
-│   │   ├── ✅ brands/hanwha-singapore.html - Hanwha (Samsung)
-│   │   └── ✅ brands/milesight-singapore.html - Milesight
+│   │   ├── ✅ brands/hikvision.html - Hikvision
+│   │   ├── ✅ brands/uniview.html - Uniview
+│   │   ├── ✅ brands/hanwha.html - Hanwha (Samsung)
+│   │   └── ✅ brands/milesight.html - Milesight
 │   │
 │   ├── ACCESS CONTROL BRANDS
-│   │   ├── ✅ brands/suprema-singapore.html - Suprema
-│   │   ├── ✅ brands/zkteco-singapore.html - ZKTeco
-│   │   ├── ✅ brands/hid-singapore.html - HID Global
-│   │   └── ✅ brands/entrypass-singapore.html - EntryPass
+│   │   ├── ✅ brands/suprema.html - Suprema
+│   │   ├── ✅ brands/zkteco.html - ZKTeco
+│   │   ├── ✅ brands/hid.html - HID Global
+│   │   └── ✅ brands/entrypass.html - EntryPass
 │   │
 │   ├── INTERCOM BRANDS
-│   │   ├── ✅ brands/akuvox-singapore.html - Akuvox
-│   │   ├── ✅ brands/aiphone-singapore.html - Aiphone
-│   │   └── ✅ brands/kocom-singapore.html - Kocom
+│   │   ├── ✅ brands/akuvox.html - Akuvox
+│   │   ├── ✅ brands/aiphone.html - Aiphone
+│   │   └── ✅ brands/kocom.html - Kocom
 │   │
 │   ├── ALARM BRANDS
-│   │   ├── ✅ brands/ajax-singapore.html - Ajax Alarm
-│   │   ├── ✅ brands/risco-singapore.html - RISCO Alarm
-│   │   ├── ✅ brands/paradox-singapore.html - Paradox Alarm
-│   │   ├── ✅ brands/dsc-singapore.html - DSC Alarm
-│   │   └── ✅ brands/ge-caddx-singapore.html - GE/Caddx Alarm
+│   │   ├── ✅ brands/ajax.html - Ajax Alarm
+│   │   ├── ✅ brands/risco.html - RISCO Alarm
+│   │   ├── ✅ brands/paradox.html - Paradox Alarm
+│   │   ├── ✅ brands/dsc.html - DSC Alarm
+│   │   └── ✅ brands/ge-caddx.html - GE/Caddx Alarm
 │   │
 │   ├── GATE & BARRIER BRANDS
-│   │   ├── ✅ brands/faac-singapore.html - FAAC
-│   │   ├── ✅ brands/mag-singapore.html - MAG Gates
-│   │   └── ✅ brands/dormer-singapore.html - Dormer
+│   │   ├── ✅ brands/faac.html - FAAC
+│   │   ├── ✅ brands/mag.html - MAG Gates
+│   │   └── ✅ brands/dormer.html - Dormer
 │   │
 │   └── INTEGRATION PLATFORMS
-│       └── ✅ brands/microengine-singapore.html - MicroEngine
-│       └── ✅ brands/fanvil-singapore.html - Fanvil
-│       └── ✅ brands/yeastar-singapore.html - Yeastar
+│       └── ✅ brands/microengine.html - MicroEngine
+│       └── ✅ brands/fanvil.html - Fanvil
+│       └── ✅ brands/yeastar.html - Yeastar
 │
 ├── PORTFOLIO (/portfolio/)
 │   ├── portfolio.html           # Project landing
@@ -338,28 +338,28 @@ SECUREVISION.COM.SG
 ### **BRAND PAGES (21 pages)**
 | Category | Brand | File | Nav Path |
 |----------|-------|------|----------|
-| **Surveillance** | Hikvision | brands/hikvision-singapore.html | Brands → Surveillance |
-| | Uniview | brands/uniview-singapore.html | Brands → Surveillance |
-| | Hanwha (Samsung) | brands/hanwha-singapore.html | Brands → Surveillance |
-| | Milesight | brands/milesight-singapore.html | Brands → Surveillance |
-| **Access Control** | Suprema | brands/suprema-singapore.html | Brands → Access Control |
-| | ZKTeco | brands/zkteco-singapore.html | Brands → Access Control |
-| | HID Global | brands/hid-singapore.html | Brands → Access Control |
-| | EntryPass | brands/entrypass-singapore.html | Brands → Access Control |
-| **Intercom** | Akuvox | brands/akuvox-singapore.html | Brands → Intercom |
-| | Aiphone | brands/aiphone-singapore.html | Brands → Intercom |
-| | Kocom | brands/kocom-singapore.html | Brands → Intercom |
-| | Fanvil | brands/fanvil-singapore.html | Brands → Intercom |
-| **Alarm** | Ajax | brands/ajax-singapore.html | Brands → Alarms |
-| | RISCO | brands/risco-singapore.html | Brands → Alarms |
-| | Paradox | brands/paradox-singapore.html | Brands → Alarms |
-| | DSC | brands/dsc-singapore.html | Brands → Alarms |
-| | GE/Caddx | brands/ge-caddx-singapore.html | Brands → Alarms |
-| **Gates/Barriers** | FAAC | brands/faac-singapore.html | Brands → Gates |
-| | MAG Gates | brands/mag-singapore.html | Brands → Gates |
-| | Dormer | brands/dormer-singapore.html | Brands → Gates |
-| **Integration** | MicroEngine | brands/microengine-singapore.html | Brands → Integration |
-| **Telephony** | Yeastar | brands/yeastar-singapore.html | Brands → PBX |
+| **Surveillance** | Hikvision | brands/hikvision.html | Brands → Surveillance |
+| | Uniview | brands/uniview.html | Brands → Surveillance |
+| | Hanwha (Samsung) | brands/hanwha.html | Brands → Surveillance |
+| | Milesight | brands/milesight.html | Brands → Surveillance |
+| **Access Control** | Suprema | brands/suprema.html | Brands → Access Control |
+| | ZKTeco | brands/zkteco.html | Brands → Access Control |
+| | HID Global | brands/hid.html | Brands → Access Control |
+| | EntryPass | brands/entrypass.html | Brands → Access Control |
+| **Intercom** | Akuvox | brands/akuvox.html | Brands → Intercom |
+| | Aiphone | brands/aiphone.html | Brands → Intercom |
+| | Kocom | brands/kocom.html | Brands → Intercom |
+| | Fanvil | brands/fanvil.html | Brands → Intercom |
+| **Alarm** | Ajax | brands/ajax.html | Brands → Alarms |
+| | RISCO | brands/risco.html | Brands → Alarms |
+| | Paradox | brands/paradox.html | Brands → Alarms |
+| | DSC | brands/dsc.html | Brands → Alarms |
+| | GE/Caddx | brands/ge-caddx.html | Brands → Alarms |
+| **Gates/Barriers** | FAAC | brands/faac.html | Brands → Gates |
+| | MAG Gates | brands/mag.html | Brands → Gates |
+| | Dormer | brands/dormer.html | Brands → Gates |
+| **Integration** | MicroEngine | brands/microengine.html | Brands → Integration |
+| **Telephony** | Yeastar | brands/yeastar.html | Brands → PBX |
 
 ### **PORTFOLIO & INSIGHTS (35+ pages)**
 | Page | Description | Purpose | Routing |
