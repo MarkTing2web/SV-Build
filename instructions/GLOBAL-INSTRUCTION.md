@@ -195,7 +195,7 @@ Systems           → security-systems-singapore.html
   People Access   → people-access-control.html
   Vehicle Access  → vehicle-access-control.html
   Platform        → integrated-security-platform.html
-Brands            → security-brands-singapore.html
+Brands            → brands/index.html
 Portfolio         → portfolio.html
 Resources         → resources.html
 Insights          → security-articles-singapore.html
