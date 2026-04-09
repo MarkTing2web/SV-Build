@@ -486,62 +486,8 @@
 </a>
 <!-- ═══ END WHATSAPP FLOAT ═══ -->
 
-<!-- Scripts -->
-<script>
-function toggleMobileMenu() {
-  const menu = document.getElementById('mobileMenu');
-  if (menu) menu.classList.toggle('active');
-}
 
-function toggleSubmenu(id) {
-  const sub = document.getElementById(id);
-  if (sub) {
-    const isActive = sub.classList.contains('active');
-    document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
-    if (!isActive) sub.classList.add('active');
-  }
-}
-
-document.addEventListener('click', function (e) {
-  const nav = document.querySelector('.main-nav');
-  const menu = document.getElementById('mobileMenu');
-  if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
-    menu.classList.remove('active');
-  }
-});
-
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('.main-nav');
-  if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-// TOC scroll-spy
-function toggleToc() {
-  const list = document.getElementById('tocList');
-  const title = document.querySelector('.toc-title');
-  if (list) list.classList.toggle('active');
-  if (title) title.classList.toggle('active');
-}
-
-window.addEventListener('scroll', () => {
-  const sections = document.querySelectorAll('main section[id]');
-  const tocLinks = document.querySelectorAll('.toc-list a');
-  let current = '';
-  sections.forEach(section => {
-    if (window.scrollY >= section.offsetTop - 150) {
-      current = section.getAttribute('id');
-    }
-  });
-  tocLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active');
-    }
-  });
-});
-</script>
-
-<!-- Scripts -->
+<!-- Consolidated Scripts -->
 <script>
 function toggleMobileMenu() {
   const menu = document.getElementById('mobileMenu');
@@ -587,9 +533,38 @@ document.querySelectorAll('.nav-link').forEach(link => {
     link.classList.add('active');
   }
 });
+
+// TOC scroll-spy
+function toggleToc() {
+  const list = document.getElementById('tocList');
+  const title = document.querySelector('.toc-title');
+  if (list) list.classList.toggle('active');
+  if (title) title.classList.toggle('active');
+}
+
+window.addEventListener('scroll', () => {
+  const sections = document.querySelectorAll('main section[id]');
+  const tocLinks = document.querySelectorAll('.toc-list a');
+  let current = '';
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 150) {
+      current = section.getAttribute('id');
+    }
+  });
+  tocLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+});
 </script>
+
 </body>
 </html>
+
+
+
 
 
 
