@@ -85,6 +85,34 @@ h4 { font-size: 16px; line-height: 1.4; }
     padding: 0 24px; 
 }
 
+/* CLICKABLE CARDS UTILITY */
+.card-clickable {
+    position: relative !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+    cursor: pointer;
+}
+.card-clickable:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    border-color: var(--primary-blue) !important;
+}
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    content: "";
+}
+
+/* Ensure buttons inside clickable cards still work and look right */
+.card-clickable .btn {
+    position: relative;
+    z-index: 15;
+}
+
+
 /* -- TECHNICAL GUIDE TEMPLATE (Side-Nav Format) -- */
 .layout-with-sidebar {
     display: grid;
