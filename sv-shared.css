@@ -497,14 +497,32 @@ section { padding: 100px 0; }
 /* Removed specific hero button rule as it is now covered by the global .btn-group .btn rule */
 
 /* ── 2. TRUST BAR ── */
-.trust-bar { background: white; padding: 20px 0; border-bottom: 1px solid var(--border-light); }
-.trust-flex {
-    display: flex; justify-content: space-between;
-    align-items: center; flex-wrap: wrap; gap: 16px;
-    font-size: 13px; font-weight: 500;
+.trust-bar { background: white; padding: 18px 0; border-bottom: 1px solid var(--border-light); }
+.trust-flex-inline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 32px;
+    row-gap: 12px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-gray);
+    text-align: center;
 }
-.trust-flex .label { color: var(--text-light); text-transform: uppercase; letter-spacing: 1px; font-size: 11px; }
-.trust-flex span:not(.label) { color: var(--text-gray); }
+.trust-flex-inline span:not(.sep) {
+    white-space: nowrap;
+}
+.trust-flex-inline .sep {
+    color: var(--border-light);
+    font-weight: 400;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .trust-flex-inline .sep { display: none; }
+    .trust-flex-inline { column-gap: 24px; row-gap: 14px; }
+}
 
 /* ── 3. LOGIC (Problem) ── */
 .logic { background: var(--bg-light); padding: 100px 0; text-align: center; }
