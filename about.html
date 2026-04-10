@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
@@ -72,15 +72,46 @@
         .hero-lead { font-size: 18px; color: rgba(255, 255, 255, 0.85); line-height: 1.7; margin-bottom: 32px; max-width: 800px; margin-left: auto; margin-right: auto; }
         
         .step-num { 
-            width: 60px !important; 
-            height: 60px !important; 
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            border-radius: 50% !important;
-            flex-shrink: 0 !important;
+            width: 60px;
+            height: 60px;
+            min-width: 60px;
+            min-height: 60px;
+            aspect-ratio: 1 / 1;
+            box-sizing: content-box;
+            background: var(--primary);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0 auto 18px;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .creds-grid .card .step-num { 
+            width: 60px !important;
+            height: 60px !important;
+            min-width: 60px !important;
+            min-height: 60px !important;
             aspect-ratio: 1 / 1 !important;
-            margin: 0 auto 18px !important;
+            box-sizing: content-box !important;
+            background: var(--primary);
+            color: #fff;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50% !important;
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0 auto 18px;
+            flex-shrink: 0 !important;
+            line-height: 1;
+            padding: 0 !important;
         }
         
         /* CARDS */
@@ -263,8 +294,9 @@
     </li>
     <li class="nav-item"><a href="/insights/" class="nav-link">Insights</a></li>
     <li class="nav-item"><a href="/about.html" class="nav-link has-dropdown">About</a>
-      <div class="simple-submenu">
-        <a href="/about.html">Our Story</a><a href="/contact.html">Contact Us</a>
+      <div class="simple-dropdown">
+        <a href="/about.html">Our Story</a>
+        <a href="/contact.html">Contact Us</a>
       </div>
     </li>
   </ul>
@@ -294,7 +326,12 @@
   <a href="/portfolio/" class="mobile-menu-item">Portfolio</a>
   <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources &#9662;<div class="mobile-submenu" id="resSub"><a href="/resources/"><strong>&rarr; All Resources</strong></a><a href="/resources/guides/">Technical Guides</a><a href="/resources/#tools">Planning Tools</a><a href="/resources/#library">Product Library</a><a href="/resources/#videos">Training Videos</a><a href="/resources/#faq">FAQ</a><a href="/resources/#trade">For Trade &amp; Professionals</a></div></div>
   <a href="/insights/" class="mobile-menu-item">Insights</a>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;<div class="mobile-submenu" id="abtSub"><a href="/about.html"><strong>&rarr; Our Story</strong></a><a href="/contact.html">Contact Us</a></div></div>
+  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About ▾
+    <div class="mobile-submenu" id="abtSub">
+      <a href="/about.html"><strong>&rarr; Our Story</strong></a>
+      <a href="/contact.html">Contact Us</a>
+    </div>
+  </div>
 </div>
 </nav><header class="hero-about">
         <div class="container">
@@ -437,36 +474,28 @@
             </div>
             <div class="phil-grid grid-4" style="gap: 20px;">
                 <a href="/systems/surveillance.html" class="card" style="text-decoration: none; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
-                    <div style="height: 160px; overflow: hidden;">
-                        <img src="/images/cctv-guide-hero.png" alt="Surveillance & Detection" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
+                        <img src="/images/cctv-guide-hero.webp" alt="Surveillance & Detection" style="width: 100%; height: 100%; object-fit: cover;">
                     <div style="padding: 24px; flex-grow: 1;">
                         <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--text-dark);">Surveillance & Detection</h3>
                         <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);">AI-powered CCTV, video analytics, and intelligent monitoring for total premises visibility.</p>
                     </div>
                 </a>
                 <a href="/systems/access-control.html" class="card" style="text-decoration: none; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
-                    <div style="height: 160px; overflow: hidden;">
-                        <img src="proprietary-assets/people-access-hero.png" alt="People Access Control" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
+                        <img src="/proprietary-assets/people-access-hero.png" alt="People Access Control" style="width: 100%; height: 100%; object-fit: cover;">
                     <div style="padding: 24px; flex-grow: 1;">
                         <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--text-dark);">People Access Control</h3>
                         <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);">Managing how people move through the property via facial recognition, cards, and mobile apps.</p>
                     </div>
                 </a>
                 <a href="/systems/vehicle-access.html" class="card" style="text-decoration: none; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
-                    <div style="height: 160px; overflow: hidden;">
-                        <img src="proprietary-assets/vehicle-access-hero.png" alt="Vehicle Access Control" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
+                        <img src="/proprietary-assets/vehicle-access-hero.png" alt="Vehicle Access Control" style="width: 100%; height: 100%; object-fit: cover;">
                     <div style="padding: 24px; flex-grow: 1;">
                         <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--text-dark);">Vehicle Access Control</h3>
                         <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);">Intelligent gantry systems and Licence Plate Recognition for seamless resident and visitor entry.</p>
                     </div>
                 </a>
                 <a href="/systems/platform.html" class="card" style="text-decoration: none; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
-                    <div style="height: 160px; overflow: hidden;">
-                        <img src="/images/comp-integration-v3.png" alt="Integrated Platform" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
+                        <img src="/proprietary-assets/comp-integration-v3.png" alt="Integrated Platform" style="width: 100%; height: 100%; object-fit: cover;">
                     <div style="padding: 24px; flex-grow: 1;">
                         <h3 style="font-size: 18px; margin-bottom: 12px; color: var(--text-dark);">Integrated Platform</h3>
                         <p style="font-size: 14px; line-height: 1.6; color: var(--text-gray);">One dashboard to manage cameras, gates, intercoms, and alarms as a unified ecosystem.</p>
@@ -584,9 +613,7 @@
             <div class="brand-grid-special">
                 <!-- CCTV -->
                 <div class="brand-card bc-r1">
-                    <div class="bc-img">
-                        <img src="/images/cctv-guide-hero.png" alt="CCTV & Analytics">
-                    </div>
+                        <img src="/images/cctv-guide-hero.webp" alt="CCTV & Analytics">
                     <div class="bc-content">
                         <h3>CCTV & Analytics</h3>
                         <div class="brand-link-list">
@@ -599,9 +626,7 @@
                 </div>
                 <!-- Access -->
                 <div class="brand-card bc-r1">
-                    <div class="bc-img">
-                        <img src="/images/access-control-guide-hero.png" alt="Access Control">
-                    </div>
+                        <img src="/images/access-control-guide-hero.webp" alt="Access Control">
                     <div class="bc-content">
                         <h3>Access Control</h3>
                         <div class="brand-link-list">
@@ -614,9 +639,7 @@
                 </div>
                 <!-- Intercom -->
                 <div class="brand-card bc-r1">
-                    <div class="bc-img">
-                        <img src="/images/intercom-guide-hero.png" alt="Intercom Systems">
-                    </div>
+                        <img src="/images/intercom-guide-hero.webp" alt="Intercom Systems">
                     <div class="bc-content">
                         <h3>Intercom</h3>
                         <div class="brand-link-list">
@@ -628,9 +651,7 @@
                 </div>
                 <!-- Alarms -->
                 <div class="brand-card bc-r2">
-                    <div class="bc-img">
-                        <img src="/images/alarm-guide-hero.png" alt="Alarm Systems">
-                    </div>
+                        <img src="/images/alarm-guide-hero.webp" alt="Alarm Systems">
                     <div class="bc-content">
                         <h3>Alarm Systems</h3>
                         <div class="brand-link-list">
@@ -643,9 +664,7 @@
                 </div>
                 <!-- Gates -->
                 <div class="brand-card bc-r2">
-                    <div class="bc-img">
-                        <img src="/images/autogate-guide-hero.png" alt="Gates & Barriers">
-                    </div>
+                        <img src="/images/autogate-guide-hero.webp" alt="Gates & Barriers">
                     <div class="bc-content">
                         <h3>Gates & Barriers</h3>
                         <div class="brand-link-list">
@@ -680,14 +699,14 @@
                     </div>
                 </a>
                 <div class="card" style="padding: 0; overflow: hidden; border: 1px solid var(--border);">
-                    <img src="/images/portfolio-scape.png" alt="SCAPE Building CCTV and Analytics" style="height: 200px; width: 100%; object-fit: cover;">
+                    <img src="/images/portfolio/portfolio-scape.webp" alt="SCAPE Building CCTV and Analytics" style="height: 200px; width: 100%; object-fit: cover;">
                     <div style="padding: 24px;">
                         <h4 style="margin-bottom: 8px;">SCAPE &ndash; CCTV with Analytics</h4>
                         <p style="font-size: 13px; color: var(--text-light);">Wide-area surveillance and crowd analytics for public youth spaces.</p>
                     </div>
                 </div>
                 <div class="card" style="padding: 0; overflow: hidden; border: 1px solid var(--border);">
-                    <img src="/images/portfolio-light-cairnhill.png" alt="Light@Cairnhill Modernization" style="height: 200px; width: 100%; object-fit: cover;">
+                    <img src="/images/portfolio/portfolio-light-cairnhill.webp" alt="Light@Cairnhill Modernization" style="height: 200px; width: 100%; object-fit: cover;">
                     <div style="padding: 24px;">
                         <h4 style="margin-bottom: 8px;">Light@Cairnhill &ndash; Residential Modernisation</h4>
                         <p style="font-size: 13px; color: var(--text-light);">Complete security refresh for high-end residential towers.</p>

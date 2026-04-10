@@ -1,6 +1,6 @@
 # SECUREVISION WEBSITE — GLOBAL DESIGN INSTRUCTION
 ## For use with Anti-Gravity AI Web Builder
-## Version 2.0 — April 2026
+## Version 2.1 — April 2026
 ## This file lives at: /_instructions/GLOBAL-INSTRUCTION.md
 
 ---
@@ -14,6 +14,7 @@
 5. **ALWAYS use the page template file** from `/_templates/` as the starting skeleton. Fill in content — do not rebuild structure.
 6. **NEVER use HTML entities** (`&amp;`, `&#9662;`, etc.) where plain Unicode characters work (e.g., `▾`, `→`, `·`, `&`). Mojibake comes from re-encoding entities — use the actual characters.
 7. **Partial updates only:** When asked to update one section, touch only that section. Do not reformat, re-space, or "clean up" unrelated sections.
+8. **ALL paths must be absolute** — every href, src, and url() must begin with `/`. Never use relative paths (`../` or bare filenames). This applies to CSS files, JS files, images, and all internal links.
 
 ---
 
@@ -45,12 +46,12 @@
 
 ## 2. CSS & FILE ARCHITECTURE
 
-### The CSS Stack (in load order — every page must load all three)
+### The CSS Stack (in load order — every page must load in this order)
 ```html
-<link rel="stylesheet" href="sv-shared.css">       <!-- Global: nav, footer, buttons, typography, hero, CTA -->
-<link rel="stylesheet" href="sv-guides.css">        <!-- Technical guide pages only -->
-<link rel="stylesheet" href="sv-forms.css">         <!-- Pages with forms only -->
-<script src="site-config.js"></script>              <!-- Dynamic values: year, licence number, contact -->
+<link rel="stylesheet" href="/sv-shared.css">       <!-- Global: nav, footer, buttons, typography, hero, CTA -->
+<script src="/site-config.js"></script>              <!-- Dynamic values: year, licence number, contact -->
+<link rel="stylesheet" href="/sv-guides.css">        <!-- Technical guide pages only -->
+<link rel="stylesheet" href="/sv-forms.css">         <!-- Pages with forms only -->
 ```
 
 ### CSS Responsibility by File
@@ -180,32 +181,38 @@ Final CTA:  dark gradient with background image (cta-skyline or page-specific)
 
 **Do not modify the nav HTML under any circumstances. Copy it verbatim from the template.**
 
-### Canonical Nav URLs (use these exact hrefs — no variations)
+### Canonical Nav URLs (use these exact hrefs — no variations, all absolute)
 ```
-Logo              → index.html
-Solutions         → security-solutions-singapore.html
-  Private Homes   → residential-security-singapore.html
-  Condominiums    → condominiums-security-singapore.html
-  Commercial      → commercial-security-singapore.html
-  Industrial      → industrial-security-singapore.html
-  Institutions    → government-institution-security-singapore.html
-  Healthcare      → healthcare-security-singapore.html
-Systems           → security-systems-singapore.html
-  Surveillance    → surveillance-detection.html
-  People Access   → people-access-control.html
-  Vehicle Access  → vehicle-access-control.html
-  Platform        → integrated-security-platform.html
-Brands            → brands/index.html
-Portfolio         → portfolio.html
-Resources         → resources.html
-Insights          → security-articles-singapore.html
-About             → about.html
-Contact           → contact.html
+Logo              → /
+Solutions         → /solutions/
+  Private Homes   → /solutions/residential.html
+  Condominiums    → /solutions/condominiums.html
+  Commercial      → /solutions/commercial.html
+  Industrial      → /solutions/industrial.html
+  Institutions    → /solutions/institutions.html
+  Healthcare      → /solutions/healthcare.html
+Systems           → /systems/
+  Surveillance    → /systems/surveillance.html
+  People Access   → /systems/access-control.html
+  Vehicle Access  → /systems/vehicle-access.html
+  Platform        → /systems/platform.html
+Brands            → /brands/
+  #surveillance   → /brands/#surveillance
+  #access         → /brands/#access
+  #intercom       → /brands/#intercom
+  #alarms         → /brands/#alarms
+  #gates          → /brands/#gates
+Portfolio         → /portfolio/
+Resources         → /resources/
+  Guides          → /resources/guides/
+Insights          → /insights/
+About             → /about.html
+Contact           → /contact.html
 ```
 
-### Logo image path (always this — no other version)
+### Logo image path (always this — absolute path, no other version)
 ```html
-<img src="images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
+<img src="/images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
 ```
 
 ---
@@ -237,7 +244,7 @@ Contact           → contact.html
     <h1 class="hero-title-main">[H1 with <span style="color:#FFD700;">keyword span</span>]</h1>
     <p class="hero-subtitle-main">[One sentence: what this guide covers]</p>
     <div class="btn-group">
-      <a href="request-site-assessment-singapore.html?intent=[page]-assessment" class="btn btn-primary">Book Site Assessment</a>
+      <a href="/request-site-assessment-singapore.html?intent=[page]-assessment" class="btn btn-primary">Book Site Assessment</a>
       <a href="https://wa.me/6593860466" class="btn btn-whatsapp-standard">WhatsApp an Engineer</a>
     </div>
   </div>
@@ -265,13 +272,13 @@ Wrap multiple buttons in `<div class="btn-group">`.
 
 ## 10. BREADCRUMB
 
-Required on all non-homepage pages. Use `.sv-breadcrumb`:
+Required on all non-homepage pages. Use `.sv-breadcrumb`. All hrefs must be absolute:
 ```html
 <nav class="sv-breadcrumb" aria-label="Breadcrumb">
   <div class="container">
     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="[parent].html">[Parent]</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/[parent]/">[Parent]</a></li>
       <li>[Current Page]</li>
     </ul>
   </div>
@@ -284,7 +291,7 @@ Required on all non-homepage pages. Use `.sv-breadcrumb`:
 
 ```html
 <div class="author-bio-strip">
-  <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="author-bio-photo">
+  <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="author-bio-photo">
   <div class="author-bio-text">
     <span class="author-bio-name sv-author-name">Ler Wee Meng</span>
     <span class="author-bio-credentials">Founder & CEO · Securevision · 37+ Years Experience</span>
@@ -299,7 +306,7 @@ Required on all non-homepage pages. Use `.sv-breadcrumb`:
 ```html
 <div class="founder-card">
   <div class="fc-head">
-    <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
+    <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
     <div>
       <strong>Ler Wee Meng</strong>
       <span>Founder & CEO · 37+ Years</span>
@@ -324,7 +331,7 @@ Place OUTSIDE the `.container` / `.layout-with-sidebar` wrapper so it stretches 
     <h2 style="color:#fff; margin-bottom:20px;">[CTA Heading]</h2>
     <p class="subtitle">[One supporting sentence]</p>
     <div class="btn-group">
-      <a href="request-site-assessment-singapore.html" class="btn btn-primary">Book Free Assessment</a>
+      <a href="/request-site-assessment-singapore.html" class="btn btn-primary">Book Free Assessment</a>
       <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 WhatsApp Us</a>
     </div>
   </div>
@@ -413,14 +420,16 @@ window.addEventListener('scroll', () => {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>[Page Title] | Securevision Singapore</title>
 <meta name="description" content="[140–160 chars, unique per page]">
-<link rel="canonical" href="https://www.securevision.com.sg/[slug].html">
+<link rel="canonical" href="https://www.securevision.com.sg/[new-path]">
 <meta property="og:title" content="[Same as title]">
 <meta property="og:description" content="[Same as meta description]">
 <meta property="og:image" content="https://www.securevision.com.sg/images/og-default.jpg">
-<meta property="og:url" content="https://www.securevision.com.sg/[slug].html">
+<meta property="og:url" content="https://www.securevision.com.sg/[new-path]">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Securevision">
 ```
+
+Canonical and og:url must reflect the **new folder-based URL** (e.g. `/solutions/residential.html`, `/insights/maintenance-contract.html`), not the old flat-file names.
 
 One H1 per page only. H1 → H2 → H3 hierarchy must be logical.
 
@@ -479,6 +488,46 @@ YouTube:          http://www.youtube.com/@securevision
 
 ---
 
+## 21. URL REFERENCE MAP (old filename → new canonical path)
+
+| Old filename | New canonical URL |
+|---|---|
+| index.html | / |
+| security-solutions-singapore.html | /solutions/ |
+| residential-security-singapore.html | /solutions/residential.html |
+| condominiums.html | /solutions/condominiums.html |
+| commercial-security-singapore.html | /solutions/commercial.html |
+| industrial-security-singapore.html | /solutions/industrial.html |
+| government-institution-security-singapore.html | /solutions/institutions.html |
+| healthcare-security-singapore.html | /solutions/healthcare.html |
+| home-security-upgrade-singapore.html | /solutions/residential/home-upgrade.html |
+| new-build-security-singapore.html | /solutions/residential/new-build.html |
+| security-partner-architects-singapore.html | /solutions/residential/architects.html |
+| condominiums-mcst.html | /solutions/condominiums/mcst.html |
+| condominiums-security.html | /solutions/condominiums/security-contractors.html |
+| commercial-office.html | /solutions/commercial/office.html |
+| commercial-retail.html | /solutions/commercial/retail.html |
+| commercial-hotel.html | /solutions/commercial/hotel.html |
+| security-systems-singapore.html | /systems/ |
+| surveillance-detection.html | /systems/surveillance.html |
+| people-access-control.html | /systems/access-control.html |
+| vehicle-access-control.html | /systems/vehicle-access.html |
+| integrated-security-platform.html | /systems/platform.html |
+| security-brands-singapore.html | /brands/ |
+| [brand]-singapore.html | /brands/[brand].html |
+| cctv.html | /resources/guides/cctv-guide.html |
+| burglar-alarm.html | /resources/guides/burglar-alarm-guide.html |
+| door-access.html | /resources/guides/door-access-guide.html |
+| auto-gate-singapore.html | /resources/guides/auto-gate-guide.html |
+| intercom-system-singapore.html | /resources/guides/intercom-guide.html |
+| office-telephone-systems-singapore.html | /resources/guides/office-telephone-guide.html |
+| resources.html | /resources/ |
+| portfolio.html | /portfolio/ |
+| security-articles-singapore.html | /insights/ |
+| insights-[slug].html | /insights/[slug].html |
+
+---
+
 ## HOW TO USE THIS SYSTEM
 
 ### To build a NEW page:
@@ -490,10 +539,10 @@ YouTube:          http://www.youtube.com/@securevision
 
 --- PAGE BRIEF ---
 Template:  _templates/_template-technical-guide.html
-File:      intercom-system-singapore.html
-Page name: AV Intercom Systems Guide
+File:      /resources/guides/intercom-guide.html
+Page name: Intercom Systems Guide
 Accent:    #319795 (teal — people access)
-Hero:      hero-intercom (image to be added to sv-shared.css)
+Hero:      hero-intercom
 CTA:       cta-access
 
 [Content brief here]
@@ -507,12 +556,13 @@ CTA:       cta-access
 4. Anti-Gravity updates only the specified section
 
 --- UPDATE BRIEF ---
-File:    cctv.html
+File:    /resources/guides/cctv-guide.html
 Change:  Section 4 — update the resolution comparison table (new data below)
 DO NOT TOUCH: nav, footer, hero, author bio strip, sidebar, CTA section, any other section
 ```
 
 ---
 
-*Securevision Global Design Instruction v2.0 — April 2026*  
+*Securevision Global Design Instruction v2.1 — April 2026*  
+*Changes from v2.0: All paths updated to absolute. Canonical nav URLs updated to new folder structure. URL reference map added as Section 21. Breadcrumb hrefs updated. Hero and CTA button hrefs updated.*  
 *Do not modify without updating version number and date*
