@@ -2371,3 +2371,73 @@ section { padding: 100px 0; }
 @media (max-width: 992px) { .grid-5 { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 768px) { .grid-5 { grid-template-columns: 1fr 1fr; } .icon-row { gap: 40px; } .icon-item { min-width: 45%; } }
 @media (max-width: 480px) { .grid-5 { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   24. SOLUTION DETAIL COMPONENTS
+   ========================================================================== */
+
+/* Pillar Cards (System Architecture) */
+.pillar-card { background: #fff; border: 1px solid var(--border-light); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; height: 100%; transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+.pillar-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12); border-color: var(--primary-blue); }
+.pillar-image-wrap { height: 180px; overflow: hidden; }
+.pillar-image-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.pillar-card:hover .pillar-image-wrap img { transform: scale(1.05); }
+.pillar-content { padding: 32px; flex-grow: 1; display: flex; flex-direction: column; }
+.pillar-header { margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.pillar-header h3 { font-size: 18px !important; color: var(--text-dark) !important; margin: 0 !important; line-height: 1.3 !important; font-weight: 700 !important; }
+.pillar-badge { font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px; letter-spacing: 0.5px; flex-shrink: 0; margin-top: 4px; text-transform: uppercase; }
+.badge-essential { background: rgba(0, 86, 179, 0.1); color: var(--primary-blue); }
+.badge-optional { background: rgba(100, 116, 139, 0.1); color: #64748b; }
+.pillar-content p { font-size: 14px; color: var(--text-gray); line-height: 1.6; margin-bottom: 24px; }
+.pillar-components { margin-bottom: 32px; }
+.pillar-components strong { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-light); margin-bottom: 12px; }
+.pillar-components ul { list-style: none; padding: 0; margin: 0; }
+.pillar-components li { font-size: 13px; color: var(--text-gray); margin-bottom: 8px; position: relative; padding-left: 18px; }
+.pillar-components li::before { content: '•'; position: absolute; left: 0; color: var(--primary-blue); font-weight: bold; }
+.pillar-link { font-size: 14px; font-weight: 600; color: var(--primary-blue); text-decoration: none; margin-top: auto; display: inline-block; transition: 0.2s; }
+.pillar-link:hover { color: var(--dark-blue); text-decoration: underline; }
+.pillar-closing-note { text-align: center; max-width: 800px; margin: 48px auto 0; font-size: 15px; color: var(--text-gray); line-height: 1.8; padding: 28px; background: var(--bg-light); border-radius: 12px; border: 1px solid var(--border-light); }
+
+/* Pricing & Investment Guides */
+.pricing-card { background: #fff; border: 1px solid var(--border-light); border-radius: 12px; padding: 40px 32px; display: flex; flex-direction: column; height: 100%; transition: 0.3s; }
+.pricing-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12); border-color: var(--primary-blue); }
+.size-badge { display: inline-block; background: var(--bg-light); color: var(--text-light); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 4px; margin-bottom: 16px; text-transform: uppercase; }
+.pricing-card h3 { font-size: 20px !important; margin-bottom: 8px !important; color: var(--text-dark) !important; line-height: 1.3 !important; font-weight: 700 !important; }
+.prop-types { font-size: 13px; color: var(--text-light); margin-bottom: 24px; }
+.price-wrap { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--border-light); }
+.price-range { font-size: 24px !important; font-weight: 700 !important; color: var(--primary-blue) !important; font-family: 'Montserrat', sans-serif !important; display: block; }
+.pricing-body { flex-grow: 1; margin-bottom: 32px; }
+.pricing-body ul { list-style: none; padding: 0; margin: 0; }
+.pricing-body li { font-size: 14px; color: var(--text-gray); margin-bottom: 12px; position: relative; padding-left: 20px; line-height: 1.5; }
+.pricing-body li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold; }
+.pricing-footer p { font-size: 12px; color: var(--text-light); font-style: italic; margin: 0; }
+
+.pricing-callout { background: #fff; border: 1px solid var(--border-light); border-radius: 12px; padding: 48px; text-align: center; max-width: 850px; margin: 80px auto 40px; }
+.pricing-callout h3 { font-size: 24px !important; margin-bottom: 16px !important; color: var(--text-dark) !important; font-weight: 700 !important; }
+.pricing-callout p { font-size: 16px; color: var(--text-gray); line-height: 1.7; margin-bottom: 20px; }
+.pricing-callout ol { display: inline-block; text-align: left; margin: 24px auto; color: var(--text-gray); font-size: 15px; line-height: 1.8; padding-left: 40px; }
+
+/* Compliance & Assurance Cards */
+.compliance-card { background: #fff; border: 1px solid var(--border-light); border-radius: 12px; padding: 32px; display: flex; flex-direction: column; height: 100%; transition: 0.3s; }
+.compliance-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0, 86, 179, 0.08); border-color: var(--primary-blue); }
+.compliance-icon { width: 48px; height: 48px; background: var(--bg-light); color: var(--primary-blue); display: flex; align-items: center; justify-content: center; border-radius: 10px; margin-bottom: 24px; }
+.compliance-card h3 { font-size: 18px !important; margin-bottom: 12px !important; color: var(--text-dark) !important; line-height: 1.4 !important; font-weight: 700 !important; }
+.compliance-card p { font-size: 14px; color: var(--text-gray); line-height: 1.6; margin-bottom: 20px; }
+.compliance-list { flex-grow: 1; margin-bottom: 24px; }
+.compliance-list strong { display: block; font-size: 12px; text-transform: uppercase; color: var(--text-light); margin-bottom: 12px; letter-spacing: 0.5px; }
+.compliance-list ul { list-style: none; padding: 0; margin: 0; }
+.compliance-list li { font-size: 13px; color: var(--text-gray); margin-bottom: 8px; position: relative; padding-left: 18px; }
+.compliance-list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-green); font-weight: bold; }
+.compliance-footer p { font-size: 12px; color: var(--text-light); font-style: italic; margin: 0; border-top: 1px solid var(--border-light); padding-top: 16px; }
+
+.compliance-callout { text-align: center; max-width: 800px; margin: 64px auto 0; background: var(--primary-blue); color: #fff; padding: 40px; border-radius: 16px; }
+.compliance-callout h3 { font-size: 22px !important; margin-bottom: 12px !important; color: #fff !important; font-weight: 700 !important; }
+.compliance-callout p { font-size: 16px; color: rgba(255,255,255,0.9); margin: 0; line-height: 1.6; }
+
+/* Insight Cards (Sector Specific) */
+.insight-card { background: #fff; border: 1px solid var(--border-light); border-radius: 12px; padding: 32px; display: flex; flex-direction: column; transition: 0.3s; text-decoration: none; color: inherit; height: 100%; }
+.insight-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0, 86, 179, 0.08); border-color: var(--primary-blue); text-decoration: none; color: inherit; }
+.insight-card .category-pill { display: inline-block; font-size: 11px; font-weight: 700; color: var(--primary-blue); background: rgba(0, 86, 179, 0.08); padding: 4px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 16px; align-self: flex-start; }
+.insight-card h3 { font-size: 18px !important; color: var(--text-dark) !important; margin-bottom: 12px !important; line-height: 1.4 !important; font-weight: 700 !important; }
+.insight-card p { font-size: 14px; color: var(--text-gray); line-height: 1.6; margin-bottom: 24px; }
+.insight-card .read-more { margin-top: auto; font-size: 14px; font-weight: 600; color: var(--primary-blue); display: flex; align-items: center; gap: 8px; }
