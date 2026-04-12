@@ -63,7 +63,7 @@
         border-radius: 12px; 
         transition: var(--transition); 
         height: 100%;
-        text-align: left;
+        text-align: center;
     }
     .step-card:hover { border-color: #257000; transform: translateY(-4px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
     .step-badge { 
@@ -76,11 +76,20 @@
         align-items: center; 
         justify-content: center; 
         font-weight: 700; 
-        margin: 0 0 20px; 
+        margin: 0 auto 20px; 
         font-size: 13px; 
     }
-    .step-content h4 { font-size: 18px; margin-bottom: 12px; color: var(--text-dark); }
-    .step-content p { font-size: 14px; line-height: 1.6; color: var(--text-gray); }
+    .step-content h4 { 
+        font-size: 18px; 
+        margin-bottom: 12px; 
+        color: var(--text-dark); 
+        text-align: center; 
+        min-height: 50px; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+    }
+    .step-content p { font-size: 14px; line-height: 1.6; color: var(--text-gray); text-align: center; }
 
     .final-cta-upgrade {
         background: linear-gradient(rgba(14, 26, 43, 0.9), rgba(14, 26, 43, 0.9)), url('/images/cta-home-security-upgrade.webp');
@@ -94,6 +103,7 @@
     @media (max-width: 992px) {
         .framework-grid, .pain-grid, .service-upgrade-grid { grid-template-columns: repeat(2, 1fr); }
         .process-steps { grid-template-columns: repeat(2, 1fr); }
+        .assessment-split { grid-template-columns: 1fr !important; gap: 40px !important; }
     }
     @media (max-width: 768px) {
         .framework-grid, .pain-grid, .service-upgrade-grid, .process-steps { grid-template-columns: 1fr; }
@@ -246,8 +256,8 @@
 <!-- ═══ TRUST BAR ═══ -->
 <div class="sv-trust-bar" style="background:#fff; border-bottom:1px solid var(--border-light); padding:12px 0;">
   <div class="container">
-    <div style="display:flex; flex-wrap:nowrap; gap:20px; align-items:center; justify-content: flex-start; font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.8px;">
-      <span style="white-space:nowrap;">🛡️ <span class="sv-licence"></span></span>
+    <div style="display:flex; flex-wrap:nowrap; gap:20px; align-items:center; justify-content: center; font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.8px;">
+      <span style="white-space:nowrap;">Police Licensed</span>
       <span style="color:var(--border-light); flex-shrink:0;">|</span>
       <span style="white-space:nowrap;" class="sv-bizsafe"></span>
       <span style="color:var(--border-light); flex-shrink:0;">|</span>
@@ -273,7 +283,7 @@
 <!-- VERBATIM CONTENT START -->
 
     <!-- SECTION 2: FRAMEWORK -->
-    <section class="framework-choice">
+    <section class="framework-choice" style="background: var(--bg-light);">
         <div class="container">
             <div class="section-header text-left">
                 <h2>Fix, Upgrade, or Start Again?<br>Here Is How to Think About It.</h2>
@@ -281,17 +291,17 @@
             </div>
             <div class="framework-grid">
                 <div class="framework-card">
-                    <h3>Fix</h3>
+                    <h3 style="text-align: center;">Fix</h3>
                     <p><strong>When fixing makes sense</strong></p>
                     <p style="font-size: 15px; color: var(--text-gray); line-height: 1.6;">A single component has failed on a system that is otherwise sound — a faulty camera, a worn gate motor, a dead backup battery, a misaligned detector. The underlying system is from a reputable brand, is still supported, and has useful life remaining. Fix the component. Do not replace the system.</p>
                 </div>
                 <div class="framework-card">
-                    <h3>Upgrade</h3>
+                    <h3 style="text-align: center;">Upgrade</h3>
                     <p><strong>When upgrading makes sense</strong></p>
                     <p style="font-size: 15px; color: var(--text-gray); line-height: 1.6;">The system works but it cannot do what you need it to do today — no mobile app, no AI detection, no smartphone gate control, poor night vision. The infrastructure (cabling, panel) is still usable. Add or replace specific components to bring the system forward without replacing everything.</p>
                 </div>
                 <div class="framework-card">
-                    <h3>Start Again</h3>
+                    <h3 style="text-align: center;">Start Again</h3>
                     <p><strong>When starting fresh makes sense</strong></p>
                     <p style="font-size: 15px; color: var(--text-gray); line-height: 1.6;">The system is more than ten years old and multiple components are failing together. The original installer is gone and the brand is no longer supported in Singapore. The cabling is analogue and incompatible with current IP systems. At this point, piecemeal repairs cost more than a fresh installation and still leave you with an ageing foundation.</p>
                 </div>
@@ -301,14 +311,14 @@
     </section>
 
     <!-- SECTION 3: COMMON PROBLEMS -->
-    <section id="problems" class="pain-points">
+    <section id="problems" class="pain-points" style="background: #fff;">
         <div class="container">
             <div class="section-header text-left">
                 <span class="eyebrow">Pain Points</span>
                 <h2>The Problems We Hear Every Week</h2>
                 <p>If any of these sounds familiar, you are not alone.</p>
             </div>
-            <div class="pain-grid">
+            <div class="pain-grid" style="border: 1px solid var(--border-light); padding: 40px; border-radius: 16px; background: var(--bg-light);">
                 <div class="pain-card">
                     <span class="pain-icon">📞</span>
                     <h4>Intercom Not Working</h4>
@@ -350,21 +360,29 @@
     </section>
 
     <!-- SECTION 4: ASSESSMENT -->
-    <section class="assessment-depth">
+    <section class="assessment-depth" style="background: var(--bg-light); padding: 80px 0;">
         <div class="container">
-            <div class="section-header text-left">
-                <h2>What We Check When We Come to Site</h2>
-                <p>We assess the full system — not just the broken part.</p>
-            </div>
-            <div class="assessment-content">
-                <p>A common mistake in security upgrades is fixing the symptom without assessing the cause. A camera that keeps going offline may have a failing PoE switch, a deteriorating cable, or a camera at end of life — the diagnosis determines the fix.</p>
-                <p>We check: every camera channel for live view and playback quality, the alarm panel for zone status and fault history, the backup battery age and condition, the gate motor for wear indicators and limit switch calibration, the intercom door station and all indoor units, and the cabling condition where accessible. We tell you what we find, what we recommend, and what it will cost — before any work starts.</p>
+            <div style="display:grid; grid-template-columns: 1fr 340px; gap: 64px; align-items: center;" class="assessment-split">
+                <div>
+                    <div class="section-header text-left">
+                        <span class="eyebrow" style="color:var(--page-accent);">Site Assessment</span>
+                        <h2>What We Check When We Come to Site</h2>
+                        <p>We assess the full system — not just the broken part.</p>
+                    </div>
+                    <div class="assessment-content">
+                        <p style="font-size: 17px; line-height: 1.8; color: var(--text-gray); margin-bottom: 24px;">A common mistake in security upgrades is fixing the symptom without assessing the cause. A camera that keeps going offline may have a failing PoE switch, a deteriorating cable, or a camera at end of life — the diagnosis determines the fix.</p>
+                        <p style="font-size: 17px; line-height: 1.8; color: var(--text-gray);">We check: every camera channel for live view and playback quality, the alarm panel for zone status and fault history, the backup battery age and condition, the gate motor for wear indicators and limit switch calibration, the intercom door station and all indoor units, and the cabling condition where accessible. We tell you what we find, what we recommend, and what it will cost — before any work starts.</p>
+                    </div>
+                </div>
+                <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.15);">
+                    <img src="/images/solutions/technician-site-arrival.png" alt="Securevision Technician Assessment" style="width: 100%; height: auto; display: block; aspect-ratio: 9/16; object-fit: cover;">
+                </div>
             </div>
         </div>
     </section>
 
     <!-- SECTION 5: SERVICES -->
-    <section class="bg-light">
+    <section style="padding:100px 0; background: #fff;">
         <div class="container">
             <div class="section-header text-left">
                 <span class="eyebrow">Capabilities</span>
@@ -401,7 +419,7 @@
     </section>
 
     <!-- SECTION 6: PROCESS -->
-    <section class="bg-white">
+    <section style="padding:100px 0; background: var(--bg-light);">
         <div class="container">
             <div class="section-header text-left">
                 <h2>How It Works</h2>
@@ -440,34 +458,39 @@
     </section>
 
     <!-- SECTION 7: PROJECTS -->
-    <section class="bg-light">
+    <section style="padding:100px 0; background: #fff; text-align: left;">
         <div class="container">
             <div class="section-header text-left">
+                <span class="eyebrow">Project Showcase</span>
                 <h2>Upgrade Projects We Have Completed</h2>
+                <p>Real-world examples of system fixes and modernization across Singapore.</p>
             </div>
             <div class="proof-grid mt-56" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
-                <div class="proof-card" style="padding: 0; overflow: hidden; background: #fff; border: 1px solid var(--border-color); border-radius: 12px;">
-                    <img src="/images/project-terrace-east.png" alt="East Coast Terrace" style="width: 100%; height: 240px; object-fit: cover;">
+                <div class="card card-clickable" style="padding: 0; overflow: hidden; background: #fff;">
+                    <img src="/images/project-terrace-east.webp" alt="East Coast Terrace" style="width: 100%; height: 240px; object-fit: cover;">
                     <div style="padding: 24px;">
+                        <span style="font-family:'Montserrat',sans-serif; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; background:rgba(37,112,0,0.1); color:var(--page-accent); padding:4px 10px; border-radius:4px; display:inline-block; margin-bottom:12px;">Existing Home Upgrade</span>
                         <h3 style="font-size: 18px; margin-bottom: 8px;">Terrace, East Coast</h3>
-                        <p style="font-size: 11px; font-weight: 700; color: var(--primary-accent); text-transform: uppercase; margin-bottom: 12px;">Existing Home Upgrade</p>
-                        <p style="font-size: 14px; color: var(--medium-gray); line-height: 1.6;">Replaced 10-year-old alarm and CCTV. Added mobile app control. Integrated with existing intercom.</p>
+                        <p style="font-size: 14px; color: var(--text-gray); line-height: 1.6; margin-bottom: 16px;">Replaced 10-year-old alarm and CCTV. Added mobile app control. Integrated with existing intercom.</p>
+                        <a href="/portfolio/" class="stretched-link" style="font-size:12px; font-weight:700; color:var(--text-dark); background:var(--bg-light); padding:4px 12px; border-radius:20px; display:inline-block; text-decoration:none;">✓ System Modernized</a>
                     </div>
                 </div>
-                <div class="proof-card" style="padding: 0; overflow: hidden; background: #fff; border: 1px solid var(--border-color); border-radius: 12px;">
+                <div class="card card-clickable" style="padding: 0; overflow: hidden; background: #fff;">
                     <img src="/images/project-holland-semi-d.webp" alt="Holland Semi-D" style="width: 100%; height: 240px; object-fit: cover;">
                     <div style="padding: 24px;">
+                        <span style="font-family:'Montserrat',sans-serif; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; background:rgba(37,112,0,0.1); color:var(--page-accent); padding:4px 10px; border-radius:4px; display:inline-block; margin-bottom:12px;">System Integration</span>
                         <h3 style="font-size: 18px; margin-bottom: 8px;">Semi-D, Holland</h3>
-                        <p style="font-size: 11px; font-weight: 700; color: var(--primary-accent); text-transform: uppercase; margin-bottom: 12px;">System Integration</p>
-                        <p style="font-size: 14px; color: var(--medium-gray); line-height: 1.6;">Unified 4 different vendors into one system. Single app for alarm, CCTV, gate, intercom.</p>
+                        <p style="font-size: 14px; color: var(--text-gray); line-height: 1.6; margin-bottom: 16px;">Unified 4 different vendors into one system. Single app for alarm, CCTV, gate, intercom.</p>
+                        <a href="/portfolio/" class="stretched-link" style="font-size:12px; font-weight:700; color:var(--text-dark); background:var(--bg-light); padding:4px 12px; border-radius:20px; display:inline-block; text-decoration:none;">✓ Full Integration</a>
                     </div>
                 </div>
-                <div class="proof-card" style="padding: 0; overflow: hidden; background: #fff; border: 1px solid var(--border-color); border-radius: 12px;">
-                    <img src="/images/project-bt-semi-d.png" alt="Bukit Timah Bungalow" style="width: 100%; height: 240px; object-fit: cover;">
+                <div class="card card-clickable" style="padding: 0; overflow: hidden; background: #fff;">
+                    <img src="/images/project-bt-semi-d.webp" alt="Bukit Timah Bungalow" style="width: 100%; height: 240px; object-fit: cover;">
                     <div style="padding: 24px;">
+                        <span style="font-family:'Montserrat',sans-serif; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:1px; background:rgba(37,112,0,0.1); color:var(--page-accent); padding:4px 10px; border-radius:4px; display:inline-block; margin-bottom:12px;">Complete Overhaul</span>
                         <h3 style="font-size: 18px; margin-bottom: 8px;">Bungalow, Bukit Timah</h3>
-                        <p style="font-size: 11px; font-weight: 700; color: var(--primary-accent); text-transform: uppercase; margin-bottom: 12px;">Complete Overhaul</p>
-                        <p style="font-size: 14px; color: var(--medium-gray); line-height: 1.6;">Replaced failing gate motor, upgraded alarm, added 8 new cameras, installed mesh Wi-Fi.</p>
+                        <p style="font-size: 14px; color: var(--text-gray); line-height: 1.6; margin-bottom: 16px;">Replaced failing gate motor, upgraded alarm, added 8 new cameras, installed mesh Wi-Fi.</p>
+                        <a href="/portfolio/" class="stretched-link" style="font-size:12px; font-weight:700; color:var(--text-dark); background:var(--bg-light); padding:4px 12px; border-radius:20px; display:inline-block; text-decoration:none;">✓ Comprehensive Upgrade</a>
                     </div>
                 </div>
             </div>
@@ -475,7 +498,7 @@
     </section>
 
     <!-- SECTION 8: INSIGHTS -->
-    <section class="bg-white">
+    <section style="padding:100px 0; background: var(--bg-light);">
         <div class="container">
             <div class="section-header text-left">
                 <span class="eyebrow">Insights</span>

@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Securevision | Smart Security & Operations Partner Singapore</title>
-    <meta name="description" content="Securevision provides smarter security systems for modern properties in Singapore. We design and integrate systems that reduce manpower and improve visibility across homes, estates, and businesses.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/sv-shared.css">
-    <script src="/site-config.js"></script>
-<script type="application/ld+json">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Securevision | Integrated Security Systems Singapore</title>
+  <meta name="description"
+    content="Securevision provides integrated security systems engineered for Singapore's homes, condominiums, and businesses. Authorised installers of 20 global brands.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./sv-shared.css">
+  <script src="./site-config.js"></script>
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Securevision Pte Ltd",
-  "image": "https://www.securevision.com.sg/images/securevision-logo-blue.webp",
+  "image": "https://www.securevision.com.sg/images/securevision-logo-light.svg",
   "@id": "https://www.securevision.com.sg",
   "url": "https://www.securevision.com.sg",
   "telephone": "+65 6286 4796",
@@ -51,668 +55,728 @@
     "http://www.youtube.com/@securevision"
   ]
 }
+</script>
   <style>
-    .hero .container { text-align: center; display: flex; flex-direction: column; align-items: center; }
-    .hero-title-main, .hero-subtitle-main { margin-left: auto !important; margin-right: auto !important; text-align: center !important; }
+    /* Page-specific overrides to centralise content on the homepage only */
+    .hero .container,
+    .trust-bar .container,
+    section .container {
+      text-align: center !important;
+    }
+
+    .hero-title-main,
+    .hero-subtitle-main {
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    section .container h2,
+    section .container h3,
+    section .container p,
+    section .container .eyebrow,
+    section .container .subtitle {
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    .process-step-v {
+      text-align: center !important;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .process-step-v .p-text {
+      text-align: center !important;
+    }
+
+    /* Ensure grids themselves stay centred if they have max-widths */
+    .grid-2,
+    .grid-2-valign,
+    .grid-3,
+    .grid-4,
+    .factors-grid,
+    .proof-grid,
+    .subsystem-grid {
+      text-align: left !important;
+      /* Keep card content internal alignment, but center the titles above them */
+    }
+
+    .section-header-center {
+      text-align: center !important;
+      margin-bottom: 48px;
+    }
+
+    .img-fit-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      display: block;
+    }
+
+    .img-fit-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .gap-64 {
+      gap: 64px !important;
+    }
+
+    /* Re-centering buttons in the hero and sections */
+    .btn-group {
+      justify-content: center !important;
+    }
   </style>
+
 </head>
+
 <body>
-<!-- ═══════════════════════════════════════════════════════════════════
+  <!-- ═══════════════════════════════════════════════════════════════════
      NAV — FROZEN. DO NOT MODIFY ANY PART OF THIS BLOCK.
+     ALL PATHS ARE ABSOLUTE — works at any folder depth.
      ═══════════════════════════════════════════════════════════════════ -->
-<nav class="main-nav">
-<div class="nav-container">
-  <a href="/" class="nav-logo-link" aria-label="Securevision Home">
-    <img src="/images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
-    <span class="wordmark nav-wordmark">SECUREVISION</span>
-  </a>
-  <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="3" y1="12" x2="21" y2="12"></line>
-      <line x1="3" y1="6" x2="21" y2="6"></line>
-      <line x1="3" y1="18" x2="21" y2="18"></line>
-    </svg>
-  </button>
-  <ul class="nav-menu">
-    <li class="nav-item"><a href="/solutions/" class="nav-link has-dropdown">Solutions</a>
-      <div class="simple-dropdown">
-        <a href="/solutions/residential.html">Private Homes</a>
-        <a href="/solutions/condominiums.html">Condominiums</a>
-        <a href="/solutions/commercial.html">Commercial &amp; Retail</a>
-        <a href="/solutions/industrial.html">Industrial &amp; Logistics</a>
-        <a href="/solutions/institutions.html">Institutions &amp; Government</a>
-        <a href="/solutions/healthcare.html">Healthcare &amp; Managed Living</a>
-        <a href="/solutions/"><strong>→ View All Solutions</strong></a>
+  <nav class="main-nav">
+    <div class="nav-container">
+      <a href="/" class="nav-logo-link" aria-label="Securevision Home">
+        <img src="/images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
+        <span class="wordmark nav-wordmark">SECUREVISION</span>
+      </a>
+      <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="/solutions/" class="nav-link has-dropdown">Solutions</a>
+          <div class="simple-dropdown">
+            <a href="/solutions/residential.html">Private Homes</a>
+            <a href="/solutions/condominiums.html">Condominiums</a>
+            <a href="/solutions/commercial.html">Commercial &amp; Retail</a>
+            <a href="/solutions/industrial.html">Industrial &amp; Logistics</a>
+            <a href="/solutions/institutions.html">Institutions &amp; Government</a>
+            <a href="/solutions/healthcare.html">Healthcare &amp; Managed Living</a>
+            <a href="/solutions/"><strong>→ View All Solutions</strong></a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="/systems/" class="nav-link has-dropdown">Systems</a>
+          <div class="simple-dropdown">
+            <a href="/systems/surveillance.html">Surveillance &amp; Detection</a>
+            <a href="/systems/access-control.html">People Access Control</a>
+            <a href="/systems/vehicle-access.html">Vehicle Access &amp; Barriers</a>
+            <a href="/systems/platform.html">Platform Management</a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="/brands/" class="nav-link has-dropdown">Brands</a>
+          <div class="simple-dropdown wide-dropdown">
+            <a href="/brands/#surveillance"><strong>Surveillance</strong> — Hikvision · Hanwha · Uniview · Milesight</a>
+            <a href="/brands/#access"><strong>Access Control</strong> — Suprema · ZKTeco · HID · EntryPass</a>
+            <a href="/brands/#intercom"><strong>Intercoms</strong> — Akuvox · Aiphone · Kocom</a>
+            <a href="/brands/#alarms"><strong>Alarms</strong> — AJAX · RISCO · Paradox · DSC</a>
+            <a href="/brands/#gates"><strong>Gates &amp; Barriers</strong> — FAAC · MAG · Dormer</a>
+            <hr>
+            <a href="/brands/"><strong>→ View All Technology Partners</strong></a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="/portfolio/" class="nav-link">Portfolio</a></li>
+        <li class="nav-item"><a href="/resources/" class="nav-link has-dropdown">Resources</a>
+          <div class="simple-dropdown">
+            <a href="/resources/guides/">Technical Guides</a>
+            <a href="/resources/#tools">Planning Tools</a>
+            <a href="/resources/#library">Product Library</a>
+            <a href="/resources/#videos">Training Videos</a>
+            <a href="/resources/#faq">FAQ</a>
+            <a href="/resources/#trade">For Trade &amp; Professionals</a>
+            <a href="/resources/"><strong>→ All Resources</strong></a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="/insights/" class="nav-link">Insights</a></li>
+        <li class="nav-item"><a href="/about.html" class="nav-link has-dropdown">About</a>
+          <div class="simple-dropdown">
+            <a href="/about.html">Our Story</a>
+            <a href="/contact.html">Contact Us</a>
+          </div>
+        </li>
+      </ul>
+      <div class="nav-right">
+        <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
       </div>
-    </li>
-    <li class="nav-item"><a href="/systems/" class="nav-link has-dropdown">Systems</a>
-      <div class="simple-dropdown">
-        <a href="/systems/surveillance.html">Surveillance &amp; Detection</a>
-        <a href="/systems/access-control.html">People Access Control</a>
-        <a href="/systems/vehicle-access.html">Vehicle Access &amp; Barriers</a>
-        <a href="/systems/platform.html">Platform Management</a>
+      <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </svg>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions ▾
+        <div class="mobile-submenu" id="solSub">
+          <a href="/solutions/"><strong>→ View All Solutions</strong></a>
+          <a href="/solutions/residential.html">Private Homes</a>
+          <a href="/solutions/condominiums.html">Condominiums</a>
+          <a href="/solutions/commercial.html">Commercial &amp; Retail</a>
+          <a href="/solutions/industrial.html">Industrial &amp; Logistics</a>
+          <a href="/solutions/institutions.html">Institutions &amp; Government</a>
+          <a href="/solutions/healthcare.html">Healthcare &amp; Managed Living</a>
+        </div>
       </div>
-    </li>
-    <li class="nav-item"><a href="/brands/" class="nav-link has-dropdown">Brands</a>
-      <div class="simple-dropdown wide-dropdown">
-        <a href="/brands/#surveillance"><strong>Surveillance</strong> — Hikvision · Hanwha · Uniview · Milesight</a>
-        <a href="/brands/#access"><strong>Access Control</strong> — Suprema · ZKTeco · HID · EntryPass · MicroEngine</a>
-        <a href="/brands/#intercom"><strong>Intercoms</strong> — Akuvox · Aiphone · Kocom</a>
-        <a href="/brands/#alarms"><strong>Alarms</strong> — AJAX · RISCO · Paradox · DSC · GE Caddx</a>
-        <a href="/brands/#gates"><strong>Gates &amp; Barriers</strong> — FAAC · MAG · Dormer</a>
-        <hr>
-        <a href="/brands/"><strong>→ View All Technology Partners</strong></a>
+      <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems ▾
+        <div class="mobile-submenu" id="sysSub">
+          <a href="/systems/surveillance.html">Surveillance &amp; Detection</a>
+          <a href="/systems/access-control.html">People Access Control</a>
+          <a href="/systems/vehicle-access.html">Vehicle Access &amp; Barriers</a>
+          <a href="/systems/platform.html">Platform Management</a>
+        </div>
       </div>
-    </li>
-    <li class="nav-item"><a href="/portfolio/" class="nav-link">Portfolio</a></li>
-    <li class="nav-item"><a href="/resources/" class="nav-link has-dropdown">Resources</a>
-      <div class="simple-dropdown">
-        <a href="/resources/guides/">Technical Guides</a>
-        <a href="/resources/#tools">Planning Tools</a>
-        <a href="/resources/#library">Product Library</a>
-        <a href="/resources/#videos">Training Videos</a>
-        <a href="/resources/#faq">FAQ</a>
-        <a href="/resources/#trade">For Trade &amp; Professionals</a>
-        <a href="/resources/"><strong>→ All Resources</strong></a>
+      <div class="mobile-menu-item" onclick="toggleSubmenu('brandSub')">Brands ▾
+        <div class="mobile-submenu" id="brandSub">
+          <a href="/brands/"><strong>→ View All Partners</strong></a>
+          <a href="/brands/#surveillance">Surveillance — Hik · Han · Uni · Mil</a>
+          <a href="/brands/#access">Access — Sup · ZK · HID · EP</a>
+          <a href="/brands/#intercom">Intercoms — Aku · Aip · Koc</a>
+          <a href="/brands/#alarms">Alarms — AJAX · RIS · Par · DSC</a>
+          <a href="/brands/#gates">Gates — FAAC · MAG · Dor</a>
+        </div>
       </div>
-    </li>
-    <li class="nav-item"><a href="/insights/" class="nav-link">Insights</a></li>
-    <li class="nav-item"><a href="/about.html" class="nav-link has-dropdown">About</a>
-      <div class="simple-dropdown">
-        <a href="/about.html">Our Story</a>
-        <a href="/contact.html">Contact Us</a>
+      <a href="/portfolio/" class="mobile-menu-item">Portfolio</a>
+      <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources ▾
+        <div class="mobile-submenu" id="resSub">
+          <a href="/resources/"><strong>→ All Resources</strong></a>
+          <a href="/resources/guides/">Technical Guides</a>
+          <a href="/resources/#tools">Planning Tools</a>
+          <a href="/resources/#library">Product Library</a>
+          <a href="/resources/#videos">Training Videos</a>
+          <a href="/resources/#faq">FAQ</a>
+          <a href="/resources/#trade">For Trade &amp; Professionals</a>
+        </div>
       </div>
-    </li>
-  </ul>
-  <div class="nav-right">
-    <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-      </svg>
-    </button>
-  </div>
-  <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-    </svg>
-  </button>
-</div>
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions ▾
-    <div class="mobile-submenu" id="solSub">
-      <a href="/solutions/"><strong>→ View All Solutions</strong></a>
-      <a href="/solutions/residential.html">Private Homes</a>
-      <a href="/solutions/condominiums.html">Condominiums</a>
-      <a href="/solutions/commercial.html">Commercial &amp; Retail</a>
-      <a href="/solutions/industrial.html">Industrial &amp; Logistics</a>
-      <a href="/solutions/institutions.html">Institutions &amp; Government</a>
-      <a href="/solutions/healthcare.html">Healthcare &amp; Managed Living</a>
+      <a href="/insights/" class="mobile-menu-item">Insights</a>
+      <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About ▾
+        <div class="mobile-submenu" id="abtSub">
+          <a href="/about.html"><strong>→ Our Story</strong></a>
+          <a href="/contact.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- ═══ END NAV ═══ -->
+
+  <header class="hero hero-high-impact">
+    <!-- Background video -->
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+      <source src="/images/drone-montage-vesta.mp4" type="video/mp4">
+    </video>
+    <!-- Dark overlay to keep text readable -->
+    <div class="hero-overlay"></div>
+
+    <div class="container z-2 pos-relative text-center">
+      <span class="eyebrow-light">Singapore's Smart Security &amp; Operations Partner</span>
+      <h1 class="hero-title-main">Smarter Security for Modern Properties</h1>
+      <p class="hero-subtitle-main">Reduce manpower. Gain real-time visibility. Control your property with systems that
+        work together — not in silos.</p>
+
+      <div class="btn-group equal-width">
+        <a href="/request-site-assessment-singapore.html?intent=homepage-hero" class="btn btn-primary">Book a Site
+          Assessment</a>
+        <a href="https://wa.me/6593860466" class="btn btn-whatsapp-standard">WhatsApp an Engineer</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. TRUST BAR -->
+  <div class="sv-trust-bar" style="background:#fff; border-bottom:1px solid var(--border-light); padding:12px 0;">
+    <div class="container">
+      <div style="display:flex; flex-wrap:nowrap; gap:20px; align-items:center; justify-content:center; font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.8px;">
+        <span style="white-space:nowrap;">🛡️ Police Licensed <span class="sv-licence"></span></span>
+        <span style="color:var(--border-light); flex-shrink:0;">|</span>
+        <span style="white-space:nowrap;" class="sv-bizsafe"></span>
+        <span style="color:var(--border-light); flex-shrink:0;">|</span>
+        <span style="white-space:nowrap;">BCA Registered Contractor</span>
+        <span style="color:var(--border-light); flex-shrink:0;">|</span>
+        <span style="white-space:nowrap;"><span class="sv-sites"></span> Sites</span>
+      </div>
     </div>
   </div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems ▾
-    <div class="mobile-submenu" id="sysSub">
-      <a href="/systems/surveillance.html">Surveillance &amp; Detection</a>
-      <a href="/systems/access-control.html">People Access Control</a>
-      <a href="/systems/vehicle-access.html">Vehicle Access &amp; Barriers</a>
-      <a href="/systems/platform.html">Platform Management</a>
+
+  <!-- 3. PROBLEM SECTION -->
+  <section class="sv-section-grey">
+    <div class="container text-center">
+      <!-- Part 1: Centralised Titles -->
+      <div class="section-header-center mb-48">
+        <span class="eyebrow">The Problem</span>
+        <h2>Security Systems Tell You Something Happened<br>But Not What to Do Next</h2>
+      </div>
+
+      <!-- Part 2: Centered Narrative Text -->
+      <div class="max-800 center text-center mt-48">
+        <p>Most properties operate with disconnected systems — CCTV, intercom, access control — each working on its own.
+        </p>
+        <p>When something happens, there’s no clear picture. No coordination. No real control. That’s where problems
+          begin.</p>
+      </div>
     </div>
-  </div>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('brandSub')">Brands ▾
-    <div class="mobile-submenu" id="brandSub">
-      <a href="/brands/"><strong>→ View All Partners</strong></a>
-      <a href="/brands/#surveillance">Surveillance — Hik · Han · Uni · Mil</a>
-      <a href="/brands/#access">Access — Sup · ZK · HID · EP · ME</a>
-      <a href="/brands/#intercom">Intercoms — Aku · Aip · Koc</a>
-      <a href="/brands/#alarms">Alarms — AJAX · RIS · Par · DSC · GE</a>
-      <a href="/brands/#gates">Gates — FAAC · MAG · Dor</a>
+  </section>
+  <!-- 4. SOLUTIONS BY PROPERTY TYPE (MAIN ROUTER) -->
+  <section class="sv-section-white">
+    <div class="container text-center">
+      <span class="eyebrow">Find Your Path</span>
+      <h2>Choose the Right Security Solution for Your Property</h2>
+      <p class="max-600 center mb-48">Every property has different risks, workflows, and upgrade priorities. Start with
+        your property type, and we’ll guide you to the right solution.</p>
+
+      <div class="grid-3">
+        <!-- 1. Private Homes -->
+        <a href="./solutions/residential.html" class="rel-card card-clickable">
+          <div class="proof-image-wrap">
+            <img src="./images/solution-residential.webp" alt="Landed Home Security Singapore">
+          </div>
+          <div class="proof-content">
+            <h3>Private Homes</h3>
+            <p>Smart protection for landed homes, with visibility even in low light and remote access from your phone.
+            </p>
+            <span class="stretched-link"></span>
+          </div>
+        </a>
+
+        <!-- 2. Condominiums -->
+        <a href="./solutions/condominiums.html" class="rel-card card-clickable">
+          <div class="proof-image-wrap">
+            <img src="./images/solution-condo.webp" alt="Condominium Integrated Security">
+          </div>
+          <div class="proof-content">
+            <h3>Condominiums</h3>
+            <p>Integrated systems for intercom, visitor management, and vehicle access — designed to reduce reliance on
+              guards.</p>
+            <span class="stretched-link"></span>
+          </div>
+        </a>
+
+        <!-- 3. Commercial Buildings -->
+        <a href="./solutions/commercial.html" class="rel-card card-clickable">
+          <div class="proof-image-wrap">
+            <img src="./images/solution-commercial.webp" alt="Commercial Office Security">
+          </div>
+          <div class="proof-content">
+            <h3>Commercial Buildings</h3>
+            <p>Secure offices, retail spaces, and shared environments with scalable, centralised control.</p>
+            <span class="stretched-link"></span>
+          </div>
+        </a>
+
+        <!-- 4. Industrial Sites -->
+        <a href="./solutions/industrial.html" class="rel-card card-clickable">
+          <div class="proof-image-wrap">
+            <img src="./images/solution-industrial.webp" alt="Industrial Facility Security">
+          </div>
+          <div class="proof-content">
+            <h3>Industrial Sites</h3>
+            <p>Robust systems for factories, warehouses, and logistics — built for reliability and operational
+              oversight.</p>
+            <span class="stretched-link"></span>
+          </div>
+        </a>
+
+        <!-- 5. Institutions -->
+        <a href="./solutions/institutions.html" class="rel-card card-clickable">
+          <div class="proof-image-wrap">
+            <img src="./images/solution-institutions.webp" alt="School and Institutional Security">
+          </div>
+          <div class="proof-content">
+            <h3>Institutions</h3>
+            <p>Security for schools, healthcare, and places of worship — balancing safety, access, and compliance.</p>
+            <span class="stretched-link"></span>
+          </div>
+        </a>
+
+        <!-- 6. Healthcare -->
+        <a href="./solutions/healthcare.html" class="rel-card card-clickable">
+          <div class="proof-image-wrap">
+            <img src="./images/solution-healthcare.webp" alt="Healthcare and Managed Living Security">
+          </div>
+          <div class="proof-content">
+            <h3>Healthcare</h3>
+            <p>Specialised systems for nursing homes and managed living environments focusing on safety and resident
+              dignity.</p>
+            <span class="stretched-link"></span>
+          </div>
+        </a>
+      </div>
     </div>
-  </div>
-  <a href="/portfolio/" class="mobile-menu-item">Portfolio</a>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources ▾
-    <div class="mobile-submenu" id="resSub">
-      <a href="/resources/"><strong>→ All Resources</strong></a>
-      <a href="/resources/guides/">Technical Guides</a>
-      <a href="/resources/#tools">Planning Tools</a>
-      <a href="/resources/#library">Product Library</a>
-      <a href="/resources/#videos">Training Videos</a>
-      <a href="/resources/#faq">FAQ</a>
-      <a href="/resources/#trade">For Trade &amp; Professionals</a>
+  </section>
+  <!-- 5. WHY SECUREVISION -->
+  <section class="sv-section-grey">
+    <div class="container text-center">
+      <span class="eyebrow">Why Securevision</span>
+      <h2>More Than Systems. A Smarter Way to Secure Your Property.</h2>
+
+      <div class="factors-grid mt-48">
+        <div class="factor-card">
+          <div class="factor-num">🔗</div>
+          <h3>Systems That Work Together</h3>
+          <p>We integrate surveillance, access, and intercom into one coordinated system — not isolated components.</p>
+        </div>
+        <div class="factor-card">
+          <div class="factor-num">⚙️</div>
+          <h3>Designed for Real Operations</h3>
+          <p>Built around how properties actually run, from guard workflows to resident access.</p>
+        </div>
+        <div class="factor-card">
+          <div class="factor-num">📐</div>
+          <h3>Tailored to Your Site</h3>
+          <p>Every solution is engineered based on your layout, risks, and priorities.</p>
+        </div>
+      </div>
     </div>
-  </div>
-  <a href="/insights/" class="mobile-menu-item">Insights</a>
-  <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About ▾
-    <div class="mobile-submenu" id="abtSub">
-      <a href="/about.html"><strong>→ Our Story</strong></a>
-      <a href="/contact.html">Contact Us</a>
+  </section>
+
+  <!-- 6. REAL RESULTS (CASE STUDIES) -->
+  <section class="sv-section-white">
+    <div class="container text-center">
+      <span class="eyebrow">Proven Results</span>
+      <h2>Real Projects. Measurable Impact.</h2>
+
+      <div class="proof-grid mt-48">
+        <!-- SCAPE -->
+        <a href="./portfolio/scape.html" class="proof-card card-clickable">
+          <div class="proof-image-wrap">
+            <img src="./images/portfolio/portfolio-scape.webp" alt="SCAPE Orchard Road Security">
+          </div>
+          <div class="proof-content">
+            <span class="proof-tag">Retail / Youth Space</span>
+            <h3>SCAPE (Orchard Road)</h3>
+            <p>200+ cameras with AI analytics for crowd monitoring and security insights.</p>
+            <span class="stretched-link"></span>
+          </div>
+        </a>
+
+        <!-- Industrial -->
+        <a href="./industrial-security-cyrus-tech-park-singapore.html" class="proof-card card-clickable">
+          <div class="proof-image-wrap">
+            <img src="./images/portfolio-cyrus.webp" alt="Cyrus Tech Park Boon Lay Security">
+          </div>
+          <div class="proof-content">
+            <span class="proof-tag">Logistics / Industrial</span>
+            <h3>Cyrus Tech Park (Boon Lay)</h3>
+            <p>Vehicle and perimeter monitoring system improving compliance and operational visibility.</p>
+            <span class="stretched-link"></span>
+          </div>
+        </a>
+
+        <!-- The L'viv -->
+        <a href="./portfolio/lviv.html" class="proof-card card-clickable">
+          <div class="proof-image-wrap">
+            <img src="./images/portfolio/portfolio-lviv.webp" alt="The L'viv Newton Intercom Upgrade">
+          </div>
+          <div class="proof-content">
+            <span class="proof-tag">Condominium Upgrade</span>
+            <h3>The L’viv (Newton)</h3>
+            <p>Upgraded intercom system with face and palm recognition for seamless resident access.</p>
+            <span class="stretched-link"></span>
+          </div>
+        </a>
+      </div>
     </div>
-  </div>
-</div>
-</nav>
-<!-- ═══ END NAV ═══ -->
+  </section>
 
-<main>
-    <!-- ── 1. HERO ── -->
-    <header class="hero">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
-            <source src="/images/drone-montage-vesta.mp4" type="video/mp4">
-        </video>
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <span class="eyebrow-light">Singapore’s Smart Security & Operations Partner</span>
-            <h1 class="hero-title-main" style="color:#fff;">Security Systems That Actually Work in Real Life</h1>
-            <p class="hero-subtitle-main">Designed for real properties, real workflows, and real operational pressure — not just specifications on paper. We help you reduce manpower, improve visibility, and take control of how your site runs.</p>
-            <div class="btn-group">
-                <a href="/solutions/" class="btn btn-primary">Explore Solutions</a>
-                <a href="https://wa.me/6593860466" class="btn btn-whatsapp">WhatsApp an Engineer</a>
-            </div>
-            <p class="hero-trust-note">Serving Singapore since <span class="sv-founded"></span> · Police Licence <span class="sv-licence"></span> · <span class="sv-sites"></span> Sites Protected</p>
+  <!-- 7. SYSTEMS OVERVIEW (ONE CLEAN VERSION) -->
+  <section class="sv-section-grey">
+    <div class="container text-center">
+      <span class="eyebrow">Our Systems</span>
+      <h2>Four Core Systems. One Integrated Solution.</h2>
+
+      <div class="subsystem-grid mt-48">
+        <a href="./systems/surveillance.html" class="subsys-card">
+          <div class="s-img"><img src="./images/pillar_surveillance.webp" alt="Surveillance Systems"></div>
+          <h3>Surveillance Systems</h3>
+          <p>AI-powered CCTV for real-time monitoring, alerts, and visibility — even in low-light conditions.</p>
+          <div class="s-link">Explore &rarr;</div>
+        </a>
+        <a href="./systems/access-control.html" class="subsys-card">
+          <div class="s-img"><img src="./images/pillar_people_access.webp" alt="Access Control Systems"></div>
+          <h3>Access Control Systems</h3>
+          <p>Biometric and card-based systems to ensure only authorized individuals enter your premises.</p>
+          <div class="s-link">Explore &rarr;</div>
+        </a>
+        <a href="./systems/vehicle-access.html" class="subsys-card">
+          <div class="s-img"><img src="./images/pillar_vehicle_access.webp" alt="Vehicle Access Systems"></div>
+          <h3>Vehicle Access Systems</h3>
+          <p>Automated boom gates and ANPR systems for seamless, secure vehicle flow management.</p>
+          <div class="s-link">Explore &rarr;</div>
+        </a>
+        <a href="./systems/platform.html" class="subsys-card">
+          <div class="s-img"><img src="./images/platform-integration-hero.webp" alt="Security & Operations Platform">
+          </div>
+          <h3>Security &amp; Operations Platform</h3>
+          <p>A central platform that connects everything — giving you full control and insight.</p>
+          <div class="s-link">Explore &rarr;</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. PROCESS -->
+  <section class="sv-section-white">
+    <div class="container text-center">
+      <span class="eyebrow">Our Approach</span>
+      <h2>From Assessment to Ongoing Support</h2>
+
+      <div class="grid-4 mt-48">
+        <div class="process-step-v">
+          <div class="step-circle mb-16">1</div>
+          <div class="p-text">
+            <h4>Site Assessment</h4>
+            <p>We study your property layout, risks, and current systems.</p>
+          </div>
         </div>
-    </header>
-
-    <!-- ── 2. TRUST BAR ── -->
-    <section class="sv-trust-bar bg-white">
-        <div class="container">
-            <div class="trust-flex-inline">
-                <span>🛡️ Police Licence <span class="sv-licence"></span></span>
-                <span class="sep">|</span>
-                <span class="sv-bizsafe"></span>
-                <span class="sep">|</span>
-                <span>BCA Registered</span>
-                <span class="sep">|</span>
-                <span>Active Systems at <span class="sv-sites"></span> Sites</span>
-            </div>
+        <div class="process-step-v">
+          <div class="step-circle mb-16">2</div>
+          <div class="p-text">
+            <h4>Solution Design</h4>
+            <p>We design a system tailored to your needs and budget.</p>
+          </div>
         </div>
-    </section>
-
-    <!-- ── 3. QUICK ROUTER ── -->
-    <section class="quick-router bg-light">
-        <div class="container">
-            <span class="eyebrow text-center display-block">Find Your Path</span>
-            <h2 class="text-center">Start with Your Property Type</h2>
-            <p class="subtitle text-center">Every site has different risks, workflows, and operational pressures. Choose your environment, and we’ll guide you to the systems that actually fit.</p>
-            
-            <div class="grid-3 mt-56">
-                <!-- Private Homes -->
-                <div class="subsys-card card-clickable">
-                    <div class="proof-image-wrap">
-                        <img src="/images/solution-residential.webp" alt="Private Homes Security">
-                    </div>
-                    <div class="proof-content">
-                        <h3><a href="/solutions/residential.html" class="stretched-link">Private Homes</a></h3>
-                        <p>Smart security for landed homes and private residences. Integrated CCTV, intercom, and gate control designed for convenience, visibility, and peace of mind.</p>
-                        <div class="s-link">View Residential →</div>
-                    </div>
-                </div>
-                
-                <!-- Condominiums -->
-                <div class="subsys-card card-clickable">
-                    <div class="proof-image-wrap">
-                        <img src="/images/solution-condo.webp" alt="Condominium Security">
-                    </div>
-                    <div class="proof-content">
-                        <h3><a href="/solutions/condominiums.html" class="stretched-link">Condominiums</a></h3>
-                        <p>Built for MCSTs and managing agents. Streamline visitor access, resident entry, and guard operations with integrated, mobile-enabled systems.</p>
-                        <div class="s-link">View MCST Solutions →</div>
-                    </div>
-                </div>
-
-                <!-- Commercial & Retail -->
-                <div class="subsys-card card-clickable">
-                    <div class="proof-image-wrap">
-                        <img src="/images/solution-commercial.webp" alt="Commercial Property Security">
-                    </div>
-                    <div class="proof-content">
-                        <h3><a href="/solutions/commercial.html" class="stretched-link">Commercial & Retail</a></h3>
-                        <p>Improve visibility and control without disrupting operations. Designed for offices, retail, and mixed-use environments.</p>
-                        <div class="s-link">View Commercial →</div>
-                    </div>
-                </div>
-
-                <!-- Industrial & Logistics -->
-                <div class="subsys-card card-clickable">
-                    <div class="proof-image-wrap">
-                        <img src="/images/solution-industrial.webp" alt="Industrial Site Security">
-                    </div>
-                    <div class="proof-content">
-                        <h3><a href="/solutions/industrial.html" class="stretched-link">Industrial & Logistics</a></h3>
-                        <p>Perimeter protection, vehicle control, and compliance-ready systems built for 24/7 operational environments.</p>
-                        <div class="s-link">View Industrial →</div>
-                    </div>
-                </div>
-
-                <!-- Institutions & Government -->
-                <div class="subsys-card card-clickable">
-                    <div class="proof-image-wrap">
-                        <img src="/images/solution-institutions.webp" alt="Institutional Security">
-                    </div>
-                    <div class="proof-content">
-                        <h3><a href="/solutions/institutions.html" class="stretched-link">Institutions & Government</a></h3>
-                        <p>Reliable, auditable systems for high-accountability environments where uptime, control, and reporting matter.</p>
-                        <div class="s-link">View Institutions →</div>
-                    </div>
-                </div>
-
-                <!-- Healthcare & Managed Living -->
-                <div class="subsys-card card-clickable">
-                    <div class="proof-image-wrap">
-                        <img src="/images/solution-healthcare.webp" alt="Healthcare Security">
-                    </div>
-                    <div class="proof-content">
-                        <h3><a href="/solutions/healthcare.html" class="stretched-link">Healthcare & Managed Living</a></h3>
-                        <p>Safer access and smoother movement for care environments, with visibility that supports both safety and dignity.</p>
-                        <div class="s-link">View Healthcare →</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="text-center mt-56">
-                <a href="/solutions/" class="btn btn-secondary">Explore All Solutions →</a>
-            </div>
+        <div class="process-step-v">
+          <div class="step-circle mb-16">3</div>
+          <div class="p-text">
+            <h4>Installation &amp; Setup</h4>
+            <p>Our team installs and configures everything for optimal performance.</p>
+          </div>
         </div>
-    </section>
-
-    <!-- ── 4. PROBLEM SECTION ── -->
-    <section class="logic bg-white">
-        <div class="container">
-            <span class="eyebrow">The Reality</span>
-            <h2>Why Most Security Systems Fail in Real Use</h2>
-            <div class="intro-text">
-                <p>Most systems are installed to meet requirements — not to handle real-world operations. That’s why guards still struggle, managers still chase information, and incidents still slip through.</p>
-                <p class="mt-24"><strong>Securevision was built to fix that gap.</strong></p>
-            </div>
-            
-            <div class="grid-3">
-                <div class="card">
-                    <div class="proof-image-wrap">
-                        <img src="/images/guard-watching-man-jumped-over-fence.webp" alt="Fragmented Security Systems">
-                    </div>
-                    <div style="padding: 24px;">
-                        <h3>Fragmented Systems</h3>
-                        <p>CCTV, access control, barriers, and alerts operate separately — making it harder to see what’s really happening and who is responsible.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="proof-image-wrap">
-                        <img src="/images/logic-control-dashboard.webp" alt="Manual Security Work">
-                    </div>
-                    <div style="padding: 24px;">
-                        <h3>Too Much Manual Work</h3>
-                        <p>Guards and managers are forced to verify events manually, check multiple systems, and chase records across disconnected tools.</p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="proof-image-wrap">
-                        <img src="/images/logic-respond-engage-v2.webp" alt="Poor Security Visibility">
-                    </div>
-                    <div style="padding: 24px;">
-                        <h3>No Clear Visibility When It Matters</h3>
-                        <p>When something happens, the issue is not lack of equipment — it is lack of clear, connected information.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="process-step-v">
+          <div class="step-circle mb-16">4</div>
+          <div class="p-text">
+            <h4>Support &amp; Optimisation</h4>
+            <p>Ongoing maintenance and improvements to keep your system running smoothly.</p>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ── 5. WHY SECUREVISION ── -->
-    <section class="assurance bg-light">
-        <div class="container">
-            <span class="eyebrow text-center display-block">Why Securevision</span>
-            <h2 class="text-center">Designed Around Real Operations, Not Just Equipment</h2>
-            <p class="subtitle text-center">We do not approach security as a list of products. We design systems around how your site actually operates — the people, the movement, the risks, and the daily pressures.</p>
-            
-            <div class="grid-4">
-                <div class="badge">
-                    <strong>Engineering-Led Thinking</strong>
-                    <small>We design based on how your site actually works — not just what is shown on drawings.</small>
-                </div>
-                <div class="badge">
-                    <strong>Built for Singapore Properties</strong>
-                    <small>Designed around local estates, tropical conditions, and real guard workflows.</small>
-                </div>
-                <div class="badge">
-                    <strong>Integrated by Design</strong>
-                    <small>CCTV, access, intercom, and vehicle systems are designed to work together from the start.</small>
-                </div>
-                <div class="badge">
-                    <strong>Long-Term Support</strong>
-                    <small>We stay involved beyond installation with maintenance, diagnostics, and system evolution.</small>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- 9. TESTIMONIALS -->
+  <section class="sv-section-grey">
+    <div class="container text-center">
+      <div class="testimonial-simple text-center">
+        <div class="stars">★★★★★</div>
+        <p class="quote">"Securevision didn't just sell us cameras. They built a system that fundamentally changed how
+          we monitor our facility. The AI crowd monitoring has been a game-changer for our operations team."</p>
+        <p class="author">&mdash; Operations Manager, Major Retail Asset</p>
+      </div>
+    </div>
+  </section>
 
+  <!-- 10. FINAL CTA -->
+  <section class="sv-section-cta"
+    style="background: linear-gradient(rgba(14, 26, 43, 0.85), rgba(14, 26, 43, 0.85)), url('./images/cta-skyline-polo.webp'); background-size: cover; background-position: center; padding: 120px 0; color: white;">
+    <div class="container text-center">
+      <h2>Ready to Secure Your Property?</h2>
+      <p class="subtitle mb-48"
+        style="color: rgba(255,255,255,0.9); max-width: 600px; margin-left: auto; margin-right: auto;">Talk to our
+        systems engineers today for a tailored security assessment of your home, condominium, or business.</p>
 
+      <div class="btn-group"
+        style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; align-items: center;">
+        <a href="./request-site-assessment-singapore.html" class="btn btn-primary"
+          style="padding: 18px 36px; font-size: 16px;">Book Site Assessment</a>
+        <a href="https://wa.me/6593860466" class="btn-whatsapp-standard"
+          style="display: flex; align-items: center; gap: 10px; padding: 12px 25px; text-decoration: none; border-radius: 8px; background: #25D366; color: #fff;">
+          <span class="btn-icon">💬</span>
+          <div class="btn-text" style="text-align: left;">
+            <span class="btn-small" style="display: block; font-size: 12px; opacity: 0.8;">Live Chat</span>
+            <span class="btn-large" style="display: block; font-weight: bold;">WhatsApp Specialist</span>
+          </div>
+        </a>
+      </div>
+      <p class="mt-32" style="font-size: 14px; opacity: 0.7;">Technical Support: +65 6286 4796 · Mon-Sat, 9AM-6PM</p>
+    </div>
+  </section>
 
-    <!-- ── 7. FEATURED CASE STUDIES / REAL RESULTS ── -->
-    <section class="results bg-white border-top border-bottom">
-        <div class="container">
-            <span class="eyebrow text-center display-block">Real Results</span>
-            <h2 class="text-center">Proven Across Real Sites in Singapore</h2>
-            <p class="subtitle text-center">From residential estates to high-traffic public environments, our systems are designed to perform under real operational conditions.</p>
-            
-            <div class="grid-4 mt-56">
-                <!-- L'viv -->
-                <div class="subsys-card card-clickable">
-                    <div class="proof-image-wrap">
-                        <img src="/images/biometric-face-success.webp" alt="The L'viv Biometric Access">
-                    </div>
-                    <div class="proof-content">
-                        <h3><a href="/portfolio/lviv.html" class="stretched-link">The L'viv</a></h3>
-                        <p>Resident self-service entry and visitor flow improvements across a luxury condominium environment.</p>
-                        <div class="s-link">Case Study →</div>
-                    </div>
-                </div>
-                <!-- SCAPE -->
-                <div class="subsys-card card-clickable">
-                    <div class="proof-image-wrap">
-                        <img src="/images/cctv-crowd-density.webp" alt="SCAPE Orchard Road AI Surveillance">
-                    </div>
-                    <div class="proof-content">
-                        <h3><a href="/portfolio/scape.html" class="stretched-link">SCAPE</a></h3>
-                        <p>Large-scale AI surveillance and real-time visibility for a high-traffic public venue.</p>
-                        <div class="s-link">Case Study →</div>
-                    </div>
-                </div>
-                <!-- STA -->
-                <div class="subsys-card card-clickable">
-                    <div class="proof-image-wrap">
-                        <img src="/images/successful-handover-of-building-project-to-building-manager.webp" alt="STA Building Project Handover">
-                    </div>
-                    <div class="proof-content">
-                        <h3><a href="/commercial-security-sta-building-singapore.html" class="stretched-link">STA Building</a></h3>
-                        <p>Reliable, always-on support for facilities where operational continuity matters.</p>
-                        <div class="s-link">Project Details →</div>
-                    </div>
-                </div>
-                <!-- Cyrus -->
-                <div class="subsys-card card-clickable">
-                    <div class="proof-image-wrap">
-                        <img src="/images/portfolio-cyrus.webp" alt="Cyrus Tech Park Industrial Security">
-                    </div>
-                    <div class="proof-content">
-                        <h3><a href="/industrial-security-cyrus-tech-park-singapore.html" class="stretched-link">Cyrus Tech Park</a></h3>
-                        <p>Sharper perimeter visibility with fewer false alarms and fewer wasted guard responses.</p>
-                        <div class="s-link">Project Details →</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── 8. SYSTEMS OVERVIEW ── -->
-    <section class="products-section bg-light">
-        <div class="container">
-            <span class="eyebrow text-center display-block">Systems Overview</span>
-            <h2 class="text-center">Four Connected Layers of a Strong Security System</h2>
-            <p class="subtitle text-center">A strong security environment is not built from individual products — it is built from connected layers that work together to provide visibility, control, and accountability.</p>
-            
-            <div class="grid-4">
-                <div class="subsys-card c-surv card-clickable">
-                    <div class="proof-image-wrap">
-                        <img src="/images/pillar_surveillance.webp" alt="Surveillance & Detection">
-                    </div>
-                    <div class="proof-content">
-                        <h3><a href="/systems/surveillance.html" class="stretched-link">Surveillance & Detection</a></h3>
-                        <p>CCTV, AI video analytics, and perimeter awareness that help teams see faster and respond with more confidence.</p>
-                        <div class="s-link">Explore Surveillance →</div>
-                    </div>
-                </div>
-                <div class="subsys-card c-peop card-clickable">
-                    <div class="proof-image-wrap">
-                        <img src="/images/pillar_people_access.webp" alt="People Access Control">
-                    </div>
-                    <div class="proof-content">
-                        <h3><a href="/systems/access-control.html" class="stretched-link">People Access Control</a></h3>
-                        <p>Readers, intercoms, locks, and identity tools that control how residents, staff, and visitors move through the site.</p>
-                        <div class="s-link">Explore Access →</div>
-                    </div>
-                </div>
-                <div class="subsys-card c-vehi card-clickable">
-                    <div class="proof-image-wrap">
-                        <img src="/images/pillar_vehicle_access.webp" alt="Vehicle Access & Barriers">
-                    </div>
-                    <div class="proof-content">
-                        <h3><a href="/systems/vehicle-access.html" class="stretched-link">Vehicle Access & Barriers</a></h3>
-                        <p>Boom gates, ANPR, long-range access, and barrier systems that manage vehicle movement safely and efficiently.</p>
-                        <div class="s-link">Explore Vehicle Access →</div>
-                    </div>
-                </div>
-                <div class="subsys-card c-plat card-clickable">
-                    <div class="proof-image-wrap">
-                        <img src="/images/solutions/pillar_platform.png" alt="Platform Management">
-                    </div>
-                    <div class="proof-content">
-                        <h3><a href="/systems/platform.html" class="stretched-link">Platform Management</a></h3>
-                        <p>Unified dashboards, event records, alerts, and operational tools that connect the system into one usable environment.</p>
-                        <div class="s-link">Explore Platforms →</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── 9. PROCESS ── -->
-    <section class="process bg-white">
-        <div class="container">
-            <span class="eyebrow text-center display-block">How We Work</span>
-            <h2 class="text-center">A Clear Process — From Assessment to Long-Term Support</h2>
-            <p class="subtitle text-center">Most contractors start with products. We start with how your site actually runs.</p>
-            
-            <div class="step-row">
-                <div class="step-item">
-                    <div class="step-num">1</div>
-                    <h3>Assess</h3>
-                    <p>We study the site, the risks, and the user flow before recommending any system.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-num">2</div>
-                    <h3>Design</h3>
-                    <p>We plan a system architecture that fits the property, budget, and operational needs.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-num">3</div>
-                    <h3>Implement</h3>
-                    <p>We install, configure, test, and hand over the system with minimal disruption.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-num">4</div>
-                    <h3>Support</h3>
-                    <p>We provide maintenance, diagnostics, and upgrade guidance as the site evolves.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── 10. TESTIMONIALS ── -->
-    <section class="testimonials bg-light">
-        <div class="container">
-            <span class="eyebrow text-center display-block">Client Feedback</span>
-            <h2 class="text-center">Trusted by Property Stakeholders Across Singapore</h2>
-            <p class="subtitle text-center">From architects and managing agents to business operators and facility teams, our work is judged by how well the systems perform in the real world.</p>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="quote-icon">"</div>
-                    <blockquote>We needed a partner who understood regulatory compliance and coordination. Securevision delivered a system that was robust and well-integrated into our design.</blockquote>
-                    <div class="attribution">
-                        <strong>Principal Architect</strong>
-                        <span>Singapore Design Firm</span>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="quote-icon">"</div>
-                    <blockquote>The migration to VESTA™ transformed our estate management. Digital visitor records and resident self-service have significantly reduced our guard overhead.</blockquote>
-                    <div class="attribution">
-                        <strong>Managing Agent</strong>
-                        <span>Condominium MCST</span>
-                    </div>
-                </div>
-                <div class="testimonial-card">
-                    <div class="quote-icon">"</div>
-                    <blockquote>Real-time visibility and AI detection have practically eliminated false alarms for our facility, allowing our team to focus on actual security risks.</blockquote>
-                    <div class="attribution">
-                        <strong>Operations Manager</strong>
-                        <span>Technology Park</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ── 11. FINAL CTA ── -->
-    <section class="cta-high-impact cta-home">
-        <div class="container">
-            <div style="max-width: 850px; margin: 0 auto; text-align: center;">
-                <span class="eyebrow-light">Ready to Move Forward?</span>
-                <h2>Let’s Design the Right Security Upgrade for Your Site</h2>
-                <p style="font-size: 18px; opacity: 0.9; line-height: 1.8; margin-bottom: 48px;">Whether you are planning a new system, replacing outdated infrastructure, or improving day-to-day control, we can help you map the next step clearly.</p>
-                <div class="btn-group">
-                    <a href="/request-site-assessment-singapore.html?intent=homepage-assessment" class="btn btn-primary">Book Site Assessment</a>
-                    <a href="https://wa.me/6593860466" class="btn btn-whatsapp">WhatsApp an Engineer</a>
-                </div>
-            </div>
-        </div>
-    </section>
-</main>
-
-<!-- ═══════════════════════════════════════════════════════════════════
+  <!-- ═══════════════════════════════════════════════════════════════════
      FOOTER — FROZEN. DO NOT MODIFY ANY PART OF THIS BLOCK.
      ═══════════════════════════════════════════════════════════════════ -->
-<footer class="site-footer">
-  <div class="footer-container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="f-logo-wrap">
-          <img src="/images/securevision-logo-white.png" alt="Securevision Logo">
-          <span class="brand-name">Securevision</span>
+  <!-- ═══════════════════════════════════════════════════════════════════
+     FOOTER — FROZEN. DO NOT MODIFY ANY PART OF THIS BLOCK.
+     ALL PATHS ARE ABSOLUTE — works at any folder depth.
+     ═══════════════════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="f-logo-wrap">
+            <img src="/images/securevision-logo-white.png" alt="Securevision Logo">
+            <span class="brand-name">Securevision</span>
+          </div>
+          <p style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:14px; margin-bottom:6px;">Connecting
+            People, Securing Places</p>
+          <p>Smart security and integrated systems for homes, condominiums, and businesses across Singapore.</p>
+          <div class="f-socials">
+            <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener"
+              aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+            <a href="https://www.youtube.com/@securevision" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+          </div>
         </div>
-        <p><strong>Connecting People, Securing Places</strong><br>Smart security and integrated systems for homes, condominiums, and businesses across Singapore</p>
-        <div class="f-socials">
-          <a href="https://www.facebook.com/securevision" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/company/securevision-pte-ltd" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="https://www.youtube.com/@securevision" target="_blank" rel="noopener" aria-label="YouTube">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          </a>
+        <div class="footer-links">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="/solutions/residential.html">Private Homes</a></li>
+            <li><a href="/solutions/condominiums.html">Condominiums</a></li>
+            <li><a href="/solutions/commercial.html">Commercial &amp; Retail</a></li>
+            <li><a href="/solutions/industrial.html">Industrial &amp; Logistics</a></li>
+            <li><a href="/solutions/institutions.html">Institutions &amp; Government</a></li>
+            <li><a href="/solutions/healthcare.html">Healthcare &amp; Managed Living</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Systems</h4>
+          <ul>
+            <li><a href="/systems/surveillance.html">Surveillance &amp; Detection</a></li>
+            <li><a href="/systems/access-control.html">People Access Control</a></li>
+            <li><a href="/systems/vehicle-access.html">Vehicle Access &amp; Barriers</a></li>
+            <li><a href="/systems/platform.html">Platform Management</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/resources/guides/">Technical Guides</a></li>
+            <li><a href="/resources/#tools">Planning Tools</a></li>
+            <li><a href="/resources/#library">Product Library</a></li>
+            <li><a href="/resources/#videos">Training Videos</a></li>
+            <li><a href="/resources/#faq">Search &amp; FAQ</a></li>
+            <li><a href="/resources/"><strong>Full Resource Hub</strong></a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about.html">Our Story</a></li>
+            <li><a href="/brands/">Brands</a></li>
+            <li><a href="/portfolio/">Project Portfolio</a></li>
+            <li><a href="/insights/">Insights</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-contact">
+          <h4>Get In Touch</h4>
+          <div class="footer-contact-item">
+            <span>💬</span>
+            <a href="https://wa.me/6593860466">WhatsApp an Engineer</a>
+          </div>
+          <div class="footer-contact-item">
+            <span>✉️</span>
+            <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
+          </div>
+          <div class="footer-contact-item">
+            <span>📞</span>
+            <a href="tel:+6562864796">+65 6286 4796</a>
+          </div>
         </div>
       </div>
-      <div class="footer-links">
-        <h4>Solutions</h4>
-        <ul>
-          <li><a href="/solutions/residential.html">Private Homes</a></li>
-          <li><a href="/solutions/condominiums.html">Condominiums</a></li>
-          <li><a href="/solutions/commercial.html">Commercial &amp; Retail</a></li>
-          <li><a href="/solutions/industrial.html">Industrial &amp; Logistics</a></li>
-          <li><a href="/solutions/institutions.html">Institutions &amp; Government</a></li>
-          <li><a href="/solutions/healthcare.html">Healthcare &amp; Managed Living</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Systems</h4>
-        <ul>
-          <li><a href="/systems/surveillance.html">Surveillance &amp; Detection</a></li>
-          <li><a href="/systems/access-control.html">People Access Control</a></li>
-          <li><a href="/systems/vehicle-access.html">Vehicle Access &amp; Barriers</a></li>
-          <li><a href="/systems/platform.html">Platform Management</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="/resources/guides/">Technical Guides</a></li>
-          <li><a href="/resources/#tools">Planning Tools</a></li>
-          <li><a href="/resources/#library">Product Library</a></li>
-          <li><a href="/resources/#videos">Training Videos</a></li>
-          <li><a href="/resources/#faq">Search &amp; FAQ</a></li>
-          <li><a href="/resources/"><strong>Full Resource Hub</strong></a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="/about.html">Our Story</a></li>
-          <li><a href="/brands/"><strong>Technology Partners</strong></a></li>
-          <li><a href="/portfolio/">Project Portfolio</a></li>
-          <li><a href="/insights/">Insights</a></li>
-          <li><a href="/contact.html">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <h4>Get In Touch</h4>
-        <div class="footer-contact-item">
-          <span>💬</span>
-          <a href="https://wa.me/6593860466">WhatsApp an Engineer</a>
-        </div>
-        <div class="footer-contact-item">
-          <span>✉️</span>
-          <a href="mailto:enquiry@securevision.com.sg">Email Us</a>
-        </div>
-        <div class="footer-contact-item">
-          <span>📞</span>
-          <a href="tel:+6562864796">+65 6286 4796</a>
+      <div class="footer-bottom">
+        <p>&copy; <span class="sv-current-year">2026</span> Securevision Pte Ltd · Police Licence <span
+            class="sv-licence">Police Licensed</span> · bizSAFE Level 3 · BCA Registered</p>
+        <div class="footer-bottom-links">
+          <a href="/sitemap.html">Sitemap</a>
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Service</a>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; <span class="sv-current-year"></span> Securevision Pte Ltd · Police Licence <span class="sv-licence"></span> · <span class="sv-bizsafe"></span> · BCA Registered</p>
-      <div class="footer-bottom-links">
-        <a href="/sitemap.html">Sitemap</a>
-        <a href="/privacy.html">Privacy Policy</a>
-        <a href="/terms.html">Terms of Service</a>
-      </div>
-    </div>
-  </div>
-</footer>
-<!-- ═══ END FOOTER ═══ -->
+  </footer>
+  <!-- ═══ END FOOTER ═══ -->
 
-<!-- ═══ WHATSAPP FLOAT — do not modify ═══ -->
-<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-  </svg>
-</a>
-<!-- ═══ END WHATSAPP FLOAT ═══ -->
 
-<script>
-function toggleMobileMenu() {
-    const menu = document.getElementById('mobileMenu');
-    if (menu) menu.classList.toggle('active');
-}
+  <!-- ═══ WHATSAPP FLOAT — do not modify ═══ -->
+  <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+    </svg>
+  </a>
+  <!-- ═══ END WHATSAPP FLOAT ═══ -->
 
-function toggleSubmenu(id) {
-    const sub = document.getElementById(id);
-    if (sub) {
+
+  <!-- ═══ SCRIPTS — do not modify ═══ -->
+  <script>
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu) menu.classList.toggle('active');
+    }
+
+    function toggleSubmenu(id) {
+      const sub = document.getElementById(id);
+      if (sub) {
         const isActive = sub.classList.contains('active');
         document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
         if (!isActive) sub.classList.add('active');
+      }
     }
-}
 
-document.addEventListener('click', function (e) {
-    const nav = document.querySelector('.main-nav');
-    const menu = document.getElementById('mobileMenu');
-    if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
-        menu.classList.remove('active');
-    }
-});
+    document.addEventListener('click', function (e) {
+      const nav = document.querySelector('.main-nav');
+      const menu = document.getElementById('mobileMenu');
+      if (nav && menu && !nav.contains(e.target)) menu.classList.remove('active');
+    });
 
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('.main-nav');
-  const logo = document.querySelector('.nav-logo-img');
-  const wordmark = document.querySelector('.nav-wordmark');
-  if (nav && logo) {
-    if (window.scrollY > 20) {
-      nav.classList.add('scrolled');
-      logo.src = '/images/securevision-logo-blue.png';
-    } else {
-      nav.classList.remove('scrolled');
-      logo.src = '/images/securevision-logo-white.png';
-    }
-  }
-});
-</script>
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.main-nav');
+      const logo = document.querySelector('.nav-logo-img');
+      if (nav && logo) {
+        if (window.scrollY > 50) {
+          nav.classList.add('scrolled');
+          logo.src = '/images/securevision-logo-blue.png';
+        } else {
+          nav.classList.remove('scrolled');
+          logo.src = '/images/securevision-logo-white.png';
+        }
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof SECUREVISION !== 'undefined') {
+        const SV = SECUREVISION;
+        // Basic Facts
+        document.querySelectorAll('.sv-licence').forEach(el => el.textContent = SV.licenceNumber);
+        document.querySelectorAll('.sv-years-business').forEach(el => el.textContent = SV.yearsInBusiness);
+        document.querySelectorAll('.sv-years-experience').forEach(el => el.textContent = SV.yearsExperience);
+        document.querySelectorAll('.sv-sites').forEach(el => el.textContent = SV.siteDisplay);
+        document.querySelectorAll('.sv-founded').forEach(el => el.textContent = SV.foundedDisplay);
+        document.querySelectorAll('.sv-founded-year').forEach(el => el.textContent = SV.foundedYear);
+        document.querySelectorAll('.sv-current-year').forEach(el => el.textContent = new Date().getFullYear());
+      }
+    });
+  </script>
+  <!-- ═══ END SCRIPTS ═══ -->
 </body>
+
 </html>
