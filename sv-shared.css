@@ -20,6 +20,10 @@
     --spacing-lg: 80px;
     --spacing-md: 40px;
     --border-radius: 12px;
+    /* Global spacing tokens — use these across all templates */
+    --spacing-section: 80px;      /* top/bottom padding on every content section */
+    --spacing-card-gap: 28px;     /* gap between cards in any grid */
+    --spacing-para: 24px;         /* margin-bottom between paragraphs */
     /* subsystem colors */
     --c-surveillance: #2b6cb0;
     --c-people: #319795;
@@ -434,8 +438,62 @@ aside { grid-area: sidebar; }
     margin-top: auto;
 }
 
-/* ── SECTIONS ── */
-section { padding: 100px 0; }
+/* ── SECTIONS ──
+   Global spacing: every content section uses --spacing-section.
+   Text alignment: LEFT by default everywhere except .cta-section (centred).
+   Hero and final CTA keep their own alignment rules — do not override them here.
+*/
+section { padding: var(--spacing-section) 0; }
+
+/* ── CONTENT SECTION: left-align text by default ── */
+section .container,
+section .container h2,
+section .container h3,
+section .container p,
+section .container .eyebrow,
+section .container ul,
+section .container ol {
+    text-align: left;
+}
+/* Eyebrow inside sections always left */
+section .eyebrow { text-align: left; }
+/* Subtitle inside sections: left-align, no auto-centering margin */
+section .subtitle {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+}
+
+/* ── FINAL CTA: stays centred ── */
+.cta-section { text-align: center !important; }
+.cta-section .container,
+.cta-section .container h2,
+.cta-section .container p,
+.cta-section .container .eyebrow-light,
+.cta-section .container .subtitle {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ── ALTERNATING SECTION BACKGROUNDS ──
+   Rule: breadcrumb + section 1 = bg-light (#F8F9FA)
+         section 2 onwards alternates: white → bg-light → white …
+   Apply via .sv-section-white and .sv-section-grey utility classes on <section>.
+   The templates use these classes — do not override with inline styles.
+*/
+.sv-section-white { background: var(--white) !important; }
+.sv-section-grey  { background: var(--bg-light) !important; }
+
+/* ── CARD DEFAULTS: light border always present ── */
+.card {
+    border: 1px solid var(--border-light);
+}
+/* ── LINKED CARDS: whole card is clickable — use card-clickable + stretched-link ──
+   Already defined in CLICKABLE CARDS UTILITY above. Reminder to templates:
+   wrap card in <a class="card card-clickable"> and put <span class="stretched-link"> 
+   on the inner link text.
+*/
 .eyebrow {
     font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 700;
     letter-spacing: 2px; text-transform: uppercase;
@@ -525,18 +583,29 @@ section { padding: 100px 0; }
 }
 /* Removed specific hero button rule as it is now covered by the global .btn-group .btn rule */
 
-/* ── 2. TRUST BAR ── */
-.trust-bar, .sv-trust-bar { background: white; padding: 12px 0; border-bottom: 1px solid var(--border-light); }
+/* ── 2. TRUST BAR ──
+   Slim credential strip directly below the hero.
+   Height is intentionally compact — just enough for a single line of text.
+   Do NOT increase padding without a specific reason.
+*/
+.trust-bar, .sv-trust-bar {
+    background: white;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-light);
+    line-height: 1;
+}
 .trust-flex-inline {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    column-gap: 32px;
-    row-gap: 12px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text-gray);
+    flex-wrap: nowrap;   /* keep on one line — prevents height expansion */
+    column-gap: 24px;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    white-space: nowrap;
     text-align: center;
 }
 .trust-flex-inline span:not(.sep) {
@@ -545,18 +614,36 @@ section { padding: 100px 0; }
 .trust-flex-inline .sep {
     color: var(--border-light);
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 @media (max-width: 768px) {
+    .trust-flex-inline { flex-wrap: wrap; column-gap: 16px; row-gap: 6px; font-size: 10px; }
     .trust-flex-inline .sep { display: none; }
-    .trust-flex-inline { column-gap: 24px; row-gap: 14px; }
+}
+
+/* ── 2b. SUBTLE TRUST NOTE (problem-based pages only) ──
+   A single centred line below the hero — no border, no background weight.
+   Intentionally quieter than .sv-trust-bar. Do not add icons or multiple items.
+   Update the text content per page; keep it to one short sentence.
+*/
+.sv-trust-note {
+    background: var(--white);
+    border-bottom: 1px solid var(--border-light);
+    padding: 9px 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-light);
+    letter-spacing: 0.5px;
+    line-height: 1;
 }
 
 /* ── 3. LOGIC (Problem) ── */
-.logic { background: var(--bg-light); padding: 100px 0; text-align: center; }
+.logic { background: var(--bg-light); padding: var(--spacing-section) 0; }
 .logic h2 { color: var(--text-dark); }
-.logic .intro-text { max-width: 850px; margin: 0 auto 56px; color: var(--text-gray); font-size: 18px; line-height: 1.8; font-weight: 500; }
+.logic .intro-text { max-width: 850px; margin: 0 0 56px; color: var(--text-gray); font-size: 18px; line-height: 1.8; font-weight: 500; }
 .logic .intro-text strong { color: var(--primary-blue); font-weight: 700; }
 
 /* Standard Grids */
@@ -648,9 +735,9 @@ section { padding: 100px 0; }
 }
 
 /* -- 6. PROCESS -- */
-.process { padding: 100px 0; text-align: center; background: var(--bg-light); }
+.process { padding: var(--spacing-section) 0; background: var(--bg-light); }
 .process h2 { margin-bottom: 14px; }
-.process .subtitle { color: var(--text-light); max-width: 650px; margin: 14px auto 0; line-height: 1.7; font-size: 16px; }
+.process .subtitle { color: var(--text-light); max-width: 650px; margin: 14px 0 0; line-height: 1.7; font-size: 16px; }
 .process .subtitle strong { color: var(--primary-blue); font-weight: 600; }
 .step-row { 
     display: grid; 
@@ -674,8 +761,8 @@ section { padding: 100px 0; }
 
 
 /* ── 5. RELEVANCE (Solutions by sector) ── */
-.relevance { background: var(--bg-light); padding: 100px 0; }
-.relevance h2 { text-align: center; margin-bottom: 56px; }
+.relevance { background: var(--bg-light); padding: var(--spacing-section) 0; }
+.relevance h2 { margin-bottom: 56px; }
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; grid-auto-rows: 1fr; }
 .rel-card {
     background: white; padding: 32px 28px; border-radius: 12px;
@@ -789,9 +876,9 @@ section { padding: 100px 0; }
 .people-side { padding-left: 28px; }
 
 /* -- 8. RESULTS -- */
-.results { padding: 100px 0; background: white; }
-.results h2 { text-align: center; margin-bottom: 14px; }
-.results .subtitle { text-align: center; color: var(--text-light); margin-bottom: 56px; font-size: 16px; }
+.results { padding: var(--spacing-section) 0; background: white; }
+.results h2 { margin-bottom: 14px; }
+.results .subtitle { color: var(--text-light); margin-bottom: 56px; font-size: 16px; }
 .results .subtitle strong { color: var(--primary-blue); }
 .res-card {
     border: 1px solid var(--border-light); padding: 28px; border-radius: 10px;
@@ -803,9 +890,9 @@ section { padding: 100px 0; }
 .res-card small strong { display: inline; color: var(--primary-blue); font-size: inherit; margin: 0; }
 
 /* -- 9. TESTIMONIALS -- */
-.testimonials { padding: 100px 0; background: var(--bg-light); }
-.testimonials h2 { text-align: center; margin-bottom: 14px; }
-.testimonials .subtitle { text-align: center; color: var(--text-light); max-width: 700px; margin: 0 auto 56px; line-height: 1.7; font-size: 16px; }
+.testimonials { padding: var(--spacing-section) 0; background: var(--bg-light); }
+.testimonials h2 { margin-bottom: 14px; }
+.testimonials .subtitle { color: var(--text-light); max-width: 700px; margin: 0 0 56px; line-height: 1.7; font-size: 16px; }
 .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .testimonial-card {
     background: white; padding: 36px 28px; border-radius: 12px;
@@ -819,8 +906,8 @@ section { padding: 100px 0; }
 .attribution span { color: var(--text-light); font-size: 13px; }
 
 /* -- 10. WHY CHOOSE -- */
-.why-choose { padding: 100px 0; background: white; }
-.why-choose h2 { text-align: center; margin-bottom: 56px; }
+.why-choose { padding: var(--spacing-section) 0; background: white; }
+.why-choose h2 { margin-bottom: 56px; }
 .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .why-card {
     background: var(--bg-light); padding: 32px 24px; border-radius: 12px;
@@ -833,8 +920,8 @@ section { padding: 100px 0; }
 
 /* -- 11. CLIENT LOGOS -- */
 .client-logos { padding: 80px 0; background: var(--bg-light); }
-.client-logos h2 { text-align: center; margin-bottom: 14px; }
-.client-logos .intro { text-align: center; color: var(--text-light); max-width: 700px; margin: 0 auto 48px; font-size: 15px; }
+.client-logos h2 { margin-bottom: 14px; }
+.client-logos .intro { color: var(--text-light); max-width: 700px; margin: 0 0 48px; font-size: 15px; }
 .logos-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
 .logo-box {
     background: white; padding: 28px; border-radius: 10px;
