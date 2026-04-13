@@ -251,6 +251,7 @@
       padding: 40px;
       transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
       position: relative;
+      cursor: pointer;
     }
 
     .brand-full-card:hover {
@@ -261,6 +262,19 @@
 
     .brand-full-card .btn {
       margin-top: 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Stretched link to make whole card clickable */
+    .brand-full-card .btn::after {
+      content: "";
+      position: absolute;
+      top: -40px; /* Offset for card padding */
+      right: -40px;
+      bottom: -40px;
+      left: -40px;
+      z-index: 1;
     }
 
     .tech-group {
@@ -823,7 +837,7 @@
         <p>We’ll design the right system using the right technologies for your property — ensuring every brand choice serves your specific security goals.</p>
         <div class="btn-group" style="justify-content: center; margin-top: 40px;">
           <a href="/contact.html" class="btn btn-primary">Book a Consultation</a>
-          <a href="https://wa.me/6593860466" class="btn btn-outline-dark">Talk to an Engineer</a>
+          <a href="https://wa.me/6593860466" class="btn btn-outline-dark" style="border: 2px solid var(--primary-blue); color: var(--primary-blue);">Talk to an Engineer</a>
         </div>
       </div>
     </div>
