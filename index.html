@@ -57,77 +57,167 @@
 }
 </script>
   <style>
-    /* Page-specific overrides to centralise content on the homepage only */
-    .trust-bar .container,
-    .section-header-center {
-      text-align: center !important;
-    }
-
-    .hero-title-main,
-    .hero-subtitle-main {
-      text-align: left !important;
-      margin-left: 0 !important;
-      margin-right: auto !important;
-    }
-
-    section .container h2,
-    section .container h3,
-    section .container p,
-    section .container .eyebrow,
-    section .container .subtitle {
-      text-align: center !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-    }
-
-    .process-step-v {
-      text-align: center !important;
+    /* Home Overrides */
+    .hero-high-impact {
+      min-height: 85vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
     }
 
-    .process-step-v .p-text {
-      text-align: center !important;
+    .sv-trust-bar {
+      border-bottom: 1px solid var(--border-light);
+      padding: 14px 0;
+      background: var(--white);
     }
 
-    /* Ensure grids themselves stay centred if they have max-widths */
-    .grid-2,
-    .grid-2-valign,
-    .grid-3,
-    .grid-4,
-    .factors-grid,
-    .proof-grid,
-    .subsystem-grid {
-      text-align: left !important;
-      /* Keep card content internal alignment, but center the titles above them */
+    .trust-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    .section-header-center {
-      text-align: center !important;
-      margin-bottom: 48px;
-    }
-
-    .img-fit-wrap {
-      width: 100%;
-      aspect-ratio: 16 / 9;
+    /* Security Loop Diagram Home Override */
+    .loop-section {
+      padding: 100px 0;
+      background: linear-gradient(to bottom, #fff, #f8f9fa);
       overflow: hidden;
-      display: block;
     }
 
-    .img-fit-wrap img {
+    .loop-wrap {
+      position: relative;
+      width: 500px;
+      height: 500px;
+      margin: 60px auto;
+    }
+
+    .loop-core {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 190px;
+      height: 190px;
+      background: #0056b3;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(0, 86, 179, 0.3), inset 0 0 20px rgba(255,255,255,0.1);
+      z-index: 10;
+      color: #ffffff;
+      padding: 20px;
+    }
+
+    .loop-core strong {
+      display: block;
+      font-size: 18px;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      line-height: 1.2;
+    }
+
+    .loop-core span {
+      font-size: 11px;
+      color: rgba(255,255,255,0.9);
+      margin-top: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .loop-node {
+      position: absolute;
+      width: 140px;
+      text-align: center;
+      transition: all 0.4s ease;
+      z-index: 5;
+    }
+
+    /* Positioning nodes in a circle */
+    .node-1 { top: 2%; left: 50%; transform: translate(-50%, 0); } /* Detection - Shifted Down */
+    .node-2 { top: 30%; left: 102%; transform: translate(-100%, -50%); } /* Verification - Shifted Right */
+    .node-3 { top: 85%; left: 80%; transform: translate(-50%, -100%); } /* Decision */
+    .node-4 { top: 85%; left: 20%; transform: translate(-50%, -100%); } /* Action */
+    .node-5 { top: 30%; left: -2%; transform: translate(0, -50%); } /* Visibility - Shifted Left */
+
+    .node-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--white);
+      border: 1px solid var(--border-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-dark);
+      margin: 0 auto 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      transition: all 0.3s ease;
+    }
+
+    .loop-node:hover .node-icon {
+      border-color: var(--page-accent);
+      color: var(--page-accent);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 86, 179, 0.1);
+    }
+
+    .node-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .node-desc {
+      font-size: 10px;
+      color: var(--text-light);
+      line-height: 1.3;
+    }
+
+    .node-3 .node-icon {
+      border: 2px solid #0056b3;
+      background: rgba(0, 86, 179, 0.08);
+      color: #0056b3;
+    }
+
+    .loop-svg {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      pointer-events: none;
+      z-index: 1;
     }
 
-    .gap-64 {
-      gap: 64px !important;
-    }
-
-    /* Global btn-group is now left aligned by default; homepage sections can override if needed */
-    .section-header-center .btn-group {
-      justify-content: center !important;
+    @media (max-width: 768px) {
+      .loop-wrap {
+        width: 320px;
+        height: 320px;
+      }
+      .loop-core {
+        width: 120px;
+        height: 120px;
+      }
+      .loop-node {
+        width: 100px;
+      }
+      .node-title { font-size: 11px; }
+      .node-desc { display: none; }
     }
   </style>
 
@@ -274,184 +364,253 @@
   <!-- ═══ END NAV ═══ -->
 
   <header class="hero hero-high-impact">
-    <!-- Background video -->
     <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
       <source src="/images/drone-montage-vesta.mp4" type="video/mp4">
     </video>
-    <!-- Dark overlay to keep text readable -->
-    <div class="hero-overlay"></div>
+    <div class="hero-overlay" style="background: rgba(14, 26, 43, 0.25);"></div>
 
     <div class="container z-2 pos-relative text-left">
-      <span class="eyebrow-light">Singapore's Smart Security &amp; Operations Partner</span>
-      <h1 class="hero-title-main">Smarter Security for Modern Properties</h1>
-      <p class="hero-subtitle-main">Reduce manpower. Gain real-time visibility. Control your property with systems that
-        work together — not in silos.</p>
+      <span class="eyebrow-light">Singapore’s Smart Security &amp; Operations Partner</span>
+      <h1 class="hero-title-main" style="max-width: 800px;">Security That Works As One System — Not Separate Parts</h1>
+      <p class="hero-subtitle-main" style="max-width: 650px; font-size: 20px; font-weight: 500;">Reduce manpower. Gain real-time visibility. Control your property with systems designed to work together.</p>
 
       <div class="btn-group equal-width">
-        <a href="/request-site-assessment-singapore.html?intent=homepage-hero" class="btn btn-primary">Book a Site
-          Assessment</a>
+        <a href="/request-site-assessment-singapore.html?intent=homepage-hero" class="btn btn-primary">Book a Site Assessment</a>
         <a href="https://wa.me/6593860466" class="btn btn-whatsapp-standard">WhatsApp an Engineer</a>
       </div>
     </div>
   </header>
 
   <!-- 2. TRUST BAR -->
-  <div class="sv-trust-bar" style="background:#fff; border-bottom:1px solid var(--border-light); padding:12px 0;">
+  <div class="sv-trust-bar">
     <div class="container">
-      <div style="display:flex; flex-wrap:nowrap; gap:20px; align-items:center; justify-content:flex-start; font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; color:var(--text-light); text-transform:uppercase; letter-spacing:0.8px;">
-        <span style="white-space:nowrap;">Police Licensed</span>
-        <span style="color:var(--border-light); flex-shrink:0;">|</span>
-        <span style="white-space:nowrap;" class="sv-bizsafe"></span>
-        <span style="color:var(--border-light); flex-shrink:0;">|</span>
-        <span style="white-space:nowrap;">BCA Registered Contractor</span>
-        <span style="color:var(--border-light); flex-shrink:0;">|</span>
-        <span style="white-space:nowrap;"><span class="sv-sites"></span> Sites</span>
+      <div class="trust-inner">
+        <span>Police Licensed</span>
+        <span style="color:var(--border-light);">|</span>
+        <span class="sv-bizsafe">bizSAFE Level 3</span>
+        <span style="color:var(--border-light);">|</span>
+        <span>BCA Registered Contractor</span>
+        <span style="color:var(--border-light);">|</span>
+        <span><span class="sv-sites">1,500+</span> Sites Completed</span>
       </div>
     </div>
   </div>
 
-  <!-- 3. PROBLEM SECTION -->
-  <section class="sv-section-grey">
+  <!-- 3. SIGNATURE SECURITY LOOP -->
+  <section class="sv-section-white loop-section">
     <div class="container text-center">
-      <!-- Part 1: Centralised Titles -->
-      <div class="section-header-center mb-48">
-        <span class="eyebrow">The Problem</span>
-        <h2>Security Systems Tell You Something Happened<br>But Not What to Do Next</h2>
+      <div class="section-header-center">
+        <span class="eyebrow">Signature Strategy</span>
+        <h2>The Securevision Response Loop</h2>
+        <p class="max-800 center">Security is not a one-time event. It is a continuous cycle of detection, verification, decision, and action — powered by a connected system.</p>
       </div>
 
-      <!-- Part 2: Centered Narrative Text -->
-      <div class="max-800 center text-center mt-48">
-        <p>Most properties operate with disconnected systems — CCTV, intercom, access control — each working on its own.
-        </p>
-        <p>When something happens, there’s no clear picture. No coordination. No real control. That’s where problems
-          begin.</p>
+      <div class="loop-wrap">
+        <!-- SVG Connecting Cycle -->
+        <svg class="loop-svg" viewBox="0 0 500 500">
+          <circle cx="250" cy="250" r="180" fill="none" stroke="#0056b3" stroke-width="2" stroke-dasharray="8 12" opacity="0.8" />
+        </svg>
+
+        <div class="loop-core">
+          <strong>Decision Engine</strong>
+          <span>Platform / Intelligence</span>
+        </div>
+
+        <!-- Node 1 -->
+        <div class="loop-node node-1">
+          <div class="node-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          </div>
+          <div class="node-title">Detection</div>
+          <div class="node-desc">System detects presence</div>
+        </div>
+
+        <!-- Node 2 -->
+        <div class="loop-node node-2">
+          <div class="node-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+          </div>
+          <div class="node-title">Verification</div>
+          <div class="node-desc">Identity is confirmed</div>
+        </div>
+
+        <!-- Node 3 -->
+        <div class="loop-node node-3">
+          <div class="node-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20M5.07 5.07l13.86 13.86M5.07 18.93L18.93 5.07"/></svg>
+          </div>
+          <div class="node-title">Decision</div>
+          <div class="node-desc">Rules evaluated</div>
+        </div>
+
+        <!-- Node 4 -->
+        <div class="loop-node node-4">
+          <div class="node-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          </div>
+          <div class="node-title">Action</div>
+          <div class="node-desc">Access granted or alert</div>
+        </div>
+
+        <!-- Node 5 -->
+        <div class="loop-node node-5">
+          <div class="node-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <div class="node-title">Visibility</div>
+          <div class="node-desc">Monitored in real-time</div>
+        </div>
+      </div>
+
+      <div class="max-700 center text-center mt-32">
+        <div class="btn-group" style="justify-content: center; margin-top: 32px;">
+          <a href="/systems/" class="btn btn-primary">Explore How Our Systems Work</a>
+        </div>
       </div>
     </div>
   </section>
-  <!-- 4. SOLUTIONS BY PROPERTY TYPE (MAIN ROUTER) -->
+
+  <!-- 4. PROBLEM SECTION -->
+  <section class="sv-section-grey">
+    <div class="container text-center">
+      <div class="section-header-center mb-48">
+        <span class="eyebrow">The Operational Challenge</span>
+        <h2>Most Security Systems React — They Don’t Guide Action</h2>
+      </div>
+
+      <div class="max-800 center text-center mt-48">
+        <p style="font-size: 18px; margin-bottom: 24px;">Many properties operate with disconnected systems — CCTV, intercom, access control — each working on its own.</p>
+        <p style="font-size: 18px; margin-bottom: 24px;">When something happens, there’s no coordination. No clear picture. No real control.</p>
+        <p style="font-size: 18px; font-weight: 600; color: var(--text-dark);">This leads to delays, confusion, and increased reliance on manpower.</p>
+      </div>
+    </div>
+  </section>
+  <!-- 5. SOLUTIONS BY PROPERTY TYPE (MAIN ROUTER) -->
   <section class="sv-section-white">
     <div class="container text-center">
-      <span class="eyebrow">Find Your Path</span>
-      <h2>Choose the Right Security Solution for Your Property</h2>
-      <p class="max-600 center mb-48">Every property has different risks, workflows, and upgrade priorities. Start with
-        your property type, and we’ll guide you to the right solution.</p>
+      <div class="section-header-center">
+        <span class="eyebrow">Sector Expertise</span>
+        <h2>Find the Right Solution for Your Property</h2>
+        <p class="max-800 center">Start with your property — we’ll map the right system for your needs.</p>
+      </div>
 
-      <div class="grid-3">
+      <div class="solution-router-grid">
         <!-- 1. Private Homes -->
-        <a href="./solutions/residential.html" class="rel-card card-clickable">
+        <a href="/solutions/residential.html" class="rel-card card-clickable">
           <div class="proof-image-wrap">
-            <img src="./images/solution-residential.webp" alt="Landed Home Security Singapore">
+            <img src="/images/solution-residential.webp" alt="Landed Home Security Singapore">
           </div>
           <div class="proof-content">
             <h3>Private Homes</h3>
-            <p>Smart protection for landed homes, with visibility even in low light and remote access from your phone.
-            </p>
+            <p>Smart protection with low-light visibility and remote phone access.</p>
             <span class="stretched-link"></span>
           </div>
         </a>
 
         <!-- 2. Condominiums -->
-        <a href="./solutions/condominiums.html" class="rel-card card-clickable">
+        <a href="/solutions/condominiums.html" class="rel-card card-clickable">
           <div class="proof-image-wrap">
-            <img src="./images/solution-condo.webp" alt="Condominium Integrated Security">
+            <img src="/images/solution-condo.webp" alt="Condominium Integrated Security">
           </div>
           <div class="proof-content">
             <h3>Condominiums</h3>
-            <p>Integrated systems for intercom, visitor management, and vehicle access — designed to reduce reliance on
-              guards.</p>
+            <p>Integrated visitor and vehicle access designed to reduce guard manpower.</p>
             <span class="stretched-link"></span>
           </div>
         </a>
 
         <!-- 3. Commercial Buildings -->
-        <a href="./solutions/commercial.html" class="rel-card card-clickable">
+        <a href="/solutions/commercial.html" class="rel-card card-clickable">
           <div class="proof-image-wrap">
-            <img src="./images/solution-commercial.webp" alt="Commercial Office Security">
+            <img src="/images/solution-commercial.webp" alt="Commercial Office Security">
           </div>
           <div class="proof-content">
             <h3>Commercial Buildings</h3>
-            <p>Secure offices, retail spaces, and shared environments with scalable, centralised control.</p>
+            <p>Scalable, centralised control for offices, retail hubs, and shared spaces.</p>
             <span class="stretched-link"></span>
           </div>
         </a>
 
         <!-- 4. Industrial Sites -->
-        <a href="./solutions/industrial.html" class="rel-card card-clickable">
+        <a href="/solutions/industrial.html" class="rel-card card-clickable">
           <div class="proof-image-wrap">
-            <img src="./images/solution-industrial.webp" alt="Industrial Facility Security">
+            <img src="/images/solution-industrial.webp" alt="Industrial Facility Security">
           </div>
           <div class="proof-content">
             <h3>Industrial Sites</h3>
-            <p>Robust systems for factories, warehouses, and logistics — built for reliability and operational
-              oversight.</p>
+            <p>Robust perimeters and reliable operational oversight for high-risk sites.</p>
             <span class="stretched-link"></span>
           </div>
         </a>
 
         <!-- 5. Institutions -->
-        <a href="./solutions/institutions.html" class="rel-card card-clickable">
+        <a href="/solutions/institutions.html" class="rel-card card-clickable">
           <div class="proof-image-wrap">
-            <img src="./images/solution-institutions.webp" alt="School and Institutional Security">
+            <img src="/images/solution-institutions.webp" alt="School and Institutional Security">
           </div>
           <div class="proof-content">
             <h3>Institutions</h3>
-            <p>Security for schools, healthcare, and places of worship — balancing safety, access, and compliance.</p>
+            <p>Specialised systems for schools and government sites balancing safety and flow.</p>
             <span class="stretched-link"></span>
           </div>
         </a>
 
         <!-- 6. Healthcare -->
-        <a href="./solutions/healthcare.html" class="rel-card card-clickable">
+        <a href="/solutions/healthcare.html" class="rel-card card-clickable">
           <div class="proof-image-wrap">
-            <img src="./images/solution-healthcare.webp" alt="Healthcare and Managed Living Security">
+            <img src="/images/solution-healthcare.webp" alt="Healthcare and Managed Living Security">
           </div>
           <div class="proof-content">
             <h3>Healthcare</h3>
-            <p>Specialised systems for nursing homes and managed living environments focusing on safety and resident
-              dignity.</p>
+            <p>Patient-safe monitoring and access systems for managed living facilities.</p>
             <span class="stretched-link"></span>
           </div>
         </a>
       </div>
     </div>
   </section>
-  <!-- 5. WHY SECUREVISION -->
+  <!-- 6. WHY SECUREVISION -->
   <section class="sv-section-grey">
     <div class="container text-center">
-      <span class="eyebrow">Why Securevision</span>
-      <h2>More Than Systems. A Smarter Way to Secure Your Property.</h2>
+      <div class="section-header-center">
+        <span class="eyebrow">Why Securevision</span>
+        <h2>Why Our Approach Works</h2>
+      </div>
 
       <div class="factors-grid mt-48">
         <div class="factor-card">
           <div class="factor-num">🔗</div>
-          <h3>Systems That Work Together</h3>
-          <p>We integrate surveillance, access, and intercom into one coordinated system — not isolated components.</p>
+          <h3>Designed as a System</h3>
+          <p>Not separate components — but a connected architecture that works together.</p>
         </div>
         <div class="factor-card">
           <div class="factor-num">⚙️</div>
-          <h3>Designed for Real Operations</h3>
-          <p>Built around how properties actually run, from guard workflows to resident access.</p>
+          <h3>Built for Real Operations</h3>
+          <p>Aligned with how guards, residents, and managers actually operate.</p>
         </div>
         <div class="factor-card">
           <div class="factor-num">📐</div>
-          <h3>Tailored to Your Site</h3>
-          <p>Every solution is engineered based on your layout, risks, and priorities.</p>
+          <h3>Engineered for Your Site</h3>
+          <p>Every solution is tailored based on your layout, risks, and priorities.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 6. REAL RESULTS (CASE STUDIES) -->
+  <!-- 7. REAL RESULTS (CASE STUDIES) -->
   <section class="sv-section-white">
     <div class="container text-center">
-      <span class="eyebrow">Proven Results</span>
-      <h2>Real Projects. Measurable Impact.</h2>
+      <div class="section-header-center">
+        <span class="eyebrow">Proven Results</span>
+        <h2>Real Projects. Measurable Impact.</h2>
+        <p class="max-800 center">See how integrated systems improve real-world operations.</p>
+      </div>
 
       <div class="proof-grid mt-48">
         <!-- SCAPE -->
-        <a href="./portfolio/scape.html" class="proof-card card-clickable">
+        <a href="/portfolio/scape.html" class="proof-card card-clickable">
           <div class="proof-image-wrap">
-            <img src="./images/portfolio/portfolio-scape.webp" alt="SCAPE Orchard Road Security">
+            <img src="/images/portfolio/portfolio-scape.webp" alt="SCAPE Orchard Road Security">
           </div>
           <div class="proof-content">
             <span class="proof-tag">Retail / Youth Space</span>
@@ -462,27 +621,27 @@
         </a>
 
         <!-- Industrial -->
-        <a href="./industrial-security-cyrus-tech-park-singapore.html" class="proof-card card-clickable">
+        <a href="/industrial-security-cyrus-tech-park-singapore.html" class="proof-card card-clickable">
           <div class="proof-image-wrap">
-            <img src="./images/portfolio-cyrus.webp" alt="Cyrus Tech Park Boon Lay Security">
+            <img src="/images/portfolio-cyrus.webp" alt="Cyrus Tech Park Boon Lay Security">
           </div>
           <div class="proof-content">
             <span class="proof-tag">Logistics / Industrial</span>
             <h3>Cyrus Tech Park (Boon Lay)</h3>
-            <p>Vehicle and perimeter monitoring system improving compliance and operational visibility.</p>
+            <p>Vehicle monitoring and perimeter security improving operational visibility.</p>
             <span class="stretched-link"></span>
           </div>
         </a>
 
         <!-- The L'viv -->
-        <a href="./portfolio/lviv.html" class="proof-card card-clickable">
+        <a href="/portfolio/lviv.html" class="proof-card card-clickable">
           <div class="proof-image-wrap">
-            <img src="./images/portfolio/portfolio-lviv.webp" alt="The L'viv Newton Intercom Upgrade">
+            <img src="/images/portfolio/portfolio-lviv.webp" alt="The L'viv Newton Intercom Upgrade">
           </div>
           <div class="proof-content">
             <span class="proof-tag">Condominium Upgrade</span>
             <h3>The L’viv (Newton)</h3>
-            <p>Upgraded intercom system with face and palm recognition for seamless resident access.</p>
+            <p>Integrated intercom upgrade with face and palm recognition for 100+ units.</p>
             <span class="stretched-link"></span>
           </div>
         </a>
@@ -490,105 +649,108 @@
     </div>
   </section>
 
-  <!-- 7. SYSTEMS OVERVIEW (ONE CLEAN VERSION) -->
+  <!-- 8. SYSTEMS OVERVIEW (REINFORCE STACK) -->
   <section class="sv-section-grey">
     <div class="container text-center">
-      <span class="eyebrow">Our Systems</span>
-      <h2>Four Core Systems. One Integrated Solution.</h2>
+      <div class="section-header-center">
+        <span class="eyebrow">The Layers of Security</span>
+        <h2>The Four Layers of a Complete Security System</h2>
+        <p class="max-800 center">Each layer solves a different problem. Together, they form one coordinated system.</p>
+      </div>
 
       <div class="subsystem-grid mt-48">
-        <a href="./systems/surveillance.html" class="subsys-card">
-          <div class="s-img"><img src="./images/pillar_surveillance.webp" alt="Surveillance Systems"></div>
+        <a href="/systems/surveillance.html" class="subsys-card">
+          <div class="s-img"><img src="/images/pillar_surveillance.webp" alt="Surveillance Systems"></div>
           <h3>Surveillance Systems</h3>
-          <p>AI-powered CCTV for real-time monitoring, alerts, and visibility — even in low-light conditions.</p>
+          <p>AI-powered visibility and real-time detection for security and operations.</p>
           <div class="s-link">Explore &rarr;</div>
         </a>
-        <a href="./systems/access-control.html" class="subsys-card">
-          <div class="s-img"><img src="./images/pillar_people_access.webp" alt="Access Control Systems"></div>
+        <a href="/systems/access-control.html" class="subsys-card">
+          <div class="s-img"><img src="/images/pillar_people_access.webp" alt="Access Control Systems"></div>
           <h3>Access Control Systems</h3>
-          <p>Biometric and card-based systems to ensure only authorized individuals enter your premises.</p>
+          <p>Intelligent entry management for residents, staff, and visitors.</p>
           <div class="s-link">Explore &rarr;</div>
         </a>
-        <a href="./systems/vehicle-access.html" class="subsys-card">
-          <div class="s-img"><img src="./images/pillar_vehicle_access.webp" alt="Vehicle Access Systems"></div>
+        <a href="/systems/vehicle-access.html" class="subsys-card">
+          <div class="s-img"><img src="/images/pillar_vehicle_access.webp" alt="Vehicle Access Systems"></div>
           <h3>Vehicle Access Systems</h3>
-          <p>Automated boom gates and ANPR systems for seamless, secure vehicle flow management.</p>
+          <p>Automated gantry and barrier systems designed for high-traffic property flow.</p>
           <div class="s-link">Explore &rarr;</div>
         </a>
-        <a href="./systems/platform.html" class="subsys-card">
-          <div class="s-img"><img src="./images/platform-integration-hero.webp" alt="Security & Operations Platform">
+        <a href="/systems/platform.html" class="subsys-card">
+          <div class="s-img"><img src="/images/platform-integration-hero.webp" alt="Security & Operations Platform">
           </div>
           <h3>Security &amp; Operations Platform</h3>
-          <p>A central platform that connects everything — giving you full control and insight.</p>
+          <p>A central dashboard that connects all layers into one operational view.</p>
           <div class="s-link">Explore &rarr;</div>
         </a>
       </div>
     </div>
   </section>
 
-  <!-- 8. PROCESS -->
+  <!-- 9. PROCESS -->
   <section class="sv-section-white">
     <div class="container text-center">
-      <span class="eyebrow">Our Approach</span>
-      <h2>From Assessment to Ongoing Support</h2>
+      <div class="section-header-center">
+        <span class="eyebrow">Our Framework</span>
+        <h2>Our Proven 4-Stage Security Framework</h2>
+      </div>
 
       <div class="grid-4 mt-48">
         <div class="process-step-v">
           <div class="step-circle mb-16">1</div>
           <div class="p-text">
             <h4>Site Assessment</h4>
-            <p>We study your property layout, risks, and current systems.</p>
+            <p>We study your property layout, risks, and current operational gaps.</p>
           </div>
         </div>
         <div class="process-step-v">
           <div class="step-circle mb-16">2</div>
           <div class="p-text">
             <h4>Solution Design</h4>
-            <p>We design a system tailored to your needs and budget.</p>
+            <p>We design an integrated stack tailored to your site and priorities.</p>
           </div>
         </div>
         <div class="process-step-v">
           <div class="step-circle mb-16">3</div>
           <div class="p-text">
             <h4>Installation &amp; Setup</h4>
-            <p>Our team installs and configures everything for optimal performance.</p>
+            <p>Professional deployment and configuration for high-reliability performance.</p>
           </div>
         </div>
         <div class="process-step-v">
           <div class="step-circle mb-16">4</div>
           <div class="p-text">
             <h4>Support &amp; Optimisation</h4>
-            <p>Ongoing maintenance and improvements to keep your system running smoothly.</p>
+            <p>Proactive maintenance and systems training to keep operations sharp.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 9. TESTIMONIALS -->
+  <!-- 10. TESTIMONIALS -->
   <section class="sv-section-grey">
     <div class="container text-center">
       <div class="testimonial-simple text-center">
-        <div class="stars">★★★★★</div>
-        <p class="quote">"Securevision didn't just sell us cameras. They built a system that fundamentally changed how
-          we monitor our facility. The AI crowd monitoring has been a game-changer for our operations team."</p>
+        <div class="stars" style="color: #FFD700; font-size: 20px; margin-bottom: 12px;">★★★★★</div>
+        <p class="quote">"Securevision didn't just sell us cameras. They built a system that fundamentally changed how we monitor our facility. The AI crowd monitoring has been a game-changer for our operations team."</p>
         <p class="author">&mdash; Operations Manager, Major Retail Asset</p>
       </div>
     </div>
   </section>
 
-  <!-- 10. FINAL CTA -->
+  <!-- 11. FINAL CTA -->
   <section class="sv-section-cta"
-    style="background: linear-gradient(rgba(14, 26, 43, 0.85), rgba(14, 26, 43, 0.85)), url('./images/cta-skyline-polo.webp'); background-size: cover; background-position: center; padding: 120px 0; color: white;">
+    style="background: linear-gradient(rgba(14, 26, 43, 0.85), rgba(14, 26, 43, 0.85)), url('/images/cta-skyline-polo.webp'); background-size: cover; background-position: center; padding: 120px 0; color: white;">
     <div class="container text-center">
       <h2>Ready to Secure Your Property?</h2>
       <p class="subtitle mb-48"
-        style="color: rgba(255,255,255,0.9); max-width: 600px; margin-left: auto; margin-right: auto;">Talk to our
-        systems engineers today for a tailored security assessment of your home, condominium, or business.</p>
+        style="color: rgba(255,255,255,0.9); max-width: 600px; margin-left: auto; margin-right: auto;">Let us assess your site and design a system that works as one.</p>
 
       <div class="btn-group"
         style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; align-items: center;">
-        <a href="./request-site-assessment-singapore.html" class="btn btn-primary"
+        <a href="/request-site-assessment-singapore.html" class="btn btn-primary"
           style="padding: 18px 36px; font-size: 16px;">Book Site Assessment</a>
         <a href="https://wa.me/6593860466" class="btn-whatsapp-standard"
           style="display: flex; align-items: center; gap: 10px; padding: 12px 25px; text-decoration: none; border-radius: 8px; background: #25D366; color: #fff;">
