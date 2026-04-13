@@ -230,9 +230,18 @@
     /* BRAND CARDS */
     .brand-p-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 32px;
       margin-top: 48px;
+    }
+
+    @media (min-width: 992px) {
+      .brand-p-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .brand-p-grid:has(> :only-child) {
+        grid-template-columns: 1fr;
+      }
     }
 
     .brand-full-card {
@@ -248,6 +257,10 @@
       transform: translateY(-8px);
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
       border-color: var(--primary-blue);
+    }
+
+    .brand-full-card .btn {
+      margin-top: 24px;
     }
 
     .tech-group {
@@ -647,6 +660,26 @@
             <p class="b-desc">Advanced AIoT cameras that bridge the gap between traditional security and smart building analytics.</p>
             <a href="/brands/milesight.html" class="btn btn-outline-dark">View Specification</a>
           </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">Ajax Systems</h3>
+            <p class="b-desc">The most awarded wireless security system in Europe, combining cutting-edge radio technology with stunning design.</p>
+            <a href="/brands/ajax.html" class="btn btn-outline-dark">View Specification</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">Risco Group</h3>
+            <p class="b-desc">High-performance intrusion detection systems that seamlessly integrate cloud verification and smart logic.</p>
+            <a href="/brands/risco.html" class="btn btn-outline-dark">View Specification</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">Paradox</h3>
+            <p class="b-desc">Advanced alarm and motion detection technologies that offer precise, customizable protection for all sites.</p>
+            <a href="/brands/paradox.html" class="btn btn-outline-dark">View Specification</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">DSC</h3>
+            <p class="b-desc">Robust, field-proven intrusion solutions known for legendary reliability and wide-ranging sensor compatibility.</p>
+            <a href="/brands/dsc.html" class="btn btn-outline-dark">View Specification</a>
+          </div>
         </div>
       </div>
 
@@ -658,6 +691,24 @@
           <p class="subtitle" style="margin-left: auto; margin-right: auto; color: var(--text-dark); font-size: 18px; max-width: 600px;">Control and verify human access</p>
         </div>
         <div class="brand-p-grid">
+          <!-- Row 1 -->
+          <div class="brand-full-card">
+            <h3 class="b-name">ZKTeco</h3>
+            <p class="b-desc">Versatile range of access terminals covering biometrics, time attendance, and visitor management.</p>
+            <a href="/brands/zkteco.html" class="btn btn-outline-dark">View Specification</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">EntryPass</h3>
+            <p class="b-desc">Innovative network-based access control solutions that provide seamless integration and scalable management.</p>
+            <a href="/brands/entrypass.html" class="btn btn-outline-dark">View Specification</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">MicroEngine</h3>
+            <p class="b-desc">Sophisticated enterprise-grade security management systems focused on scale and engineering reliability.</p>
+            <a href="/brands/microengine.html" class="btn btn-outline-dark">View Specification</a>
+          </div>
+
+          <!-- Row 2 -->
           <div class="brand-full-card">
             <h3 class="b-name">Suprema</h3>
             <p class="b-desc">Superior biometric terminals for facial and fingerprint recognition, setting the standard for secure identity.</p>
@@ -669,24 +720,36 @@
             <a href="/brands/hid.html" class="btn btn-outline-dark">View Specification</a>
           </div>
           <div class="brand-full-card">
-            <h3 class="b-name">ZKTeco</h3>
-            <p class="b-desc">Versatile range of access terminals covering biometrics, time attendance, and visitor management.</p>
-            <a href="/brands/zkteco.html" class="btn btn-outline-dark">View Specification</a>
+            <h3 class="b-name">Hikvision</h3>
+            <p class="b-desc">Advanced access ecosystems leveraging deep-learning facial recognition for fast, contactless entry.</p>
+            <a href="/brands/hikvision.html" class="btn btn-outline-dark">View Specification</a>
           </div>
+
+          <!-- Row 3 -->
           <div class="brand-full-card">
             <h3 class="b-name">Akuvox</h3>
             <p class="b-desc">Smart IP intercoms that provide a modern, cloud-connected verification point for residents and visitors.</p>
             <a href="/brands/akuvox.html" class="btn btn-outline-dark">View Specification</a>
           </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">Aiphone</h3>
+            <p class="b-desc">World-renowned intercom systems, ensuring crystal-clear audio-visual verification for any property size.</p>
+            <a href="/brands/aiphone.html" class="btn btn-outline-dark">View Specification</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">Kocom</h3>
+            <p class="b-desc">Reliable video door phone systems that combine elegant design with robust residential security logic.</p>
+            <a href="/brands/kocom.html" class="btn btn-outline-dark">View Specification</a>
+          </div>
         </div>
       </div>
 
-      <!-- 3. VEHICLE ACCESS SYSTEMS -->
-      <div class="tech-group" id="vehicle">
+      <!-- 3. CONTROL ACCESS SYSTEMS -->
+      <div class="tech-group" id="control">
         <div class="tech-layer-header">
-          <span class="tech-layer-tag">Verification Layer</span>
-          <h3 style="font-size: 36px; margin-bottom: 12px;">3. Vehicle Access Systems</h3>
-          <p class="subtitle" style="margin-left: auto; margin-right: auto; color: var(--text-dark); font-size: 18px; max-width: 600px;">Manage and monitor vehicular movement</p>
+          <span class="tech-layer-tag">Actions Layer</span>
+          <h3 style="font-size: 36px; margin-bottom: 12px;">3. Control Access Systems</h3>
+          <p class="subtitle" style="margin-left: auto; margin-right: auto; color: var(--text-dark); font-size: 18px; max-width: 600px;">Manage vehicle entry, physical barriers, and high-security locking mechanisms</p>
         </div>
         <div class="brand-p-grid">
           <div class="brand-full-card">
@@ -699,6 +762,26 @@
             <p class="b-desc">Reliable barrier and gate systems widely specified across Singapore for residential and commercial entry.</p>
             <a href="/brands/mag.html" class="btn btn-outline-dark">View Specification</a>
           </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">Dormer</h3>
+            <p class="b-desc">High-performance gate automation and commercial entry hardware for industrial-scale security.</p>
+            <a href="/brands/dormer.html" class="btn btn-outline-dark">View Specification</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">GantryGo (LPR Software)</h3>
+            <p class="b-desc">Proprietary AI-driven software for License Plate Recognition (LPR) and intelligent gate interface management.</p>
+            <a href="/brands/gantrygo.html" class="btn btn-outline-dark">View Specification</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">Ebelco</h3>
+            <p class="b-desc">Industrial-strength electromagnetic locks and door security solutions designed for fail-safe protection.</p>
+            <a href="/brands/ebelco.html" class="btn btn-outline-dark">View Specification</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">VIRO</h3>
+            <p class="b-desc">Premium Italian security hardware specialising in high-durability electric locks and automated access components.</p>
+            <a href="/brands/viro.html" class="btn btn-outline-dark">View Specification</a>
+          </div>
         </div>
       </div>
 
@@ -707,14 +790,24 @@
         <div class="tech-layer-header">
           <span class="tech-layer-tag">Intelligence Layer</span>
           <h3 style="font-size: 36px; margin-bottom: 12px;">4. Platform Intelligence</h3>
-          <p class="subtitle" style="margin-left: auto; margin-right: auto; color: var(--text-dark); font-size: 18px; max-width: 700px;">The central brain of our systems. VESTA connects detection, verification, and action layers into one unified operational dashboard.</p>
+          <p class="subtitle" style="margin-left: auto; margin-right: auto; color: var(--text-dark); font-size: 18px; max-width: 700px;">Integration requires the right brain for the right task. We specify and deploy various management platforms tailored to the scale and complexity of your specific application.</p>
         </div>
-        <div class="brand-p-grid" style="display: flex; justify-content: center;">
-          <div class="brand-full-card" style="border-color: var(--primary-blue); background: var(--white); max-width: 500px;">
-            <span class="tech-layer-tag" style="background: var(--primary-blue); color: var(--white);">Primary Intelligence</span>
+        <div class="brand-p-grid">
+          <div class="brand-full-card" style="border-color: var(--primary-blue);">
+            <span class="tech-layer-tag" style="background: var(--primary-blue); color: var(--white); margin-bottom: 20px;">Primary Intelligence</span>
             <h3 class="b-name">VESTA Platform</h3>
             <p class="b-desc">The central brain of our systems. VESTA connects detection, verification, and action layers into one unified operational dashboard.</p>
-            <a href="/systems/platform.html" class="btn btn-primary" style="width: 100%;">Explore VESTA Infrastructure</a>
+            <a href="/systems/platform.html" class="btn btn-primary" style="width: 100%; margin-top: 32px;">Explore VESTA Infrastructure</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">ZK CVSecurity</h3>
+            <p class="b-desc">A comprehensive "All-in-One" web-based security platform that integrates access control, video, and advanced management.</p>
+            <a href="/brands/zkteco.html" class="btn btn-outline-dark">View Specification</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">Hik-Connect</h3>
+            <p class="b-desc">Powerful cloud service enabling remote management of Hikvision systems, providing unified surveillance control on any device.</p>
+            <a href="/brands/hikvision.html" class="btn btn-outline-dark">View Specification</a>
           </div>
         </div>
       </div>
