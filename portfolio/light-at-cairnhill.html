@@ -60,6 +60,13 @@
         max-width: 100%;
       }
     }
+
+    /* Override large result value font for text titles */
+    .portfolio-result-value {
+      font-size: 24px !important;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
   </style>
 </head>
 
@@ -249,9 +256,9 @@
   </nav>
 
   <!-- ═══ PROJECT SNAPSHOT ═══ -->
-  <section class="portfolio-section">
+  <section class="portfolio-section sv-section-grey">
     <div class="container portfolio-section-narrow">
-      <div class="portfolio-split">
+      <div class="portfolio-split" style="align-items: center; gap: 48px;">
         <div>
           <span class="eyebrow">Project Snapshot</span>
           <table class="portfolio-overview-table">
@@ -282,37 +289,30 @@
               </tr>
             </tbody>
           </table>
-          
-          <div class="portfolio-body mt-32">
-            <p><strong>Existing Relationship / Trust Positioning:</strong><br>
-            Securevision has been supporting the development since 2015, maintaining the existing CCTV system and carrying out strategic upgrades over the years. This established history provided critical familiarity with the site’s terrain and its operational needs when the building's standalone access and intercom systems reached technical obsolescence in 2024.</p>
-            <p style="margin-top: 16px; font-style: italic; color: #4a5568;">This situation is common in developments where different systems were implemented over time, each functioning on its own, but not designed to work together.</p>
-          </div>
         </div>
         <div>
-          <span class="eyebrow">Project Context</span>
-          <figure class="portfolio-image" style="margin-top: 0; margin-bottom: 32px;">
-            <img src="/images/portfolio/Light-at-cairnhill-front-facade-full.webp" alt="Light@Cairnhill Front Facade" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+          <figure class="portfolio-image" style="margin-top: 0;">
+            <img src="/images/portfolio/Light-at-cairnhill-front-facade-full.webp" alt="Light@Cairnhill Front Facade"
+              style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
           </figure>
-          
-          <span class="eyebrow">Discovery Paths</span>
-          <div class="portfolio-link-stack">
-            <a href="/solutions/condominiums.html" class="portfolio-link-card">
-              <strong>Condominium Solutions</strong>
-              <span>Explore integrated access strategies for residential high-rise estates.</span>
-            </a>
-            <a href="/systems/access-control.html" class="portfolio-link-card">
-              <strong>Access Operations</strong>
-              <span>See the software and hardware used for professional gate and lobby control.</span>
-            </a>
-          </div>
         </div>
+      </div>
+
+      <div class="portfolio-body mt-48">
+        <span class="eyebrow">Project Context</span>
+        <p><strong>Existing Relationship / Trust Positioning:</strong><br>
+          Securevision has been supporting the development since 2015, maintaining the existing CCTV system and carrying out
+          strategic upgrades over the years. This established history provided critical familiarity with the site’s terrain
+          and its operational needs when the building's standalone access and intercom systems reached technical
+          obsolescence in 2024.</p>
+        <p style="margin-top: 16px; font-style: italic; color: #4a5568;">This situation is common in developments where
+          different systems were implemented over time, each functioning on its own, but not designed to work together.</p>
       </div>
     </div>
   </section>
 
   <!-- ═══ THE CHALLENGE ═══ -->
-  <section class="portfolio-section bg-light portfolio-body">
+  <section class="portfolio-section sv-section-white portfolio-body">
     <div class="container portfolio-section-narrow text-left">
       <span class="eyebrow">The Challenge</span>
       <h2>Fragmented Systems and Aging Infrastructure</h2>
@@ -341,7 +341,7 @@
   </section>
 
   <!-- ═══ SECUREVISION'S APPROACH ═══ -->
-  <section class="portfolio-section portfolio-body">
+  <section class="portfolio-section sv-section-grey portfolio-body">
     <div class="container portfolio-section-narrow text-left" style="display: flow-root;">
       <span class="eyebrow">Securevision's Approach</span>
       <h2>Redesigning the Access Architecture</h2>
@@ -365,7 +365,7 @@
   </section>
 
   <!-- ═══ SOLUTION DELIVERED ═══ -->
-  <section class="portfolio-section bg-light">
+  <section class="portfolio-section sv-section-white">
     <div class="container portfolio-section-narrow text-left">
       <span class="eyebrow">Solution Delivered</span>
       <h2>From Multiple Systems to a More Consolidated Structure</h2>
@@ -392,7 +392,7 @@
   </section>
 
   <!-- ═══ RESULTS & IMPACT ═══ -->
-  <section class="portfolio-section portfolio-body">
+  <section class="portfolio-section sv-section-grey portfolio-body">
     <div class="container portfolio-section-narrow text-left">
       <span class="eyebrow">Results & Impact</span>
       <h2>Measurable Operational Improvement</h2>
@@ -427,23 +427,39 @@
     </div>
   </section>
 
-  <!-- ═══ TECHNOLOGY BLOCK ═══ -->
-  <section class="portfolio-section bg-light">
+  <!-- ═══ TECHNOLOGY PARTNERS (WHITE) ═══ -->
+  <section class="portfolio-section sv-section-white">
     <div class="container portfolio-section-narrow text-left">
       <span class="eyebrow">Technology Behind This Project</span>
-      <div class="portfolio-callout" style="border-left-color: var(--primary-blue); background: var(--white); box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
-        <h3>Akuvox Integrated Access Platform</h3>
-        <p>This project was delivered using the Akuvox smart intercom and access ecosystem, enabling integrated visitor communication, access control, and lift coordination through a single, professionally managed interface.</p>
-        <div class="mt-24">
-          <a href="/brands/akuvox.html" class="portfolio-link">Explore Akuvox Intercom Solutions →</a>
-        </div>
+      <div style="display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 32px;">
+        <a href="/brands/akuvox.html" class="portfolio-link-card" style="display: block; background: #fff; padding: 32px; border-radius: 12px; border: 1px solid #e2e8f0; text-decoration: none;">
+          <strong style="display: block; font-size: 1.25rem; color: var(--primary-blue); margin-bottom: 8px;">Akuvox Integrated Access Platform</strong>
+          <span style="font-size: 14px; color: #64748b; line-height: 1.5; display: block;">This project was delivered using the Akuvox smart intercom and access ecosystem, enabling integrated visitor communication, access control, and lift coordination through a single, professionally managed interface.</span>
+          <span style="display: block; margin-top: 16px; font-weight: 700; font-size: 13px; color: var(--primary-blue);">Explore Akuvox Intercom Solutions →</span>
+        </a>
       </div>
     </div>
   </section>
 
+  <section class="portfolio-section sv-section-grey">
+    <div class="container portfolio-section-narrow text-center">
+      <span class="eyebrow">Continue Exploring</span>
+      <h2>Explore Related Solutions</h2>
+      <div class="portfolio-link-stack mt-40 text-left">
+        <a href="/solutions/condominiums.html" class="portfolio-link-card">
+          <strong>Explore Condominium Security</strong>
+          <span>See our strategic approach to estate-wide access and resident control.</span>
+        </a>
+        <a href="/systems/access-control.html" class="portfolio-link-card">
+          <strong>See People Access Systems</strong>
+          <span>Learn more about the intercom and lift integration technology used here.</span>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <!-- ═══ RELATED PROJECTS ═══ -->
-  <section class="portfolio-section bg-light">
+  <section class="portfolio-section sv-section-white">
     <div class="container">
       <span class="eyebrow text-center">More Case Studies</span>
       <h2 class="text-center">Related Projects</h2>
@@ -458,10 +474,10 @@
           <h3>The Village @ Pasir Panjang</h3>
           <p>Estate-wide access redesign and intercom modernization across 9 residential blocks.</p>
         </a>
-        <a href="/portfolio/" class="portfolio-related-card">
-          <span class="badge badge-primary">PORTFOLIO HUB</span>
-          <h3>See More Projects</h3>
-          <p>Explore other residential, commercial, and industrial deployments across Singapore.</p>
+        <a href="/portfolio/newton21.html" class="portfolio-related-card">
+          <span class="badge badge-primary">CONDOMINIUM</span>
+          <h3>Newton21</h3>
+          <p>Modernizing legacy access while expanding surveillance visibility across the estate.</p>
         </a>
       </div>
       <div class="text-center" style="margin-top:48px;">
