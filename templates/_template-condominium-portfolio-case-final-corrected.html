@@ -1,0 +1,734 @@
+SECUREVISION CONDOMINIUM PORTFOLIO TEMPLATE
+
+PAGE TYPE:
+Portfolio / Case Study — Condominium Upgrade
+
+CORE POSITIONING:
+This is not a product showcase.
+This is an upgrade story showing how Securevision helped a condominium move from operational friction to reliable daily living.
+
+STRICT TEMPLATE DISCIPLINE:
+- Use the master Securevision nav exactly. Do not rewrite the menu, URLs, labels, mobile menu, or scripts.
+- Use the master Securevision footer exactly. Do not rewrite footer structure or links.
+- Use sv-shared.css as the primary source for typography, spacing, colours, buttons, cards, nav, footer, breadcrumbs, trust bar, related project cards, and final CTA.
+- Do not add inline CSS or page-specific style blocks except for a permitted project-specific background image where unavoidable.
+- If a repeated layout or visual treatment is missing, add it once to sv-shared.css or the shared portfolio CSS, not inside an individual page.
+- The final CTA must follow the shared final CTA pattern and classes. Do not hand-code a one-off CTA section.
+- The D’Elias page is the reference implementation for visual alignment, but not for project-specific wording.
+
+STANDARD PAGE FLOW:
+1. Head
+2. Frozen Nav
+3. Hero
+4. Trust Bar
+5. Breadcrumb
+6. Project Snapshot
+7. The Challenge
+8. Transformation / Before & After
+9. Decision Point
+10. Our Approach
+11. The Solution
+12. Results & Impact
+13. Insight
+14. Discovery Path
+15. Related Projects
+16. Final CTA
+17. Frozen Footer
+18. WhatsApp Float
+19. Standard Scripts
+
+HERO:
+- Badge: CONDOMINIUM CASE STUDY
+- Location: [General location, not always full address if privacy needed]
+- Property type: Private Condominium / Boutique Condominium / Residential Estate
+- H1: Outcome-led headline, not product-led
+
+Good headline examples:
+- Restoring Seamless Access in a Condo Where Systems Had Failed
+- Upgrading a Legacy Condo for Reliable Everyday Living
+- From Fragmented Systems to Confident Estate Access
+
+Hero subtitle:
+One sentence explaining the transformation.
+
+Hero taxonomy chips:
+Optional. Use only when they add clarity.
+Typical chips:
+- Property Type: Condominium / Boutique Condominium / Residential Estate
+- System: Smart Intercom / CCTV / Access Control / Vehicle Access
+- Solution: Mobile Resident App / Lift Control / LPR / Platform Integration
+
+Hero stats:
+Exactly 4 stats, all factual. This is mandatory.
+Examples:
+- 68 Units
+- 21 CCTV Cameras
+- 32-Channel NVR
+- 2024 Completed
+
+TRUST BAR:
+Must appear immediately after hero and before breadcrumb.
+Must be fully centred.
+Must display exactly:
+Police Licensed | bizSAFE Level 3 | BCA Registered | 2,000+ Sites
+
+Dynamic values from site-config.js:
+- sv-bizsafe populates bizSAFE Level 3
+- sv-sites populates 2,000+
+
+Fixed text:
+- Police Licensed
+- BCA Registered
+
+Do not show the licence number in this trust bar unless a specific page requires it.
+Do not hardcode values inside sv-bizsafe or sv-sites.
+Do not use inline styling for the trust bar. Use shared classes only.
+
+Required HTML:
+<div class="sv-trust-bar">
+  <div class="container">
+    <div class="trust-inner">
+      <span>Police Licensed</span>
+      <span class="divider">|</span>
+      <span class="sv-bizsafe"></span>
+      <span class="divider">|</span>
+      <span>BCA Registered</span>
+      <span class="divider">|</span>
+      <span><span class="sv-sites"></span> Sites</span>
+    </div>
+  </div>
+</div>
+
+BREADCRUMB:
+Home → Portfolio → [Project Name]
+
+SECTION 1 — PROJECT SNAPSHOT:
+Use grey/light background.
+
+Layout rule:
+Use a two-column layout.
+Both columns must start at the same top alignment.
+Do not vertically centre the right-side card.
+The Continue Exploring card must sit on the right side of the Project Snapshot, aligned with the Project Snapshot heading.
+
+Left column — Project Snapshot:
+- Short project context
+- Overview table
+
+Right column — Continue Exploring:
+Add a compact contextual discovery card titled “Continue Exploring”.
+This is not a menu and must not be labelled “Quick Navigation”.
+It gives readers an early pathway to relevant solution and system pages without waiting until the full Discovery Path section.
+
+Continue Exploring card-style links:
+Use card-style links, not a plain menu list.
+Each card should include:
+- Strong link title
+- Short support line explaining why the link is relevant
+
+Required / typical cards:
+- Explore Condominium Security → /solutions/condominiums.html
+  Support text: Strategic approach to estate-wide security and resident access.
+- See People Access Systems → /systems/access-control.html
+  Support text: Intercom, access control, and visitor entry technology.
+- Explore CCTV & Surveillance → /systems/surveillance.html, if relevant
+  Support text: Estate visibility, incident review, and security coverage.
+- Explore Vehicle Access & LPR → /systems/vehicle-access.html, if relevant
+  Support text: Automated resident entry and vehicle access control.
+- Explore Platform Management → /systems/platform.html, if relevant
+  Support text: Integration, audit trail, and estate operations visibility.
+
+Important:
+- Do not remove the full Discovery Path section later in the page.
+- The top Continue Exploring card is for contextual guidance, not page navigation.
+- The later Discovery Path remains for SEO clustering and conversion reinforcement.
+- Keep this card compact. Do not make it visually heavier than the Project Snapshot.
+- Never use the labels “Quick Navigation”, “Menu”, “Jump Links”, or “Page Navigation” for this block.
+- Use advisory language only: Continue Exploring, Related Condo Security Paths, Explore Related Systems.
+- Do not place the main project image in Project Snapshot. Move contextual image to The Challenge.
+
+Required HTML classes:
+- portfolio-snapshot
+- portfolio-snapshot-grid
+- snapshot-main
+- snapshot-explore-card
+- portfolio-link-stack
+- portfolio-link-card
+
+Required structure:
+<section class="portfolio-snapshot bg-light section-spacing">
+  <div class="container">
+    <div class="portfolio-snapshot-grid">
+      <div class="snapshot-main">
+        <span class="eyebrow">Project Snapshot</span>
+        <p class="mt-16">[Short project context paragraph explaining the estate, the operational situation, and why the upgrade mattered.]</p>
+
+        <table class="portfolio-overview-table mt-32">
+          <tbody>
+            <tr>
+              <th>Client / MCST</th>
+              <td>[Client / MCST / Property Type]</td>
+            </tr>
+            <tr>
+              <th>Location</th>
+              <td>[General Location, Singapore]</td>
+            </tr>
+            <tr>
+              <th>Sector</th>
+              <td>Residential / Condominium</td>
+            </tr>
+            <tr>
+              <th>Project Type</th>
+              <td>[Intercom / Access / CCTV / Vehicle Access / Integrated Upgrade]</td>
+            </tr>
+            <tr>
+              <th>Completion</th>
+              <td>[Month / Year or Year]</td>
+            </tr>
+            <tr>
+              <th>Units</th>
+              <td>[Number of units, if available]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <aside class="snapshot-explore-card">
+        <span class="eyebrow">Continue Exploring</span>
+        <div class="portfolio-link-stack mt-24">
+          <a href="/solutions/condominiums.html" class="portfolio-link-card">
+            <strong>Explore Condominium Security</strong>
+            <span>Strategic approach to estate-wide security and resident access.</span>
+          </a>
+          <a href="/systems/access-control.html" class="portfolio-link-card">
+            <strong>See People Access Systems</strong>
+            <span>Intercom, access control, and visitor entry technology.</span>
+          </a>
+          <a href="/systems/surveillance.html" class="portfolio-link-card">
+            <strong>Explore CCTV &amp; Surveillance</strong>
+            <span>Estate visibility, incident review, and security coverage.</span>
+          </a>
+          <a href="/systems/vehicle-access.html" class="portfolio-link-card">
+            <strong>Explore Vehicle Access &amp; LPR</strong>
+            <span>Automated resident entry and vehicle access control.</span>
+          </a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+Table rows:
+- Client / MCST
+- Location
+- Sector
+- Project Type
+- Timeline / Completion
+- Units, if available
+
+SECTION 2 — THE CHALLENGE:
+This must focus on human and operational pain, not products.
+
+Image placement rule:
+Move the main contextual project image out of Project Snapshot and place it in this section.
+The image should support the problem narrative — for example, an old intercom panel, entrance condition, guardhouse workflow, CCTV blind spot, car park entry, or resident/visitor access friction.
+
+Preferred layout:
+Use a two-column image/text layout.
+- Left: challenge copy
+- Right: contextual image with short caption
+
+Alternative layout:
+Use full-width image above the text only if the image is especially strong and needs more visual space.
+
+Recommended HTML classes:
+- portfolio-challenge
+- portfolio-image-text-grid
+- challenge-copy
+- portfolio-context-image
+
+Recommended structure:
+<section class="portfolio-challenge section-spacing">
+  <div class="container">
+    <div class="portfolio-image-text-grid">
+      <div class="challenge-copy">
+        <span class="eyebrow">The Challenge</span>
+        <h2>[Challenge headline]</h2>
+        [Challenge text]
+      </div>
+      <figure class="portfolio-context-image">
+        <img src="/images/[project-image].webp" alt="[Descriptive project image alt text]">
+        <figcaption>[Short caption explaining the project context]</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+Include:
+- Outdated system
+- Resident inconvenience
+- Guard or managing agent friction
+- Lack of mobile access
+- Poor visibility or insufficient CCTV coverage
+- Maintenance or support issues
+
+Important:
+Do not mention brands too early.
+Focus first on the problem.
+
+SECTION 3 — TRANSFORMATION / BEFORE & AFTER:
+Use a clear before/after structure.
+
+Before:
+- Legacy system
+- No mobile access
+- Fragmented operation
+- Poor visibility
+- Frequent complaints or inconvenience
+
+After:
+- Modern access experience
+- Mobile-enabled residents
+- Better visibility
+- More reliable operations
+- Cleaner management workflow
+
+SECTION 4 — DECISION POINT:
+Explain the MCST / MA decision tension.
+
+Typical structure:
+The council had to decide whether to continue patching an ageing system or invest in a structured upgrade.
+
+Good themes:
+- Patch vs upgrade
+- Like-for-like replacement vs future-ready system
+- Cost control vs long-term reliability
+- Resident disruption vs infrastructure reuse
+
+SECTION 5 — OUR APPROACH:
+Explain Securevision’s thinking.
+
+Include:
+- Site assessment
+- Infrastructure preservation where possible
+- Minimising disruption
+- Phased implementation where applicable
+- Matching system choice to estate needs
+- Guard / MA / resident usability
+
+SECTION 6 — THE SOLUTION:
+Now mention systems and brands.
+
+Break into layers:
+1. Intercom / Visitor Communication
+2. Access Control / Lift Control, if applicable
+3. CCTV / Surveillance
+4. Vehicle Access / LPR, if applicable
+5. Platform / App / Guard Unit, if applicable
+
+Keep system links to /systems/ pages, not brand pages.
+
+SECTION 7 — RESULTS & IMPACT:
+Do not invent numbers.
+
+Focus on:
+- Smoother visitor handling
+- Improved resident convenience
+- Better guard visibility
+- Stronger audit trail
+- More reliable daily operation
+- Reduced reactive maintenance
+- Scalable foundation for future upgrades
+
+SECTION 8 — INSIGHT:
+End with a sharp takeaway.
+
+Purpose:
+This should feel like a founder / engineering takeaway, not just another paragraph.
+It should be visually distinct but still aligned with Securevision’s agreed typography.
+
+Typography recommendation:
+- Heading: Montserrat, 24–34px using clamp(24px, 3vw, 34px), weight 700, colour var(--dark-blue)
+- Body: Inter, 19px, line-height 1.75, weight 500, colour var(--text-dark)
+- Optional accent: left border using var(--primary-blue)
+- Background: var(--bg-light) or white depending on section sequence
+
+Recommended HTML class:
+- portfolio-insight
+
+Recommended structure:
+<section class="portfolio-insight-section section-spacing">
+  <div class="container">
+    <div class="portfolio-insight">
+      <span class="eyebrow">Securevision Insight</span>
+      <h2>[Sharp insight heading]</h2>
+      <p>[One concise takeaway paragraph]</p>
+    </div>
+  </div>
+</section>
+
+Examples:
+- Smaller condominiums do not need complex systems. They need systems that work consistently, reliably, and simply.
+- A good condo upgrade is not about replacing hardware. It is about restoring confidence in daily living.
+- The best upgrade is one that residents notice through fewer problems, not more complexity.
+
+SECTION 9 — DISCOVERY PATH:
+Add compact links to:
+- /solutions/condominiums.html
+- /systems/surveillance.html
+- /systems/access-control.html
+- /systems/platform.html
+- /systems/vehicle-access.html, if relevant
+
+Use card-style links consistent with portfolio-link-card. Discovery Path may be wider than the Snapshot card, but should not look like a site menu.
+
+SECTION 10 — RELATED PROJECTS:
+Show 3 related residential / condominium portfolio projects.
+Do not include the current project.
+
+Related project cards must use shared card classes.
+Do not use inline styles for card spacing, typography, image sizing, or alignment.
+
+Alignment rule:
+- Related project card content must be centred.
+- Badge centred.
+- Card title centred.
+- Card subtitle/description centred.
+- View Case Study link centred.
+
+Required classes:
+- related-projects
+- related-project-card
+- related-project-body
+- related-project-badge
+- related-project-title
+- related-project-text
+- related-project-link
+
+Recommended structure:
+<section class="related-projects section-spacing">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="eyebrow">Next Steps in Discovery</span>
+      <h2>Related Case Studies</h2>
+      <p>Explore how we have solved similar security and operational challenges for other residential estates in Singapore.</p>
+    </div>
+
+    <div class="grid-3">
+      <a href="/portfolio/[related-project].html" class="card card-clickable related-project-card">
+        <img src="/images/portfolio/[related-project-image].webp" alt="[Related project name]">
+        <div class="related-project-body">
+          <span class="related-project-badge">Condominium</span>
+          <h3 class="related-project-title">[Related Project Name]</h3>
+          <p class="related-project-text">[Short related project description.]</p>
+          <span class="related-project-link">View Case Study →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+FINAL CTA:
+Use the shared final CTA component/classes from sv-shared.css.
+The final CTA must always be fully centred.
+Do not hard-code final CTA typography, spacing, button sizing, or background styling in the page.
+
+Alignment rules:
+- Eyebrow centred
+- Title centred
+- Body text centred
+- Buttons centred
+- Maximum 2 buttons
+- Do not left-align or mix alignment inside the CTA
+
+Heading:
+Planning a Condominium Upgrade?
+
+Body:
+Engage Securevision to modernise your intercom, CCTV, access, and estate security systems with minimal disruption to residents.
+
+Buttons:
+- Book Site Assessment
+- Discuss Your Project / WhatsApp an Engineer
+
+Required HTML:
+<section id="final-cta" class="final-cta cta-high-impact" style="background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('/images/portfolio/[project-hero-image].webp');">
+  <div class="container text-center">
+    <span class="eyebrow-light">Start Your Upgrade</span>
+    <h2>Planning a Condominium Upgrade?</h2>
+    <p class="cta-subtext">Engage Securevision to modernise your intercom, CCTV, access, and estate security systems with minimal disruption to residents.</p>
+    <div class="btn-group center">
+      <a href="/request-site-assessment-singapore.html" class="btn btn-primary">Book Site Assessment</a>
+      <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 Discuss Your Project</a>
+    </div>
+  </div>
+</section>
+
+Permitted inline style:
+Only the project-specific background-image may be inline if no shared utility exists.
+All text alignment, sizing, spacing, and button layout must come from shared CSS.
+
+CTA trust note:
+If trust values are shown in the CTA, use dynamic spans from site-config.js. Do not hardcode licence, bizSAFE, site count, or founded year.
+
+TONE:
+- Operational
+- Clear
+- MCST-friendly
+- Managing Agent-friendly
+- Practical
+- Not too technical
+- Not salesy
+- British English
+
+DO NOT:
+- Use landed-home language like “architectural harmony” or “design sanctuary”
+- Start with products
+- Overuse brand names
+- Invent results
+- Add unsupported metrics
+- Use full addresses unnecessarily
+- Treat the page as a brochure
+
+GLOBAL CSS GUIDANCE FOR CONDO PORTFOLIO TEMPLATE:
+Minimise hard-coded styling in page HTML.
+All repeated layout, typography, colour, card, section, button, trust bar, final CTA, related project cards, nav, and footer rules should live in sv-shared.css or the relevant shared portfolio stylesheet.
+Use classes, not inline styles, except where a project-specific background image is unavoidable.
+Do not redefine fonts in individual pages; follow the site font stack from sv-shared.css.
+Do not rewrite nav, footer, or final CTA. Copy those frozen/shared blocks from the current master template.
+
+Recommended CSS classes to add once globally:
+
+.sv-trust-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border-light);
+  padding: 12px 0;
+}
+
+.trust-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  text-align: center;
+}
+
+.trust-inner span {
+  white-space: nowrap;
+}
+
+.trust-inner .divider {
+  color: var(--border-light);
+  flex-shrink: 0;
+}
+
+.portfolio-snapshot-grid,
+.portfolio-image-text-grid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.snapshot-explore-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  height: fit-content;
+}
+
+.portfolio-link-stack {
+  display: grid;
+  gap: 16px;
+}
+
+.portfolio-link-card {
+  display: block;
+  background: var(--white);
+  padding: 24px 32px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-light);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.portfolio-link-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border-color: var(--primary-blue);
+}
+
+.portfolio-link-card strong {
+  display: block;
+  color: var(--primary-blue);
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.portfolio-link-card span {
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.portfolio-context-image figcaption {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-top: 10px;
+}
+
+.portfolio-insight {
+  background: var(--bg-light);
+  border-left: 4px solid var(--primary-blue);
+  padding: 36px;
+  border-radius: var(--border-radius);
+}
+
+.portfolio-insight h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  color: var(--dark-blue);
+}
+
+.portfolio-insight p {
+  font-family: 'Inter', sans-serif;
+  font-size: 19px;
+  line-height: 1.75;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.related-project-card {
+  text-decoration: none;
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.related-project-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.related-project-body {
+  padding: 24px;
+  text-align: center;
+}
+
+.related-project-badge {
+  background: var(--c-condos-light);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.related-project-title {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.related-project-text {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.related-project-link {
+  color: var(--primary-blue);
+  font-weight: 700;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.final-cta,
+.cta-high-impact {
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+}
+
+.final-cta .container,
+.cta-high-impact .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.final-cta h2,
+.cta-high-impact h2 {
+  text-align: center;
+}
+
+.cta-subtext,
+.final-cta p,
+.cta-high-impact p {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.final-cta .btn-group,
+.final-cta .btn-group.center,
+.cta-high-impact .btn-group,
+.cta-high-impact .btn-group.center {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .portfolio-snapshot-grid,
+  .portfolio-image-text-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .trust-inner {
+    gap: 12px;
+  }
+}
+
+REFERENCE IMPLEMENTATION NOTE:
+The D’Elias page is the current card-style reference for this template. Use its structure for:
+- Hero with 4 factual stats
+- Trust bar sequence and centred visual alignment
+- Project Snapshot with right-side Continue Exploring cards
+- Challenge image/text layout
+- Transformation comparison table
+- Insight block
+- Discovery Path cards
+- Related Projects cards with centred title and subtitle
+- Final CTA with all content centred
+
+However, do not copy D’Elias project-specific wording, images, stats, or dates into other pages. Replace all project data with the relevant condominium project brief.
+
+ANTI-GRAVITY RULE:
+Tell Anti-Gravity:
+“Use this condo portfolio template. Do not invent a new layout. Fill the approved blocks with project content only. Keep trust bar, Continue Exploring, Related Projects, Final CTA, nav, footer, typography, and spacing governed by sv-shared.css.”
