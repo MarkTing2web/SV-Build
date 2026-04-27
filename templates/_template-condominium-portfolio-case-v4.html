@@ -8,8 +8,9 @@ This is not a product showcase.
 This is an upgrade story showing how Securevision helped a condominium move from operational friction to reliable daily living.
 
 STRICT TEMPLATE DISCIPLINE:
-- Use the master Securevision nav exactly. Do not rewrite the menu, URLs, labels, mobile menu, or scripts.
-- Use the master Securevision footer exactly. Do not rewrite footer structure or links.
+- Nav and footer are injected by nav-footer.js. Use <nav id="sv-nav"></nav> and <footer id="sv-footer"></footer> as placeholders.
+- Add <script src="/nav-footer.js"></script> before </body>. Do not hardcode nav or footer HTML.
+- Do not include toggleMobileMenu, toggleSubmenu, scroll listener, or click-outside scripts — nav-footer.js owns these.
 - Use sv-shared.css as the primary source for typography, spacing, colours, buttons, cards, nav, footer, breadcrumbs, trust bar, related project cards, and final CTA.
 - Do not add inline CSS or page-specific style blocks except for a permitted project-specific background image where unavoidable.
 - If a repeated layout or visual treatment is missing, add it once to sv-shared.css or the shared portfolio CSS, not inside an individual page.
@@ -109,51 +110,45 @@ Layout rule:
 Use a two-column layout.
 Both columns must start at the same top alignment.
 Do not vertically centre the right-side card.
-The Continue Exploring card must sit on the right side of the Project Snapshot, aligned with the Project Snapshot heading.
+The Technologies Implemented card must sit on the right side of the Project Snapshot, aligned with the Project Snapshot heading.
 
 Left column — Project Snapshot:
 - Short project context
 - Overview table
 
-Right column — Continue Exploring:
-Add a compact contextual discovery card titled “Continue Exploring”.
-This is not a menu and must not be labelled “Quick Navigation”.
-It gives readers an early pathway to relevant solution and system pages without waiting until the full Discovery Path section.
+Right column — Technologies Implemented:
+Add a compact factual card titled "Technologies Implemented".
+This answers the reader's immediate question after absorbing the Project Snapshot: what was actually deployed?
 
-Continue Exploring card-style links:
-Use card-style links, not a plain menu list.
-Each card should include:
-- Strong link title
-- Short support line explaining why the link is relevant
+Design intent:
+- This is a project-specific factual callout, not a navigation widget.
+- Each entry links to the brand overview page at /brands/[brand].html.
+- Do NOT link to model-specific pages here.
+- Keep the card compact. It must not be visually heavier than the Project Snapshot column.
+- The Discovery Path section later in the page handles SEO clustering. Do not duplicate that role here.
+- Technologies Implemented links to /brands/ pages. Discovery Path links to /systems/ pages.
 
-Required / typical cards:
-- Explore Condominium Security → /solutions/condominiums.html
-  Support text: Strategic approach to estate-wide security and resident access.
-- See People Access Systems → /systems/access-control.html
-  Support text: Intercom, access control, and visitor entry technology.
-- Explore CCTV & Surveillance → /systems/surveillance.html, if relevant
-  Support text: Estate visibility, incident review, and security coverage.
-- Explore Vehicle Access & LPR → /systems/vehicle-access.html, if relevant
-  Support text: Automated resident entry and vehicle access control.
-- Explore Platform Management → /systems/platform.html, if relevant
-  Support text: Integration, audit trail, and estate operations visibility.
+Standard brand set (delete any NOT used in this project before handoff to Anti-Gravity):
+- Akuvox    -> /brands/akuvox.html    -- SIP-based IP intercom, mobile-enabled visitor access.
+- Hikvision -> /brands/hikvision.html -- IP surveillance cameras and NVR recording systems.
+- Aiphone   -> /brands/aiphone.html   -- Reliable video door station and intercom systems.
+- FAAC      -> /brands/faac.html      -- Automated barrier arms and gate operators.
+- GantryGo  -> /brands/gantrygo.html  -- LPR-enabled vehicle access and resident app integration.
 
-Important:
-- Do not remove the full Discovery Path section later in the page.
-- The top Continue Exploring card is for contextual guidance, not page navigation.
-- The later Discovery Path remains for SEO clustering and conversion reinforcement.
-- Keep this card compact. Do not make it visually heavier than the Project Snapshot.
-- Never use the labels “Quick Navigation”, “Menu”, “Jump Links”, or “Page Navigation” for this block.
-- Use advisory language only: Continue Exploring, Related Condo Security Paths, Explore Related Systems.
-- Do not place the main project image in Project Snapshot. Move contextual image to The Challenge.
+Alignment rule:
+The eyebrow "Technologies Implemented" must sit OUTSIDE the card box, at the same level as
+the "Project Snapshot" eyebrow on the left. The card box starts below the eyebrow.
+Use the snapshot-tech-col wrapper pattern — do not put the eyebrow inside snapshot-tech-card.
 
 Required HTML classes:
-- portfolio-snapshot
 - portfolio-snapshot-grid
 - snapshot-main
-- snapshot-explore-card
-- portfolio-link-stack
-- portfolio-link-card
+- snapshot-tech-col       (wrapper div — eyebrow sits here)
+- snapshot-tech-card      (white card box — sits below eyebrow)
+- portfolio-tech-stack
+- portfolio-tech-item
+- tech-brand-name
+- tech-brand-desc
 
 Required structure:
 <section class="portfolio-snapshot bg-light section-spacing">
@@ -193,27 +188,44 @@ Required structure:
         </table>
       </div>
 
-      <aside class="snapshot-explore-card">
-        <span class="eyebrow">Continue Exploring</span>
-        <div class="portfolio-link-stack mt-24">
-          <a href="/solutions/condominiums.html" class="portfolio-link-card">
-            <strong>Explore Condominium Security</strong>
-            <span>Strategic approach to estate-wide security and resident access.</span>
-          </a>
-          <a href="/systems/access-control.html" class="portfolio-link-card">
-            <strong>See People Access Systems</strong>
-            <span>Intercom, access control, and visitor entry technology.</span>
-          </a>
-          <a href="/systems/surveillance.html" class="portfolio-link-card">
-            <strong>Explore CCTV &amp; Surveillance</strong>
-            <span>Estate visibility, incident review, and security coverage.</span>
-          </a>
-          <a href="/systems/vehicle-access.html" class="portfolio-link-card">
-            <strong>Explore Vehicle Access &amp; LPR</strong>
-            <span>Automated resident entry and vehicle access control.</span>
-          </a>
+      <div class="snapshot-tech-col">
+        <span class="eyebrow">Technologies Implemented</span>
+        <div class="snapshot-tech-card">
+          <div class="portfolio-tech-stack">
+
+            <!-- AKUVOX: keep if intercom / video door station used -->
+            <a href="/brands/akuvox.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">Akuvox</span>
+              <span class="tech-brand-desc">SIP-based IP intercom, mobile-enabled visitor access.</span>
+            </a>
+
+            <!-- HIKVISION: keep if CCTV / NVR used -->
+            <a href="/brands/hikvision.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">Hikvision</span>
+              <span class="tech-brand-desc">IP surveillance cameras and NVR recording systems.</span>
+            </a>
+
+            <!-- AIPHONE: keep if Aiphone intercom used -->
+            <a href="/brands/aiphone.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">Aiphone</span>
+              <span class="tech-brand-desc">Reliable video door station and intercom systems.</span>
+            </a>
+
+            <!-- FAAC: keep if barrier arms or gate operators used -->
+            <a href="/brands/faac.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">FAAC</span>
+              <span class="tech-brand-desc">Automated barrier arms and gate operators.</span>
+            </a>
+
+            <!-- GANTRYGO: keep if LPR / resident vehicle app used -->
+            <a href="/brands/gantrygo.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">GantryGo</span>
+              <span class="tech-brand-desc">LPR-enabled vehicle access and resident app integration.</span>
+            </a>
+
+          </div>
         </div>
-      </aside>
+      </div>
     </div>
   </div>
 </section>
@@ -329,9 +341,9 @@ Break into layers:
 Keep system links to /systems/ pages, not brand pages.
 
 SECTION 7 — RESULTS & IMPACT:
-Do not invent numbers.
+Do not invent numbers. Focus on factual, observable outcomes only.
 
-Focus on:
+Good themes:
 - Smoother visitor handling
 - Improved resident convenience
 - Better guard visibility
@@ -339,6 +351,48 @@ Focus on:
 - More reliable daily operation
 - Reduced reactive maintenance
 - Scalable foundation for future upgrades
+
+Layout:
+Use a 3-card grid. Each card covers one distinct outcome.
+Cards have a green top accent border and a tick-prefixed heading.
+Body text is left-aligned and concise — 1 to 2 sentences maximum.
+
+Required HTML classes:
+- portfolio-results (section class)
+- grid-3
+- portfolio-result-card
+- portfolio-result-title  (green, Montserrat, 700)
+- portfolio-result-text   (Inter, text-light)
+
+Required structure:
+<section class="portfolio-results section-spacing bg-light">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="eyebrow">Results &amp; Impact</span>
+      <h2>[Outcome-focused heading — e.g. Stability Restored. Trust Rebuilt.]</h2>
+    </div>
+
+    <div class="grid-3 mt-48">
+      <div class="portfolio-result-card">
+        <h4 class="portfolio-result-title">&#10003; [Result 1 title]</h4>
+        <p class="portfolio-result-text">[1–2 sentences describing the observable outcome.]</p>
+      </div>
+      <div class="portfolio-result-card">
+        <h4 class="portfolio-result-title">&#10003; [Result 2 title]</h4>
+        <p class="portfolio-result-text">[1–2 sentences describing the observable outcome.]</p>
+      </div>
+      <div class="portfolio-result-card">
+        <h4 class="portfolio-result-title">&#10003; [Result 3 title]</h4>
+        <p class="portfolio-result-text">[1–2 sentences describing the observable outcome.]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+CSS note:
+.portfolio-result-card, .portfolio-result-title, .portfolio-result-text are
+defined in sv-shared.css. Do not use inline styles on these elements.
+The green colour (#38a169) is applied via the class — do not hardcode it.
 
 SECTION 8 — INSIGHT:
 End with a sharp takeaway.
@@ -512,6 +566,7 @@ Alignment rules:
 - Buttons centred
 - Maximum 2 buttons
 - Do not left-align or mix alignment inside the CTA
+- The button group must have margin-top: 40px gap from the body text — this is controlled by sv-shared.css .cta-high-impact .btn-group rule. Do not add inline margin.
 
 Heading:
 Planning a Condominium Upgrade?
@@ -609,14 +664,7 @@ Recommended CSS classes to add once globally:
   align-items: start;
 }
 
-.snapshot-explore-card {
-  background: var(--white);
-  border: 1px solid var(--border-light);
-  border-radius: var(--border-radius);
-  padding: 32px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  height: fit-content;
-}
+/* .snapshot-explore-card — DEPRECATED. Use .snapshot-tech-col + .snapshot-tech-card from sv-shared.css */
 
 .portfolio-link-stack {
   display: grid;
@@ -796,7 +844,8 @@ REFERENCE IMPLEMENTATION NOTE:
 The D’Elias page is the current card-style reference for this template. Use its structure for:
 - Hero with 4 factual stats
 - Trust bar sequence and centred visual alignment
-- Project Snapshot with right-side Continue Exploring cards
+- Project Snapshot with right-side Technologies Implemented card (snapshot-tech-col / snapshot-tech-card)
+- Results & Impact with 3 outcome cards (portfolio-result-card / portfolio-result-title / portfolio-result-text)
 - Challenge image/text layout
 - Transformation comparison table
 - Insight block
@@ -808,4 +857,4 @@ However, do not copy D’Elias project-specific wording, images, stats, or dates
 
 ANTI-GRAVITY RULE:
 Tell Anti-Gravity:
-“Use this condo portfolio template. Do not invent a new layout. Fill the approved blocks with project content only. Keep trust bar, Continue Exploring, Related Projects, Final CTA, nav, footer, typography, and spacing governed by sv-shared.css.”
+“Use this condo portfolio template. Do not invent a new layout. Fill the approved blocks with project content only. Nav uses <nav id="sv-nav"></nav> injected by nav-footer.js. Footer uses <footer id="sv-footer"></footer>. Add <script src="/nav-footer.js"></script> before </body>. Technologies Implemented links to /brands/ pages. Discovery Path links to /systems/ pages. Do not merge these two blocks. Keep trust bar, Technologies Implemented, Discovery Path, Related Projects, Final CTA, typography, and spacing governed by sv-shared.css.”
