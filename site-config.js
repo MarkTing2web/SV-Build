@@ -2,7 +2,7 @@ const SECUREVISION = {
   // ── CORE IDENTITY ──────────────────────────────────────────────────
   foundedYear: 2006,
   experienceStartYear: 1989,
-  licenceNumber: 'L/PS/000267/2023P',
+  licenceNumber: 'L/PS/001568/2026P',
   licenceExpiry: '2026',           // ← update annually when licence renews
   bizSafe: 'Level 3',
   totalSites: 2000,                // ← update when milestone changes
