@@ -5965,6 +5965,21 @@ section .subtitle {
     gap: 24px;
 }
 
+/* 4 columns on desktop, 2 on tablet, 1 on mobile */
+.grid-4-tablet-2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+/* 3 columns for results when no image is present */
+.grid-results-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-top: 48px;
+}
+
 .portfolio-system-card {
     background: var(--white);
     padding: 32px;
@@ -6706,12 +6721,20 @@ section .subtitle {
 @media (max-width: 768px) {
   .portfolio-snapshot-grid,
   .portfolio-image-text-grid,
-  .portfolio-grid-2 {
+  .portfolio-grid-2,
+  .grid-4-tablet-2,
+  .grid-results-3 {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 
   .trust-inner {
     gap: 12px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+  .grid-4-tablet-2 {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
