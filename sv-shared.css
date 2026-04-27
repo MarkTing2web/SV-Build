@@ -6239,3 +6239,525 @@ section .subtitle {
     font-weight: 600;
     width: 35%;
 }
+
+/* ==========================================================================
+   SV-SHARED.CSS — PORTFOLIO ADDITIONS
+   Append these rules to the END of sv-shared.css, after line 6241.
+
+   SCOPE: These rules apply only to portfolio pages.
+   No class here affects the nav, footer, solutions, systems, brands,
+   insights, or any other section of the site.
+
+   HOW TO USE:
+   1. Append the whole block below to sv-shared.css.
+   2. Do NOT paste individual rules scattered through the file —
+      keep portfolio rules grouped for maintainability.
+   3. After appending, verify no existing class names are re-declared
+      (see the audit notes in the handover document).
+   ========================================================================== */
+
+
+/* ==========================================================================
+   PORTFOLIO — UTILITY SPACING HELPERS
+   Used by both condominium and landed portfolio templates.
+   .section-spacing, .mt-16, .mt-24 are referenced in templates but
+   were missing from sv-shared.css.
+   ========================================================================== */
+
+.section-spacing {
+    padding: 80px 0;
+}
+
+.mt-16 {
+    margin-top: 16px;
+}
+
+.mt-24 {
+    margin-top: 24px;
+}
+
+
+/* ==========================================================================
+   PORTFOLIO — SECTION HEADER UTILITY
+   Used for centered section openers (eyebrow + h2 + intro paragraph).
+   Scoped as a standalone class, not under .products-section.
+   ========================================================================== */
+
+.section-header {
+    margin-bottom: 48px;
+}
+
+.section-header.text-center {
+    text-align: center;
+}
+
+.section-header h2 {
+    margin-top: 8px;
+}
+
+.section-header p {
+    margin-top: 16px;
+    color: var(--text-light);
+    max-width: 640px;
+}
+
+.section-header.text-center p {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ==========================================================================
+   PORTFOLIO — TECHNOLOGIES IMPLEMENTED CARD (CONDOMINIUM)
+   Right column of the Project Snapshot two-column grid.
+   Links to /brands/ pages only.
+   Discovery Path links to /systems/ pages — do not merge these two blocks.
+
+   align-self: start prevents the card stretching to match the taller
+   left column regardless of how many brand entries are shown.
+   ========================================================================== */
+
+.snapshot-tech-card {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius);
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    height: fit-content;
+    align-self: start;
+}
+
+.portfolio-tech-stack {
+    display: grid;
+    gap: 12px;
+}
+
+.portfolio-tech-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 16px 20px;
+    border-radius: calc(var(--border-radius) - 2px);
+    border: 1px solid var(--border-light);
+    border-left: 3px solid var(--primary-blue);
+    background: var(--white);
+    text-decoration: none;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.portfolio-tech-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+    border-left-color: var(--dark-blue);
+}
+
+.tech-brand-name {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    line-height: 1.3;
+}
+
+.tech-brand-desc {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   PORTFOLIO — LANDED RESIDENTIAL: SECURITY SYSTEMS IMPLEMENTED
+   Right column of the Project Overview two-column grid.
+   Links to /systems/ pages only (not /brands/).
+   Uses the same snapshot grid as condominiums.
+
+   Deliberately different visual treatment from .snapshot-tech-card:
+   - No left accent border (neutral, factual list)
+   - Slightly tighter padding (landed pages are spec-forward)
+   ========================================================================== */
+
+.snapshot-systems-card {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius);
+    padding: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    height: fit-content;
+    align-self: start;
+}
+
+.portfolio-systems-stack {
+    display: grid;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.portfolio-system-item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 14px 18px;
+    border-radius: calc(var(--border-radius) - 2px);
+    border: 1px solid var(--border-light);
+    background: var(--white);
+    text-decoration: none;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.portfolio-system-item:hover {
+    border-color: var(--primary-blue);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+.system-item-label {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    line-height: 1.3;
+}
+
+.system-item-spec {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   PORTFOLIO — LANDED RESIDENTIAL: SECURITY LAYER CARDS (Section 4)
+   Four-card grid: Intrusion / Surveillance / Visitor / Entry.
+   Uses .grid-4 for the outer grid (already defined in sv-shared.css).
+   ========================================================================== */
+
+.portfolio-layer-card {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: var(--border-radius);
+    padding: 32px 28px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.portfolio-layer-card:hover {
+    border-color: var(--primary-blue);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.portfolio-layer-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.portfolio-layer-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--dark-blue);
+    margin-bottom: 10px;
+}
+
+.portfolio-layer-card p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+/* ==========================================================================
+   PORTFOLIO — RELATED PROJECT BADGE: RESIDENTIAL VARIANT
+   The existing .related-project-badge uses --c-condos-light.
+   Residential pages need --c-homes-light instead.
+   Apply .related-project-badge--homes alongside the base class.
+   ========================================================================== */
+
+.related-project-badge--homes {
+    background: var(--c-homes) !important;
+}
+
+.related-project-badge--condos {
+    background: var(--c-condos-light) !important;
+}
+
+
+/* ==========================================================================
+   PORTFOLIO — SNAPSHOT GRID ALIGNMENT FIX
+   Applies align-self: start to .snapshot-main to prevent either column
+   stretching beyond its natural content height.
+   This supplements the existing .portfolio-snapshot-grid rule.
+   ========================================================================== */
+
+.snapshot-main {
+    align-self: start;
+}
+
+
+/* ==========================================================================
+   PORTFOLIO — MOBILE RESPONSIVE ADDITIONS
+   Supplements the existing @media (max-width: 768px) block in sv-shared.css.
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+    .section-spacing {
+        padding: 56px 0;
+    }
+
+    .snapshot-tech-card,
+    .snapshot-systems-card {
+        padding: 24px;
+    }
+
+    .portfolio-tech-item,
+    .portfolio-system-item {
+        padding: 14px 16px;
+    }
+
+    .portfolio-layer-card {
+        padding: 24px 20px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .grid-4 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ------------------------------------------------------------------
+   PORTFOLIO — CONDOMINIUM PORTFOLIO V2 STYLES
+   ------------------------------------------------------------------ */
+
+.sv-trust-bar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border-light);
+  padding: 12px 0;
+}
+
+.trust-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  text-align: center;
+}
+
+.trust-inner span {
+  white-space: nowrap;
+}
+
+.trust-inner .divider {
+  color: var(--border-light);
+  flex-shrink: 0;
+}
+
+.portfolio-snapshot-grid,
+.portfolio-image-text-grid {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.snapshot-tech-card {
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  height: fit-content;
+  align-self: start;
+}
+
+.portfolio-tech-stack {
+  display: grid;
+  gap: 12px;
+}
+
+.portfolio-tech-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+  padding: 16px 20px;
+  border-radius: calc(var(--border-radius) - 2px);
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--primary-blue);
+  background: var(--white);
+  text-decoration: none;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.portfolio-tech-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+  border-left-color: var(--dark-blue);
+}
+
+.tech-brand-name {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary-blue);
+  line-height: 1.3;
+}
+
+.tech-brand-desc {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+.portfolio-context-image figcaption {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-top: 10px;
+}
+
+.portfolio-insight {
+  background: var(--bg-light);
+  border-left: 4px solid var(--primary-blue);
+  padding: 36px;
+  border-radius: var(--border-radius);
+}
+
+.portfolio-insight h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(24px, 3vw, 34px);
+  font-weight: 700;
+  color: var(--dark-blue);
+}
+
+.portfolio-insight p {
+  font-family: 'Inter', sans-serif;
+  font-size: 19px;
+  line-height: 1.75;
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.related-project-card {
+  text-decoration: none;
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+.related-project-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.related-project-body {
+  padding: 24px;
+  text-align: center;
+}
+
+.related-project-badge {
+  background: var(--c-condos-light);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.related-project-title {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.related-project-text {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.related-project-link {
+  color: var(--primary-blue);
+  font-weight: 700;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.final-cta,
+.cta-high-impact {
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+}
+
+.final-cta .container,
+.cta-high-impact .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.final-cta h2,
+.cta-high-impact h2 {
+  text-align: center;
+}
+
+.cta-subtext,
+.final-cta p,
+.cta-high-impact p {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.final-cta .btn-group,
+.final-cta .btn-group.center,
+.cta-high-impact .btn-group,
+.cta-high-impact .btn-group.center {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .portfolio-snapshot-grid,
+  .portfolio-image-text-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .trust-inner {
+    gap: 12px;
+  }
+}
