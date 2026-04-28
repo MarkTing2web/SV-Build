@@ -1,6 +1,85 @@
 /* ==========================================================
    sv-shared.css — Securevision Master Stylesheet
-   Last Updated: April 1, 2026
+
+   VERSION HISTORY
+   -------------------------------------------------------
+   v1.0  April 1 2026   Initial build — core styles, nav,
+                         hero, solutions, systems, brands,
+                         insights, portfolio base.
+
+   v1.1  April 2026     Portfolio additions block added:
+                         section-spacing, mt-16, mt-24,
+                         snapshot-tech-col/card,
+                         snapshot-systems-col/card,
+                         portfolio-tech-stack/item,
+                         tech-brand-name/desc,
+                         portfolio-layer-card,
+                         related-project-badge variants.
+
+   v1.2  April 2026     Discovery Path cards redesigned:
+                         portfolio-link-stack changed to
+                         4-col responsive grid (desktop),
+                         2-col (tablet), 1-col (mobile).
+                         portfolio-link-card-body added.
+                         Duplicate definitions removed.
+
+   v1.3  April 2026     Comparison table header fixed:
+                         th background dark-blue, white
+                         text. th.feature-col forced white
+                         to override specificity clash.
+
+   v1.4  April 2026     Result cards standardised:
+                         portfolio-result-card green top
+                         border, left-aligned.
+                         portfolio-result-title added —
+                         green, Montserrat 700, bottom
+                         padding and divider.
+                         portfolio-result-text added.
+
+   v1.5  April 2026     Related project card alignment:
+                         body left-aligned, badge/title/
+                         link centred explicitly.
+                         related-project-link margin-top
+                         auto + padding-top 20px.
+                         related-project-title !important
+                         centre override.
+
+   v1.6  April 2026     Section header fix:
+                         .section-header.text-center p
+                         gets explicit text-align: center.
+                         .section-header.text-center
+                         p.text-left exception added so
+                         Discovery Path and Related
+                         Projects intro paragraphs align
+                         left correctly.
+
+   v1.7  April 2026     CTA button group margin-top: 40px
+                         added for spacing between body
+                         text and CTA buttons.
+                         Hero overlay darkened:
+                         0.82/0.72/0.82 opacity.
+                         no-bottom-spacing utility added.
+
+   v1.9  April 2026     Global .container changed from 1200px
+                         to 1080px site-wide. Better reading width
+                         for 2026 screens. Portfolio-specific
+                         container override removed — redundant.
+                         portfolio-section-narrow class retained
+                         in CSS but no longer needed on pages.
+
+   v1.8  April 2026     portfolio-section-narrow set to
+                         max-width: 100% — removes narrow
+                         viewport from portfolio prose
+                         sections (Transformation, Decision
+                         Point, Our Approach, Solution).
+                         Full width now consistent across
+                         all portfolio sections.
+                         portfolio-insight redesigned as
+                         quiet editorial pullquote: no
+                         filled background, no left border,
+                         centred at 760px, smaller type,
+                         decorative quote mark via ::before.
+                         Duplicate definitions removed.
    ========================================================== */
 
 /* (Existing root and core styles remain) */
@@ -132,7 +211,7 @@ h4 {
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1080px;
     margin-left: auto !important;
     margin-right: auto !important;
     padding: 0 24px;
@@ -5513,8 +5592,16 @@ section .subtitle {
     padding: 100px 0;
 }
 
+/* portfolio-section-narrow: constrains prose text to a readable line length.
+   Applied to text-heavy sections: Transformation, Decision Point,
+   Our Approach, The Solution, and any other narrative-only sections.
+   NOT applied to grid sections (cards, tables, stats) which use full width.
+   Target: ~70 characters per line at standard body font size. */
+/* portfolio-section-narrow: matches global container width so it no longer
+   creates a narrower column. All sections now consistent at 1080px.
+   Remove this class from HTML files during next Anti-Gravity pass. */
 .portfolio-section-narrow {
-    max-width: 860px;
+    max-width: 1080px;
 }
 
 .portfolio-split {
@@ -5640,11 +5727,31 @@ section .subtitle {
 }
 
 .portfolio-result-card {
-    text-align: center;
-    padding: 40px 24px;
-    background: white;
+    background: var(--white);
     border: 1px solid var(--border-light);
-    border-radius: 12px;
+    border-radius: var(--border-radius);
+    border-top: 3px solid #38a169;
+    padding: 28px 28px 24px 28px;
+    text-align: left;
+}
+
+.portfolio-result-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #38a169;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+    line-height: 1.3;
+}
+
+.portfolio-result-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0;
 }
 
 .portfolio-result-value {
@@ -5743,27 +5850,7 @@ section .subtitle {
     margin-top: 10px;
 }
 
-.portfolio-insight {
-    background: var(--bg-light);
-    border-left: 4px solid var(--primary-blue);
-    padding: 36px;
-    border-radius: var(--border-radius);
-}
-
-.portfolio-insight h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(24px, 3vw, 34px);
-    font-weight: 700;
-    color: var(--dark-blue);
-}
-
-.portfolio-insight p {
-    font-family: 'Inter', sans-serif;
-    font-size: 19px;
-    line-height: 1.75;
-    font-weight: 500;
-    color: var(--text-dark);
-}
+/* DUPLICATE REMOVED — see canonical .portfolio-insight definition in portfolio additions block */
 
 .cta-high-impact {
     padding: 120px 0;
@@ -5945,6 +6032,11 @@ section .subtitle {
     width: 30%;
 }
 
+/* feature-col in header row must be white — overrides the grey body colour */
+.comparison-table th.feature-col {
+    color: #ffffff;
+}
+
 .comparison-table .before-col {
     color: #e53e3e;
     width: 35%;
@@ -6078,26 +6170,49 @@ section .subtitle {
     margin-top: 10px;
 }
 
+/* ==========================================================
+   PORTFOLIO INSIGHT PULLQUOTE — canonical definition
+   v1.8 April 2026
+   Quiet editorial treatment. Centred, no filled background,
+   no left border. Decorative quote mark via ::before.
+   ========================================================== */
+
 .portfolio-insight {
-    background: var(--bg-light);
-    border-left: 4px solid var(--primary-blue);
-    padding: 36px;
-    border-radius: var(--border-radius);
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 24px;
+    text-align: center;
+    position: relative;
+}
+
+.portfolio-insight::before {
+    content: '“';
+    display: block;
+    font-family: Georgia, serif;
+    font-size: 80px;
+    line-height: 1;
+    color: var(--primary-blue);
+    opacity: 0.18;
+    margin-bottom: -24px;
 }
 
 .portfolio-insight h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(24px, 3vw, 34px);
+    font-size: clamp(18px, 2vw, 22px);
     font-weight: 700;
     color: var(--dark-blue);
+    line-height: 1.4;
+    margin-bottom: 16px;
 }
 
 .portfolio-insight p {
     font-family: 'Inter', sans-serif;
-    font-size: 19px;
+    font-size: 15px;
     line-height: 1.75;
-    font-weight: 500;
-    color: var(--text-dark);
+    font-weight: 400;
+    color: var(--text-light);
+    max-width: 620px;
+    margin: 0 auto;
 }
 
 .related-project-card {
@@ -6135,7 +6250,7 @@ section .subtitle {
     font-size: 1.2rem;
     margin-bottom: 12px;
     color: var(--text-dark);
-    text-align: center;
+    text-align: center !important;
 }
 
 .related-project-text {
@@ -6278,6 +6393,14 @@ section .subtitle {
 
 .section-header.text-center p {
     margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Paragraph explicitly marked .text-left overrides section-header centering */
+.section-header.text-center p.text-left {
+    text-align: left;
+    margin-left: 0;
     margin-right: auto;
 }
 
@@ -6550,27 +6673,7 @@ section .subtitle {
   margin-top: 10px;
 }
 
-.portfolio-insight {
-  background: var(--bg-light);
-  border-left: 4px solid var(--primary-blue);
-  padding: 36px;
-  border-radius: var(--border-radius);
-}
-
-.portfolio-insight h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(24px, 3vw, 34px);
-  font-weight: 700;
-  color: var(--dark-blue);
-}
-
-.portfolio-insight p {
-  font-family: 'Inter', sans-serif;
-  font-size: 19px;
-  line-height: 1.75;
-  font-weight: 500;
-  color: var(--text-dark);
-}
+/* DUPLICATE REMOVED — see canonical .portfolio-insight definition in portfolio additions block */
 
 .related-project-card {
   text-decoration: none;
@@ -6607,7 +6710,7 @@ section .subtitle {
   font-size: 1.2rem;
   margin-bottom: 12px;
   color: var(--text-dark);
-  text-align: center;
+  text-align: center !important;
 }
 
 .related-project-text {
@@ -6678,4 +6781,10 @@ section .subtitle {
   .trust-inner {
     gap: 12px;
   }
+}
+
+/* Force related-project-title to centre regardless of parent alignment */
+.related-project-body .related-project-title,
+.related-project-body h3.related-project-title {
+    text-align: center !important;
 }

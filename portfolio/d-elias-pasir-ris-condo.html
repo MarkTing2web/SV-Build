@@ -33,6 +33,45 @@
 
   <nav id="sv-nav"></nav>
 
+  <!-- ═══ HERO ═══ -->
+  <header class="portfolio-hero">
+    <img src="/images/portfolio/d-elias-front-facade.webp" alt="D'Elias Pasir Ris" class="hero-image">
+    <div class="hero-overlay"></div>
+    <div class="container pos-relative z-2">
+      <div class="portfolio-kicker">
+        <span class="badge badge-primary">Condominium Case Study</span>
+        <span class="portfolio-meta">📍 Elias Terrace, Singapore</span>
+      </div>
+      <h1 class="portfolio-hero-title">From Fragmentation to Unified Security at D'Elias</h1>
+      <p class="portfolio-hero-subtitle">Consolidating six disconnected access systems into one integrated mobile-enabled platform for 17 cluster townhouse units.</p>
+
+      <div class="portfolio-taxonomy" aria-label="Project taxonomy">
+        <span class="portfolio-chip">Property Type: Cluster Townhouse</span>
+        <span class="portfolio-chip">System: Integrated Access &amp; Intercom</span>
+        <span class="portfolio-chip">Solution: Multi-gate Unification</span>
+      </div>
+
+      <div class="portfolio-stat-grid">
+        <div class="portfolio-stat">
+          <span class="portfolio-stat-value">17</span>
+          <span class="portfolio-stat-label">Residential Units</span>
+        </div>
+        <div class="portfolio-stat">
+          <span class="portfolio-stat-value">6</span>
+          <span class="portfolio-stat-label">Systems Consolidated</span>
+        </div>
+        <div class="portfolio-stat">
+          <span class="portfolio-stat-value">Dec 2023</span>
+          <span class="portfolio-stat-label">Completed</span>
+        </div>
+        <div class="portfolio-stat">
+          <span class="portfolio-stat-value">1</span>
+          <span class="portfolio-stat-label">Unified Platform</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <!-- ── TRUST BAR ── -->
   <div class="sv-trust-bar">
     <div class="container">
@@ -143,7 +182,7 @@
 
   <!-- ═══ SECTION 3 — TRANSFORMATION ═══ -->
   <section class="portfolio-section sv-section-grey section-spacing">
-    <div class="container">
+    <div class="container portfolio-section-narrow text-left">
       <span class="eyebrow">Transformation</span>
       <h2>From Fragmentation to Unification</h2>
 
@@ -185,7 +224,7 @@
 
   <!-- ═══ SECTION 4 — DECISION POINT ═══ -->
   <section class="portfolio-section sv-section-white section-spacing">
-    <div class="container">
+    <div class="container portfolio-section-narrow text-left">
       <span class="eyebrow">Decision Point</span>
       <h2>Integration Over Individual Replacement</h2>
       <p class="portfolio-body mt-24">The management council recognised that simply replacing "like-for-like" devices would only perpetuate the silos. They made the strategic decision to shift towards a <strong>unified platform</strong>—one that could bring intercom, pedestrian access, and vehicle operations into a single manageable ecosystem.</p>
@@ -194,7 +233,7 @@
 
   <!-- ═══ SECTION 5 — OUR APPROACH ═══ -->
   <section class="portfolio-section sv-section-grey section-spacing">
-    <div class="container">
+    <div class="container portfolio-section-narrow text-left">
       <span class="eyebrow">Our Approach</span>
       <h2>Engineered for Consolidation</h2>
       <div class="portfolio-body mt-24">
@@ -205,7 +244,7 @@
 
   <!-- ═══ SECTION 6 — THE SOLUTION ═══ -->
   <section class="portfolio-section sv-section-white section-spacing">
-    <div class="container">
+    <div class="container portfolio-section-narrow text-left">
       <span class="eyebrow">The Solution</span>
       <h2>A Multi-Layered Upgrade</h2>
 
@@ -354,22 +393,31 @@
   </section>
 
   <!-- ═══ FINAL CTA ═══ -->
-  <section id="final-cta" class="cta-section cta-high-impact" style="background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), url('/images/portfolio/d-elias-front-facade.webp'); background-size: cover; background-position: center; padding: 120px 0;">
+    <section id="final-cta" class="final-cta cta-high-impact" style="background-image: linear-gradient(rgba(15, 23, 42, 0.78), rgba(15, 23, 42, 0.78)), url('/images/portfolio/d-elias-front-facade.webp');">
     <div class="container text-center">
-      <span class="eyebrow-light">Institutional Advisory</span>
-      <h2 style="color:#fff;">Are Your Residents Still Coming Down to Let Visitors In?</h2>
-      <p class="subtitle" style="max-width: 700px; margin: 24px auto 48px;">If you are managing an ageing intercom system where inconsistent estate performance and repeated repairs are no longer solving the root problem, it's time to rethink the system. Every development is different, but the underlying challenges are often the same.</p>
-      <div class="btn-group" style="justify-content: center;">
-        <a href="/request-site-assessment-singapore.html?intent=portfolio-advisor" class="btn btn-primary">Book Site Assessment</a>
-        <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 Speak to Our Team</a>
+      <span class="eyebrow-light">Start Your Upgrade</span>
+      <h2>Planning a Condominium Upgrade?</h2>
+      <p class="cta-subtext">Engage Securevision to modernise your intercom, CCTV, access, and estate security systems with minimal disruption to residents.</p>
+      <div class="btn-group center">
+        <a href="/request-site-assessment-singapore.html" class="btn btn-primary">Book Site Assessment</a>
+        <a href="https://wa.me/6593860466" class="btn btn-outline-light">Discuss Your Project</a>
       </div>
-      <p class="hero-trust-note">Police Licence <span class="sv-licence"></span> · Serving Singapore Since <span class="sv-founded"></span></p>
     </div>
   </section>
 
   <!-- ═══ FOOTER ═══ -->
   <footer id="sv-footer"></footer>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof SECUREVISION !== 'undefined') {
+        var SV = SECUREVISION;
+        document.querySelectorAll('.sv-licence').forEach(function(el) { el.textContent = SV.licenceNumber || ''; });
+        document.querySelectorAll('.sv-sites').forEach(function(el) { el.textContent = SV.siteDisplay || ''; });
+        document.querySelectorAll('.sv-bizsafe').forEach(function(el) { el.textContent = SV.bizsafeLevel || 'bizSAFE Level 3'; });
+      }
+    });
+  </script>
   <script src="/nav-footer.js"></script>
 </body>
 
