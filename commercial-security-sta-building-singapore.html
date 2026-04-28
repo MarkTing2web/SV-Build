@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en-GB">
 <head>
   <meta charset="UTF-8">
@@ -32,93 +32,7 @@
 </head>
 <body>
 
-<nav class="main-nav">
-<div class="nav-container">
-  <a href="/" class="nav-logo-link" aria-label="Securevision Home">
-    <img src="/images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
-    <span class="wordmark nav-wordmark">SECUREVISION</span>
-  </a>
-  <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="3" y1="12" x2="21" y2="12"></line>
-      <line x1="3" y1="6" x2="21" y2="6"></line>
-      <line x1="3" y1="18" x2="21" y2="18"></line>
-    </svg>
-  </button>
-  <ul class="nav-menu">
-    <li class="nav-item"><a href="/solutions/" class="nav-link has-dropdown">Solutions</a>
-      <div class="simple-dropdown">
-        <a href="/solutions/residential.html">Private Homes</a>
-        <a href="/solutions/condominiums.html">Condominiums</a>
-        <a href="/solutions/commercial.html">Commercial &amp; Retail</a>
-        <a href="/solutions/industrial.html">Industrial &amp; Logistics</a>
-        <a href="/solutions/institutions.html">Institutions &amp; Government</a>
-        <a href="/solutions/healthcare.html">Healthcare &amp; Managed Living</a>
-        <a href="/solutions/"><strong>→ View All Solutions</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="/systems/" class="nav-link has-dropdown">Systems</a>
-      <div class="simple-dropdown">
-        <a href="/systems/surveillance.html">Surveillance &amp; Detection</a>
-        <a href="/systems/access-control.html">People Access Control</a>
-        <a href="/systems/vehicle-access.html">Vehicle Access &amp; Barriers</a>
-        <a href="/systems/platform.html">Platform Management</a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="/brands/" class="nav-link has-dropdown">Brands</a>
-      <div class="simple-dropdown wide-dropdown">
-        <a href="/brands/#surveillance"><strong>Surveillance</strong> — Hikvision · Hanwha · Uniview · Milesight</a>
-        <a href="/brands/#access"><strong>Access Control</strong> — Suprema · ZKTeco · HID · EntryPass</a>
-        <a href="/brands/#intercom"><strong>Intercoms</strong> — Akuvox · Aiphone · Kocom</a>
-        <a href="/brands/#alarms"><strong>Alarms</strong> — AJAX · RISCO · Paradox · DSC</a>
-        <a href="/brands/#gates"><strong>Gates &amp; Barriers</strong> — FAAC · MAG · Dormer</a>
-        <hr>
-        <a href="/brands/"><strong>→ View All Technology Partners</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="/portfolio/" class="nav-link active">Portfolio</a></li>
-    <li class="nav-item"><a href="/resources/" class="nav-link has-dropdown">Resources</a>
-      <div class="simple-dropdown">
-        <a href="/resources/guides/">Technical Guides</a>
-        <a href="/resources/#tools">Planning Tools</a>
-        <a href="/resources/#library">Product Library</a>
-        <a href="/resources/#videos">Training Videos</a>
-        <a href="/resources/#faq">FAQ</a>
-        <a href="/resources/#trade">For Trade &amp; Professionals</a>
-        <a href="/resources/"><strong>→ All Resources</strong></a>
-      </div>
-    </li>
-    <li class="nav-item"><a href="/insights/" class="nav-link">Insights</a></li>
-    <li class="nav-item"><a href="/about.html" class="nav-link has-dropdown">About</a>
-      <div class="simple-dropdown">
-        <a href="/about.html">Our Story</a>
-        <a href="/contact.html">Contact Us</a>
-      </div>
-    </li>
-  </ul>
-  <div class="nav-right">
-    <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-      </svg>
-    </button>
-  </div>
-</div>
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions ▾
-    <div class="mobile-submenu" id="solSub">
-      <a href="/solutions/"><strong>→ View All Solutions</strong></a>
-      <a href="/solutions/residential.html">Private Homes</a>
-      <a href="/solutions/condominiums.html">Condominiums</a>
-      <a href="/solutions/commercial.html">Commercial &amp; Retail</a>
-      <a href="/solutions/industrial.html">Industrial &amp; Logistics</a>
-      <a href="/solutions/institutions.html">Institutions &amp; Government</a>
-      <a href="/solutions/healthcare.html">Healthcare &amp; Managed Living</a>
-    </div>
-  </div>
-  <a href="/portfolio/" class="mobile-menu-item">Portfolio</a>
-</div>
-</nav>
+<nav id="sv-nav"></nav>
 
 <header class="portfolio-hero">
   <div class="container">
@@ -321,31 +235,8 @@
   </div>
 </section>
 
-<footer class="site-footer">
-    <div class="footer-container">
-        <div class="footer-grid">
-            <div class="footer-brand">
-                <div class="f-logo-wrap">
-                    <img src="/images/securevision-logo-white.png" alt="Securevision Logo">
-                    <span class="brand-name">Securevision</span>
-                </div>
-                <p>Your partner in building smart, secure, and connected communities — powered by intelligent security systems since 2006.</p>
-            </div>
-        </div>
-    </div>
-</footer>
+<footer id="sv-footer"></footer>
 
-<script>
-function toggleMobileMenu() {
-  const menu = document.getElementById('mobileMenu');
-  if (menu) menu.classList.toggle('active');
-}
-
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('.main-nav');
-  if (nav) nav.classList.toggle('scrolled', window.scrollY > 50);
-});
-</script>
-
+  <script src="/nav-footer.js"></script>
 </body>
 </html>
