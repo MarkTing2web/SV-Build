@@ -1,6 +1,6 @@
 # SECUREVISION WEBSITE — GLOBAL DESIGN INSTRUCTION
 ## For use with Anti-Gravity AI Web Builder
-## Version 2.1 — April 2026
+## Version 3.0 — April 2026
 ## This file lives at: /_instructions/GLOBAL-INSTRUCTION.md
 
 ---
@@ -130,13 +130,18 @@ If you believe a style is missing from the CSS files, add a comment <!-- NEEDS C
 --c-vehicle:      #dd6b20
 --c-platform:     #38a169
 
-/* Sector accents */
---c-homes:        #38B000
---c-condos:       #4361EE
---c-commercial:   #FF6D00
---c-industrial:   #7209B7
---c-institutions: #0056b3
---c-healthcare:   #0056b3
+/* Sector accents — 8 sectors */
+--c-residential:    #38B000    /* Residential — green */
+--c-condos:         #4361EE    /* Condominiums — blue */
+--c-commercial:     #FF6D00    /* Commercial — orange */
+--c-industrial:     #7209B7    /* Industrial — purple */
+--c-institutions:   #0056b3    /* Institutions — primary blue */
+--c-healthcare:     #0EA5A0    /* Healthcare — teal */
+--c-managed:        #C2410C    /* Managed Living — burnt orange */
+--c-datacentres:    #1E3A5F    /* Data Centres — deep navy */
+
+/* Legacy aliases — kept for backward compatibility */
+--c-homes:          #38B000    /* = --c-residential */
 ```
 
 ### Page accent colour — set once per page via `:root` override
@@ -183,31 +188,43 @@ Final CTA:  dark gradient with background image (cta-skyline or page-specific)
 
 ### Canonical Nav URLs (use these exact hrefs — no variations, all absolute)
 ```
-Logo              → /
-Solutions         → /solutions/
-  Private Homes   → /solutions/residential.html
-  Condominiums    → /solutions/condominiums.html
-  Commercial      → /solutions/commercial.html
-  Industrial      → /solutions/industrial.html
-  Institutions    → /solutions/institutions.html
-  Healthcare      → /solutions/healthcare.html
-Systems           → /systems/
-  Surveillance    → /systems/surveillance.html
-  People Access   → /systems/access-control.html
-  Vehicle Access  → /systems/vehicle-access.html
-  Platform        → /systems/platform.html
-Brands            → /brands/
-  #surveillance   → /brands/#surveillance
-  #access         → /brands/#access
-  #intercom       → /brands/#intercom
-  #alarms         → /brands/#alarms
-  #gates          → /brands/#gates
-Portfolio         → /portfolio/
-Resources         → /resources/
-  Guides          → /resources/guides/
-Insights          → /insights/
-About             → /about.html
-Contact           → /contact.html
+Logo                → /
+Solutions           → /solutions/
+  Residential       → /solutions/residential.html
+  Condominiums      → /solutions/condominiums.html
+  Commercial        → /solutions/commercial.html
+  Industrial        → /solutions/industrial.html
+  Institutions      → /solutions/institutions.html
+  Healthcare        → /solutions/healthcare.html
+  Managed Living    → /solutions/managed-living.html
+  Data Centres      → /solutions/data-centres.html
+  → View All        → /solutions/
+Systems             → /systems/
+  Surveillance      → /systems/surveillance.html
+  People Access     → /systems/access-control.html
+  Vehicle Access    → /systems/vehicle-access.html
+  Platform          → /systems/platform.html
+Brands              → /brands/
+  #surveillance     → /brands/#surveillance
+  #access           → /brands/#access
+  #intercom         → /brands/#intercom
+  #alarms           → /brands/#alarms
+  #gates            → /brands/#gates
+Portfolio           → /portfolio/
+  Residential       → /portfolio/?sector=residential
+  Condominiums      → /portfolio/?sector=condominiums
+  Commercial        → /portfolio/?sector=commercial
+  Industrial        → /portfolio/?sector=industrial
+  Institutions      → /portfolio/?sector=institutions
+  Healthcare        → /portfolio/?sector=healthcare
+  Managed Living    → /portfolio/?sector=managed-living
+  Data Centres      → /portfolio/?sector=data-centres
+  → View All        → /portfolio/
+Resources           → /resources/
+  Guides            → /resources/guides/
+Insights            → /insights/
+About               → /about.html
+Contact             → /contact.html
 ```
 
 ### Logo image path (always this — absolute path, no other version)
@@ -227,13 +244,15 @@ Contact           → /contact.html
 <header class="hero-high-impact hero-access">       <!-- Door access guide -->
 <header class="hero-high-impact hero-vehicle">      <!-- Auto gate guide -->
 
-<!-- Solution pages -->
+<!-- Solution pages — 8 sectors -->
 <header class="hero-high-impact hero-res">          <!-- Residential -->
 <header class="hero-high-impact hero-condo">        <!-- Condominiums -->
 <header class="hero-high-impact hero-com">          <!-- Commercial -->
 <header class="hero-high-impact hero-indus">        <!-- Industrial -->
 <header class="hero-high-impact hero-gov">          <!-- Institutions -->
 <header class="hero-high-impact hero-healthcare">   <!-- Healthcare -->
+<header class="hero-high-impact hero-managed">      <!-- Managed Living — NEEDS CSS -->
+<header class="hero-high-impact hero-dc">           <!-- Data Centres — NEEDS CSS -->
 ```
 
 ### Hero inner structure (standard for technical guides)
@@ -342,6 +361,7 @@ CTA background classes (from sv-shared.css):
 ```
 cta-cctv | cta-alarm | cta-access | cta-vehicle | cta-surveillance
 cta-platform | cta-res | cta-condo | cta-com | cta-indus | cta-gov | cta-healthcare
+cta-managed | cta-dc                  ← NEEDS CSS: add to sv-shared.css
 cta-skyline (generic fallback)
 ```
 
@@ -500,6 +520,8 @@ YouTube:          http://www.youtube.com/@securevision
 | industrial-security-singapore.html | /solutions/industrial.html |
 | government-institution-security-singapore.html | /solutions/institutions.html |
 | healthcare-security-singapore.html | /solutions/healthcare.html |
+| *(new)* | /solutions/managed-living.html |
+| *(new)* | /solutions/data-centres.html |
 | home-security-upgrade-singapore.html | /solutions/residential/home-upgrade.html |
 | new-build-security-singapore.html | /solutions/residential/new-build.html |
 | security-partner-architects-singapore.html | /solutions/residential/architects.html |
@@ -508,6 +530,8 @@ YouTube:          http://www.youtube.com/@securevision
 | commercial-office.html | /solutions/commercial/office.html |
 | commercial-retail.html | /solutions/commercial/retail.html |
 | commercial-hotel.html | /solutions/commercial/hotel.html |
+| commercial-security-sta-building-singapore.html | /portfolio/sta-building-commercial.html |
+| industrial-security-cyrus-tech-park-singapore.html | /portfolio/cyrus-tech-park-industrial.html |
 | security-systems-singapore.html | /systems/ |
 | surveillance-detection.html | /systems/surveillance.html |
 | people-access-control.html | /systems/access-control.html |
@@ -525,6 +549,76 @@ YouTube:          http://www.youtube.com/@securevision
 | portfolio.html | /portfolio/ |
 | security-articles-singapore.html | /insights/ |
 | insights-[slug].html | /insights/[slug].html |
+
+---
+
+## 22. SECTOR TAXONOMY — 8 SECTORS
+
+This is the canonical classification for all Solutions pages, Portfolio pages, and nav labels.
+Every sector has a solution page, a nav entry, and a portfolio filter tab.
+Portfolio filter tabs for Institutions and Healthcare are shown only when cases exist.
+
+| # | Nav label | Solution file | Scope | Portfolio sub-type badges |
+|---|---|---|---|---|
+| 1 | Residential | /solutions/residential.html | Landed homes, bungalows, semi-D, terrace, GCB | Bungalow · Semi-detached · Terrace · GCB |
+| 2 | Condominiums | /solutions/condominiums.html | Strata developments, condo estates | High-rise · Mid-rise · Landed Estate |
+| 3 | Commercial | /solutions/commercial.html | Offices, hotels, retail, malls, F&B, community hubs | Office Building · Hotel · Retail · Shopping Mall · Community Hub |
+| 4 | Industrial | /solutions/industrial.html | Factories, warehouses, logistics hubs, tech parks | Factory · Warehouse · Logistics Hub · Tech Park |
+| 5 | Institutions | /solutions/institutions.html | Schools, childcare, churches, govt offices, army camps, bus interchanges | School · Childcare · Place of Worship · Government Office · Defence · Transport Hub |
+| 6 | Healthcare | /solutions/healthcare.html | Nursing homes, senior day care, autism/CP centres, clinics | Nursing Home · Senior Day Care · Specialist Centre · Clinic |
+| 7 | Managed Living | /solutions/managed-living.html | Worker dormitories, co-living apartments, student hostels | Worker Dormitory · Co-living · Student Hostel |
+| 8 | Data Centres | /solutions/data-centres.html | Colocation, enterprise, hyperscale data centres | Data Centre |
+
+### Sector colour variables (sv-shared.css)
+```
+--c-residential:  #38B000   Residential
+--c-condos:       #4361EE   Condominiums
+--c-commercial:   #FF6D00   Commercial
+--c-industrial:   #7209B7   Industrial
+--c-institutions: #0056b3   Institutions
+--c-healthcare:   #0EA5A0   Healthcare
+--c-managed:      #C2410C   Managed Living
+--c-datacentres:  #1E3A5F   Data Centres
+```
+
+### Sub-persona pages under each sector
+```
+/solutions/residential/
+  new-build.html
+  home-upgrade.html
+  architects.html
+
+/solutions/condominiums/
+  mcst.html
+  managing-agents.html
+  security-contractors.html
+
+/solutions/commercial/
+  hotel.html
+  office.html
+  retail.html
+
+/solutions/healthcare/
+  aged-care.html
+  hostels.html        ← review: confirm these are eldercare-adjacent
+  dormitories.html    ← MOVE to /solutions/managed-living/ subfolder
+
+/solutions/managed-living/
+  dormitories.html    ← migrated from /solutions/healthcare/
+  co-living.html      ← to create
+
+/solutions/institutions/
+  (to create — school, govt-office, defence sub-personas)
+
+/solutions/data-centres/
+  (thin page only for now — no sub-personas yet)
+```
+
+### Portfolio orphans — migrate when building those case studies
+```
+commercial-security-sta-building-singapore.html  → /portfolio/sta-building-commercial.html    (sector: Commercial)
+industrial-security-cyrus-tech-park-singapore.html → /portfolio/cyrus-tech-park-industrial.html  (sector: Industrial)
+```
 
 ---
 
@@ -563,6 +657,6 @@ DO NOT TOUCH: nav, footer, hero, author bio strip, sidebar, CTA section, any oth
 
 ---
 
-*Securevision Global Design Instruction v2.1 — April 2026*  
-*Changes from v2.0: All paths updated to absolute. Canonical nav URLs updated to new folder structure. URL reference map added as Section 21. Breadcrumb hrefs updated. Hero and CTA button hrefs updated.*  
+*Securevision Global Design Instruction v3.0 — April 2026*
+*Changes from v2.1: Sector structure expanded from 6 to 8. Added Managed Living and Data Centres sectors. Nav labels updated — "Private Homes" → "Residential". Portfolio dropdown added with sector filter URLs. Colour system updated with new sector variables. Hero and CTA classes added for managed-living and data-centres (flagged as NEEDS CSS in sv-shared.css). URL reference map updated with new sector files and portfolio orphan migrations.*
 *Do not modify without updating version number and date*

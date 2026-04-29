@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 
 <head>
   <meta charset="UTF-8">
@@ -13,8 +13,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="./sv-shared.css">
-  <script src="./site-config.js"></script>
+  <link rel="stylesheet" href="/sv-shared.css">
+  <script src="/site-config.js"></script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -56,346 +56,63 @@
   ]
 }
 </script>
+  <!-- NEEDS CSS MIGRATION: loop diagram classes (.loop-section, .loop-wrap, .loop-core,
+       .loop-node, .node-icon, .node-title, .node-desc, .loop-svg) should move to sv-shared.css
+       under a "Homepage Loop Diagram" section when the loop component is finalised. -->
   <style>
-    /* Home Overrides */
-    .hero-high-impact {
-      min-height: 85vh;
-      display: flex;
-      align-items: center;
-    }
-
-    .sv-trust-bar {
-      border-bottom: 1px solid var(--border-light);
-      padding: 14px 0;
-      background: var(--white);
-    }
-
-    .trust-inner {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 32px;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--text-light);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* Security Loop Diagram Home Override */
+    /* Security Response Loop Diagram — homepage only */
     .loop-section {
       padding: 100px 0;
       background: linear-gradient(to bottom, #fff, #f8f9fa);
       overflow: hidden;
     }
-
     .loop-wrap {
       position: relative;
       width: 500px;
       height: 500px;
       margin: 60px auto;
     }
-
     .loop-core {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 190px;
-      height: 190px;
+      width: 190px; height: 190px;
       background: #0056b3;
-      border: none;
       border-radius: 50%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
       text-align: center;
-      box-shadow: 0 15px 35px rgba(0, 86, 179, 0.3), inset 0 0 20px rgba(255,255,255,0.1);
-      z-index: 10;
-      color: #ffffff;
-      padding: 20px;
+      box-shadow: 0 15px 35px rgba(0,86,179,0.3), inset 0 0 20px rgba(255,255,255,0.1);
+      z-index: 10; color: #fff; padding: 20px;
     }
-
-    .loop-core strong {
-      display: block;
-      font-size: 18px;
-      color: #ffffff;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      line-height: 1.2;
-    }
-
-    .loop-core span {
-      font-size: 11px;
-      color: rgba(255,255,255,0.9);
-      margin-top: 6px;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-    }
-
-    .loop-node {
-      position: absolute;
-      width: 140px;
-      text-align: center;
-      transition: all 0.4s ease;
-      z-index: 5;
-    }
-
-    /* Positioning nodes in a circle */
-    .node-1 { top: 2%; left: 50%; transform: translate(-50%, 0); } /* Detection - Shifted Down */
-    .node-2 { top: 30%; left: 102%; transform: translate(-100%, -50%); } /* Verification - Shifted Right */
-    .node-3 { top: 85%; left: 80%; transform: translate(-50%, -100%); } /* Decision */
-    .node-4 { top: 85%; left: 20%; transform: translate(-50%, -100%); } /* Action */
-    .node-5 { top: 30%; left: -2%; transform: translate(0, -50%); } /* Visibility - Shifted Left */
-
-    .node-icon {
-      width: 60px;
-      height: 60px;
-      background: var(--white);
-      border: 1px solid var(--border-light);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-dark);
-      margin: 0 auto 12px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-      transition: all 0.3s ease;
-    }
-
-    .loop-node:hover .node-icon {
-      border-color: var(--page-accent);
-      color: var(--page-accent);
-      transform: translateY(-5px);
-      box-shadow: 0 12px 25px rgba(0, 86, 179, 0.1);
-    }
-
-    .node-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 13px;
-      text-transform: uppercase;
-      color: var(--text-dark);
-      margin-bottom: 4px;
-    }
-
-    .node-desc {
-      font-size: 10px;
-      color: var(--text-light);
-      line-height: 1.3;
-    }
-
-    .node-3 .node-icon {
-      border: 2px solid #0056b3;
-      background: rgba(0, 86, 179, 0.08);
-      color: #0056b3;
-    }
-
-    .loop-svg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 1;
-    }
-
+    .loop-core strong { display: block; font-size: 18px; color: #fff; text-transform: uppercase; letter-spacing: 1.5px; line-height: 1.2; }
+    .loop-core span { font-size: 11px; color: rgba(255,255,255,0.9); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.8px; }
+    .loop-node { position: absolute; width: 140px; text-align: center; transition: all 0.4s ease; z-index: 5; }
+    .node-1 { top: 2%; left: 50%; transform: translate(-50%, 0); }
+    .node-2 { top: 30%; left: 102%; transform: translate(-100%, -50%); }
+    .node-3 { top: 85%; left: 80%; transform: translate(-50%, -100%); }
+    .node-4 { top: 85%; left: 20%; transform: translate(-50%, -100%); }
+    .node-5 { top: 30%; left: -2%; transform: translate(0, -50%); }
+    .node-icon { width: 60px; height: 60px; background: var(--white); border: 1px solid var(--border-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-dark); margin: 0 auto 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); transition: all 0.3s ease; }
+    .loop-node:hover .node-icon { border-color: var(--primary-blue); color: var(--primary-blue); transform: translateY(-5px); box-shadow: 0 12px 25px rgba(0,86,179,0.1); }
+    .node-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; color: var(--text-dark); margin-bottom: 4px; }
+    .node-desc { font-size: 10px; color: var(--text-light); line-height: 1.3; }
+    .node-3 .node-icon { border: 2px solid #0056b3; background: rgba(0,86,179,0.08); color: #0056b3; }
+    .loop-svg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
     @media (max-width: 768px) {
-      .loop-wrap {
-        width: 320px;
-        height: 320px;
-      }
-      .loop-core {
-        width: 120px;
-        height: 120px;
-      }
-      .loop-node {
-        width: 100px;
-      }
+      .loop-wrap { width: 320px; height: 320px; }
+      .loop-core { width: 120px; height: 120px; }
+      .loop-node { width: 100px; }
       .node-title { font-size: 11px; }
       .node-desc { display: none; }
-    }
-    .solution-router-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 30px;
-      margin-top: 48px;
-    }
-
-    @media (max-width: 992px) {
-      .solution-router-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    @media (max-width: 768px) {
-      .solution-router-grid { grid-template-columns: 1fr; }
     }
   </style>
 
 </head>
 
 <body>
-  <!-- ═══════════════════════════════════════════════════════════════════
-     NAV — FROZEN. DO NOT MODIFY ANY PART OF THIS BLOCK.
-     ALL PATHS ARE ABSOLUTE — works at any folder depth.
-     ═══════════════════════════════════════════════════════════════════ -->
-  <nav class="main-nav">
-    <div class="nav-container">
-      <a href="/" class="nav-logo-link" aria-label="Securevision Home">
-        <img src="/images/securevision-logo-white.png" alt="Securevision Logo" class="nav-logo-img">
-        <span class="wordmark nav-wordmark">SECUREVISION</span>
-      </a>
-      <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()" aria-label="Toggle Menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
-      <ul class="nav-menu">
-        <li class="nav-item"><a href="/solutions/" class="nav-link has-dropdown">Solutions</a>
-          <div class="simple-dropdown">
-            <a href="/solutions/residential.html">Private Homes</a>
-            <a href="/solutions/condominiums.html">Condominiums</a>
-            <a href="/solutions/commercial.html">Commercial &amp; Retail</a>
-            <a href="/solutions/industrial.html">Industrial &amp; Logistics</a>
-            <a href="/solutions/institutions.html">Institutions &amp; Government</a>
-            <a href="/solutions/healthcare.html">Healthcare &amp; Managed Living</a>
-            <a href="/solutions/"><strong>→ View All Solutions</strong></a>
-          </div>
-        </li>
-        <li class="nav-item"><a href="/systems/" class="nav-link has-dropdown">Systems</a>
-          <div class="simple-dropdown">
-            <a href="/systems/surveillance.html">Surveillance &amp; Detection</a>
-            <a href="/systems/access-control.html">People Access Control</a>
-            <a href="/systems/vehicle-access.html">Vehicle Access &amp; Barriers</a>
-            <a href="/systems/platform.html">Platform Management</a>
-          </div>
-        </li>
-        <li class="nav-item"><a href="/brands/" class="nav-link has-dropdown">Brands</a>
-          <div class="simple-dropdown wide-dropdown">
-            <a href="/brands/#surveillance"><strong>Surveillance</strong> — Hikvision · Hanwha · Uniview · Milesight</a>
-            <a href="/brands/#access"><strong>Access Control</strong> — Suprema · ZKTeco · HID · EntryPass</a>
-            <a href="/brands/#intercom"><strong>Intercoms</strong> — Akuvox · Aiphone · Kocom</a>
-            <a href="/brands/#alarms"><strong>Alarms</strong> — AJAX · RISCO · Paradox · DSC</a>
-            <a href="/brands/#gates"><strong>Gates &amp; Barriers</strong> — FAAC · MAG · Dormer</a>
-            <hr>
-            <a href="/brands/"><strong>→ View All Technology Partners</strong></a>
-          </div>
-        </li>
-        <li class="nav-item"><a href="/portfolio/" class="nav-link has-dropdown">Portfolio</a>
-  <div class="simple-dropdown">
-    <a href="/portfolio/">All Projects</a>
-    <a href="/portfolio/?type=condominium">Condominiums</a>
-    <a href="/portfolio/?type=landed">Landed Residential</a>
-    <a href="/portfolio/?type=commercial">Commercial</a>
-    <a href="/portfolio/?type=industrial">Industrial</a>
-    <hr>
-    <a href="/portfolio/"><strong>&rarr; View Full Portfolio</strong></a>
-  </div>
-</li>
-        <li class="nav-item"><a href="/resources/" class="nav-link has-dropdown">Resources</a>
-          <div class="simple-dropdown">
-            <a href="/resources/guides/">Technical Guides</a>
-            <a href="/resources/#tools">Planning Tools</a>
-            <a href="/resources/#library">Product Library</a>
-            <a href="/resources/#videos">Training Videos</a>
-            <a href="/resources/#faq">FAQ</a>
-            <a href="/resources/#trade">For Trade &amp; Professionals</a>
-            <a href="/resources/"><strong>→ All Resources</strong></a>
-          </div>
-        </li>
-        <li class="nav-item"><a href="/insights/" class="nav-link">Insights</a></li>
-        <li class="nav-item" data-section="about"><a href="/about/" class="nav-link has-dropdown">About</a>
-          <div class="simple-dropdown">
-            <a href="/about/">Our Story</a>
-            <a href="/about/architect-partners.html">Architect Partners</a>
-            <a href="/contact.html">Contact Us</a>
-          </div>
-        </li>
-      </ul>
-      <div class="nav-right">
-        <button class="nav-search-btn" id="desktopSearchBtn" aria-label="Search" onclick="alert('Search coming soon')">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
-        </button>
-      </div>
-      <button class="mobile-search-btn" id="mobileSearchBtn" aria-label="Search" onclick="alert('Search coming soon')">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8" />
-          <line x1="21" y1="21" x2="16.65" y2="16.65" />
-        </svg>
-      </button>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-      <div class="mobile-menu-item" onclick="toggleSubmenu('solSub')">Solutions ▾
-        <div class="mobile-submenu" id="solSub">
-          <a href="/solutions/"><strong>→ View All Solutions</strong></a>
-          <a href="/solutions/residential.html">Private Homes</a>
-          <a href="/solutions/condominiums.html">Condominiums</a>
-          <a href="/solutions/commercial.html">Commercial &amp; Retail</a>
-          <a href="/solutions/industrial.html">Industrial &amp; Logistics</a>
-          <a href="/solutions/institutions.html">Institutions &amp; Government</a>
-          <a href="/solutions/healthcare.html">Healthcare &amp; Managed Living</a>
-        </div>
-      </div>
-      <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems ▾
-        <div class="mobile-submenu" id="sysSub">
-          <a href="/systems/surveillance.html">Surveillance &amp; Detection</a>
-          <a href="/systems/access-control.html">People Access Control</a>
-          <a href="/systems/vehicle-access.html">Vehicle Access &amp; Barriers</a>
-          <a href="/systems/platform.html">Platform Management</a>
-        </div>
-      </div>
-      <div class="mobile-menu-item" onclick="toggleSubmenu('brandSub')">Brands ▾
-        <div class="mobile-submenu" id="brandSub">
-          <a href="/brands/"><strong>→ View All Partners</strong></a>
-          <a href="/brands/#surveillance">Surveillance — Hik · Han · Uni · Mil</a>
-          <a href="/brands/#access">Access — Sup · ZK · HID · EP</a>
-          <a href="/brands/#intercom">Intercoms — Aku · Aip · Koc</a>
-          <a href="/brands/#alarms">Alarms — AJAX · RIS · Par · DSC</a>
-          <a href="/brands/#gates">Gates — FAAC · MAG · Dor</a>
-        </div>
-      </div>
-      <div class="mobile-menu-item" onclick="toggleSubmenu('portSub')">Portfolio &#9662;
-  <div class="mobile-submenu" id="portSub">
-    <a href="/portfolio/"><strong>&rarr; All Projects</strong></a>
-    <a href="/portfolio/?type=condominium">Condominiums</a>
-    <a href="/portfolio/?type=landed">Landed Residential</a>
-    <a href="/portfolio/?type=commercial">Commercial</a>
-    <a href="/portfolio/?type=industrial">Industrial</a>
-  </div>
-</div>
-      <div class="mobile-menu-item" onclick="toggleSubmenu('resSub')">Resources ▾
-        <div class="mobile-submenu" id="resSub">
-          <a href="/resources/"><strong>→ All Resources</strong></a>
-          <a href="/resources/guides/">Technical Guides</a>
-          <a href="/resources/#tools">Planning Tools</a>
-          <a href="/resources/#library">Product Library</a>
-          <a href="/resources/#videos">Training Videos</a>
-          <a href="/resources/#faq">FAQ</a>
-          <a href="/resources/#trade">For Trade &amp; Professionals</a>
-        </div>
-      </div>
-      <a href="/insights/" class="mobile-menu-item">Insights</a>
-      <div class="mobile-menu-item" onclick="toggleSubmenu('abtSub')">About &#9662;
-        <div class="mobile-submenu" id="abtSub">
-          <a href="/about/"><strong>&rarr; Our Story</strong></a>
-          <a href="/about/architect-partners.html">Architect Partners</a>
-          <a href="/contact.html">Contact Us</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <!-- ═══ END NAV ═══ -->
+  <!-- ═══ NAV — injected by nav-footer.js ═══ -->
+  <nav id="sv-nav"></nav>
 
   <header class="hero hero-high-impact">
     <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
@@ -418,14 +135,14 @@
   <!-- 2. TRUST BAR -->
   <div class="sv-trust-bar">
     <div class="container">
-      <div class="trust-inner">
+      <div class="trust-flex-inline">
         <span>Police Licensed</span>
-        <span style="color:var(--border-light);">|</span>
-        <span class="sv-bizsafe">bizSAFE Level 3</span>
-        <span style="color:var(--border-light);">|</span>
-        <span>BCA Registered Contractor</span>
-        <span style="color:var(--border-light);">|</span>
-        <span><span class="sv-sites">1,500+</span> Sites Completed</span>
+        <span class="sep">|</span>
+        <span class="sv-bizsafe"></span>
+        <span class="sep">|</span>
+        <span>BCA Registered</span>
+        <span class="sep">|</span>
+        <span><span class="sv-sites"></span> Sites Protected</span>
       </div>
     </div>
   </div>
@@ -525,84 +242,92 @@
       <div class="section-header-center">
         <span class="eyebrow">Sector Expertise</span>
         <h2>Find the Right Solution for Your Property</h2>
-        <p class="max-800 center">Start with your property — we’ll map the right system for your needs.</p>
+        <p class="max-800 center">Start with your property — we'll map the right system for your needs.</p>
       </div>
 
-      <div class="solution-router-grid">
-        <!-- 1. Private Homes -->
-        <a href="/solutions/residential.html" class="rel-card card-clickable">
-          <div class="proof-image-wrap">
-            <img src="/images/solution-residential.webp" alt="Landed Home Security Singapore">
+      <div class="grid-4">
+
+        <a href="/solutions/residential.html" class="rel-card">
+          <div class="rel-card-img">
+            <img src="/images/solutions/privacy-peace-of-mind.png" alt="Residential security Singapore" loading="lazy">
           </div>
-          <div class="proof-content">
-            <h3>Private Homes</h3>
-            <p>Smart protection with low-light visibility and remote phone access.</p>
-            <span class="stretched-link"></span>
-          </div>
+          <h3>Residential</h3>
+          <p>Bungalows, semi-detached, and terrace homes.</p>
+          <div class="rel-card-footer">Explore →</div>
         </a>
 
-        <!-- 2. Condominiums -->
-        <a href="/solutions/condominiums.html" class="rel-card card-clickable">
-          <div class="proof-image-wrap">
-            <img src="/images/solution-condo.webp" alt="Condominium Integrated Security">
+        <a href="/solutions/condominiums.html" class="rel-card">
+          <div class="rel-card-img">
+            <img src="/images/solutions/condo-estate-operations.webp" alt="Condominium security Singapore" loading="lazy">
           </div>
-          <div class="proof-content">
-            <h3>Condominiums</h3>
-            <p>Integrated visitor and vehicle access designed to reduce guard manpower.</p>
-            <span class="stretched-link"></span>
-          </div>
+          <h3>Condominiums</h3>
+          <p>MCSTs, managing agents, and strata estates.</p>
+          <div class="rel-card-footer">Explore →</div>
         </a>
 
-        <!-- 3. Commercial Buildings -->
-        <a href="/solutions/commercial.html" class="rel-card card-clickable">
-          <div class="proof-image-wrap">
-            <img src="/images/solution-commercial.webp" alt="Commercial Office Security">
+        <a href="/solutions/commercial.html" class="rel-card">
+          <div class="rel-card-img">
+            <img src="/images/solutions/hero-commercial-office.webp" alt="Commercial security Singapore" loading="lazy">
           </div>
-          <div class="proof-content">
-            <h3>Commercial Buildings</h3>
-            <p>Scalable, centralised control for offices, retail hubs, and shared spaces.</p>
-            <span class="stretched-link"></span>
-          </div>
+          <h3>Commercial</h3>
+          <p>Offices, hotels, retail shops, and buildings.</p>
+          <div class="rel-card-footer">Explore →</div>
         </a>
 
-        <!-- 4. Industrial Sites -->
-        <a href="/solutions/industrial.html" class="rel-card card-clickable">
-          <div class="proof-image-wrap">
-            <img src="/images/solution-industrial.webp" alt="Industrial Facility Security">
+        <a href="/solutions/industrial.html" class="rel-card">
+          <div class="rel-card-img">
+            <img src="/images/solutions/solution-industrial.png" alt="Industrial security Singapore" loading="lazy">
           </div>
-          <div class="proof-content">
-            <h3>Industrial Sites</h3>
-            <p>Robust perimeters and reliable operational oversight for high-risk sites.</p>
-            <span class="stretched-link"></span>
-          </div>
+          <h3>Industrial</h3>
+          <p>Factories, warehouses, and logistics hubs.</p>
+          <div class="rel-card-footer">Explore →</div>
         </a>
 
-        <!-- 5. Institutions -->
-        <a href="/solutions/institutions.html" class="rel-card card-clickable">
-          <div class="proof-image-wrap">
-            <img src="/images/solution-institutions.webp" alt="School and Institutional Security">
+        <a href="/solutions/institutions.html" class="rel-card">
+          <div class="rel-card-img">
+            <img src="/images/prop-school.webp" alt="Institutional security Singapore" loading="lazy">
           </div>
-          <div class="proof-content">
-            <h3>Institutions</h3>
-            <p>Specialised systems for schools and government sites balancing safety and flow.</p>
-            <span class="stretched-link"></span>
-          </div>
+          <h3>Institutions</h3>
+          <p>Schools, government offices, and civic facilities.</p>
+          <div class="rel-card-footer">Explore →</div>
         </a>
 
-        <!-- 6. Healthcare -->
-        <a href="/solutions/healthcare.html" class="rel-card card-clickable">
-          <div class="proof-image-wrap">
-            <img src="/images/solution-healthcare.webp" alt="Healthcare and Managed Living Security">
+        <a href="/solutions/healthcare.html" class="rel-card">
+          <div class="rel-card-img">
+            <img src="/images/solutions/healthcare-path-nursing.webp" alt="Healthcare security Singapore" loading="lazy">
           </div>
-          <div class="proof-content">
-            <h3>Healthcare</h3>
-            <p>Patient-safe monitoring and access systems for managed living facilities.</p>
-            <span class="stretched-link"></span>
-          </div>
+          <h3>Healthcare</h3>
+          <p>Nursing homes, day care, and care facilities.</p>
+          <div class="rel-card-footer">Explore →</div>
         </a>
+
+        <a href="/solutions/managed-living.html" class="rel-card">
+          <div class="rel-card-img">
+            <img src="/images/solutions/healthcare-path-dorm.webp" alt="Managed living security Singapore" loading="lazy">
+          </div>
+          <h3>Managed Living</h3>
+          <p>Worker dormitories and co-living apartments.</p>
+          <div class="rel-card-footer">Explore →</div>
+        </a>
+
+        <!-- NEEDS IMAGE: replace with actual data centre photo -->
+        <a href="/solutions/data-centres.html" class="rel-card">
+          <div class="rel-card-img">
+            <img src="/images/solutions/solution-data-center.png" alt="Data centre security Singapore" loading="lazy">
+          </div>
+          <h3>Data Centres</h3>
+          <p>Colocation and enterprise data centres.</p>
+          <div class="rel-card-footer">Explore →</div>
+        </a>
+
+      </div>
+
+      <div class="text-center mt-48">
+        <a href="/solutions/" class="btn btn-secondary">View All Solutions →</a>
       </div>
     </div>
   </section>
+
   <!-- 6. WHY SECUREVISION -->
   <section class="sv-section-grey">
     <div class="container text-center">
@@ -775,8 +500,8 @@
   </section>
 
   <!-- 11. FINAL CTA -->
-  <section class="sv-section-cta"
-    style="background: linear-gradient(rgba(14, 26, 43, 0.85), rgba(14, 26, 43, 0.85)), url('/images/cta-skyline-polo.webp'); background-size: cover; background-position: center; padding: 120px 0; color: white;">
+  <!-- NEEDS CSS: .cta-skyline — add to sv-shared.css: background-image url(/images/cta-skyline-polo.webp) -->
+  <section class="cta-section cta-high-impact cta-skyline">
     <div class="container text-center">
       <h2>Ready to Secure Your Property?</h2>
       <p class="subtitle mb-48"
@@ -795,7 +520,7 @@
           </div>
         </a>
       </div>
-      <p class="mt-32" style="font-size: 14px; opacity: 0.7;">Technical Support: +65 6286 4796 · Mon-Sat, 9AM-6PM</p>
+      <p class="cta-trust-note">Serving Singapore Since 2006</p>
     </div>
   </section>
 
@@ -842,12 +567,12 @@
         <div class="footer-links">
           <h4>Solutions</h4>
           <ul>
-            <li><a href="/solutions/residential.html">Private Homes</a></li>
+            <li><a href="/solutions/residential.html">Residential</a></li>
             <li><a href="/solutions/condominiums.html">Condominiums</a></li>
-            <li><a href="/solutions/commercial.html">Commercial &amp; Retail</a></li>
-            <li><a href="/solutions/industrial.html">Industrial &amp; Logistics</a></li>
-            <li><a href="/solutions/institutions.html">Institutions &amp; Government</a></li>
-            <li><a href="/solutions/healthcare.html">Healthcare &amp; Managed Living</a></li>
+            <li><a href="/solutions/commercial.html">Commercial</a></li>
+            <li><a href="/solutions/industrial.html">Industrial</a></li>
+            <li><a href="/solutions/institutions.html">Institutions</a></li>
+            <li><a href="/solutions/healthcare.html">Healthcare</a></li>
           </ul>
         </div>
         <div class="footer-links">
@@ -920,58 +645,8 @@
   <!-- ═══ END WHATSAPP FLOAT ═══ -->
 
 
-  <!-- ═══ SCRIPTS — do not modify ═══ -->
-  <script>
-
-    function toggleMobileMenu() {
-      const menu = document.getElementById('mobileMenu');
-      if (menu) menu.classList.toggle('active');
-    }
-
-    function toggleSubmenu(id) {
-      const sub = document.getElementById(id);
-      if (sub) {
-        const isActive = sub.classList.contains('active');
-        document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
-        if (!isActive) sub.classList.add('active');
-      }
-    }
-
-    document.addEventListener('click', function (e) {
-      const nav = document.querySelector('.main-nav');
-      const menu = document.getElementById('mobileMenu');
-      if (nav && menu && !nav.contains(e.target)) menu.classList.remove('active');
-    });
-
-    window.addEventListener('scroll', () => {
-      const nav = document.querySelector('.main-nav');
-      const logo = document.querySelector('.nav-logo-img');
-      if (nav && logo) {
-        if (window.scrollY > 50) {
-          nav.classList.add('scrolled');
-          logo.src = '/images/securevision-logo-blue.png';
-        } else {
-          nav.classList.remove('scrolled');
-          logo.src = '/images/securevision-logo-white.png';
-        }
-      }
-    });
-
-    document.addEventListener('DOMContentLoaded', () => {
-      if (typeof SECUREVISION !== 'undefined') {
-        const SV = SECUREVISION;
-        // Basic Facts
-        document.querySelectorAll('.sv-licence').forEach(el => el.textContent = SV.licenceNumber);
-        document.querySelectorAll('.sv-years-business').forEach(el => el.textContent = SV.yearsInBusiness);
-        document.querySelectorAll('.sv-years-experience').forEach(el => el.textContent = SV.yearsExperience);
-        document.querySelectorAll('.sv-sites').forEach(el => el.textContent = SV.siteDisplay);
-        document.querySelectorAll('.sv-founded').forEach(el => el.textContent = SV.foundedDisplay);
-        document.querySelectorAll('.sv-founded-year').forEach(el => el.textContent = SV.foundedYear);
-        document.querySelectorAll('.sv-current-year').forEach(el => el.textContent = new Date().getFullYear());
-      }
-    });
-  </script>
-  <!-- ═══ END SCRIPTS ═══ -->
+  <!-- ═══ SCRIPTS ═══ -->
+  <script src="/nav-footer.js"></script>
 </body>
 
 </html>

@@ -427,6 +427,20 @@ aside {
 }
 
 /* -- NAVIGATION -- */
+
+
+/* Prevent layout jump before nav-footer.js injects the nav HTML.
+   Shows a solid placeholder bar at nav height on page load.
+   Once the script fires and #sv-nav has content, :empty no longer matches. */
+#sv-nav:empty {
+    display: block;
+    height: 72px;
+    background: #0E1A2B;
+}
+
+
+
+
 .main-nav {
     background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
     backdrop-filter: blur(8px);
@@ -1081,7 +1095,21 @@ section .subtitle {
     line-height: 1;
 }
 
-.trust-flex-inline {
+/*
+   CANONICAL TRUST BAR INNER CLASS: .trust-flex-inline
+   This is the single source of truth for the inner trust bar layout.
+   Always use this class inside .sv-trust-bar on all pages.
+   Divider spans use class="sep"
+
+   .trust-bar-inner is an alias for forward compatibility.
+   .trust-inner (used in portfolio additions) shares the same spec.
+
+   Font size: 11px desktop / 10px mobile — do NOT increase.
+   This matches the visual weight of the original trust bar.
+*/
+.trust-flex-inline,
+.trust-bar-inner,
+.trust-inner {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1090,6 +1118,7 @@ section .subtitle {
     column-gap: 24px;
     font-size: 11px;
     font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
     color: var(--text-light);
     text-transform: uppercase;
     letter-spacing: 0.6px;
@@ -1097,25 +1126,40 @@ section .subtitle {
     text-align: center;
 }
 
-.trust-flex-inline span:not(.sep) {
+.trust-flex-inline span:not(.sep):not(.divider),
+.trust-bar-inner span:not(.sep):not(.divider),
+.trust-inner span:not(.sep):not(.divider) {
     white-space: nowrap;
 }
 
-.trust-flex-inline .sep {
+.trust-flex-inline .sep,
+.trust-flex-inline .divider,
+.trust-bar-inner .sep,
+.trust-bar-inner .divider,
+.trust-inner .sep,
+.trust-inner .divider {
     color: var(--border-light);
     font-weight: 400;
     font-size: 14px;
+    flex-shrink: 0;
 }
 
 @media (max-width: 768px) {
-    .trust-flex-inline {
+    .trust-flex-inline,
+    .trust-bar-inner,
+    .trust-inner {
         flex-wrap: wrap;
         column-gap: 16px;
         row-gap: 6px;
         font-size: 10px;
     }
 
-    .trust-flex-inline .sep {
+    .trust-flex-inline .sep,
+    .trust-flex-inline .divider,
+    .trust-bar-inner .sep,
+    .trust-bar-inner .divider,
+    .trust-inner .sep,
+    .trust-inner .divider {
         display: none;
     }
 }
@@ -1134,6 +1178,27 @@ section .subtitle {
     font-size: 11px;
     font-weight: 600;
     color: var(--text-light);
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+
+/*
+   CTA TRUST NOTE — use inside .cta-high-impact dark sections only.
+   Transparent background, white text at reduced opacity.
+   Usage: <p class="cta-trust-note">Police Licence ... · bizSAFE ... · Since ...</p>
+   Do NOT use .sv-trust-note inside dark CTA sections — it has a white background
+   and will create a white bar over the dark background.
+*/
+.cta-trust-note {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-top: 32px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.45);
     letter-spacing: 0.5px;
     line-height: 1;
 }
@@ -1523,6 +1588,41 @@ section .subtitle {
     color: var(--primary-blue);
     font-weight: 600;
     font-family: 'Montserrat', sans-serif;
+}
+
+/*
+   REL-CARD IMAGE PATTERN
+   Use .rel-card-img as the first child inside .rel-card when showing
+   a sector thumbnail. Fixed 16:9 aspect ratio keeps all cards even
+   regardless of image dimensions.
+   Markup:
+     <a href="..." class="rel-card">
+       <div class="rel-card-img">
+         <img src="..." alt="...">
+       </div>
+       <h3>...</h3>
+       ...
+     </a>
+*/
+.rel-card-img {
+    width: calc(100% + 56px);      /* bleed to card edges — cancels 28px padding each side */
+    margin: -32px -28px 20px -28px; /* pull to card top and sides */
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+}
+
+.rel-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.rel-card:hover .rel-card-img img {
+    transform: scale(1.04);
 }
 
 /* -- PRODUCTS SECTION -- */
@@ -2279,7 +2379,7 @@ section .subtitle {
 }
 
 .hero-solutions {
-    background-image: url('/images/solutions/hero-security-solutions-singapore.png') !important;
+    background-image: url('/images/solutions/hero-security-solutions-singapore.webp') !important;
 }
 
 /* System Pillars */
@@ -6052,6 +6152,7 @@ section .subtitle {
     padding: 12px 0;
 }
 
+/* SUPERSEDED — canonical definition now at Section 2a .trust-flex-inline/.trust-bar-inner/.trust-inner block */
 .trust-inner {
     display: flex;
     flex-wrap: wrap;
@@ -6642,6 +6743,7 @@ section .subtitle {
   padding: 12px 0;
 }
 
+/* SUPERSEDED — canonical definition now at Section 2a .trust-flex-inline/.trust-bar-inner/.trust-inner block */
 .trust-inner {
   display: flex;
   flex-wrap: wrap;
@@ -6789,4 +6891,190 @@ section .subtitle {
 .related-project-body .related-project-title,
 .related-project-body h3.related-project-title {
     text-align: center !important;
+}
+
+/* ==========================================================================
+   28. FAQ COMPONENT
+   Added April 2026
+
+   Two layout options — use whichever fits the page:
+
+   Option A: .faq-grid (static Q&A cards in a 2-column grid)
+     Use when: all answers should be visible at once (short answers,
+     solution pages, technical guides).
+     Markup:
+       <div class="faq-grid">
+         <div class="faq-item">
+           <h3 class="faq-question">Question?</h3>
+           <p class="faq-answer">Answer.</p>
+         </div>
+       </div>
+
+   Option B: .faq-list (native <details> accordion, single column)
+     Use when: answers are longer or there are 6+ questions.
+     No JavaScript needed — native HTML behaviour.
+     Markup:
+       <div class="faq-list">
+         <details class="faq-item">
+           <summary class="faq-question">Question?</summary>
+           <div class="faq-answer"><p>Answer.</p></div>
+         </details>
+       </div>
+
+   Both options use --page-accent for the active state indicator.
+   ========================================================================== */
+
+/* ── Shared item shell ── */
+.faq-item {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.faq-item:hover {
+    border-color: var(--page-accent, var(--primary-blue));
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Option A: Grid layout (static, all visible) ── */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.faq-grid .faq-item {
+    padding: 28px 32px;
+}
+
+.faq-grid .faq-question {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.4;
+    padding-left: 0;
+}
+
+.faq-grid .faq-question::before {
+    content: 'Q';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: var(--page-accent, var(--primary-blue));
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    line-height: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.faq-grid .faq-answer {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin: 0;
+    padding-left: 34px;
+}
+
+/* ── Option B: Accordion list (native <details>, single column) ── */
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.faq-list .faq-item {
+    overflow: hidden;
+}
+
+/* Remove default browser triangle on summary */
+.faq-list summary.faq-question {
+    list-style: none;
+}
+.faq-list summary.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+.faq-list .faq-question {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+    padding: 20px 56px 20px 24px;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    line-height: 1.4;
+    display: block;
+    transition: color 0.2s;
+}
+
+/* Chevron icon — CSS only, no image needed */
+.faq-list .faq-question::after {
+    content: '';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%) rotate(0deg);
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid var(--page-accent, var(--primary-blue));
+    border-bottom: 2px solid var(--page-accent, var(--primary-blue));
+    transform: translateY(-65%) rotate(45deg);
+    transition: transform 0.25s ease;
+}
+
+.faq-list details[open] .faq-question::after {
+    transform: translateY(-35%) rotate(225deg);
+}
+
+.faq-list details[open] .faq-question {
+    color: var(--page-accent, var(--primary-blue));
+}
+
+.faq-list details[open] {
+    border-color: var(--page-accent, var(--primary-blue));
+}
+
+.faq-list .faq-answer {
+    padding: 0 24px 20px 24px;
+    border-top: 1px solid var(--border-light);
+}
+
+.faq-list .faq-answer p {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-grid .faq-item {
+        padding: 24px;
+    }
+
+    .faq-list .faq-question {
+        padding: 16px 48px 16px 20px;
+        font-size: 15px;
+    }
+
+    .faq-list .faq-answer {
+        padding: 0 20px 16px 20px;
+    }
 }
