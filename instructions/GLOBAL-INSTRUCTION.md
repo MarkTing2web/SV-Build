@@ -498,13 +498,39 @@ YouTube:          http://www.youtube.com/@securevision
 | Page Type | Template File | CSS Files | Instruction File |
 |---|---|---|---|
 | Homepage | (unique — index.html) | sv-shared.css | GLOBAL-INSTRUCTION.md |
-| Solution pages | _template-solution.html | sv-shared.css | INSTRUCTION-solution.md |
+| Sector solution pages | _template-sector-solution.html | sv-shared.css | INSTRUCTION-solution.md |
+| Persona sub-pages | _template-persona-standardized.html | sv-shared.css | INSTRUCTION-persona.md (to create) |
 | Systems hub/subsystem | _template-subsystem.html | sv-shared.css | INSTRUCTION-subsystem.md |
 | Technical pillar guides | _template-technical-guide.html | sv-shared.css + sv-guides.css | INSTRUCTION-technical-guide.md |
 | Brand pages | _template-brand.html | sv-shared.css | INSTRUCTION-brand.md |
 | Portfolio case studies | _template-portfolio.html | sv-shared.css | INSTRUCTION-portfolio.md |
 | Insights articles | _template-insights.html | sv-shared.css | INSTRUCTION-insights.md |
 | Utility (contact, about) | (unique per page) | sv-shared.css + sv-forms.css | GLOBAL-INSTRUCTION.md |
+
+### Template selection guide
+```
+Is this a top-level /solutions/[sector].html page?
+  → _template-sector-solution.html
+
+Is this a /solutions/[sector]/[persona].html page?
+  → _template-persona-standardized.html
+  → Layout A if the persona has operational problems + specific system solutions
+    (office, retail, hotel, aged-care, dormitories, new-build, home-upgrade)
+  → Layout B if the persona is a professional stakeholder / working relationship
+    (mcst, managing-agents, security-contractors, architects)
+
+Is this a /portfolio/[project].html case study?
+  → _template-portfolio.html
+
+Is this a /resources/guides/[guide].html technical guide?
+  → _template-technical-guide.html
+
+Is this a /brands/[brand].html brand page?
+  → _template-brand.html
+
+Is this a /insights/[slug].html article?
+  → _template-insights.html
+```
 
 ---
 
@@ -657,6 +683,6 @@ DO NOT TOUCH: nav, footer, hero, author bio strip, sidebar, CTA section, any oth
 
 ---
 
-*Securevision Global Design Instruction v3.0 — April 2026*
-*Changes from v2.1: Sector structure expanded from 6 to 8. Added Managed Living and Data Centres sectors. Nav labels updated — "Private Homes" → "Residential". Portfolio dropdown added with sector filter URLs. Colour system updated with new sector variables. Hero and CTA classes added for managed-living and data-centres (flagged as NEEDS CSS in sv-shared.css). URL reference map updated with new sector files and portfolio orphan migrations.*
+*Securevision Global Design Instruction v3.1 — April 2026*
+*Changes from v3.0: Section 20 updated — added _template-persona-standardized.html for persona sub-pages (/solutions/[sector]/[persona].html). Template selection guide added. _template-solution.html renamed reference to _template-sector-solution.html to match actual filename. INSTRUCTION-persona.md flagged as pending creation.*
 *Do not modify without updating version number and date*
