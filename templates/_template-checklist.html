@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       SEO — UPDATE ALL 7 LINES. Nothing else in <head> changes.
+       Title format:  [Sector] Security Planning Checklist | Securevision
+       Description:   140–160 chars. Lead with what the visitor assesses,
+                      end with who it is for and Singapore.
+       Canonical:     Always /resources/checklists/[slug].html
+  ════════════════════════════════════════════════════════════════ -->
+  <title>[Sector] Security Planning Checklist | Free Assessment | Securevision Singapore</title>
+  <meta name="description"
+    content="[140–160 chars. What they assess, why it matters, who it is for. End with Singapore.]">
+  <link rel="canonical" href="https://www.securevision.com.sg/resources/checklists/[slug].html">
+  <meta property="og:title" content="[Sector] Security Planning Checklist | Securevision">
+  <meta property="og:description" content="[Same as meta description]">
+  <meta property="og:url" content="https://www.securevision.com.sg/resources/checklists/[slug].html">
+  <meta property="og:image" content="https://www.securevision.com.sg/images/og-default.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Securevision">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS — sv-shared only. Contains all checklist UI (Section 34). -->
+  <link rel="stylesheet" href="/sv-shared.css">
+  <script src="/site-config.js"></script>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       PAGE ACCENT — only permitted <style> block.
+       Checklist pages use the sector dark shade — same rule as
+       sector solution pages. Cross-sector checklists use primary blue.
+
+       Sector reference:
+         Commercial       #B54E00   Residential    #257000
+         Condominiums     #2d45c4   Industrial     #5a0892
+         Institutions     #1B4F72   Healthcare     #0D7377
+         Managed Living   #7C2D12   Cross-sector   #0056b3
+  ════════════════════════════════════════════════════════════════ -->
+  <style>
+    :root { --page-accent: #[DARK-HEX]; }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- ═══ NAV — injected by nav-footer.js ═══ -->
+  <nav id="sv-nav"></nav>
+
+  <main>
+
+    <!-- ── BREADCRUMB ── -->
+    <nav class="sv-breadcrumb" aria-label="Breadcrumb">
+      <div class="container">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/resources/">Resources</a></li>
+          <li><a href="/resources/checklists/">Planning Checklists</a></li>
+          <li>[Checklist name — e.g. Commercial Security Planning]</li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         INTRO SECTION
+         Background: sv-section-white
+         Purpose: frame the checklist — who it is for, what it does,
+         and the value of completing it before the visitor starts.
+         Keep this short. The checklist itself is the value.
+    ════════════════════════════════════════════════════════════════ -->
+    <section class="sv-section-white">
+      <div class="container">
+        <span class="eyebrow">[e.g. Commercial Security / Care Facility Assessment / MCST Planning Tool]</span>
+        <h1>[e.g. Is Your Commercial Security Setup Ready for What Could Go Wrong?]</h1>
+        <p class="subtitle">[One sentence: what the visitor will learn by completing this checklist. Specific and outcome-focused.]</p>
+
+        <!-- WHAT YOU WILL ASSESS — 4 bullet points matching the CTA copy on sector pages -->
+        <div class="grid-4">
+          <div class="card text-center">
+            <p>[Assessment area 1 — e.g. Review current access, CCTV, and visitor workflows]</p>
+          </div>
+          <div class="card text-center">
+            <p>[Assessment area 2 — e.g. Identify weak points affecting staff and operations]</p>
+          </div>
+          <div class="card text-center">
+            <p>[Assessment area 3 — e.g. Plan upgrades without unnecessary disruption]</p>
+          </div>
+          <div class="card text-center">
+            <p>[Assessment area 4 — e.g. Avoid fragmented systems that create blind spots]</p>
+          </div>
+        </div>
+
+        <!-- WHO THIS IS FOR -->
+        <p class="subtitle">Designed for [e.g. business owners, facilities teams, and operations managers in offices, retail units, and commercial buildings across Singapore].</p>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         CHECKLIST BODY
+         Background: sv-section-grey
+         Contains: progress sidebar (desktop) + all checklist sections
+         JavaScript handles: tick state, score bar fill, band activation,
+         final score calculation, progress dot completion state.
+    ════════════════════════════════════════════════════════════════ -->
+    <section class="sv-section-grey">
+      <div class="container">
+
+        <div class="cl-layout">
+
+          <!-- ── PROGRESS SIDEBAR (desktop only — hidden on mobile) ── -->
+          <nav class="cl-progress-nav" aria-label="Checklist sections">
+            <div class="cl-progress-title">Your Progress</div>
+            <ul class="cl-progress-list">
+              <!-- One item per section — update labels to match your sections -->
+              <li>
+                <a href="#section-1" class="cl-progress-item active" data-section="1">
+                  <span class="cl-progress-dot">1</span>
+                  <span class="cl-progress-label">[Section 1 name — e.g. Access Control]</span>
+                  <span class="cl-progress-count" id="prog-1">0/[N]</span>
+                </a>
+              </li>
+              <li>
+                <a href="#section-2" class="cl-progress-item" data-section="2">
+                  <span class="cl-progress-dot">2</span>
+                  <span class="cl-progress-label">[Section 2 name]</span>
+                  <span class="cl-progress-count" id="prog-2">0/[N]</span>
+                </a>
+              </li>
+              <li>
+                <a href="#section-3" class="cl-progress-item" data-section="3">
+                  <span class="cl-progress-dot">3</span>
+                  <span class="cl-progress-label">[Section 3 name]</span>
+                  <span class="cl-progress-count" id="prog-3">0/[N]</span>
+                </a>
+              </li>
+              <li>
+                <a href="#section-4" class="cl-progress-item" data-section="4">
+                  <span class="cl-progress-dot">4</span>
+                  <span class="cl-progress-label">[Section 4 name]</span>
+                  <span class="cl-progress-count" id="prog-4">0/[N]</span>
+                </a>
+              </li>
+              <li>
+                <a href="#section-5" class="cl-progress-item" data-section="5">
+                  <span class="cl-progress-dot">5</span>
+                  <span class="cl-progress-label">[Section 5 name]</span>
+                  <span class="cl-progress-count" id="prog-5">0/[N]</span>
+                </a>
+              </li>
+              <!-- Add or remove items to match your section count -->
+            </ul>
+          </nav>
+
+          <!-- ── CHECKLIST MAIN CONTENT ── -->
+          <div class="cl-main">
+
+            <!-- ════════════════════════════════════════════════════
+                 SECTION 1
+                 data-section must match the sidebar item data-section.
+                 data-total = number of questions in this section.
+            ════════════════════════════════════════════════════ -->
+            <div class="cl-section" id="section-1" data-section="1" data-total="[N]">
+              <div class="cl-section-header">
+                <span class="cl-section-number">1</span>
+                <span class="cl-section-eyebrow">[Category — e.g. Access Control]</span>
+                <h2 class="cl-section-title">[Section heading — e.g. Who Can Enter Your Building and When?]</h2>
+                <p class="cl-section-desc">[One sentence: what this section assesses and why it matters for this sector.]</p>
+              </div>
+
+              <div class="cl-questions">
+
+                <!-- QUESTION — copy this block for each question in the section -->
+                <label class="cl-question">
+                  <span class="cl-check" aria-hidden="true"></span>
+                  <input type="checkbox" class="cl-checkbox" hidden>
+                  <div class="cl-question-body">
+                    <p class="cl-question-text">[Question — phrased as a yes/no statement the visitor ticks if true for their property. e.g. "Staff entry points use card, biometric, or PIN access — not physical keys."]</p>
+                    <p class="cl-question-note">[Optional: one sentence explaining why this matters or what the risk is if not ticked. e.g. "Physical keys cannot be instantly revoked when a staff member leaves."]</p>
+                  </div>
+                </label>
+
+                <!-- Add more question blocks here -->
+                <label class="cl-question">
+                  <span class="cl-check" aria-hidden="true"></span>
+                  <input type="checkbox" class="cl-checkbox" hidden>
+                  <div class="cl-question-body">
+                    <p class="cl-question-text">[Question 2]</p>
+                    <p class="cl-question-note">[Note 2 — optional, remove p tag if not needed]</p>
+                  </div>
+                </label>
+
+                <label class="cl-question">
+                  <span class="cl-check" aria-hidden="true"></span>
+                  <input type="checkbox" class="cl-checkbox" hidden>
+                  <div class="cl-question-body">
+                    <p class="cl-question-text">[Question 3]</p>
+                  </div>
+                </label>
+
+              </div><!-- end .cl-questions -->
+
+              <!-- SCORE BAR — one per section, always at the end -->
+              <div class="cl-score-bar" data-section="1">
+                <div class="cl-score-bar-top">
+                  <span class="cl-score-label">Section Score</span>
+                  <span class="cl-score-count"><span class="cl-score-ticked">0</span> of [N] ticked</span>
+                </div>
+                <div class="cl-score-track">
+                  <div class="cl-score-fill" style="width:0%"></div>
+                </div>
+                <div class="cl-score-bands">
+                  <div class="cl-band cl-band-low" data-min="0" data-max="[LOW-MAX]">
+                    <span class="cl-band-range">0–[LOW-MAX]</span>
+                    <span class="cl-band-title">Significant Gaps</span>
+                    <p class="cl-band-desc">[2 sentences: what this score means for this section specifically. Plain language, no jargon.]</p>
+                  </div>
+                  <div class="cl-band cl-band-mid" data-min="[MID-MIN]" data-max="[MID-MAX]">
+                    <span class="cl-band-range">[MID-MIN]–[MID-MAX]</span>
+                    <span class="cl-band-title">Partial Coverage</span>
+                    <p class="cl-band-desc">[2 sentences: what this score means — some things in place but gaps remain.]</p>
+                  </div>
+                  <div class="cl-band cl-band-high" data-min="[HIGH-MIN]" data-max="[N]">
+                    <span class="cl-band-range">[HIGH-MIN]–[N]</span>
+                    <span class="cl-band-title">Strong Foundation</span>
+                    <p class="cl-band-desc">[2 sentences: what this score means — good baseline, confirm configuration is correct.]</p>
+                  </div>
+                </div>
+              </div><!-- end .cl-score-bar -->
+            </div><!-- end .cl-section -->
+
+
+            <!-- ════════════════════════════════════════════════════
+                 SECTIONS 2–5
+                 Copy the full .cl-section block above for each section.
+                 Update: id, data-section, data-total, number, eyebrow,
+                 title, desc, questions, score bar data-section, counts,
+                 band ranges, and band descriptions.
+            ════════════════════════════════════════════════════ -->
+            <!-- SECTION 2 — insert here -->
+            <!-- SECTION 3 — insert here -->
+            <!-- SECTION 4 — insert here -->
+            <!-- SECTION 5 — insert here -->
+
+
+            <!-- ════════════════════════════════════════════════════
+                 FINAL SCORE
+                 Shows total ticks across all sections.
+                 Three outcome bands — update counts and text.
+                 Total questions = sum of all section data-total values.
+            ════════════════════════════════════════════════════ -->
+            <div class="cl-final-score" id="cl-final">
+              <div class="cl-final-number" id="cl-total-score">0</div>
+              <div class="cl-final-total">out of [TOTAL] ticked</div>
+              <span class="cl-final-band-label" id="cl-final-label">Complete the checklist above</span>
+              <p class="cl-final-desc" id="cl-final-desc">Work through each section above. Your overall score will appear here once you begin ticking.</p>
+
+              <div class="cl-cta-strip">
+                <a href="/request-site-assessment-singapore.html?intent=[slug]-checklist"
+                  class="btn btn-primary">Request a Site Assessment</a>
+                <a href="https://wa.me/6593860466"
+                  class="btn btn-whatsapp">💬 Discuss Your Results</a>
+              </div>
+            </div><!-- end .cl-final-score -->
+
+          </div><!-- end .cl-main -->
+        </div><!-- end .cl-layout -->
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════════
+         WHAT HAPPENS NEXT
+         Background: sv-section-white
+         Purpose: convert visitors who have completed the checklist.
+         Three steps — what a site assessment involves.
+         Sector-specific wording.
+    ════════════════════════════════════════════════════════════════ -->
+    <section class="sv-section-white">
+      <div class="container">
+        <span class="eyebrow">After the Checklist</span>
+        <h2>What Happens When You Book a Site Assessment</h2>
+        <p class="subtitle">[One sentence: what a site assessment delivers for this sector specifically.]</p>
+
+        <div class="step-row">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <h3>[Step name — e.g. Site Walkthrough]</h3>
+            <p>[2 sentences: what happens in this step and what the visitor gets out of it.]</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <h3>[Step name — e.g. Gap Analysis]</h3>
+            <p>[2 sentences]</p>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <h3>[Step name — e.g. Written Proposal]</h3>
+            <p>[2 sentences]</p>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="/request-site-assessment-singapore.html?intent=[slug]-checklist-next"
+            class="btn btn-primary">Book a Site Assessment</a>
+          <a href="https://wa.me/6593860466"
+            class="btn btn-whatsapp">💬 WhatsApp an Engineer</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════════
+         RELATED RESOURCES
+         Background: sv-section-grey
+         Purpose: internal linking — other relevant guides or checklists.
+         2–3 cards only. Pick the most adjacent resources.
+    ════════════════════════════════════════════════════════════════ -->
+    <section class="sv-section-grey">
+      <div class="container">
+        <span class="eyebrow">Related Resources</span>
+        <h2>Also Useful For [Sector] Security Planning</h2>
+
+        <div class="grid-3">
+          <!-- Link to the sector solution page -->
+          <a href="/solutions/[sector].html" class="rel-card">
+            <h3>[Sector] Security Solutions</h3>
+            <p>[1–2 sentences: what the sector page covers that extends beyond the checklist.]</p>
+            <div class="rel-card-footer">Explore [Sector] Solutions →</div>
+          </a>
+
+          <!-- Link to a relevant technical guide -->
+          <a href="/resources/guides/[guide].html" class="rel-card">
+            <h3>[Guide title — e.g. The Complete Guide to Access Control]</h3>
+            <p>[1–2 sentences: what the guide covers.]</p>
+            <div class="rel-card-footer">Read the Guide →</div>
+          </a>
+
+          <!-- Link to a related checklist or the checklists index -->
+          <a href="/resources/checklists/" class="rel-card">
+            <h3>All Planning Checklists</h3>
+            <p>Assessment tools for every property type — commercial, residential, healthcare, industrial, and more.</p>
+            <div class="rel-card-footer">Browse All Checklists →</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════════════════════════
+         FINAL CTA
+         Same pattern as sector solution pages.
+         cta-[slug] must be defined in sv-shared.css if you want a
+         background image — otherwise use cta-high-impact alone
+         which renders with the dark navy fallback.
+    ════════════════════════════════════════════════════════════════ -->
+    <section class="cta-section cta-high-impact">
+      <div class="container">
+        <span class="eyebrow-light">Ready to Act on Your Results?</span>
+        <h2>[e.g. Let's Turn Your Checklist Into a Security Plan]</h2>
+        <p class="subtitle">[One sentence: what the next step is — specific, low-friction.]</p>
+        <div class="btn-group">
+          <a href="/request-site-assessment-singapore.html?intent=[slug]-cta"
+            class="btn btn-primary">[Primary CTA — e.g. Book a Site Assessment]</a>
+          <a href="https://wa.me/6593860466"
+            class="btn btn-outline-light">💬 WhatsApp Us</a>
+        </div>
+        <p class="cta-trust-note">Police Licence <span class="sv-licence"></span> · bizSAFE Level 3 · Serving Singapore Since 2006</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER — injected by nav-footer.js ═══ -->
+  <footer id="sv-footer"></footer>
+
+  <!-- ═══ WHATSAPP FLOAT ═══ -->
+  <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener"
+    aria-label="Chat on WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+    </svg>
+  </a>
+
+  <!-- ═══ SCRIPTS ═══ -->
+  <script src="/nav-footer.js"></script>
+
+  <!-- ══════════════════════════════════════════════════════════════
+       CHECKLIST INTERACTION SCRIPT
+       Handles: tick state, score calculation, progress sidebar,
+       band activation, and final score display.
+       Self-contained — no external dependencies.
+       Do NOT modify the data attributes on .cl-section or .cl-score-bar.
+  ════════════════════════════════════════════════════════════════ -->
+  <script>
+    (function () {
+      const sections = document.querySelectorAll('.cl-section');
+      const finalScore = document.getElementById('cl-total-score');
+      const finalLabel = document.getElementById('cl-final-label');
+      const finalDesc = document.getElementById('cl-final-desc');
+      const totalQuestions = [/* sum of all data-total values */];
+
+      // Band definitions — update text to match each checklist's content
+      const finalBands = [
+        {
+          min: 0, max: Math.floor(totalQuestions * 0.4),
+          label: 'Significant Gaps',
+          labelClass: 'low',
+          desc: 'Your assessment suggests meaningful gaps across several security areas. A site assessment would identify which gaps pose the most immediate risk and the most cost-effective path to address them.'
+        },
+        {
+          min: Math.floor(totalQuestions * 0.4) + 1,
+          max: Math.floor(totalQuestions * 0.75),
+          label: 'Partial Coverage',
+          labelClass: 'mid',
+          desc: 'You have a reasonable security foundation with some gaps remaining. A professional review would confirm whether what you have is configured correctly and identify where targeted upgrades would have the most impact.'
+        },
+        {
+          min: Math.floor(totalQuestions * 0.75) + 1,
+          max: totalQuestions,
+          label: 'Strong Foundation',
+          labelClass: 'high',
+          desc: 'Your security setup scores well across the key areas. A site assessment would validate your current configuration and confirm there are no blind spots in areas not covered by this checklist.'
+        }
+      ];
+
+      function updateSection(section) {
+        const sectionId = section.dataset.section;
+        const total = parseInt(section.dataset.total);
+        const checked = section.querySelectorAll('.cl-checkbox:checked').length;
+        const pct = total > 0 ? (checked / total) * 100 : 0;
+
+        // Update score bar fill
+        const fill = section.querySelector('.cl-score-fill');
+        if (fill) fill.style.width = pct + '%';
+
+        // Update count text
+        const countEl = section.querySelector('.cl-score-ticked');
+        if (countEl) countEl.textContent = checked;
+
+        // Update score bands
+        section.querySelectorAll('.cl-band').forEach(band => {
+          const min = parseInt(band.dataset.min);
+          const max = parseInt(band.dataset.max);
+          band.classList.toggle('active', checked >= min && checked <= max);
+        });
+
+        // Update sidebar progress
+        const progEl = document.getElementById('prog-' + sectionId);
+        if (progEl) progEl.textContent = checked + '/' + total;
+
+        const sidebarItem = document.querySelector('.cl-progress-item[data-section="' + sectionId + '"]');
+        if (sidebarItem) {
+          sidebarItem.classList.toggle('complete', checked === total);
+        }
+
+        updateFinalScore();
+      }
+
+      function updateFinalScore() {
+        let total = 0;
+        sections.forEach(s => {
+          total += s.querySelectorAll('.cl-checkbox:checked').length;
+        });
+
+        if (finalScore) finalScore.textContent = total;
+
+        // Update final band
+        const band = finalBands.find(b => total >= b.min && total <= b.max);
+        if (band && finalLabel) {
+          finalLabel.textContent = band.label;
+          finalLabel.className = 'cl-final-band-label ' + band.labelClass;
+          if (finalDesc) finalDesc.textContent = band.desc;
+        }
+      }
+
+      // Attach click handlers to all questions
+      sections.forEach(section => {
+        section.querySelectorAll('.cl-question').forEach(question => {
+          question.addEventListener('click', function () {
+            const cb = this.querySelector('.cl-checkbox');
+            if (cb) {
+              cb.checked = !cb.checked;
+              this.classList.toggle('checked', cb.checked);
+              updateSection(section);
+            }
+          });
+        });
+      });
+
+      // Highlight active section in sidebar on scroll
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.dataset.section;
+            document.querySelectorAll('.cl-progress-item').forEach(item => {
+              item.classList.toggle('active', item.dataset.section === id);
+            });
+          }
+        });
+      }, { rootMargin: '-40% 0px -55% 0px' });
+
+      sections.forEach(s => observer.observe(s));
+
+    })();
+  </script>
+
+</body>
+</html>
