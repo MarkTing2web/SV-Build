@@ -6,7 +6,7 @@
 
   <!-- ═══ SEO: UPDATE THESE PER PROJECT ═══ -->
   <title>[PROJECT NAME] — Portfolio Case Study | Securevision Singapore</title>
-  <meta name="description" content="[140–160 chars: what Securevision delivered, for what type of site, and the key outcome.]">
+  <meta name="description" content="[140–160 chars: what Securevision did and the key outcome. E.g. 'Securevision deployed a 200-camera AI surveillance system at *SCAPE, reducing incident response time by 87%.']">
   <link rel="canonical" href="https://www.securevision.com.sg/[slug].html">
   <meta property="og:title" content="[PROJECT NAME] — Case Study | Securevision">
   <meta property="og:description" content="[SAME AS META DESCRIPTION]">
@@ -16,15 +16,23 @@
   <meta property="og:site_name" content="Securevision">
   <!-- ════════════════════════════════════════ -->
 
+  <!-- Google Fonts — do not modify -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- sv-shared.css + sv-guides.css — absolute paths, work at any folder depth -->
   <link rel="stylesheet" href="/sv-shared.css">
   <script src="/site-config.js"></script>
+  <link rel="stylesheet" href="/sv-guides.css">
+
 </head>
 <body>
 
+<!-- ═══════════════════════════════════════════════════════════════════
+     NAV — FROZEN. DO NOT MODIFY ANY PART OF THIS BLOCK.
+     ALL PATHS ARE ABSOLUTE — works at any folder depth.
+     ═══════════════════════════════════════════════════════════════════ -->
 <nav class="main-nav">
 <div class="nav-container">
   <a href="/" class="nav-logo-link" aria-label="Securevision Home">
@@ -52,10 +60,11 @@
     </li>
     <li class="nav-item"><a href="/systems/" class="nav-link has-dropdown">Systems</a>
       <div class="simple-dropdown">
-        <a href="/systems/surveillance.html">Surveillance &amp; Detection</a>
-        <a href="/systems/access-control.html">People Access Control</a>
-        <a href="/systems/vehicle-access.html">Vehicle Access &amp; Barriers</a>
-        <a href="/systems/platform.html">Platform Management</a>
+        <a href="/systems/surveillance.html">Premises Security</a>
+        <a href="/systems/access-control.html">Entry &amp; Access</a>
+        <a href="/systems/vehicle-access.html">Vehicle Management</a>
+        <a href="/systems/communications.html">Communications</a>
+        <a href="/systems/platform.html">Platform &amp; Management</a>
       </div>
     </li>
     <li class="nav-item"><a href="/brands/" class="nav-link has-dropdown">Brands</a>
@@ -116,10 +125,11 @@
   </div>
   <div class="mobile-menu-item" onclick="toggleSubmenu('sysSub')">Systems ▾
     <div class="mobile-submenu" id="sysSub">
-      <a href="/systems/surveillance.html">Surveillance &amp; Detection</a>
-      <a href="/systems/access-control.html">People Access Control</a>
-      <a href="/systems/vehicle-access.html">Vehicle Access &amp; Barriers</a>
-      <a href="/systems/platform.html">Platform Management</a>
+      <a href="/systems/surveillance.html">Premises Security</a>
+      <a href="/systems/access-control.html">Entry &amp; Access</a>
+      <a href="/systems/vehicle-access.html">Vehicle Management</a>
+      <a href="/systems/communications.html">Communications</a>
+      <a href="/systems/platform.html">Platform &amp; Management</a>
     </div>
   </div>
   <div class="mobile-menu-item" onclick="toggleSubmenu('brandSub')">Brands ▾
@@ -153,34 +163,60 @@
   </div>
 </div>
 </nav>
+<!-- ═══ END NAV ═══ -->
 
-<!-- ═══ HERO — left-aligned, outcome-led, supports property + system discovery ═══ -->
-<header class="portfolio-hero">
+
+<!-- ═══ HERO — UPDATE: sector badge, project name, descriptor, location, 4 stats ═══ -->
+<!-- No background image — dark gradient only -->
+<header style="background:linear-gradient(135deg,#0E1A2B 0%,#1a2942 100%); padding:calc(68px + 64px) 0 64px; color:#fff;">
   <div class="container">
-    <div class="portfolio-kicker">
-      <span class="badge badge-primary">[SECTOR BADGE — e.g. CONDOMINIUM CASE STUDY]</span>
-      <span class="portfolio-meta">📍 [LOCATION]</span>
-      <span class="portfolio-meta">[PROPERTY TYPE]</span>
-    </div>
-    <h1 class="portfolio-hero-title">[PROJECT NAME]</h1>
-    <p class="portfolio-hero-subtitle">[Outcome-led one-line descriptor — not a system list]</p>
 
-    <div class="portfolio-taxonomy" aria-label="Project taxonomy">
-      <span class="portfolio-chip">Property Type: [PROPERTY TYPE]</span>
-      <span class="portfolio-chip">System: [SYSTEM 1]</span>
-      <span class="portfolio-chip">System: [SYSTEM 2]</span>
-      <span class="portfolio-chip">Solution: [PRIMARY SOLUTION THEME]</span>
+    <div style="display:flex; gap:12px; margin-bottom:20px; flex-wrap:wrap; align-items:center;">
+      <span class="badge badge-primary">[SECTOR BADGE — e.g. PORTFOLIO CASE STUDY / RESIDENTIAL / COMMERCIAL]</span>
+      <span style="font-family:'Inter',sans-serif; color:rgba(255,255,255,0.6); font-size:13px;">📍 [LOCATION]</span>
+      <span style="font-family:'Inter',sans-serif; color:rgba(255,255,255,0.6); font-size:13px;">[PROPERTY TYPE]</span>
     </div>
 
-    <div class="portfolio-stat-grid">
-      <div class="portfolio-stat"><span class="portfolio-stat-value">[STAT 1]</span><span class="portfolio-stat-label">[LABEL 1]</span></div>
-      <div class="portfolio-stat"><span class="portfolio-stat-value">[STAT 2]</span><span class="portfolio-stat-label">[LABEL 2]</span></div>
-      <div class="portfolio-stat"><span class="portfolio-stat-value">[STAT 3]</span><span class="portfolio-stat-label">[LABEL 3]</span></div>
-      <div class="portfolio-stat"><span class="portfolio-stat-value">[STAT 4]</span><span class="portfolio-stat-label">[LABEL 4]</span></div>
+    <h1 style="font-family:'Montserrat',sans-serif; font-size:clamp(32px,5vw,60px); font-weight:800; color:#fff; line-height:1.1; margin-bottom:16px;">
+      [PROJECT NAME]
+    </h1>
+    <p style="font-family:'Inter',sans-serif; font-size:20px; color:rgba(255,255,255,0.8); line-height:1.6; margin-bottom:48px; max-width:700px;">
+      [One-line project descriptor — outcome focused]
+    </p>
+
+    <!-- 4-stat strip — mandatory, exactly 4, all from project brief -->
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-bottom:40px;">
+
+      <div style="text-align:center; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:24px 16px;">
+        <div style="font-family:'Montserrat',sans-serif; font-size:32px; font-weight:800; color:#fff; margin-bottom:6px;">[STAT 1 VALUE]</div>
+        <div style="font-family:'Montserrat',sans-serif; font-size:11px; color:rgba(255,255,255,0.6); text-transform:uppercase; letter-spacing:1px;">[STAT 1 LABEL]</div>
+      </div>
+
+      <div style="text-align:center; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:24px 16px;">
+        <div style="font-family:'Montserrat',sans-serif; font-size:32px; font-weight:800; color:#fff; margin-bottom:6px;">[STAT 2 VALUE]</div>
+        <div style="font-family:'Montserrat',sans-serif; font-size:11px; color:rgba(255,255,255,0.6); text-transform:uppercase; letter-spacing:1px;">[STAT 2 LABEL]</div>
+      </div>
+
+      <div style="text-align:center; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:24px 16px;">
+        <div style="font-family:'Montserrat',sans-serif; font-size:32px; font-weight:800; color:#fff; margin-bottom:6px;">[STAT 3 VALUE]</div>
+        <div style="font-family:'Montserrat',sans-serif; font-size:11px; color:rgba(255,255,255,0.6); text-transform:uppercase; letter-spacing:1px;">[STAT 3 LABEL]</div>
+      </div>
+
+      <div style="text-align:center; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:24px 16px;">
+        <div style="font-family:'Montserrat',sans-serif; font-size:32px; font-weight:800; color:#fff; margin-bottom:6px;">[STAT 4 VALUE]</div>
+        <div style="font-family:'Montserrat',sans-serif; font-size:11px; color:rgba(255,255,255,0.6); text-transform:uppercase; letter-spacing:1px;">[STAT 4 LABEL]</div>
+      </div>
+
     </div>
+
+    <a href="https://wa.me/6593860466" class="btn btn-whatsapp">💬 Discuss a Similar Project</a>
+
   </div>
 </header>
+<!-- ═══ END HERO ═══ -->
 
+
+<!-- ═══ BREADCRUMB — update last <li> only ═══ -->
 <nav class="sv-breadcrumb" aria-label="Breadcrumb">
   <div class="container">
     <ul>
@@ -190,172 +226,288 @@
     </ul>
   </div>
 </nav>
+<!-- ═══ END BREADCRUMB ═══ -->
 
-<section class="portfolio-section">
-  <div class="container portfolio-section-narrow">
-    <div class="portfolio-split">
+
+<!-- ═══ SECTION 1: PROJECT OVERVIEW — white ═══ -->
+<!-- UPDATE: all table cells, and the systems deployed links -->
+<!-- Systems links must go to system pages — NOT brand pages -->
+<section style="padding:80px 0; background:#fff;">
+  <div class="container">
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start;">
+
+      <!-- Overview table -->
       <div>
         <span class="eyebrow">Project Overview</span>
-        <table class="portfolio-overview-table">
-          <tbody>
-            <tr><th>Client</th><td>[CLIENT NAME — or Confidential if undisclosed]</td></tr>
-            <tr><th>Location</th><td>[DISTRICT / ADDRESS, Singapore]</td></tr>
-            <tr><th>Sector</th><td>[SECTOR]</td></tr>
-            <tr><th>Project Type</th><td>[Upgrade / New installation / Retrofit / Phased migration]</td></tr>
-            <tr><th>Completion</th><td>[MONTH YEAR]</td></tr>
-          </tbody>
-        </table>
+        <div class="blog-table-wrap" style="margin-top:24px;">
+          <table class="blog-table">
+            <tbody>
+              <tr><td style="font-weight:700; font-family:'Montserrat',sans-serif; width:140px; white-space:nowrap;">Client</td><td>[CLIENT NAME — or "Confidential" if not disclosed]</td></tr>
+              <tr><td style="font-weight:700; font-family:'Montserrat',sans-serif;">Location</td><td>[FULL ADDRESS or DISTRICT, Singapore]</td></tr>
+              <tr><td style="font-weight:700; font-family:'Montserrat',sans-serif;">Sector</td><td>[SECTOR / PROPERTY TYPE]</td></tr>
+              <tr><td style="font-weight:700; font-family:'Montserrat',sans-serif;">Project Type</td><td>[e.g. Complete system upgrade / New installation / Phased upgrade]</td></tr>
+              <tr><td style="font-weight:700; font-family:'Montserrat',sans-serif;">Completion</td><td>[MONTH YEAR]</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
+
+      <!-- Systems deployed — links to system pages only -->
       <div>
-        <span class="eyebrow">Discovery Paths</span>
-        <div class="portfolio-link-stack">
-          <a href="/solutions/[property-page].html" class="portfolio-link-card">
-            <strong>Explore the property-type solution</strong>
-            <span>[Explain which solution page this project supports]</span>
+        <span class="eyebrow">Systems Deployed</span>
+        <div style="margin-top:24px; display:flex; flex-direction:column; gap:10px;">
+          <!-- Add one link per system actually deployed in this project -->
+          <!-- Use only these hrefs: surveillance-detection.html | people-access-control.html |
+               vehicle-access-control.html | integrated-security-platform.html |
+               burglar-alarm.html | door-access.html | intercom-system-singapore.html | auto-gate-singapore.html -->
+          <a href="[SYSTEM-PAGE].html"
+             style="display:flex; align-items:center; gap:12px; padding:14px 18px; background:var(--bg-light); border-radius:8px; text-decoration:none; color:var(--text-dark); font-weight:600; font-size:14px; border:1px solid var(--border-light); transition:0.2s; font-family:'Montserrat',sans-serif;"
+             onmouseover="this.style.borderColor='var(--primary-blue)'; this.style.background='#f0f7ff'"
+             onmouseout="this.style.borderColor='var(--border-light)'; this.style.background='var(--bg-light)'">
+            [EMOJI] [System name — e.g. "AI Surveillance & Analytics"]
           </a>
-          <a href="/systems/[system-page-1].html" class="portfolio-link-card">
-            <strong>See the primary system</strong>
-            <span>[System theme — e.g. intercom modernisation, AI surveillance, access control]</span>
-          </a>
-          <a href="/systems/[system-page-2].html" class="portfolio-link-card">
-            <strong>See the supporting system</strong>
-            <span>[Supporting system or platform layer]</span>
-          </a>
-        </div>
-
-        <div class="portfolio-represents">
-          <span class="eyebrow">What This Project Represents</span>
-          <p>[Translate the project into a repeatable use case so readers can see how it applies to their own site.]</p>
+          <!-- Repeat for each system -->
         </div>
       </div>
+
     </div>
   </div>
 </section>
+<!-- ═══ END SECTION 1 ═══ -->
 
-<section class="portfolio-section bg-light portfolio-body">
-  <div class="container portfolio-section-narrow">
-    <span class="eyebrow">The Challenge</span>
-    <h2>[Challenge heading]</h2>
-    <figure class="portfolio-image">
-      <img src="/images/[project]-challenge.jpg" alt="[Descriptive alt text]">
-      <figcaption>[Caption explaining what the image shows and why it matters to the project context.]</figcaption>
-    </figure>
-    <h3>[Constraint or problem 1]</h3>
-    <p>[Engineering-led explanation of the problem.]</p>
-    <h3>[Constraint or problem 2]</h3>
-    <p>[Operational or user challenge.]</p>
-    <h3>[Constraint or problem 3]</h3>
-    <p>[Site-specific limitation, cost pressure, compliance issue, or retrofit challenge.]</p>
-  </div>
-</section>
 
-<section class="portfolio-section portfolio-body">
-  <div class="container portfolio-section-narrow">
-    <span class="eyebrow">Our Approach</span>
-    <h2>[Solution heading]</h2>
-    <p>[Short opening paragraph explaining the design logic, not just the equipment list.]</p>
-    <figure class="portfolio-image">
-      <img src="/images/[project]-solution.jpg" alt="[Descriptive alt text]">
-      <figcaption>[Caption for the solution image.]</figcaption>
-    </figure>
-    <h3>[Solution pillar 1]</h3>
-    <p>[What was designed and why.]</p>
-    <div class="portfolio-callout">
-      <h4>Design Decision</h4>
-      <p>[Key engineering choice and why it mattered.]</p>
+<!-- ═══ SECTION 2: THE CHALLENGE — bg-light ═══ -->
+<!-- UPDATE: h2 context heading, 2–4 sub-challenge h3s with paragraphs, 1 image -->
+<!-- Narrative tone: engineering-led, specific to this site's unique constraints -->
+<!-- Image: use .blog-img-wrap (16:9). Caption with .blog-img-caption. -->
+<section style="padding:80px 0; background:var(--bg-light);">
+  <div class="container" style="max-width:1000px;">
+
+    <span class="eyebrow">The Context</span>
+    <h2>[CHALLENGE HEADING — e.g. "Modernising Security for a High-Traffic Youth Hub"]</h2>
+
+    <div class="blog-img-wrap" style="margin:40px 0;">
+      <img src="images/[project]-challenge.jpg" alt="[Descriptive alt text]">
+      <span class="blog-img-caption">[Caption — what this image shows and why it's relevant]</span>
     </div>
-    <h3>[Solution pillar 2]</h3>
-    <p>[How the second system or integration layer completed the architecture.]</p>
-    <h3>[Solution pillar 3]</h3>
-    <p>[Optional third layer — rollout, resilience, adoption, management workflow, etc.]</p>
+
+    <!-- Sub-challenge 1 -->
+    <h3>[Sub-challenge heading — specific, not generic]</h3>
+    <p>[2–4 paragraphs explaining this challenge. Engineering-specific. What made it hard for this particular site.]</p>
+
+    <!-- Sub-challenge 2 -->
+    <h3>[Sub-challenge heading]</h3>
+    <p>[2–4 paragraphs]</p>
+
+    <!-- Sub-challenge 3 — add or remove as needed -->
+    <h3>[Sub-challenge heading]</h3>
+    <p>[2–4 paragraphs]</p>
+
   </div>
 </section>
+<!-- ═══ END SECTION 2 ═══ -->
 
-<section class="portfolio-section bg-light">
-  <div class="container portfolio-section-narrow">
-    <span class="eyebrow">Systems Used</span>
-    <h2>Systems & Equipment Deployed</h2>
-    <p>[One sentence explaining how the deployed systems worked together.]</p>
-    <div class="portfolio-system-grid">
-      <div class="portfolio-system-card">
-        <span class="eyebrow">System 01</span>
+
+<!-- ═══ SECTION 3: OUR SOLUTION — white ═══ -->
+<!-- UPDATE: h2, intro paragraph, 2–3 solution pillars (h3 + paragraphs) -->
+<!-- Engineering narrative — what was designed and WHY, not just what was installed -->
+<!-- Use .recommendation-box for key design decisions -->
+<!-- Image: alternate position from Section 2 -->
+<section style="padding:80px 0; background:#fff;">
+  <div class="container" style="max-width:1000px;">
+
+    <span class="eyebrow">The Approach</span>
+    <h2>[SOLUTION HEADING — e.g. "Unified AI-Powered Security Architecture"]</h2>
+
+    <p style="font-family:'Inter',sans-serif; font-size:17px; color:var(--text-gray); line-height:1.7; margin-bottom:40px;">
+      [Intro paragraph — 1–2 sentences summarising the design philosophy for this project]
+    </p>
+
+    <!-- Solution pillar 1 -->
+    <h3>[Solution pillar heading]</h3>
+    <div class="blog-row-wrap">
+      <div class="blog-img-wrap blog-img-square">
+        <img src="images/[project]-solution.jpg" alt="[Alt text]">
+        <span class="blog-img-caption">[Caption]</span>
+      </div>
+      <p>[Engineering narrative — what was designed and why]</p>
+      <p>[Continue...]</p>
+    </div>
+
+    <!-- Key design decision callout -->
+    <div class="recommendation-box">
+      <h4>🔧 Design Decision</h4>
+      <p>[Key engineering choice made for this project and the reasoning behind it]</p>
+    </div>
+
+    <!-- Solution pillar 2 -->
+    <h3>[Solution pillar heading]</h3>
+    <p>[Paragraphs]</p>
+
+    <!-- Solution pillar 3 — add if needed -->
+    <h3>[Solution pillar heading]</h3>
+    <p>[Paragraphs]</p>
+
+  </div>
+</section>
+<!-- ═══ END SECTION 3 ═══ -->
+
+
+<!-- ═══ SECTION 4: SYSTEMS & EQUIPMENT — bg-light ═══ -->
+<!-- UPDATE: one component-card per system category installed -->
+<!-- Links inside cards must go to system pages — not brand pages -->
+<!-- Only include systems actually deployed — from project brief -->
+<section style="padding:80px 0; background:var(--bg-light);">
+  <div class="container" style="max-width:1000px;">
+
+    <span class="eyebrow">Technical Specification</span>
+    <h2>Systems &amp; Equipment Deployed</h2>
+    <p style="font-family:'Inter',sans-serif; color:var(--text-gray); margin-bottom:48px;">
+      [1 sentence: the systems installed and how they were integrated]
+    </p>
+
+    <!-- Component card — repeat for each system category -->
+    <div class="component-card">
+      <div class="component-header">
+        <div class="component-number">1</div>
+        <h3>[System category — e.g. "AI Video Surveillance"]</h3>
+      </div>
+      <p>[What was installed: brand, model range, quantity, coverage, why this choice for this site]</p>
+      <p><a href="[system-page].html" style="color:var(--primary-blue); font-weight:600; font-size:14px; text-decoration:none;">Learn more about our [System] solutions →</a></p>
+    </div>
+
+    <div class="component-card">
+      <div class="component-header">
+        <div class="component-number">2</div>
         <h3>[System category]</h3>
-        <p>[What was installed, why it fit the site, and what role it played.]</p>
-        <p><a href="/systems/[system-page-1].html">Learn more about this system →</a></p>
       </div>
-      <div class="portfolio-system-card">
-        <span class="eyebrow">System 02</span>
-        <h3>[System category]</h3>
-        <p>[What was installed, why it fit the site, and what role it played.]</p>
-        <p><a href="/systems/[system-page-2].html">Learn more about this system →</a></p>
-      </div>
-      <div class="portfolio-system-card">
-        <span class="eyebrow">Solution Lens</span>
-        <h3>[Solution theme]</h3>
-        <p>[Explain the business or operational outcome this combination of systems delivered.]</p>
-        <p><a href="/solutions/[property-page].html">See this solution for similar properties →</a></p>
-      </div>
+      <p>[Description]</p>
+      <p><a href="[system-page].html" style="color:var(--primary-blue); font-weight:600; font-size:14px; text-decoration:none;">Learn more →</a></p>
     </div>
+
+    <!-- Add more component cards as needed -->
+
   </div>
 </section>
+<!-- ═══ END SECTION 4 ═══ -->
 
-<section class="portfolio-section portfolio-body">
-  <div class="container portfolio-section-narrow">
+
+<!-- ═══ SECTION 5: RESULTS — white ═══ -->
+<!-- UPDATE: up to 3 result stat cards + closing paragraph -->
+<!-- CRITICAL: All stats must come from project brief. Never invented. -->
+<section style="padding:80px 0; background:#fff;">
+  <div class="container" style="max-width:1000px;">
+
     <span class="eyebrow">Measured Outcomes</span>
     <h2>What Changed After Deployment</h2>
-    <p>[One sentence framing how the outcomes were observed or measured.]</p>
-    <div class="portfolio-results-grid">
-      <div class="portfolio-result-card"><span class="portfolio-result-value">[RESULT 1]</span><p>[Explain the result in plain English.]</p></div>
-      <div class="portfolio-result-card"><span class="portfolio-result-value">[RESULT 2]</span><p>[Explain the result in plain English.]</p></div>
-      <div class="portfolio-result-card"><span class="portfolio-result-value">[RESULT 3]</span><p>[Explain the result in plain English.]</p></div>
+    <p style="font-family:'Inter',sans-serif; color:var(--text-gray); max-width:600px; line-height:1.7; margin-bottom:48px;">
+      [1 sentence framing the results — what was measured and over what period]
+    </p>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-bottom:48px;">
+
+      <div class="card" style="text-align:center;">
+        <div style="font-family:'Montserrat',sans-serif; font-size:48px; font-weight:800; color:var(--primary-blue); margin-bottom:8px; line-height:1;">[RESULT STAT 1]</div>
+        <p style="font-size:14px; color:var(--text-gray); line-height:1.5;">[Plain English explanation of what this stat means]</p>
+      </div>
+
+      <div class="card" style="text-align:center;">
+        <div style="font-family:'Montserrat',sans-serif; font-size:48px; font-weight:800; color:var(--primary-blue); margin-bottom:8px; line-height:1;">[RESULT STAT 2]</div>
+        <p style="font-size:14px; color:var(--text-gray); line-height:1.5;">[Plain English explanation]</p>
+      </div>
+
+      <div class="card" style="text-align:center;">
+        <div style="font-family:'Montserrat',sans-serif; font-size:48px; font-weight:800; color:var(--primary-blue); margin-bottom:8px; line-height:1;">[RESULT STAT 3]</div>
+        <p style="font-size:14px; color:var(--text-gray); line-height:1.5;">[Plain English explanation]</p>
+      </div>
+
     </div>
-    <div class="portfolio-callout">
-      <h4>Why This Matters to Similar Sites</h4>
-      <p>[Translate the results into relevance for a reader evaluating a similar property or system upgrade.]</p>
-    </div>
+
+    <p style="font-family:'Inter',sans-serif; color:var(--text-gray); line-height:1.8;">
+      [1–2 closing sentences: what the client said or what ongoing impact looks like]
+    </p>
+
   </div>
 </section>
+<!-- ═══ END SECTION 5 ═══ -->
 
-<section class="portfolio-section bg-light">
+
+<!-- ═══ SECTION 6: RELATED PROJECTS — bg-light ═══ -->
+<!-- UPDATE: 3 other case studies — never link to this project -->
+<!-- Use canonical case study URLs from INSTRUCTION-portfolio.md -->
+<section style="padding:80px 0; background:var(--bg-light);">
   <div class="container">
-    <span class="eyebrow text-center">More Case Studies</span>
-    <h2 class="text-center">Related Projects</h2>
-    <div class="portfolio-related-grid" style="margin-top:40px;">
-      <a href="[CASE-STUDY-1].html" class="portfolio-related-card">
-        <span class="badge badge-primary">[SECTOR]</span>
-        <h3>[Project Name]</h3>
-        <p>[One-line relevance-led summary.]</p>
+
+    <span class="eyebrow">More Case Studies</span>
+    <h2>Related Projects</h2>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:40px;">
+
+      <a href="[CASE-STUDY-1].html" style="display:block; text-decoration:none;">
+        <div class="card" style="height:100%;"
+             onmouseover="this.style.borderColor='var(--primary-blue)'; this.style.transform='translateY(-3px)'"
+             onmouseout="this.style.borderColor='var(--border-light)'; this.style.transform='translateY(0)'">
+          <span class="badge badge-primary" style="margin-bottom:12px; display:inline-block;">[SECTOR]</span>
+          <h3 style="font-size:18px; font-family:'Montserrat',sans-serif; margin-bottom:8px;">[Project Name]</h3>
+          <p style="font-size:14px; color:var(--text-gray); line-height:1.6;">[1 sentence — key outcome]</p>
+          <span style="color:var(--primary-blue); font-weight:600; font-size:13px; margin-top:16px; display:block; font-family:'Montserrat',sans-serif;">Read Case Study →</span>
+        </div>
       </a>
-      <a href="[CASE-STUDY-2].html" class="portfolio-related-card">
-        <span class="badge badge-primary">[SECTOR]</span>
-        <h3>[Project Name]</h3>
-        <p>[One-line relevance-led summary.]</p>
+
+      <a href="[CASE-STUDY-2].html" style="display:block; text-decoration:none;">
+        <div class="card" style="height:100%;"
+             onmouseover="this.style.borderColor='var(--primary-blue)'; this.style.transform='translateY(-3px)'"
+             onmouseout="this.style.borderColor='var(--border-light)'; this.style.transform='translateY(0)'">
+          <span class="badge badge-primary" style="margin-bottom:12px; display:inline-block;">[SECTOR]</span>
+          <h3 style="font-size:18px; font-family:'Montserrat',sans-serif; margin-bottom:8px;">[Project Name]</h3>
+          <p style="font-size:14px; color:var(--text-gray); line-height:1.6;">[1 sentence]</p>
+          <span style="color:var(--primary-blue); font-weight:600; font-size:13px; margin-top:16px; display:block; font-family:'Montserrat',sans-serif;">Read Case Study →</span>
+        </div>
       </a>
-      <a href="[CASE-STUDY-3].html" class="portfolio-related-card">
-        <span class="badge badge-primary">[SECTOR]</span>
-        <h3>[Project Name]</h3>
-        <p>[One-line relevance-led summary.]</p>
+
+      <a href="[CASE-STUDY-3].html" style="display:block; text-decoration:none;">
+        <div class="card" style="height:100%;"
+             onmouseover="this.style.borderColor='var(--primary-blue)'; this.style.transform='translateY(-3px)'"
+             onmouseout="this.style.borderColor='var(--border-light)'; this.style.transform='translateY(0)'">
+          <span class="badge badge-primary" style="margin-bottom:12px; display:inline-block;">[SECTOR]</span>
+          <h3 style="font-size:18px; font-family:'Montserrat',sans-serif; margin-bottom:8px;">[Project Name]</h3>
+          <p style="font-size:14px; color:var(--text-gray); line-height:1.6;">[1 sentence]</p>
+          <span style="color:var(--primary-blue); font-weight:600; font-size:13px; margin-top:16px; display:block; font-family:'Montserrat',sans-serif;">Read Case Study →</span>
+        </div>
       </a>
+
     </div>
-    <div class="text-center" style="margin-top:48px;">
+
+    <div style="text-align:center; margin-top:48px;">
       <a href="/portfolio/" class="btn btn-secondary">View All Projects →</a>
     </div>
+
   </div>
 </section>
+<!-- ═══ END SECTION 6 ═══ -->
 
-<section class="cta-section cta-high-impact cta-skyline">
-  <div class="container text-center">
+
+<!-- ═══ FINAL CTA — outside all wrappers, full width ═══ -->
+<section class="cta-section cta-high-impact cta-skyline" style="text-align:center; padding:120px 0;">
+  <div class="container">
     <span class="eyebrow-light">Start Your Project</span>
-    <h2 style="color:#fff;">Planning a Similar Project?</h2>
-    <p class="subtitle">Our engineering team can assess your site, recommend the right system architecture, and guide the upgrade from first brief to final handover.</p>
+    <h2 style="color:#fff; font-family:'Montserrat',sans-serif; margin-bottom:20px;">Planning a Similar Project?</h2>
+    <p class="subtitle">Our engineering team will assess your site, design a system architecture, and manage the project from first brief to final handover — at no cost for the initial assessment.</p>
     <div class="btn-group">
-      <a href="/request-site-assessment-singapore.html" class="btn btn-primary">Book Site Assessment</a>
-      <a href="https://wa.me/6593860466" class="btn btn-outline-light"><svg class="feature-icon" style="width: 18px; height: 18px; display: inline-block; vertical-align: middle; margin-right: 8px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Discuss Your Project</a>
+      <a href="/request-site-assessment-singapore.html" class="btn btn-primary">Book Free Site Assessment</a>
+      <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 Discuss Your Project</a>
     </div>
-    <p class="hero-trust-note">Police Licence <span class="sv-licence"></span> · Serving Singapore Since <span class="sv-founded"></span></p>
+    <p style="font-family:'Inter',sans-serif; color:rgba(255,255,255,0.45); font-size:13px; margin-top:32px;">
+      Police Licence <span class="sv-licence"></span> · Serving Singapore Since <span class="sv-founded"></span>
+    </p>
   </div>
 </section>
+<!-- ═══ END FINAL CTA ═══ -->
 
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     FOOTER — FROZEN. DO NOT MODIFY ANY PART OF THIS BLOCK.
+     ═══════════════════════════════════════════════════════════════════ -->
 <footer class="site-footer">
   <div class="footer-container">
     <div class="footer-grid">
@@ -391,10 +543,11 @@
       <div class="footer-links">
         <h4>Systems</h4>
         <ul>
-          <li><a href="/systems/surveillance.html">Surveillance &amp; Detection</a></li>
-          <li><a href="/systems/access-control.html">People Access Control</a></li>
-          <li><a href="/systems/vehicle-access.html">Vehicle Access &amp; Barriers</a></li>
-          <li><a href="/systems/platform.html">Platform Management</a></li>
+          <li><a href="/systems/surveillance.html">Premises Security</a></li>
+          <li><a href="/systems/access-control.html">Entry &amp; Access</a></li>
+          <li><a href="/systems/vehicle-access.html">Vehicle Management</a></li>
+          <li><a href="/systems/communications.html">Communications</a></li>
+          <li><a href="/systems/platform.html">Platform &amp; Management</a></li>
         </ul>
       </div>
       <div class="footer-links">
@@ -435,13 +588,18 @@
     </div>
   </div>
 </footer>
+<!-- ═══ END FOOTER ═══ -->
 
+
+<!-- ═══ WHATSAPP FLOAT — do not modify ═══ -->
 <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
   </svg>
 </a>
 
+
+<!-- ═══ SCRIPTS — do not modify ═══ -->
 <script>
 function toggleMobileMenu() {
   const menu = document.getElementById('mobileMenu');
