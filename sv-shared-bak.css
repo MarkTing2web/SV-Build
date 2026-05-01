@@ -1795,7 +1795,7 @@ section .subtitle {
 /* Subsystem cards */
 .subsystem-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
 }
 
@@ -3193,6 +3193,13 @@ section .subtitle {
 
 @media (max-width: 992px) {
 
+/* ≤1200px: 5-col subsystem-grid steps to 3-col (avoids 2-orphan at laptop) */
+@media (max-width: 1200px) {
+    .subsystem-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
     /* Standardise: All 3-card and 4-card grids stack to 2 columns at 992px */
     .grid-3,
     .grid-4,
@@ -3367,7 +3374,7 @@ section .subtitle {
 /* ── 16. SUBSYSTEM CARDS ── */
 .subsystem-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
     margin-top: 40px;
     grid-auto-rows: 1fr;
@@ -8693,12 +8700,12 @@ main { grid-area: content; }
    this declaration is safe as a reinforcement with specificity. */
 
 .section-intro {
-  max-width: 800px;
-  margin: 0 auto 48px;
+  max-width: 720px;
+  margin: 0 0 48px;
   font-size: 17px;
   color: var(--text-gray);
   line-height: 1.7;
-  text-align: center;
+  text-align: left;
 }
 
 /* ── 35h. WhatsApp button SVG icon sizing ───────────────────
@@ -8740,3 +8747,417 @@ main { grid-area: content; }
 }
 
 /* ── END Section 35 ─────────────────────────────────────────── */
+/* ============================================================
+   sv-shared.css — Section 36: Systems Hub Index Components
+   Added: May 2026
+   Scope: /systems/index.html only
+   Classes verified new — no conflicts with existing site.
+   ============================================================ */
+
+/* ── 36a. Five-group card grid ───────────────────────────────
+   .sys-group-grid      5-col responsive grid wrapper
+   .sys-group-card      clickable card with top accent bar,
+                        icon, h3, p, tag pills, arrow link
+   .sys-group-card--featured  highlighted variant (Platform)  */
+
+.sys-group-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.sys-group-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.sys-group-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.10);
+  border-color: var(--page-accent);
+  text-decoration: none;
+  color: inherit;
+}
+
+.sys-group-card--featured {
+  border-color: #38a169;
+  box-shadow: 0 4px 20px rgba(56,161,105,0.12);
+}
+
+/* Top accent bar — coloured via CSS custom property on element */
+.group-accent-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--group-accent, var(--primary-blue));
+  border-radius: 16px 16px 0 0;
+}
+
+/* Icon circle */
+.sys-group-card .group-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.sys-group-card .group-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.sys-group-card h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+  color: var(--text-dark);
+  line-height: 1.3;
+}
+
+.sys-group-card p {
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.65;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+/* Tag pills */
+.group-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.group-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: var(--bg-light);
+  color: var(--text-light);
+  border: 1px solid var(--border-light);
+}
+
+/* Arrow link — pinned to bottom */
+.group-link {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--primary-blue);
+  text-decoration: none;
+  margin-top: auto;
+  display: inline-block;
+  transition: color 0.2s;
+}
+
+.sys-group-card:hover .group-link {
+  color: var(--dark-blue);
+}
+
+/* ── 36b. Cohesion flow (horizontal step sequence) ──────────
+   .cohesion-flow       flex row with arrows between steps
+   .cohesion-step-block individual step: number badge + label + desc
+   .cohesion-num        blue circle number badge
+   .cohesion-arrow      decorative → between steps           */
+
+.cohesion-flow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  margin: 56px 0 60px;
+}
+
+.cohesion-step-block {
+  flex: 1;
+  text-align: center;
+  padding: 0 12px;
+}
+
+.cohesion-step-block strong {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 12px 0 6px;
+}
+
+.cohesion-step-block p {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.cohesion-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary-blue);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  flex-shrink: 0;
+}
+
+.cohesion-arrow {
+  font-size: 24px;
+  color: var(--primary-blue);
+  flex-shrink: 0;
+  margin-top: 8px;
+  opacity: 0.4;
+  align-self: flex-start;
+  padding-top: 8px;
+}
+
+/* ── 36c. Property fit cards ────────────────────────────────
+   .property-fit-grid   3-col grid
+   .property-fit-card   card with icon, h3, ul fit-list, link
+   .fit-list            plain list of matched system groups   */
+
+.property-fit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 48px;
+}
+
+.property-fit-card {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s;
+}
+
+.property-fit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.property-fit-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--text-dark);
+}
+
+.property-fit-card > p {
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.fit-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  flex-grow: 1;
+}
+
+.fit-list li {
+  font-size: 14px;
+  color: var(--text-gray);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-light);
+  line-height: 1.5;
+}
+
+.fit-list li:last-child {
+  border-bottom: none;
+}
+
+/* ── 36d. Group icon shared utility ─────────────────────────
+   Reused in both sys-group-card and property-fit-card.
+   Also used in platform card grid (Section 5).              */
+
+.property-fit-card .group-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.property-fit-card .group-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* ── 36e. Responsive ────────────────────────────────────────*/
+
+@media (max-width: 1200px) {
+  .sys-group-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .sys-group-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .property-fit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cohesion-flow {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .cohesion-arrow {
+    transform: rotate(90deg);
+    margin: 0;
+    padding: 0;
+  }
+
+  .cohesion-step-block {
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    gap: 16px;
+  }
+
+  .cohesion-step-block .cohesion-num {
+    flex-shrink: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .sys-group-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── END Section 36 ─────────────────────────────────────────── */
+
+/* ── 36f. Group icon colour variants ────────────────────────
+   Named variants so inline style= is not needed in HTML.    */
+
+.group-icon--surveillance { color: #2b6cb0; background: rgba(43,108,176,0.08); }
+.group-icon--access       { color: #319795; background: rgba(49,151,149,0.08); }
+.group-icon--vehicle      { color: #dd6b20; background: rgba(221,107,32,0.08); }
+.group-icon--comms        { color: #5a0892; background: rgba(90,8,146,0.08); }
+.group-icon--platform     { color: #38a169; background: rgba(56,161,105,0.08); }
+.group-icon--condos       { color: #2d45c4; background: rgba(45,69,196,0.08); }
+.group-icon--commercial   { color: #B54E00; background: rgba(181,78,0,0.08); }
+.group-icon--industrial   { color: #5a0892; background: rgba(90,8,146,0.08); }
+
+/* ── 36g. Card padding utilities (for platform/process cards) */
+.card-pad-32 { padding: 32px; }
+.card-pad-28 { padding: 28px; }
+.card-center { text-align: center; }
+.group-icon--center { margin-left: auto; margin-right: auto; margin-bottom: 20px; }
+
+/* ── END Section 36 additions ───────────────────────────────── */
+
+/* ── 36h. Spacing utilities for systems index ───────────────*/
+.mt-48 { margin-top: 48px !important; }
+.platform-note { font-size: 13px; color: var(--text-light); margin-top: 12px; }
+.cohesion-num--center { margin: 0 auto 16px; }
+/* ── END ─────────────────────────────────────────────────── */
+
+/* ── 36i. Group accent bar named variants ───────────────────*/
+.group-accent-bar--surveillance { background: #2b6cb0; }
+.group-accent-bar--access       { background: #319795; }
+.group-accent-bar--vehicle      { background: #dd6b20; }
+.group-accent-bar--comms        { background: #5a0892; }
+.group-accent-bar--platform     { background: #38a169; }
+/* ── END ─────────────────────────────────────────────────── */
+
+/* ── 36j. Systems group row layout (3 + 2 centred) ─────────
+   Replaces .sys-group-grid (5-col) with two row wrappers.
+   Row 1: 3 equal cards.
+   Row 2: 2 centred cards at 66.67% width (matching card size). */
+
+.sys-group-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 56px;
+}
+
+.sys-group-row--pair {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 66.67%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 24px;
+}
+
+/* ── 36k. Property fit grid — 8-card 4-col layout ──────────
+   2 rows of 4 at desktop. Stacks to 2-col tablet, 1-col mobile. */
+
+.property-fit-grid-8 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+/* ── 36l. Group icon colour variants — sector colours ───────
+   Extends 36f with sector palette using WCAG dark shades.   */
+
+.group-icon--homes        { color: #257000; background: rgba(37,112,0,0.08); }
+.group-icon--institutions { color: #1B4F72; background: rgba(27,79,114,0.08); }
+.group-icon--healthcare   { color: #0D7377; background: rgba(13,115,119,0.08); }
+
+/* Responsive — sys-group-row */
+@media (max-width: 992px) {
+  .sys-group-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .sys-group-row--pair {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+  }
+  .property-fit-grid-8 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .sys-group-row,
+  .sys-group-row--pair,
+  .property-fit-grid-8 {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+}
+
+/* ── END Section 36j-l ──────────────────────────────────────── */

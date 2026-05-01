@@ -200,11 +200,11 @@ Solutions           → /solutions/
   Data Centres      → /solutions/data-centres.html
   → View All        → /solutions/
 Systems               → /systems/
-  Premises Security   → /systems/surveillance.html
-  Entry & Access      → /systems/access-control.html
-  Vehicle Management  → /systems/vehicle-access.html
-  Communications      → /systems/communications.html
-  Platform & Management → /systems/platform.html
+  Premises Security   → /systems/premises-security.html
+  Entry & Access      → /systems/entry-access-control.html
+  Vehicle Management  → /systems/vehicle-lpr-management.html
+  Communications      → /systems/ip-phone-communications.html
+  Platform & Management → /systems/security-management-platform.html
 Brands              → /brands/
   #surveillance     → /brands/#surveillance
   #access           → /brands/#access
@@ -578,11 +578,11 @@ Is this a /insights/[slug].html article?
 | commercial-security-sta-building-singapore.html | /portfolio/sta-building-commercial.html |
 | industrial-security-cyrus-tech-park-singapore.html | /portfolio/cyrus-tech-park-industrial.html |
 | security-systems-singapore.html | /systems/ |
-| surveillance-detection.html | /systems/surveillance.html |
-| people-access-control.html | /systems/access-control.html |
-| vehicle-access-control.html | /systems/vehicle-access.html |
-| integrated-security-platform.html | /systems/platform.html |
-| *(new)* | /systems/communications.html |
+| surveillance-detection.html | /systems/premises-security.html |
+| people-entry-access-control.html | /systems/entry-access-control.html |
+| vehicle-entry-access-control.html | /systems/vehicle-lpr-management.html |
+| integrated-security-security-management-platform.html | /systems/security-management-platform.html |
+| *(new)* | /systems/ip-phone-communications.html |
 | security-brands-singapore.html | /brands/ |
 | [brand]-singapore.html | /brands/[brand].html |
 | cctv.html | /resources/guides/cctv-guide.html |
@@ -675,11 +675,11 @@ Every group has a detail page. The hub index at /systems/ presents all five.
 
 | # | Nav label | System file | Page accent | What it covers |
 |---|---|---|---|---|
-| 1 | Premises Security | /systems/surveillance.html | #0056b3 | CCTV, AI analytics, burglar alarm, sensors, intrusion detection |
-| 2 | Entry & Access | /systems/access-control.html | #0056b3 | Door access, biometrics, intercom, visitor management |
-| 3 | Vehicle Management | /systems/vehicle-access.html | #0056b3 | Auto-gates, barriers, LPR, car park management, UHF tags |
-| 4 | Communications | /systems/communications.html | #5a0892 | IP phones, IPPBX (Yeastar), handsets (Fanvil, Yealink) |
-| 5 | Platform & Management | /systems/platform.html | #0056b3 | VESTA (condos), Milestone/HikCentral (complex sites), ZKTeco CVSecurity (offices) |
+| 1 | Premises Security | /systems/premises-security.html | #0056b3 | CCTV, AI analytics, burglar alarm, sensors, intrusion detection |
+| 2 | Entry & Access | /systems/entry-access-control.html | #0056b3 | Door access, biometrics, intercom, visitor management |
+| 3 | Vehicle Management | /systems/vehicle-lpr-management.html | #0056b3 | Auto-gates, barriers, LPR, car park management, UHF tags |
+| 4 | Communications | /systems/ip-phone-communications.html | #5a0892 | IP phones, IPPBX (Yeastar), handsets (Fanvil, Yealink) |
+| 5 | Platform & Management | /systems/security-management-platform.html | #0056b3 | VESTA (condos), Milestone/HikCentral (complex sites), ZKTeco CVSecurity (offices) |
 
 ### Systems page structure (8 sections — consistent across all 5 pages)
 ```
@@ -711,7 +711,7 @@ for networking — it belongs in the capability narrative, not the navigation.
 ---
 
 *Securevision Global Design Instruction v3.2 — May 2026*
-*Changes from v3.1: Section 7 Systems nav updated to 5-group client-centric taxonomy (Premises Security, Entry & Access, Vehicle Management, Communications, Platform & Management). Section 8 systems hero classes added. Section 13 cta-comms added. Section 20 template table updated — _template-subsystem.html removed (retired), systems pages are now unique builds. Template selection guide updated with systems page routing. Section 21 URL map: /systems/communications.html added. Section 23 added — Systems Taxonomy with 5-group reference table, page structure spec, canonical arch icons, and infrastructure positioning rule.*
+*Changes from v3.1: Section 7 Systems nav updated to 5-group client-centric taxonomy (Premises Security, Entry & Access, Vehicle Management, Communications, Platform & Management). Section 8 systems hero classes added. Section 13 cta-comms added. Section 20 template table updated — _template-subsystem.html removed (retired), systems pages are now unique builds. Template selection guide updated with systems page routing. Section 21 URL map: /systems/ip-phone-communications.html added. Section 23 added — Systems Taxonomy with 5-group reference table, page structure spec, canonical arch icons, and infrastructure positioning rule.*
 *Do not modify without updating version number and date*
 
 ### To build a NEW page:
