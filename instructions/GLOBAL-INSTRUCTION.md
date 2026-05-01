@@ -1,6 +1,6 @@
 # SECUREVISION WEBSITE — GLOBAL DESIGN INSTRUCTION
 ## For use with Anti-Gravity AI Web Builder
-## Version 3.0 — April 2026
+## Version 3.2 — May 2026
 ## This file lives at: /_instructions/GLOBAL-INSTRUCTION.md
 
 ---
@@ -199,11 +199,12 @@ Solutions           → /solutions/
   Managed Living    → /solutions/managed-living.html
   Data Centres      → /solutions/data-centres.html
   → View All        → /solutions/
-Systems             → /systems/
-  Surveillance      → /systems/surveillance.html
-  People Access     → /systems/access-control.html
-  Vehicle Access    → /systems/vehicle-access.html
-  Platform          → /systems/platform.html
+Systems               → /systems/
+  Premises Security   → /systems/surveillance.html
+  Entry & Access      → /systems/access-control.html
+  Vehicle Management  → /systems/vehicle-access.html
+  Communications      → /systems/communications.html
+  Platform & Management → /systems/platform.html
 Brands              → /brands/
   #surveillance     → /brands/#surveillance
   #access           → /brands/#access
@@ -253,6 +254,13 @@ Contact             → /contact.html
 <header class="hero-high-impact hero-healthcare">   <!-- Healthcare -->
 <header class="hero-high-impact hero-managed">      <!-- Managed Living — NEEDS CSS -->
 <header class="hero-high-impact hero-dc">           <!-- Data Centres — NEEDS CSS -->
+
+<!-- Systems pages — 5 groups -->
+<header class="hero-high-impact hero-surveillance"> <!-- Premises Security -->
+<header class="hero-high-impact hero-access">       <!-- Entry & Access -->
+<header class="hero-high-impact hero-vehicle">      <!-- Vehicle Management -->
+<header class="hero-high-impact hero-comms">        <!-- Communications — accent: #5a0892 -->
+<header class="hero-high-impact hero-platform">     <!-- Platform & Management -->
 ```
 
 ### Hero inner structure (standard for technical guides)
@@ -360,7 +368,8 @@ Place OUTSIDE the `.container` / `.layout-with-sidebar` wrapper so it stretches 
 CTA background classes (from sv-shared.css):
 ```
 cta-cctv | cta-alarm | cta-access | cta-vehicle | cta-surveillance
-cta-platform | cta-res | cta-condo | cta-com | cta-indus | cta-gov | cta-healthcare
+cta-platform | cta-comms
+cta-res | cta-condo | cta-com | cta-indus | cta-gov | cta-healthcare
 cta-managed | cta-dc                  ← NEEDS CSS: add to sv-shared.css
 cta-skyline (generic fallback)
 ```
@@ -500,7 +509,8 @@ YouTube:          http://www.youtube.com/@securevision
 | Homepage | (unique — index.html) | sv-shared.css | GLOBAL-INSTRUCTION.md |
 | Sector solution pages | _template-sector-solution.html | sv-shared.css | INSTRUCTION-solution.md |
 | Persona sub-pages | _template-persona-standardized.html | sv-shared.css | INSTRUCTION-persona.md (to create) |
-| Systems hub/subsystem | _template-subsystem.html | sv-shared.css | INSTRUCTION-subsystem.md |
+| Systems hub index | (unique — /systems/index.html) | sv-shared.css | GLOBAL-INSTRUCTION.md |
+| Systems detail pages | (unique per system) | sv-shared.css | GLOBAL-INSTRUCTION.md |
 | Technical pillar guides | _template-technical-guide.html | sv-shared.css + sv-guides.css | INSTRUCTION-technical-guide.md |
 | Brand pages | _template-brand.html | sv-shared.css | INSTRUCTION-brand.md |
 | Portfolio case studies | _template-portfolio.html | sv-shared.css | INSTRUCTION-portfolio.md |
@@ -518,6 +528,15 @@ Is this a /solutions/[sector]/[persona].html page?
     (office, retail, hotel, aged-care, dormitories, new-build, home-upgrade)
   → Layout B if the persona is a professional stakeholder / working relationship
     (mcst, managing-agents, security-contractors, architects)
+
+Is this the /systems/ hub index?
+  → unique page (systems/index.html) — no template, build from existing file
+
+Is this a /systems/[page].html detail page?
+  → unique page — refer to existing systems pages as reference
+  → 8-section structure: Hero → Compare → Scenarios → Capabilities →
+    Architecture → Integration → Deployment → CTA
+  → Section 5 arch-grid always shows all 5 system groups with current page arch-active
 
 Is this a /portfolio/[project].html case study?
   → _template-portfolio.html
@@ -563,6 +582,7 @@ Is this a /insights/[slug].html article?
 | people-access-control.html | /systems/access-control.html |
 | vehicle-access-control.html | /systems/vehicle-access.html |
 | integrated-security-platform.html | /systems/platform.html |
+| *(new)* | /systems/communications.html |
 | security-brands-singapore.html | /brands/ |
 | [brand]-singapore.html | /brands/[brand].html |
 | cctv.html | /resources/guides/cctv-guide.html |
@@ -648,7 +668,51 @@ industrial-security-cyrus-tech-park-singapore.html → /portfolio/cyrus-tech-par
 
 ---
 
-## HOW TO USE THIS SYSTEM
+## 23. SYSTEMS TAXONOMY — 5 GROUPS
+
+This is the canonical classification for all Systems pages, the systems hub index, and nav labels.
+Every group has a detail page. The hub index at /systems/ presents all five.
+
+| # | Nav label | System file | Page accent | What it covers |
+|---|---|---|---|---|
+| 1 | Premises Security | /systems/surveillance.html | #0056b3 | CCTV, AI analytics, burglar alarm, sensors, intrusion detection |
+| 2 | Entry & Access | /systems/access-control.html | #0056b3 | Door access, biometrics, intercom, visitor management |
+| 3 | Vehicle Management | /systems/vehicle-access.html | #0056b3 | Auto-gates, barriers, LPR, car park management, UHF tags |
+| 4 | Communications | /systems/communications.html | #5a0892 | IP phones, IPPBX (Yeastar), handsets (Fanvil, Yealink) |
+| 5 | Platform & Management | /systems/platform.html | #0056b3 | VESTA (condos), Milestone/HikCentral (complex sites), ZKTeco CVSecurity (offices) |
+
+### Systems page structure (8 sections — consistent across all 5 pages)
+```
+Section 1: Hero
+Section 2: Compare — before/after (sv-section-grey)
+Section 3: Scenarios — 4 real-life use cases (sv-section-white)
+Section 4: Capabilities — grid-3 or capabilities-grid (sv-section-grey) [id="capabilities"]
+Section 5: Architecture — arch-grid showing all 5 system groups, current page arch-active (sv-section-white)
+Section 6: Integration — integration-panel with image (sv-section-grey)
+Section 7: Deployment — arch-grid or arch-grid-3 (sv-section-white)
+Section 8: CTA — cta-section cta-high-impact cta-[page]
+```
+
+### Architecture pillar icons (canonical — use these SVGs consistently across all systems pages)
+```
+Premises Security:  camera SVG — path d="M15 10l4.553-2.069..."
+Entry & Access:     padlock SVG — rect x="3" y="11" + path d="M7 11V7a5 5..."
+Vehicle Management: car SVG — rect x="1" y="3" width="15" + path d="M16 8h4l3 5v3h-7V8z"
+Communications:     phone SVG — path d="M22 16.92v3..."
+Platform:           dashboard grid SVG — rect x="3" y="3" width="18" + path d="M3 9h18M9 21V9"
+```
+
+### Infrastructure positioning
+Network switches (Omada, Ruijie) and structured cabling are NOT a systems category.
+Position as a delivery capability statement on the systems hub index (Section 3 integration panel)
+and on the Communications page (Section 4 network card). Never create a standalone systems page
+for networking — it belongs in the capability narrative, not the navigation.
+
+---
+
+*Securevision Global Design Instruction v3.2 — May 2026*
+*Changes from v3.1: Section 7 Systems nav updated to 5-group client-centric taxonomy (Premises Security, Entry & Access, Vehicle Management, Communications, Platform & Management). Section 8 systems hero classes added. Section 13 cta-comms added. Section 20 template table updated — _template-subsystem.html removed (retired), systems pages are now unique builds. Template selection guide updated with systems page routing. Section 21 URL map: /systems/communications.html added. Section 23 added — Systems Taxonomy with 5-group reference table, page structure spec, canonical arch icons, and infrastructure positioning rule.*
+*Do not modify without updating version number and date*
 
 ### To build a NEW page:
 ```
@@ -683,6 +747,6 @@ DO NOT TOUCH: nav, footer, hero, author bio strip, sidebar, CTA section, any oth
 
 ---
 
-*Securevision Global Design Instruction v3.1 — April 2026*
-*Changes from v3.0: Section 20 updated — added _template-persona-standardized.html for persona sub-pages (/solutions/[sector]/[persona].html). Template selection guide added. _template-solution.html renamed reference to _template-sector-solution.html to match actual filename. INSTRUCTION-persona.md flagged as pending creation.*
+*Securevision Global Design Instruction v3.2 — May 2026*
+*Changes from v3.1 documented in Section 23 above.*
 *Do not modify without updating version number and date*
