@@ -615,16 +615,18 @@ Portfolio filter tabs for Institutions and Healthcare are shown only when cases 
 | 7 | Managed Living | /solutions/managed-living.html | Worker dormitories, co-living apartments, student hostels | Worker Dormitory · Co-living · Student Hostel |
 | 8 | Data Centres | /solutions/data-centres.html | Colocation, enterprise, hyperscale data centres | Data Centre |
 
-### Sector colour variables (sv-shared.css)
+### Sector colour variables (sv-shared.css) — retained for reference
+These variables exist in sv-shared.css but are not applied to any page.
+All pages use `--page-accent: #0056b3`. Do not use these to override page-accent.
 ```
---c-residential:  #38B000   Residential
---c-condos:       #4361EE   Condominiums
---c-commercial:   #FF6D00   Commercial
---c-industrial:   #7209B7   Industrial
---c-institutions: #0056b3   Institutions
---c-healthcare:   #0EA5A0   Healthcare
---c-managed:      #C2410C   Managed Living
---c-datacentres:  #1E3A5F   Data Centres
+--c-residential:  #38B000   Residential    (reference only)
+--c-condos:       #4361EE   Condominiums   (reference only)
+--c-commercial:   #FF6D00   Commercial     (reference only)
+--c-industrial:   #7209B7   Industrial     (reference only)
+--c-institutions: #0056b3   Institutions   (reference only)
+--c-healthcare:   #0EA5A0   Healthcare     (reference only)
+--c-managed:      #C2410C   Managed Living (reference only)
+--c-datacentres:  #1E3A5F   Data Centres   (reference only)
 ```
 
 ### Sub-persona pages under each sector
