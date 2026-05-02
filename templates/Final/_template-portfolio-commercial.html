@@ -1,0 +1,1375 @@
+SECUREVISION COMMERCIAL PORTFOLIO TEMPLATE
+
+PAGE TYPE:
+Portfolio / Case Study — Commercial Project
+
+VERSION: v2.0 — May 2026
+
+CHANGELOG v1 → v2:
+- Hero: added optional background-image pattern (bg-image + hero-image + hero-overlay),
+  matching the confirmed landed residential template v3. Gradient-only hero remains valid
+  when no project photo is available — see Hero section below.
+- Hero: added optional portfolio-taxonomy / portfolio-chip row below H1/subtitle, matching
+  condo template v5. Use only when chips add clarity (e.g. sub-sector, system type).
+- Hero: stat classes updated to portfolio-stat-grid / portfolio-stat / portfolio-stat-value /
+  portfolio-stat-label, matching both residential templates exactly.
+- Challenge: added documented no-image variant. When no contextual image exists, use the
+  full-width prose layout instead of forcing an empty image column.
+- Discovery Path: class corrected from portfolio-link-content to portfolio-link-card-body.
+  This was the source of the AltitudeX layout defect.
+- Related Projects: confirmed canonical classes are card + card-clickable + related-project-card,
+  body is related-project-body, badge is related-project-badge, link is related-project-link.
+  These match the condo template exactly.
+- Final CTA: removed the licence/bizsafe footnote paragraph that appeared in AltitudeX.
+  Template standard has no footnote inside the CTA.
+- Instruction block: Anti-Gravity rule updated to cover all v2 changes explicitly.
+- CSS additions block: updated to include portfolio-stat-grid and portfolio-taxonomy rules
+  that must exist in sv-shared.css.
+
+CORE POSITIONING:
+This is not a product showcase.
+This is a project story showing how Securevision solved a real operational or security
+challenge for a commercial client — through engineering decisions, not product lists.
+
+STRICT TEMPLATE DISCIPLINE:
+- Nav and footer are injected by nav-footer.js. Use <nav id="sv-nav"></nav> and
+  <footer id="sv-footer"></footer> as placeholders only. Never hardcode nav or footer HTML.
+- Do not include toggleMobileMenu, toggleSubmenu, scroll listener, or click-outside scripts.
+  nav-footer.js owns all of these.
+- Use sv-shared.css as the only source for typography, spacing, colours, buttons, cards,
+  nav, footer, breadcrumbs, trust bar, related project cards, and final CTA.
+- Do not add inline CSS or page-specific style blocks except:
+  (a) background-image on the hero header when a project photo is used, and
+  (b) background-image on the final CTA section.
+  These are the only two permitted inline style="" attributes in the entire file.
+- If any repeated layout or visual treatment is missing from sv-shared.css, add it there once.
+  Never solve it with inline styles on the page.
+- The final CTA must use the shared final-cta / cta-high-impact classes. No one-off CTA markup.
+- No licence/bizsafe footnote paragraph inside the final CTA. The footer handles this.
+
+STANDARD PAGE FLOW:
+1.  Head
+2.  Nav — <nav id="sv-nav"></nav>
+3.  Hero
+4.  Trust Bar
+5.  Breadcrumb
+6.  Project Snapshot         (sv-section-grey)
+7.  The Challenge            (sv-section-white)
+8.  Transformation           (sv-section-grey)
+9.  Decision Point           (sv-section-white)
+10. Our Approach             (sv-section-grey)
+11. The Solution             (sv-section-white)
+12. Equipment Deployed       (sv-section-grey)
+13. Results & Impact         (sv-section-white)
+14. Securevision Insight     (sv-section-grey + no-bottom-spacing)
+15. Discovery Path           (sv-section-white)
+16. Related Projects         (sv-section-grey)
+17. Final CTA                (dark full-width image overlay)
+18. Footer — <footer id="sv-footer"></footer>
+19. DOMContentLoaded script
+20. <script src="/nav-footer.js"></script>
+
+SECTION EYEBROW NAMES — MANDATORY:
+Use exactly these eyebrow labels. No variations, no synonyms.
+- Project Snapshot
+- Technologies Implemented
+- The Challenge
+- Transformation
+- Decision Point
+- Our Approach
+- The Solution
+- Equipment Deployed
+- Results & Impact
+- Securevision Insight
+- Discovery Path
+- Next Steps in Discovery
+- Start Your Project  (eyebrow-light inside Final CTA only)
+
+BACKGROUND ALTERNATION — MANDATORY:
+Section 6  Project Snapshot      sv-section-grey
+Section 7  The Challenge         sv-section-white
+Section 8  Transformation        sv-section-grey
+Section 9  Decision Point        sv-section-white
+Section 10 Our Approach          sv-section-grey
+Section 11 The Solution          sv-section-white
+Section 12 Equipment Deployed    sv-section-grey
+Section 13 Results & Impact      sv-section-white
+Section 14 Securevision Insight  sv-section-grey + no-bottom-spacing
+Section 15 Discovery Path        sv-section-white
+Section 16 Related Projects      sv-section-grey
+Section 17 Final CTA             Dark full-width image overlay
+
+WHAT DIFFERS FROM THE CONDO/LANDED TEMPLATES:
+1. Section 8 Transformation uses a comparison TABLE — commercial projects are typically
+   system replacements or upgrades where a table shows the before/after delta clearly.
+   Condo template uses a before/after narrative block instead.
+2. Section 12 Equipment Deployed is MANDATORY on all commercial pages. Commercial audiences
+   include technical decision-makers who need the exact equipment list and why it was chosen.
+   Condo template has no Equipment Deployed section.
+3. Section 15 Discovery Path links vary per project. Commercial systems differ too widely
+   to pre-fill fixed links. Choose the 4 most relevant from the approved list.
+4. Project Snapshot overview table has a Scale row (mandatory) and an optional Client Since row.
+5. Our Approach uses zone-grid / zone-card components for access zones or installation phases.
+6. Results & Impact uses Format A (hard stats) or Format B (qualitative cards) — never mixed.
+
+WHAT IS IDENTICAL TO THE CONDO/LANDED TEMPLATES:
+- Hero structure (portfolio-hero, portfolio-stat-grid, portfolio-stat)
+- Optional hero bg-image pattern (hero-image + hero-overlay)
+- Optional taxonomy chips (portfolio-taxonomy, portfolio-chip)
+- Trust bar (sv-trust-bar, trust-inner)
+- Breadcrumb (sv-breadcrumb, ol > li)
+- Portfolio Snapshot grid (portfolio-snapshot-grid, snapshot-main, snapshot-tech-col)
+- Technologies Implemented card (snapshot-tech-card, portfolio-tech-stack, portfolio-tech-item)
+- Solution layer cards (portfolio-layer-card)
+- Result cards (portfolio-result-card, portfolio-result-title, portfolio-result-text)
+- Securevision Insight (portfolio-insight-section, portfolio-insight)
+- Discovery Path (portfolio-link-stack, portfolio-link-card, portfolio-link-card-body)
+- Related Projects (grid-3, card + card-clickable + related-project-card, related-project-body,
+  related-project-badge, related-project-title, related-project-text, related-project-link)
+- Final CTA (final-cta, cta-high-impact, eyebrow-light, btn-group center)
+- DOMContentLoaded script (sv-licence, sv-sites, sv-bizsafe)
+- Nav and footer injection pattern
+
+HERO — TWO VALID VARIANTS:
+
+VARIANT A — Background image (use when a project photograph exists):
+<header class="portfolio-hero" style="background-image: linear-gradient(rgba(14,26,43,0.82),
+  rgba(14,26,43,0.82)), url('/images/portfolio/[hero-image].webp');">
+  <img src="/images/portfolio/[hero-image].webp" alt="[Project Name]" class="hero-image">
+  <div class="hero-overlay"></div>
+  <div class="container pos-relative z-2">
+    [hero content]
+  </div>
+</header>
+
+VARIANT B — Gradient only (use when no project photograph is available):
+<header class="portfolio-hero">
+  <div class="container">
+    [hero content]
+  </div>
+</header>
+
+The portfolio-hero class in sv-shared.css already sets the dark gradient background.
+Variant B requires no inline style at all.
+
+CHALLENGE SECTION — TWO VALID VARIANTS:
+
+VARIANT A — With contextual image (standard, use when image exists):
+<div class="portfolio-image-text-grid">
+  <div class="challenge-copy"> ... </div>
+  <figure class="portfolio-context-image">
+    <img src="..." alt="...">
+    <figcaption>...</figcaption>
+  </figure>
+</div>
+
+VARIANT B — Full-width prose (use when no contextual image exists):
+<div class="challenge-copy">
+  [all challenge content — no grid wrapper needed]
+</div>
+
+Do NOT force an empty image column or use style="grid-template-columns: 1fr" to override
+the grid. Use Variant B when there is no image. The section padding and typography are
+identical in both variants — only the grid is removed.
+
+TAXONOMY CHIPS — OPTIONAL:
+Use below the hero subtitle when sub-sector, system type, or project classification
+adds clarity. Delete entirely if not needed — do not leave empty chip rows.
+Maximum 3 chips. Examples:
+- Sub-sector: Hospitality / Entertainment / Retail / Civic
+- System focus: Access Control / Surveillance / Fire Integration
+- Scope type: Platform Migration / New Installation / Phased Rollout
+
+DOMContentLoaded SCRIPT — MANDATORY:
+Add before </body>, before nav-footer.js:
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof SECUREVISION !== "undefined") {
+      var SV = SECUREVISION;
+      document.querySelectorAll(".sv-licence").forEach(function(el) { el.textContent = SV.licenceNumber || ""; });
+      document.querySelectorAll(".sv-sites").forEach(function(el) { el.textContent = SV.siteDisplay || ""; });
+      document.querySelectorAll(".sv-bizsafe").forEach(function(el) { el.textContent = SV.bizsafeLevel || "bizSAFE Level 3"; });
+    }
+  });
+</script>
+<script src="/nav-footer.js"></script>
+
+DISCOVERY PATH — APPROVED LINK DESTINATIONS:
+Choose the 4 most relevant to the project. Always include the primary sector page as card 1.
+
+Solution pages:
+/solutions/commercial.html        → Commercial Security
+/solutions/commercial/hotel.html  → Hotel Security
+/solutions/industrial.html        → Industrial & Logistics
+/solutions/institutions.html      → Institutions & Government
+/solutions/healthcare.html        → Healthcare & Managed Living
+
+System pages (use systems actually deployed in this project):
+/systems/premises-security.html          → Surveillance & Detection
+/systems/entry-access-control.html       → Entry Access Control
+/systems/vehicle-lpr-management.html     → Vehicle Access & LPR
+/systems/security-management-platform.html → Platform & Management
+
+Image per destination:
+Commercial Security         → /images/prop-commercial.webp
+Hotel Security              → /images/prop-commercial.webp
+Industrial                  → /images/prop-industrial.webp
+Institutions                → /images/prop-institutional.webp
+Surveillance                → /images/pillar_surveillance.webp
+Access Control              → /images/pillar_people_access.webp
+Vehicle Access              → /images/pillar_vehicle_access.webp
+Platform                    → /images/pillar_maintenance.webp
+
+TONE:
+- Engineering-led and specific
+- Speaks to facilities managers, operations directors, business owners, procurement
+- Not salesy or hyperbolic
+- British English throughout (authorisation, optimisation, programme, licence, centre)
+- First-person voice in the Securevision Insight section only
+
+DO NOT:
+- Start with products or brands — the challenge always comes first
+- Invent statistics or outcomes not provided in the project brief
+- Use full client addresses without permission from the client
+- Mix Securevision Insight with marketing language — it is an engineering observation
+- Add any inline styles except hero and final CTA background-image
+- Hardcode nav, footer, or any JS scripts
+- Add a licence/bizsafe footnote paragraph inside the Final CTA
+- Use portfolio-link-content as a class — the correct class is portfolio-link-card-body
+- Use related-project-content as a class — the correct class is related-project-body
+- Use grid-2 for Related Projects — it must always be grid-3
+
+ANTI-GRAVITY RULE:
+Tell Anti-Gravity:
+"Use the commercial portfolio template v2. Do not invent a new layout. Fill the approved
+blocks with project content only.
+
+Nav: <nav id='sv-nav'></nav> injected by nav-footer.js.
+Footer: <footer id='sv-footer'></footer> injected by nav-footer.js.
+Scripts: Add <script src='/nav-footer.js'></script> before </body>.
+Do not hardcode nav, footer, or JS.
+
+Hero: Use Variant A (background-image) if a project photo exists. Use Variant B
+(gradient only, no inline style) if no photo. The hero ends after the
+portfolio-stat-grid — do NOT add any CTA button inside the hero. Portfolio
+pages have no hero CTA; all calls to action live in the final CTA section only.
+Taxonomy chips (portfolio-taxonomy / portfolio-chip) are optional — include only if the
+sub-sector or scope type adds clarity. Maximum 3 chips.
+
+Challenge section: Use Variant A (portfolio-image-text-grid) with contextual image when
+one exists. Use Variant B (challenge-copy div only, no grid wrapper) when no image.
+Never override the grid with an inline style.
+
+Technologies Implemented: links to /brands/ pages only — not /systems/ pages.
+Discovery Path: links to /solutions/ or /systems/ pages only — not /brands/ pages.
+Use portfolio-link-card-body (not portfolio-link-content) as the card body class.
+Choose the 4 most relevant destinations from the approved list. Always include the
+primary sector solution page as card 1.
+
+Equipment Deployed is mandatory on all commercial pages. Populate with accurate specs
+from the project brief only. Do not invent specs or quantities.
+
+Transformation uses a comparison table (comparison-table class) — not a narrative block.
+
+Results & Impact: use Format A (hard stats with result-stat-value) when measurable data
+exists. Use Format B (portfolio-result-card) when only qualitative outcomes are available.
+Never mix formats in one section.
+
+Related Projects: use grid-3 (always 3 cards). Each card must use:
+card + card-clickable + related-project-card on the anchor,
+related-project-body for the inner div,
+related-project-badge for the sector label,
+related-project-title for the h3,
+related-project-text for the description paragraph,
+related-project-link for the arrow text.
+
+Final CTA: use final-cta + cta-high-impact classes. One permitted inline style only:
+background-image on the section element. No footnote paragraph with licence or bizsafe text.
+Use eyebrow-light for the eyebrow. Use btn-group center for the button row.
+
+Background alternation: use sv-section-grey and sv-section-white classes exactly as
+specified. Never use style='background:...' for section backgrounds.
+
+Do not add inline styles except hero background-image and final CTA background-image."
+
+---
+HTML TEMPLATE BELOW — START HERE
+---
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══ SEO: UPDATE THESE PER PROJECT ═══ -->
+  <title>[PROJECT NAME] — Commercial Security Case Study | Securevision Singapore</title>
+  <meta name="description" content="[140–160 chars: what Securevision did and the key outcome for this commercial project.]">
+  <link rel="canonical" href="https://www.securevision.com.sg/portfolio/[slug].html">
+  <meta property="og:title" content="[PROJECT NAME] — Commercial Case Study | Securevision">
+  <meta property="og:description" content="[SAME AS META DESCRIPTION]">
+  <meta property="og:image" content="https://www.securevision.com.sg/images/portfolio/[project]-hero.webp">
+  <meta property="og:url" content="https://www.securevision.com.sg/portfolio/[slug].html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Securevision">
+  <!-- ════════════════════════════════════════ -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/sv-shared.css">
+  <script src="/site-config.js"></script>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="sv-nav"></nav>
+<!-- ═══ END NAV ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 3 — HERO
+
+     VARIANT A — use when a project background photograph exists.
+     The only permitted inline style on this element is background-image.
+     Keep the hero-image <img> and hero-overlay <div> for the image/overlay pattern.
+     Wrap all content in <div class="container pos-relative z-2">.
+
+     VARIANT B — use when no project photograph is available.
+     Remove the inline style, hero-image, and hero-overlay entirely.
+     Use <div class="container"> with no positioning classes.
+     The portfolio-hero class already provides the dark gradient background.
+
+     BADGE TEXT:
+     Match the sub-sector exactly:
+     - HOSPITALITY CASE STUDY      (hotels, serviced apartments)
+     - RETAIL CASE STUDY           (malls, F&B, shops)
+     - ENTERTAINMENT CASE STUDY    (venues, attractions, clubs)
+     - COMMERCIAL CASE STUDY       (offices, business parks, mixed-use)
+     - CIVIC CASE STUDY            (community centres, youth hubs, arts venues)
+     - INSTITUTIONAL CASE STUDY    (schools, hospitals, government buildings)
+
+     HERO STATS: exactly 4, all factual from the project brief.
+     Do not invent or estimate. If a stat cannot be verified, replace it with
+     a known fact (e.g. "Completion: December 2025" as a stat).
+
+     NO CTA BUTTON IN THE HERO:
+     Portfolio and case study pages do not have a CTA button inside the hero.
+     The hero ends after the portfolio-stat-grid. The final CTA section at the
+     bottom of the page is where all calls to action live.
+     This matches the confirmed condo and landed residential templates.
+
+     TAXONOMY CHIPS (optional):
+     Use only when sub-sector, system focus, or scope type adds clarity.
+     Delete the portfolio-taxonomy block entirely if chips are not needed.
+     Maximum 3 chips.
+     ═══════════════════════════════════════════════════════ -->
+
+<!-- VARIANT A (with background image) — delete if using Variant B -->
+<header class="portfolio-hero" style="background-image: linear-gradient(rgba(14,26,43,0.82), rgba(14,26,43,0.82)), url('/images/portfolio/[hero-image].webp');">
+  <img src="/images/portfolio/[hero-image].webp" alt="[Project Name]" class="hero-image">
+  <div class="hero-overlay"></div>
+  <div class="container pos-relative z-2">
+<!-- END VARIANT A OPEN — the inner content block below is shared by both variants -->
+
+<!-- VARIANT B (gradient only, no photo) — replace the three lines above with:
+<header class="portfolio-hero">
+  <div class="container">
+-->
+
+    <!-- Sector badge + location + property type -->
+    <div class="portfolio-kicker">
+      <span class="badge badge-primary">[SECTOR] CASE STUDY</span>
+      <span class="portfolio-meta">📍 [Location — district or landmark area]</span>
+      <span class="portfolio-meta">[Property type — e.g. 5-Star Hotel / Youth Hub / Office Tower]</span>
+    </div>
+
+    <h1 class="portfolio-hero-title">[PROJECT NAME — outcome-led, not product-led]</h1>
+    <p class="portfolio-hero-subtitle">[One sentence — what was delivered, for whom, and why it mattered.]</p>
+
+    <!-- Taxonomy chips — OPTIONAL. Delete this block if not needed. Max 3 chips. -->
+    <div class="portfolio-taxonomy" aria-label="Project taxonomy">
+      <span class="portfolio-chip">[e.g. Hospitality]</span>
+      <span class="portfolio-chip">[e.g. Access Control]</span>
+      <span class="portfolio-chip">[e.g. Phased Rollout]</span>
+    </div>
+    <!-- END optional taxonomy chips -->
+
+    <!-- 4-stat strip — mandatory, exactly 4, all factual from project brief -->
+    <div class="portfolio-stat-grid">
+      <div class="portfolio-stat">
+        <span class="portfolio-stat-value">[VALUE]</span>
+        <span class="portfolio-stat-label">[LABEL]</span>
+      </div>
+      <div class="portfolio-stat">
+        <span class="portfolio-stat-value">[VALUE]</span>
+        <span class="portfolio-stat-label">[LABEL]</span>
+      </div>
+      <div class="portfolio-stat">
+        <span class="portfolio-stat-value">[VALUE]</span>
+        <span class="portfolio-stat-label">[LABEL]</span>
+      </div>
+      <div class="portfolio-stat">
+        <span class="portfolio-stat-value">[VALUE]</span>
+        <span class="portfolio-stat-label">[LABEL]</span>
+      </div>
+    </div>
+
+  </div>
+</header>
+<!-- ═══ END SECTION 3 — HERO ═══ -->
+
+
+<!-- ═══ SECTION 4 — TRUST BAR ═══ -->
+<div class="sv-trust-bar">
+  <div class="container">
+    <div class="trust-inner">
+      <span>Police Licensed</span>
+      <span class="divider">|</span>
+      <span class="sv-bizsafe"></span>
+      <span class="divider">|</span>
+      <span>BCA Registered</span>
+      <span class="divider">|</span>
+      <span><span class="sv-sites"></span> Sites</span>
+    </div>
+  </div>
+</div>
+<!-- ═══ END SECTION 4 — TRUST BAR ═══ -->
+
+
+<!-- ═══ SECTION 5 — BREADCRUMB ═══ -->
+<nav class="sv-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li><a href="/portfolio/">Portfolio</a></li>
+      <li>[PROJECT NAME]</li>
+    </ol>
+  </div>
+</nav>
+<!-- ═══ END SECTION 5 — BREADCRUMB ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 6 — PROJECT SNAPSHOT (sv-section-grey)
+
+     Left: 2–3 sentence context paragraph + overview table.
+     Right: Technologies Implemented card.
+
+     TABLE ROWS:
+     - Client (or "Confidential, [Sector], [Location]" if undisclosed)
+     - Location
+     - Sector (e.g. Commercial / Hospitality / Entertainment / Institutional)
+     - Project Type (e.g. Platform Migration / New Installation / Phased Rollout)
+     - Client Since (include only if a long-term relationship — delete if new client)
+     - Completion (Month Year)
+     - Scale (e.g. "50 doors, 28 controllers" or "209 cameras, 6 levels")
+
+     TECHNOLOGIES IMPLEMENTED:
+     - Links go to /brands/ pages only — not /systems/ pages
+     - Delete all unused brand entries before handing off to Anti-Gravity
+     - The eyebrow "Technologies Implemented" sits OUTSIDE the card box
+     ═══════════════════════════════════════════════════════ -->
+<section class="portfolio-snapshot sv-section-grey section-spacing">
+  <div class="container">
+    <div class="portfolio-snapshot-grid">
+
+      <!-- Left: project context + table -->
+      <div class="snapshot-main">
+        <span class="eyebrow">Project Snapshot</span>
+        <p class="mt-16">[2–3 sentence project context. Property type, operational situation, and why the installation mattered. Specific to this project — not generic.]</p>
+
+        <table class="portfolio-overview-table mt-32">
+          <tbody>
+            <tr>
+              <th>Client</th>
+              <td>[Client name — or "Confidential, [Sector], [Location]"]</td>
+            </tr>
+            <tr>
+              <th>Location</th>
+              <td>[District or landmark area, Singapore]</td>
+            </tr>
+            <tr>
+              <th>Sector</th>
+              <td>[Commercial / Hospitality / Entertainment / Institutional / Retail / Civic]</td>
+            </tr>
+            <tr>
+              <th>Project Type</th>
+              <td>[Platform Migration / New Installation / Complete Upgrade / Phased Rollout]</td>
+            </tr>
+            <!-- Client Since: include only if a long-term relationship. Delete if new client. -->
+            <tr>
+              <th>Client Since</th>
+              <td>[Year]</td>
+            </tr>
+            <tr>
+              <th>Completion</th>
+              <td>[Month Year]</td>
+            </tr>
+            <tr>
+              <th>Scale</th>
+              <td>[Quantified scope — e.g. "50 doors, 28 InBio Pro controllers" or "209 cameras, 6 levels, 4 buildings"]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Right: Technologies Implemented card -->
+      <!-- Eyebrow sits OUTSIDE the card box, aligned with "Project Snapshot" on the left -->
+      <div class="snapshot-tech-col">
+        <span class="eyebrow">Technologies Implemented</span>
+        <div class="snapshot-tech-card">
+          <div class="portfolio-tech-stack">
+
+            <!-- Keep only brands actually used. Delete all others before handoff. -->
+
+            <!-- MILESIGHT: keep if AI cameras / NVRs used -->
+            <a href="/brands/milesight-cctv.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">Milesight</span>
+              <span class="tech-brand-desc">AI cameras, NVRs, and VMS enterprise servers.</span>
+            </a>
+
+            <!-- HIKVISION: keep if IP surveillance cameras / NVRs used -->
+            <a href="/brands/hikvision-cctv.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">Hikvision</span>
+              <span class="tech-brand-desc">IP surveillance cameras and NVR recording systems.</span>
+            </a>
+
+            <!-- HANWHA: keep if Wisenet AI cameras used -->
+            <a href="/brands/hanwha-cctv.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">Hanwha</span>
+              <span class="tech-brand-desc">IP cameras and Wisenet AI analytics.</span>
+            </a>
+
+            <!-- ZKTECO: keep if biometric readers / controllers / CV platform used -->
+            <a href="/brands/zkteco-entry-access.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">ZKTeco</span>
+              <span class="tech-brand-desc">Biometric readers, controllers, and access management platform.</span>
+            </a>
+
+            <!-- SUPREMA: keep if face recognition / fingerprint access used -->
+            <a href="/brands/suprema-entry-access.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">Suprema</span>
+              <span class="tech-brand-desc">Face recognition and fingerprint access control.</span>
+            </a>
+
+            <!-- HID: keep if card credentials used -->
+            <a href="/brands/hid-entry-access.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">HID</span>
+              <span class="tech-brand-desc">iClass and Seos card credentials.</span>
+            </a>
+
+            <!-- AKUVOX: keep if IP intercom / visitor access used -->
+            <a href="/brands/akuvox-intercom.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">Akuvox</span>
+              <span class="tech-brand-desc">IP intercom and mobile visitor access.</span>
+            </a>
+
+            <!-- FAAC: keep if automated barriers / gates used -->
+            <a href="/brands/faac-autogate.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">FAAC</span>
+              <span class="tech-brand-desc">Automated barriers, boom gates, and road blockers.</span>
+            </a>
+
+            <!-- AJAX: keep if wireless alarm system used -->
+            <a href="/brands/ajax-alarms.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">AJAX</span>
+              <span class="tech-brand-desc">Wireless alarm system, detectors, and sirens.</span>
+            </a>
+
+            <!-- ENTRYPASS: keep if EntryPass platform is involved (e.g. legacy system being replaced) -->
+            <a href="/brands/entrypass-entry-access.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">EntryPass</span>
+              <span class="tech-brand-desc">Legacy access control platform — migrated to new system.</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 6 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 7 — THE CHALLENGE (sv-section-white)
+
+     Focus on the operational or security problem — not the products used.
+     The reader should understand the problem clearly before any solution is mentioned.
+
+     VARIANT A — With contextual image (use when an image exists):
+     Use portfolio-image-text-grid for the two-column layout.
+     Image goes in <figure class="portfolio-context-image">.
+     Caption must explain what the image shows and why it is relevant.
+
+     VARIANT B — Full-width prose (use when no image exists):
+     Remove the portfolio-image-text-grid wrapper entirely.
+     Place challenge-copy as a direct child of the container.
+     Do NOT add style="grid-template-columns: 1fr" — use Variant B instead.
+
+     COMMERCIAL CHALLENGE THEMES (choose what fits this project):
+     - System at capacity ceiling — cannot grow without full replacement
+     - Multi-zone complexity — different security levels across different areas
+     - High foot traffic requiring intelligent filtering or credential management
+     - Operational continuity constraint — upgrade cannot disrupt live operations
+     - Fragmented legacy systems with no central management view
+     - Compliance, audit trail, or regulatory requirement
+     - Unmonitored access paths creating security gaps
+     ═══════════════════════════════════════════════════════ -->
+<section class="portfolio-challenge sv-section-white section-spacing">
+  <div class="container">
+
+    <!-- VARIANT A: with image — use portfolio-image-text-grid -->
+    <div class="portfolio-image-text-grid">
+      <div class="challenge-copy">
+        <span class="eyebrow">The Challenge</span>
+        <h2>[Challenge headline — specific to this site's problem, not generic]</h2>
+        <p>[Challenge paragraph 1 — describe the operational problem. What was happening and why it was a problem. Specific to this site.]</p>
+        <p>[Challenge paragraph 2 — why this was hard. What constraints existed? Why a simple fix was not sufficient?]</p>
+        <p>[Challenge paragraph 3 — optional. The consequence of leaving this unresolved.]</p>
+      </div>
+
+      <figure class="portfolio-context-image">
+        <img src="/images/portfolio/[challenge-image].webp" alt="[Descriptive alt — what the image shows and its relevance to the challenge]">
+        <figcaption>[Caption — what this image shows and its relevance to the challenge described.]</figcaption>
+      </figure>
+    </div>
+
+    <!-- VARIANT B: no image — replace the block above with:
+    <div class="challenge-copy">
+      <span class="eyebrow">The Challenge</span>
+      <h2>[Challenge headline]</h2>
+      <p>[Paragraph 1]</p>
+      <p>[Paragraph 2]</p>
+      <p>[Paragraph 3 — optional]</p>
+    </div>
+    -->
+
+  </div>
+</section>
+<!-- ═══ END SECTION 7 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 8 — TRANSFORMATION (sv-section-grey)
+
+     Use a comparison TABLE — not a narrative or before/after prose block.
+     Commercial projects are typically platform replacements or system upgrades
+     where a table clearly shows what changed and by how much.
+
+     RULES:
+     - Minimum 4 rows, maximum 7 rows
+     - First column: the security or operational dimension being compared
+     - Second column (old): class="old" — text-light colour, describes the before state
+     - Third column (new): class="new" — green colour + bold, describes the after state
+     - Header row: name the old system specifically (e.g. "EntryPass Legacy") or use "Before"
+     - Third column header: always "Securevision Upgrade" or "Securevision Installation"
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-grey section-spacing">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Transformation</span>
+      <h2>[Transformation headline — e.g. "From Fragmented Systems to Unified Platform" or "From Capacity Limit to Scalable Architecture"]</h2>
+    </div>
+
+    <div class="blog-table-wrap mt-48">
+      <table class="blog-table comparison-table">
+        <thead>
+          <tr>
+            <th class="feature-col">Security Layer</th>
+            <th>[Old system name — or "Before"]</th>
+            <th>Securevision Upgrade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feature-col">[Dimension — e.g. "System Capacity"]</td>
+            <td class="old">[Before state — specific, not generic]</td>
+            <td class="new">[After state — specific, quantified where possible]</td>
+          </tr>
+          <tr>
+            <td class="feature-col">[Dimension]</td>
+            <td class="old">[Before state]</td>
+            <td class="new">[After state]</td>
+          </tr>
+          <tr>
+            <td class="feature-col">[Dimension]</td>
+            <td class="old">[Before state]</td>
+            <td class="new">[After state]</td>
+          </tr>
+          <tr>
+            <td class="feature-col">[Dimension]</td>
+            <td class="old">[Before state]</td>
+            <td class="new">[After state]</td>
+          </tr>
+          <!-- Add rows as needed. Min 4, max 7. -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 8 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 9 — DECISION POINT (sv-section-white)
+
+     The key engineering or commercial decision that shaped this project.
+     This is not a list of features — it is the single most important
+     design choice, explained with its rationale.
+
+     Use the decision-box for the key decision statement.
+     The surrounding paragraphs provide context (before) and outcome (after).
+
+     COMMERCIAL DECISION THEMES:
+     - Preserve vs replace existing credentials or infrastructure
+     - Phased cutover vs full cutover
+     - Platform choice and long-term scalability
+     - Integration approach — what to connect and what to leave separate
+     - Fail-safe vs fail-secure for safety-critical door applications
+     - Working around a live operation vs taking downtime
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-white section-spacing">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Decision Point</span>
+      <h2>[Decision heading — e.g. "Preserve or Replace? The Infrastructure Question"]</h2>
+    </div>
+
+    <p class="mt-24">[Intro paragraph — describe the decision context. What were the options on the table? What constraints shaped the choice?]</p>
+
+    <div class="decision-box mt-24">
+      <p>[The critical decision — 2–3 sentences. What Securevision recommended and the engineering rationale behind it. Not marketing language.]</p>
+    </div>
+
+    <p class="mt-24">[Outcome paragraph — what the decision enabled and what risk or cost it avoided.]</p>
+
+  </div>
+</section>
+<!-- ═══ END SECTION 9 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 10 — OUR APPROACH (sv-section-grey)
+
+     Engineering rationale behind the design and installation approach.
+     Use zone-grid / zone-card for 2–4 distinct zones, phases, or approach pillars.
+     If the project does not have distinct zones or phases, replace the grid
+     with plain paragraphs or a list — do not force empty cards.
+
+     TYPICAL APPROACH CONTENT:
+     - Site survey and integration planning
+     - Phased installation strategy and schedule coordination
+     - Credential strategy (which zones, which credential types)
+     - Zero-disruption or minimal-disruption requirement
+     - Platform selection rationale
+     - Integration design (fire alarm, building management, third-party APIs)
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-grey section-spacing">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Our Approach</span>
+      <h2>[Approach heading — e.g. "Zone-by-Zone Rollout With Zero Operational Downtime"]</h2>
+    </div>
+
+    <p class="mt-24">[Intro paragraph — Securevision's engineering philosophy for this specific project. 2–3 sentences.]</p>
+
+    <!-- zone-grid: use for 2–4 distinct zones, phases, or approach pillars -->
+    <!-- Delete this grid and use plain paragraphs if no distinct zones exist -->
+    <div class="zone-grid mt-32">
+
+      <div class="zone-card">
+        <span class="zone-icon">[EMOJI — e.g. 🔍 💳 🏗️ 🔗 🖥️ 🔄 🔐]</span>
+        <h4>[Zone, phase, or pillar label]</h4>
+        <p>[2–3 sentences describing what was done in this zone or phase.]</p>
+      </div>
+
+      <div class="zone-card">
+        <span class="zone-icon">[EMOJI]</span>
+        <h4>[Label]</h4>
+        <p>[2–3 sentences]</p>
+      </div>
+
+      <div class="zone-card">
+        <span class="zone-icon">[EMOJI]</span>
+        <h4>[Label]</h4>
+        <p>[2–3 sentences]</p>
+      </div>
+
+      <div class="zone-card">
+        <span class="zone-icon">[EMOJI]</span>
+        <h4>[Label]</h4>
+        <p>[2–3 sentences]</p>
+      </div>
+
+    </div>
+    <!-- If fewer than 2 zones exist, remove zone-grid and use: -->
+    <!--
+    <p class="mt-24">[Approach description in plain paragraphs.]</p>
+    -->
+
+    <p class="mt-32">[Closing paragraph — how the approach protected operational continuity, reduced risk, or enabled the project to complete on schedule.]</p>
+
+  </div>
+</section>
+<!-- ═══ END SECTION 10 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 11 — THE SOLUTION (sv-section-white)
+
+     Describe what was designed and deployed, layer by layer.
+     Use portfolio-layer-card in a grid. Choose grid-3 for 3 or 6 cards,
+     grid-4 for 4 cards, grid-2 for 2 cards.
+     Links inside cards go to /systems/ pages — not /brands/ pages.
+     Do not create separate <section> tags per layer.
+
+     TYPICAL COMMERCIAL LAYERS:
+     1. Surveillance & Analytics
+     2. Access Control & Credentials
+     3. Vehicle & Barrier Management
+     4. Visitor & Booking Integration
+     5. Alarm & Intrusion Detection
+     6. Platform Integration & Central Management
+
+     Include only the layers that were actually deployed.
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-white section-spacing">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">The Solution</span>
+      <h2>[Solution heading — e.g. "A Unified, Scalable Security Architecture"]</h2>
+      <p class="mt-16">[1–2 sentences — the overarching design logic, not a product list.]</p>
+    </div>
+
+    <div class="grid-3 mt-48">
+
+      <div class="portfolio-layer-card">
+        <span class="eyebrow">[Layer label — e.g. "Access Layer"]</span>
+        <h3>[Layer heading]</h3>
+        <p>[2–3 sentences — what this layer does and why this approach suited this site. Non-technical language.]</p>
+        <a href="/systems/entry-access-control.html" class="layer-link">Entry Access Control →</a>
+      </div>
+
+      <div class="portfolio-layer-card">
+        <span class="eyebrow">[Layer label — e.g. "Surveillance Layer"]</span>
+        <h3>[Layer heading]</h3>
+        <p>[2–3 sentences]</p>
+        <a href="/systems/premises-security.html" class="layer-link">Surveillance & Detection →</a>
+      </div>
+
+      <div class="portfolio-layer-card">
+        <span class="eyebrow">[Layer label — e.g. "Platform Layer"]</span>
+        <h3>[Layer heading]</h3>
+        <p>[2–3 sentences]</p>
+        <a href="/systems/security-management-platform.html" class="layer-link">Platform & Management →</a>
+      </div>
+
+      <!-- Add or remove cards as needed. Keep all inside this single section. -->
+
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 11 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 12 — EQUIPMENT DEPLOYED (sv-section-grey)
+
+     MANDATORY on all commercial pages.
+     This section provides technical specifics for decision-makers
+     who need to know exactly what was installed and why.
+
+     STRUCTURE:
+     - One .eq-category div per system category (e.g. "Access Control System")
+     - Within each category, use .eq-sub for sub-category labels
+       (e.g. "Controllers", "Readers", "Credentials", "Management Platform")
+     - Use .eq-item for each individual product or line item
+     - Product links go to /brands/ pages — not /systems/ pages
+     - "Learn more" links at the bottom of each category go to /systems/ pages
+
+     INTEGRATION BLOCK:
+     - Include .eq-integration at the bottom only if a custom integration was built
+       (e.g. fire alarm interface, third-party API connection, BMS link)
+     - Delete the integration block if no custom integration was developed
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-grey section-spacing">
+  <div class="container">
+    <span class="eyebrow">Equipment Deployed</span>
+    <h2>What Was Installed</h2>
+    <p class="mt-16">[1 sentence — total scope. e.g. "A full platform migration across 50 doors, replacing an end-of-life EntryPass system with ZKTeco CV Security and 28 InBio Pro controllers."]</p>
+
+    <div class="equipment-list-grid mt-48">
+
+      <!-- ── SYSTEM CATEGORY 1 — repeat this block per deployed system ── -->
+      <div class="eq-category">
+        <h4>[System category — e.g. "Access Control System"]</h4>
+
+        <p class="eq-sub">[Sub-category — e.g. "Controllers"]</p>
+        <div class="eq-item">[Qty]× <a href="/brands/[brand].html">[Brand + Model]</a> — [Brief description]
+          <ul>
+            <li>[Key spec or feature relevant to this deployment]</li>
+            <li>[Key spec or feature]</li>
+          </ul>
+        </div>
+
+        <p class="eq-sub">[Sub-category — e.g. "Readers"]</p>
+        <div class="eq-item">[Qty]× <a href="/brands/[brand].html">[Brand + Model]</a> — [Description]
+          <ul>
+            <li>[Spec]</li>
+          </ul>
+        </div>
+
+        <p class="eq-sub">[Sub-category — e.g. "Management Platform"]</p>
+        <div class="eq-item"><strong>[Software / Platform name]</strong> ([Licence / config])
+          <ul>
+            <li>[Feature relevant to this deployment]</li>
+            <li>[Feature]</li>
+          </ul>
+        </div>
+
+        <p class="mt-16"><a href="/systems/entry-access-control.html" class="system-link">Learn more about our Access Control solutions →</a></p>
+      </div>
+
+      <!-- ── SYSTEM CATEGORY 2 ── -->
+      <div class="eq-category">
+        <h4>[System category — e.g. "AI Surveillance System"]</h4>
+
+        <p class="eq-sub">[Sub-category — e.g. "Cameras"]</p>
+        <div class="eq-item">[Qty]× <a href="/brands/[brand].html">[Brand + Model range]</a> — [Description]
+          <ul>
+            <li>[Spec]</li>
+            <li>[Spec]</li>
+          </ul>
+        </div>
+
+        <p class="eq-sub">[Sub-category — e.g. "Recording Infrastructure"]</p>
+        <div class="eq-item">[Qty]× <a href="/brands/[brand].html">[Brand + Model]</a> — [Description]
+          <ul>
+            <li>[Spec]</li>
+          </ul>
+        </div>
+
+        <p class="mt-16"><a href="/systems/premises-security.html" class="system-link">Learn more about our Surveillance solutions →</a></p>
+      </div>
+
+      <!-- ── SYSTEM CATEGORY 3 — add or remove categories as needed ── -->
+      <div class="eq-category">
+        <h4>[System category — e.g. "Vehicle Access & Barriers"]</h4>
+
+        <p class="eq-sub">[Sub-category]</p>
+        <div class="eq-item">[Qty]× <a href="/brands/[brand].html">[Brand + Model]</a> — [Description]
+          <ul>
+            <li>[Spec]</li>
+          </ul>
+        </div>
+
+        <p class="mt-16"><a href="/systems/vehicle-lpr-management.html" class="system-link">Learn more about our Vehicle Access solutions →</a></p>
+      </div>
+
+    </div>
+
+    <!-- Integration block — include only if custom integration was built. Delete otherwise. -->
+    <div class="eq-integration mt-48">
+      <h4>Integration & Custom Development</h4>
+      <div class="eq-item">[Integration name / type] — [What it connects and what it does]</div>
+      <div class="eq-item">[Second integration if applicable — delete if only one]</div>
+    </div>
+
+  </div>
+</section>
+<!-- ═══ END SECTION 12 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 13 — RESULTS & IMPACT (sv-section-white)
+
+     Factual outcomes only. Never invent statistics.
+
+     FORMAT A — Hard stats (use when measurable data exists):
+     Large deployments, AI analytics with response time data, quantified savings.
+     Use result-stat-value / result-stat-desc inside .card.text-center.
+     Example stat values: "87%", "209", "Zero False", "100% Auto"
+
+     FORMAT B — Qualitative outcomes (use when no hard stats are available):
+     Platform migrations, access upgrades, fire safety integrations.
+     Use portfolio-result-card / portfolio-result-title / portfolio-result-text.
+     Each result title begins with ✓ (&#10003;).
+
+     Choose one format. Never mix Format A and Format B in the same section.
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-white section-spacing">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="eyebrow">Results & Impact</span>
+      <h2>[Outcome heading — e.g. "Measurable Impact Across Every Level" or "From Complexity to Control"]</h2>
+    </div>
+
+    <!-- FORMAT A: Hard stats — use when measurable data is available -->
+    <!--
+    <div class="grid-3 mt-48">
+      <div class="card text-center">
+        <div class="result-stat-value">[STAT]</div>
+        <p class="result-stat-desc">[Plain English explanation of what this stat means]</p>
+      </div>
+      <div class="card text-center">
+        <div class="result-stat-value">[STAT]</div>
+        <p class="result-stat-desc">[Explanation]</p>
+      </div>
+      <div class="card text-center">
+        <div class="result-stat-value">[STAT]</div>
+        <p class="result-stat-desc">[Explanation]</p>
+      </div>
+    </div>
+    -->
+
+    <!-- FORMAT B: Qualitative outcomes — use when no hard stats are available -->
+    <div class="grid-3 mt-48">
+      <div class="portfolio-result-card">
+        <h4 class="portfolio-result-title">&#10003; [Result 1 title]</h4>
+        <p class="portfolio-result-text">[1–2 sentences — observable outcome, specific to this project.]</p>
+      </div>
+      <div class="portfolio-result-card">
+        <h4 class="portfolio-result-title">&#10003; [Result 2 title]</h4>
+        <p class="portfolio-result-text">[1–2 sentences]</p>
+      </div>
+      <div class="portfolio-result-card">
+        <h4 class="portfolio-result-title">&#10003; [Result 3 title]</h4>
+        <p class="portfolio-result-text">[1–2 sentences]</p>
+      </div>
+    </div>
+
+    <p class="mt-32">[Optional closing paragraph — ongoing impact, client feedback, or what the outcome enables going forward.]</p>
+
+  </div>
+</section>
+<!-- ═══ END SECTION 13 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 14 — SECUREVISION INSIGHT (sv-section-grey + no-bottom-spacing)
+
+     A sharp engineering or operational observation from this project.
+     First-person voice ("we", "our"). Visually quiet — centred prose, no cards.
+     Not salesy. Not a product pitch. A genuine professional takeaway.
+
+     COMMERCIAL INSIGHT THEMES:
+     - Long-term service relationships produce more accurate and less disruptive upgrades
+     - Operational continuity is an engineering constraint, not an afterthought
+     - Infrastructure preservation reduces cost and disruption when platforms are replaced
+     - Platform scalability matters more than upfront cost for growing operations
+     - Phased rollout is not a compromise — it is the correct method for live sites
+     - Safety-critical integrations must be verified at every phase, not just at commissioning
+     ═══════════════════════════════════════════════════════ -->
+<section class="portfolio-insight-section sv-section-grey section-spacing no-bottom-spacing">
+  <div class="container">
+    <div class="portfolio-insight">
+      <span class="eyebrow">Securevision Insight</span>
+      <h2>[Sharp insight heading — one line, engineering or operational observation]</h2>
+      <p>[One concise paragraph. First-person voice. Engineering wisdom from this project. No marketing language.]</p>
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 14 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 15 — DISCOVERY PATH (sv-section-white)
+
+     Always exactly 4 cards. Card 1 is always the primary sector solution page.
+     Cards 2–4 are the most relevant system or secondary solution pages for this project.
+
+     CARD BODY CLASS: portfolio-link-card-body (NOT portfolio-link-content)
+     This is the confirmed canonical class. Using portfolio-link-content will break layout.
+
+     Approved destinations and images — see instruction block above.
+     ═══════════════════════════════════════════════════════ -->
+<section class="portfolio-section sv-section-white section-spacing">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="eyebrow">Discovery Path</span>
+      <h2>Explore Related Solutions</h2>
+      <p class="text-left mt-16">Deepen your understanding of the systems and strategies deployed in this project.</p>
+    </div>
+
+    <div class="portfolio-link-stack mt-48">
+
+      <!-- Card 1 — always the primary sector solution page -->
+      <a href="/solutions/commercial.html" class="portfolio-link-card">
+        <img src="/images/prop-commercial.webp" alt="Commercial Security Solutions">
+        <div class="portfolio-link-card-body">
+          <strong>Commercial Security</strong>
+          <span>[Short description relevant to this project's sector.]</span>
+        </div>
+      </a>
+
+      <!-- Cards 2–4: most relevant system or secondary solution pages for this project -->
+      <a href="/systems/entry-access-control.html" class="portfolio-link-card">
+        <img src="/images/pillar_people_access.webp" alt="Entry Access Control">
+        <div class="portfolio-link-card-body">
+          <strong>Entry Access Control</strong>
+          <span>[Description relevant to this project.]</span>
+        </div>
+      </a>
+
+      <a href="/systems/premises-security.html" class="portfolio-link-card">
+        <img src="/images/pillar_surveillance.webp" alt="Surveillance & Detection">
+        <div class="portfolio-link-card-body">
+          <strong>Surveillance & Detection</strong>
+          <span>[Description relevant to this project.]</span>
+        </div>
+      </a>
+
+      <a href="/systems/security-management-platform.html" class="portfolio-link-card">
+        <img src="/images/pillar_maintenance.webp" alt="Platform & Management">
+        <div class="portfolio-link-card-body">
+          <strong>Platform & Management</strong>
+          <span>[Description relevant to this project.]</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 15 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 16 — RELATED PROJECTS (sv-section-grey)
+
+     Always exactly 3 cards in a grid-3.
+     Never link to the current project.
+     Prefer other commercial or hospitality projects first.
+     If fewer than 3 commercial projects exist, use adjacent sectors
+     (institutional, industrial) to fill the third card.
+
+     MANDATORY CLASSES (do not substitute):
+     - Outer anchor: card + card-clickable + related-project-card
+     - Inner div: related-project-body
+     - Sector label: related-project-badge
+     - Project name: related-project-title (h3)
+     - Description: related-project-text
+     - Arrow link text: related-project-link
+     ═══════════════════════════════════════════════════════ -->
+<section class="related-projects sv-section-grey section-spacing">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="eyebrow">Next Steps in Discovery</span>
+      <h2>Related Case Studies</h2>
+      <p class="text-left mt-16">See how we have solved similar security and operational challenges for other commercial properties in Singapore.</p>
+    </div>
+
+    <div class="grid-3 mt-48">
+
+      <a href="/portfolio/[related-1].html" class="card card-clickable related-project-card">
+        <img src="/images/portfolio/[related-1-image].webp" alt="[Related project 1 name]">
+        <div class="related-project-body">
+          <span class="related-project-badge">[Sector — e.g. Commercial]</span>
+          <h3 class="related-project-title">[Related Project 1 Name]</h3>
+          <p class="related-project-text">[1–2 sentences — key outcome or project description.]</p>
+          <span class="related-project-link">View Case Study →</span>
+        </div>
+      </a>
+
+      <a href="/portfolio/[related-2].html" class="card card-clickable related-project-card">
+        <img src="/images/portfolio/[related-2-image].webp" alt="[Related project 2 name]">
+        <div class="related-project-body">
+          <span class="related-project-badge">[Sector]</span>
+          <h3 class="related-project-title">[Related Project 2 Name]</h3>
+          <p class="related-project-text">[1–2 sentences]</p>
+          <span class="related-project-link">View Case Study →</span>
+        </div>
+      </a>
+
+      <a href="/portfolio/[related-3].html" class="card card-clickable related-project-card">
+        <img src="/images/portfolio/[related-3-image].webp" alt="[Related project 3 name]">
+        <div class="related-project-body">
+          <span class="related-project-badge">[Sector]</span>
+          <h3 class="related-project-title">[Related Project 3 Name]</h3>
+          <p class="related-project-text">[1–2 sentences]</p>
+          <span class="related-project-link">View Case Study →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 16 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 17 — FINAL CTA (dark full-width image overlay)
+
+     Only permitted inline style: background-image on this section element.
+     All other styling from sv-shared.css via final-cta + cta-high-impact classes.
+     No footnote paragraph with licence or bizsafe text inside this section.
+     ═══════════════════════════════════════════════════════ -->
+<section id="final-cta" class="final-cta cta-high-impact" style="background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('/images/portfolio/[hero-image].webp');">
+  <div class="container text-center">
+    <span class="eyebrow-light">Start Your Project</span>
+    <h2>Planning a Similar Project?</h2>
+    <p class="cta-subtext">[2–3 sentences — what Securevision offers for this type of project. Engineering-led. Not salesy.]</p>
+    <div class="btn-group center">
+      <a href="/request-site-assessment-singapore.html" class="btn btn-primary">Book Site Assessment</a>
+      <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 Discuss Your Project</a>
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 17 — FINAL CTA ═══ -->
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="sv-footer"></footer>
+<!-- ═══ END FOOTER ═══ -->
+
+
+<!-- ═══ SCRIPTS ═══ -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof SECUREVISION !== "undefined") {
+      var SV = SECUREVISION;
+      document.querySelectorAll(".sv-licence").forEach(function(el) { el.textContent = SV.licenceNumber || ""; });
+      document.querySelectorAll(".sv-sites").forEach(function(el) { el.textContent = SV.siteDisplay || ""; });
+      document.querySelectorAll(".sv-bizsafe").forEach(function(el) { el.textContent = SV.bizsafeLevel || "bizSAFE Level 3"; });
+    }
+  });
+</script>
+<script src="/nav-footer.js"></script>
+<!-- ═══ END SCRIPTS ═══ -->
+
+</body>
+</html>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     CSS ADDITIONS REQUIRED IN sv-shared.css
+     Add these blocks once if not already present.
+     Do not redefine in individual pages.
+     ═══════════════════════════════════════════════════════
+
+--- PORTFOLIO HERO STAT GRID (shared across commercial, condo, landed) ---
+Confirm these classes exist in sv-shared.css. If the condo v5 or landed v3
+templates are already live, these are present. Verify before adding.
+
+.portfolio-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.portfolio-stat {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 24px 16px;
+}
+.portfolio-stat-value {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 6px;
+  line-height: 1;
+}
+.portfolio-stat-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+--- PORTFOLIO TAXONOMY CHIPS (shared across commercial, condo, landed) ---
+Confirm these classes exist in sv-shared.css. Condo v5 introduced these.
+
+.portfolio-taxonomy {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 16px 0 32px;
+}
+.portfolio-chip {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+}
+
+--- PORTFOLIO KICKER (hero meta row — badge + location + property type) ---
+.portfolio-kicker {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.portfolio-meta {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+--- EXISTING CLASSES (confirmed in sv-shared.css — do not redefine) ---
+These classes are already present. Listed here for Anti-Gravity reference only.
+
+.comparison-table .old   { color: var(--text-light); }
+.comparison-table .new   { color: #38a169; font-weight: 600; }
+.comparison-table .feature-col { font-weight: 600; color: #64748b; width: 30%; }
+.comparison-table th.feature-col { color: #ffffff; }
+
+.decision-box { background: var(--bg-light); border-left: 4px solid var(--primary-blue);
+  border-radius: 0 8px 8px 0; padding: 24px 28px; margin: 28px 0; }
+.decision-box p { color: var(--text-dark); margin-bottom: 0; }
+
+.zone-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.zone-card { border: 1px solid var(--border-light); border-radius: 8px;
+  padding: 22px; background: #fff; }
+.zone-card .zone-icon { font-size: 28px; display: block; margin-bottom: 12px; }
+.zone-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+.zone-card p { font-size: 14px; color: var(--text-light); margin: 0; }
+
+.equipment-list-grid { display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+.eq-category h4 { color: var(--primary-blue); border-bottom: 3px solid var(--primary-blue);
+  display: inline-block; margin-bottom: 20px; padding-bottom: 4px; font-size: 16px; }
+.eq-sub { font-size: 13px; color: var(--primary-blue); font-weight: 600;
+  margin-top: 20px; margin-bottom: 8px; }
+.eq-item { margin-bottom: 12px; font-size: 14px; position: relative;
+  padding-left: 18px; color: var(--text-gray); }
+.eq-item::before { content: "•"; position: absolute; left: 0;
+  color: var(--primary-blue); font-weight: 700; }
+.eq-item ul { list-style: none; padding: 0; margin: 4px 0 0; }
+.eq-item ul li { font-size: 13px; opacity: 0.8; padding-left: 12px; position: relative; }
+.eq-item ul li::before { content: "–"; position: absolute; left: 0; }
+.eq-integration { border-top: 1px solid var(--border-light); padding-top: 32px; }
+.eq-integration h4 { color: var(--primary-blue); font-size: 16px; margin-bottom: 16px; }
+
+.result-stat-value { font-family: 'Montserrat', sans-serif; font-size: 48px;
+  font-weight: 800; color: var(--primary-blue); margin-bottom: 8px; line-height: 1; display: block; }
+.result-stat-desc { font-size: 14px; color: var(--text-gray); }
+
+.layer-link, .system-link { display: inline-block; margin-top: 12px; font-size: 14px;
+  font-weight: 600; color: var(--primary-blue); text-decoration: none; }
+.layer-link:hover, .system-link:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+  .portfolio-stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .zone-grid { grid-template-columns: 1fr; }
+  .equipment-list-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .portfolio-stat-grid { grid-template-columns: 1fr; }
+}
+
+═══════════════════════════════════════════════════════ -->

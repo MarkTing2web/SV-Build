@@ -5133,11 +5133,11 @@ section .subtitle {
 
 /* Verdict box — Securevision Verdict / Securevision View */
 .verdict-box {
-    background: #0E1A2B;
-    border-radius: 12px;
+    background: #dbeafe;
+    border-left: 4px solid var(--primary-blue);
+    border-radius: 0 12px 12px 0;
     padding: 32px 36px;
     margin: 40px 0;
-    color: #fff;
 }
 
 .verdict-box .verdict-label {
@@ -5146,13 +5146,13 @@ section .subtitle {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--primary-blue);
     margin-bottom: 12px;
 }
 
 .verdict-box p {
     font-family: 'Inter', sans-serif;
-    color: rgba(255, 255, 255, 0.85);
+    color: #1e3a5f;
     line-height: 1.7;
     margin: 0;
 }
@@ -9562,3 +9562,346 @@ a.arch-card-link p {
    Until mobile images are generated, the desktop image is used at
    all breakpoints — it degrades gracefully via background-position:center.
 ══════════════════════════════════════════════════════════════════ */
+
+/* ============================================================
+   sv-shared.css — Section 37: Portfolio Template Utilities
+   Added: May 2026
+   Scope: All portfolio case study pages
+   Classes verified missing from sv-shared — referenced in
+   commercial v2, industrial v1, and condo portfolio templates
+   but not previously defined here.
+   ============================================================ */
+
+/* ── 37a. Snapshot tech column ────────────────────────────────
+   Right column of portfolio-snapshot-grid.                   */
+
+.snapshot-tech-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── 37b. Portfolio section wrappers ──────────────────────────
+   .portfolio-snapshot  — wraps the S6 snapshot section
+   .portfolio-challenge — wraps the S7 challenge section       */
+
+.portfolio-snapshot {
+  padding: 80px 0;
+}
+
+.portfolio-challenge {
+  padding: 80px 0;
+}
+
+/* ── 37c. Challenge copy block ────────────────────────────────
+   Full-width prose variant (Variant B) for challenge section. */
+
+.challenge-copy {
+  max-width: 880px;
+}
+
+.challenge-copy h2 {
+  margin-bottom: 20px;
+}
+
+.challenge-copy p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-gray);
+  margin-bottom: 20px;
+}
+
+.challenge-copy p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── 37d. Portfolio insight section wrapper ───────────────────  */
+
+.portfolio-insight-section {
+  padding: 80px 0;
+}
+
+/* ── 37e. no-bottom-spacing utility ──────────────────────────
+   Removes bottom padding — used on S14 Insight section.      */
+
+.no-bottom-spacing {
+  padding-bottom: 0 !important;
+}
+
+/* ── 37f. Related projects section wrapper ────────────────────  */
+
+.related-projects {
+  padding: 80px 0;
+}
+
+/* ── 37g. Decision box ────────────────────────────────────────
+   Key engineering decision callout in S9 Decision Point.     */
+
+.decision-box {
+  background: var(--bg-light);
+  border-left: 4px solid var(--primary-blue);
+  border-radius: 0 8px 8px 0;
+  padding: 24px 28px;
+  margin: 28px 0;
+}
+
+.decision-box p {
+  color: var(--text-dark);
+  font-size: 15px;
+  line-height: 1.75;
+  margin-bottom: 0;
+}
+
+/* ── 37h. Zone grid and zone cards ───────────────────────────
+   2-column approach grid used in S10 Our Approach.           */
+
+.zone-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.zone-card {
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  padding: 24px;
+  background: #fff;
+}
+
+.zone-card .zone-icon {
+  font-size: 28px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.zone-card h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.zone-card p {
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ── 37i. Layer and system links ──────────────────────────────
+   Arrow links at the bottom of layer/system cards.           */
+
+.layer-link,
+.system-link {
+  display: inline-block;
+  margin-top: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary-blue);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.layer-link:hover,
+.system-link:hover {
+  text-decoration: underline;
+}
+
+/* ── 37j. Result stat values (Format A hard stats) ────────────
+   Large numeric stats for S13 Results & Impact.              */
+
+.result-stat-value {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 800;
+  color: var(--primary-blue);
+  line-height: 1;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.result-stat-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text-gray);
+  line-height: 1.5;
+}
+
+/* ── 37k. Responsive overrides ────────────────────────────────  */
+
+@media (max-width: 768px) {
+  .portfolio-snapshot,
+  .portfolio-challenge,
+  .portfolio-insight-section,
+  .related-projects {
+    padding: 56px 0;
+  }
+
+  .zone-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .challenge-copy {
+    max-width: 100%;
+  }
+}
+
+/* ── END Section 37 ──────────────────────────────────────────── */
+
+/* ============================================================
+   sv-shared.css — Section 38: Insights Article Typography
+   Added: May 2026
+   Scope: All /insights/ article pages
+   Defines .prose and .article-body so insights pages need
+   NO inline <style> block for article typography.
+   ============================================================ */
+
+/* ── 38a. Article body wrapper ───────────────────────────────
+   Wraps the layout-with-sidebar block on insights pages.     */
+
+.article-body {
+  padding: 80px 0;
+  background: #fff;
+}
+
+/* ── 38b. Prose typography ────────────────────────────────────
+   Applied to <main class="prose"> — the article content area. */
+
+.prose h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 60px 0 24px;
+  scroll-margin-top: 100px;
+  line-height: 1.25;
+}
+
+.prose h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-mid, #334155);
+  margin: 32px 0 16px;
+}
+
+.prose p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-gray);
+  margin-bottom: 24px;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose ul,
+.prose ol {
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 24px;
+  padding-left: 22px;
+  color: var(--text-gray);
+}
+
+.prose li {
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+  color: var(--text-gray);
+}
+
+.prose strong {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.prose hr {
+  margin: 56px 0;
+  border: 0;
+  border-top: 1px solid var(--border-light);
+}
+
+/* ── 38c. Responsive overrides ────────────────────────────────  */
+
+@media (max-width: 992px) {
+  .article-body {
+    padding: 40px 0;
+  }
+}
+
+/* ── END Section 38 ──────────────────────────────────────────── */
+
+/* ============================================================
+   sv-shared.css — Section 38b: Insights Article Header
+   Added: May 2026
+   ============================================================ */
+
+.insights-header {
+  background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
+  padding: calc(68px + 48px) 0 56px;
+  color: #fff;
+}
+
+.insights-header-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(26px, 4vw, 44px);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.insights-header-intro {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 760px;
+  margin-bottom: 32px;
+}
+
+/* ── END Section 38b ─────────────────────────────────────────── */
+
+/* ============================================================
+   sv-shared.css — Section 38c: Insights Related Articles Grid
+   Added: May 2026
+   Scope: /insights/ pages ONLY — do NOT use on portfolio or
+   other page types. This class caps at 3 columns maximum.
+
+   Reason: insights pages use layout-with-sidebar (sidebar takes
+   280px + 64px gap). Even though the related section is outside
+   the sidebar layout and runs full container width, a hard cap
+   of 3 columns is enforced so the section never grows beyond
+   the intended 3-article related articles block. Using
+   repeat(auto-fit) without a max would allow 4+ cards if extra
+   nav-card elements are accidentally added.
+
+   Use .insights-related-grid instead of .related-grid on all
+   insights article pages.
+   ============================================================ */
+
+.insights-related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+@media (max-width: 992px) {
+  .insights-related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .insights-related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── END Section 38c ─────────────────────────────────────────── */

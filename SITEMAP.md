@@ -1,129 +1,171 @@
-# SECUREVISION WEBSITE SITEMAP
+# Securevision Site Structure
 
-**Last Updated:** April 8, 2026 (17:45)
-**Total Pages Built:** 90+ HTML pages
-**Navigation Items:** 7 main menu items (Solutions, Systems, Brands, Portfolio, Resources, Insights, About)
-
----
-
-## 🏗️ SYSTEM ARCHITECTURE (Physical Structure)
-
-All paths below are root-relative (e.g. `/solutions/index.html`).
-
-### 1. CORE PAGES (Root)
-| File Name | Purpose |
-| :--- | :--- |
-| `/index.html` | Homepage |
-| `/about.html` | About Securevision & Founder Profile |
-| `/contact.html` | Contact Page |
-| `/contact-gateway.html` | Internal Contact Routing |
-| `/request-site-assessment-singapore.html` | Lead Generation / Site Assessment Form |
-| `/security-brands-singapore.html` | Technology Partner Portfolio (Hub) |
-| `/resources.html` | Resource Gateway |
-| `/sitemap.html` | User-facing HTML Sitemap |
-| `/sitemap.xml` | Search Engine XML Sitemap |
-| `/privacy.html` | Privacy Policy |
-| `/terms.html` | Terms of Service |
-
-### 2. PROPERTY SOLUTIONS (`/solutions/`)
-| File Path | Sector |
-| :--- | :--- |
-| `/solutions/index.html` | Solutions Hub (Grid Overview) |
-| `/solutions/residential.html` | Private Homes Main |
-| `/solutions/residential/new-build.html` | New Property Builds |
-| `/solutions/residential/home-upgrade.html` | Existing Home Refits |
-| `/solutions/residential/architects.html` | For Architects & SME Partners |
-| `/solutions/condominiums.html` | Condominiums Main |
-| `/solutions/condominiums/mcst.html` | For MCST & Managing Agents |
-| `/solutions/condominiums/security-contractors.html` | For Security Contractors |
-| `/solutions/commercial.html` | Commercial & Retail Main |
-| `/solutions/commercial/office.html` | Office & HQ Security |
-| `/solutions/commercial/retail.html` | Retail & Shop Lots |
-| `/solutions/commercial/hotel.html` | Hotels & Hospitality |
-| `/solutions/industrial.html` | Industrial & Logistics |
-| `/solutions/institutions.html` | Institutions & Government |
-| `/solutions/healthcare.html` | Healthcare & Managed Living |
-
-### 3. INTEGRATED SYSTEMS (`/systems/`)
-| File Path | Subsystem |
-| :--- | :--- |
-| `/systems/index.html` | Systems Hub (SECURE™ Framework) |
-| `/systems/surveillance.html` | Surveillance & Detection |
-| `/systems/access-control.html` | People Access Control |
-| `/systems/vehicle-access.html` | Vehicle Access & Barriers |
-| `/systems/platform.html` | Platform Management |
-
-### 4. TECHNOLOGY BRANDS (`/brands/`)
-| File Path | Brand |
-| :--- | :--- |
-| `/brands/index.html` | Brands Index Page |
-| `/brands/hikvision.html` | Hikvision |
-| `/brands/hanwha.html` | Hanwha (Samsung) |
-| `/brands/uniview.html` | Uniview |
-| `/brands/milesight.html` | Milesight |
-| `/brands/suprema.html` | Suprema |
-| `/brands/zkteco.html` | ZKTeco |
-| `/brands/hid.html` | HID Global |
-| `/brands/entrypass.html` | EntryPass |
-| `/brands/akuvox.html` | Akuvox |
-| `/brands/aiphone.html` | Aiphone |
-| `/brands/kocom.html` | Kocom |
-| `/brands/ajax.html` | AJAX Alarm |
-| `/brands/risco.html` | Risco Group |
-| `/brands/paradox.html` | Paradox |
-| `/brands/dsc.html` | DSC Security |
-| `/brands/ge-caddx.html` | GE Caddx |
-| `/brands/faac.html` | FAAC Barriers |
-| `/brands/mag.html` | MAG Gates |
-| `/brands/dormer.html` | Dormer |
-| `/brands/microengine.html` | MicroEngine |
-| `/brands/yeastar.html` | Yeastar (IP Voice) |
-| `/brands/fanvil.html` | Fanvil |
-
-### 5. TECHNICAL GUIDES (`/resources/guides/`)
-| File Path | Guide Topic |
-| :--- | :--- |
-| `/resources/guides/index.html` | Guides Index |
-| `/resources/guides/cctv-guide.html` | CCTV Camera Systems |
-| `/resources/guides/burglar-alarm-guide.html` | Burglar Alarm Systems |
-| `/resources/guides/door-access-guide.html` | Door Access Control |
-| `/resources/guides/intercom-guide.html` | AV Intercom Systems |
-| `/resources/guides/office-telephone-guide.html` | Office IP Telephone Systems |
-| `/resources/guides/auto-gate-guide.html` | Auto Gates & Barriers |
-
-### 6. PROJECT PORTFOLIO (`/portfolio/`)
-| File Path | Case Study |
-| :--- | :--- |
-| `/portfolio/index.html` | Portfolio Landing (Grid) |
-| `/portfolio/lviv.html" | The L’viv Residences |
-| `/portfolio/scape.html` | *SCAPE Singapore |
-| `/portfolio/light-at-cairnhill.html` | Light@Cairnhill |
-| `/commercial-security-sta-building-singapore.html` | STA Building (Legacy Flat Path) |
-| `/industrial-security-cyrus-tech-park-singapore.html` | Cyrus Tech Park (Legacy Flat Path) |
-
-### 7. INSIGHTS & ARTICLES (`/insights/`)
-| File Path | Hub / Article |
-| :--- | :--- |
-| `/insights/index.html` | Insights Hub |
-| `/insights/security-articles-singapore.html` | Legacy Hub |
-| (Multiple Articles) | See insights-*.html files for full list |
-
----
-
-## 🛠️ DESIGN STANDARDS (v2.0 Migration)
-
-1.  **Navigation & Footer:** Strict verbatim implementation of `_templates/` frozen components.
-2.  **Pathing:** Absolute root-relative paths starting with `/` (e.g. `/images/`, `/solutions/`).
-3.  **Dynamic Data:** Spans like `.sv-licence`, `.sv-founded`, `.sv-years-business` are injected via `site-config.js`.
-4.  **Fonts:** Montserrat for H1-H4, Inter for Body text.
-5.  **Colors:** Primary: `#004de6` (Secure Blue), Accent: `#25d366` (WhatsApp Green).
-
----
-
-## 🔍 SEO & DISCOVERABILITY
-
-- **Sitemap.html:** User-facing guide for hierarchical discovery.
-- **Sitemap.xml:** Search engine indexing guide.
-- **Title Structure:** `[Page Subject] | Securevision [Sub-heading] Singapore`.
-- **Meta Descriptions:** Descriptive summaries for all primary landing pages.
-- **Canonical URLs:** All internal links point to the absolute production path.
+- [/](https://www.securevision.com.sg/)
+- [/about/](https://www.securevision.com.sg/about/)
+- [/about/architect-partners.html](https://www.securevision.com.sg/about/architect-partners.html)
+- [/booking-success.html](https://www.securevision.com.sg/booking-success.html)
+- [/brands/](https://www.securevision.com.sg/brands/)
+- [/brands/aiphone-intercom.html](https://www.securevision.com.sg/brands/aiphone-intercom.html)
+- [/brands/ajax-alarms.html](https://www.securevision.com.sg/brands/ajax-alarms.html)
+- [/brands/akuvox-intercom.html](https://www.securevision.com.sg/brands/akuvox-intercom.html)
+- [/brands/dormer-autogate.html](https://www.securevision.com.sg/brands/dormer-autogate.html)
+- [/brands/dsc-alarms.html](https://www.securevision.com.sg/brands/dsc-alarms.html)
+- [/brands/ebelco.html](https://www.securevision.com.sg/brands/ebelco.html)
+- [/brands/entrypass-entry-access.html](https://www.securevision.com.sg/brands/entrypass-entry-access.html)
+- [/brands/faac-autogate.html](https://www.securevision.com.sg/brands/faac-autogate.html)
+- [/brands/fanvil-ip-phone.html](https://www.securevision.com.sg/brands/fanvil-ip-phone.html)
+- [/brands/gantrygo.html](https://www.securevision.com.sg/brands/gantrygo.html)
+- [/brands/ge-caddx-alarms.html](https://www.securevision.com.sg/brands/ge-caddx-alarms.html)
+- [/brands/hanwha-cctv.html](https://www.securevision.com.sg/brands/hanwha-cctv.html)
+- [/brands/hid-entry-access.html](https://www.securevision.com.sg/brands/hid-entry-access.html)
+- [/brands/hikvision-cctv.html](https://www.securevision.com.sg/brands/hikvision-cctv.html)
+- [/brands/kocom-intercom.html](https://www.securevision.com.sg/brands/kocom-intercom.html)
+- [/brands/mag-autogate.html](https://www.securevision.com.sg/brands/mag-autogate.html)
+- [/brands/microengine-entry-access.html](https://www.securevision.com.sg/brands/microengine-entry-access.html)
+- [/brands/milesight-cctv.html](https://www.securevision.com.sg/brands/milesight-cctv.html)
+- [/brands/milestone.html](https://www.securevision.com.sg/brands/milestone.html)
+- [/brands/omada.html](https://www.securevision.com.sg/brands/omada.html)
+- [/brands/paradox-alarms.html](https://www.securevision.com.sg/brands/paradox-alarms.html)
+- [/brands/risco-alarms.html](https://www.securevision.com.sg/brands/risco-alarms.html)
+- [/brands/ruijie.html](https://www.securevision.com.sg/brands/ruijie.html)
+- [/brands/suprema-entry-access.html](https://www.securevision.com.sg/brands/suprema-entry-access.html)
+- [/brands/uniview-cctv.html](https://www.securevision.com.sg/brands/uniview-cctv.html)
+- [/brands/viro.html](https://www.securevision.com.sg/brands/viro.html)
+- [/brands/yealink.html](https://www.securevision.com.sg/brands/yealink.html)
+- [/brands/yeastar-ip-phone.html](https://www.securevision.com.sg/brands/yeastar-ip-phone.html)
+- [/brands/zkteco-entry-access.html](https://www.securevision.com.sg/brands/zkteco-entry-access.html)
+- [/commercial-security-sta-building-singapore.html](https://www.securevision.com.sg/commercial-security-sta-building-singapore.html)
+- [/contact-gateway.html](https://www.securevision.com.sg/contact-gateway.html)
+- [/contact-success.html](https://www.securevision.com.sg/contact-success.html)
+- [/contact.html](https://www.securevision.com.sg/contact.html)
+- [/industrial-security-cyrus-tech-park-singapore.html](https://www.securevision.com.sg/industrial-security-cyrus-tech-park-singapore.html)
+- [/insights/](https://www.securevision.com.sg/insights/)
+- [/insights/10-tips-securing-your-premises.html](https://www.securevision.com.sg/insights/10-tips-securing-your-premises.html)
+- [/insights/after-security-installation-support.html](https://www.securevision.com.sg/insights/after-security-installation-support.html)
+- [/insights/ai-analytics-hikvision.html](https://www.securevision.com.sg/insights/ai-analytics-hikvision.html)
+- [/insights/analogue-to-ip-migration.html](https://www.securevision.com.sg/insights/analogue-to-ip-migration.html)
+- [/insights/architect-id-guide-security.html](https://www.securevision.com.sg/insights/architect-id-guide-security.html)
+- [/insights/burglar-alarm-design.html](https://www.securevision.com.sg/insights/burglar-alarm-design.html)
+- [/insights/burglar-alarm-detectors-sensors.html](https://www.securevision.com.sg/insights/burglar-alarm-detectors-sensors.html)
+- [/insights/choose-intercom-for-home.html](https://www.securevision.com.sg/insights/choose-intercom-for-home.html)
+- [/insights/compare-security-integrators.html](https://www.securevision.com.sg/insights/compare-security-integrators.html)
+- [/insights/condo-security-upgrade-proposal.html](https://www.securevision.com.sg/insights/condo-security-upgrade-proposal.html)
+- [/insights/condo-security-upgrade-quotes.html](https://www.securevision.com.sg/insights/condo-security-upgrade-quotes.html)
+- [/insights/condo-security-upgrade-timeline.html](https://www.securevision.com.sg/insights/condo-security-upgrade-timeline.html)
+- [/insights/hdb-landed-condo-security-differences.html](https://www.securevision.com.sg/insights/hdb-landed-condo-security-differences.html)
+- [/insights/home-security-system-cost-singapore.html](https://www.securevision.com.sg/insights/home-security-system-cost-singapore.html)
+- [/insights/how-burglar-alarm-works.html](https://www.securevision.com.sg/insights/how-burglar-alarm-works.html)
+- [/insights/how-card-access-works.html](https://www.securevision.com.sg/insights/how-card-access-works.html)
+- [/insights/how-intercom-systems-work.html](https://www.securevision.com.sg/insights/how-intercom-systems-work.html)
+- [/insights/how-ip-cctv-works.html](https://www.securevision.com.sg/insights/how-ip-cctv-works.html)
+- [/insights/how-technology-makes-your-guarding-team-more-competitive.html](https://www.securevision.com.sg/insights/how-technology-makes-your-guarding-team-more-competitive.html)
+- [/insights/how-to-choose-auto-gate-motor.html](https://www.securevision.com.sg/insights/how-to-choose-auto-gate-motor.html)
+- [/insights/how-to-choose-cctv.html](https://www.securevision.com.sg/insights/how-to-choose-cctv.html)
+- [/insights/how-to-choose-multi-door-access.html](https://www.securevision.com.sg/insights/how-to-choose-multi-door-access.html)
+- [/insights/is-my-security-system-still-working.html](https://www.securevision.com.sg/insights/is-my-security-system-still-working.html)
+- [/insights/maintain-burglar-alarm.html](https://www.securevision.com.sg/insights/maintain-burglar-alarm.html)
+- [/insights/maintenance-contract.html](https://www.securevision.com.sg/insights/maintenance-contract.html)
+- [/insights/managing-agents-guide-estate-security-systems.html](https://www.securevision.com.sg/insights/managing-agents-guide-estate-security-systems.html)
+- [/insights/managing-multiple-estates-with-vesta.html](https://www.securevision.com.sg/insights/managing-multiple-estates-with-vesta.html)
+- [/insights/mcst-legal-obligations-security.html](https://www.securevision.com.sg/insights/mcst-legal-obligations-security.html)
+- [/insights/rackmount-nvr.html](https://www.securevision.com.sg/insights/rackmount-nvr.html)
+- [/insights/reduce-false-alarms.html](https://www.securevision.com.sg/insights/reduce-false-alarms.html)
+- [/insights/security-system-refresh.html](https://www.securevision.com.sg/insights/security-system-refresh.html)
+- [/insights/security-upgrade-condo-agm.html](https://www.securevision.com.sg/insights/security-upgrade-condo-agm.html)
+- [/insights/standalone-door-access.html](https://www.securevision.com.sg/insights/standalone-door-access.html)
+- [/insights/upgrade-condo-intercom.html](https://www.securevision.com.sg/insights/upgrade-condo-intercom.html)
+- [/insights/upgrade-existing-security-system.html](https://www.securevision.com.sg/insights/upgrade-existing-security-system.html)
+- [/insights/upgrade-or-repair.html](https://www.securevision.com.sg/insights/upgrade-or-repair.html)
+- [/insights/using-your-burglar-alarm.html](https://www.securevision.com.sg/insights/using-your-burglar-alarm.html)
+- [/insights/why-mechanical-locks-not-enough.html](https://www.securevision.com.sg/insights/why-mechanical-locks-not-enough.html)
+- [/insights/wifi-remote-control-auto-gate.html](https://www.securevision.com.sg/insights/wifi-remote-control-auto-gate.html)
+- [/managing-agent.html](https://www.securevision.com.sg/managing-agent.html)
+- [/mcst-committee-member.html](https://www.securevision.com.sg/mcst-committee-member.html)
+- [/new-build-security-singapore.html](https://www.securevision.com.sg/new-build-security-singapore.html)
+- [/people-access-control.html](https://www.securevision.com.sg/people-access-control.html)
+- [/portfolio/](https://www.securevision.com.sg/portfolio/)
+- [/portfolio/commercial/altitudex-sentosa-commercial.html](https://www.securevision.com.sg/portfolio/commercial/altitudex-sentosa-commercial.html)
+- [/portfolio/commercial/hilton-singapore-orchard-fire-door.html](https://www.securevision.com.sg/portfolio/commercial/hilton-singapore-orchard-fire-door.html)
+- [/portfolio/commercial/scape-commercial.html](https://www.securevision.com.sg/portfolio/commercial/scape-commercial.html)
+- [/portfolio/condominiums/country-grandeur-upper-thomson-condo.html](https://www.securevision.com.sg/portfolio/condominiums/country-grandeur-upper-thomson-condo.html)
+- [/portfolio/condominiums/d-elias-pasir-ris-condo.html](https://www.securevision.com.sg/portfolio/condominiums/d-elias-pasir-ris-condo.html)
+- [/portfolio/condominiums/idyllic-suites-geylang-condo.html](https://www.securevision.com.sg/portfolio/condominiums/idyllic-suites-geylang-condo.html)
+- [/portfolio/condominiums/light-cairnhill-condo.html](https://www.securevision.com.sg/portfolio/condominiums/light-cairnhill-condo.html)
+- [/portfolio/condominiums/mergui-mansions-novena-condo.html](https://www.securevision.com.sg/portfolio/condominiums/mergui-mansions-novena-condo.html)
+- [/portfolio/condominiums/newton21-newton-condo.html](https://www.securevision.com.sg/portfolio/condominiums/newton21-newton-condo.html)
+- [/portfolio/condominiums/the-lviv-newton-condo.html](https://www.securevision.com.sg/portfolio/condominiums/the-lviv-newton-condo.html)
+- [/portfolio/condominiums/the-verte-telok-kurau-condo.html](https://www.securevision.com.sg/portfolio/condominiums/the-verte-telok-kurau-condo.html)
+- [/portfolio/condominiums/village-pasir-panjang-condo.html](https://www.securevision.com.sg/portfolio/condominiums/village-pasir-panjang-condo.html)
+- [/portfolio/industrial/hoy-san-industrial.html](https://www.securevision.com.sg/portfolio/industrial/hoy-san-industrial.html)
+- [/portfolio/industrial/sta-compliance-imaging.html](https://www.securevision.com.sg/portfolio/industrial/sta-compliance-imaging.html)
+- [/portfolio/industrial/sta-inspection-industrial.html](https://www.securevision.com.sg/portfolio/industrial/sta-inspection-industrial.html)
+- [/portfolio/industrial/sta-inspection-portfolio.html](https://www.securevision.com.sg/portfolio/industrial/sta-inspection-portfolio.html)
+- [/portfolio/institutions/cpf-maxwell-institution.html](https://www.securevision.com.sg/portfolio/institutions/cpf-maxwell-institution.html)
+- [/portfolio/residential/dunbar-walk-landed-home.html](https://www.securevision.com.sg/portfolio/residential/dunbar-walk-landed-home.html)
+- [/portfolio/residential/dyson-8-residences-landed-home.html](https://www.securevision.com.sg/portfolio/residential/dyson-8-residences-landed-home.html)
+- [/portfolio/residential/lengkok-mariam-landed-home.html](https://www.securevision.com.sg/portfolio/residential/lengkok-mariam-landed-home.html)
+- [/portfolio/residential/merryn-road-landed-home.html](https://www.securevision.com.sg/portfolio/residential/merryn-road-landed-home.html)
+- [/portfolio/residential/shelford-landed-home.html](https://www.securevision.com.sg/portfolio/residential/shelford-landed-home.html)
+- [/portfolio/residential/siglap-bank-landed-home.html](https://www.securevision.com.sg/portfolio/residential/siglap-bank-landed-home.html)
+- [/privacy.html](https://www.securevision.com.sg/privacy.html)
+- [/request-site-assessment-singapore.html](https://www.securevision.com.sg/request-site-assessment-singapore.html)
+- [/resources.html](https://www.securevision.com.sg/resources.html)
+- [/resources/](https://www.securevision.com.sg/resources/)
+- [/resources/checklists/](https://www.securevision.com.sg/resources/checklists/)
+- [/resources/checklists/care-facility-checklist.html](https://www.securevision.com.sg/resources/checklists/care-facility-checklist.html)
+- [/resources/checklists/commercial-security-checklist.html](https://www.securevision.com.sg/resources/checklists/commercial-security-checklist.html)
+- [/resources/checklists/dormitory-checklist.html](https://www.securevision.com.sg/resources/checklists/dormitory-checklist.html)
+- [/resources/checklists/institutional-security-checklist.html](https://www.securevision.com.sg/resources/checklists/institutional-security-checklist.html)
+- [/resources/checklists/intercom-checklist.html](https://www.securevision.com.sg/resources/checklists/intercom-checklist.html)
+- [/resources/checklists/mcst-checklist.html](https://www.securevision.com.sg/resources/checklists/mcst-checklist.html)
+- [/resources/guides/](https://www.securevision.com.sg/resources/guides/)
+- [/resources/guides/auto-gate-guide.html](https://www.securevision.com.sg/resources/guides/auto-gate-guide.html)
+- [/resources/guides/burglar-alarm-guide.html](https://www.securevision.com.sg/resources/guides/burglar-alarm-guide.html)
+- [/resources/guides/cctv-guide.html](https://www.securevision.com.sg/resources/guides/cctv-guide.html)
+- [/resources/guides/door-access-guide.html](https://www.securevision.com.sg/resources/guides/door-access-guide.html)
+- [/resources/guides/intercom-guide.html](https://www.securevision.com.sg/resources/guides/intercom-guide.html)
+- [/resources/guides/office-telephone-guide.html](https://www.securevision.com.sg/resources/guides/office-telephone-guide.html)
+- [/sitemap.html](https://www.securevision.com.sg/sitemap.html)
+- [/solutions/](https://www.securevision.com.sg/solutions/)
+- [/solutions/automate-vehicle-access.html](https://www.securevision.com.sg/solutions/automate-vehicle-access.html)
+- [/solutions/commercial.html](https://www.securevision.com.sg/solutions/commercial.html)
+- [/solutions/commercial/hotel.html](https://www.securevision.com.sg/solutions/commercial/hotel.html)
+- [/solutions/commercial/office.html](https://www.securevision.com.sg/solutions/commercial/office.html)
+- [/solutions/commercial/retail.html](https://www.securevision.com.sg/solutions/commercial/retail.html)
+- [/solutions/condominiums.html](https://www.securevision.com.sg/solutions/condominiums.html)
+- [/solutions/condominiums/managing-agents.html](https://www.securevision.com.sg/solutions/condominiums/managing-agents.html)
+- [/solutions/condominiums/mcst.html](https://www.securevision.com.sg/solutions/condominiums/mcst.html)
+- [/solutions/condominiums/security-contractors.html](https://www.securevision.com.sg/solutions/condominiums/security-contractors.html)
+- [/solutions/data-centres.html](https://www.securevision.com.sg/solutions/data-centres.html)
+- [/solutions/healthcare.html](https://www.securevision.com.sg/solutions/healthcare.html)
+- [/solutions/healthcare/aged-care.html](https://www.securevision.com.sg/solutions/healthcare/aged-care.html)
+- [/solutions/healthcare/day-care.html](https://www.securevision.com.sg/solutions/healthcare/day-care.html)
+- [/solutions/improve-cctv-visibility.html](https://www.securevision.com.sg/solutions/improve-cctv-visibility.html)
+- [/solutions/improve-visitor-management.html](https://www.securevision.com.sg/solutions/improve-visitor-management.html)
+- [/solutions/industrial.html](https://www.securevision.com.sg/solutions/industrial.html)
+- [/solutions/industrial/logistics.html](https://www.securevision.com.sg/solutions/industrial/logistics.html)
+- [/solutions/industrial/manufacturing.html](https://www.securevision.com.sg/solutions/industrial/manufacturing.html)
+- [/solutions/industrial/tech-park.html](https://www.securevision.com.sg/solutions/industrial/tech-park.html)
+- [/solutions/institutions.html](https://www.securevision.com.sg/solutions/institutions.html)
+- [/solutions/institutions/community.html](https://www.securevision.com.sg/solutions/institutions/community.html)
+- [/solutions/institutions/govt-office.html](https://www.securevision.com.sg/solutions/institutions/govt-office.html)
+- [/solutions/institutions/schools.html](https://www.securevision.com.sg/solutions/institutions/schools.html)
+- [/solutions/managed-living.html](https://www.securevision.com.sg/solutions/managed-living.html)
+- [/solutions/managed-living/co-living.html](https://www.securevision.com.sg/solutions/managed-living/co-living.html)
+- [/solutions/managed-living/dormitories.html](https://www.securevision.com.sg/solutions/managed-living/dormitories.html)
+- [/solutions/managed-living/hostels.html](https://www.securevision.com.sg/solutions/managed-living/hostels.html)
+- [/solutions/reduce-guard-manpower.html](https://www.securevision.com.sg/solutions/reduce-guard-manpower.html)
+- [/solutions/residential.html](https://www.securevision.com.sg/solutions/residential.html)
+- [/solutions/residential/architects.html](https://www.securevision.com.sg/solutions/residential/architects.html)
+- [/solutions/residential/home-upgrade.html](https://www.securevision.com.sg/solutions/residential/home-upgrade.html)
+- [/solutions/residential/new-build.html](https://www.securevision.com.sg/solutions/residential/new-build.html)
+- [/solutions/upgrade-intercom-system.html](https://www.securevision.com.sg/solutions/upgrade-intercom-system.html)
+- [/surveillance-detection.html](https://www.securevision.com.sg/surveillance-detection.html)
+- [/systems/](https://www.securevision.com.sg/systems/)
+- [/systems/entry-access-control.html](https://www.securevision.com.sg/systems/entry-access-control.html)
+- [/systems/ip-phone-communications.html](https://www.securevision.com.sg/systems/ip-phone-communications.html)
+- [/systems/premises-security.html](https://www.securevision.com.sg/systems/premises-security.html)
+- [/systems/security-management-platform.html](https://www.securevision.com.sg/systems/security-management-platform.html)
+- [/systems/vehicle-lpr-management.html](https://www.securevision.com.sg/systems/vehicle-lpr-management.html)
+- [/terms.html](https://www.securevision.com.sg/terms.html)
+- [/vehicle-access-control.html](https://www.securevision.com.sg/vehicle-access-control.html)

@@ -1,94 +1,108 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-GB">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How Your Burglar Alarm Actually Works | Securevision Insights</title>
-    <meta name="description" content="A controller, keypads, detectors, a siren, and a communication path to the outside world. Understanding what each component does is what separates an owner who manages their system confidently.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/sv-shared.css">
-    <script src="/site-config.js"></script>
-    
-    <style>
-        .article-body { padding: 80px 0; background: #fff; }
-        .prose h2 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 700; color: #1e293b; margin: 60px 0 24px; scroll-margin-top: 100px; }
-        .prose h3 { font-family: 'Montserrat', sans-serif; font-size: 1.4rem; font-weight: 600; color: #334155; margin: 32px 0 16px; }
-        .prose p { font-family: 'Inter', sans-serif; margin-bottom: 24px; line-height: 1.8; color: #475569; }
-        .prose ul, .prose ol { margin-bottom: 24px; padding-left: 20px; }
-        .prose li { font-family: 'Inter', sans-serif; margin-bottom: 12px; line-height: 1.6; color: #475569; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .callout-box { background: #eff6ff; border-left: 4px solid var(--primary-blue); padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
-        .callout-box strong { display: block; color: var(--primary-blue); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; letter-spacing: 1px; margin-bottom: 8px; text-transform: uppercase; }
-        .callout-box p { margin-bottom: 0; }
+  <!-- ═══ SEO — UPDATE ALL FIELDS PER ARTICLE ═══ -->
+  <title>How Your Burglar Alarm Actually Works | Securevision Insights</title>
+  <meta name="description" content="A controller, keypads, detectors, a siren, and a communication path to the outside world. Understanding what each component does is what separates an owner who manages their system confidently.">
+  <link rel="canonical" href="https://www.securevision.com.sg/insights/how-burglar-alarm-works.html">
+  <meta property="og:title" content="How Your Burglar Alarm Actually Works | Securevision Insights">
+  <meta property="og:description" content="A controller, keypads, detectors, a siren, and a communication path to the outside world. Understanding what each component does is what separates an owner who manages their system confidently.">
+  <meta property="og:image" content="https://www.securevision.com.sg/images/insight-how-burglar-alarm-works-cover.jpg">
+  <meta property="og:url" content="https://www.securevision.com.sg/insights/how-burglar-alarm-works.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Securevision">
+  <meta property="article:author" content="Ler Wee Meng">
+  <meta property="article:published_time" content="2026-04-01">
+  <!-- ════════════════════════════════════════════ -->
 
-        .verdict-box { background: #fff7ed; border-left: 4px solid #ea580c; padding: 30px; border-radius: 0 12px 12px 0; margin: 40px 0; }
-        .verdict-box p { margin-bottom: 0; color: #9a3412; font-weight: 500; }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        .compare-table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 0.95rem; }
-        .compare-table th { background: #f1f5f9; text-align: left; padding: 16px; font-weight: 700; color: #334155; border-bottom: 2px solid #e2e8f0; }
-        .compare-table td { padding: 16px; border-bottom: 1px solid #f1f5f9; color: #475569; }
+  <!-- Both CSS files required on all insights pages -->
+  <link rel="stylesheet" href="/sv-shared.css">
+  <script src="/site-config.js"></script>
+  <link rel="stylesheet" href="/sv-guides.css">
 
-        @media (max-width: 992px) { 
-            .article-body { padding: 40px 0; }
-            .prose h2 { font-size: 1.8rem; }
-            .prev-next-nav { grid-template-columns: 1fr; }
-        }
-    </style>
+  <!-- NO <style> BLOCK. All classes are in sv-shared.css and sv-guides.css. -->
+
 </head>
 <body>
 
+<!-- NAV — injected by nav-footer.js -->
 <nav id="sv-nav"></nav>
 
-<!-- HERO SECTION -->
-<header class="hero-portfolio" style="padding: 140px 0 80px; background: linear-gradient(rgba(14,26,43,0.85), rgba(14,26,43,0.85)), url('/images/how-alarm-works-cover.jpg'); background-size: cover; background-position: center; color: #fff;">
-    <div class="container">
-        <div style="max-width: 850px;">
-            <span class="eyebrow" style="color: #63b3ed; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 20px;">Technology & AI</span>
-            <h1 style="font-family: 'Montserrat', sans-serif; font-size: clamp(2.2rem, 5vw, 3.5rem); margin-bottom: 25px; line-height: 1.2;">How Your Burglar Alarm Actually Works</h1>
-            <p class="intro" style="font-family: 'Inter', sans-serif; font-size: 1.15rem; opacity: 0.95; line-height: 1.8; color: #e2e8f0;">A controller, keypads, detectors, a siren, and a communication path to the outside world. Understanding what each component does is what separates an owner who manages their system confidently from one who ignores it until something goes wrong.</p>
-            
-            <div class="hero-byline">
-                <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
-                <div class="hero-byline-text">
-                    <strong>Ler Wee Meng</strong>
-                    <span>Founder & CEO Â· 37+ Years Experience</span>
-                </div>
-            </div>
-        </div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     ARTICLE HEADER
+     Dark gradient — no background image (image is for cover only).
+     Per INSTRUCTION-insights.md Section 5.
+
+     BADGE CATEGORY — use exactly one of:
+       Security Planning | Technology | Case Studies | Singapore Industry
+
+     BYLINE — exactly two lines:
+       Line 1: Ler Wee Meng
+       Line 2: Founder & CEO · Securevision · 37+ Years Experience · 37+ Years Experience
+     ═══════════════════════════════════════════════════════════ -->
+<header class="insights-header">
+  <div class="container" style="max-width:900px;">
+
+    <span class="badge badge-primary" style="margin-bottom:20px; display:inline-block;">Technology & AI</span>
+
+    <h1 class="insights-header-title">How Your Burglar Alarm Actually Works</h1>
+
+    <p class="insights-header-intro">A controller, keypads, detectors, a siren, and a communication path to the outside world. Understanding what each component does is what separates an owner who manages their system confidently from one who ignores it until something goes wrong.</p>
+
+    <div class="hero-byline">
+      <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="hero-byline-img">
+      <div class="hero-byline-text">
+        <strong>Ler Wee Meng</strong>
+        <span>Founder &amp; CEO · Securevision · 37+ Years Experience · 37+ Years Experience</span>
+      </div>
     </div>
+
+  </div>
 </header>
+<!-- ═══ END ARTICLE HEADER ═══ -->
 
-<!-- BREADCRUMBS -->
-<div class="container">
-    <div class="sv-breadcrumb" style="background: transparent; padding: 24px 0 0 0;">
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/insights/">Insights</a></li>
-            <li>Technology & AI</li>
-            <li>How Your Burglar Alarm Actually Works</li>
-        </ul>
-    </div>
-</div>
 
+<!-- ═══ BREADCRUMB ═══ -->
+<!-- 4 crumbs: Home → Insights → [Category] → How Your Burglar Alarm Actually Works -->
+<nav class="sv-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/insights/">Insights</a></li>
+      <li><a href="/insights/?category=technology-&-ai">Technology & AI</a></li>
+      <li>How Your Burglar Alarm Actually Works</li>
+    </ul>
+  </div>
+</nav>
+<!-- ═══ END BREADCRUMB ═══ -->
+
+
+<!-- ═══ ARTICLE BODY + SIDEBAR ═══ -->
 <div class="article-body">
-    <div class="container">
-        <div class="layout-with-sidebar">
-            <!-- MAIN ARTICLE CONTENT -->
-            <main class="prose">
-                
-                <section id="section1">
+  <div class="container">
+    <div class="layout-with-sidebar">
+
+
+      <!-- ── MAIN ARTICLE CONTENT ── -->
+      <main class="prose">
+<section id="section1">
                     <h2>1. The five components of every alarm system</h2>
                     <p>Every burglar alarm system, from a basic single-zone home unit to a 50-zone commercial installation, is built from the same five components: a controller, keypads, detectors and sensors, a siren, and a communication module. Understanding what each does removes the mystery from a system that most people arm and disarm without ever thinking about.</p>
                 </section>
 
                 <section id="section2">
-                    <h2>2. The controller â€” the brain</h2>
-                    <p>The controller is the central processing unit of the alarm system. It is a small box, typically installed in a concealed location â€” inside a wardrobe, above a ceiling tile, in an electrical riser â€” that contains the main circuit board, the power supply, and the backup battery.</p>
-                    <p>The controller has a number of inputs, each called a zone. A zone is a connection point for a detector or group of detectors. Most basic controllers come with 8 zones as standard. Expansion modules can increase this â€” the RISCO LightSYS 2, for example, can be expanded to 50 zones, making it suitable for medium-sized commercial premises.</p>
-                    <p>The controller runs continuously on mains power, charging the backup battery. If mains power is cut â€” intentionally or during a power failure â€” the backup battery takes over and the system continues to operate normally. Most controllers provide at least 4 to 8 hours of backup operation, which is sufficient to outlast a typical power outage.</p>
+                    <h2>2. The controller — the brain</h2>
+                    <p>The controller is the central processing unit of the alarm system. It is a small box, typically installed in a concealed location — inside a wardrobe, above a ceiling tile, in an electrical riser — that contains the main circuit board, the power supply, and the backup battery.</p>
+                    <p>The controller has a number of inputs, each called a zone. A zone is a connection point for a detector or group of detectors. Most basic controllers come with 8 zones as standard. Expansion modules can increase this — the RISCO LightSYS 2, for example, can be expanded to 50 zones, making it suitable for medium-sized commercial premises.</p>
+                    <p>The controller runs continuously on mains power, charging the backup battery. If mains power is cut — intentionally or during a power failure — the backup battery takes over and the system continues to operate normally. Most controllers provide at least 4 to 8 hours of backup operation, which is sufficient to outlast a typical power outage.</p>
                     
                     <div style="margin: 40px 0;">
                         <img src="/images/alarm-controller-panel.jpg" alt="RISCO LightSYS 2 or similar alarm controller panel open, showing the circuit board, zone terminals, and battery. Clean installation in a wall-mounted enclosure." style="border-radius: 12px; width: 100%;">
@@ -96,76 +110,251 @@
                 </section>
 
                 <section id="section3">
-                    <h2>3. Keypads â€” the user interface</h2>
-                    <p>The keypad is how the user interacts with the system â€” arming, disarming, checking zone status, resetting after an alarm, and programming the system. It is typically mounted near the main entrance at a convenient height.</p>
-                    <p>Keypads range from simple numeric pads with LED indicators to LCD display panels that show zone names and system messages, to touchscreen units with graphical interfaces. The choice is largely aesthetic and budget-driven â€” the underlying functionality is the same.</p>
-                    <p>A well-designed installation has the keypad positioned so that a user entering the property can reach it within the entry delay period without rushing. The entry delay â€” typically 30 to 60 seconds â€” is the window of time between a perimeter zone triggering and the alarm sounding, during which a legitimate user can disarm. Too short and it creates stress. Too long and it gives an intruder the same window.</p>
+                    <h2>3. Keypads — the user interface</h2>
+                    <p>The keypad is how the user interacts with the system — arming, disarming, checking zone status, resetting after an alarm, and programming the system. It is typically mounted near the main entrance at a convenient height.</p>
+                    <p>Keypads range from simple numeric pads with LED indicators to LCD display panels that show zone names and system messages, to touchscreen units with graphical interfaces. The choice is largely aesthetic and budget-driven — the underlying functionality is the same.</p>
+                    <p>A well-designed installation has the keypad positioned so that a user entering the property can reach it within the entry delay period without rushing. The entry delay — typically 30 to 60 seconds — is the window of time between a perimeter zone triggering and the alarm sounding, during which a legitimate user can disarm. Too short and it creates stress. Too long and it gives an intruder the same window.</p>
                     
                     <div class="callout-box">
-                        <strong>KEY POINT</strong>
-                        <p>The keypad location and the entry/exit delay times are design decisions, not defaults. If your current setup feels rushed or inconvenient, ask your installer to adjust the delay times â€” it is a software setting that takes five minutes to change.</p>
+                        <p class="callout-label">KEY POINT</p>
+                        <p>The keypad location and the entry/exit delay times are design decisions, not defaults. If your current setup feels rushed or inconvenient, ask your installer to adjust the delay times — it is a software setting that takes five minutes to change.</p>
                     </div>
                 </section>
 
                 <section id="section4">
-                    <h2>4. Detectors and sensors â€” the eyes of the system</h2>
-                    <p>Detectors are the devices that sense intrusion and trigger the controller. Each detector connects to one zone on the controller. When a detector registers an event, it sends a signal to the controller, which decides â€” based on the zone type and the current arm state â€” whether to trigger the alarm.</p>
+                    <h2>4. Detectors and sensors — the eyes of the system</h2>
+                    <p>Detectors are the devices that sense intrusion and trigger the controller. Each detector connects to one zone on the controller. When a detector registers an event, it sends a signal to the controller, which decides — based on the zone type and the current arm state — whether to trigger the alarm.</p>
                     <p>The main types used in Singapore residential and commercial installations:</p>
                     <ul>
-                        <li><strong>Magnetic door and window contacts</strong> are the most common detector in any system. A magnet on the moving part of the door or window, a reed switch on the fixed frame. When they separate â€” the door opens â€” the zone triggers. Simple, reliable, no calibration needed.</li>
-                        <li><strong>PIR motion sensors</strong> detect infrared radiation from moving bodies â€” the heat signature of a person moving through the sensor's field of view. Standard PIR sensors cover a cone of approximately 90 degrees to a range of 12 to 15 metres. They are ideal for interior zones â€” living rooms, corridors, common areas.</li>
+                        <li><strong>Magnetic door and window contacts</strong> are the most common detector in any system. A magnet on the moving part of the door or window, a reed switch on the fixed frame. When they separate — the door opens — the zone triggers. Simple, reliable, no calibration needed.</li>
+                        <li><strong>PIR motion sensors</strong> detect infrared radiation from moving bodies — the heat signature of a person moving through the sensor's field of view. Standard PIR sensors cover a cone of approximately 90 degrees to a range of 12 to 15 metres. They are ideal for interior zones — living rooms, corridors, common areas.</li>
                         <li><strong>Dual-technology sensors</strong> combine PIR with microwave detection. Both must trigger simultaneously for the zone to activate. Significantly reduces false alarms in environments with temperature variation, large pets, or air-conditioning that can fool a standard PIR. Worth specifying in warehouses, commercial kitchens, and any space with significant thermal movement.</li>
-                        <li><strong>Glass break sensors</strong> are acoustic detectors tuned to the frequency of breaking glass. Used where large glazed areas â€” shopfronts, glass partitions â€” cannot practically be protected with door contacts.</li>
+                        <li><strong>Glass break sensors</strong> are acoustic detectors tuned to the frequency of breaking glass. Used where large glazed areas — shopfronts, glass partitions — cannot practically be protected with door contacts.</li>
                         <li><strong>Panic buttons</strong> are fixed or portable buttons that trigger the alarm immediately regardless of whether the system is armed. Used at reception desks, cashier counters, and bedrooms. Wired panic buttons connect directly to the controller. Wireless variants, such as the AJAX panic button, transmit via radio.</li>
                     </ul>
                 </section>
 
                 <section id="section5">
-                    <h2>5. The siren â€” deterrence and notification</h2>
-                    <p>The external siren box serves two purposes. The audible alarm â€” typically 100 to 110 dB â€” deters the intruder and draws attention from neighbours and passers-by. The strobe light indicates the source of the alarm visually, helping responders locate the correct property.</p>
+                    <h2>5. The siren — deterrence and notification</h2>
+                    <p>The external siren box serves two purposes. The audible alarm — typically 100 to 110 dB — deters the intruder and draws attention from neighbours and passers-by. The strobe light indicates the source of the alarm visually, helping responders locate the correct property.</p>
                     <p>Under Singapore's Code of Practice for burglar alarm systems, the siren cannot sound for more than 10 continuous minutes. This is a legal requirement, not a configuration choice. The system must automatically silence after 10 minutes. A siren that continues beyond this period is a nuisance and can result in complaints to the authorities.</p>
-                    <p>The siren box also serves a deterrence function before any alarm is triggered. A prominently mounted siren box on the exterior of a building signals to a potential intruder that the property is alarmed, which frequently causes them to move on without attempting entry. Mounting the siren box at a visible but tamper-resistant height â€” typically 3 to 4 metres â€” maximises this effect.</p>
+                    <p>The siren box also serves a deterrence function before any alarm is triggered. A prominently mounted siren box on the exterior of a building signals to a potential intruder that the property is alarmed, which frequently causes them to move on without attempting entry. Mounting the siren box at a visible but tamper-resistant height — typically 3 to 4 metres — maximises this effect.</p>
                 </section>
 
                 <section id="section6">
-                    <h2>6. Communication â€” how the alarm reaches the outside world</h2>
+                    <h2>6. Communication — how the alarm reaches the outside world</h2>
                     <p>The controller communicates with the outside world through one or more communication paths. This is what determines how quickly and reliably help is summoned when the alarm triggers.</p>
                     <ul>
-                        <li><strong>Bells only</strong> â€” no communication module. The siren sounds and that is all. No one is automatically notified. This is the weakest configuration and is not advisable for any property where response time matters.</li>
-                        <li><strong>Self-monitored</strong> â€” the controller dials out to a mobile number or sends an SMS or app notification when an alarm triggers. Better than bells only, but dependent on the user being available and able to respond. If the user is in the property during an intrusion, is overseas, or simply misses the notification, no response follows.</li>
-                        <li><strong>Central Alarm Monitoring (CAMS)</strong> â€” the controller connects to a professional monitoring company that has staff on duty 24 hours a day. When the alarm triggers, the monitoring centre receives the signal, verifies the alarm (typically by calling the property owner), and dispatches police if confirmed. This is the most reliable configuration because the response does not depend on the property owner being available. We work with Chubb Security for CAMS provision for our clients.</li>
+                        <li><strong>Bells only</strong> — no communication module. The siren sounds and that is all. No one is automatically notified. This is the weakest configuration and is not advisable for any property where response time matters.</li>
+                        <li><strong>Self-monitored</strong> — the controller dials out to a mobile number or sends an SMS or app notification when an alarm triggers. Better than bells only, but dependent on the user being available and able to respond. If the user is in the property during an intrusion, is overseas, or simply misses the notification, no response follows.</li>
+                        <li><strong>Central Alarm Monitoring (CAMS)</strong> — the controller connects to a professional monitoring company that has staff on duty 24 hours a day. When the alarm triggers, the monitoring centre receives the signal, verifies the alarm (typically by calling the property owner), and dispatches police if confirmed. This is the most reliable configuration because the response does not depend on the property owner being available. We work with Chubb Security for CAMS provision for our clients.</li>
                     </ul>
-                    <p>The communication path itself can use telephone line, IP network, or GSM/SMS modules. For resilience, a dual-path configuration â€” IP as primary, GSM as backup â€” ensures that cutting the telephone line or internet connection does not disable communication. For higher-risk properties, dual-path is worth specifying.</p>
+                    <p>The communication path itself can use telephone line, IP network, or GSM/SMS modules. For resilience, a dual-path configuration — IP as primary, GSM as backup — ensures that cutting the telephone line or internet connection does not disable communication. For higher-risk properties, dual-path is worth specifying.</p>
                     
                     <div class="verdict-box">
-                        <p>The communication module is where many alarm systems are under-specified. A system that only sounds a siren protects the property in the same way a car alarm protects a car â€” it makes noise that most people have learned to ignore. Central monitoring changes the equation entirely. For any commercial premises or higher-value residential property, CAMS is the correct specification.</p>
+                        <p>The communication module is where many alarm systems are under-specified. A system that only sounds a siren protects the property in the same way a car alarm protects a car — it makes noise that most people have learned to ignore. Central monitoring changes the equation entirely. For any commercial premises or higher-value residential property, CAMS is the correct specification.</p>
                     </div>
                 </section>
 
-                <hr style="margin: 60px 0; border: 0; border-top: 1px solid #e2e8f0;">
+                
 
-                <section id="author" class="author-bio-footer">
-                    <div class="abf-flex">
-                        <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
-                        <div class="abf-content">
-                            <h3>About the Author</h3>
-                            <p>Ler Wee Meng is the Founder and CEO of Securevision. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London. With over 37 years of experience in the security industry, he has personally overseen the design and implementation of security systems for more than 1,000 sites across Singapore, ranging from Good Class Bungalows (GCBs) and large-scale condominiums to industrial complexes and institutional facilities.</p>
-                            <p>He is the principal architect of the Securevision SECUREâ„¢ Framework and spearheaded the development of the VESTA integration platform. His direct field experience across thousands of residential units ensures that every system designed by Securevision is practical, maintainable, and built to withstand the unique technical challenges of Singapore's climate and regulatory landscape. His engineering-first approach continues to define the standards for intelligent security integration in Singapore.</p>
-                        </div>
-                    </div>
-                </section>
+                
 
-                <div class="article-tags" style="margin-top: 40px; padding-top: 30px; border-top: 1px solid #e2e8f0;">
-                    <span class="tag-pill">Technology & AI</span>
-                    <span class="tag-pill">Burglar Alarm</span>
-                    <span class="tag-pill">System Design</span>
-                    <span class="tag-pill">Homeowner</span>
-                    <span class="tag-pill">Singapore</span>
-                </div>
+                
 
                 <!-- PREV/NEXT NAV -->
-                <div class="prev-next-nav" style="margin-top: 80px; margin-bottom: 60px;">
-                    <a href="/insights/rackmount-nvr.html" class="nav-card">
+        <!-- ═══ ARTICLE FOOTER ELEMENTS — order is fixed ═══ -->
+
+        <!-- 1. Divider -->
+        <hr>
+
+        <!-- 2. Author bio — mandatory, 150–200 words -->
+        
+
+        <!-- 3. Tags — mandatory, 4–5 tags, use <a> not <span> -->
+        
+
+        <!-- 4. Prev/Next navigation — mandatory -->
+        
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     ARTICLE HEADER
+     Dark gradient — no background image (image is for cover only).
+     Per INSTRUCTION-insights.md Section 5.
+
+     BADGE CATEGORY — use exactly one of:
+       Security Planning | Technology | Case Studies | Singapore Industry
+
+     BYLINE — exactly two lines:
+       Line 1: Ler Wee Meng
+       Line 2: Founder & CEO · Securevision · 37+ Years Experience · 37+ Years Experience
+     ═══════════════════════════════════════════════════════════ -->
+<header class="insights-header">
+  <div class="container" style="max-width:900px;">
+
+    <span class="badge badge-primary" style="margin-bottom:20px; display:inline-block;">Technology & AI</span>
+
+    <h1 class="insights-header-title">[ARTICLE TITLE]</h1>
+
+    <p class="insights-header-intro">A controller, keypads, detectors, a siren, and a communication path to the outside world. Understanding what each component does is what separates an owner who manages their system confidently from one who ignores it until something goes wrong.</p>
+
+    <div class="hero-byline">
+      <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="hero-byline-img">
+      <div class="hero-byline-text">
+        <strong>Ler Wee Meng</strong>
+        <span>Founder &amp; CEO · Securevision · 37+ Years Experience · 37+ Years Experience</span>
+      </div>
+    </div>
+
+  </div>
+</header>
+<!-- ═══ END ARTICLE HEADER ═══ -->
+
+
+<!-- ═══ BREADCRUMB ═══ -->
+<!-- 4 crumbs: Home → Insights → [Category] → How Your Burglar Alarm Actually Works -->
+<nav class="sv-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/insights/">Insights</a></li>
+      <li><a href="/insights/?category=technology-&-ai">Technology & AI</a></li>
+      <li>How Your Burglar Alarm Actually Works</li>
+    </ul>
+  </div>
+</nav>
+<!-- ═══ END BREADCRUMB ═══ -->
+
+
+<!-- ═══ ARTICLE BODY + SIDEBAR ═══ -->
+<div class="article-body">
+  <div class="container">
+    <div class="layout-with-sidebar">
+
+
+      <!-- ── MAIN ARTICLE CONTENT ── -->
+      <main class="prose">
+<section id="section1">
+                    <h2>1. The five components of every alarm system</h2>
+                    <p>Every burglar alarm system, from a basic single-zone home unit to a 50-zone commercial installation, is built from the same five components: a controller, keypads, detectors and sensors, a siren, and a communication module. Understanding what each does removes the mystery from a system that most people arm and disarm without ever thinking about.</p>
+                </section>
+
+                <section id="section2">
+                    <h2>2. The controller — the brain</h2>
+                    <p>The controller is the central processing unit of the alarm system. It is a small box, typically installed in a concealed location — inside a wardrobe, above a ceiling tile, in an electrical riser — that contains the main circuit board, the power supply, and the backup battery.</p>
+                    <p>The controller has a number of inputs, each called a zone. A zone is a connection point for a detector or group of detectors. Most basic controllers come with 8 zones as standard. Expansion modules can increase this — the RISCO LightSYS 2, for example, can be expanded to 50 zones, making it suitable for medium-sized commercial premises.</p>
+                    <p>The controller runs continuously on mains power, charging the backup battery. If mains power is cut — intentionally or during a power failure — the backup battery takes over and the system continues to operate normally. Most controllers provide at least 4 to 8 hours of backup operation, which is sufficient to outlast a typical power outage.</p>
+                    
+                    <div style="margin: 40px 0;">
+                        <img src="/images/alarm-controller-panel.jpg" alt="RISCO LightSYS 2 or similar alarm controller panel open, showing the circuit board, zone terminals, and battery. Clean installation in a wall-mounted enclosure." style="border-radius: 12px; width: 100%;">
+                    </div>
+                </section>
+
+                <section id="section3">
+                    <h2>3. Keypads — the user interface</h2>
+                    <p>The keypad is how the user interacts with the system — arming, disarming, checking zone status, resetting after an alarm, and programming the system. It is typically mounted near the main entrance at a convenient height.</p>
+                    <p>Keypads range from simple numeric pads with LED indicators to LCD display panels that show zone names and system messages, to touchscreen units with graphical interfaces. The choice is largely aesthetic and budget-driven — the underlying functionality is the same.</p>
+                    <p>A well-designed installation has the keypad positioned so that a user entering the property can reach it within the entry delay period without rushing. The entry delay — typically 30 to 60 seconds — is the window of time between a perimeter zone triggering and the alarm sounding, during which a legitimate user can disarm. Too short and it creates stress. Too long and it gives an intruder the same window.</p>
+                    
+                    <div class="callout-box">
+                        <p class="callout-label">KEY POINT</p>
+                        <p>The keypad location and the entry/exit delay times are design decisions, not defaults. If your current setup feels rushed or inconvenient, ask your installer to adjust the delay times — it is a software setting that takes five minutes to change.</p>
+                    </div>
+                </section>
+
+                <section id="section4">
+                    <h2>4. Detectors and sensors — the eyes of the system</h2>
+                    <p>Detectors are the devices that sense intrusion and trigger the controller. Each detector connects to one zone on the controller. When a detector registers an event, it sends a signal to the controller, which decides — based on the zone type and the current arm state — whether to trigger the alarm.</p>
+                    <p>The main types used in Singapore residential and commercial installations:</p>
+                    <ul>
+                        <li><strong>Magnetic door and window contacts</strong> are the most common detector in any system. A magnet on the moving part of the door or window, a reed switch on the fixed frame. When they separate — the door opens — the zone triggers. Simple, reliable, no calibration needed.</li>
+                        <li><strong>PIR motion sensors</strong> detect infrared radiation from moving bodies — the heat signature of a person moving through the sensor's field of view. Standard PIR sensors cover a cone of approximately 90 degrees to a range of 12 to 15 metres. They are ideal for interior zones — living rooms, corridors, common areas.</li>
+                        <li><strong>Dual-technology sensors</strong> combine PIR with microwave detection. Both must trigger simultaneously for the zone to activate. Significantly reduces false alarms in environments with temperature variation, large pets, or air-conditioning that can fool a standard PIR. Worth specifying in warehouses, commercial kitchens, and any space with significant thermal movement.</li>
+                        <li><strong>Glass break sensors</strong> are acoustic detectors tuned to the frequency of breaking glass. Used where large glazed areas — shopfronts, glass partitions — cannot practically be protected with door contacts.</li>
+                        <li><strong>Panic buttons</strong> are fixed or portable buttons that trigger the alarm immediately regardless of whether the system is armed. Used at reception desks, cashier counters, and bedrooms. Wired panic buttons connect directly to the controller. Wireless variants, such as the AJAX panic button, transmit via radio.</li>
+                    </ul>
+                </section>
+
+                <section id="section5">
+                    <h2>5. The siren — deterrence and notification</h2>
+                    <p>The external siren box serves two purposes. The audible alarm — typically 100 to 110 dB — deters the intruder and draws attention from neighbours and passers-by. The strobe light indicates the source of the alarm visually, helping responders locate the correct property.</p>
+                    <p>Under Singapore's Code of Practice for burglar alarm systems, the siren cannot sound for more than 10 continuous minutes. This is a legal requirement, not a configuration choice. The system must automatically silence after 10 minutes. A siren that continues beyond this period is a nuisance and can result in complaints to the authorities.</p>
+                    <p>The siren box also serves a deterrence function before any alarm is triggered. A prominently mounted siren box on the exterior of a building signals to a potential intruder that the property is alarmed, which frequently causes them to move on without attempting entry. Mounting the siren box at a visible but tamper-resistant height — typically 3 to 4 metres — maximises this effect.</p>
+                </section>
+
+                <section id="section6">
+                    <h2>6. Communication — how the alarm reaches the outside world</h2>
+                    <p>The controller communicates with the outside world through one or more communication paths. This is what determines how quickly and reliably help is summoned when the alarm triggers.</p>
+                    <ul>
+                        <li><strong>Bells only</strong> — no communication module. The siren sounds and that is all. No one is automatically notified. This is the weakest configuration and is not advisable for any property where response time matters.</li>
+                        <li><strong>Self-monitored</strong> — the controller dials out to a mobile number or sends an SMS or app notification when an alarm triggers. Better than bells only, but dependent on the user being available and able to respond. If the user is in the property during an intrusion, is overseas, or simply misses the notification, no response follows.</li>
+                        <li><strong>Central Alarm Monitoring (CAMS)</strong> — the controller connects to a professional monitoring company that has staff on duty 24 hours a day. When the alarm triggers, the monitoring centre receives the signal, verifies the alarm (typically by calling the property owner), and dispatches police if confirmed. This is the most reliable configuration because the response does not depend on the property owner being available. We work with Chubb Security for CAMS provision for our clients.</li>
+                    </ul>
+                    <p>The communication path itself can use telephone line, IP network, or GSM/SMS modules. For resilience, a dual-path configuration — IP as primary, GSM as backup — ensures that cutting the telephone line or internet connection does not disable communication. For higher-risk properties, dual-path is worth specifying.</p>
+                    
+                    <div class="verdict-box">
+                        <p>The communication module is where many alarm systems are under-specified. A system that only sounds a siren protects the property in the same way a car alarm protects a car — it makes noise that most people have learned to ignore. Central monitoring changes the equation entirely. For any commercial premises or higher-value residential property, CAMS is the correct specification.</p>
+                    </div>
+                </section>
+
+                
+
+                
+
+                
+
+                <!-- PREV/NEXT NAV -->
+        <!-- ═══ ARTICLE FOOTER ELEMENTS — order is fixed ═══ -->
+
+        <!-- 1. Divider -->
+        <hr>
+
+        <!-- 2. Author bio — mandatory, 150–200 words -->
+        
+
+        <!-- 3. Tags — mandatory, 4–5 tags, use <a> not <span> -->
+        
+
+        <!-- 4. Prev/Next navigation — mandatory -->
+        <!-- ═══ ARTICLE FOOTER ELEMENTS — order is fixed ═══ -->
+
+        <!-- 1. Divider -->
+        <hr>
+
+        <!-- 2. Author bio — mandatory, 150–200 words -->
+        <section id="author" class="author-bio-footer">
+          <div class="abf-flex">
+            <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
+            <div class="abf-content">
+              <h3>About the Author</h3>
+              <p>Ler Wee Meng is the Founder and CEO of Securevision Pte Ltd, Singapore's integrated security systems specialist since 2006. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London, and brings over 37 years of hands-on experience spanning R&D, engineering, project management, and systems integration.</p>
+              <p>Securevision has protected over 2,000 sites across Singapore — from Good Class Bungalows and MCST-managed condominiums to government institutions and industrial facilities. Ler is the architect of the Securevision SECURE™ Framework and the VESTA™ unified security management platform.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. Tags — mandatory, 4–5 tags, use <a> not <span> -->
+        <div class="article-tags">
+          <a href="/insights/?category=technology-&-ai" class="tag-pill">[Category]</a>
+          
+          
+          <a href="/insights/?tag=technology-&-ai" class="tag-pill">Technology & AI</a>
+          <a href="/insights/?tag=burglar-alarm" class="tag-pill">Burglar Alarm</a>
+          <a href="/insights/?tag=system-design" class="tag-pill">System Design</a>
+          <a href="/insights/?tag=homeowner" class="tag-pill">Homeowner</a>
+          <a href="/insights/?tag=singapore" class="tag-pill">Singapore</a>
+          <a href="/insights/?tag=technology-&-ai" class="tag-pill">Technology & AI</a>
+          <a href="/insights/?tag=burglar-alarm" class="tag-pill">Burglar Alarm</a>
+          <a href="/insights/?tag=system-design" class="tag-pill">System Design</a>
+          <a href="/insights/?tag=homeowner" class="tag-pill">Homeowner</a>
+          <a href="/insights/?tag=singapore" class="tag-pill">Singapore</a>
+          <!-- Add 4th/5th tag if relevant -->
+        </div>
+
+        <!-- 4. Prev/Next navigation — mandatory -->
+        <nav class="prev-next-nav" aria-label="Article navigation">
+<a href="/insights/rackmount-nvr.html" class="nav-card">
                         <span>Previous Article</span>
                         <strong>5 Reasons to Rack-Mount Your NVRs</strong>
                     </a>
@@ -173,46 +362,68 @@
                         <span>Next Article</span>
                         <strong>Know Your Burglar Alarm Detectors and Sensors</strong>
                     </a>
-                </div>
-            </main>
+        </nav>
 
-            <!-- STICKY SIDEBAR -->
-            <aside class="sidebar">
-                <div class="sticky-toc">
-                    <div class="toc-title">In this article</div>
-                    <ul class="toc-list">
-                        <li><a href="#section1">1. The five components</a></li>
+      </main>
+      <!-- ── END MAIN ARTICLE CONTENT ── -->
+
+
+      <!-- ── SIDEBAR ── -->
+      <aside>
+        <div class="sticky-toc">
+
+          <!-- Table of contents — one entry per H2 section -->
+          <h3 class="toc-title">In this article</h3>
+          <ul class="toc-list" id="tocList">
+<li><a href="#section1">1. The five components</a></li>
                         <li><a href="#section2">2. The controller</a></li>
                         <li><a href="#section3">3. Keypads</a></li>
                         <li><a href="#section4">4. Detectors and sensors</a></li>
                         <li><a href="#section5">5. The siren</a></li>
                         <li><a href="#section6">6. Communication</a></li>
                         <li><a href="#author">Meet the Author</a></li>
-                    </ul>
+            <!-- One per H2 section — do NOT include author bio or tags -->
+            <li><a href="#author">Meet the Author</a></li>
+            <!-- One per H2 section — do NOT include author bio or tags -->
+            <li><a href="#author">Meet the Author</a></li>
+          </ul>
 
-                    <div class="founder-card" style="margin-top: 30px; border-top: 1px solid #e2e8f0; padding-top: 30px; background: transparent; border-radius: 0; box-shadow: none;">
-                        <div class="fc-head">
-                            <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
-                            <div>
-                                <strong>Ler Wee Meng</strong>
-                                <span>Founder & CEO Â· Securevision</span>
-                            </div>
-                        </div>
-                        <p style="font-size: 0.9rem; line-height: 1.5; margin-bottom: 20px;">Need expert advice? Discuss your site requirements with our engineering team.</p>
-                        <a href="https://wa.me/6593860466" class="fc-wa-link">ðŸ’¬ WhatsApp Support &rarr;</a>
-                    </div>
-                </div>
-            </aside>
+          <!-- Founder card — do NOT add inline styles, sv-shared handles styling -->
+          <div class="founder-card">
+            <div class="fc-head">
+              <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
+              <div>
+                <strong>Ler Wee Meng</strong>
+                <span>Founder &amp; CEO · 37+ Years</span>
+              </div>
+            </div>
+            <p>Need expert advice? Discuss your site requirements with our engineering team.</p>
+            <a href="https://wa.me/6593860466" class="fc-wa-link">💬 WhatsApp an Engineer</a>
+          </div>
+
         </div>
-    </div>
-</div>
+      </aside>
+      <!-- ── END SIDEBAR ── -->
 
-<!-- RELATED ARTICLES -->
-<section class="related-articles-sec" style="padding: 80px 0; background: #fff; border-top: 1px solid #e2e8f0;">
-    <div class="container">
-        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 40px; text-align: center; color: #1e293b; font-weight: 700;">Related Security Insights</h2>
-        <div class="related-grid">
-            <a href="/insights/burglar-alarm-design.html" class="nav-card">
+
+    </div><!-- end layout-with-sidebar -->
+  </div><!-- end container -->
+</div><!-- end article-body -->
+<!-- ═══ END ARTICLE BODY + SIDEBAR ═══ -->
+
+
+<!-- ═══ RELATED INSIGHTS ═══ -->
+<!-- Outside layout wrapper, full width, sv-section-grey background -->
+<!-- ALWAYS exactly 3 nav-card links — no more, no fewer.
+     Uses .insights-related-grid (NOT .related-grid) — this class is
+     scoped to insights pages only and hard-caps at 3 columns.
+     .related-grid uses auto-fit and could expand to 4+ columns.
+     See sv-shared.css Section 38c for the definition and rationale. -->
+<section class="sv-section-grey section-spacing">
+  <div class="container">
+    <h2 style="text-align:center; margin-bottom:48px;">Related Security Insights</h2>
+    <div class="insights-related-grid">
+<a href="/insights/burglar-alarm-design.html" class="nav-card">
                 <span>Alarm Systems</span>
                 <strong>Understanding Your Alarm Design</strong>
             </a>
@@ -224,25 +435,67 @@
                 <span>Alarm Systems</span>
                 <strong>Maintaining Your Alarm System</strong>
             </a>
-        </div>
-    </div>
+    </div><!-- end insights-related-grid -->
+  </div>
 </section>
+<!-- ═══ END RELATED INSIGHTS ═══ -->
 
-<!-- FINAL CTA -->
-<section class="cta-sec-final" style="padding: 120px 0; background: linear-gradient(rgba(14,26,43,0.85), rgba(14,26,43,0.85)), url('/images/cta-skyline.png'); background-size: cover; background-position: center; color: #fff; text-align: center;">
-    <div class="container">
-        <h2 style="font-family: 'Montserrat', sans-serif; font-size: 3rem; margin-bottom: 25px;">Ready to spec your system?</h2>
-        <p style="font-family: 'Inter', sans-serif; font-size: 1.25rem; color: #cbd5e1; max-width: 800px; margin: 0 auto 50px; line-height: 1.8;">Schedule a site assessment with our engineering team to design a system that actually solves your security challenges.</p>
-        
-        <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-            <a href="request-site-assessment-singapore.html" class="btn" style="background: var(--p-acc); color: #fff; padding: 18px 45px; border-radius: 12px; font-weight: 700; text-decoration: none; border: none; font-size: 1.1rem;">ðŸ“… Get Your Free Assessment</a>
-            <a href="https://wa.me/6593860466" class="btn" style="background: transparent; color: #fff; padding: 18px 45px; border-radius: 12px; font-weight: 700; text-decoration: none; border: 2px solid #fff; font-size: 1.1rem;">ðŸ’¬ WhatsApp Our Team</a>
-        </div>
+
+<!-- ═══ FINAL CTA ═══ -->
+<!-- Uses cta-skyline class — no inline style needed for background.
+     If this article has a specific CTA image, add:
+     style="background-image: linear-gradient(...), url('/images/insight-how-burglar-alarm-works-cta.jpg');"
+     to the section element. Otherwise leave the section element clean. -->
+<section class="cta-section cta-high-impact cta-skyline">
+  <div class="container" style="text-align:center;">
+    <span class="eyebrow-light">Talk to an Engineer</span>
+    <h2 style="color:#fff; margin-bottom:20px;">Ready to spec your system?</h2>
+    <p class="subtitle">Schedule a site assessment with our engineering team to design a system that actually solves your security challenges.</p>
+    <div class="btn-group" style="justify-content:center;">
+      <a href="/request-site-assessment-singapore.html" class="btn btn-primary">Book Free Site Assessment</a>
+      <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 WhatsApp an Engineer</a>
     </div>
+  </div>
 </section>
+<!-- ═══ END FINAL CTA ═══ -->
 
+
+<!-- FOOTER — injected by nav-footer.js -->
 <footer id="sv-footer"></footer>
-  <script src="/nav-footer.js"></script>
+
+<!-- WHATSAPP FLOAT — mandatory on all pages -->
+<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+  </svg>
+</a>
+
+<!-- SCRIPTS -->
+<script src="/nav-footer.js"></script>
+
+<!-- TOC scroll-spy — highlights active section in sidebar TOC -->
+<script>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-list a');
+  var sections = [];
+  tocLinks.forEach(function(link) {
+    var id = link.getAttribute('href').replace('#', '');
+    var el = document.getElementById(id);
+    if (el) sections.push({ link: link, el: el });
+  });
+  function onScroll() {
+    var scrollY = window.scrollY + 120;
+    var active = null;
+    sections.forEach(function(s) {
+      if (s.el.offsetTop <= scrollY) active = s;
+    });
+    tocLinks.forEach(function(l) { l.classList.remove('active'); });
+    if (active) active.link.classList.add('active');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
 </body>
 </html>
-
