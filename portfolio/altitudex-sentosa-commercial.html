@@ -1,865 +1,540 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AltitudeX Indoor Skydiving Access Control Upgrade Singapore | Securevision Case Study</title>
-  <meta name="description" content="How Securevision upgraded AltitudeX Sentosa from EntryPass to ZKTeco CV Security — 28 InBio Pro controllers, 50 doors, HID iClass and face recognition across Singapore's premier indoor skydiving venue." />
-  <link rel="canonical" href="https://svbuild.vercel.app/portfolio/altitudex-sentosa-commercial.html" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts matching site standard: Montserrat headings, Inter body -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- ═══ SEO: UPDATE THESE PER PROJECT ═══ -->
+  <title>AltitudeX Sentosa — Commercial Security Case Study | Securevision Singapore</title>
+  <meta name="description" content="How Securevision upgraded AltitudeX Sentosa from EntryPass to ZKTeco CV Security — 50 doors, mixed credentials, zero disruption to operations.">
+  <link rel="canonical" href="https://www.securevision.com.sg/portfolio/altitudex-sentosa-commercial.html">
+  <meta property="og:title" content="AltitudeX Sentosa — Commercial Case Study | Securevision">
+  <meta property="og:description" content="How Securevision upgraded AltitudeX Sentosa from EntryPass to ZKTeco CV Security — 50 doors, mixed credentials, zero disruption to operations.">
+  <meta property="og:image" content="https://www.securevision.com.sg/images/portfolio/altitudex-hero.webp">
+  <meta property="og:url" content="https://www.securevision.com.sg/portfolio/altitudex-sentosa-commercial.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Securevision">
+  <!-- ════════════════════════════════════════ -->
 
-  <style>
-    /* ── Site Tokens ─────────────────────────────────────────── */
-    :root {
-      --blue:       #004de6;
-      --blue-dark:  #003ab0;
-      --blue-light: #e8effe;
-      --green:      #25d366;
-      --text:       #111827;
-      --muted:      #6b7280;
-      --border:     #e5e7eb;
-      --bg:         #ffffff;
-      --bg-alt:     #f9fafb;
-      --radius:     8px;
-      --max:        1100px;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      font-size: 16px;
-      line-height: 1.7;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: 'Montserrat', sans-serif;
-      line-height: 1.25;
-    }
-
-    a { color: var(--blue); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    img { display: block; max-width: 100%; border-radius: var(--radius); }
-
-    /* ── Layout ──────────────────────────────────────────────── */
-    .container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
-
-    /* ── Pill / Tag ──────────────────────────────────────────── */
-    .pill {
-      display: inline-block;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      background: var(--blue-light);
-      color: var(--blue);
-      border-radius: 100px;
-      padding: 4px 14px;
-    }
-
-    /* ── Hero ────────────────────────────────────────────────── */
-    .hero {
-      background: linear-gradient(135deg, #001a66 0%, #003ab0 55%, #0055ff 100%);
-      color: #fff;
-      padding: 72px 24px 64px;
-      text-align: center;
-    }
-    .hero .sector-label {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.7);
-      margin-bottom: 8px;
-    }
-    .hero .location-label {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.55);
-      margin-bottom: 18px;
-    }
-    .hero h1 {
-      font-size: clamp(28px, 4vw, 46px);
-      font-weight: 800;
-      color: #fff;
-      max-width: 780px;
-      margin: 0 auto 20px;
-    }
-    .hero .subtitle {
-      font-size: 17px;
-      color: rgba(255,255,255,.8);
-      max-width: 620px;
-      margin: 0 auto 48px;
-    }
-
-    /* ── Stats bar ───────────────────────────────────────────── */
-    .stats-bar {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-      border-top: 1px solid rgba(255,255,255,.15);
-      padding-top: 36px;
-    }
-    .stat { text-align: center; }
-    .stat-value {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 32px;
-      font-weight: 800;
-      color: #fff;
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.6);
-      margin-top: 6px;
-    }
-
-    /* ── Trust bar ───────────────────────────────────────────── */
-    .trust-bar {
-      background: #f3f4f6;
-      border-bottom: 1px solid var(--border);
-      padding: 10px 24px;
-      text-align: center;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .trust-bar span { margin: 0 12px; }
-
-    /* ── Breadcrumb ──────────────────────────────────────────── */
-    .breadcrumb {
-      padding: 20px 24px;
-      font-size: 13px;
-      color: var(--muted);
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-    .breadcrumb a { color: var(--muted); }
-    .breadcrumb a:hover { color: var(--blue); text-decoration: none; }
-    .breadcrumb .sep { margin: 0 6px; }
-
-    /* ── Two-column body ─────────────────────────────────────── */
-    .body-wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 48px 24px 80px;
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 56px;
-      align-items: start;
-    }
-    @media (max-width: 860px) {
-      .body-wrap { grid-template-columns: 1fr; }
-      .sidebar { order: -1; }
-    }
-
-    /* ── Snapshot sidebar card ───────────────────────────────── */
-    .snapshot-card {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      position: sticky;
-      top: 24px;
-    }
-    .snapshot-card h3 {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
-    .snapshot-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-    .snapshot-table tr + tr td { border-top: 1px solid var(--border); }
-    .snapshot-table td { padding: 10px 0; vertical-align: top; }
-    .snapshot-table td:first-child { color: var(--muted); font-weight: 500; width: 46%; padding-right: 12px; }
-    .snapshot-table td:last-child { font-weight: 600; color: var(--text); }
-
-    /* Technologies */
-    .tech-list { margin-top: 28px; }
-    .tech-list h3 {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-    .tech-item {
-      display: block;
-      padding: 12px 14px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      margin-bottom: 8px;
-      background: #fff;
-      font-size: 13px;
-      transition: border-color .2s;
-    }
-    .tech-item:hover { border-color: var(--blue); text-decoration: none; }
-    .tech-item strong { display: block; font-weight: 700; color: var(--text); font-size: 13px; }
-    .tech-item span { color: var(--muted); font-size: 12px; }
-
-    /* ── Main content sections ───────────────────────────────── */
-    .section { margin-bottom: 52px; }
-    .section-kicker {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 8px;
-    }
-    .section h2 {
-      font-size: clamp(22px, 2.5vw, 30px);
-      font-weight: 800;
-      margin-bottom: 18px;
-    }
-    .section p { color: #374151; margin-bottom: 14px; }
-    .section p:last-child { margin-bottom: 0; }
-
-    /* ── Comparison table ────────────────────────────────────── */
-    .comparison-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-      margin-top: 24px;
-      border-radius: var(--radius);
-      overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .comparison-table th {
-      background: var(--blue);
-      color: #fff;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      padding: 12px 16px;
-      text-align: left;
-    }
-    .comparison-table td { padding: 12px 16px; border-top: 1px solid var(--border); vertical-align: top; }
-    .comparison-table tr:nth-child(even) td { background: var(--bg-alt); }
-    .comparison-table td:first-child { font-weight: 600; color: var(--text); }
-    .comparison-table td.old { color: #9ca3af; }
-    .comparison-table td.new { color: #059669; font-weight: 600; }
-
-    /* ── Decision box ────────────────────────────────────────── */
-    .decision-box {
-      background: var(--blue-light);
-      border-left: 4px solid var(--blue);
-      border-radius: 0 var(--radius) var(--radius) 0;
-      padding: 24px 28px;
-      margin: 28px 0;
-    }
-    .decision-box p { color: #1e3a8a; margin-bottom: 0; }
-    .decision-box strong { color: var(--blue-dark); }
-
-    /* ── Bullet list ─────────────────────────────────────────── */
-    .feature-list { list-style: none; margin: 18px 0 0; }
-    .feature-list li {
-      padding: 10px 0 10px 28px;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      font-size: 15px;
-      color: #374151;
-    }
-    .feature-list li:last-child { border-bottom: none; }
-    .feature-list li::before {
-      content: '✓';
-      position: absolute;
-      left: 0;
-      color: var(--blue);
-      font-weight: 700;
-    }
-    .feature-list li strong { color: var(--text); }
-
-    /* ── Zone credential cards ───────────────────────────────── */
-    .zone-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 24px;
-    }
-    @media (max-width: 600px) { .zone-grid { grid-template-columns: 1fr; } }
-    .zone-card {
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px;
-      background: var(--bg-alt);
-    }
-    .zone-card .zone-icon {
-      font-size: 28px;
-      margin-bottom: 12px;
-    }
-    .zone-card h4 {
-      font-size: 15px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .zone-card p { font-size: 14px; color: var(--muted); margin: 0; }
-
-    /* ── Results ─────────────────────────────────────────────── */
-    .results-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-top: 24px;
-    }
-    @media (max-width: 600px) { .results-grid { grid-template-columns: 1fr; } }
-    .result-item {
-      background: var(--bg-alt);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-    }
-    .result-item h4 {
-      font-size: 14px;
-      font-weight: 700;
-      margin-bottom: 6px;
-    }
-    .result-item h4::before {
-      content: '✓ ';
-      color: var(--blue);
-    }
-    .result-item p { font-size: 13px; color: var(--muted); margin: 0; }
-
-    /* ── Insight quote ───────────────────────────────────────── */
-    .insight-box {
-      background: #001a66;
-      color: #fff;
-      border-radius: var(--radius);
-      padding: 36px 40px;
-      margin: 52px 0;
-      position: relative;
-    }
-    .insight-box .insight-label {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.5);
-      margin-bottom: 16px;
-    }
-    .insight-box h2 {
-      font-size: 18px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 16px;
-    }
-    .insight-box blockquote {
-      font-size: 16px;
-      line-height: 1.7;
-      color: rgba(255,255,255,.85);
-      border: none;
-      padding: 0;
-      font-style: italic;
-    }
-
-    /* ── Discovery / related links ───────────────────────────── */
-    .discovery-section { background: var(--bg-alt); padding: 64px 24px; }
-    .discovery-section .container-inner {
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-    .section-heading {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-    .discovery-section h2 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 26px;
-      font-weight: 800;
-      margin-bottom: 32px;
-    }
-    .discovery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-    @media (max-width: 860px) { .discovery-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 520px) { .discovery-grid { grid-template-columns: 1fr; } }
-    .discovery-card {
-      display: block;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: #fff;
-      transition: box-shadow .2s, border-color .2s;
-    }
-    .discovery-card:hover { border-color: var(--blue); box-shadow: 0 4px 16px rgba(0,77,230,.1); text-decoration: none; }
-    .discovery-card img { width: 100%; height: 140px; object-fit: cover; border-radius: 0; }
-    .discovery-card-body { padding: 14px; }
-    .discovery-card-body strong { display: block; font-weight: 700; font-size: 14px; color: var(--text); margin-bottom: 4px; }
-    .discovery-card-body span { font-size: 12px; color: var(--muted); }
-
-    /* ── Related case studies ────────────────────────────────── */
-    .related-section { padding: 64px 24px; }
-    .related-section .container-inner { max-width: var(--max); margin: 0 auto; }
-    .related-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 28px;
-    }
-    @media (max-width: 760px) { .related-grid { grid-template-columns: 1fr; } }
-    .related-card {
-      display: block;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      background: #fff;
-      transition: box-shadow .2s, border-color .2s;
-    }
-    .related-card:hover { border-color: var(--blue); box-shadow: 0 4px 20px rgba(0,77,230,.1); text-decoration: none; }
-    .related-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 0; }
-    .related-card-body { padding: 18px; }
-    .related-card-body .tag {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 8px;
-    }
-    .related-card-body h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--text); }
-    .related-card-body p { font-size: 13px; color: var(--muted); margin-bottom: 12px; }
-    .related-card-body .arrow { font-size: 13px; font-weight: 600; color: var(--blue); }
-
-    /* ── CTA ─────────────────────────────────────────────────── */
-    .cta-section {
-      background: linear-gradient(135deg, #001a66, #003ab0);
-      color: #fff;
-      padding: 64px 24px;
-      text-align: center;
-    }
-    .cta-section h2 {
-      font-size: clamp(22px, 3vw, 34px);
-      font-weight: 800;
-      color: #fff;
-      margin-bottom: 12px;
-    }
-    .cta-section p { color: rgba(255,255,255,.75); margin-bottom: 32px; font-size: 16px; }
-    .btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .btn-primary {
-      background: #fff;
-      color: var(--blue);
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 14px;
-      padding: 14px 28px;
-      border-radius: var(--radius);
-      transition: opacity .2s;
-    }
-    .btn-primary:hover { opacity: .9; text-decoration: none; }
-    .btn-secondary {
-      background: var(--green);
-      color: #fff;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 14px;
-      padding: 14px 28px;
-      border-radius: var(--radius);
-      transition: opacity .2s;
-    }
-    .btn-secondary:hover { opacity: .9; text-decoration: none; }
-
-    /* ── Divider ─────────────────────────────────────────────── */
-    .divider { border: none; border-top: 1px solid var(--border); margin: 0; }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/sv-shared.css">
+  <script src="/site-config.js"></script>
 </head>
 <body>
 
-  <!-- ── HERO ───────────────────────────────────────────────── -->
-  <section class="hero">
-    <div class="sector-label">Commercial Case Study</div>
-    <div class="location-label">Sentosa Island, Singapore</div>
-    <h1>Scaling Access Control for Singapore's Premier Indoor Skydiving Venue</h1>
-    <p class="subtitle">Migrating a decade-old EntryPass system to ZKTeco CV Security — 50 doors, mixed credentials, zero disruption to operations.</p>
-    <div class="stats-bar">
-      <div class="stat">
-        <div class="stat-value">50</div>
-        <div class="stat-label">Controlled Doors</div>
+<!-- ═══ NAV ═══ -->
+<nav id="sv-nav"></nav>
+<!-- ═══ END NAV ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════════ -->
+<header class="portfolio-hero">
+  <div class="container">
+
+    <div class="portfolio-kicker">
+      <span class="badge-primary">ENTERTAINMENT CASE STUDY</span>
+      <span class="portfolio-meta">📍 Sentosa Island, Singapore</span>
+      <span class="portfolio-meta">Indoor Skydiving & Entertainment Venue</span>
+    </div>
+
+    <h1 class="portfolio-hero-title">AltitudeX Sentosa</h1>
+    <p class="portfolio-hero-subtitle">Migrating a decade-old EntryPass system to ZKTeco CV Security — 50 doors, mixed credentials, zero disruption to operations.</p>
+
+    <div class="portfolio-stat-grid">
+      <div class="portfolio-stat">
+        <span class="portfolio-stat-value">50</span>
+        <span class="portfolio-stat-label">Controlled Doors</span>
       </div>
-      <div class="stat">
-        <div class="stat-value">28</div>
-        <div class="stat-label">InBio Pro Controllers</div>
+      <div class="portfolio-stat">
+        <span class="portfolio-stat-value">28</span>
+        <span class="portfolio-stat-label">InBio Pro Controllers</span>
       </div>
-      <div class="stat">
-        <div class="stat-value">8+</div>
-        <div class="stat-label">Years Serviced</div>
+      <div class="portfolio-stat">
+        <span class="portfolio-stat-value">8+ Years</span>
+        <span class="portfolio-stat-label">Client Relationship</span>
       </div>
-      <div class="stat">
-        <div class="stat-value">2023</div>
-        <div class="stat-label">Upgrade Completed</div>
+      <div class="portfolio-stat">
+        <span class="portfolio-stat-value">2023</span>
+        <span class="portfolio-stat-label">Upgrade Completed</span>
       </div>
     </div>
-  </section>
 
-  <!-- ── TRUST BAR ───────────────────────────────────────────── -->
-  <div class="trust-bar">
-    <span>Police Licensed</span>
-    <span>|</span>
-    <span>BCA Registered</span>
-    <span>|</span>
-    <span>Servicing Since 2006</span>
   </div>
+</header>
+<!-- ═══ END HERO ═══ -->
 
-  <!-- ── BREADCRUMB ──────────────────────────────────────────── -->
-  <nav class="breadcrumb">
-    <a href="/">Home</a>
-    <span class="sep">›</span>
-    <a href="/portfolio/">Portfolio</a>
-    <span class="sep">›</span>
-    AltitudeX
-  </nav>
 
-  <hr class="divider" />
+<!-- ═══ TRUST BAR ═══ -->
+<div class="sv-trust-bar">
+  <div class="container">
+    <div class="trust-inner">
+      <span>Police Licensed</span>
+      <span class="divider">|</span>
+      <span class="sv-bizsafe"></span>
+      <span class="divider">|</span>
+      <span>BCA Registered</span>
+      <span class="divider">|</span>
+      <span><span class="sv-sites"></span> Sites</span>
+    </div>
+  </div>
+</div>
+<!-- ═══ END TRUST BAR ═══ -->
 
-  <!-- ── BODY ───────────────────────────────────────────────── -->
-  <div class="body-wrap container">
 
-    <!-- Main content -->
-    <main>
+<!-- ═══ BREADCRUMB ═══ -->
+<nav class="sv-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/portfolio/">Portfolio</a></li>
+      <li>AltitudeX Sentosa</li>
+    </ul>
+  </div>
+</nav>
+<!-- ═══ END BREADCRUMB ═══ -->
 
-      <!-- Challenge -->
-      <div class="section">
-        <div class="section-kicker">The Challenge</div>
-        <h2>A System That Grew Beyond Its Limits</h2>
-        <p>
-          Securevision first installed and commissioned AltitudeX's card access system in 2015, deploying
-          the EntryPass platform across their Sentosa premises. Over the following eight years, we maintained
-          the system through every expansion — adding new doors each time the business grew and new areas
-          of the building came under access control.
-        </p>
-        <p>
-          By 2023, that growth had hit a wall. The EntryPass system had reached its maximum controller
-          capacity. Adding a single additional door was no longer possible without a full platform change.
-          For a high-footfall commercial venue managing staff, tenants, and operational zones across an
-          entire building, a ceiling on capacity is a ceiling on operations.
-        </p>
-        <p>
-          AltitudeX needed a system that could absorb the current door count, support different
-          credential types across different zones, and leave headroom for the expansion they were already
-          planning.
-        </p>
-      </div>
 
-      <!-- Transformation table -->
-      <div class="section">
-        <div class="section-kicker">Transformation</div>
-        <h2>From Capacity Limit to Scalable Platform</h2>
-        <table class="comparison-table">
-          <thead>
-            <tr>
-              <th>Security Layer</th>
-              <th>EntryPass Legacy System</th>
-              <th>Securevision Upgrade</th>
-            </tr>
-          </thead>
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 6 — PROJECT SNAPSHOT (grey)
+     ═══════════════════════════════════════════════════════ -->
+<section class="portfolio-snapshot sv-section-grey section-spacing">
+  <div class="container">
+    <div class="portfolio-snapshot-grid">
+
+      <div class="snapshot-main">
+        <span class="eyebrow">Project Snapshot</span>
+        <p class="mt-16">Securevision first installed AltitudeX's access control system in 2015, deploying the EntryPass platform across their Sentosa premises. Over eight years of maintenance and expansion, the system grew to its capacity ceiling — requiring a full platform migration to continue supporting the business.</p>
+
+        <table class="portfolio-overview-table mt-32">
           <tbody>
             <tr>
-              <td>System Capacity</td>
-              <td class="old">At maximum — no room to grow</td>
-              <td class="new">Scalable ZKTeco CV Security platform</td>
+              <th>Client</th>
+              <td>AltitudeX Experience</td>
             </tr>
             <tr>
-              <td>Door Count</td>
-              <td class="old">Limited by legacy controllers</td>
-              <td class="new">50 doors across 28 InBio Pro controllers</td>
+              <th>Location</th>
+              <td>Sentosa Island, Singapore</td>
             </tr>
             <tr>
-              <td>Credential Type</td>
-              <td class="old">Single credential (card only)</td>
-              <td class="new">Mixed — HID iClass card + face recognition</td>
+              <th>Sector</th>
+              <td>Commercial / Entertainment</td>
             </tr>
             <tr>
-              <td>Zone Policy</td>
-              <td class="old">Uniform access rules across premises</td>
-              <td class="new">Tiered credentials by zone sensitivity</td>
+              <th>Project Type</th>
+              <td>System Upgrade & Platform Migration</td>
             </tr>
             <tr>
-              <td>Future Expansion</td>
-              <td class="old">Not possible without full replacement</td>
-              <td class="new">Platform ready for continued growth</td>
+              <th>Client Since</th>
+              <td>2015</td>
+            </tr>
+            <tr>
+              <th>Completion</th>
+              <td>July 2023</td>
+            </tr>
+            <tr>
+              <th>Scale</th>
+              <td>50 doors, 28 InBio Pro controllers</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <!-- Decision -->
-      <div class="section">
-        <div class="section-kicker">Decision Point</div>
-        <h2>Preserving What Works While Upgrading What Doesn't</h2>
-        <p>
-          A full system replacement raises an immediate practical question: what happens to the existing
-          access cards already in staff hands? Replacing all credentials across a working commercial
-          venue is disruptive and costly.
-        </p>
-        <div class="decision-box">
-          <p>
-            Securevision designed the upgrade to <strong>retain AltitudeX's existing HID iClass cards</strong>
-            as the primary credential across the majority of access points. Staff kept the cards they already
-            had. The platform changed — the disruption did not.
-          </p>
-        </div>
-        <p>
-          In selected areas requiring a higher security threshold, we introduced <strong>face recognition
-          terminals paired with card credentials</strong> — delivering dual-factor access without imposing
-          it everywhere. The result is a zoned credential strategy tailored to how the building is actually used.
-        </p>
-      </div>
-
-      <!-- Approach -->
-      <div class="section">
-        <div class="section-kicker">Our Approach</div>
-        <h2>A Zoned Credential Strategy</h2>
-        <p>
-          Not every door in a commercial venue carries the same risk profile. AltitudeX operates a mix
-          of public-facing areas, staff zones, operational back-of-house, and higher-sensitivity spaces.
-          The credential strategy was matched to that reality.
-        </p>
-        <div class="zone-grid">
-          <div class="zone-card">
-            <div class="zone-icon">💳</div>
-            <h4>HID iClass Card Access</h4>
-            <p>Deployed across the majority of doors. Existing staff cards were retained and reprogrammed on the new platform — no reissuance required.</p>
-          </div>
-          <div class="zone-card">
-            <div class="zone-icon">🪪</div>
-            <h4>Face Recognition + Card</h4>
-            <p>Deployed in select higher-sensitivity areas. Dual-factor entry requiring both a valid card and biometric verification for access.</p>
-          </div>
-        </div>
-        <ul class="feature-list" style="margin-top:24px;">
-          <li><strong>28 ZKTeco InBio Pro controllers</strong> deployed across the building for centralised management of all 50 doors.</li>
-          <li><strong>Single platform governance</strong> — all access points, all credential types, managed from one ZKTeco CV Security console.</li>
-          <li><strong>Minimal operational disruption</strong> — upgrade carried out with no impact to AltitudeX's daily operations and visitor schedule.</li>
-          <li><strong>Ongoing service continuity</strong> — Securevision continues to maintain and support the upgraded system.</li>
-        </ul>
-      </div>
-
-      <!-- Results -->
-      <div class="section">
-        <div class="section-kicker">Results & Impact</div>
-        <h2>A Platform Built for the Next Decade</h2>
-        <div class="results-grid">
-          <div class="result-item">
-            <h4>Capacity Ceiling Removed</h4>
-            <p>The ZKTeco CV Security platform gives AltitudeX room to add doors and expand the system as the business grows.</p>
-          </div>
-          <div class="result-item">
-            <h4>Existing Cards Retained</h4>
-            <p>HID iClass credentials carried over to the new platform, preserving the client's card investment and eliminating reissuance disruption.</p>
-          </div>
-          <div class="result-item">
-            <h4>Tiered Security by Zone</h4>
-            <p>Higher-sensitivity areas now enforce dual-factor access via face recognition and card, without imposing that overhead on the whole estate.</p>
-          </div>
-          <div class="result-item">
-            <h4>8+ Year Relationship</h4>
-            <p>Built on a decade of service, maintenance, and system growth — Securevision remains AltitudeX's access control partner post-upgrade.</p>
+      <div class="snapshot-tech-col">
+        <span class="eyebrow">Technologies Implemented</span>
+        <div class="snapshot-tech-card">
+          <div class="portfolio-tech-stack">
+            <a href="/brands/zkteco.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">ZKTeco</span>
+              <span class="tech-brand-desc">CV Security platform, InBio Pro controllers, and face recognition terminals.</span>
+            </a>
+            <a href="/brands/hid.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">HID</span>
+              <span class="tech-brand-desc">Existing iClass credentials retained and migrated to the new platform.</span>
+            </a>
           </div>
         </div>
       </div>
 
-    </main>
-
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="snapshot-card">
-        <h3>Project Snapshot</h3>
-        <table class="snapshot-table">
-          <tr>
-            <td>Client</td>
-            <td>AltitudeX Experience</td>
-          </tr>
-          <tr>
-            <td>Location</td>
-            <td>Sentosa Island, Singapore</td>
-          </tr>
-          <tr>
-            <td>Sector</td>
-            <td>Commercial / Entertainment</td>
-          </tr>
-          <tr>
-            <td>Project Type</td>
-            <td>System Upgrade &amp; Platform Migration</td>
-          </tr>
-          <tr>
-            <td>Client Since</td>
-            <td>2015</td>
-          </tr>
-          <tr>
-            <td>Upgrade Completed</td>
-            <td>July 2023</td>
-          </tr>
-          <tr>
-            <td>Doors Upgraded</td>
-            <td>50 Doors</td>
-          </tr>
-          <tr>
-            <td>Controllers</td>
-            <td>28 × InBio Pro</td>
-          </tr>
-          <tr>
-            <td>Infrastructure</td>
-            <td>Card Access / Biometric</td>
-          </tr>
-        </table>
-
-        <div class="tech-list">
-          <h3>Technologies Implemented</h3>
-          <a class="tech-item" href="/brands/zkteco.html">
-            <strong>ZKTeco CV Security</strong>
-            <span>Enterprise access management platform with multi-credential support.</span>
-          </a>
-          <a class="tech-item" href="/brands/zkteco.html">
-            <strong>ZKTeco InBio Pro</strong>
-            <span>Industrial-grade 2-door TCP/IP access controller × 28 units.</span>
-          </a>
-          <a class="tech-item" href="/brands/hid.html">
-            <strong>HID iClass Cards</strong>
-            <span>Existing staff credentials retained and migrated to the new platform.</span>
-          </a>
-          <a class="tech-item" href="/brands/zkteco.html">
-            <strong>ZKTeco Face Recognition</strong>
-            <span>Biometric terminals for dual-factor access in selected zones.</span>
-          </a>
-        </div>
-      </div>
-    </aside>
-
-  </div><!-- /body-wrap -->
-
-  <!-- ── INSIGHT ─────────────────────────────────────────────── -->
-  <div class="container">
-    <div class="insight-box">
-      <div class="insight-label">Securevision Insight</div>
-      <h2>Long-Term Relationships Produce Better Upgrades</h2>
-      <blockquote>
-        "Having maintained AltitudeX's system since 2015, we understood exactly how every door was used,
-        which zones carried the most operational risk, and where a simple card swap would suffice versus
-        where biometrics added genuine value. Eight years of service history made the upgrade smarter —
-        and the transition smoother."
-      </blockquote>
     </div>
   </div>
+</section>
+<!-- ═══ END SECTION 6 ═══ -->
 
-  <!-- ── DISCOVERY ───────────────────────────────────────────── -->
-  <section class="discovery-section">
-    <div class="container-inner">
-      <div class="section-heading">Discovery Path</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 7 — THE CHALLENGE (white)
+     ═══════════════════════════════════════════════════════ -->
+<section class="portfolio-challenge sv-section-white section-spacing">
+  <div class="container">
+    <div class="challenge-copy">
+        <span class="eyebrow">The Challenge</span>
+        <h2>A System That Grew Beyond Its Limits</h2>
+        <p>Securevision first installed and commissioned AltitudeX's card access system in 2015, deploying the EntryPass platform across their Sentosa premises. Over the following eight years, we maintained the system through every expansion — adding new doors each time the business grew and new areas of the building came under access control.</p>
+        <p>By 2023, that growth had hit a wall. The EntryPass system had reached its maximum controller capacity. Adding a single additional door was no longer possible without a full platform change. For a high-footfall commercial venue managing staff, tenants, and operational zones across an entire building, a ceiling on capacity is a ceiling on operations.</p>
+        <p>AltitudeX needed a system that could absorb the current door count, support different credential types across different zones, and leave headroom for the expansion they were already planning.</p>
+      </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 7 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 8 — TRANSFORMATION (grey)
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-grey section-spacing">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Transformation</span>
+      <h2>From Capacity Limit to Scalable Platform</h2>
+    </div>
+
+    <div class="blog-table-wrap mt-48">
+      <table class="blog-table comparison-table">
+        <thead>
+          <tr>
+            <th>Security Layer</th>
+            <th>EntryPass Legacy System</th>
+            <th>Securevision Upgrade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>System Capacity</td>
+            <td class="old">At maximum — no room to grow</td>
+            <td class="new">Scalable ZKTeco CV Security platform</td>
+          </tr>
+          <tr>
+            <td>Door Count</td>
+            <td class="old">Limited by legacy controllers</td>
+            <td class="new">50 doors across 28 InBio Pro controllers</td>
+          </tr>
+          <tr>
+            <td>Credential Type</td>
+            <td class="old">Single credential (card only)</td>
+            <td class="new">Mixed — HID iClass card + face recognition</td>
+          </tr>
+          <tr>
+            <td>Zone Policy</td>
+            <td class="old">Uniform access rules across premises</td>
+            <td class="new">Tiered credentials by zone sensitivity</td>
+          </tr>
+          <tr>
+            <td>Future Expansion</td>
+            <td class="old">Not possible without full replacement</td>
+            <td class="new">Platform ready for continued growth</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 8 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 9 — DECISION POINT (white)
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-white section-spacing">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Decision Point</span>
+      <h2>Preserving What Works While Upgrading What Doesn't</h2>
+    </div>
+
+    <p class="mt-24">A full system replacement raises an immediate practical question: what happens to the existing access cards already in staff hands? Replacing all credentials across a working commercial venue is disruptive and costly.</p>
+
+    <div class="decision-box mt-24">
+      <p>Securevision designed the upgrade to <strong>retain AltitudeX's existing HID iClass cards</strong> as the primary credential across the majority of access points. Staff kept the cards they already had. The platform changed — the disruption did not.</p>
+    </div>
+
+    <p class="mt-24">In selected areas requiring a higher security threshold, we introduced <strong>face recognition terminals paired with card credentials</strong> — delivering dual-factor access without imposing it everywhere. The result is a zoned credential strategy tailored to how the building is actually used.</p>
+
+  </div>
+</section>
+<!-- ═══ END SECTION 9 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 10 — OUR APPROACH (grey)
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-grey section-spacing">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Our Approach</span>
+      <h2>A Zoned Credential Strategy</h2>
+    </div>
+
+    <p class="mt-24">Not every door in a commercial venue carries the same risk profile. AltitudeX operates a mix of public-facing areas, staff zones, operational back-of-house, and higher-sensitivity spaces. The credential strategy was matched to that reality.</p>
+
+    <div class="zone-grid mt-32">
+      <div class="zone-card">
+        <span class="zone-icon">💳</span>
+        <h4>HID iClass Card Access</h4>
+        <p>Deployed across majority of doors; existing staff cards retained and reprogrammed on the new platform, no reissuance required.</p>
+      </div>
+
+      <div class="zone-card">
+        <span class="zone-icon">🪪</span>
+        <h4>Face Recognition + Card</h4>
+        <p>Deployed in select higher-sensitivity areas; dual-factor entry requiring both valid card and biometric verification.</p>
+      </div>
+    </div>
+
+    <p class="mt-32">Across all 50 doors, 28 ZKTeco InBio Pro controllers provide centralised management from a single ZKTeco CV Security console. The upgrade was carried out with no impact to AltitudeX's daily operations or visitor schedule — and Securevision continues to maintain and support the system post-migration.</p>
+
+  </div>
+</section>
+<!-- ═══ END SECTION 10 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 11 — THE SOLUTION (white)
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-white section-spacing">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">The Solution</span>
+      <h2>A Single Scalable Platform Across 50 Doors</h2>
+      <p class="mt-16">The design brief was straightforward: absorb the existing door count, support different credential types by zone, and leave headroom for future expansion — all without disrupting live operations.</p>
+    </div>
+
+    <div class="grid-2 mt-48">
+
+      <div class="portfolio-layer-card">
+        <span class="eyebrow">Access Layer</span>
+        <h3>Zoned Credentials Across the Building</h3>
+        <p>ZKTeco CV Security governs all 50 doors from a single console, with HID iClass card access deployed across the majority of access points and face recognition reserved for higher-sensitivity zones.</p>
+        <a href="/systems/entry-access-control.html" class="layer-link">People Access Systems →</a>
+      </div>
+
+      <div class="portfolio-layer-card">
+        <span class="eyebrow">Platform Layer</span>
+        <h3>One Platform, All Credential Types</h3>
+        <p>The ZKTeco CV Security platform unifies card and biometric credentials under a single management interface, with capacity for future door additions without requiring controller replacement.</p>
+        <a href="/systems/security-management-platform.html" class="layer-link">Platform & Management →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 11 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 12 — EQUIPMENT DEPLOYED (grey)
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-grey section-spacing">
+  <div class="container">
+    <span class="eyebrow">Equipment Deployed</span>
+    <h2>What Was Installed</h2>
+    <p class="mt-16">A full platform migration across 50 doors, replacing a decade-old EntryPass system with ZKTeco CV Security while preserving existing HID iClass credentials.</p>
+
+    <div class="grid-3 mt-48">
+
+      <div class="card card-pad-32">
+        <h4><a href="/brands/zkteco.html">ZKTeco InBio Pro Controllers</a></h4>
+        <p><strong>28 units</strong> — industrial-grade 2-door TCP/IP access controllers managing all 50 doors from a single ZKTeco CV Security console. TCP/IP connectivity provides real-time door status and event logging across the entire building.</p>
+        <a href="/systems/entry-access-control.html" class="layer-link">Access Control Solutions →</a>
+      </div>
+
+      <div class="card card-pad-32">
+        <h4><a href="/brands/zkteco.html">ZKTeco Face Recognition Terminals</a></h4>
+        <p>Deployed at selected higher-sensitivity zones throughout the premises. Enforces dual-factor entry — valid HID iClass card plus biometric verification — without imposing that overhead across every access point.</p>
+        <a href="/brands/zkteco.html" class="layer-link">ZKTeco Platform →</a>
+      </div>
+
+      <div class="card card-pad-32">
+        <h4><a href="/brands/hid.html">HID iClass Readers & Cards</a></h4>
+        <p>Deployed across the majority of access points. Existing staff iClass cards were retained and reprogrammed on the new ZKTeco platform — no reissuance required and zero disruption to staff credential workflows.</p>
+        <a href="/brands/hid.html" class="layer-link">HID Credentials →</a>
+      </div>
+
+      <div class="card card-pad-32">
+        <h4>ZKTeco CV Security Software</h4>
+        <p>The management platform unifying all 50 doors and both credential types under a single console. Provides enterprise access management, real-time event logging, and capacity headroom for future door additions without controller replacement.</p>
+        <a href="/systems/security-management-platform.html" class="layer-link">Platform & Management →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 12 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 13 — RESULTS & IMPACT (white)
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-white section-spacing">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="eyebrow">Results & Impact</span>
+      <h2>A Platform Built for the Next Decade</h2>
+    </div>
+
+    <div class="grid-3 mt-48">
+      <div class="portfolio-result-card">
+        <h4 class="portfolio-result-title">&#10003; Capacity Ceiling Removed</h4>
+        <p class="portfolio-result-text">The ZKTeco CV Security platform gives AltitudeX room to add doors and expand as the business grows.</p>
+      </div>
+      <div class="portfolio-result-card">
+        <h4 class="portfolio-result-title">&#10003; Existing Cards Retained</h4>
+        <p class="portfolio-result-text">HID iClass credentials carried over to the new platform, preserving the card investment and eliminating reissuance disruption.</p>
+      </div>
+      <div class="portfolio-result-card">
+        <h4 class="portfolio-result-title">&#10003; Tiered Security by Zone</h4>
+        <p class="portfolio-result-text">Higher-sensitivity areas now enforce dual-factor access via face recognition and card, without imposing that overhead on the whole estate.</p>
+      </div>
+      <div class="portfolio-result-card">
+        <h4 class="portfolio-result-title">&#10003; 8+ Year Relationship</h4>
+        <p class="portfolio-result-text">Built on a decade of service, maintenance, and system growth — Securevision remains AltitudeX's access control partner post-upgrade.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ═══ END SECTION 13 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 14 — SECUREVISION INSIGHT (grey + no-bottom-spacing)
+     ═══════════════════════════════════════════════════════ -->
+<section class="portfolio-insight-section sv-section-grey section-spacing no-bottom-spacing">
+  <div class="container">
+    <div class="portfolio-insight">
+      <span class="eyebrow">Securevision Insight</span>
+      <h2>Long-Term Relationships Produce Better Upgrades</h2>
+      <p>Having maintained AltitudeX's system since 2015, we understood exactly how every door was used, which zones carried the most operational risk, and where a simple card swap would suffice versus where biometrics added genuine value. Eight years of service history made the upgrade smarter — and the transition smoother.</p>
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 14 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 15 — DISCOVERY PATH (white)
+     ═══════════════════════════════════════════════════════ -->
+<section class="portfolio-section sv-section-white section-spacing">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="eyebrow">Discovery Path</span>
       <h2>Explore Related Solutions</h2>
-      <div class="discovery-grid">
-        <a class="discovery-card" href="/solutions/commercial.html">
-          <img src="/images/prop-commercial.webp" alt="Commercial Security" />
-          <div class="discovery-card-body">
-            <strong>Commercial Security</strong>
-            <span>Access and security strategies for commercial and entertainment venues.</span>
-          </div>
-        </a>
-        <a class="discovery-card" href="/systems/entry-access-control.html">
-          <img src="/images/pillar_people_access.webp" alt="People Access Systems" />
-          <div class="discovery-card-body">
-            <strong>People Access Systems</strong>
-            <span>Multi-door, multi-credential access control for complex sites.</span>
-          </div>
-        </a>
-        <a class="discovery-card" href="/brands/zkteco.html">
-          <img src="/images/brand-zkteco.webp" alt="ZKTeco" />
-          <div class="discovery-card-body">
-            <strong>ZKTeco</strong>
-            <span>CV Security platform, InBio Pro controllers and biometric terminals.</span>
-          </div>
-        </a>
-        <a class="discovery-card" href="/brands/hid.html">
-          <img src="/images/brand-hid.webp" alt="HID Global" />
-          <div class="discovery-card-body">
-            <strong>HID Global</strong>
-            <span>iClass credentials and high-security card access technology.</span>
-          </div>
-        </a>
-      </div>
+      <p class="text-left mt-16">Deepen your understanding of the systems and strategies deployed in this project.</p>
     </div>
-  </section>
 
-  <!-- ── RELATED CASE STUDIES ────────────────────────────────── -->
-  <section class="related-section">
-    <div class="container-inner">
-      <div class="section-heading">Next Steps in Discovery</div>
+    <div class="portfolio-link-stack mt-48">
+      <a href="/solutions/commercial.html" class="portfolio-link-card">
+        <img src="/images/prop-commercial.webp" alt="Commercial Security">
+        <div class="portfolio-link-card-body">
+          <strong>Commercial Security</strong>
+          <span>Access and security strategies for commercial and entertainment venues.</span>
+        </div>
+      </a>
+      <a href="/systems/entry-access-control.html" class="portfolio-link-card">
+        <img src="/images/pillar_people_access.webp" alt="Entry Access Control">
+        <div class="portfolio-link-card-body">
+          <strong>Entry Access Control</strong>
+          <span>Multi-door, multi-credential access control for complex commercial sites.</span>
+        </div>
+      </a>
+      <a href="/systems/security-management-platform.html" class="portfolio-link-card">
+        <img src="/images/pillar_maintenance.webp" alt="Platform & Management">
+        <div class="portfolio-link-card-body">
+          <strong>Platform & Management</strong>
+          <span>Unified platforms managing all credential types and access points from a single console.</span>
+        </div>
+      </a>
+      <a href="/brands/zkteco.html" class="portfolio-link-card">
+        <img src="/images/brand-zkteco.webp" alt="ZKTeco">
+        <div class="portfolio-link-card-body">
+          <strong>ZKTeco</strong>
+          <span>CV Security platform, InBio Pro controllers, and biometric access terminals.</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 15 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 16 — RELATED PROJECTS (grey)
+     ═══════════════════════════════════════════════════════ -->
+<section class="related-projects sv-section-grey section-spacing">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="eyebrow">Next Steps in Discovery</span>
       <h2>Related Case Studies</h2>
-      <p style="color:var(--muted); font-size:15px; margin-bottom:0;">
-        See how Securevision has solved similar access control challenges across other commercial and institutional sites in Singapore.
-      </p>
-      <div class="related-grid">
-        <a class="related-card" href="/portfolio/scape.html">
-          <img src="/images/portfolio/scape-front.webp" alt="*SCAPE Singapore" />
-          <div class="related-card-body">
-            <div class="tag">Commercial</div>
-            <h3>*SCAPE Singapore</h3>
-            <p>Access control and security systems for one of Singapore's iconic youth community hubs.</p>
-            <span class="arrow">View Case Study →</span>
-          </div>
-        </a>
-        <a class="related-card" href="/commercial-security-sta-building-singapore.html">
-          <img src="/images/portfolio/sta-building.webp" alt="STA Building" />
-          <div class="related-card-body">
-            <div class="tag">Commercial</div>
-            <h3>STA Building</h3>
-            <p>Integrated security deployment for a multi-floor commercial building in Singapore.</p>
-            <span class="arrow">View Case Study →</span>
-          </div>
-        </a>
-        <a class="related-card" href="/industrial-security-cyrus-tech-park-singapore.html">
-          <img src="/images/portfolio/cyrus-tech-park.webp" alt="Cyrus Tech Park" />
-          <div class="related-card-body">
-            <div class="tag">Industrial</div>
-            <h3>Cyrus Tech Park</h3>
-            <p>Large-scale access control and surveillance for an industrial park environment.</p>
-            <span class="arrow">View Case Study →</span>
-          </div>
-        </a>
-      </div>
+      <p class="text-left mt-16">See how we have solved similar security and operational challenges for other commercial properties in Singapore.</p>
     </div>
-  </section>
 
-  <!-- ── CTA ────────────────────────────────────────────────── -->
-  <section class="cta-section">
-    <h2>Planning a System Upgrade?</h2>
-    <p>Engage Securevision to migrate, expand, or modernise your door access infrastructure — with minimal disruption to operations.</p>
-    <div class="btn-group">
-      <a class="btn-primary" href="/request-site-assessment-singapore.html">Book Site Assessment</a>
-      <a class="btn-secondary" href="https://wa.me/6593860466">Discuss Your Project</a>
+    <div class="grid-3 mt-48">
+      <a href="/portfolio/scape-commercial.html" class="card card-clickable related-project-card">
+        <img src="/images/portfolio/portfolio-scape.webp" alt="SCAPE Singapore">
+        <div class="related-project-body">
+          <span class="related-project-badge">Commercial</span>
+          <h3 class="related-project-title">SCAPE Singapore</h3>
+          <p class="related-project-text">209 AI cameras and automated access control for Singapore's premier youth hub at Orchard Road.</p>
+          <span class="related-project-link">View Case Study →</span>
+        </div>
+      </a>
+      <a href="/portfolio/sta-building-commercial.html" class="card card-clickable related-project-card">
+        <img src="/images/portfolio/portfolio-sta.webp" alt="STA Inspection Centre">
+        <div class="related-project-body">
+          <span class="related-project-badge">Commercial</span>
+          <h3 class="related-project-title">STA Inspection Centre</h3>
+          <p class="related-project-text">Regulatory-compliant surveillance and vehicle flow management for a government inspection facility.</p>
+          <span class="related-project-link">View Case Study →</span>
+        </div>
+      </a>
+      <a href="/portfolio/hilton-singapore-orchard-fire-door.html" class="card card-clickable related-project-card">
+        <img src="/images/portfolio/hilton-singapore-orchard-hero.webp" alt="Hilton Singapore Orchard">
+        <div class="related-project-body">
+          <span class="related-project-badge">Hospitality</span>
+          <h3 class="related-project-title">Hilton Singapore Orchard</h3>
+          <p class="related-project-text">EM lock access control and fire alarm integration across 50+ emergency doors in Asia-Pacific's largest Hilton property.</p>
+          <span class="related-project-link">View Case Study →</span>
+        </div>
+      </a>
     </div>
-  </section>
+  </div>
+</section>
+<!-- ═══ END SECTION 16 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FINAL CTA
+     ═══════════════════════════════════════════════════════ -->
+<section id="final-cta" class="final-cta cta-high-impact" style="background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)), url('/images/portfolio/altitudex-hero.webp');">
+  <div class="container text-center">
+    <span class="eyebrow-light">Start Your Project</span>
+    <h2>Planning a System Upgrade?</h2>
+    <p class="cta-subtext">Engage Securevision to migrate, expand, or modernise your door access infrastructure — with minimal disruption to operations.</p>
+    <div class="btn-group center">
+      <a href="/request-site-assessment-singapore.html" class="btn btn-primary">Book Site Assessment</a>
+      <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 Discuss Your Project</a>
+    </div>
+  </div>
+</section>
+<!-- ═══ END FINAL CTA ═══ -->
+
+
+<footer id="sv-footer"></footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof SECUREVISION !== "undefined") {
+      var SV = SECUREVISION;
+      document.querySelectorAll(".sv-licence").forEach(function(el) { el.textContent = SV.licenceNumber || ""; });
+      document.querySelectorAll(".sv-sites").forEach(function(el) { el.textContent = SV.siteDisplay || ""; });
+      document.querySelectorAll(".sv-bizsafe").forEach(function(el) { el.textContent = SV.bizsafeLevel || "bizSAFE Level 3"; });
+    }
+  });
+</script>
+<script src="/nav-footer.js"></script>
 
 </body>
 </html>
-
