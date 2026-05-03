@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book a Slot | Securevision Singapore</title>
+    <title>Book a Site Assessment | Securevision Singapore</title>
     <meta name="description" content="Schedule a voice call or on-site assessment with Securevision's security specialists.">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +22,6 @@
             --primary-dark: var(--dark-blue);
         }
 
-        /* ── PAGE LAYOUT ── */
         .booking-page { 
             padding: 80px 0 100px;
             background-color: var(--bg-light);
@@ -42,14 +41,12 @@
 <body style="padding-top:68px">
 <nav id="sv-nav"></nav>
 
-<!-- ── NAVIGATION ── -->
-
 <!-- ── BREADCRUMB ── -->
 <nav class="sv-breadcrumb" aria-label="Breadcrumb">
   <div class="container">
     <ul>
       <li><a href="/">Home</a></li>
-      <li>Book A Slot</li>
+      <li>Book a Site Assessment</li>
     </ul>
   </div>
 </nav>
@@ -58,14 +55,22 @@
     <div class="container">
         <div class="section-header text-center" style="margin-bottom: 64px;">
             <span class="eyebrow">Appointment Request</span>
-            <h1>Book A Slot</h1>
-            <p class="subtitle" style="margin: 0 auto; max-width: 700px;">Let's discuss your security needs. Select your connectivity preference and suggest up to 3 preferred slots below.</p>
+            <h1 id="bookingPageTitle">Book a Site Assessment</h1>
+            <p class="subtitle" style="margin: 0 auto; max-width: 700px;">Let's discuss your security needs. Select your preferred way to connect and suggest up to 3 time slots below.</p>
         </div>
 
         <div class="booking-form-card" style="max-width: 800px; margin: 0 auto;">
             <form id="bookingForm" onsubmit="handleBookingSubmit(event)">
                 <!-- Honeypot -->
                 <input type="text" name="sv_human_verify" style="display:none;">
+
+                <!-- Hidden tracking fields -->
+                <input type="hidden" name="intent" id="hidden_intent" value="">
+                <input type="hidden" name="referrer" id="hidden_referrer" value="">
+                <input type="hidden" name="source_page" id="hidden_source_page" value="">
+                <input type="hidden" name="utm_source" id="hidden_utm_source" value="">
+                <input type="hidden" name="utm_medium" id="hidden_utm_medium" value="">
+                <input type="hidden" name="utm_campaign" id="hidden_utm_campaign" value="">
 
                 <!-- 1. Interaction Type -->
                 <div class="form-section" style="border-top: none; padding-top: 0; margin-top: 0;">
@@ -107,7 +112,7 @@
                             <input type="email" id="email" name="email" required placeholder="name@email.com">
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number</label>
+                            <label for="phone">Phone / WhatsApp</label>
                             <input type="tel" id="phone" name="phone" required placeholder="+65 .... ....">
                         </div>
                     </div>
@@ -119,7 +124,7 @@
                         <h3>3. Project Details</h3>
                     </div>
                     <div class="proposal-form">
-                        <div class="form-group full-width">
+                        <div class="form-group">
                             <label for="prop_type">Property Type</label>
                             <select id="prop_type" name="prop_type" required>
                                 <option value="" disabled selected>Select property type...</option>
@@ -129,6 +134,10 @@
                                 <option value="Industrial">Industrial</option>
                                 <option value="Institutions">Institutions</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="postal_code">Postal Code</label>
+                            <input type="text" id="postal_code" name="postal_code" required placeholder="e.g. 123456" maxlength="6" pattern="[0-9]{6}" title="6-digit Singapore postal code">
                         </div>
                         <div class="form-group full-width">
                             <label>Systems Interested In</label>
@@ -207,7 +216,7 @@
 
                 <div class="submit-wrap">
                     <button type="submit" id="submitBtn" class="btn btn-primary btn-submit">
-                        <span>Confirm Booking Request</span>
+                        <span>Send Booking Request</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </button>
                 </div>
@@ -216,26 +225,37 @@
     </div>
 </main>
 
-<footer id="sv-footer"></footer><!-- Floating WhatsApp -->
-<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+<footer id="sv-footer"></footer>
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="WhatsApp an Engineer" title="WhatsApp an Engineer">
     <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-2.32 0-4.518.905-6.16 2.547-3.285 3.285-3.328 8.614-.09 11.95L4.5 24l3.414-1.28c1.3.705 2.76 1.1 4.117 1.11h.005c5.31 0 9.634-4.321 9.634-9.633 0-2.574-1.002-4.993-2.822-6.814-1.821-1.822-4.24-2.822-6.818-2.822h-.003z"/></svg>
 </a>
 
 <script>
 /**
- * DYNAMIC INTENT HANDLING
- * Parses 'intent' URL parameter and pre-fills form fields
+ * SOURCE TRACKING — populates hidden fields from URL params and document.referrer
  */
 document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const intent = urlParams.get('intent');
-    
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById('hidden_intent').value       = params.get('intent')       || '';
+    document.getElementById('hidden_referrer').value     = document.referrer          || '';
+    document.getElementById('hidden_source_page').value  = window.location.pathname;
+    document.getElementById('hidden_utm_source').value   = params.get('utm_source')   || '';
+    document.getElementById('hidden_utm_medium').value   = params.get('utm_medium')   || '';
+    document.getElementById('hidden_utm_campaign').value = params.get('utm_campaign') || '';
+});
+
+/**
+ * INTENT HANDLER — pre-fills form fields and updates page title based on ?intent= param
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const params    = new URLSearchParams(window.location.search);
+    const intent    = params.get('intent');
     if (!intent) return;
 
-    const pageTitle = document.querySelector('.section-header h1');
+    const pageTitle      = document.getElementById('bookingPageTitle');
     const propertySelect = document.getElementById('prop_type');
-    
-    // Helper to check interest boxes
+
     const checkInterests = (values) => {
         values.forEach(val => {
             const cb = document.querySelector(`input[name="interests"][value="${val}"]`);
@@ -243,8 +263,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Intent Mapping Logic
-    switch(intent) {
+    switch (intent) {
         case 'condo-assessment':
             if (pageTitle) pageTitle.textContent = 'Estate Advisory Booking';
             if (propertySelect) propertySelect.value = 'Condominium';
@@ -315,59 +334,86 @@ document.addEventListener('DOMContentLoaded', () => {
             break;
             
         case 'homepage-assessment':
-            if (pageTitle) pageTitle.textContent = 'Site Assessment Request';
+            if (pageTitle) pageTitle.textContent = 'Book a Site Assessment';
             break;
     }
 });
-function toggleMobileMenu() {
-  const menu = document.getElementById('mobileMenu');
-  if (menu) menu.classList.toggle('active');
-}
 
-function toggleSubmenu(id) {
-  const sub = document.getElementById(id);
-  if (sub) {
-    const isActive = sub.classList.contains('active');
-    document.querySelectorAll('.mobile-submenu').forEach(s => s.classList.remove('active'));
-    if (!isActive) sub.classList.add('active');
-  }
-}
+// ── SUPABASE CLIENT ──
+// Replace the two values below with your actual credentials from Supabase → Project Settings → API
+const SUPABASE_URL  = 'https://bppajrzwqeysrnrucwka.supabase.co';
+const SUPABASE_ANON = 'sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT';
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
-document.addEventListener('click', function (e) {
-  const nav = document.querySelector('.main-nav');
-  const menu = document.getElementById('mobileMenu');
-  if (nav && !nav.contains(e.target) && menu && menu.classList.contains('active')) {
-    menu.classList.remove('active');
-  }
-});
+// ── BOOKING FORM SUBMISSION ──
+async function handleBookingSubmit(event) {
+    event.preventDefault();
 
-// Header scroll effect
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('.main-nav');
-  const logo = document.querySelector('.nav-logo-img');
-  if (nav && logo) {
-    if (window.scrollY > 20) {
-      nav.classList.add('scrolled');
-      logo.src = 'images/securevision-logo-blue.png';
-    } else {
-      nav.classList.remove('scrolled');
-      logo.src = 'images/securevision-logo-white.png';
+    // Honeypot check
+    const honeypot = document.querySelector('input[name="sv_human_verify"]');
+    if (honeypot && honeypot.value !== '') return false;
+
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText   = submitBtn.querySelector('span');
+
+    // Collect checkbox values
+    const interests = [...document.querySelectorAll('input[name="interests"]:checked')]
+        .map(cb => cb.value).join(', ');
+
+    // Collect interaction type
+    const interactionType = document.querySelector('input[name="interaction_type"]:checked')?.value || '';
+
+    // Validate slot 1 is filled (required)
+    const slot1Date = document.querySelector('input[name="slot_date_1"]').value;
+    const slot1Time = document.querySelector('select[name="slot_time_1"]').value;
+    if (!slot1Date || !slot1Time) {
+        alert('Please select at least one preferred slot (date and time).');
+        return false;
     }
-  }
-});
 
-// Auto-highlight active nav link
-document.querySelectorAll('.nav-link').forEach(link => {
-  if (link.href === window.location.href || link.href.split('/').pop() === window.location.pathname.split('/').pop()) {
-    link.classList.add('active');
-  }
-});
+    // Disable button
+    submitBtn.disabled = true;
+    btnText.textContent = 'Sending...';
 
-// Current Year
-const yearSpan = document.querySelector('.current-year');
-if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    const payload = {
+        name:             document.getElementById('name').value.trim(),
+        email:            document.getElementById('email').value.trim(),
+        phone:            document.getElementById('phone').value.trim(),
+        interaction_type: interactionType,
+        prop_type:        document.getElementById('prop_type').value,
+        postal_code:      document.getElementById('postal_code').value.trim(),
+        interests:        interests,
+        slot_date_1:      slot1Date,
+        slot_time_1:      slot1Time,
+        slot_date_2:      document.querySelector('input[name="slot_date_2"]').value   || null,
+        slot_time_2:      document.querySelector('select[name="slot_time_2"]').value  || null,
+        slot_date_3:      document.querySelector('input[name="slot_date_3"]').value   || null,
+        slot_time_3:      document.querySelector('select[name="slot_time_3"]').value  || null,
+        intent:           document.getElementById('hidden_intent').value,
+        referrer:         document.getElementById('hidden_referrer').value,
+        source_page:      document.getElementById('hidden_source_page').value,
+        utm_source:       document.getElementById('hidden_utm_source').value,
+        utm_medium:       document.getElementById('hidden_utm_medium').value,
+        utm_campaign:     document.getElementById('hidden_utm_campaign').value,
+    };
+
+    const { error } = await supabaseClient
+        .from('booking_submissions')
+        .insert([payload]);
+
+    if (error) {
+        console.error('Supabase error:', error);
+        btnText.textContent = 'Something went wrong — please try again.';
+        submitBtn.disabled = false;
+        return false;
+    }
+
+    // Success — redirect to thank-you page
+    window.location.href = '/booking-success.html';
+    return false;
+}
 </script>
-  <script src="/nav-footer.js"></script>
+
+<script src="/nav-footer.js"></script>
 </body>
 </html>
-
