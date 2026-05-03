@@ -277,7 +277,39 @@ document.addEventListener('DOMContentLoaded', () => {
             break;
 
         case 'gov-assessment':
-            setTitle('Institutional Security — Request a Proposal');
+        case 'govt-office':
+            setTitle('Government Office — Request a Proposal');
+            if (propertySelect) propertySelect.value = 'Institutions';
+            checkInterests(['CCTV', 'Access']);
+            break;
+
+        case 'schools-education':
+            setTitle('Education Facility — Request a Proposal');
+            if (propertySelect) propertySelect.value = 'Institutions';
+            checkInterests(['CCTV', 'Access', 'Intercom']);
+            break;
+
+        case 'community-sites':
+            setTitle('Religious & Community Site — Request a Proposal');
+            if (propertySelect) propertySelect.value = 'Institutions';
+            checkInterests(['CCTV', 'Access']);
+            break;
+
+        case 'managed-living':
+        case 'coliving-assessment':
+            setTitle('Co-living Security — Request a Proposal');
+            if (propertySelect) propertySelect.value = 'Institutions';
+            checkInterests(['CCTV', 'Access']);
+            break;
+
+        case 'dormitory-security':
+            setTitle('Dormitory Security — Request a Proposal');
+            if (propertySelect) propertySelect.value = 'Institutions';
+            checkInterests(['CCTV', 'Access']);
+            break;
+
+        case 'hostel-security':
+            setTitle('Hostel Security — Request a Proposal');
             if (propertySelect) propertySelect.value = 'Institutions';
             checkInterests(['CCTV', 'Access']);
             break;
@@ -321,6 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
             checkInterests(['CCTV', 'Access']);
             break;
 
+        case 'systems-assessment':
         case 'homepage-assessment':
             setTitle('Request a Proposal');
             break;
