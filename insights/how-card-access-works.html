@@ -25,7 +25,7 @@
   <!-- Both CSS files required on all insights pages -->
   <link rel="stylesheet" href="/sv-shared.css">
   <script src="/site-config.js"></script>
-  <link rel="stylesheet" href="/sv-guides.css">
+  
 
   <!-- NO <style> BLOCK. All classes are in sv-shared.css and sv-guides.css. -->
 
@@ -34,126 +34,6 @@
 
 <!-- NAV — injected by nav-footer.js -->
 <nav id="sv-nav"></nav>
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     ARTICLE HEADER
-     Dark gradient — no background image (image is for cover only).
-     Per INSTRUCTION-insights.md Section 5.
-
-     BADGE CATEGORY — use exactly one of:
-       Security Planning | Technology | Case Studies | Singapore Industry
-
-     BYLINE — exactly two lines:
-       Line 1: Ler Wee Meng
-       Line 2: Founder & CEO · Securevision · 37+ Years Experience · 37+ Years Experience
-     ═══════════════════════════════════════════════════════════ -->
-<header class="insights-header">
-  <div class="container" style="max-width:900px;">
-
-    <span class="badge badge-primary" style="margin-bottom:20px; display:inline-block;">Technology & AI</span>
-
-    <h1 class="insights-header-title">How Card Access Control Actually Works</h1>
-
-    <p class="insights-header-intro">Most people swipe their access card without thinking about what happens in the half-second between the swipe and the click. Understanding the mechanics helps you specify a system that actually does what you need.</p>
-
-    <div class="hero-byline">
-      <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="hero-byline-img">
-      <div class="hero-byline-text">
-        <strong>Ler Wee Meng</strong>
-        <span>Founder &amp; CEO · Securevision · 37+ Years Experience · 37+ Years Experience</span>
-      </div>
-    </div>
-
-  </div>
-</header>
-<!-- ═══ END ARTICLE HEADER ═══ -->
-
-
-<!-- ═══ BREADCRUMB ═══ -->
-<!-- 4 crumbs: Home → Insights → [Category] → How Card Access Control Actually Works -->
-<nav class="sv-breadcrumb" aria-label="Breadcrumb">
-  <div class="container">
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/insights/">Insights</a></li>
-      <li><a href="/insights/?category=technology-&-ai">Technology & AI</a></li>
-      <li>How Card Access Control Actually Works</li>
-    </ul>
-  </div>
-</nav>
-<!-- ═══ END BREADCRUMB ═══ -->
-
-
-<!-- ═══ ARTICLE BODY + SIDEBAR ═══ -->
-<div class="article-body">
-  <div class="container">
-    <div class="layout-with-sidebar">
-
-
-      <!-- ── MAIN ARTICLE CONTENT ── -->
-      <main class="prose">
-<section id="section1">
-                    <h2>1. The components that make up a door access system</h2>
-                    <p>A card access system has four physical components working together. Understanding each one is what lets you ask the right questions when you are specifying or reviewing a system.</p>
-                    <p><strong>The card or credential.</strong> The most common type in Singapore commercial premises is a 13.56 MHz MIFARE card — the white or branded proximity card most office workers carry. The card contains a unique ID that it broadcasts when brought close to a reader. The card itself does not store access permissions — it only stores an ID number. The decision about whether that ID is allowed through the door is made elsewhere.</p>
-                    <p><strong>The reader.</strong> The device mounted on the wall beside the door. It reads the card's ID and passes it to the controller. Readers vary in read range (typically 3 to 10cm), in what they can read (card only, biometrics), and in how they communicate (Wiegand vs OSDP).</p>
-                    <p><strong>The controller.</strong> The brain of the system. It receives the card ID from the reader, looks it up against an access database, checks time restrictions, and sends a signal to the lock. The controller is typically installed in a secured location like a server room or electrical riser.</p>
-                    <p><strong>The lock.</strong> The physical mechanism that secures the door. Common types in Singapore include electromagnetic locks (EM locks), which release when power is cut, and electric strikes. The choice between fail-secure and fail-safe is critical.</p>
-                    
-                    <div class="callout-box">
-                        <p class="callout-label">KEY POINT</p>
-                        <p>The card does not grant access. The controller grants access based on the card ID. This distinction matters when diagnosing problems — a card that stops working is usually a database or permission issue, not a card hardware failure.</p>
-                    </div>
-                </section>
-
-                <section id="section2">
-                    <h2>2. The Wiegand protocol and why it matters</h2>
-                    <p>Most card access readers in Singapore still use Wiegand to communicate with controllers. Wiegand is a simple, reliable, decades-old protocol that sends the card ID as a stream of pulses down a cable. Its main limitation is that it transmits data unencrypted and in one direction only.</p>
-                    <p>This creates two practical issues. First, the card ID can be intercepted and cloned by someone with the right equipment. Second, Wiegand gives the controller no way to confirm the reader is legitimate. OSDP (Open Supervised Device Protocol) is the modern replacement—it is encrypted, bidirectional, and allows the controller to supervise the reader.</p>
-                    <p>For most Singapore office premises, Wiegand remains the practical standard, but for government or data centres, OSDP is essential.</p>
-                </section>
-
-                <section id="section3">
-                    <h2>3. Fail-safe vs fail-secure — the decision that matters most</h2>
-                    <p>This is the most important design decision in a door access system and the one most often made without proper consideration.</p>
-                    <p><strong>Fail-safe</strong> means the lock releases when power is cut. The door opens. This is required by fire safety regulations for emergency exit doors. EM locks are inherently fail-safe.</p>
-                    <p><strong>Fail-secure</strong> means the lock remains locked when power is cut. The door stays closed. This is appropriate for server rooms or high-security areas where preserving the perimeter is the priority.</p>
-                    
-                    <div class="callout-box">
-                        <p class="callout-label">DESIGN RULE</p>
-                        <p>Every door in your system needs a conscious fail-state decision. The wrong choice can mean a security breach during a power failure or, more critically, a fire safety violation. The Singapore Fire Code has specific requirements about egress doors that must be fail-safe.</p>
-                    </div>
-                </section>
-
-                <section id="section4">
-                    <h2>4. Standalone vs networked systems</h2>
-                    <p>Standalone systems have the controller built into the reader. Each door is independent. Adding a card means programming it at each door. Networked systems connect all controllers back to a central server. All cards are managed from a single interface, and access logs are centralised.</p>
-                    <p>For any installation of more than five doors, a networked system is the correct specification. The additional cost is recovered immediately in administration time.</p>
-
-                    <div class="article-image-box"><img src="/images/insights/insight-how-card-access-works-card-access-controller-panel.png" alt="Access control controller panel in a neatly managed electrical riser"><p class="image-caption">Securevision Verdict</p></div>
-                </section>
-
-                
-
-                
-
-                
-
-                       <!-- PREV/NEXT NAV -->
-        <!-- ═══ ARTICLE FOOTER ELEMENTS — order is fixed ═══ -->
-
-        <!-- 1. Divider -->
-        <hr>
-
-        <!-- 2. Author bio — mandatory, 150–200 words -->
-        
-
-        <!-- 3. Tags — mandatory, 4–5 tags, use <a> not <span> -->
-        
-
-        <!-- 4. Prev/Next navigation — mandatory -->
-        
 
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -265,8 +145,7 @@
 
         <!-- 1. Divider -->
         <hr>
-
-        <!-- 2. Author bio — mandatory, 150–200 words -->
+<!-- 2. Author bio — mandatory, 150–200 words -->
         
 
         <!-- 3. Tags — mandatory, 4–5 tags, use <a> not <span> -->
@@ -277,8 +156,7 @@
 
         <!-- 1. Divider -->
         <hr>
-
-        <!-- 2. Author bio — mandatory, 150–200 words -->
+<!-- 2. Author bio — mandatory, 150–200 words -->
         <section id="author" class="author-bio-footer">
           <div class="abf-flex">
             <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
@@ -289,8 +167,7 @@
             </div>
           </div>
         </section>
-
-        <!-- 3. Tags — mandatory, 4–5 tags, use <a> not <span> -->
+<!-- 3. Tags — mandatory, 4–5 tags, use <a> not <span> -->
         <div class="article-tags">
           <a href="/insights/?category=technology-&-ai" class="tag-pill">[Category]</a>
           
@@ -305,8 +182,7 @@
           <a href="/insights/?tag=commercial-security" class="tag-pill">Commercial Security</a>
           <!-- Add 4th/5th tag if relevant -->
         </div>
-
-        <!-- 4. Prev/Next navigation — mandatory -->
+<!-- 4. Prev/Next navigation — mandatory -->
         <nav class="prev-next-nav" aria-label="Article navigation">
 <a href="/insights/upgrade-condo-intercom.html" class="nav-card">
                         <span>Previous Article</span>
@@ -317,8 +193,7 @@
                         <strong>How to Choose a Multi-Door Access System</strong>
                     </a>
         </nav>
-
-      </main>
+</main>
       <!-- ── END MAIN ARTICLE CONTENT ── -->
 
 
@@ -336,11 +211,11 @@
                         <li><a href="#section5">5. Biometric options</a></li>
                         <li><a href="#section6">6. Good spec checklist</a></li>
                         <li><a href="#author">Meet the Author</a></li>
-            <!-- One per H2 section — do NOT include author bio or tags -->
+<!-- One per H2 section — do NOT include author bio or tags -->
             <li><a href="#author">Meet the Author</a></li>
-            <!-- One per H2 section — do NOT include author bio or tags -->
+<!-- One per H2 section — do NOT include author bio or tags -->
             <li><a href="#author">Meet the Author</a></li>
-          </ul>
+</ul>
 
           <!-- Founder card — do NOT add inline styles, sv-shared handles styling -->
           <div class="founder-card">

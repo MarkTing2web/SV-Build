@@ -25,7 +25,7 @@
   <!-- Both CSS files required on all insights pages -->
   <link rel="stylesheet" href="/sv-shared.css">
   <script src="/site-config.js"></script>
-  <link rel="stylesheet" href="/sv-guides.css">
+  
 
   <!-- NO <style> BLOCK. All classes are in sv-shared.css and sv-guides.css. -->
 
@@ -34,162 +34,6 @@
 
 <!-- NAV — injected by nav-footer.js -->
 <nav id="sv-nav"></nav>
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     ARTICLE HEADER
-     Dark gradient — no background image (image is for cover only).
-     Per INSTRUCTION-insights.md Section 5.
-
-     BADGE CATEGORY — use exactly one of:
-       Security Planning | Technology | Case Studies | Singapore Industry
-
-     BYLINE — exactly two lines:
-       Line 1: Ler Wee Meng
-       Line 2: Founder & CEO · Securevision · 37+ Years Experience · 37+ Years Experience
-     ═══════════════════════════════════════════════════════════ -->
-<header class="insights-header">
-  <div class="container" style="max-width:900px;">
-
-    <span class="badge badge-primary" style="margin-bottom:20px; display:inline-block;">Technology & AI</span>
-
-    <h1 class="insights-header-title">How an IP CCTV Network Actually Works</h1>
-
-    <p class="insights-header-intro">Between the camera lens and the recorded footage, six components are working together in real time. Understanding each one is what lets you spot a poorly specified system before it is installed.</p>
-
-    <div class="hero-byline">
-      <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="hero-byline-img">
-      <div class="hero-byline-text">
-        <strong>Ler Wee Meng</strong>
-        <span>Founder &amp; CEO · Securevision · 37+ Years Experience · 37+ Years Experience</span>
-      </div>
-    </div>
-
-  </div>
-</header>
-<!-- ═══ END ARTICLE HEADER ═══ -->
-
-
-<!-- ═══ BREADCRUMB ═══ -->
-<!-- 4 crumbs: Home → Insights → [Category] → How an IP CCTV Network Actually Works -->
-<nav class="sv-breadcrumb" aria-label="Breadcrumb">
-  <div class="container">
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/insights/">Insights</a></li>
-      <li><a href="/insights/?category=technology-&-ai">Technology & AI</a></li>
-      <li>How an IP CCTV Network Actually Works</li>
-    </ul>
-  </div>
-</nav>
-<!-- ═══ END BREADCRUMB ═══ -->
-
-
-<!-- ═══ ARTICLE BODY + SIDEBAR ═══ -->
-<div class="article-body">
-  <div class="container">
-    <div class="layout-with-sidebar">
-
-
-      <!-- ── MAIN ARTICLE CONTENT ── -->
-      <main class="prose">
-<section id="section1">
-                    <h2>1. The camera — where it starts</h2>
-                    <p>An IP camera contains an image sensor that captures light and converts it to a digital signal. The sensor size matters — a larger sensor collects more light, which is why cameras with bigger sensors perform better in low-light conditions. The image is then compressed inside the camera before transmission. The most common compression standard today is H.265 (also called HEVC), which produces significantly smaller files than the older H.264 standard for the same image quality. This matters for storage sizing: a system using H.265 can store roughly twice as many days of footage as the same system using H.264, on the same amount of hard disk.</p>
-                    <p>Most current IP cameras also include a TF card slot for local storage. This means footage can be stored directly on a memory card inside the camera as a backup if the network connection to the NVR is interrupted. For high-security applications, this redundancy is worth enabling.</p>
-                    <p>The most significant development in IP cameras in recent years is edge analytics — the camera processes the image itself rather than sending raw footage to the NVR for processing. A camera with built-in AI can detect a person crossing a perimeter line, recognise a face, count people in a space, or identify vehicle types, all at the camera level before any footage leaves the device. This reduces the processing load on the NVR and enables faster response times for alert-based applications.</p>
-                    
-                    <div class="callout-box">
-                        <p class="callout-label">KEY POINT</p>
-                        <p>The compression format the camera uses affects your storage costs more than the resolution does. Specify H.265 for any new installation — older H.264 systems consume nearly double the storage for the same footage.</p>
-                    </div>
-                </section>
-
-                <section id="section2">
-                    <h2>2. PoE switches — power and data in one cable</h2>
-                    <p>Power over Ethernet (PoE) is the technology that allows a single Cat5e or Cat6 cable to deliver both network data and electrical power to the camera. This is what makes IP camera installations clean — one cable per camera, no separate power supply required at each mounting point.</p>
-                    <p>PoE switches come in 4, 8, 16, and 24-port configurations. Each port connects to one camera. The switch feeds data up to the NVR and power down to the cameras simultaneously.</p>
-                    <p>Two practical rules govern PoE switch selection:</p>
-                    <ul>
-                        <li><strong>Distance limit.</strong> The maximum cable run between a PoE switch and a camera is 100 metres. Beyond that, signal and power degrade. For larger sites where cameras are spread across a wide area, multiple switches are positioned around the site rather than running all cables back to a single central switch.</li>
-                        <li><strong>Power budget.</strong> Each PoE switch has a total power budget — the maximum wattage it can deliver across all ports simultaneously. A switch rated at 120W shared across 8 ports averages 15W per camera. PTZ cameras and cameras with IR illuminators draw more power than fixed cameras. Always verify the power budget against your camera selection before specifying the switch.</li>
-                    </ul>
-                    
-                    <div style="margin: 40px 0;">
-                        <img src="/images/insights/insight-how-ip-cctv-works-poe-switch-installation.jpg" alt="A PoE network switch with multiple blue Cat6 cables connected, mounted in a wall cabinet or server rack. Clean, professional installation." style="border-radius: 12px; width: 100%;">
-                    </div>
-                </section>
-
-                <section id="section3">
-                    <h2>3. The NVR — recording, storage, and playback</h2>
-                    <p>The Network Video Recorder receives the compressed video streams from all connected cameras, writes them to hard disk, and serves footage for live view and playback. It is the component that ties the system together and the one most likely to become a bottleneck if undersized.</p>
-                    <p>NVRs are rated by channel count — the number of cameras they can manage simultaneously — and by the number of hard disk bays they support. For a typical small commercial installation of 8 to 16 cameras, a 16-channel NVR with 2 to 4 hard disk bays is appropriate. For larger installations, enterprise NVRs or dedicated VMS (Video Management Software) platforms running on server hardware handle 32, 64, or 128 cameras.</p>
-                    <p>For installations where cabling is physically spread across a large building, it is worth specifying an NVR with PoE ports built in — this allows a small number of cameras close to the NVR to connect directly without needing a separate switch. For the majority of cameras at a distance, separate PoE switches feed back to the NVR via uplink.</p>
-                </section>
-
-                <section id="section4">
-                    <h2>4. Hard disk storage — not all disks are equal</h2>
-                    <p>The hard disk inside an NVR is not the same as the hard disk in your laptop. A surveillance hard disk is writing data continuously, 24 hours a day, 7 days a week, every week of the year. Standard desktop hard disks are designed for intermittent read/write operations — subjected to continuous surveillance workloads, they fail significantly faster than rated.</p>
-                    <p>Surveillance-grade disks — Seagate SkyHawk and Western Digital Purple are the two main options for standard installations — are engineered for this continuous write pattern. They also handle the vibration from multiple disks spinning in the same chassis better than desktop drives.</p>
-                    <p>For RAID configurations, the specification steps up further. RAID requires enterprise-grade or NAS-grade disks — Seagate Exos or Western Digital Gold — that are rated for higher workloads and designed to operate reliably alongside other disks in an array. Using standard disks in a RAID configuration is a false economy that typically results in disk failure within 18 months.</p>
-                    
-                    <div style="margin: 40px 0;">
-                        <img src="/images/insights/insight-how-ip-cctv-works-surveillance-hard-disk.jpg" alt="Seagate SkyHawk or WD Purple surveillance hard disk being installed into an NVR hard disk bay. Clear product identification visible. Clean technical shot." style="border-radius: 12px; width: 100%;">
-                    </div>
-
-                    <div class="callout-box">
-                        <p class="callout-label">DESIGN RULE</p>
-                        <p>Change surveillance hard disks every three years regardless of whether they have failed. The read/write cycles accumulated in three years of continuous operation bring most disks close to their rated limit. Replacing them on a schedule is far cheaper than recovering from an unexpected failure when you need the footage.</p>
-                    </div>
-                </section>
-
-                <section id="section5">
-                    <h2>5. Cable infrastructure — Cat6 and patch panels</h2>
-                    <p>The cable connecting cameras to switches and switches to the NVR is Cat5e or Cat6 ethernet, terminated with RJ45 connectors. Cat6 is preferred for new installations — it supports higher bandwidth and performs better over longer runs, particularly relevant as camera resolutions increase.</p>
-                    <p>For larger installations of 16 cameras or more, patch panels are worth specifying. A patch panel sits in the server rack and provides a neat termination point for all incoming camera cables. Individual patch cables then connect each port on the panel to the corresponding port on the PoE switch. This makes fault-finding straightforward — a camera that stops working can be traced to a specific patch panel port, disconnected, and tested without disturbing any other connections.</p>
-                    <p>Without a patch panel, all camera cables terminate directly into the switch. This is acceptable for small installations but creates a tangled, difficult-to-manage installation on anything larger.</p>
-                </section>
-
-                <section id="section6">
-                    <h2>6. Designing the system on paper first</h2>
-                    <p>Before a cable is run or a camera is mounted, the system should exist on paper. A CCTV layout plan shows camera positions, coverage arcs, cable routes, switch locations, and the NVR position. For larger or more complex sites, professional CCTV design software plots the coverage mathematically — showing exactly what area each camera covers at a given field of view and mounting height, and identifying any gaps.</p>
-                    <p>The layout plan is also the document that answers the question every facilities manager eventually asks: which camera covers that area? A system with no documentation is a system that becomes progressively harder to manage as staff change and memories fade.</p>
-                    
-                    <div class="verdict-box">
-                        <p>A system that is designed on paper first, with coverage arcs mapped and cable routes planned, installs faster, has fewer problems, and is easier to maintain than one that is designed on the fly during installation. We produce a layout drawing for every project before we quote. If a contractor is not offering this, ask why.</p>
-                    </div>
-                </section>
-
-                
-
-                <section class="author-bio-footer">
-                    <div class="abf-flex">
-                        <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
-                        <div class="abf-content">
-                            <h3>About the Author</h3>
-                            <p>Ler Wee Meng is the Founder and CEO of Securevision. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London. With over 37 years of experience in the security industry, he has personally overseen the design and implementation of security systems for over 2,000 sites across Singapore, ranging from Good Class Bungalows (GCBs) and large-scale condominiums to industrial complexes and institutional facilities.</p>
-                            <p>He is the principal architect of the Securevision SECURE™ Framework and spearheaded the development of the VESTA integration platform. His direct field experience across thousands of residential units ensures that every system designed by Securevision is practical, maintainable, and built to withstand the unique technical challenges of Singapore's climate and regulatory landscape.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- TAGS -->
-                
-
-                <!-- PREV/NEXT NAV -->
-        <!-- ═══ ARTICLE FOOTER ELEMENTS — order is fixed ═══ -->
-
-        <!-- 1. Divider -->
-        <hr>
-
-        <!-- 2. Author bio — mandatory, 150–200 words -->
-        
-
-        <!-- 3. Tags — mandatory, 4–5 tags, use <a> not <span> -->
-        
-
-        <!-- 4. Prev/Next navigation — mandatory -->
-        
 
 
 <!-- ═══════════════════════════════════════════════════════════
@@ -337,8 +181,7 @@
 
         <!-- 1. Divider -->
         <hr>
-
-        <!-- 2. Author bio — mandatory, 150–200 words -->
+<!-- 2. Author bio — mandatory, 150–200 words -->
         
 
         <!-- 3. Tags — mandatory, 4–5 tags, use <a> not <span> -->
@@ -349,8 +192,7 @@
 
         <!-- 1. Divider -->
         <hr>
-
-        <!-- 2. Author bio — mandatory, 150–200 words -->
+<!-- 2. Author bio — mandatory, 150–200 words -->
         <section id="author" class="author-bio-footer">
           <div class="abf-flex">
             <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
@@ -361,8 +203,7 @@
             </div>
           </div>
         </section>
-
-        <!-- 3. Tags — mandatory, 4–5 tags, use <a> not <span> -->
+<!-- 3. Tags — mandatory, 4–5 tags, use <a> not <span> -->
         <div class="article-tags">
           <a href="/insights/?category=technology-&-ai" class="tag-pill">[Category]</a>
           
@@ -370,8 +211,7 @@
           
           <!-- Add 4th/5th tag if relevant -->
         </div>
-
-        <!-- 4. Prev/Next navigation — mandatory -->
+<!-- 4. Prev/Next navigation — mandatory -->
         <nav class="prev-next-nav" aria-label="Article navigation">
 <a href="/insights/how-to-choose-cctv.html" class="nav-card">
                         <span>Previous Article</span>
@@ -382,8 +222,7 @@
                         <strong>5 Reasons to Rack-Mount Your NVRs</strong>
                     </a>
         </nav>
-
-      </main>
+</main>
       <!-- ── END MAIN ARTICLE CONTENT ── -->
 
 
@@ -402,9 +241,9 @@
                         <li><a href="#section6">6. Designing on paper</a></li>
             <!-- One per H2 section — do NOT include author bio or tags -->
             <li><a href="#author">Meet the Author</a></li>
-            <!-- One per H2 section — do NOT include author bio or tags -->
+<!-- One per H2 section — do NOT include author bio or tags -->
             <li><a href="#author">Meet the Author</a></li>
-          </ul>
+</ul>
 
           <!-- Founder card — do NOT add inline styles, sv-shared handles styling -->
           <div class="founder-card">
