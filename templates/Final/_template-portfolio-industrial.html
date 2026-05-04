@@ -3,7 +3,25 @@ SECUREVISION INDUSTRIAL PORTFOLIO TEMPLATE
 PAGE TYPE:
 Portfolio / Case Study — Industrial Project
 
-VERSION: v1.0 — May 2026
+VERSION: v1.2 — May 2026
+
+CHANGELOG v1.1 → v1.2:
+- Equipment Deployed: brand and model names are now PLAIN TEXT inside the
+  spec cards. The previous v1.1 pattern wrapped them in <a href="/brands/X.html">
+  links. Inline brand links have been removed. Brand discovery happens via the
+  Technologies Implemented snapshot card in Section 6, where brand links are
+  designed to be clickable. The "Learn more about [System] solutions →" link
+  at the bottom of each Equipment Deployed card already provides a path forward.
+
+CHANGELOG v1.0 → v1.1:
+- Section 12 Equipment Deployed: rewritten to use the inline-style-free pattern.
+  Inline style="..." attributes on each <ul> and on each brand <a> link are
+  removed. The new pattern uses <ul class="spec-list"> (styled in sv-shared.css
+  v2.1+) and unstyled brand <a> links (inheriting the global anchor style).
+  Sub-section labels now use inline <strong>Sub-category:</strong> within a <p>,
+  followed by <ul class="spec-list"> for the bullet specs — reads as a single
+  flow per sub-section.
+- All other sections unchanged.
 
 CORE POSITIONING:
 Industrial projects are defined by operational constraints, not security aesthetics.
@@ -268,6 +286,13 @@ Equipment Deployed is mandatory. Populate with accurate specs from project brief
 Include IP ratings, IK ratings, and operating temperature ranges where relevant.
 Do not invent specs or quantities. Use portfolio-system-card inside portfolio-system-grid —
 one card per system category. Add a fourth card for platform/integration if applicable.
+Sub-sections inside each card use the inline <strong>Sub-category:</strong> pattern within
+a <p>, followed by <ul class="spec-list"> for the bullet specs (sv-shared.css v2.1+).
+Brand and model names inside the cards are PLAIN TEXT — not hyperlinked. The "Learn more"
+link at the bottom of each card already provides the path forward; inline brand links
+add visual noise. Brand discovery happens via the Technologies Implemented snapshot card
+in Section 6. Do NOT add inline style="" attributes to <ul> elements — styling comes
+from sv-shared.css.
 
 Transformation uses a comparison table (comparison-table class) — not a narrative block.
 
@@ -944,15 +969,23 @@ HTML TEMPLATE BELOW — START HERE
      Industrial decision-makers and facilities engineers need exact specs,
      including IP ratings, IK ratings, operating temperature, and PoE budget.
 
-     STRUCTURE:
-     - One .portfolio-system-card per system category inside .portfolio-system-grid
-     - Each card: eyebrow (system label) + h3 (system name) + specs list + system link
-     - Specs: use a simple <ul> inside the card — model, quantity, key specs
-     - Product/brand names link to /brands/ pages only — not /systems/ pages
-     - "Learn more" link at bottom of each card goes to the relevant /systems/ page
-     - Use grid-3 for 3 cards, grid-2 for 2 cards — portfolio-system-grid handles layout
+     STRUCTURE (READABILITY PATTERN — sv-shared.css v2.1):
+     - Outer wrapper: portfolio-system-grid (responsive auto-fit, 280px min column).
+     - Each system category: portfolio-system-card (white card, padding 32px, rounded).
+     - Card label: eyebrow (system layer name) + h3 (system / equipment name).
+     - Sub-section labels: inline as <strong>Sub-category:</strong> within a paragraph,
+       e.g. <p class="mt-16"><strong>Cameras:</strong> 12× Hikvision DeepInView thermal IP66.</p>
+     - Spec lists: <ul class="spec-list"> immediately after the paragraph — sv-shared
+       styles this at 0.9rem, var(--text-light) colour, 18px left padding.
+     - Spacing: first sub-section uses mt-16, all subsequent sub-sections use mt-24.
+     - Brand links go to /brands/ pages. "Learn more" links go to /systems/ pages.
 
-     INDUSTRIAL-SPECIFIC SPEC REQUIREMENTS:
+     NO INLINE STYLES.
+     The previous industrial template used inline style="..." attributes on each <ul>
+     and on each brand <a> link. These have been replaced by class-based styling in
+     sv-shared.css v2.1. Do NOT reintroduce inline styles.
+
+     INDUSTRIAL-SPECIFIC SPEC REQUIREMENTS (in the spec-list bullets):
      - Perimeter cameras: include IP rating (min IP66), detection range
      - Outdoor hardware: always include IP rating and material
      - PoE switches: include PoE budget and extended transmission range if relevant
@@ -969,46 +1002,51 @@ HTML TEMPLATE BELOW — START HERE
     <h2>What Was Installed</h2>
     <p class="mt-16">[1 sentence — total scope. e.g. "A complete perimeter and zone access installation — 42 cameras, 8 biometric terminals, and ANPR at all 3 vehicle entry points, unified on a single management platform."]</p>
 
-    <!-- portfolio-system-grid: use grid-3 for 3 cards, grid-2 for 2, grid-4 for 4 -->
     <div class="portfolio-system-grid mt-48">
 
       <!-- ── CARD 1 — repeat per system deployed ── -->
       <div class="portfolio-system-card">
         <span class="eyebrow">[System label — e.g. "Surveillance Layer"]</span>
         <h3>[System name — e.g. "Thermal AI Perimeter Cameras"]</h3>
-        <ul style="margin: 12px 0 20px; padding-left: 18px; font-size: 14px; color: var(--text-gray); line-height: 1.7;">
-          <li>[Qty]× <a href="/brands/[brand].html" style="color: var(--primary-blue); font-weight: 600;">[Brand + Model]</a></li>
-          <li>[Key spec — e.g. IP67, full perimeter fence line coverage]</li>
-          <li>[Key spec — e.g. AI human / animal / vehicle classification]</li>
-          <li>[Key spec — e.g. PTZ auto-tracking on confirmed intrusion]</li>
+
+        <p class="mt-16"><strong>[Sub-category, e.g. "Cameras"]:</strong> [Qty]× [Brand + Model] [brief context — e.g. "covering the full fence line"].</p>
+        <ul class="spec-list">
+          <li>[Key spec — e.g. "IP67, full perimeter fence-line coverage"]</li>
+          <li>[Key spec — e.g. "AI human / animal / vehicle classification"]</li>
+          <li>[Key spec — e.g. "PTZ auto-tracking on confirmed intrusion"]</li>
         </ul>
-        <a href="/systems/premises-security.html" class="layer-link">Surveillance & Detection →</a>
+
+        <p class="mt-24"><a href="/systems/premises-security.html" class="text-link">Surveillance & Detection →</a></p>
       </div>
 
       <!-- ── CARD 2 ── -->
       <div class="portfolio-system-card">
         <span class="eyebrow">[System label — e.g. "Access Control Layer"]</span>
         <h3>[System name — e.g. "Biometric Zone Access"]</h3>
-        <ul style="margin: 12px 0 20px; padding-left: 18px; font-size: 14px; color: var(--text-gray); line-height: 1.7;">
-          <li>[Qty]× <a href="/brands/[brand].html" style="color: var(--primary-blue); font-weight: 600;">[Brand + Model]</a></li>
-          <li>[Key spec — e.g. IP65, suitable for production zone environments]</li>
-          <li>[Key spec — e.g. Contactless facial / fingerprint biometric]</li>
-          <li>[Key spec — e.g. Shift-schedule credential validity]</li>
+
+        <p class="mt-16"><strong>[Sub-category, e.g. "Biometric Terminals"]:</strong> [Qty]× [Brand + Model] [brief context].</p>
+        <ul class="spec-list">
+          <li>[Key spec — e.g. "IP65, suitable for production zone environments"]</li>
+          <li>[Key spec — e.g. "Contactless facial / fingerprint biometric"]</li>
+          <li>[Key spec — e.g. "Shift-schedule credential validity"]</li>
         </ul>
-        <a href="/systems/entry-access-control.html" class="layer-link">Entry Access Control →</a>
+
+        <p class="mt-24"><a href="/systems/entry-access-control.html" class="text-link">Entry Access Control →</a></p>
       </div>
 
       <!-- ── CARD 3 ── -->
       <div class="portfolio-system-card">
         <span class="eyebrow">[System label — e.g. "Vehicle Layer"]</span>
         <h3>[System name — e.g. "ANPR Fleet Management"]</h3>
-        <ul style="margin: 12px 0 20px; padding-left: 18px; font-size: 14px; color: var(--text-gray); line-height: 1.7;">
-          <li>[Qty]× <a href="/brands/[brand].html" style="color: var(--primary-blue); font-weight: 600;">[Brand + Model]</a></li>
-          <li>[Key spec — e.g. Day/night LPR, IP67 rated]</li>
-          <li>[Key spec — e.g. Automated barrier release for whitelisted plates]</li>
-          <li>[Key spec — e.g. Rated for 300,000 cycles]</li>
+
+        <p class="mt-16"><strong>[Sub-category, e.g. "ANPR Cameras"]:</strong> [Qty]× [Brand + Model] [brief context].</p>
+        <ul class="spec-list">
+          <li>[Key spec — e.g. "Day/night LPR, IP67 rated"]</li>
+          <li>[Key spec — e.g. "Automated barrier release for whitelisted plates"]</li>
+          <li>[Key spec — e.g. "Rated for 300,000 cycles"]</li>
         </ul>
-        <a href="/systems/vehicle-lpr-management.html" class="layer-link">Vehicle Access & LPR →</a>
+
+        <p class="mt-24"><a href="/systems/vehicle-lpr-management.html" class="text-link">Vehicle Access & LPR →</a></p>
       </div>
 
       <!-- ── CARD 4 (optional): Platform / Integration ── -->
@@ -1017,13 +1055,15 @@ HTML TEMPLATE BELOW — START HERE
       <div class="portfolio-system-card">
         <span class="eyebrow">Platform Integration</span>
         <h3>[Platform name — e.g. "ZKBio CVSecurity" or "Milestone XProtect"]</h3>
-        <ul style="margin: 12px 0 20px; padding-left: 18px; font-size: 14px; color: var(--text-gray); line-height: 1.7;">
-          <li>Web-based unified management — [what it covers]</li>
-          <li>[Key capability — e.g. Cross-linked access log and camera footage]</li>
-          <li>[Key capability — e.g. Visitor management module]</li>
-          <li>[Key capability — e.g. Personnel records and audit export]</li>
+
+        <p class="mt-16"><strong>Unified Management:</strong> Web-based platform [brief context — e.g. "linking surveillance, access, and vehicle systems"].</p>
+        <ul class="spec-list">
+          <li>[Key capability — e.g. "Cross-linked access log and camera footage"]</li>
+          <li>[Key capability — e.g. "Visitor management module"]</li>
+          <li>[Key capability — e.g. "Personnel records and audit export"]</li>
         </ul>
-        <a href="/systems/security-management-platform.html" class="layer-link">Platform & Management →</a>
+
+        <p class="mt-24"><a href="/systems/security-management-platform.html" class="text-link">Platform & Management →</a></p>
       </div>
 
     </div>

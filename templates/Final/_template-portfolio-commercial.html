@@ -3,7 +3,28 @@ SECUREVISION COMMERCIAL PORTFOLIO TEMPLATE
 PAGE TYPE:
 Portfolio / Case Study — Commercial Project
 
-VERSION: v2.0 — May 2026
+VERSION: v2.2 — May 2026
+
+CHANGELOG v2.1 → v2.2:
+- Equipment Deployed: brand and model names are now PLAIN TEXT inside the
+  spec cards. The previous v2.1 pattern wrapped them in <a href="/brands/X.html">
+  links. Inline brand links have been removed. Brand discovery happens via the
+  Technologies Implemented snapshot card in Section 6, where brand links are
+  designed to be clickable. The "Learn more about [System] solutions →" link
+  at the bottom of each Equipment Deployed card already provides a path forward.
+
+CHANGELOG v2 → v2.1:
+- Section 12 Equipment Deployed: rewritten to use portfolio-system-grid +
+  portfolio-system-card + .spec-list (all canonical in sv-shared.css v2.1).
+  The deprecated equipment-list-grid / eq-category / eq-sub / eq-item
+  pattern is removed from both the HTML and the CSS additions block.
+  Sub-section labels now use inline <strong>Sub-category:</strong> within
+  a paragraph, followed by <ul class="spec-list"> for the bullet specs —
+  reads as a single flow per sub-section instead of three visual stops.
+- Integration block restructured as an additional portfolio-system-card
+  rather than a separate eq-integration container.
+- CSS additions reference block at the bottom: deprecated equipment rules
+  removed and replaced with a one-line note pointing to sv-shared.css v2.1.
 
 CHANGELOG v1 → v2:
 - Hero: added optional background-image pattern (bg-image + hero-image + hero-overlay),
@@ -267,7 +288,11 @@ Choose the 4 most relevant destinations from the approved list. Always include t
 primary sector solution page as card 1.
 
 Equipment Deployed is mandatory on all commercial pages. Populate with accurate specs
-from the project brief only. Do not invent specs or quantities.
+from the project brief only. Do not invent specs or quantities. Use portfolio-system-card
+inside portfolio-system-grid — one card per system category. Sub-sections inside each
+card use the inline <strong>Sub-category:</strong> pattern within a <p>, followed by
+<ul class="spec-list"> for the bullet specs. Do NOT use the deprecated equipment-list-grid
+/ eq-category / eq-sub / eq-item classes — they are not styled in sv-shared.css v2.1+.
 
 Transformation uses a comparison table (comparison-table class) — not a narrative block.
 
@@ -879,21 +904,40 @@ HTML TEMPLATE BELOW — START HERE
      SECTION 12 — EQUIPMENT DEPLOYED (sv-section-grey)
 
      MANDATORY on all commercial pages.
-     This section provides technical specifics for decision-makers
-     who need to know exactly what was installed and why.
+     Provides technical specifics for decision-makers who need to know
+     exactly what was installed and why.
 
-     STRUCTURE:
-     - One .eq-category div per system category (e.g. "Access Control System")
-     - Within each category, use .eq-sub for sub-category labels
-       (e.g. "Controllers", "Readers", "Credentials", "Management Platform")
-     - Use .eq-item for each individual product or line item
-     - Product links go to /brands/ pages — not /systems/ pages
-     - "Learn more" links at the bottom of each category go to /systems/ pages
+     STRUCTURE (READABILITY PATTERN — sv-shared.css v2.1):
+     - Outer wrapper: portfolio-system-grid (responsive auto-fit, 280px min column).
+     - Each system category: portfolio-system-card (white card, padding 32px, rounded).
+     - Card title: <h3> (auto-styled blue 18px by sv-shared).
+     - Sub-section labels: inline as <strong>Sub-category:</strong> within a paragraph,
+       e.g. <p class="mt-16"><strong>Controllers:</strong> 28× ZKTeco InBio Pro across the site.</p>
+     - Spec lists: <ul class="spec-list"> immediately after the paragraph — sv-shared
+       styles this at 0.9rem, var(--text-light) colour, 18px left padding.
+     - Spacing: first sub-section uses mt-16, all subsequent sub-sections use mt-24.
+     - "Learn more" link: <a class="text-link"> in a <p class="mt-24"> at card bottom.
+     - "Learn more" links at the bottom of each card go to /systems/ pages.
+     - Brand and model names inside the cards are PLAIN TEXT — not hyperlinked.
+       The "Learn more" link at the bottom of each card already provides a path
+       forward, and inline brand links inside spec paragraphs add visual noise.
+       Brand discovery happens via the Technologies Implemented snapshot card
+       in Section 6, where brand links are designed to be clickable.
+
+     This pattern reads as a single flow per sub-section ("Controllers: 28× ZKTeco
+     InBio Pro across the site" + supporting bullets) rather than three visual stops
+     (uppercase eyebrow / paragraph / list).
+
+     Both portfolio-system-grid and portfolio-system-card are styled in sv-shared.css.
+     The .spec-list rule is also in sv-shared.css v2.1+ (scoped to .portfolio-system-card).
+
+     DO NOT use the older equipment-list-grid / eq-category / eq-sub / eq-item classes —
+     those are the deprecated pre-v2.1 pattern. The card pattern below is canonical.
 
      INTEGRATION BLOCK:
-     - Include .eq-integration at the bottom only if a custom integration was built
-       (e.g. fire alarm interface, third-party API connection, BMS link)
-     - Delete the integration block if no custom integration was developed
+     - Include the integration card at the bottom only if a custom integration was built
+       (e.g. fire alarm interface, third-party API connection, BMS link).
+     - Delete the integration card if no custom integration was developed.
      ═══════════════════════════════════════════════════════ -->
 <section class="sv-section-grey section-spacing">
   <div class="container">
@@ -901,81 +945,78 @@ HTML TEMPLATE BELOW — START HERE
     <h2>What Was Installed</h2>
     <p class="mt-16">[1 sentence — total scope. e.g. "A full platform migration across 50 doors, replacing an end-of-life EntryPass system with ZKTeco CV Security and 28 InBio Pro controllers."]</p>
 
-    <div class="equipment-list-grid mt-48">
+    <div class="portfolio-system-grid mt-48">
 
       <!-- ── SYSTEM CATEGORY 1 — repeat this block per deployed system ── -->
-      <div class="eq-category">
-        <h4>[System category — e.g. "Access Control System"]</h4>
+      <div class="portfolio-system-card">
+        <h3>[System category — e.g. "Access Control System"]</h3>
 
-        <p class="eq-sub">[Sub-category — e.g. "Controllers"]</p>
-        <div class="eq-item">[Qty]× <a href="/brands/[brand].html">[Brand + Model]</a> — [Brief description]
-          <ul>
-            <li>[Key spec or feature relevant to this deployment]</li>
-            <li>[Key spec or feature]</li>
-          </ul>
-        </div>
+        <p class="mt-16"><strong>[Sub-category, e.g. "Controllers"]:</strong> [Qty]× [Brand + Model] [brief context — e.g. "across all access points"].</p>
+        <ul class="spec-list">
+          <li>[Key spec or feature relevant to this deployment]</li>
+          <li>[Key spec or feature]</li>
+        </ul>
 
-        <p class="eq-sub">[Sub-category — e.g. "Readers"]</p>
-        <div class="eq-item">[Qty]× <a href="/brands/[brand].html">[Brand + Model]</a> — [Description]
-          <ul>
-            <li>[Spec]</li>
-          </ul>
-        </div>
+        <p class="mt-24"><strong>[Sub-category, e.g. "Readers"]:</strong> [Qty]× [Brand + Model] [brief context].</p>
+        <ul class="spec-list">
+          <li>[Spec]</li>
+        </ul>
 
-        <p class="eq-sub">[Sub-category — e.g. "Management Platform"]</p>
-        <div class="eq-item"><strong>[Software / Platform name]</strong> ([Licence / config])
-          <ul>
-            <li>[Feature relevant to this deployment]</li>
-            <li>[Feature]</li>
-          </ul>
-        </div>
+        <p class="mt-24"><strong>[Sub-category, e.g. "Management Platform"]:</strong> [Software / Platform name] ([Licence / config]).</p>
+        <ul class="spec-list">
+          <li>[Feature relevant to this deployment]</li>
+          <li>[Feature]</li>
+        </ul>
 
-        <p class="mt-16"><a href="/systems/entry-access-control.html" class="system-link">Learn more about our Access Control solutions →</a></p>
+        <p class="mt-24"><a href="/systems/entry-access-control.html" class="text-link">Learn more about Access Control solutions →</a></p>
       </div>
 
       <!-- ── SYSTEM CATEGORY 2 ── -->
-      <div class="eq-category">
-        <h4>[System category — e.g. "AI Surveillance System"]</h4>
+      <div class="portfolio-system-card">
+        <h3>[System category — e.g. "AI Surveillance System"]</h3>
 
-        <p class="eq-sub">[Sub-category — e.g. "Cameras"]</p>
-        <div class="eq-item">[Qty]× <a href="/brands/[brand].html">[Brand + Model range]</a> — [Description]
-          <ul>
-            <li>[Spec]</li>
-            <li>[Spec]</li>
-          </ul>
-        </div>
+        <p class="mt-16"><strong>[Sub-category, e.g. "Cameras"]:</strong> [Qty]× [Brand + Model range] [brief context].</p>
+        <ul class="spec-list">
+          <li>[Spec]</li>
+          <li>[Spec]</li>
+        </ul>
 
-        <p class="eq-sub">[Sub-category — e.g. "Recording Infrastructure"]</p>
-        <div class="eq-item">[Qty]× <a href="/brands/[brand].html">[Brand + Model]</a> — [Description]
-          <ul>
-            <li>[Spec]</li>
-          </ul>
-        </div>
+        <p class="mt-24"><strong>[Sub-category, e.g. "Recording Infrastructure"]:</strong> [Qty]× [Brand + Model] [brief context].</p>
+        <ul class="spec-list">
+          <li>[Spec]</li>
+        </ul>
 
-        <p class="mt-16"><a href="/systems/premises-security.html" class="system-link">Learn more about our Surveillance solutions →</a></p>
+        <p class="mt-24"><a href="/systems/premises-security.html" class="text-link">Learn more about Surveillance solutions →</a></p>
       </div>
 
       <!-- ── SYSTEM CATEGORY 3 — add or remove categories as needed ── -->
-      <div class="eq-category">
-        <h4>[System category — e.g. "Vehicle Access & Barriers"]</h4>
+      <div class="portfolio-system-card">
+        <h3>[System category — e.g. "Vehicle Access & Barriers"]</h3>
 
-        <p class="eq-sub">[Sub-category]</p>
-        <div class="eq-item">[Qty]× <a href="/brands/[brand].html">[Brand + Model]</a> — [Description]
-          <ul>
-            <li>[Spec]</li>
-          </ul>
-        </div>
+        <p class="mt-16"><strong>[Sub-category]:</strong> [Qty]× [Brand + Model] [brief context].</p>
+        <ul class="spec-list">
+          <li>[Spec]</li>
+        </ul>
 
-        <p class="mt-16"><a href="/systems/vehicle-lpr-management.html" class="system-link">Learn more about our Vehicle Access solutions →</a></p>
+        <p class="mt-24"><a href="/systems/vehicle-lpr-management.html" class="text-link">Learn more about Vehicle Access solutions →</a></p>
       </div>
 
-    </div>
+      <!-- ── INTEGRATION CARD — include only if custom integration was built ── -->
+      <!-- Delete this card entirely if no custom integration was developed. -->
+      <div class="portfolio-system-card">
+        <h3>Integration & Custom Development</h3>
 
-    <!-- Integration block — include only if custom integration was built. Delete otherwise. -->
-    <div class="eq-integration mt-48">
-      <h4>Integration & Custom Development</h4>
-      <div class="eq-item">[Integration name / type] — [What it connects and what it does]</div>
-      <div class="eq-item">[Second integration if applicable — delete if only one]</div>
+        <p class="mt-16"><strong>[Integration type]:</strong> [What it connects and what it does].</p>
+        <ul class="spec-list">
+          <li>[Detail of the integration]</li>
+        </ul>
+
+        <p class="mt-24"><strong>[Second integration if applicable]:</strong> [Description].</p>
+        <ul class="spec-list">
+          <li>[Detail]</li>
+        </ul>
+      </div>
+
     </div>
 
   </div>
@@ -1339,21 +1380,11 @@ These classes are already present. Listed here for Anti-Gravity reference only.
 .zone-card h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
 .zone-card p { font-size: 14px; color: var(--text-light); margin: 0; }
 
-.equipment-list-grid { display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-.eq-category h4 { color: var(--primary-blue); border-bottom: 3px solid var(--primary-blue);
-  display: inline-block; margin-bottom: 20px; padding-bottom: 4px; font-size: 16px; }
-.eq-sub { font-size: 13px; color: var(--primary-blue); font-weight: 600;
-  margin-top: 20px; margin-bottom: 8px; }
-.eq-item { margin-bottom: 12px; font-size: 14px; position: relative;
-  padding-left: 18px; color: var(--text-gray); }
-.eq-item::before { content: "•"; position: absolute; left: 0;
-  color: var(--primary-blue); font-weight: 700; }
-.eq-item ul { list-style: none; padding: 0; margin: 4px 0 0; }
-.eq-item ul li { font-size: 13px; opacity: 0.8; padding-left: 12px; position: relative; }
-.eq-item ul li::before { content: "–"; position: absolute; left: 0; }
-.eq-integration { border-top: 1px solid var(--border-light); padding-top: 32px; }
-.eq-integration h4 { color: var(--primary-blue); font-size: 16px; margin-bottom: 16px; }
+--- EQUIPMENT DEPLOYED CARDS (sv-shared.css v2.1) ---
+The Equipment Deployed section now uses portfolio-system-grid +
+portfolio-system-card + .spec-list — all canonical in sv-shared.css v2.1+.
+The deprecated equipment-list-grid / eq-category / eq-sub / eq-item rules
+have been removed. Do NOT redefine these classes per-page or per-template.
 
 .result-stat-value { font-family: 'Montserrat', sans-serif; font-size: 48px;
   font-weight: 800; color: var(--primary-blue); margin-bottom: 8px; line-height: 1; display: block; }
@@ -1366,7 +1397,6 @@ These classes are already present. Listed here for Anti-Gravity reference only.
 @media (max-width: 768px) {
   .portfolio-stat-grid { grid-template-columns: repeat(2, 1fr); }
   .zone-grid { grid-template-columns: 1fr; }
-  .equipment-list-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
   .portfolio-stat-grid { grid-template-columns: 1fr; }

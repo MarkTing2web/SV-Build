@@ -112,6 +112,18 @@
                            (.cl-layout, .cl-section, .cl-question,
                            .cl-score-bar, .cl-score-band,
                            .cl-final-score, .cl-cta-strip)
+
+   v2.1  May 2026       Equipment Deployed spec-list rule added:
+                         .portfolio-system-card .spec-list — smaller
+                         font (0.9rem), lighter colour (var(--text-light)),
+                         18px left padding, 8px top margin, 4px item gap.
+                         Standardises a pattern previously achieved with
+                         inline styles on each <ul>. Scoped under
+                         portfolio-system-card so the .spec-list class
+                         cannot accidentally restyle other <ul> elements.
+                         Used in portfolio Equipment Deployed sections
+                         alongside <p><strong>Sub-category:</strong>
+                         description</p> pattern for inline sub-headings.
    ========================================================== */
 
 /* (Existing root and core styles remain) */
@@ -6379,6 +6391,31 @@ section .subtitle {
     font-size: 18px;
     color: var(--primary-blue);
     margin-bottom: 12px;
+}
+
+/* ── Equipment Deployed: spec list inside portfolio-system-card ──
+   Smaller-font, lighter-colour bulleted list for sub-section specs.
+   Scoped under .portfolio-system-card so the .spec-list class will
+   not accidentally restyle <ul> elements elsewhere on the site.
+   Replaces the previous inline-style pattern on each <ul>.
+   See v2.1 in the version history for details.
+   ───────────────────────────────────────────────────────────── */
+.portfolio-system-card .spec-list {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    padding-left: 18px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    list-style: disc;
+}
+
+.portfolio-system-card .spec-list li {
+    margin-bottom: 4px;
+    line-height: 1.55;
+}
+
+.portfolio-system-card .spec-list li:last-child {
+    margin-bottom: 0;
 }
 
 .comparison-table {

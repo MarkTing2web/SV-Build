@@ -1,0 +1,1134 @@
+SECUREVISION HEALTHCARE PORTFOLIO TEMPLATE
+
+PAGE TYPE:
+Portfolio / Case Study — Healthcare / Managed Living / Special-Needs Care Project
+
+VERSION: v1.1 — May 2026
+
+CHANGELOG v1.0 → v1.1:
+- Equipment Deployed: brand and model names are now PLAIN TEXT inside the
+  spec cards. Inline brand links have been removed. Brand discovery happens
+  via the Technologies Implemented snapshot card in Section 6, where brand
+  links are designed to be clickable. The "Learn more about [System]
+  solutions →" link at the bottom of each Equipment Deployed card already
+  provides a path forward.
+
+CORE POSITIONING:
+Healthcare projects are defined by duty of care first, security second.
+Residents and patients are the people the system serves — never the threat the system
+guards against. The challenge always starts with the care environment: who lives here,
+who works here, and how does the building support both groups safely without making
+the place feel like a prison.
+
+This template applies to:
+- Nursing homes and aged-care facilities
+- Special-needs residential care (intellectual disability, autism, dyslexia support)
+- Hospitals and clinics
+- Hospices and palliative care
+- Mental-health residential facilities
+- Dementia and memory-care facilities
+
+The brief is almost always: protect residents (some of whom may wander, some of whom
+may be vulnerable to outside threat), support staff (who need accountability and quick
+response), and respect dignity (no language or imagery that treats residents as suspects).
+
+STRICT TEMPLATE DISCIPLINE:
+- Nav and footer are injected by nav-footer.js. Use <nav id="sv-nav"></nav> and
+  <footer id="sv-footer"></footer> as placeholders only. Never hardcode nav or footer HTML.
+- Do not include toggleMobileMenu, toggleSubmenu, scroll listener, or click-outside scripts.
+  nav-footer.js owns all of these.
+- Use sv-shared.css as the only source for typography, spacing, colours, buttons, cards,
+  nav, footer, breadcrumbs, trust bar, related project cards, and final CTA.
+- Do not add inline CSS or page-specific style blocks except:
+  (a) background-image on the hero header when a project photo is used, and
+  (b) background-image on the final CTA section.
+  These are the only two permitted inline style="" attributes in the entire file.
+- The final CTA must use the shared final-cta / cta-high-impact classes.
+- No licence/bizsafe footnote paragraph inside the final CTA. The footer handles this.
+
+STANDARD PAGE FLOW:
+1.  Head
+2.  Nav — <nav id="sv-nav"></nav>
+3.  Hero
+4.  Trust Bar
+5.  Breadcrumb
+6.  Project Snapshot         (sv-section-grey)
+7.  The Care Context         (sv-section-white)   ← HEALTHCARE-SPECIFIC
+8.  Transformation           (sv-section-grey)
+9.  Decision Point           (sv-section-white)
+10. Our Approach             (sv-section-grey)
+11. The Solution             (sv-section-white)
+12. Equipment Deployed       (sv-section-grey)
+13. Results & Impact         (sv-section-white)
+14. Securevision Insight     (sv-section-grey + no-bottom-spacing)
+15. Discovery Path           (sv-section-white)
+16. Related Projects         (sv-section-grey)
+17. Final CTA                (dark full-width image overlay)
+18. Footer — <footer id="sv-footer"></footer>
+19. DOMContentLoaded script
+20. <script src="/nav-footer.js"></script>
+
+SECTION EYEBROW NAMES — MANDATORY:
+Use exactly these eyebrow labels.
+- Project Snapshot
+- Technologies Implemented
+- The Care Context             ← replaces "The Challenge" for healthcare
+- Transformation
+- Decision Point
+- Our Approach
+- The Solution
+- Equipment Deployed
+- Results & Impact
+- Securevision Insight
+- Discovery Path
+- Next Steps in Discovery
+- Start Your Project  (eyebrow-light inside Final CTA only)
+
+BACKGROUND ALTERNATION — MANDATORY:
+Section 6  Project Snapshot      sv-section-grey
+Section 7  The Care Context      sv-section-white
+Section 8  Transformation        sv-section-grey
+Section 9  Decision Point        sv-section-white
+Section 10 Our Approach          sv-section-grey
+Section 11 The Solution          sv-section-white
+Section 12 Equipment Deployed    sv-section-grey
+Section 13 Results & Impact      sv-section-white
+Section 14 Securevision Insight  sv-section-grey + no-bottom-spacing
+Section 15 Discovery Path        sv-section-white
+Section 16 Related Projects      sv-section-grey
+Section 17 Final CTA             Dark full-width image overlay
+
+WHAT DIFFERS FROM THE COMMERCIAL TEMPLATE:
+1. Section 7 is "The Care Context" not "The Challenge".
+   The framing is duty-of-care, not security threat. Describe the care population
+   first, the operational reality of caregiving second, and the security need third.
+2. Project Snapshot table has TWO mandatory healthcare-specific rows:
+   - "Resident Profile" — who lives here (e.g. "Adults with intellectual disability,
+     residential care", "Elderly residents, dementia and frailty care")
+   - "Care Considerations" — what the design must respect (e.g. "Wandering risk —
+     egress requires staff supervision but no resident lock-in", "Visiting families
+     need easy daytime access; site secured at night")
+3. Discovery Path card 1 is always /solutions/healthcare.html with /images/prop-healthcare.webp
+   (verify image path exists; fallback /images/prop-institutional.webp if not).
+4. Related Projects should prefer other healthcare or managed-living projects first.
+5. Hero badge text uses healthcare-specific sub-sectors — see list below.
+6. Section 11 "The Solution" emphasises dignity — describe what the system enables
+   for residents (independence, supervised freedom) before what it controls.
+7. TONE NOTE — STRICT:
+   Residents and patients are never described as the threat. The threat is unauthorised
+   external access, medical emergencies, wandering off-site, or accountability gaps for
+   staff. The system protects residents, supports staff, and reassures families.
+
+WHAT IS IDENTICAL TO THE COMMERCIAL TEMPLATE:
+- Hero structure (portfolio-hero, portfolio-stat-grid, portfolio-stat)
+- Optional hero bg-image pattern (hero-image + hero-overlay)
+- Optional taxonomy chips (portfolio-taxonomy, portfolio-chip)
+- Trust bar (sv-trust-bar, trust-inner)
+- Breadcrumb (sv-breadcrumb, ol > li)
+- Portfolio Snapshot grid (portfolio-snapshot-grid, snapshot-main, snapshot-tech-col)
+- Technologies Implemented card (snapshot-tech-card, portfolio-tech-stack, portfolio-tech-item)
+- Solution layer cards (portfolio-layer-card)
+- Result cards (portfolio-result-card, portfolio-result-title, portfolio-result-text)
+- Securevision Insight (portfolio-insight-section, portfolio-insight)
+- Discovery Path (portfolio-link-stack, portfolio-link-card, portfolio-link-card-body)
+- Related Projects (grid-3, card + card-clickable + related-project-card, related-project-body,
+  related-project-badge, related-project-title, related-project-text, related-project-link)
+- Final CTA (final-cta, cta-high-impact, eyebrow-light, btn-group center)
+- DOMContentLoaded script (sv-licence, sv-sites, sv-bizsafe)
+- Nav and footer injection pattern
+
+HERO BADGE — HEALTHCARE SUB-SECTOR OPTIONS:
+Match the sub-sector exactly:
+- HEALTHCARE CASE STUDY              (generic — use when no sub-sector applies)
+- NURSING HOME CASE STUDY            (aged-care residential)
+- MANAGED LIVING CASE STUDY          (assisted living, community living)
+- HOSPITAL CASE STUDY                (general hospitals, polyclinics)
+- SPECIAL CARE CASE STUDY            (intellectual disability, autism, dyslexia support)
+- DEMENTIA CARE CASE STUDY           (memory-care specific facilities)
+- HOSPICE CASE STUDY                 (palliative / end-of-life care)
+- MENTAL HEALTH CASE STUDY           (psychiatric residential, recovery facilities)
+
+HERO — TWO VALID VARIANTS:
+
+VARIANT A — Background image (use when a project photograph exists):
+<header class="portfolio-hero" style="background-image: linear-gradient(rgba(14,26,43,0.82),
+  rgba(14,26,43,0.82)), url('/images/portfolio/[hero-image].webp');">
+  <img src="/images/portfolio/[hero-image].webp" alt="[Project Name]" class="hero-image">
+  <div class="hero-overlay"></div>
+  <div class="container pos-relative z-2">
+    [hero content]
+  </div>
+</header>
+
+VARIANT B — Gradient only (use when no project photograph is available):
+<header class="portfolio-hero">
+  <div class="container">
+    [hero content]
+  </div>
+</header>
+
+CARE CONTEXT SECTION (Section 7) — TWO VALID VARIANTS:
+
+VARIANT A — With contextual image (use when image exists, must be a non-identifying
+contextual photograph — e.g. building exterior, common area without residents,
+care-environment detail. Never publish photographs that identify residents.):
+
+<div class="portfolio-image-text-grid">
+  <div class="challenge-copy"> ... </div>
+  <figure class="portfolio-context-image">
+    <img src="..." alt="...">
+    <figcaption>...</figcaption>
+  </figure>
+</div>
+
+VARIANT B — Full-width prose (use when no image exists or for privacy reasons):
+<div class="challenge-copy">
+  [all care context content — no grid wrapper needed]
+</div>
+
+HEALTHCARE CARE-CONTEXT THEMES (choose what fits this project):
+- Resident vulnerability — physical, cognitive, or developmental — that the design must
+  accommodate without compromising dignity
+- Wandering or elopement risk — residents who may try to leave unsupervised
+- Family access — visiting hours, supervised contact, or restricted access depending
+  on case
+- Staff accountability — incident review, medication administration, dispute resolution
+- Emergency response — medical emergencies, fire evacuation with mobility-impaired
+  residents
+- Regulatory and licensing requirements (MOH, AIC, SSA, agency-specific licences)
+- Building transition — upgrade, rebuild, or move between premises (common in
+  managed-living facilities)
+- Funder/agency reporting — many of these facilities answer to government funders
+  who require evidence of safe practice
+
+DISCOVERY PATH — HEALTHCARE APPROVED LINK DESTINATIONS:
+Card 1 is always: /solutions/healthcare.html → Healthcare & Managed Living
+Image: /images/prop-healthcare.webp (verify; fallback /images/prop-institutional.webp)
+
+Cards 2–4 — choose from systems actually deployed in this project:
+/systems/premises-security.html          → Surveillance & Detection
+  Image: /images/pillar_surveillance.webp
+/systems/entry-access-control.html       → Entry Access Control
+  Image: /images/pillar_people_access.webp
+/systems/security-management-platform.html → Platform & Management
+  Image: /images/pillar_maintenance.webp
+/systems/ip-phone-communications.html    → IP Phone & Communications
+  Image: /images/pillar_intercom.webp (verify)
+
+Adjacent solution pages (use as card 4 if relevant):
+/solutions/managed-living.html           → Managed Living (sub-page)
+/solutions/institutions.html             → Institutions & Government
+/solutions/residential.html              → Residential
+
+TECHNOLOGIES IMPLEMENTED — HEALTHCARE BRANDS:
+Keep only brands actually deployed. Delete all others before handoff.
+Common healthcare technology combinations:
+- Surveillance:    Hikvision / Hanwha / Milesight (discreet IP cameras, common areas only)
+- Access:          MicroEngine / EntryPass / ZKTeco / Suprema (door access for staff zones,
+                   medication rooms, entry/exit, lift access control)
+- Intercom:        Aiphone / Kocom (visitor verification, staff-to-resident comms)
+- Alarm:           AJAX / DSC / RISCO / Paradox (wandering alarms, perimeter, intrusion)
+- Power:           Centralised UPS — most healthcare systems back up CCTV and access
+                   centrally, especially for licensed care facilities
+
+DOMContentLoaded SCRIPT — MANDATORY:
+Add before </body>, before nav-footer.js:
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof SECUREVISION !== "undefined") {
+      var SV = SECUREVISION;
+      document.querySelectorAll(".sv-licence").forEach(function(el) { el.textContent = SV.licenceNumber || ""; });
+      document.querySelectorAll(".sv-sites").forEach(function(el) { el.textContent = SV.siteDisplay || ""; });
+      document.querySelectorAll(".sv-bizsafe").forEach(function(el) { el.textContent = SV.bizsafeLevel || "bizSAFE Level 3"; });
+    }
+  });
+</script>
+<script src="/nav-footer.js"></script>
+
+TONE:
+- Care-led and operationally specific
+- Speaks to facility owners, care managers, charity directors, MOH/AIC reviewers,
+  family members of residents, and operating partners
+- Respectful and non-clinical — describe residents as residents, never as "subjects"
+  or "occupants" or anything that erases personhood
+- Acknowledge the dignity dimension explicitly where it shaped the design
+- British English throughout (authorisation, optimisation, programme, licence, centre)
+- First-person voice in the Securevision Insight section only
+
+DO NOT:
+- Frame residents or patients as the threat the system guards against
+- Use surveillance language that implies suspicion of residents (e.g. "monitoring" of
+  residents — use "supporting staff supervision" or "common-area awareness" instead)
+- Publish photographs that identify residents — even silhouettes can be identifying
+  in small care settings
+- Name residents or quote them
+- Use exact bed counts in marketing copy if the facility is privacy-sensitive
+- Imply medical outcomes the system cannot deliver
+- Start with products or brands — the care context always comes first
+- Add any inline styles except hero and final CTA background-image
+- Hardcode nav, footer, or any JS scripts
+- Add a licence/bizsafe footnote paragraph inside the Final CTA
+- Use portfolio-link-content as a class — the correct class is portfolio-link-card-body
+- Use related-project-content as a class — the correct class is related-project-body
+- Use grid-2 for Related Projects — it must always be grid-3
+
+ANTI-GRAVITY RULE:
+Tell Anti-Gravity:
+"Use the healthcare portfolio template v1. Do not invent a new layout. Fill the approved
+blocks with project content only.
+
+Nav: <nav id='sv-nav'></nav> injected by nav-footer.js.
+Footer: <footer id='sv-footer'></footer> injected by nav-footer.js.
+Scripts: Add <script src='/nav-footer.js'></script> before </body>.
+Do not hardcode nav, footer, or JS.
+
+Hero: Use Variant A (background-image) if a non-identifying project photo exists.
+Use Variant B (gradient only, no inline style) if no photo. The hero ends after the
+portfolio-stat-grid — do NOT add any CTA button inside the hero. All CTAs live in the
+final CTA section only. Taxonomy chips are optional — max 3.
+
+Section 7 'The Care Context': Frame the care population first, the operational reality
+second, and the security need third. Use Variant A (portfolio-image-text-grid) with
+contextual image when one exists. Use Variant B (challenge-copy div only, no grid
+wrapper) when no image. Never override the grid with an inline style.
+
+Project Snapshot table MUST include 'Resident Profile' and 'Care Considerations' rows.
+
+Technologies Implemented: links to /brands/ pages only — not /systems/ pages.
+Discovery Path: links to /solutions/ or /systems/ pages only — not /brands/ pages.
+Use portfolio-link-card-body (not portfolio-link-content) as the card body class.
+Card 1 is always /solutions/healthcare.html.
+
+Equipment Deployed is mandatory. Populate with accurate specs from project brief only.
+Use portfolio-system-card inside portfolio-system-grid — one card per system category.
+Sub-sections inside each card use the inline <strong>Sub-category:</strong> pattern
+within a <p>, followed by <ul class="spec-list"> for the bullet specs (sv-shared.css
+v2.1+). Brand and model names inside the cards are PLAIN TEXT — not hyperlinked. The
+"Learn more about [System] solutions →" link at the bottom of each card already provides
+the path forward; inline brand links add visual noise. Brand discovery happens via the
+Technologies Implemented snapshot card in Section 6.
+
+Transformation uses a comparison table (comparison-table class). For new-build
+healthcare, the 'Before' column shows the old building or the old way of doing it,
+and the 'After' column shows the new system.
+
+Results & Impact: Format A (hard stats) or Format B (qualitative). Never mix.
+For care facilities, qualitative outcomes (Format B) often serve better — stats can
+feel impersonal in a care setting.
+
+DIGNITY RULE — STRICT:
+Never frame residents or patients as the threat. The system protects residents,
+supports staff, and reassures families. Use 'common-area awareness' or 'staff
+supervision support' rather than 'monitoring residents'. Never describe residents
+in clinical language that strips personhood.
+
+Related Projects: use grid-3 (always 3 cards). Each card must use:
+card + card-clickable + related-project-card on the anchor,
+related-project-body for the inner div,
+related-project-badge for the sector label,
+related-project-title for the h3,
+related-project-text for the description paragraph,
+related-project-link for the arrow text.
+Prefer other healthcare or managed-living projects as cards 1 and 2.
+
+Final CTA: use final-cta + cta-high-impact classes. One permitted inline style only:
+background-image on the section element. No footnote paragraph. Use eyebrow-light
+for the eyebrow. Use btn-group center for the button row.
+
+Background alternation: use sv-section-grey and sv-section-white classes exactly.
+Never use style='background:...' for section backgrounds.
+
+Do not add inline styles except hero background-image and final CTA background-image."
+
+---
+HTML TEMPLATE BELOW — START HERE
+---
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══ SEO: UPDATE THESE PER PROJECT ═══ -->
+  <title>[PROJECT NAME] — Healthcare Security Case Study | Securevision Singapore</title>
+  <meta name="description" content="[140–160 chars: what Securevision did and the key outcome for this healthcare project. Lead with the care benefit, not the technology.]">
+  <link rel="canonical" href="https://www.securevision.com.sg/portfolio/[slug].html">
+  <meta property="og:title" content="[PROJECT NAME] — Healthcare Case Study | Securevision">
+  <meta property="og:description" content="[SAME AS META DESCRIPTION]">
+  <meta property="og:image" content="https://www.securevision.com.sg/images/portfolio/[project]-hero.webp">
+  <meta property="og:url" content="https://www.securevision.com.sg/portfolio/[slug].html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Securevision">
+  <!-- ════════════════════════════════════════ -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/sv-shared.css">
+  <script src="/site-config.js"></script>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="sv-nav"></nav>
+<!-- ═══ END NAV ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 3 — HERO
+
+     BADGE TEXT — choose exact sub-sector:
+     - HEALTHCARE CASE STUDY
+     - NURSING HOME CASE STUDY
+     - MANAGED LIVING CASE STUDY
+     - HOSPITAL CASE STUDY
+     - SPECIAL CARE CASE STUDY
+     - DEMENTIA CARE CASE STUDY
+     - HOSPICE CASE STUDY
+     - MENTAL HEALTH CASE STUDY
+
+     HERO STATS: exactly 4, all factual from the project brief.
+     ═══════════════════════════════════════════════════════ -->
+
+<!-- VARIANT A (with background image) — delete if using Variant B -->
+<header class="portfolio-hero" style="background-image: linear-gradient(rgba(14,26,43,0.82), rgba(14,26,43,0.82)), url('/images/portfolio/[hero-image].webp');">
+  <img src="/images/portfolio/[hero-image].webp" alt="[Project Name]" class="hero-image">
+  <div class="hero-overlay"></div>
+  <div class="container pos-relative z-2">
+<!-- END VARIANT A OPEN — the inner content block below is shared by both variants -->
+
+<!-- VARIANT B (gradient only, no photo) — replace the three lines above with:
+<header class="portfolio-hero">
+  <div class="container">
+-->
+
+    <!-- Sector badge + location + facility type -->
+    <div class="portfolio-kicker">
+      <span class="badge badge-primary">[SECTOR] CASE STUDY</span>
+      <span class="portfolio-meta">📍 [Location — district or general area]</span>
+      <span class="portfolio-meta">[Facility type — e.g. Nursing Home / Special-Needs Residence]</span>
+    </div>
+
+    <h1 class="portfolio-hero-title">[PROJECT NAME — care-led, not product-led]</h1>
+    <p class="portfolio-hero-subtitle">[One sentence — what the system enables for residents, staff, and families. Not a security pitch.]</p>
+
+    <!-- Taxonomy chips — OPTIONAL. Delete this block if not needed. Max 3 chips. -->
+    <div class="portfolio-taxonomy" aria-label="Project taxonomy">
+      <span class="portfolio-chip">[e.g. Special Care]</span>
+      <span class="portfolio-chip">[e.g. Access Control]</span>
+      <span class="portfolio-chip">[e.g. New Building]</span>
+    </div>
+    <!-- END optional taxonomy chips -->
+
+    <!-- 4-stat strip — mandatory, exactly 4, all factual from project brief -->
+    <div class="portfolio-stat-grid">
+      <div class="portfolio-stat">
+        <span class="portfolio-stat-value">[VALUE]</span>
+        <span class="portfolio-stat-label">[LABEL]</span>
+      </div>
+      <div class="portfolio-stat">
+        <span class="portfolio-stat-value">[VALUE]</span>
+        <span class="portfolio-stat-label">[LABEL]</span>
+      </div>
+      <div class="portfolio-stat">
+        <span class="portfolio-stat-value">[VALUE]</span>
+        <span class="portfolio-stat-label">[LABEL]</span>
+      </div>
+      <div class="portfolio-stat">
+        <span class="portfolio-stat-value">[VALUE]</span>
+        <span class="portfolio-stat-label">[LABEL]</span>
+      </div>
+    </div>
+
+  </div>
+</header>
+<!-- ═══ END SECTION 3 — HERO ═══ -->
+
+
+<!-- ═══ SECTION 4 — TRUST BAR ═══ -->
+<div class="sv-trust-bar">
+  <div class="container">
+    <div class="trust-inner">
+      <span>Police Licensed</span>
+      <span class="divider">|</span>
+      <span class="sv-bizsafe"></span>
+      <span class="divider">|</span>
+      <span>BCA Registered</span>
+      <span class="divider">|</span>
+      <span><span class="sv-sites"></span> Sites</span>
+    </div>
+  </div>
+</div>
+<!-- ═══ END SECTION 4 — TRUST BAR ═══ -->
+
+
+<!-- ═══ SECTION 5 — BREADCRUMB ═══ -->
+<nav class="sv-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/portfolio/">Portfolio</a></li>
+      <li>[PROJECT NAME]</li>
+    </ul>
+  </div>
+</nav>
+<!-- ═══ END SECTION 5 — BREADCRUMB ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 6 — PROJECT SNAPSHOT (sv-section-grey)
+
+     HEALTHCARE-SPECIFIC TABLE ROWS:
+     - Client            (charity name, operator, or "Confidential, [Care Type]")
+     - Stakeholders      (operator, main contractor, funding agency if relevant)
+     - Location          (district — full address only with permission)
+     - Sector            (Healthcare — Nursing Home / Special Care / etc.)
+     - Resident Profile  (who lives here — MANDATORY)
+     - Care Considerations (what the design must respect — MANDATORY)
+     - Project Type      (New Building / Upgrade / Premises Move)
+     - Awarded           (Month Year — when the contract was awarded)
+     - Completion        (Month Year)
+     - Scale             (Quantified scope)
+     ═══════════════════════════════════════════════════════ -->
+<section class="portfolio-snapshot sv-section-grey section-spacing">
+  <div class="container">
+    <div class="portfolio-snapshot-grid">
+
+      <!-- Left: project context + table -->
+      <div class="snapshot-main">
+        <span class="eyebrow">Project Snapshot</span>
+        <p class="mt-16">[2–3 sentence project context. The care setting, who it serves, and why a thoughtful security design mattered. Keep the framing care-led, not security-led.]</p>
+
+        <table class="portfolio-overview-table mt-32">
+          <tbody>
+            <tr>
+              <th>Client</th>
+              <td>[Operator name — or "Confidential, [Care Type]"]</td>
+            </tr>
+            <tr>
+              <th>Stakeholders</th>
+              <td>[e.g. "[Operator] (owner) · [Main contractor] (build)"]</td>
+            </tr>
+            <tr>
+              <th>Location</th>
+              <td>[District, Singapore]</td>
+            </tr>
+            <tr>
+              <th>Sector</th>
+              <td>[Healthcare — Nursing Home / Special Care / etc.]</td>
+            </tr>
+            <tr>
+              <th>Resident Profile</th>
+              <td>[Who lives here — e.g. "Adults with intellectual disability, residential care"]</td>
+            </tr>
+            <tr>
+              <th>Care Considerations</th>
+              <td>[What the design must respect — e.g. "Supervised egress; family visits in daytime; full external secure perimeter at night"]</td>
+            </tr>
+            <tr>
+              <th>Project Type</th>
+              <td>[New Building / Upgrade / Premises Move / Phased Rollout]</td>
+            </tr>
+            <tr>
+              <th>Awarded</th>
+              <td>[Month Year]</td>
+            </tr>
+            <tr>
+              <th>Completion</th>
+              <td>[Month Year]</td>
+            </tr>
+            <tr>
+              <th>Scale</th>
+              <td>[Quantified scope — e.g. "96 IP cameras, 2× 64-channel NVRs, 59 access-controlled doors, 1 lift access controller"]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Right: Technologies Implemented card -->
+      <div class="snapshot-tech-col">
+        <span class="eyebrow">Technologies Implemented</span>
+        <div class="snapshot-tech-card">
+          <div class="portfolio-tech-stack">
+
+            <!-- Keep only brands actually used. Delete all others before handoff. -->
+
+            <a href="/brands/hikvision-cctv.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">Hikvision</span>
+              <span class="tech-brand-desc">IP surveillance cameras and NVR recording.</span>
+            </a>
+
+            <a href="/brands/milesight-cctv.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">Milesight</span>
+              <span class="tech-brand-desc">AI cameras and network video recorders.</span>
+            </a>
+
+            <a href="/brands/microengine-entry-access.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">MicroEngine</span>
+              <span class="tech-brand-desc">Access controllers and lift access management.</span>
+            </a>
+
+            <a href="/brands/zkteco-entry-access.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">ZKTeco</span>
+              <span class="tech-brand-desc">Biometric readers and access management.</span>
+            </a>
+
+            <a href="/brands/aiphone.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">Aiphone</span>
+              <span class="tech-brand-desc">IP intercom for visitor verification.</span>
+            </a>
+
+            <a href="/brands/ajax-alarm.html" class="portfolio-tech-item">
+              <span class="tech-brand-name">AJAX</span>
+              <span class="tech-brand-desc">Wireless intrusion alarm and perimeter detection.</span>
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 6 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 7 — THE CARE CONTEXT (sv-section-white)
+
+     Frame the care population first, the operational reality of caregiving second,
+     and the security need third. Never lead with security threat for healthcare.
+
+     VARIANT A — With non-identifying contextual image (use when image exists)
+     VARIANT B — Full-width prose (use when no image, or for privacy reasons)
+     ═══════════════════════════════════════════════════════ -->
+<section class="portfolio-challenge sv-section-white section-spacing">
+  <div class="container">
+
+    <!-- VARIANT A: with image — use portfolio-image-text-grid -->
+    <div class="portfolio-image-text-grid">
+      <div class="challenge-copy">
+        <span class="eyebrow">The Care Context</span>
+        <h2>[Care-context headline — describes the care setting, not the security gap]</h2>
+        <p>[Paragraph 1 — describe who lives here and what daily life looks like. The care environment, not the security perimeter.]</p>
+        <p>[Paragraph 2 — describe the operational reality of caring for this population. What support do staff need to do their job well?]</p>
+        <p>[Paragraph 3 — and only here, the security need. What was the gap? Why did it matter for residents and for staff?]</p>
+      </div>
+
+      <figure class="portfolio-context-image">
+        <img src="/images/portfolio/[care-context-image].webp" alt="[Descriptive alt — non-identifying image of building exterior or context, never residents]">
+        <figcaption>[Caption — what this image shows. Building, common area, or contextual detail only.]</figcaption>
+      </figure>
+    </div>
+
+    <!-- VARIANT B: no image — replace the block above with:
+    <div class="challenge-copy">
+      <span class="eyebrow">The Care Context</span>
+      <h2>[Care-context headline]</h2>
+      <p>[Paragraph 1 — care population]</p>
+      <p>[Paragraph 2 — operational reality]</p>
+      <p>[Paragraph 3 — security need]</p>
+    </div>
+    -->
+
+  </div>
+</section>
+<!-- ═══ END SECTION 7 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 8 — TRANSFORMATION (sv-section-grey)
+
+     Comparison TABLE.
+     For new-build / new-installation, use 'Before [Project]' or 'Old Building' on
+     the left and 'New Building / Securevision Installation' on the right.
+     For upgrades, name the legacy system on the left.
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-grey section-spacing">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Transformation</span>
+      <h2>[Transformation headline — care-led, e.g. "From Manual Supervision to Quiet, Always-On Support"]</h2>
+    </div>
+
+    <div class="blog-table-wrap mt-48">
+      <table class="blog-table comparison-table">
+        <thead>
+          <tr>
+            <th class="feature-col">Care Function</th>
+            <th>[Before — old building or old method]</th>
+            <th>Securevision Installation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="feature-col">[Dimension — e.g. "Entry Verification"]</td>
+            <td class="old">[Before state]</td>
+            <td class="new">[After state]</td>
+          </tr>
+          <tr>
+            <td class="feature-col">[Dimension]</td>
+            <td class="old">[Before]</td>
+            <td class="new">[After]</td>
+          </tr>
+          <tr>
+            <td class="feature-col">[Dimension]</td>
+            <td class="old">[Before]</td>
+            <td class="new">[After]</td>
+          </tr>
+          <tr>
+            <td class="feature-col">[Dimension]</td>
+            <td class="old">[Before]</td>
+            <td class="new">[After]</td>
+          </tr>
+          <!-- Add rows as needed. Min 4, max 7. -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 8 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 9 — DECISION POINT (sv-section-white)
+
+     The key engineering or care-design decision that shaped this project.
+     For healthcare, common decisions include:
+     - Centralised vs distributed UPS for life-safety-adjacent systems
+     - Door access strategy that respects supervised egress without resident lock-in
+     - Camera placement that respects resident privacy (common areas only)
+     - Lift access integration for floor-restricted residents
+     - Family-visitor flow vs night-time secure perimeter
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-white section-spacing">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Decision Point</span>
+      <h2>[Decision heading — e.g. "Designing for Supervised Freedom, Not Lock-In"]</h2>
+    </div>
+
+    <p class="mt-24">[Intro paragraph — describe the decision context. What competing care needs had to be balanced?]</p>
+
+    <div class="decision-box mt-24">
+      <p>[The critical decision — 2–3 sentences. What Securevision recommended and the care + engineering rationale. Not marketing language.]</p>
+    </div>
+
+    <p class="mt-24">[Outcome paragraph — what the decision enabled for residents, staff, and families.]</p>
+
+  </div>
+</section>
+<!-- ═══ END SECTION 9 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 10 — OUR APPROACH (sv-section-grey)
+
+     Engineering approach. Use zone-grid / zone-card for 2–4 distinct zones,
+     phases, or approach pillars.
+
+     TYPICAL HEALTHCARE APPROACH CONTENT:
+     - Zone-by-zone access strategy (resident areas, staff-only areas, medication rooms)
+     - Privacy-respecting camera coverage (common areas, entry/exit, never private spaces)
+     - Family-visitor flow design
+     - Centralised power resilience for full-system 1-hour standby
+     - Phased commissioning around care-handover dates
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-grey section-spacing">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Our Approach</span>
+      <h2>[Approach heading — e.g. "Zoned Access, Quiet Surveillance, Centralised Resilience"]</h2>
+    </div>
+
+    <p class="mt-24">[Intro paragraph — Securevision's design philosophy for this care setting. 2–3 sentences.]</p>
+
+    <div class="zone-grid mt-32">
+
+      <div class="zone-card">
+        <span class="zone-icon">[EMOJI]</span>
+        <h4>[Zone label — e.g. "Staff-Only Zones"]</h4>
+        <p>[2–3 sentences describing how this zone was designed.]</p>
+      </div>
+
+      <div class="zone-card">
+        <span class="zone-icon">[EMOJI]</span>
+        <h4>[Label]</h4>
+        <p>[2–3 sentences]</p>
+      </div>
+
+      <div class="zone-card">
+        <span class="zone-icon">[EMOJI]</span>
+        <h4>[Label]</h4>
+        <p>[2–3 sentences]</p>
+      </div>
+
+      <div class="zone-card">
+        <span class="zone-icon">[EMOJI]</span>
+        <h4>[Label]</h4>
+        <p>[2–3 sentences]</p>
+      </div>
+
+    </div>
+
+    <p class="mt-32">[Closing paragraph — how the approach supported staff and respected residents.]</p>
+
+  </div>
+</section>
+<!-- ═══ END SECTION 10 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 11 — THE SOLUTION (sv-section-white)
+
+     Layer-by-layer system description. Links inside cards go to /systems/ pages.
+
+     TYPICAL HEALTHCARE LAYERS:
+     1. Surveillance & Common-Area Awareness
+     2. Access Control & Lift Management
+     3. Visitor Verification & Intercom
+     4. Alarm & Perimeter
+     5. Power Resilience & Central Management
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-white section-spacing">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">The Solution</span>
+      <h2>[Solution heading — e.g. "An Integrated System That Supports Care Without Imposing on It"]</h2>
+      <p class="mt-16">[1–2 sentences — the overarching design logic. Frame what the system enables, not what it controls.]</p>
+    </div>
+
+    <div class="grid-3 mt-48">
+
+      <div class="portfolio-layer-card">
+        <span class="eyebrow">[Layer label — e.g. "Access Layer"]</span>
+        <h3>[Layer heading]</h3>
+        <p>[2–3 sentences — what this layer enables for residents and staff.]</p>
+        <a href="/systems/entry-access-control.html" class="layer-link">Entry Access Control →</a>
+      </div>
+
+      <div class="portfolio-layer-card">
+        <span class="eyebrow">[Layer label]</span>
+        <h3>[Layer heading]</h3>
+        <p>[2–3 sentences]</p>
+        <a href="/systems/premises-security.html" class="layer-link">Surveillance & Detection →</a>
+      </div>
+
+      <div class="portfolio-layer-card">
+        <span class="eyebrow">[Layer label]</span>
+        <h3>[Layer heading]</h3>
+        <p>[2–3 sentences]</p>
+        <a href="/systems/security-management-platform.html" class="layer-link">Platform & Management →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 11 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 12 — EQUIPMENT DEPLOYED (sv-section-grey)
+
+     Mandatory. Scope-specific equipment list with quantities.
+
+     STRUCTURE (READABILITY PATTERN):
+     - Outer wrapper: portfolio-system-grid (responsive auto-fit, 280px min column).
+     - Each system category: portfolio-system-card (white card, padding 32px, rounded).
+     - Card title: <h3> (auto-styled blue 18px by sv-shared).
+     - Sub-section labels: inline as <strong>Sub-category:</strong> within a paragraph,
+       e.g. <p class="mt-16"><strong>Door Access:</strong> 59 doors on the MicroEngine platform.</p>
+     - Spec lists: <ul class="spec-list"> immediately after the paragraph — sv-shared
+       styles this at 0.9rem, var(--text-light) colour, 18px left padding.
+     - Spacing: first sub-section uses mt-16, all subsequent sub-sections use mt-24.
+     - "Learn more" link: <a class="text-link"> in a <p class="mt-24"> at card bottom.
+
+     This pattern reads as a single flow per sub-section ("Door Access: 59 doors on the
+     MicroEngine platform" + supporting bullets) rather than three visual stops
+     (uppercase eyebrow / paragraph / list).
+
+     Both portfolio-system-grid and portfolio-system-card are styled in sv-shared.css.
+     The .spec-list rule is also in sv-shared.css (scoped to .portfolio-system-card).
+     Do NOT use the older equipment-list-grid / eq-category / eq-sub / eq-item classes —
+     those are unstyled and the markup will collapse to plain stacked text.
+
+     Frame card content in care language where possible — "supporting staff supervision"
+     rather than "monitoring residents", and similar.
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-grey section-spacing">
+  <div class="container">
+    <span class="eyebrow">Equipment Deployed</span>
+    <h2>What Was Installed</h2>
+    <p class="mt-16">[1 sentence — total scope. Frame the scope as supporting care, not as security density.]</p>
+
+    <div class="portfolio-system-grid mt-48">
+
+      <!-- ── SYSTEM CATEGORY 1 ── -->
+      <div class="portfolio-system-card">
+        <h3>[System category — e.g. "IP CCTV System"]</h3>
+
+        <p class="mt-16"><strong>[Sub-category, e.g. "Cameras"]:</strong> [Qty]× [Brand + Model] [brief context — e.g. "across common areas and circulation"].</p>
+        <ul class="spec-list">
+          <li>[Spec]</li>
+          <li>[Spec]</li>
+        </ul>
+
+        <p class="mt-24"><strong>[Sub-category, e.g. "Recording"]:</strong> [Qty]× [Brand + Model] [brief context].</p>
+        <ul class="spec-list">
+          <li>[Spec]</li>
+        </ul>
+
+        <p class="mt-24"><a href="/systems/premises-security.html" class="text-link">Learn more about Surveillance solutions →</a></p>
+      </div>
+
+      <!-- ── SYSTEM CATEGORY 2 ── -->
+      <div class="portfolio-system-card">
+        <h3>[System category — e.g. "Access Control System"]</h3>
+
+        <p class="mt-16"><strong>[Sub-category]:</strong> [Qty]× [Brand + Model] [brief context].</p>
+        <ul class="spec-list">
+          <li>[Spec]</li>
+        </ul>
+
+        <p class="mt-24"><a href="/systems/entry-access-control.html" class="text-link">Learn more about Access Control solutions →</a></p>
+      </div>
+
+      <!-- ── SYSTEM CATEGORY 3 — add or remove categories as needed ── -->
+      <div class="portfolio-system-card">
+        <h3>[System category — e.g. "Power & Network Infrastructure"]</h3>
+
+        <p class="mt-16"><strong>[Sub-category]:</strong> [Qty]× [Brand + Model] [brief context].</p>
+        <ul class="spec-list">
+          <li>[Spec]</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+<!-- ═══ END SECTION 12 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 13 — RESULTS & IMPACT (sv-section-white)
+
+     Format A or Format B. Never mix. For care facilities, qualitative outcomes
+     (Format B) are usually more honest and respectful than hard stats.
+     ═══════════════════════════════════════════════════════ -->
+<section class="sv-section-white section-spacing">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="eyebrow">Results & Impact</span>
+      <h2>[Outcome heading — e.g. "A Building That Supports the Care That Happens Inside It"]</h2>
+    </div>
+
+    <!-- FORMAT A: Hard stats -->
+    <!--
+    <div class="grid-3 mt-48">
+      <div class="card text-center">
+        <div class="result-stat-value">[STAT]</div>
+        <p class="result-stat-desc">[Plain English explanation]</p>
+      </div>
+      <div class="card text-center">
+        <div class="result-stat-value">[STAT]</div>
+        <p class="result-stat-desc">[Explanation]</p>
+      </div>
+      <div class="card text-center">
+        <div class="result-stat-value">[STAT]</div>
+        <p class="result-stat-desc">[Explanation]</p>
+      </div>
+    </div>
+    -->
+
+    <!-- FORMAT B: Qualitative outcomes -->
+    <div class="grid-3 mt-48">
+      <div class="portfolio-result-card">
+        <h4 class="portfolio-result-title">&#10003; [Result 1 title]</h4>
+        <p class="portfolio-result-text">[1–2 sentences — observable outcome, specific to this project. Frame in care terms where possible.]</p>
+      </div>
+      <div class="portfolio-result-card">
+        <h4 class="portfolio-result-title">&#10003; [Result 2 title]</h4>
+        <p class="portfolio-result-text">[1–2 sentences]</p>
+      </div>
+      <div class="portfolio-result-card">
+        <h4 class="portfolio-result-title">&#10003; [Result 3 title]</h4>
+        <p class="portfolio-result-text">[1–2 sentences]</p>
+      </div>
+    </div>
+
+    <p class="mt-32">[Optional closing paragraph — ongoing impact for residents, staff, and families.]</p>
+
+  </div>
+</section>
+<!-- ═══ END SECTION 13 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 14 — SECUREVISION INSIGHT (sv-section-grey + no-bottom-spacing)
+
+     A sharp, care-led observation. First-person voice. Visually quiet.
+
+     HEALTHCARE INSIGHT THEMES:
+     - Good security in a care setting is the system the residents never have to notice
+     - Access control should support staff supervision, not replace it
+     - Centralised UPS is a care decision, not just an engineering one
+     - Visitor verification is a dignity tool — for residents and for visiting families
+     - The best healthcare system is the one that lets staff do their job and lets
+       residents live their life
+     ═══════════════════════════════════════════════════════ -->
+<section class="portfolio-insight-section sv-section-grey section-spacing no-bottom-spacing">
+  <div class="container">
+    <div class="portfolio-insight">
+      <span class="eyebrow">Securevision Insight</span>
+      <h2>[Sharp insight heading — care-led]</h2>
+      <p>[One concise paragraph. First-person voice. Care + engineering wisdom from this project. No marketing language.]</p>
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 14 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 15 — DISCOVERY PATH (sv-section-white)
+
+     Always 4 cards. Card 1 = /solutions/healthcare.html.
+     ═══════════════════════════════════════════════════════ -->
+<section class="portfolio-section sv-section-white section-spacing">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="eyebrow">Discovery Path</span>
+      <h2>Explore Related Solutions</h2>
+      <p class="text-left mt-16">Deepen your understanding of the systems and strategies deployed in this project.</p>
+    </div>
+
+    <div class="portfolio-link-stack mt-48">
+
+      <!-- Card 1 — always /solutions/healthcare.html -->
+      <a href="/solutions/healthcare.html" class="portfolio-link-card">
+        <img src="/images/prop-healthcare.webp" alt="Healthcare & Managed Living">
+        <div class="portfolio-link-card-body">
+          <strong>Healthcare & Managed Living</strong>
+          <span>[Short description relevant to this care setting.]</span>
+        </div>
+      </a>
+
+      <!-- Cards 2–4: most relevant systems for this project -->
+      <a href="/systems/entry-access-control.html" class="portfolio-link-card">
+        <img src="/images/pillar_people_access.webp" alt="Entry Access Control">
+        <div class="portfolio-link-card-body">
+          <strong>Entry Access Control</strong>
+          <span>[Description relevant to this project.]</span>
+        </div>
+      </a>
+
+      <a href="/systems/premises-security.html" class="portfolio-link-card">
+        <img src="/images/pillar_surveillance.webp" alt="Surveillance & Detection">
+        <div class="portfolio-link-card-body">
+          <strong>Surveillance & Detection</strong>
+          <span>[Description relevant to this project.]</span>
+        </div>
+      </a>
+
+      <a href="/systems/security-management-platform.html" class="portfolio-link-card">
+        <img src="/images/pillar_maintenance.webp" alt="Platform & Management">
+        <div class="portfolio-link-card-body">
+          <strong>Platform & Management</strong>
+          <span>[Description relevant to this project.]</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 15 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 16 — RELATED PROJECTS (sv-section-grey)
+
+     3 cards in grid-3. Prefer healthcare or managed-living projects first.
+     ═══════════════════════════════════════════════════════ -->
+<section class="related-projects sv-section-grey section-spacing">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="eyebrow">Next Steps in Discovery</span>
+      <h2>Related Case Studies</h2>
+      <p class="text-left mt-16">See how we have supported care environments and managed-living facilities across Singapore.</p>
+    </div>
+
+    <div class="grid-3 mt-48">
+
+      <a href="/portfolio/[related-1].html" class="card card-clickable related-project-card">
+        <img src="/images/portfolio/[related-1-image].webp" alt="[Related project 1 name]">
+        <div class="related-project-body">
+          <span class="related-project-badge">[Sector — e.g. Healthcare]</span>
+          <h3 class="related-project-title">[Related Project 1 Name]</h3>
+          <p class="related-project-text">[1–2 sentences — care-led description.]</p>
+          <span class="related-project-link">View Case Study →</span>
+        </div>
+      </a>
+
+      <a href="/portfolio/[related-2].html" class="card card-clickable related-project-card">
+        <img src="/images/portfolio/[related-2-image].webp" alt="[Related project 2 name]">
+        <div class="related-project-body">
+          <span class="related-project-badge">[Sector]</span>
+          <h3 class="related-project-title">[Related Project 2 Name]</h3>
+          <p class="related-project-text">[1–2 sentences]</p>
+          <span class="related-project-link">View Case Study →</span>
+        </div>
+      </a>
+
+      <a href="/portfolio/[related-3].html" class="card card-clickable related-project-card">
+        <img src="/images/portfolio/[related-3-image].webp" alt="[Related project 3 name]">
+        <div class="related-project-body">
+          <span class="related-project-badge">[Sector]</span>
+          <h3 class="related-project-title">[Related Project 3 Name]</h3>
+          <p class="related-project-text">[1–2 sentences]</p>
+          <span class="related-project-link">View Case Study →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+<!-- ═══ END SECTION 16 ═══ -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SECTION 17 — FINAL CTA (dark full-width image overlay)
+     ═══════════════════════════════════════════════════════ -->
+<section class="cta-section cta-high-impact">
+  <div class="container">
+    <h2>Ready to Secure Your Property?</h2>
+    <p class="subtitle">Tell us about your site. We'll assess it and design a system that works as one.</p>
+    <div class="btn-group">
+      <a href="/contact-gateway.html" class="btn btn-primary">Book a Site Assessment</a>
+    </div>
+    <p class="cta-trust-note">Serving Singapore Since 2006</p>
+  </div>
+</section>
+<!-- ═══ END SECTION 17 — FINAL CTA ═══ -->
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="sv-footer"></footer>
+<!-- ═══ END FOOTER ═══ -->
+
+
+<!-- ═══ SCRIPTS ═══ -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    if (typeof SECUREVISION !== "undefined") {
+      var SV = SECUREVISION;
+      document.querySelectorAll(".sv-licence").forEach(function(el) { el.textContent = SV.licenceNumber || ""; });
+      document.querySelectorAll(".sv-sites").forEach(function(el) { el.textContent = SV.siteDisplay || ""; });
+      document.querySelectorAll(".sv-bizsafe").forEach(function(el) { el.textContent = SV.bizsafeLevel || "bizSAFE Level 3"; });
+    }
+  });
+</script>
+<script src="/nav-footer.js"></script>
+
+</body>
+</html>
