@@ -166,7 +166,7 @@
 - [/solutions/managed-living/hostels.html](https://www.securevision.com.sg/solutions/managed-living/hostels.html)
 - [/solutions/reduce-guard-manpower.html](https://www.securevision.com.sg/solutions/reduce-guard-manpower.html)
 - [/solutions/residential.html](https://www.securevision.com.sg/solutions/residential.html)
-- [/solutions/residential/architects.html](https://www.securevision.com.sg/solutions/residential/architects.html)
+- [/solutions/residential/architects-and-designers.html](https://www.securevision.com.sg/solutions/residential/architects-and-designers.html)
 - [/solutions/residential/home-upgrade.html](https://www.securevision.com.sg/solutions/residential/home-upgrade.html)
 - [/solutions/residential/new-build.html](https://www.securevision.com.sg/solutions/residential/new-build.html)
 - [/solutions/upgrade-intercom-system.html](https://www.securevision.com.sg/solutions/upgrade-intercom-system.html)
