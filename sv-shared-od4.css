@@ -9090,7 +9090,7 @@ a.arch-card-link p {
   align-items: flex-start;
   justify-content: center;
   gap: 0;
-  margin: 56px 0 96px;
+  margin: 56px 0 60px;
 }
 
 .cohesion-step-block {
@@ -9158,78 +9158,67 @@ a.arch-card-link p {
   background: #fff;
   border: 1px solid var(--border-light);
   border-radius: 16px;
-  padding: 0;
+  padding: 32px;
   display: flex;
   flex-direction: column;
   transition: 0.3s;
-  overflow: hidden;
-  text-decoration: none;
-  color: var(--text-dark);
 }
 
 .property-fit-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-  border-color: var(--primary-blue);
-}
-
-.property-fit-card-img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.property-fit-card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
-}
-
-.property-fit-card:hover .property-fit-card-img img {
-  transform: scale(1.04);
-}
-
-.property-fit-card-body {
-  padding: 24px 24px 28px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
 }
 
 .property-fit-card h3 {
-  font-size: 16px;
-  margin-bottom: 8px;
+  font-size: 18px;
+  margin-bottom: 10px;
   color: var(--text-dark);
 }
 
-.property-fit-card > p,
-.property-fit-card-body > p {
-  font-size: 13px;
+.property-fit-card > p {
+  font-size: 14px;
   color: var(--text-gray);
   line-height: 1.6;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .fit-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 20px;
+  margin: 0 0 24px;
   flex-grow: 1;
 }
 
 .fit-list li {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-gray);
-  padding: 6px 0;
+  padding: 8px 0;
   border-bottom: 1px solid var(--border-light);
   line-height: 1.5;
 }
 
 .fit-list li:last-child {
   border-bottom: none;
+}
+
+/* ── 36d. Group icon shared utility ─────────────────────────
+   Reused in both sys-group-card and property-fit-card.
+   Also used in platform card grid (Section 5).              */
+
+.property-fit-card .group-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.property-fit-card .group-icon svg {
+  width: 26px;
+  height: 26px;
 }
 
 /* ── 36e. Responsive ────────────────────────────────────────*/
