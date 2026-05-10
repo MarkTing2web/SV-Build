@@ -7169,6 +7169,10 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     margin-top: 40px;
 }
 
+.faq-grid--single {
+    grid-template-columns: 1fr;
+}
+
 .faq-grid .faq-item {
     padding: 28px 32px;
 }
@@ -9311,6 +9315,23 @@ a.arch-card-link p {
 .group-icon--condos       { color: #2d45c4; background: rgba(45,69,196,0.08); }
 .group-icon--commercial   { color: #B54E00; background: rgba(181,78,0,0.08); }
 .group-icon--industrial   { color: #5a0892; background: rgba(90,8,146,0.08); }
+
+/* Smaller icon size when group-icon is used inside a plain .card (e.g. Go Deeper section) */
+.card .group-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  flex-shrink: 0;
+}
+
+.card .group-icon svg {
+  width: 20px;
+  height: 20px;
+}
 
 /* ── 36g. Card padding utilities (for platform/process cards) */
 .card-pad-32 { padding: 32px; }
