@@ -1713,7 +1713,7 @@ section .subtitle {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;            /* critical — prevents squashing to oval */
-    margin: 0 auto 20px;
+    margin: 0 auto 28px;
     box-shadow: 0 4px 12px rgba(0, 86, 179, 0.20);
 }
 
@@ -1751,12 +1751,7 @@ section .subtitle {
 }
 
 /* Size modifiers */
-.step-num.step-num-lg {
-    width: 64px;
-    height: 64px;
-    min-width: 64px;
-    font-size: 26px;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
 }
 
 .step-num.step-num-sm {
@@ -1764,7 +1759,7 @@ section .subtitle {
     height: 36px;
     min-width: 36px;
     font-size: 15px;
-    margin-bottom: 16px;
+    margin-bottom: 22px;
 }
 
 .step-item h3,
@@ -3567,12 +3562,7 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.20);
-}
-
-.process-card h4 {
+    margin-bottom: 28px;
     font-family: 'Montserrat', sans-serif;
     font-size: 17px;
     font-weight: 600;
@@ -8661,8 +8651,26 @@ main { grid-area: content; }
    .compare-card    individual card (negative / positive)
    .silo-compare / .silo-card  aliases for security-management-platform.html      */
 
+/* feature-card--full: spans full width below a grid-2 pair */
+.feature-card--full {
+  height: auto;
+  margin-top: 0;
+}
+
+.feature-card--full .feature-card-icon {
+  display: inline-flex;
+}
+
 .compare-wrap,
 .silo-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+/* --inline: same as base but explicitly named for responsive override targeting */
+.compare-wrap--inline {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
@@ -8935,10 +8943,11 @@ a.arch-card-link p {
 
   .compare-wrap,
   .silo-compare,
-  .scenario-grid,
   .feature-grid { grid-template-columns: 1fr; }
 
-  .arch-grid { grid-template-columns: repeat(2, 1fr); }
+  /* --inline variant stays side by side at tablet — higher specificity wins */
+  div.compare-wrap.compare-wrap--inline { grid-template-columns: 1fr 1fr; }
+
   .arch-grid-3 { grid-template-columns: repeat(2, 1fr); }
 
   .capabilities-grid { grid-template-columns: repeat(2, 1fr); }
@@ -8946,10 +8955,16 @@ a.arch-card-link p {
   .integration-panel { padding: 32px; gap: 32px; }
 }
 
+@media (max-width: 768px) {
+  .arch-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 480px) {
   .arch-grid,
   .arch-grid-3,
-  .capabilities-grid { grid-template-columns: 1fr; }
+  .capabilities-grid,
+  .scenario-grid,
+  div.compare-wrap.compare-wrap--inline { grid-template-columns: 1fr; }
 }
 
 /* ── END Section 35 ─────────────────────────────────────────── */
@@ -9127,7 +9142,7 @@ a.arch-card-link p {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0 auto 20px;
   flex-shrink: 0;
 }
 

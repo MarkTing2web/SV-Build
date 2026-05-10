@@ -1713,7 +1713,7 @@ section .subtitle {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;            /* critical — prevents squashing to oval */
-    margin: 0 auto 20px;
+    margin: 0 auto 28px;
     box-shadow: 0 4px 12px rgba(0, 86, 179, 0.20);
 }
 
@@ -1751,12 +1751,7 @@ section .subtitle {
 }
 
 /* Size modifiers */
-.step-num.step-num-lg {
-    width: 64px;
-    height: 64px;
-    min-width: 64px;
-    font-size: 26px;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
 }
 
 .step-num.step-num-sm {
@@ -1764,7 +1759,7 @@ section .subtitle {
     height: 36px;
     min-width: 36px;
     font-size: 15px;
-    margin-bottom: 16px;
+    margin-bottom: 22px;
 }
 
 .step-item h3,
@@ -2053,8 +2048,26 @@ section .subtitle {
 /* Subsystem cards */
 .subsystem-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 20px;
+}
+
+/* 3+2 layout — two separate rows, same card width */
+.subsystem-row-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.subsystem-row-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+    width: calc(66.667% - 6.667px);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .subsys-card {
@@ -2867,16 +2880,18 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     padding-top: 24px;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
 }
 
 .footer-bottom p {
     color: rgba(255, 255, 255, 0.4);
     font-size: 11px;
     margin: 0;
+    flex: 1;
+    min-width: 0;
 }
 
 .footer-bottom-links {
@@ -2896,6 +2911,7 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
 }
 
 /* -- MOBILE FOOTER -- */
+@media (max-width: 768px) {
     .footer-bottom {
         flex-direction: column;
         text-align: center;
@@ -3546,12 +3562,7 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.20);
-}
-
-.process-card h4 {
+    margin-bottom: 28px;
     font-family: 'Montserrat', sans-serif;
     font-size: 17px;
     font-weight: 600;
@@ -8640,8 +8651,26 @@ main { grid-area: content; }
    .compare-card    individual card (negative / positive)
    .silo-compare / .silo-card  aliases for security-management-platform.html      */
 
+/* feature-card--full: spans full width below a grid-2 pair */
+.feature-card--full {
+  height: auto;
+  margin-top: 0;
+}
+
+.feature-card--full .feature-card-icon {
+  display: inline-flex;
+}
+
 .compare-wrap,
 .silo-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+}
+
+/* --inline: same as base but explicitly named for responsive override targeting */
+.compare-wrap--inline {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
@@ -8914,8 +8943,10 @@ a.arch-card-link p {
 
   .compare-wrap,
   .silo-compare,
-  .scenario-grid,
   .feature-grid { grid-template-columns: 1fr; }
+
+  /* --inline variant stays side by side at tablet — higher specificity wins */
+  div.compare-wrap.compare-wrap--inline { grid-template-columns: 1fr 1fr; }
 
   .arch-grid { grid-template-columns: repeat(2, 1fr); }
   .arch-grid-3 { grid-template-columns: repeat(2, 1fr); }
@@ -8928,7 +8959,9 @@ a.arch-card-link p {
 @media (max-width: 480px) {
   .arch-grid,
   .arch-grid-3,
-  .capabilities-grid { grid-template-columns: 1fr; }
+  .capabilities-grid,
+  .scenario-grid,
+  div.compare-wrap.compare-wrap--inline { grid-template-columns: 1fr; }
 }
 
 /* ── END Section 35 ─────────────────────────────────────────── */
@@ -9069,7 +9102,7 @@ a.arch-card-link p {
   align-items: flex-start;
   justify-content: center;
   gap: 0;
-  margin: 56px 0 60px;
+  margin: 56px 0 96px;
 }
 
 .cohesion-step-block {
@@ -9106,18 +9139,19 @@ a.arch-card-link p {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0 auto 20px;
   flex-shrink: 0;
 }
 
 .cohesion-arrow {
-  font-size: 24px;
-  color: var(--primary-blue);
   flex-shrink: 0;
-  margin-top: 8px;
-  opacity: 0.4;
+  height: 40px;
+  display: flex;
+  align-items: center;
   align-self: flex-start;
-  padding-top: 8px;
+  color: var(--primary-blue);
+  opacity: 0.45;
+  font-size: 20px;
 }
 
 /* ── 36c. Property fit cards ────────────────────────────────
@@ -9136,67 +9170,78 @@ a.arch-card-link p {
   background: #fff;
   border: 1px solid var(--border-light);
   border-radius: 16px;
-  padding: 32px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   transition: 0.3s;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text-dark);
 }
 
 .property-fit-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border-color: var(--primary-blue);
+}
+
+.property-fit-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.property-fit-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.property-fit-card:hover .property-fit-card-img img {
+  transform: scale(1.04);
+}
+
+.property-fit-card-body {
+  padding: 24px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .property-fit-card h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
+  font-size: 16px;
+  margin-bottom: 8px;
   color: var(--text-dark);
 }
 
-.property-fit-card > p {
-  font-size: 14px;
+.property-fit-card > p,
+.property-fit-card-body > p {
+  font-size: 13px;
   color: var(--text-gray);
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .fit-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 24px;
+  margin: 0 0 20px;
   flex-grow: 1;
 }
 
 .fit-list li {
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-gray);
-  padding: 8px 0;
+  padding: 6px 0;
   border-bottom: 1px solid var(--border-light);
   line-height: 1.5;
 }
 
 .fit-list li:last-child {
   border-bottom: none;
-}
-
-/* ── 36d. Group icon shared utility ─────────────────────────
-   Reused in both sys-group-card and property-fit-card.
-   Also used in platform card grid (Section 5).              */
-
-.property-fit-card .group-icon {
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  flex-shrink: 0;
-}
-
-.property-fit-card .group-icon svg {
-  width: 26px;
-  height: 26px;
 }
 
 /* ── 36e. Responsive ────────────────────────────────────────*/
@@ -9207,6 +9252,7 @@ a.arch-card-link p {
   }
 }
 
+@media (max-width: 768px) {
   .sys-group-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -9223,6 +9269,7 @@ a.arch-card-link p {
 
   .cohesion-arrow {
     transform: rotate(90deg);
+    height: auto;
     margin: 0;
     padding: 0;
   }
@@ -9277,17 +9324,71 @@ a.arch-card-link p {
 
 .sys-group-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   margin-top: 56px;
 }
 
-.sys-group-row--pair {
-  grid-template-columns: repeat(2, 1fr);
-  max-width: 66.67%;
-  margin-left: auto;
-  margin-right: auto;
+/* Platform card — full-width horizontal row */
+.sys-group-row--platform {
+  display: block;
   margin-top: 24px;
+}
+
+.sys-group-card--platform {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+  border-color: #38a169;
+  box-shadow: 0 4px 20px rgba(56,161,105,0.12);
+  padding: 32px 40px;
+}
+
+.sys-group-card--platform .group-icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+}
+
+.sys-group-card--platform .group-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.sys-group-card--platform .platform-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.sys-group-card--platform h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.sys-group-card--platform p {
+  font-size: 15px;
+  margin-bottom: 16px;
+  max-width: 640px;
+}
+
+.sys-group-card--platform .group-tags {
+  margin-bottom: 16px;
+}
+
+.sys-group-card--platform .platform-badge {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #38a169;
+  background: rgba(56,161,105,0.10);
+  padding: 3px 10px;
+  border-radius: 4px;
+  margin-bottom: 12px;
 }
 
 /* ── 36k. Property fit grid — 8-card 4-col layout ──────────
@@ -9312,9 +9413,11 @@ a.arch-card-link p {
   .sys-group-row {
     grid-template-columns: repeat(2, 1fr);
   }
-  .sys-group-row--pair {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 100%;
+  .sys-group-card--platform {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 28px 24px;
   }
   .property-fit-grid-8 {
     grid-template-columns: repeat(2, 1fr);
@@ -9323,7 +9426,6 @@ a.arch-card-link p {
 
 @media (max-width: 480px) {
   .sys-group-row,
-  .sys-group-row--pair,
   .property-fit-grid-8 {
     grid-template-columns: 1fr;
     max-width: 100%;
@@ -9740,3 +9842,193 @@ a.arch-card-link p {
 }
 
 /* ── END Section 38c ─────────────────────────────────────────── */
+
+/* ============================================================
+   sv-shared.css — Section 39: Systems Block (4+1 layout)
+   Added: May 2026
+   Scope: .sv-systems-block placeholder — rendered by
+   systems-block.js as a shared injectable component.
+   Replaces legacy .subsystem-row-3 / .subsystem-row-2 pattern.
+   ============================================================ */
+
+/* ── 39a. 4-card grid ───────────────────────────────────────── */
+
+.sv-systems-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* ── 39b. Standard card ─────────────────────────────────────── */
+
+.sv-sys-card {
+    background: var(--bg-light);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    border-top: 3px solid var(--primary-blue);
+    padding: 0;
+    text-decoration: none;
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+    overflow: hidden;
+}
+
+.sv-sys-card:hover {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
+    transform: translateY(-4px);
+    background: #fff;
+}
+
+.sv-sys-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+}
+
+.sv-sys-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sv-sys-card h3 {
+    font-size: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin: 16px 20px 8px;
+    color: var(--text-dark);
+}
+
+.sv-sys-card p {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.6;
+    flex: 1;
+    margin: 0 20px 16px;
+}
+
+.sv-sys-link {
+    font-size: 12px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--primary-blue);
+    padding: 0 20px 20px;
+}
+
+/* ── 39c. Platform card (unifying layer) ────────────────────── */
+
+.sv-sys-platform {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    margin-top: 20px;
+    background: var(--bg-light);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    border-top: 3px solid var(--dark-blue);
+    text-decoration: none;
+    color: var(--text-dark);
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.sv-sys-platform:hover {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
+    transform: translateY(-4px);
+    background: #fff;
+}
+
+.sv-sys-platform-img {
+    width: 280px;
+    min-width: 280px;
+    aspect-ratio: 16 / 7;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.sv-sys-platform-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.sv-sys-platform-body {
+    flex: 1;
+    padding: 24px 32px 24px 0;
+    min-width: 0;
+}
+
+.sv-sys-platform-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--dark-blue);
+    background: #e6f0fa;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.sv-sys-platform-body h3 {
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin: 0 0 10px;
+    color: var(--text-dark);
+}
+
+.sv-sys-platform-body p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.7;
+    margin: 0 0 16px;
+}
+
+.sv-sys-platform-body .sv-sys-link {
+    padding: 0;
+    color: var(--dark-blue);
+}
+
+/* ── 39d. Responsive ────────────────────────────────────────── */
+
+/* Tablet: 2×2 grid + platform stacks */
+@media (max-width: 768px) {
+    .sv-systems-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sv-sys-platform {
+        flex-direction: column;
+        gap: 0;
+        align-items: stretch;
+    }
+
+    .sv-sys-platform-img {
+        width: 100%;
+        min-width: 0;
+        aspect-ratio: 16 / 7;
+    }
+
+    .sv-sys-platform-body {
+        padding: 20px 24px 24px;
+    }
+}
+
+/* Mobile: 1 column */
+@media (max-width: 480px) {
+    .sv-systems-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── END Section 39 ──────────────────────────────────────────── */
