@@ -488,6 +488,9 @@ aside {
 .opacity-60 {
     opacity: 0.6 !important;
 }
+.mt-32 {
+    margin-top: 32px !important;
+}
 
 .bg-white {
     background-color: var(--white) !important;
@@ -495,10 +498,6 @@ aside {
 
 .bg-light {
     background-color: var(--bg-light) !important;
-}
-
-.mt-32 {
-    margin-top: 32px !important;
 }
 
 .section-divider {
@@ -5057,8 +5056,16 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
 }
 
 /* -- UTILITY ADDITIONS -- */
+.mt-40 {
+    margin-top: 40px !important;
+}
+
 .mt-48 {
     margin-top: 48px !important;
+}
+
+.grid-col-span-full {
+    grid-column: 1 / -1;
 }
 
 .mt-56 {
@@ -7718,6 +7725,43 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     gap: 40px;
     margin-bottom: 40px;
     align-items: flex-start;
+}
+
+/* Float image — text wraps around right-floated image */
+.img-float-right {
+    float: right;
+    width: 38%;
+    margin-left: 32px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Float image — text wraps around left-floated image */
+.img-float-left {
+    float: left;
+    width: 38%;
+    margin-right: 32px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Clearfix — contains floated children */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media (max-width: 768px) {
+    .img-float-right, .img-float-left {
+        float: none;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
 }
 
 /* 3. WORD-WRAP VARIANT (Float logic for long content) */
