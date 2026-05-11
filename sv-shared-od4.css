@@ -228,8 +228,12 @@
 }
 
 /* ── Base paragraph spacing ── */
-p + p {
-  margin-top: var(--spacing-para, 20px);
+p {
+  margin-top: 0;
+  margin-bottom: var(--spacing-para, 20px);
+}
+p:last-child {
+  margin-bottom: 0;
 }
 
 .current-year::after {
@@ -484,6 +488,9 @@ aside {
 .opacity-60 {
     opacity: 0.6 !important;
 }
+.mt-32 {
+    margin-top: 32px !important;
+}
 
 .bg-white {
     background-color: var(--white) !important;
@@ -491,10 +498,6 @@ aside {
 
 .bg-light {
     background-color: var(--bg-light) !important;
-}
-
-.mt-32 {
-    margin-top: 32px !important;
 }
 
 .section-divider {
@@ -5053,8 +5056,16 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
 }
 
 /* -- UTILITY ADDITIONS -- */
+.mt-40 {
+    margin-top: 40px !important;
+}
+
 .mt-48 {
     margin-top: 48px !important;
+}
+
+.grid-col-span-full {
+    grid-column: 1 / -1;
 }
 
 .mt-56 {
@@ -7716,6 +7727,43 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     align-items: flex-start;
 }
 
+/* Float image — text wraps around right-floated image */
+.img-float-right {
+    float: right;
+    width: 38%;
+    margin-left: 32px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Float image — text wraps around left-floated image */
+.img-float-left {
+    float: left;
+    width: 38%;
+    margin-right: 32px;
+    margin-bottom: 24px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Clearfix — contains floated children */
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media (max-width: 768px) {
+    .img-float-right, .img-float-left {
+        float: none;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
 /* 3. WORD-WRAP VARIANT (Float logic for long content) */
 .blog-row-wrap {
     display: block; /* Overrides grid */
@@ -8950,6 +8998,7 @@ a.arch-card-link p {
    cta-platform are already defined in Section 16 above
    with correct image paths. No duplication here.             */
 
+@media (max-width: 992px) {
   .compare-wrap,
   .silo-compare,
   .feature-grid { grid-template-columns: 1fr; }
@@ -8992,7 +9041,7 @@ a.arch-card-link p {
 
 .sys-group-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-top: 56px;
 }
@@ -9258,17 +9307,13 @@ a.arch-card-link p {
 
 /* ── 36e. Responsive ────────────────────────────────────────*/
 
-@media (max-width: 1200px) {
+@media (max-width: 992px) {
   .sys-group-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .sys-group-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .property-fit-grid {
     grid-template-columns: 1fr;
   }
@@ -10061,3 +10106,45 @@ a.arch-card-link p {
 }
 
 /* ── END Section 39 ──────────────────────────────────────────── */
+
+/* ============================================================
+   sv-shared.css — Section 40: Float image layout
+   Image floats beside first paragraphs, remaining text flows
+   underneath. Used on landed-home-security-systems.html.
+   ============================================================ */
+
+.img-float-right {
+  float: right;
+  width: 42%;
+  max-width: 420px;
+  margin: 4px 0 28px 40px;
+  border-radius: 12px;
+  display: block;
+}
+
+.img-float-left {
+  float: left;
+  width: 42%;
+  max-width: 420px;
+  margin: 4px 40px 28px 0;
+  border-radius: 12px;
+  display: block;
+}
+
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 768px) {
+  .img-float-right,
+  .img-float-left {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 28px 0;
+  }
+}
+
+/* ── END Section 40 ────────────────────────────────────────── */

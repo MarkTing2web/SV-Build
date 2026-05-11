@@ -2,9 +2,8 @@
   "use strict";
 
   /* ─── SYSTEMS DATA ───────────────────────────────────────────────────
-     All 6 system cards in a 3x2 grid.
-     Order: Premises Security, Entry & Access, Vehicle Management (row 1)
-            Communications, Network Infrastructure, Platform (row 2)
+     Single source of truth for all 5 system cards.
+     The platform card is always rendered separately as the unifying layer.
   ──────────────────────────────────────────────────────────────────── */
   var SYSTEMS = [
     {
@@ -34,23 +33,17 @@
       alt:  "IP Phone & Communications — IPPBX & Desk Phones",
       name: "IP Phone &amp; Communications",
       desc: "IP phones and IPPBX systems — replace legacy keyphones with modern office communications."
-    },
-    {
-      href: "/systems/network-infrastructure.html",
-      img:  "/images/systems/network-infrastructure-singapore-rel.webp",
-      alt:  "Network Infrastructure — Managed Switches & WiFi",
-      name: "Network Infrastructure",
-      desc: "Managed PoE switches, WiFi access points, and structured cabling — the IP foundation every system runs on."
-    },
-    {
-      href:  "/systems/security-management-platform.html",
-      img:   "/images/systems/security-management-platform-singapore-rel.webp",
-      alt:   "Security Management Platform — VESTA & HikCentral",
-      name:  "Platform &amp; Management",
-      desc:  "VESTA, Milestone, HikCentral — connect every system above into one operational view across your property.",
-      badge: "Unifying Layer"
     }
   ];
+
+  var PLATFORM = {
+    href:  "/systems/security-management-platform.html",
+    img:   "/images/systems/security-management-platform-singapore-rel.webp",
+    alt:   "Security Management Platform — VESTA & HikCentral",
+    name:  "Platform &amp; Management",
+    badge: "Unifying Layer",
+    desc:  "VESTA, Milestone, HikCentral — connect every system above into one operational view across your property. The intelligence layer that turns five separate systems into one coordinated security architecture."
+  };
 
   /* ─── RENDER ─────────────────────────────────────────────────────────
      Reads data-* attributes from the placeholder div, builds the block,
@@ -60,10 +53,10 @@
     var eyebrow = el.getAttribute("data-eyebrow") || "";
     var heading = el.getAttribute("data-heading") || "Six System Groups. One Integrated Architecture.";
     var intro   = el.getAttribute("data-intro")   || "";
-    var cta     = el.getAttribute("data-cta")     || "";
-    var ctaHref = el.getAttribute("data-cta-href") || "/systems/";
+    var cta     = el.getAttribute("data-cta")     || "";   /* optional "Explore all technologies →" link */
+    var ctaHref = el.getAttribute("data-cta-href")|| "/systems/";
 
-    /* Header */
+    /* Header — only rendered if heading exists */
     var headerHtml = "";
     if (heading) {
       headerHtml  = '<div class="section-header">';
@@ -73,23 +66,33 @@
       headerHtml += '</div>';
     }
 
-    /* 3x2 grid - all 6 cards */
+    /* 4-card grid */
     var cardsHtml = '<div class="sv-systems-grid mt-48">';
     for (var i = 0; i < SYSTEMS.length; i++) {
       var s = SYSTEMS[i];
-      var badgeHtml = s.badge
-        ? '<span class="sv-sys-badge">' + s.badge + '</span>'
-        : '';
       cardsHtml +=
-        '<a href="' + s.href + '" class="sv-sys-card' + (s.badge ? ' sv-sys-card--platform' : '') + '">' +
+        '<a href="' + s.href + '" class="sv-sys-card">' +
           '<div class="sv-sys-img"><img src="' + s.img + '" alt="' + s.alt + '" loading="lazy"></div>' +
-          badgeHtml +
           '<h3>' + s.name + '</h3>' +
           '<p>' + s.desc + '</p>' +
           '<div class="sv-sys-link">Explore &rarr;</div>' +
         '</a>';
     }
     cardsHtml += '</div>';
+
+    /* Platform card */
+    var platformHtml =
+      '<a href="' + PLATFORM.href + '" class="sv-sys-platform">' +
+        '<div class="sv-sys-platform-img">' +
+          '<img src="' + PLATFORM.img + '" alt="' + PLATFORM.alt + '" loading="lazy">' +
+        '</div>' +
+        '<div class="sv-sys-platform-body">' +
+          '<span class="sv-sys-platform-badge">' + PLATFORM.badge + '</span>' +
+          '<h3>' + PLATFORM.name + '</h3>' +
+          '<p>' + PLATFORM.desc + '</p>' +
+          '<div class="sv-sys-link">Explore &rarr;</div>' +
+        '</div>' +
+      '</a>';
 
     /* Optional CTA button */
     var ctaHtml = "";
@@ -99,11 +102,14 @@
 
     /* Assemble and replace placeholder */
     var wrapper = document.createElement("div");
-    wrapper.innerHTML = headerHtml + cardsHtml + ctaHtml;
+    wrapper.innerHTML = headerHtml + cardsHtml + platformHtml + ctaHtml;
+
     el.parentNode.replaceChild(wrapper, el);
   }
 
-  /* ─── INIT ─────────────────────────────────────────────────────────── */
+  /* ─── INIT ───────────────────────────────────────────────────────────
+     Runs on DOMContentLoaded. Finds all .sv-systems-block placeholders.
+  ──────────────────────────────────────────────────────────────────── */
   document.addEventListener("DOMContentLoaded", function () {
     var blocks = document.querySelectorAll(".sv-systems-block");
     for (var i = 0; i < blocks.length; i++) {

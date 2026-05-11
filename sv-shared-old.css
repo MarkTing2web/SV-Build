@@ -9888,9 +9888,30 @@ a.arch-card-link p {
 
 .sv-systems-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin-top: 40px;
+}
+
+/* Platform card — subtle distinction within the grid */
+.sv-sys-card--platform {
+    border-top-color: #003d82;
+}
+
+/* Unifying Layer badge */
+.sv-sys-badge {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #003d82;
+    background: #e6f0fa;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin: 12px 20px 0;
+    align-self: flex-start;
 }
 
 /* ── 39b. Standard card ─────────────────────────────────────── */
@@ -10034,26 +10055,10 @@ a.arch-card-link p {
 
 /* ── 39d. Responsive ────────────────────────────────────────── */
 
-/* Tablet: 2×2 grid + platform stacks */
+/* Tablet: 2-col (6 cards = 2+2+2) + no platform separation needed */
 @media (max-width: 768px) {
     .sv-systems-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-
-    .sv-sys-platform {
-        flex-direction: column;
-        gap: 0;
-        align-items: stretch;
-    }
-
-    .sv-sys-platform-img {
-        width: 100%;
-        min-width: 0;
-        aspect-ratio: 16 / 7;
-    }
-
-    .sv-sys-platform-body {
-        padding: 20px 24px 24px;
     }
 }
 
@@ -10065,3 +10070,45 @@ a.arch-card-link p {
 }
 
 /* ── END Section 39 ──────────────────────────────────────────── */
+
+/* ============================================================
+   sv-shared.css — Section 40: Float image layout
+   Image floats beside first paragraphs, remaining text flows
+   underneath. Used on landed-home-security-systems.html.
+   ============================================================ */
+
+.img-float-right {
+  float: right;
+  width: 42%;
+  max-width: 420px;
+  margin: 4px 0 28px 40px;
+  border-radius: 12px;
+  display: block;
+}
+
+.img-float-left {
+  float: left;
+  width: 42%;
+  max-width: 420px;
+  margin: 4px 40px 28px 0;
+  border-radius: 12px;
+  display: block;
+}
+
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 768px) {
+  .img-float-right,
+  .img-float-left {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 28px 0;
+  }
+}
+
+/* ── END Section 40 ────────────────────────────────────────── */
