@@ -51,7 +51,7 @@
   ──────────────────────────────────────────────────────────────────── */
   function renderBlock(el) {
     var eyebrow = el.getAttribute("data-eyebrow") || "";
-    var heading = el.getAttribute("data-heading") || "Five System Groups. One Integrated Architecture.";
+    var heading = el.getAttribute("data-heading") || "Six System Groups. One Integrated Architecture.";
     var intro   = el.getAttribute("data-intro")   || "";
     var cta     = el.getAttribute("data-cta")     || "";   /* optional "Explore all technologies →" link */
     var ctaHref = el.getAttribute("data-cta-href")|| "/systems/";
