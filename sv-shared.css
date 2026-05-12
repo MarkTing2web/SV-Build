@@ -5110,6 +5110,8 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
+    width: 100%;
+    margin-top: 48px;
 }
 
 @media (max-width: 1024px) {
@@ -5118,6 +5120,7 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     }
 }
 
+@media (max-width: 600px) {
     .guides-grid {
         grid-template-columns: 1fr;
     }
@@ -5145,12 +5148,13 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     padding: 24px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    flex: 1;
 }
 
 .guide-card-link {
     text-decoration: none;
-    display: block;
+    display: flex;
+    flex-direction: column;
     height: 100%;
 }
 
@@ -5159,10 +5163,13 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     position: relative;
     padding-top: 0 !important;
     border: 1px solid var(--border-light);
+    border-radius: var(--border-radius);
     transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    flex: 1;
+    background: #fff;
 }
 
 .guide-card:hover {
@@ -5173,8 +5180,8 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
 
 .guide-badge {
     position: absolute;
-    top: 24px;
-    left: 24px;
+    top: 12px;
+    left: 12px;
     font-family: 'Montserrat', sans-serif;
     font-size: 10px;
     font-weight: 700;
@@ -5182,25 +5189,33 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     letter-spacing: 1px;
     padding: 4px 10px;
     border-radius: 4px;
+    background: rgba(0, 86, 179, 0.08);
+    color: var(--primary-blue);
 }
 
 .guide-card h3 {
     color: var(--text-dark);
+    font-size: 16px;
+    line-height: 1.4;
     margin-bottom: 12px;
+    min-height: 44px;
 }
 
 .guide-card p {
     color: var(--text-gray);
-    font-size: 15px;
-    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    flex-grow: 1;
 }
 
 .guide-meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: auto;
-    padding-top: 20px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
 }
 
 .guide-read-time {
@@ -5229,6 +5244,12 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
 
 .guide-related-link:hover {
     color: var(--primary-blue);
+}
+
+.guide-card--placeholder {
+    opacity: 0.45;
+    pointer-events: none;
+    cursor: default;
 }
 
 .hub-links-grid {
