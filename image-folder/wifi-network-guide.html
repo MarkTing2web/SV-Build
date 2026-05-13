@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══ SEO ═══ -->
+  <title>Home Network Planning for Singapore Landed Properties | Securevision</title>
+  <meta name="description" content="Wired vs wireless, Cat 6 cabling, managed switches, static IPs, and why your router swap broke the cameras — a complete network guide for Singapore landed homeowners.">
+  <link rel="canonical" href="https://www.securevision.com.sg/resources/guides/wifi-network-guide.html">
+  <meta property="og:title" content="Home Network Planning for Singapore Landed Properties | Securevision">
+  <meta property="og:description" content="Wired vs wireless, Cat 6 cabling, managed switches, static IPs, and why your router swap broke the cameras — a complete network guide for Singapore landed homeowners.">
+  <meta property="og:image" content="https://www.securevision.com.sg/images/resources/infrastructure/wifi-network-guide-cover.webp">
+  <meta property="og:url" content="https://www.securevision.com.sg/resources/guides/wifi-network-guide.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Securevision">
+  <meta property="article:author" content="Ler Wee Meng">
+  <meta property="article:published_time" content="2026-05-13">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/sv-shared.css">
+  <script src="/site-config.js"></script>
+
+  <!-- NO <style> BLOCK. All classes are in sv-shared.css. -->
+  <!--
+  NEEDS CSS — add to sv-shared.css Section 26 (Technical Guide Hub), after .guide-related-link:hover:
+
+  .article-image-float-right {
+      float: right;
+      width: 42%;
+      margin: 4px 0 24px 32px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+  }
+  .article-image-float-left {
+      float: left;
+      width: 42%;
+      margin: 4px 32px 24px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+  }
+  .article-image-float-right img,
+  .article-image-float-left img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+  }
+  .article-image-float-right .image-caption,
+  .article-image-float-left .image-caption {
+      font-size: 12px;
+      color: var(--text-light);
+      font-style: italic;
+      text-align: center;
+      padding: 8px 12px;
+      background: var(--bg-light);
+  }
+  .prose section { overflow: hidden; }
+
+  @media (max-width: 768px) {
+      .article-image-float-right,
+      .article-image-float-left {
+          float: none;
+          width: 100%;
+          margin: 0 0 24px 0;
+      }
+  }
+
+  Also add to fix broken guides-grid responsive rule (line ~5108, missing @media wrapper):
+  @media (max-width: 600px) {
+      .guides-grid {
+          grid-template-columns: 1fr;
+      }
+  }
+
+  Also add placeholder card rule after .guide-related-link:hover:
+  .guide-card--placeholder {
+      opacity: 0.45;
+      pointer-events: none;
+      cursor: default;
+  }
+  -->
+
+</head>
+<body>
+
+<nav id="sv-nav"></nav>
+
+
+<!-- ═══ ARTICLE HEADER ═══ -->
+<header class="insights-header">
+  <div class="container" style="max-width:900px;">
+
+    <span class="badge badge-primary" style="margin-bottom:20px; display:inline-block;">Technology</span>
+
+    <h1 class="insights-header-title">Home Network Planning for Singapore Landed Properties: Wired, Wireless, and Everything in Between</h1>
+
+    <p class="insights-header-intro">Most homeowners wire up their alarm and CCTV, then leave the network to chance. After 37 years of installing security and AV systems in Singapore landed homes, I can tell you the network is the one thing that affects everything else — and the one thing almost nobody plans properly.</p>
+
+    <div class="hero-byline">
+      <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="hero-byline-img">
+      <div class="hero-byline-text">
+        <strong>Ler Wee Meng</strong>
+        <span>Founder & CEO · Securevision · 37+ Years Experience · 13 May 2026</span>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+
+<!-- ═══ BREADCRUMB ═══ -->
+<nav class="sv-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/resources/">Resources</a></li>
+      <li><a href="/resources/guides/">Technical Guides</a></li>
+      <li>Wi-Fi & Network Guide</li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- ═══ ARTICLE BODY + SIDEBAR ═══ -->
+<div class="article-body">
+  <div class="container">
+    <div class="layout-with-sidebar">
+
+      <!-- ── MAIN ARTICLE CONTENT ── -->
+      <main class="prose">
+
+
+        <!-- ═══════════════════════════════════════════════════
+             SECTION 1 — WIRED VS WIRELESS
+        ════════════════════════════════════════════════════ -->
+        <section id="section1">
+          <h2>1. Wired vs Wireless: Understanding the Fundamental Difference</h2>
+
+          <div class="article-image-float-right">
+            <img src="/images/resources/infrastructure/wired-vs-wireless-comparison.webp" alt="Side-by-side comparison of a network cable port and a Wi-Fi router antenna, illustrating the two approaches to home connectivity">
+            <p class="image-caption">A wired connection gives each device its own dedicated lane. Wi-Fi is a shared road that every device competes for simultaneously.</p>
+          </div>
+
+          <p>Before you make any decisions about your home network, you need to understand one concept: bandwidth. Bandwidth is simply the volume of data that can move through a connection in a given second. Think of it like water through a pipe — the wider the pipe, the more water flows at once. In network terms, bandwidth is measured in megabits per second (Mbps) or gigabits per second (Gbps).</p>
+
+          <p>A wired Ethernet connection gives every connected device its own dedicated pipe. When your smart TV is connected via a cable, it has the full capacity of that cable to itself — typically 1,000 Mbps (1 Gbps) on a Cat 6 cable. Nothing else on the network competes with it for that bandwidth.</p>
+
+          <p>Wi-Fi works differently. All wireless devices on your network share the same radio frequency band. Your phone, your laptop, your smart TV, and your security cameras are all competing for the same airtime simultaneously. When one device transmits, others have to wait. The more devices, the more contention, and the more your real-world speed drops from what the router's specification sheet claims.</p>
+
+          <div class="callout-box">
+            <p class="callout-label">KEY POINT</p>
+            <p>A Wi-Fi 6 router rated at 1,200 Mbps is sharing that 1,200 Mbps across every device connected to it at the same time. A single Cat 6 cable connection gives one device 1,000 Mbps all to itself. For fixed devices that never move, wired is almost always the better choice.</p>
+          </div>
+
+          <p>In a Singapore landed property — a terrace, semi-detached, bungalow, or GCB — you have the walls, floors, and ceiling space to run cables during renovation or A&A works. This is an opportunity that most homeowners underuse, often because nobody advised them at the right moment. Once the walls are plastered and painted, pulling new cable is expensive and disruptive. Planning the network before renovation begins is one of the highest-value decisions you can make.</p>
+
+          <h3>How Much Bandwidth Do You Actually Need?</h3>
+          <p>Here is a practical guide to bandwidth consumption by activity. Add up the simultaneous users in your household to size your internet plan and internal network correctly:</p>
+
+          <ul>
+            <li><strong>4K video streaming (Netflix, Disney+)</strong> — approximately 25 Mbps per stream</li>
+            <li><strong>Video call (Zoom, Teams, 1080p)</strong> — approximately 10–15 Mbps upload and download</li>
+            <li><strong>Online gaming</strong> — 10–30 Mbps, but more critically, low latency (under 30ms)</li>
+            <li><strong>IP security camera (1080p, continuous)</strong> — 2–4 Mbps per camera to the NVR</li>
+            <li><strong>General browsing and social media</strong> — 5–10 Mbps per user</li>
+          </ul>
+
+          <p>A household of five with two people streaming 4K, one on a video call, two browsing, and eight cameras recording locally needs roughly 150–200 Mbps of internal network capacity during peak hours. A 500 Mbps or 1 Gbps internet plan from your ISP is sufficient — but only if your internal network (switches, Wi-Fi, and cabling) is designed to handle the load. The ISP speed entering your home is only as useful as your internal network's ability to distribute it.</p>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════
+             SECTION 2 — WI-FI GENERATIONS
+        ════════════════════════════════════════════════════ -->
+        <section id="section2">
+          <h2>2. Wi-Fi Generations: 5, 6, and 7 Explained for Homeowners</h2>
+
+          <div class="article-image-float-left">
+            <img src="/images/resources/infrastructure/wifi-generations-router.webp" alt="A modern Wi-Fi 6 mesh router on a home shelf, with the Wi-Fi 6 logo visible on the unit">
+            <p class="image-caption">Wi-Fi 6 and 6E are the current mainstream standard for Singapore landed homes. Wi-Fi 7 hardware is available but rarely necessary at the residential level.</p>
+          </div>
+
+          <p>The Wi-Fi generation numbers — 5, 6, 6E, 7 — refer to the underlying radio standard. Each generation increased theoretical maximum speeds and improved how the router handles multiple devices simultaneously. Here is what each one actually means for a homeowner:</p>
+
+          <ul>
+            <li><strong>Wi-Fi 5 (802.11ac)</strong> — the previous mainstream standard, still found in most homes installed before 2022. Maximum theoretical speed around 3.5 Gbps across all devices combined, operating on 2.4 GHz and 5 GHz bands. Perfectly adequate for households with under 20 devices and no heavy simultaneous streaming.</li>
+            <li><strong>Wi-Fi 6 (802.11ax)</strong> — the current mainstream standard. More efficient at handling many devices at once (OFDMA technology). Theoretical maximum around 9.6 Gbps. Real-world improvement in congested environments — meaning homes with many simultaneous users — is meaningful. If you are buying new equipment today, buy Wi-Fi 6.</li>
+            <li><strong>Wi-Fi 6E</strong> — Wi-Fi 6 extended to the 6 GHz band. Less interference from neighbours because the 6 GHz band is less congested. Useful in high-density areas like landed estates where many households are competing on the same frequencies.</li>
+            <li><strong>Wi-Fi 7 (802.11be)</strong> — the latest generation. Theoretical maximum over 40 Gbps. In a Singapore landed home context, Wi-Fi 7 is largely unnecessary today. The bottleneck is your ISP speed (typically 1–2 Gbps), not the Wi-Fi standard. Wi-Fi 7 equipment costs significantly more. Wait until it becomes the mainstream standard in two to three years before factoring it into a renovation decision.</li>
+          </ul>
+
+          <div class="callout-box">
+            <p class="callout-label">PLANNING POINT</p>
+            <p>Upgrading your router from Wi-Fi 5 to Wi-Fi 6 will make a noticeable difference if you have more than 15 connected devices. If you have fewer than 10 devices and no specific performance complaint, your Wi-Fi 5 router is likely not the problem — the issue is more probably coverage (dead zones) or your internal cabling.</p>
+          </div>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════
+             SECTION 3 — WHEN TO RUN A CABLE
+        ════════════════════════════════════════════════════ -->
+        <section id="section3">
+          <h2>3. When to Run a Cable: Smart TVs, Gaming, and Heavy Users</h2>
+
+          <div class="article-image-float-right">
+            <img src="/images/resources/infrastructure/ethernet-port-smart-tv.webp" alt="A Cat 6 Ethernet cable being plugged into the network port on the back of a wall-mounted smart TV">
+            <p class="image-caption">Most smart TVs have an Ethernet port. A single Cat 6 cable to the TV cabinet eliminates buffering permanently — no Wi-Fi extender needed.</p>
+          </div>
+
+          <p>The practical rule is straightforward: if a device does not move, wire it. The devices in a landed home that benefit most from a wired connection are:</p>
+
+          <ul>
+            <li><strong>Smart TVs and media streamers</strong> — 4K streaming and gaming require sustained bandwidth. A wired connection eliminates buffering caused by Wi-Fi congestion entirely.</li>
+            <li><strong>Desktop computers and workstations</strong> — higher throughput, lower latency, and no dropped connections during large uploads or video calls.</li>
+            <li><strong>Network Video Recorders (NVRs)</strong> — your CCTV system writes continuous data from multiple cameras. An NVR on Wi-Fi is an unnecessary risk. Wire it.</li>
+            <li><strong>Gaming consoles</strong> — online gaming is highly sensitive to latency. Wired connections consistently deliver lower ping than even the strongest Wi-Fi signal.</li>
+            <li><strong>IP intercoms and access control panels</strong> — these are life-safety and security devices. Wired connections are more reliable and less susceptible to radio interference.</li>
+          </ul>
+
+          <p>The reality in most Singapore landed homes is that mobile phones and laptops account for the majority of connected devices, and these are inherently wireless. This is fine — Wi-Fi is the right tool for mobile devices. The mistake is using Wi-Fi for fixed devices simply because running a cable seems like more effort during renovation. That effort, invested once, eliminates a category of network problems permanently.</p>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════
+             SECTION 4 — WI-FI EXTENDERS AND MESH
+        ════════════════════════════════════════════════════ -->
+        <section id="section4">
+          <h2>4. Wi-Fi Extenders and Mesh Systems: What They Can and Cannot Do</h2>
+
+          <div class="article-image-float-left">
+            <img src="/images/resources/infrastructure/mesh-wifi-placement-home.webp" alt="A cross-section illustration of a three-storey landed home showing optimal placement of mesh Wi-Fi nodes on each floor">
+            <p class="image-caption">Mesh nodes placed on each floor of a landed home provide consistent coverage. Placement mid-floor, away from concrete walls and interference sources, is critical.</p>
+          </div>
+
+          <p>A Wi-Fi extender (also called a repeater) takes an existing Wi-Fi signal and rebroadcasts it. A mesh system is a more sophisticated version of the same idea — multiple nodes communicate with each other to create a seamless coverage network. Products like Google Nest Wi-Fi, TP-Link Deco, and Eero are mesh systems marketed to homeowners.</p>
+
+          <p>They solve one problem well: coverage. If you have dead zones in your master bedroom or at the far end of the garden, a correctly placed mesh node will eliminate them. What they do not solve is capacity. Adding a mesh node does not give your network more total bandwidth — it distributes the existing bandwidth across a wider area. If your network is congested because too many devices are competing simultaneously, a mesh system will not fix that.</p>
+
+          <h3>Where to Place Wi-Fi Extenders or Mesh Nodes</h3>
+          <ul>
+            <li><strong>One node per floor</strong> in a multi-storey landed home is the baseline. In a large bungalow, two nodes per floor may be needed.</li>
+            <li><strong>Place nodes in the middle of the coverage area</strong>, not in a corner or directly against a wall. The signal radiates in all directions — a central position maximises coverage.</li>
+            <li><strong>Avoid placement behind reinforced concrete walls</strong>, inside cabinets, or in rooms with dense interference (near microwave ovens, cordless phones, or baby monitors).</li>
+            <li><strong>Nodes should be within reasonable signal range of each other</strong>. If the main router and the furthest mesh node are separated by three concrete floors with no intermediate node, the connection between them will be weak and the extended coverage will be unreliable.</li>
+          </ul>
+
+          <div class="callout-box">
+            <p class="callout-label">KEY POINT</p>
+            <p>A mesh system performs significantly better when the nodes are connected to the main router via a wired backhaul — meaning each node has a physical Cat 6 cable back to the main switch. Wireless backhaul (nodes communicating with each other wirelessly) consumes a portion of the available bandwidth for the inter-node traffic itself. If you are running cable during renovation, run a cable to each planned mesh node location as well.</p>
+          </div>
+
+          <h3>The Problem with Google Nest and Similar Consumer Mesh Systems</h3>
+          <p>Consumer mesh products are designed to be simple to set up and simple to manage from a smartphone app. For a household with basic needs, they work well. However, they have meaningful limitations for a landed home with security systems installed:</p>
+          <ul>
+            <li>Limited control over IP address assignment — making it difficult to maintain static IPs for cameras, intercoms, and alarm panels (more on this in Section 7).</li>
+            <li>No VLAN support on most consumer units — meaning your security cameras share the same network as your children's tablets and guest devices.</li>
+            <li>No remote management by a third party — if your network misbehaves, your integrator cannot access and diagnose it remotely without a site visit.</li>
+            <li>Firmware updates are automatic and can occasionally change network behaviour without warning.</li>
+          </ul>
+          <p>These are not disqualifying for a simple home, but they matter as soon as you add managed security systems. We will cover our preferred alternatives in Section 13.</p>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════
+             SECTION 5 — CABLING STANDARDS
+        ════════════════════════════════════════════════════ -->
+        <section id="section5">
+          <h2>5. Cabling Standards: Cat 5e, Cat 6, and Cat 7 — and Why Cat 3 is Dead</h2>
+
+          <div class="article-image-float-right">
+            <img src="/images/resources/infrastructure/cat6-cable-cross-section.webp" alt="Cross-section of a Cat 6 network cable showing the four twisted pairs and central spline separator that reduces crosstalk">
+            <p class="image-caption">Cat 6 cable includes a central spline that separates the four twisted pairs, significantly reducing crosstalk compared to Cat 5e. This is the correct cable for any new installation.</p>
+          </div>
+
+          <p>Category ratings for Ethernet cable — Cat 5e, Cat 6, Cat 6A, Cat 7 — describe the cable's electrical performance. Higher categories support higher speeds and frequencies, and reject interference more effectively. Here is what matters for a Singapore landed home:</p>
+
+          <ul>
+            <li><strong>Cat 5e</strong> — supports 1 Gbps up to 100 metres. Was the standard for residential installations through the 2010s. Acceptable if already installed in your home. Do not specify for new works.</li>
+            <li><strong>Cat 6</strong> — supports 1 Gbps reliably and 10 Gbps up to 55 metres. Better crosstalk rejection than Cat 5e due to the central spline separator. This is the correct specification for all new residential installations in Singapore today.</li>
+            <li><strong>Cat 6A</strong> — supports 10 Gbps up to 100 metres. The sweet spot if you are doing a full renovation and want to future-proof for the next 15–20 years. Slightly thicker and stiffer than Cat 6 — cable routing needs slightly more space, but manageable in a standard Singapore landed home.</li>
+            <li><strong>Cat 7</strong> — designed for data centre use. Requires shielded terminations and shielded patch panels that most residential installations do not use correctly. In practice, improperly grounded Cat 7 cable in a residential setting can perform worse than Cat 6 due to noise from incorrect shielding. Do not specify Cat 7 for a landed home. It is unnecessary and introduces complexity without benefit.</li>
+          </ul>
+
+          <div class="verdict-box">
+            <p class="verdict-label">Securevision Recommendation</p>
+            <p>Specify Cat 6 as the minimum for all new cable runs in a Singapore landed home. If you are doing a major A&A or new build and budget allows, upgrade to Cat 6A — the incremental cost of the cable itself is modest, and the future-proofing is real. Never specify Cat 7 for residential use. The complexity is not worth it.</p>
+          </div>
+
+          <h3>Cat 3 Telephone Points Are Obsolete — Run Cat 6 Instead</h3>
+
+          <div class="article-image-float-left">
+            <img src="/images/resources/infrastructure/cat3-vs-cat6-wall-plate.webp" alt="Side-by-side comparison of an old Cat 3 telephone wall plate and a modern Cat 6 keystone wall plate showing the upgrade path">
+            <p class="image-caption">Old Cat 3 telephone points (left) support only analogue telephone lines. A Cat 6 keystone point (right) supports Ethernet, VoIP phones, and any IP device — a direct replacement that does far more.</p>
+          </div>
+
+          <p>Many Singapore landed homes built before 2010 have Cat 3 telephone points in every room — the smaller, older wall socket used for traditional analogue telephone lines. These are now obsolete. PSTN (Public Switched Telephone Network) analogue lines are being phased out, and the handsets that used them have been replaced by mobile phones and IP phones.</p>
+
+          <p>If you are renovating, do not retain or replicate Cat 3 telephone points. Replace every planned telephone point with a Cat 6 network point. A Cat 6 point can carry:</p>
+          <ul>
+            <li>A standard wired Ethernet connection for a computer or laptop</li>
+            <li>A VoIP IP phone connection (using the same cable)</li>
+            <li>Power over Ethernet (PoE) to a wall-mounted Wi-Fi access point</li>
+            <li>Any IP device — camera, intercom panel, door controller</li>
+          </ul>
+
+          <h3>The Two-Port Strategy and How Fanvil IP Phones Change the Calculation</h3>
+          <p>A common approach in offices — and increasingly in home offices in landed properties — is to run two Cat 6 points per room: one for the computer, one for the IP phone. This is sensible when the points are being installed during renovation, as the cost difference is minimal.</p>
+          <p>However, if you are using a Fanvil IP phone (our preferred handset brand), you may only need one cable run per desk position. Fanvil desk phones include a built-in network switch port on the back — you connect the Cat 6 cable from the wall to the phone, and then connect the phone's secondary port to the computer with a short patch cable. The phone and the computer share the single cable run, each appearing as a separate device on the network. One cable, two devices, no compromise on performance for normal office use.</p>
+
+          <h3>Ruijie Wall-Socket Access Points: A Network Point and Wi-Fi Node in One</h3>
+          <p>For rooms where running a new cable is not practical — or where you want both a network connection and a Wi-Fi access point at the same point — Ruijie makes a wall-socket format access point that mounts in a standard single-gang back box. It provides one or two Ethernet ports on the face plate and simultaneously serves as a Wi-Fi access point for the room. One Cat 6 cable in, wired port plus Wi-Fi out. This is a particularly clean solution for bedrooms, study rooms, and home office conversions in existing landed homes where minimal disruption is a priority.</p>
+
+          <h3>Future-Proofing: Run Conduit and Spare Cables During Renovation</h3>
+          <div class="callout-box">
+            <p class="callout-label">PLANNING POINT</p>
+            <p>If you are renovating now, run your cable inside conduit wherever possible. A cable inside conduit can be replaced or supplemented without opening the wall. Also run at least one spare Cat 6 to each room and one spare to each planned access point location. The material cost of a spare cable is trivial. Pulling a new cable through a finished wall two years later is not. We have seen homeowners spend more on remedial cabling than they spent on the original installation — entirely because nobody ran spare cables the first time.</p>
+          </div>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════
+             SECTION 6 — SWITCHES, POE, MANAGED VS UNMANAGED
+        ════════════════════════════════════════════════════ -->
+        <section id="section6">
+          <h2>6. Network Switches, PoE, Managed vs Unmanaged, and SSID Strategy</h2>
+
+          <div class="article-image-float-right">
+            <img src="/images/resources/infrastructure/network-switch-poe-rack.webp" alt="A PoE network switch mounted in a small wall cabinet, with labelled Cat 6 cables patched from each room's wall point">
+            <p class="image-caption">A properly racked PoE switch with labelled patch cables. PoE ports power Wi-Fi access points and IP cameras without separate power adaptors — cleaner and more reliable.</p>
+          </div>
+
+          <p>A network switch is a device that connects multiple wired devices on the same network. If you have run Cat 6 cable to six rooms, all those cables terminate at a switch, which connects them together and onwards to your router. Your router connects to the internet; your switch connects your devices to each other and to the router.</p>
+
+          <h3>Power over Ethernet (PoE)</h3>
+          <p>A PoE switch can deliver electrical power through the same Cat 6 cable that carries data. This means Wi-Fi access points, IP cameras, IP intercoms, and door access controllers can be powered directly from the switch — no separate power adaptor or nearby power socket needed at the device location. This is not a minor convenience: it simplifies installation significantly, reduces cable clutter, and means your security devices remain powered even during a brief local power disruption if the switch is on a UPS (more on this in Section 11).</p>
+
+          <h3>Managed vs Unmanaged Switches</h3>
+          <p>An unmanaged switch is plug-and-play — connect it, and it works. It has no configuration interface and no visibility into what is happening on the network. For a simple home with no security systems, an unmanaged switch is adequate.</p>
+          <p>A managed switch gives you full control and visibility: you can configure VLANs to separate your security camera network from your home network, set port priorities (QoS) to ensure camera traffic is never starved by someone downloading files, monitor port status to see which devices are connected and how they are performing, and receive alerts if a device goes offline. For any home with IP cameras, access control, or intercoms, a managed switch is the right choice.</p>
+
+          <h3>Camera Network Isolation</h3>
+          <div class="callout-box">
+            <p class="callout-label">DESIGN RULE</p>
+            <p>IP cameras generate continuous network traffic — a system with eight 4K cameras can produce 30–50 Mbps of data at all times. Best practice is to place cameras on a dedicated VLAN or separate switch segment, isolated from the family network. This prevents camera traffic from congesting your general network, and prevents devices on your family network from having any access path to the cameras or NVR. We configure this as standard on all Securevision installations.</p>
+          </div>
+
+          <h3>SSID Strategy: Same Name or Different Names Per Floor?</h3>
+          <p>Your SSID is the name of your Wi-Fi network — the name you see when your phone searches for Wi-Fi. If you have multiple access points in a landed home, you have a choice: give them all the same SSID, or give each one a different name.</p>
+          <ul>
+            <li><strong>Same SSID across all access points</strong> — your devices see one network and connect automatically. As you move from the ground floor to the third floor, your phone should switch to the nearest access point. The challenge is that devices — particularly phones — are sometimes reluctant to release a strong-enough signal from the current access point and switch to a closer one. This is called "sticky client" behaviour, and it is the main complaint with same-SSID setups in multi-storey homes.</li>
+            <li><strong>Different SSID per floor</strong> — you manually choose which floor's network to connect to. Devices stay on that network until you change. This avoids sticky client issues but requires manual switching as you move, which most family members will find inconvenient.</li>
+          </ul>
+          <p>The better solution for managed access point systems (Omada, Ruijie) is same SSID with 802.11r fast roaming and Band Steering enabled. These features, available on managed access points, actively push devices to roam to the nearest access point when signal quality drops below a threshold. The result is seamless switching as you move between floors with no manual intervention — the same experience as an enterprise Wi-Fi system in an office building.</p>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════
+             SECTION 7 — IP ADDRESSES AND ROUTER REPLACEMENT
+        ════════════════════════════════════════════════════ -->
+        <section id="section7">
+          <h2>7. IP Addresses, Static IPs, and Why Changing Your Router Can Break Everything</h2>
+
+          <div class="article-image-float-left">
+            <img src="/images/resources/infrastructure/ip-address-static-diagram.webp" alt="A simple diagram showing a home network with a router, switch, and devices including cameras and an NVR each labelled with their static IP addresses">
+            <p class="image-caption">Every device on a network has an IP address. Security devices like cameras and intercoms are assigned fixed (static) IP addresses so they are always reachable at the same address.</p>
+          </div>
+
+          <p>Every device on a network — your phone, your laptop, your cameras, your NVR, your intercom — is identified by an IP address. Think of it as a street address: the network uses these addresses to direct data to the right device. IP addresses in a home network typically look like 192.168.1.x, where x is a number between 1 and 254.</p>
+
+          <p>There are two ways a device gets its IP address:</p>
+          <ul>
+            <li><strong>Dynamic (DHCP)</strong> — the router automatically assigns an address when the device connects. The address can change each time the device reconnects, or when the router restarts. This is fine for phones, tablets, and laptops.</li>
+            <li><strong>Static</strong> — the address is fixed and never changes. This is mandatory for security devices — IP cameras, NVRs, intercoms, alarm panels, and access control systems — because the system software needs to know the exact address of each device to communicate with it reliably.</li>
+          </ul>
+
+          <h3>Why Router Replacement Breaks Cameras and Intercoms</h3>
+          <p>This is one of the most common support calls we receive: a homeowner has upgraded their ISP router or installed a new mesh system, and suddenly the cameras are offline, the intercom is unreachable, or the alarm panel cannot communicate with the monitoring centre.</p>
+          <p>The cause is almost always a subnet mismatch. Your old router may have been on the 192.168.1.x subnet — meaning all addresses on your network start with 192.168.1. Your new router, if it is from a different manufacturer or a different ISP, may default to the 192.168.0.x subnet. Your cameras, which are set to static IPs in the 192.168.1.x range, are now on a different subnet than the router. They cannot communicate.</p>
+
+          <div class="callout-box">
+            <p class="callout-label">DOS AND DON'TS — BEFORE YOU CHANGE YOUR ROUTER</p>
+            <p><strong>Do:</strong> Document your existing subnet (e.g. 192.168.1.x), your gateway IP (e.g. 192.168.1.1), and the static IP assigned to every security device before you touch anything. Configure your new router to use the same subnet and the same gateway IP as the old one. Your security devices will reconnect without reconfiguration.</p>
+            <p><strong>Don't:</strong> Accept the new router's default settings without checking. Don't assume the ISP technician knows about your camera system. Don't perform a router swap on a Friday afternoon — if something goes wrong, you want your integrator available.</p>
+          </div>
+
+          <h3>The ISP Combo Unit Problem</h3>
+          <p>Many Singtel and MyRepublic subscribers in Singapore use the ISP-provided unit as both modem and router. When you then add a separate managed router or mesh system behind it, you create a condition called double-NAT — where your devices are effectively behind two routers, each with its own network. This causes problems with security system communication, port forwarding, and remote access. The correct configuration is to put the ISP unit in bridge mode (effectively turning it into a modem only) and letting your managed router handle all routing functions. This requires a phone call to your ISP and occasionally a site visit from their technician — but it is worth doing properly.</p>
+
+          <h3>Maintain a Network Document</h3>
+          <p>Every home with managed security systems should have a one-page network document that records: the router's subnet and gateway IP, the static IP assigned to every security device and what it is, the ISP account details, and the login credentials for the router and any managed switches. Store a printed copy in the comms rack or cable cupboard. This document saves hours of diagnostic time — whether it is us attending a service call, a new contractor coming in, or simply you trying to remember why the camera at the gate is on 192.168.1.50 and not 192.168.1.51.</p>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════
+             SECTION 8 — GUEST NETWORKS
+        ════════════════════════════════════════════════════ -->
+        <section id="section8">
+          <h2>8. Guest Networks: Separating Your Visitors from Your Main Network</h2>
+
+          <div class="article-image-float-right">
+            <img src="/images/resources/infrastructure/guest-wifi-network-setup.webp" alt="A router admin interface showing a guest network SSID configured with network isolation enabled, separate from the main home network">
+            <p class="image-caption">A guest network runs on a separate SSID with network isolation enabled — guests get internet access but cannot reach any device on your main home network.</p>
+          </div>
+
+          <p>A guest network is a separate Wi-Fi network broadcast by your router or access points, isolated from your main home network. Guests connect to it and get internet access, but they cannot see or communicate with any device on your main network — your NVR, your computers, your IP cameras, or your smart home devices.</p>
+
+          <p>Setting up a guest network is straightforward on most managed routers and all the access point systems we install. The key settings to configure are:</p>
+          <ul>
+            <li><strong>Network isolation enabled</strong> — prevents guest devices from communicating with the main network or with each other</li>
+            <li><strong>Bandwidth limit</strong> — caps the bandwidth available to guest devices so a visitor streaming 4K video does not affect your household's performance</li>
+            <li><strong>A separate, simple password</strong> — one you can share freely and change periodically without affecting your main network devices</li>
+          </ul>
+
+          <p>Beyond the security benefit, a guest network is simply good practice for household management. Your domestic helper, your children's friends, contractors on site, and family visitors all connect to the guest network. If any of their devices carry malware, it cannot spread to your main network. If a visitor's device is compromised and someone attempts to access your cameras through it, they will find the guest network has no path to the camera system.</p>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════
+             SECTION 9 — OPEN WI-FI SECURITY
+        ════════════════════════════════════════════════════ -->
+        <section id="section9">
+          <h2>9. Open Wi-Fi and Password Security: The Risks Nobody Talks About</h2>
+
+          <div class="article-image-float-left">
+            <img src="/images/resources/infrastructure/wifi-security-lock-signal.webp" alt="A Wi-Fi signal icon with a padlock overlay, illustrating the importance of securing a wireless network with strong encryption">
+            <p class="image-caption">An unsecured Wi-Fi network is visible to every device within range. In a Singapore landed estate, that includes neighbours, visitors in the street, and anyone sitting outside your gate.</p>
+          </div>
+
+          <p>An open Wi-Fi network — one without a password — is visible and accessible to every wireless device within range. In a Singapore landed property, that range typically extends across your garden, to the street, and potentially into neighbouring properties. Anyone within range can connect and use your internet without your knowledge.</p>
+
+          <p>The freeloading risk is the least of your concerns. The more serious issues are:</p>
+          <ul>
+            <li><strong>Unauthorised access to network devices</strong> — if your cameras, NVR, or intercom are on the same network as an open Wi-Fi, anyone who connects can attempt to access those devices directly.</li>
+            <li><strong>Liability for network activity</strong> — in Singapore, internet activity is traceable to the account holder. If someone uses your open network for illegal downloads or other activities, the connection logs point to you.</li>
+            <li><strong>Man-in-the-middle attacks</strong> — on an open network, traffic between your devices and the internet can be intercepted. Passwords, banking sessions, and email credentials can be captured by someone with the right tools sitting in your street.</li>
+          </ul>
+
+          <p>The minimum standards every home network should meet: WPA3 or WPA2 encryption (set in your router's wireless settings), a strong password of at least 12 characters mixing letters, numbers, and symbols, and the router's default admin credentials changed from the factory default. If your router is still using "admin / admin" as its login, change it today.</p>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════
+             SECTION 10 — CABLE TERMINATION AND DOCUMENTATION
+        ════════════════════════════════════════════════════ -->
+        <section id="section10">
+          <h2>10. Cable Termination, Rack Management, and Documentation</h2>
+
+          <div class="article-image-float-right">
+            <img src="/images/resources/infrastructure/structured-cabling-patch-panel.webp" alt="A neatly terminated and labelled patch panel in a small wall-mounted rack, with colour-coded Cat 6 cables patched to a PoE switch below">
+            <p class="image-caption">A properly terminated patch panel with labelled ports. Every cable has a matching label at both ends. The switch below is patched from the panel — not connected directly to the wall cables.</p>
+          </div>
+
+          <p>How your network cables are terminated and managed at the distribution point — the comms cabinet, the switch location, or the cable cupboard — has a direct impact on how easy the system is to fault-find, extend, and maintain over its lifetime.</p>
+
+          <h3>Patch Panel vs Direct Connection</h3>
+          <p>The professional approach uses a patch panel: all the Cat 6 cables coming from the rooms are terminated into the back of a patch panel, and short patch cables connect the patch panel ports to the switch ports. This means you never need to touch the fixed cable runs in the wall — if a connection needs to be moved, reconfigured, or tested, you work on the patch panel side, not the wall cable.</p>
+          <p>The shortcut — which we see frequently in newly renovated landed homes — is for the electrician to terminate the wall cables directly into a switch that sits on an open shelf or inside a cabinet with no organisation. This works, but every time someone needs to trace a cable, they are handling the fixed runs. Cables get pulled, terminals get loosened, and the original neat bundle becomes a tangle within two years.</p>
+
+          <h3>The T568B Standard — and Why Your Electrician May Not Know It</h3>
+          <div class="callout-box">
+            <p class="callout-label">SITE EXPERIENCE</p>
+            <p>There are two wiring standards for Cat 6 termination: T568A and T568B. Both work, but they must be consistent — if one end of a cable is terminated to T568A and the other to T568B, the link will fail or perform poorly. We regularly arrive at newly renovated Singapore landed homes to find every wall point terminated differently, because different electricians on the same job used different standards or terminated whichever way they learnt. Specify T568B in your M&E schedule. It costs nothing to state upfront and saves significant rework later. Better still, have your network contractor do all terminations, or at minimum test and certify before walls are closed.</p>
+          </div>
+
+          <h3>Cable Labelling and Documentation</h3>
+          <div class="callout-box">
+            <p class="callout-label">SITE EXPERIENCE</p>
+            <p>We have tested entire houses point by point because nobody labelled the cables during installation. On one job — 24 Cat 6 runs across three floors — every cable was unmarked. That is two hours of testing before we could even begin the switch configuration. Every cable should be labelled at both ends with a consistent reference: for example, L2-BR1-1 (Level 2, Bedroom 1, Point 1). Wall plates should carry the same label. A simple floor plan marking each point's reference code should be stored in the comms cabinet. This document is invaluable when you add a device, trace a fault, or hand the system over to a new contractor.</p>
+          </div>
+
+          <h3>Rack and Cabinet Management</h3>
+          <p>A small wall-mounted rack cabinet — even a 6U or 9U unit — makes an enormous difference to the long-term manageability of your network. It houses the patch panel, the switch, the router, and a small UPS in a single organised enclosure with proper cable management. Airflow is better than inside a closed cabinet. Access for maintenance is straightforward. The alternative — a switch sitting on an open shelf with cables trailing loosely — is common but creates problems: cables get knocked, devices get dusty, and heat builds up. For any landed home with more than one switch or more than twelve cable runs, a small rack cabinet is the right investment.</p>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════
+             SECTION 11 — CABLE TESTING
+        ════════════════════════════════════════════════════ -->
+        <section id="section11">
+          <h2>11. Testing Your Network Before the Walls Are Closed</h2>
+
+          <div class="article-image-float-left">
+            <img src="/images/resources/infrastructure/cable-tester-wiremap.webp" alt="A handheld network cable tester displaying a wire map test result showing all eight conductors correctly mapped with no faults">
+            <p class="image-caption">A wire map test confirms that all eight conductors in a Cat 6 cable are correctly terminated at both ends, with no crossed pairs, split pairs, or continuity breaks.</p>
+          </div>
+
+          <p>Testing network cable after installation and before walls are plastered is not optional — it is the only point in the process where faults can be found and fixed at zero cost. Once the walls are closed, rectifying a faulty cable run means opening the wall.</p>
+
+          <p>The minimum test that every installed Cat 6 cable should pass is a wire map test. A wire map confirms that all eight conductors in the cable are correctly connected at both ends, in the right order, with no shorts, opens, crossed pairs, or split pairs. A continuity test — which only confirms that current can flow — is not sufficient. Continuity testing will pass a cable that has incorrectly mapped pairs (which will cause speed degradation or failure under load) and will not detect a hidden join inside the wall.</p>
+
+          <h3>The Hidden Join Problem</h3>
+          <p>A hidden join occurs when an electrician runs short of cable mid-run and joins two shorter pieces together inside the wall cavity. The join is invisible once the wall is plastered. A continuity test passes it. But the join increases resistance and impedance at that point, causing signal reflections that degrade performance — particularly at higher speeds. A wire map tester with time-domain reflectometry (TDR) capability will show an anomaly in the cable length reading at the join location, even if continuity passes. Ask your contractor: "Can you show me the TDR trace for every point?" If the answer is a blank look, they are not testing properly.</p>
+
+          <h3>Practical Testing Options for Residential Installations</h3>
+          <p>Professional Fluke DSX certification equipment — the gold standard for commercial cabling — costs SGD 8,000–12,000 and is designed for data centre and commercial office work. It is not cost-justified for a landed home. The practical middle ground is a cable qualifier or tester in the SGD 300–800 range:</p>
+          <ul>
+            <li><strong>Fluke MicroScanner series</strong> — wire map, length, and basic fault identification. Reliable and widely used by professional cabling contractors in Singapore.</li>
+            <li><strong>Klein Tools VDV500 series</strong> — wire map and continuity, entry-level but far better than no testing at all.</li>
+            <li><strong>Platinum Tools or similar mid-range qualifiers</strong> — wire map plus basic pass/fail against Cat 6 speed parameters.</li>
+          </ul>
+          <p>What to require from your cabling contractor: a wire map test result for every installed point, a length reading for each run, and a written pass/fail record. If they cannot produce this, they have not tested. Any competent structured cabling contractor will have this equipment as a matter of course — it is a basic professional tool, not a luxury.</p>
+
+          <div class="callout-box">
+            <p class="callout-label">KEY POINT</p>
+            <p>Test before the walls are closed. Once the renovation is complete and furnished, the cost and disruption of opening a wall to repair a faulty cable run is significant. A thirty-minute testing session during the cable installation phase eliminates this risk entirely. If your contractor resists testing, find a different contractor.</p>
+          </div>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════
+             SECTION 12 — MAINTENANCE AND MONITORING
+        ════════════════════════════════════════════════════ -->
+        <section id="section12">
+          <h2>12. Maintaining Your Network: Firmware, Monitoring, and UPS Protection</h2>
+
+          <div class="article-image-float-right">
+            <img src="/images/resources/infrastructure/network-monitoring-dashboard.webp" alt="A network management dashboard showing device status, bandwidth usage graphs, and connected client counts across multiple access points">
+            <p class="image-caption">A managed network dashboard shows every connected device, bandwidth consumption per port, and access point health — all from a single screen, accessible remotely.</p>
+          </div>
+
+          <p>Network equipment requires maintenance just like any other installed system in your home. Routers, switches, and access points run firmware — software embedded in the device — that is updated periodically by the manufacturer to fix security vulnerabilities, improve performance, and add features. A router running firmware from 2021 in 2026 may have known vulnerabilities that have been publicly documented and exploited.</p>
+
+          <h3>Firmware Updates</h3>
+          <p>Consumer devices (home routers, mesh systems) typically update firmware automatically. Managed switches and enterprise-grade access points require manual firmware updates or can be configured to update on a schedule through the management software. As part of our annual maintenance programme for homes we manage, we review firmware versions across all network equipment and apply updates as part of the service visit.</p>
+
+          <h3>Remote Network Monitoring</h3>
+          <p>For homes with managed network equipment — Omada or Ruijie — the management software provides a real-time view of the entire network: which devices are connected, which ports are active, bandwidth consumption per port, Wi-Fi client counts and signal strength per access point, and device uptime. Alerts can be configured to notify you or your integrator when a device goes offline, when a switch port fails, or when bandwidth consumption spikes unexpectedly. This visibility means faults are identified before they become noticeable — and in many cases can be diagnosed and resolved remotely without a site visit.</p>
+
+          <h3>UPS — Power Protection for Network Equipment</h3>
+          <div class="callout-box">
+            <p class="callout-label">KEY POINT</p>
+            <p>A power interruption that restarts your router and switch also takes your IP cameras offline during the restart sequence, interrupts NVR recording, and disrupts your access control system. A small UPS (Uninterruptible Power Supply) on the network rack — typically a 650VA or 1000VA unit — provides 15–30 minutes of backup power to the network equipment alone. This is sufficient to ride through brief power interruptions common in Singapore during storms. It also allows the system to shut down gracefully during a longer power failure, preventing database corruption in the NVR. Budget SGD 150–300 for a suitable residential UPS unit. It is one of the highest-value additions to any security and network installation.</p>
+          </div>
+        </section>
+
+
+        <!-- ═══════════════════════════════════════════════════
+             SECTION 13 — RUIJIE AND OMADA
+        ════════════════════════════════════════════════════ -->
+        <section id="section13">
+          <h2>13. Why We Use Ruijie and TP-Link Omada in Singapore Landed Homes</h2>
+
+          <div class="article-image-float-left">
+            <img src="/images/resources/infrastructure/ruijie-omada-access-points.webp" alt="Two ceiling-mounted Wi-Fi access points side by side — a Ruijie RG-AP series unit and a TP-Link Omada EAP series unit, both designed for indoor enterprise and residential use">
+            <p class="image-caption">Ruijie and TP-Link Omada access points are our two preferred platforms for Singapore landed homes. Both support centralised cloud management, fast roaming, and remote diagnostics.</p>
+          </div>
+
+          <p>After evaluating numerous Wi-Fi and network platforms over the years, Securevision has standardised on two ecosystems for Singapore landed home installations: Ruijie Networks and TP-Link Omada. Both are specified for different contexts, and the choice between them depends on the scale and complexity of the installation.</p>
+
+          <h3>TP-Link Omada</h3>
+          <p>The Omada ecosystem — comprising EAP series access points, TL-SG series managed switches, and the Omada SDN controller — is our go-to recommendation for most landed homes. It offers genuine enterprise features (VLANs, 802.11r fast roaming, band steering, PoE management, SSID isolation) at a price point that makes sense for residential use. The Omada controller software runs in the cloud or on a local server, giving us and the homeowner a single management interface for the entire network. We can see every connected device, push firmware updates, reconfigure VLANs, and diagnose faults remotely — without a site visit.</p>
+
+          <h3>Ruijie Networks</h3>
+          <p>Ruijie is our preferred platform for larger or more complex installations — GCBs, large bungalows, and properties where the client requires enterprise-grade reliability and deeper network management. Ruijie's Reyee cloud platform provides the same remote management capability as Omada, with stronger features for multi-SSID management, more granular QoS controls, and their wall-socket AP format — the RG-RAP series — which mounts in a standard single-gang back box and provides both a wired port and Wi-Fi coverage from a single installation point.</p>
+
+          <h3>Remote Support: Why This Matters to You</h3>
+          <p>Both platforms allow us to manage your network remotely with your permission. In practical terms, this means: if your cameras go offline and the fault is a VLAN misconfiguration or a firmware bug, we can identify and fix it from our office without needing to visit your property. If you add a new device and need it assigned to the correct network segment, we can do that remotely. If you call us because your Wi-Fi is slow, we can see the signal levels, client counts, and channel utilisation for every access point in your home before we even pick up the phone.</p>
+
+          <p>Consumer mesh systems like Google Nest or Eero do not offer this capability to third parties. They are closed ecosystems designed for self-management. That is fine for a simple household with no integrated security systems. For a home where the Wi-Fi is the backbone of cameras, access control, intercoms, and IP phones, the ability for your integrator to see and manage the network remotely is a meaningful service advantage.</p>
+
+          <div class="verdict-box">
+            <p class="verdict-label">Securevision Verdict</p>
+            <p>Plan your network before your renovation begins, not after. The decisions that matter most — where to run cable, how many points per room, conduit or not, patch panel or direct termination — are either free or very cheap to get right during construction and expensive to correct afterwards. A landed home with a properly designed wired and wireless network, a managed PoE switch, correctly terminated and labelled cables, and remote management capability will give you fewer problems, faster fault resolution, and a better experience from every connected system in the home — security or otherwise. We have built these systems in hundreds of Singapore landed properties. The ones that were planned properly at the start are the ones we hear from least on the support line.</p>
+          </div>
+        </section>
+
+
+        <hr>
+
+        <!-- AUTHOR BIO -->
+        <section id="author" class="author-bio-footer">
+          <div class="abf-flex">
+            <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
+            <div class="abf-content">
+              <h3>About the Author</h3>
+              <p>Ler Wee Meng is the Founder and CEO of Securevision Pte Ltd, Singapore's integrated security systems specialist since 2006. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London, and brings over 37 years of hands-on experience spanning R&D, engineering, project management, and systems integration.</p>
+              <p>Securevision has protected over 2,000 sites across Singapore — from Good Class Bungalows and MCST-managed condominiums to government institutions and industrial facilities. Ler is the architect of the Securevision SECURE™ Framework and the VESTA™ unified security management platform.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAGS -->
+        <div class="article-tags">
+          <a href="/insights/?category=technology" class="tag-pill">Technology</a>
+          <a href="/insights/?tag=network" class="tag-pill">Network Planning</a>
+          <a href="/insights/?tag=landed-property" class="tag-pill">Landed Property</a>
+          <a href="/insights/?tag=cabling" class="tag-pill">Structured Cabling</a>
+          <a href="/insights/?tag=wifi" class="tag-pill">Wi-Fi</a>
+        </div>
+
+        <!-- PREV / NEXT -->
+        <nav class="prev-next-nav" aria-label="Article navigation">
+          <a href="/resources/guides/office-telephone-guide.html" class="nav-card">
+            <span>← Previous Guide</span>
+            <strong>Complete Guide to Office Telephone Systems</strong>
+          </a>
+          <a href="/resources/guides/auto-gate-guide.html" class="nav-card" style="text-align:right;">
+            <span>Next Guide →</span>
+            <strong>Complete Guide to Auto Gates & Vehicle Barriers</strong>
+          </a>
+        </nav>
+
+      </main>
+      <!-- ── END MAIN CONTENT ── -->
+
+
+      <!-- ── SIDEBAR ── -->
+      <aside>
+        <div class="sticky-toc">
+
+          <h3 class="toc-title">In this article</h3>
+          <ul class="toc-list" id="tocList">
+            <li><a href="#section1">1. Wired vs Wireless</a></li>
+            <li><a href="#section2">2. Wi-Fi Generations</a></li>
+            <li><a href="#section3">3. When to Run a Cable</a></li>
+            <li><a href="#section4">4. Extenders & Mesh</a></li>
+            <li><a href="#section5">5. Cabling Standards & Cat 3</a></li>
+            <li><a href="#section6">6. Switches, PoE & SSID</a></li>
+            <li><a href="#section7">7. IP Addresses & Router Risks</a></li>
+            <li><a href="#section8">8. Guest Networks</a></li>
+            <li><a href="#section9">9. Open Wi-Fi Risks</a></li>
+            <li><a href="#section10">10. Termination & Documentation</a></li>
+            <li><a href="#section11">11. Testing Before Walls Close</a></li>
+            <li><a href="#section12">12. Maintenance & Monitoring</a></li>
+            <li><a href="#section13">13. Ruijie & Omada</a></li>
+            <li><a href="#author">Meet the Author</a></li>
+          </ul>
+
+          <div class="founder-card">
+            <div class="fc-head">
+              <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
+              <div>
+                <strong>Ler Wee Meng</strong>
+                <span>Founder & CEO · 37+ Years</span>
+              </div>
+            </div>
+            <p>Planning a network for your landed home? Talk to our engineering team about what makes sense for your property.</p>
+            <a href="https://wa.me/6593860466" class="fc-wa-link">💬 WhatsApp an Engineer</a>
+          </div>
+
+        </div>
+      </aside>
+      <!-- ── END SIDEBAR ── -->
+
+    </div><!-- end layout-with-sidebar -->
+  </div><!-- end container -->
+</div><!-- end article-body -->
+
+
+<!-- ═══ RELATED GUIDES ═══ -->
+<section class="sv-section-grey section-spacing">
+  <div class="container">
+    <h2 style="text-align:center; margin-bottom:48px;">Related Technical Guides</h2>
+    <div class="insights-related-grid">
+
+      <a href="/resources/guides/intercom-guide.html" class="nav-card">
+        <span>Intercom</span>
+        <strong>Complete Guide to Intercom & Video Door Entry</strong>
+      </a>
+
+      <a href="/resources/guides/door-access-guide.html" class="nav-card">
+        <span>Access Control</span>
+        <strong>Complete Guide to Door Access Control</strong>
+      </a>
+
+      <a href="/resources/guides/office-telephone-guide.html" class="nav-card">
+        <span>Telephony</span>
+        <strong>Complete Guide to Office Telephone Systems</strong>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="cta-section cta-high-impact cta-property">
+  <div class="container">
+    <h2>Ready to Plan Your Home Network?</h2>
+    <p class="subtitle">Talk to our engineering team about cabling, switches, and Wi-Fi for your landed property — before your renovation begins.</p>
+    <div class="btn-group">
+      <a href="/contact-gateway.html" class="btn btn-primary">Book a Site Assessment</a>
+      <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 WhatsApp an Engineer</a>
+    </div>
+    <p class="cta-trust-note">Serving Singapore Since 2006</p>
+  </div>
+</section>
+
+
+<footer id="sv-footer"></footer>
+
+<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+  </svg>
+</a>
+
+<script src="/nav-footer.js"></script>
+
+<script>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-list a');
+  var sections = [];
+  tocLinks.forEach(function(link) {
+    var id = link.getAttribute('href').replace('#', '');
+    var el = document.getElementById(id);
+    if (el) sections.push({ link: link, el: el });
+  });
+  function onScroll() {
+    var scrollY = window.scrollY + 120;
+    var active = null;
+    sections.forEach(function(s) {
+      if (s.el.offsetTop <= scrollY) active = s;
+    });
+    tocLinks.forEach(function(l) { l.classList.remove('active'); });
+    if (active) active.link.classList.add('active');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+
+</body>
+</html>
