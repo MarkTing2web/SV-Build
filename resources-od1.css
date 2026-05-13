@@ -1224,21 +1224,11 @@
 /* ============================================================
    SECTION D: GUIDE HUB CARD SYSTEM
 
-   Owns the guides index page grid and all card sub-components.
-   The guides index page loads resources.css alongside sv-shared.css.
-
-   Architecture:
-     .guides-grid                  — CSS grid container
-     .guide-card-link              — <a> wrapper, stretches to full cell
-     .guide-card                   — card shell, flex column
-     .guide-card-img-wrap          — 16:9 image container
-     .guide-card-body              — flex column, grows to fill card
-     .guide-badge                  — absolute label over image
-     .guide-meta                   — read-time + arrow row
-     .guide-card hr                — divider above related link
-     .guide-related-link           — bottom of card link
-     .guide-card--placeholder      — dimmed coming-soon state
-     .hub-links-grid / hub-link-item — Section 3 resource hub links
+   All styles for the guides index page grid and cards.
+   Moved from sv-shared.css Section 26 so that guide card
+   styles live alongside all other resource page styles.
+   The guides index page must load resources.css in addition
+   to sv-shared.css for these styles to apply.
    ============================================================ */
 
 /* ── D1. Grid ─────────────────────────────────────────────── */
@@ -1264,30 +1254,27 @@
 }
 
 
-/* ── D2. Link wrapper — fills the grid cell completely ───── */
+/* ── D2. Card shell ───────────────────────────────────────── */
 
 .guide-card-link {
     text-decoration: none;
-    color: inherit;
-    display: flex;           /* makes the child guide-card fill height */
+    display: flex;
     flex-direction: column;
-    min-height: 0;           /* prevents overflow in grid context */
+    height: 100%;
 }
 
-
-/* ── D3. Card shell ───────────────────────────────────────── */
-
 .guide-card {
+    height: 100%;
     position: relative;
+    padding-top: 0 !important;
     border: 1px solid var(--border-light);
-    border-radius: 12px;
-    background: #fff;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    flex: 1;                 /* fills the guide-card-link flex container */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    flex: 1;
+    background: #fff;
 }
 
 .guide-card:hover {
@@ -1297,25 +1284,19 @@
 }
 
 
-/* ── D4. Card image ───────────────────────────────────────── */
+/* ── D3. Card image ───────────────────────────────────────── */
 
 .guide-card-img-wrap {
     width: 100%;
-    position: relative;
-    padding-top: 56.25%;     /* 16:9 ratio — reliable across all flex/grid contexts */
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     background: var(--bg-light);
-    flex-shrink: 0;
 }
 
 .guide-card-img-wrap img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    display: block;
     transition: transform 0.5s ease;
 }
 
@@ -1324,46 +1305,44 @@
 }
 
 
-/* ── D5. Card body — grows to fill remaining height ────────── */
+/* ── D4. Card body ────────────────────────────────────────── */
 
 .guide-card-body {
     padding: 24px;
     display: flex;
     flex-direction: column;
     flex: 1;
-    min-height: 0;
 }
 
 .guide-card h3 {
+    color: var(--text-dark);
     font-size: 16px;
     line-height: 1.4;
-    color: var(--text-dark);
     margin-bottom: 12px;
+    min-height: 44px;
 }
 
 .guide-card p {
+    color: var(--text-gray);
     font-size: 14px;
     line-height: 1.6;
-    color: var(--text-gray);
     margin-bottom: 0;
-    flex-grow: 1;            /* pushes meta row to bottom of body */
+    flex-grow: 1;
 }
 
 .guide-card hr {
-    margin: 16px 0;
+    margin: 20px 0;
     border: 0;
     border-top: 1px solid var(--border-light);
-    flex-shrink: 0;
 }
 
 
-/* ── D6. Badge — absolute over image ─────────────────────── */
+/* ── D5. Badge ────────────────────────────────────────────── */
 
 .guide-badge {
     position: absolute;
     top: 12px;
     left: 12px;
-    z-index: 1;
     font-family: 'Montserrat', sans-serif;
     font-size: 10px;
     font-weight: 700;
@@ -1371,43 +1350,41 @@
     letter-spacing: 1px;
     padding: 4px 10px;
     border-radius: 4px;
-    background: rgba(0, 86, 179, 0.92);
-    color: #fff;
+    background: rgba(0, 86, 179, 0.08);
+    color: var(--primary-blue);
 }
 
 
-/* ── D7. Meta row — read time + arrow ────────────────────── */
+/* ── D6. Meta row ─────────────────────────────────────────── */
 
 .guide-meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 16px;
-    padding-top: 14px;
+    margin-top: 20px;
+    padding-top: 16px;
     border-top: 1px solid var(--border-light);
-    flex-shrink: 0;
 }
 
 .guide-read-time {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-light);
 }
 
 .guide-read-link {
-    font-size: 13px;
-    font-weight: 700;
     color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 15px;
 }
 
 
-/* ── D8. Related system link — bottom of card ────────────── */
+/* ── D7. Related link ─────────────────────────────────────── */
 
 .guide-related-link {
-    font-size: 12px;
+    font-size: 13px;
     color: var(--text-light);
     text-decoration: none;
     transition: color 0.2s;
-    flex-shrink: 0;
 }
 
 .guide-related-link:hover {
@@ -1415,16 +1392,16 @@
 }
 
 
-/* ── D9. Placeholder state ────────────────────────────────── */
+/* ── D8. Placeholder card ─────────────────────────────────── */
 
 .guide-card--placeholder {
-    opacity: 0.4;
+    opacity: 0.45;
     pointer-events: none;
     cursor: default;
 }
 
 
-/* ── D10. Hub links grid (Section 3) ─────────────────────── */
+/* ── D9. Hub links grid (Section 3 on guides index) ──────── */
 
 .hub-links-grid {
     display: flex;
@@ -1437,14 +1414,13 @@
     align-items: center;
     gap: 12px;
     text-decoration: none;
-    padding: 12px 16px;
+    padding: 12px;
     background: #fff;
     border-radius: 8px;
     border: 1px solid var(--border-light);
-    font-size: 14px;
     font-weight: 600;
     color: var(--text-dark);
-    transition: border-color 0.2s, color 0.2s;
+    transition: all 0.2s ease;
 }
 
 .hub-link-item:hover {

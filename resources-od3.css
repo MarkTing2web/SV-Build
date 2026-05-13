@@ -492,9 +492,8 @@
     grid-template-areas: "sidebar content";
     gap: 64px;
     align-items: start;
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 64px 24px 120px;
+    padding: 64px 0 120px;
+    /* max-width and horizontal centering handled by parent .container */
 }
 
 
@@ -699,11 +698,19 @@
     display: block;
 }
 
-/* Float-right: 4:3, text wraps around */
+/* Float-right: 4:3, text wraps around.
+   Always use inside <figure class="rg-figure--float"> so the
+   caption stays attached below the image, not in the text flow. */
 .rg-img-wrap--float {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    margin: 0;
+}
+
+/* Figure wrapper — this is what floats, keeping image + caption together */
+.rg-figure--float {
     float: right;
     width: 38%;
-    aspect-ratio: 4 / 3;
     margin: 4px 0 28px 36px;
 }
 
@@ -716,25 +723,21 @@
     flex-shrink: 0;
 }
 
-/* Caption — works below any image variant */
+/* Caption — below any image variant */
 .rg-img-caption {
     display: block;
-    font-size: 12px;
+    font-size: 11px;
     font-style: italic;
     color: var(--text-light);
     text-align: center;
     line-height: 1.5;
-    margin-top: -20px;
-    margin-bottom: 32px;
-    padding: 0 8px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    padding: 0 4px;
 }
 
-/* Caption after a floated image — different alignment */
-.rg-img-wrap--float + .rg-img-caption {
-    float: right;
-    width: 38%;
-    margin-top: 4px;
-    margin-bottom: 0;
+/* Caption inside a figure float — left-aligned to match image width */
+.rg-figure--float .rg-img-caption {
     text-align: left;
     padding: 0;
 }
@@ -1072,21 +1075,21 @@
 
 @media (max-width: 640px) {
 
-    /* Floated images: unfloat, go full-width */
-    .rg-img-wrap--float {
+    /* Figure float: unfloat, go full-width */
+    .rg-figure--float {
         float: none;
         width: 100%;
-        aspect-ratio: 16 / 9;
         margin: 0 0 24px 0;
     }
 
-    /* Float caption: reset to centred full-width */
-    .rg-img-wrap--float + .rg-img-caption {
-        float: none;
-        width: 100%;
+    /* Float image inside figure: switch to 16:9 on mobile */
+    .rg-figure--float .rg-img-wrap--float {
+        aspect-ratio: 16 / 9;
+    }
+
+    /* Caption: centred on mobile */
+    .rg-figure--float .rg-img-caption {
         text-align: center;
-        margin-top: -16px;
-        margin-bottom: 24px;
     }
 
     /* Component card body: stack vertically */
@@ -1115,6 +1118,336 @@
     }
 }
 
+/* Button margin-top helper — for buttons inside rg-recommendation boxes */
+.rg-btn-mt {
+    margin-top: 20px;
+    display: inline-block;
+}
+
 /* ── END SECTION B ───────────────────────────────────────────── */
+
+
+/* ============================================================
+   SECTION C: HERO CLASSES FOR RESOURCE GUIDE PAGES
+
+   ONE shared hero class for all resource guides: .hero-guide
+   The directional gradient runs left (dark) to right (light)
+   because all hero text is left-aligned. The dark left edge
+   ensures legibility regardless of the background image.
+
+   Background image is set per page via the one permitted
+   inline style on the <header> element:
+     style="background-image: url('/images/resources/guides/[topic]/hero-[slug].webp');"
+
+   The dark navy var(--hero-bg) fallback shows while the
+   image loads or if no image has been set yet.
+
+   LEGACY HERO CLASSES — retire on retrofit:
+   The individual per-guide hero classes below (hero-alarm,
+   hero-cctv, hero-access, hero-vehicle, hero-intercom,
+   hero-telephony) are kept here for backward compatibility
+   with the 6 existing guides. Remove each one as its guide
+   is retrofitted to the .hero-guide standard.
+   ============================================================ */
+
+/* ── C1. Shared hero — all resource guides ───────────────────  */
+
+.hero-guide {
+    background:
+        linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.78) 0%,
+            rgba(0, 0, 0, 0.45) 50%,
+            rgba(0, 0, 0, 0.10) 100%
+        ),
+        var(--hero-bg, #0E1A2B);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+/* ── C2. Legacy per-guide hero classes — retire on retrofit ──  */
+
+.hero-alarm {
+    background:
+        linear-gradient(to right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.10) 100%),
+        linear-gradient(135deg, #1a0a0a 0%, #2d1515 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-cctv {
+    background:
+        linear-gradient(to right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.10) 100%),
+        linear-gradient(135deg, #0a0e1a 0%, #0e1a2b 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-access {
+    background:
+        linear-gradient(to right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.10) 100%),
+        linear-gradient(135deg, #0a1a1a 0%, #0d2626 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-vehicle {
+    background:
+        linear-gradient(to right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.10) 100%),
+        linear-gradient(135deg, #1a0f00 0%, #2d1f00 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-intercom {
+    background:
+        linear-gradient(to right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.10) 100%),
+        linear-gradient(135deg, #0a1a14 0%, #0d2620 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-telephony {
+    background:
+        linear-gradient(to right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.45) 50%, rgba(0,0,0,0.10) 100%),
+        linear-gradient(135deg, #0f0a1a 0%, #1a0d2b 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+/* ── END SECTION C ───────────────────────────────────────────── */
+
+
+
+/* ============================================================
+   SECTION D: GUIDE HUB CARD SYSTEM
+
+   Owns the guides index page grid and all card sub-components.
+   The guides index page loads resources.css alongside sv-shared.css.
+
+   Architecture:
+     .guides-grid                  — CSS grid container
+     .guide-card-link              — <a> wrapper, stretches to full cell
+     .guide-card                   — card shell, flex column
+     .guide-card-img-wrap          — 16:9 image container
+     .guide-card-body              — flex column, grows to fill card
+     .guide-badge                  — absolute label over image
+     .guide-meta                   — read-time + arrow row
+     .guide-card hr                — divider above related link
+     .guide-related-link           — bottom of card link
+     .guide-card--placeholder      — dimmed coming-soon state
+     .hub-links-grid / hub-link-item — Section 3 resource hub links
+   ============================================================ */
+
+/* ── D1. Grid ─────────────────────────────────────────────── */
+
+.guides-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    width: 100%;
+    margin-top: 48px;
+}
+
+@media (max-width: 1024px) {
+    .guides-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .guides-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ── D2. Link wrapper — fills the grid cell completely ───── */
+
+.guide-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;           /* makes the child guide-card fill height */
+    flex-direction: column;
+    min-height: 0;           /* prevents overflow in grid context */
+}
+
+
+/* ── D3. Card shell ───────────────────────────────────────── */
+
+.guide-card {
+    position: relative;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    flex: 1;                 /* fills the guide-card-link flex container */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.guide-card:hover {
+    border-color: var(--primary-blue);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 86, 179, 0.08);
+}
+
+
+/* ── D4. Card image ───────────────────────────────────────── */
+
+.guide-card-img-wrap {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: var(--bg-light);
+    flex-shrink: 0;          /* image never squashes */
+}
+
+.guide-card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.guide-card:hover .guide-card-img-wrap img {
+    transform: scale(1.05);
+}
+
+
+/* ── D5. Card body — grows to fill remaining height ────────── */
+
+.guide-card-body {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+.guide-card h3 {
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+}
+
+.guide-card p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-gray);
+    margin-bottom: 0;
+    flex-grow: 1;            /* pushes meta row to bottom of body */
+}
+
+.guide-card hr {
+    margin: 16px 0;
+    border: 0;
+    border-top: 1px solid var(--border-light);
+    flex-shrink: 0;
+}
+
+
+/* ── D6. Badge — absolute over image ─────────────────────── */
+
+.guide-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 1;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: rgba(0, 86, 179, 0.92);
+    color: #fff;
+}
+
+
+/* ── D7. Meta row — read time + arrow ────────────────────── */
+
+.guide-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-light);
+    flex-shrink: 0;
+}
+
+.guide-read-time {
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+.guide-read-link {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary-blue);
+}
+
+
+/* ── D8. Related system link — bottom of card ────────────── */
+
+.guide-related-link {
+    font-size: 12px;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.2s;
+    flex-shrink: 0;
+}
+
+.guide-related-link:hover {
+    color: var(--primary-blue);
+}
+
+
+/* ── D9. Placeholder state ────────────────────────────────── */
+
+.guide-card--placeholder {
+    opacity: 0.4;
+    pointer-events: none;
+    cursor: default;
+}
+
+
+/* ── D10. Hub links grid (Section 3) ─────────────────────── */
+
+.hub-links-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.hub-link-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    padding: 12px 16px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.hub-link-item:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+/* ── END SECTION D ───────────────────────────────────────────── */
 
 /* ── END resources.css ───────────────────────────────────────── */

@@ -4,51 +4,78 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ═══ SEO: UPDATE THESE 6 LINES PER PAGE ═══ -->
+  <!-- ═══ SEO — UPDATE THESE 7 LINES PER PAGE ═══════════════════════
+       [SLUG]        e.g. wifi-network-guide
+       [PAGE TITLE]  e.g. Home Network & Wi-Fi Planning Guide | Securevision
+       [META DESC]   140–160 characters, unique per page
+       [OG IMAGE]    /images/resources/guides/[topic]/hero-[slug].webp
+  ═══════════════════════════════════════════════════════════════════ -->
   <title>[PAGE TITLE] | Securevision Singapore</title>
   <meta name="description" content="[META DESCRIPTION — 140–160 characters, unique per page]">
   <link rel="canonical" href="https://www.securevision.com.sg/resources/guides/[SLUG].html">
   <meta property="og:title" content="[PAGE TITLE]">
   <meta property="og:description" content="[META DESCRIPTION]">
   <meta property="og:url" content="https://www.securevision.com.sg/resources/guides/[SLUG].html">
-  <meta property="og:image" content="https://www.securevision.com.sg/images/og-default.jpg">
+  <meta property="og:image" content="https://www.securevision.com.sg/images/resources/guides/[TOPIC]/hero-[SLUG].webp">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Securevision">
-  <!-- ════════════════════════════════════════════ -->
+  <!-- ════════════════════════════════════════════════════════════ -->
 
   <!-- Google Fonts — do not modify -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- CSS Stack — load order is mandatory -->
+  <!-- CSS stack — load order is mandatory, do not change -->
   <link rel="stylesheet" href="/sv-shared.css">
+  <link rel="stylesheet" href="/resources.css">
   <script src="/site-config.js"></script>
 
-  <!-- ═══ PAGE ACCENT COLOUR — only permitted inline style ═══ -->
+  <!-- ═══ PAGE ACCENT COLOUR — only permitted <style> block ════════
+       Set --page-accent to match the guide topic.
+       Reference colours:
+         CCTV / Surveillance  #0056b3  (blue)
+         Alarm / Intrusion    #c0392b  (red)
+         Access Control       #319795  (teal)
+         Auto Gate / Vehicle  #dd6b20  (amber)
+         Intercom             #6b46c1  (purple)
+         Telephony / Network  #1a56a0  (navy blue)
+  ════════════════════════════════════════════════════════════════ -->
   <style>
-    :root { --primary-access: #0056b3; } /* CCTV=#0056b3 | Alarm=#dc2626 | Access=#319795 | Gate=#dd6b20 | Intercom=#319795 */
+    :root { --page-accent: #0056b3; }
   </style>
 
 </head>
-<body>
+<body class="guide-page">
 
-<!-- ═══ NAV ═══ -->
 <nav id="sv-nav"></nav>
 
-<main>
-
-<!-- ═══ HERO — UPDATE: class="hero-high-impact hero-[PAGE]" and inner content only ═══ -->
-<header class="hero-high-impact hero-[PAGE]">
+<!-- ═══ HERO ═══════════════════════════════════════════════════════
+     - Keep class="hero-high-impact hero-guide" on all resource guides
+     - Set background-image inline — this is the ONE permitted inline style
+     - Image path: /images/resources/guides/[topic]/hero-[slug].webp
+     - H1 structure: main title on first line, keyword span in gold on second
+     - Subtitle: one sentence, max 200 characters
+     - Author block: do not modify — sv-author-name and sv-years-experience
+       are populated by site-config.js
+═══════════════════════════════════════════════════════════════════ -->
+<header class="hero-high-impact hero-guide"
+        style="background-image: url('/images/resources/guides/[TOPIC]/hero-[SLUG].webp');">
   <div class="container">
-    <span class="eyebrow-light">Technical Pillar Guide</span>
-    <h1 class="hero-title-main">[PRIMARY KEYWORD] &amp; <span class="hero-highlight">[SECONDARY KEYWORD]</span></h1>
+    <a href="/resources/guides/" class="no-underline">
+      <span class="eyebrow-light">Technical Pillar Guide</span>
+    </a>
+    <h1 class="hero-title-main">[PRIMARY H1 LINE 1]<br>
+      <span style="color:#FFD700;">[PRIMARY H1 LINE 2 — keyword]</span>
+    </h1>
     <p class="hero-subtitle-main">[One sentence covering what this guide explains. Max 200 characters.]</p>
-    <div class="btn-group btn-group-left">
-      <a href="/contact-gateway.html?intent=[SLUG]-assessment#proposal-form-wrapper" class="btn btn-primary">Request a Proposal</a>
-      <a href="https://wa.me/6593860466" class="btn btn-whatsapp">💬 WhatsApp an Engineer</a>
+    <div class="rg-hero-author">
+      <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="rg-hero-author-photo">
+      <div>
+        <span class="rg-hero-author-name sv-author-name">Ler Wee Meng</span>
+        <span class="rg-hero-author-credentials">Founder &amp; CEO, Securevision · <span class="sv-years-experience"></span>+ Years Experience</span>
+      </div>
     </div>
-    <p class="hero-author-line">Written by <span class="sv-author-name">Ler Wee Meng</span> · Founder &amp; CEO, Securevision · <span class="sv-years-experience"></span>+ Years Experience</p>
   </div>
 </header>
 
@@ -64,67 +91,104 @@
   </div>
 </nav>
 
-<!-- ═══ MAIN LAYOUT — sidebar on right ═══ -->
-<div class="container container--wide mt-64 mb-64">
-  <div class="layout-with-sidebar">
+<!-- ═══ MAIN LAYOUT ═══════════════════════════════════════════════
+     .rg-layout   — two-column grid: 280px sidebar LEFT + 1fr content RIGHT
+     .rg-sidebar  — sticky TOC panel, left column
+     .rg-content  — article sections, right column
 
-    <main>
+     Do NOT wrap in a <main> tag — rg-layout handles the page structure.
+     Do NOT use layout-with-sidebar — that is for insights articles only.
+═══════════════════════════════════════════════════════════════════ -->
+<div class="container">
+  <div class="rg-layout">
 
-      <!-- ══════════════════════════════════════════════════════
-           SECTION ALTERNATION — follow this pattern strictly:
-           Section 1 (white) → plain <section id="sectionN">
-           Section 2 (grey)  → <section id="sectionN" class="bg-light guide-section-inset">
-           Section 3 (white) → plain <section id="sectionN">
-           Section 4 (grey)  → <section id="sectionN" class="bg-light guide-section-inset">
-           Section 5 (white) → plain <section id="sectionN">
-           ══════════════════════════════════════════════════════ -->
+    <!-- ── SIDEBAR ─────────────────────────────────────────────────
+         Add one <li> per section. Keep labels short — max 4 words.
+         The founder-card below the TOC is fixed — do not modify.
+    ──────────────────────────────────────────────────────────────── -->
+    <aside class="rg-sidebar">
+      <div class="rg-toc">
+        <h3 class="rg-toc-title">Guide Navigator</h3>
+        <ul class="rg-toc-list">
+          <li><a href="#section1">1. [Section 1 Name]</a></li>
+          <li><a href="#section2">2. [Section 2 Name]</a></li>
+          <li><a href="#section3">3. [Section 3 Name]</a></li>
+          <li><a href="#section4">4. [Section 4 Name]</a></li>
+          <li><a href="#section5">5. [Section 5 Name]</a></li>
+          <!-- Add more <li> entries as needed -->
+        </ul>
+        <div class="founder-card">
+          <div class="fc-head">
+            <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
+            <div>
+              <strong>Ler Wee Meng</strong>
+              <span>Founder &amp; CEO · <span class="sv-years-experience"></span>+ Years</span>
+            </div>
+          </div>
+          <p>[One sentence relevant to this guide — e.g. "Planning a CCTV system? Talk to our engineering team before you specify."]</p>
+          <a href="https://wa.me/6593860466" class="fc-wa-link">💬 WhatsApp an Engineer</a>
+        </div>
+      </div>
+    </aside>
 
-      <!-- ── PART 1: Conceptual Logic (The Why) ── -->
+    <!-- ── MAIN CONTENT ─────────────────────────────────────────────
+         SECTION RULES:
+         - Odd sections (1, 3, 5...): plain <section id="sectionN">
+         - Even sections (2, 4, 6...): <section id="sectionN" class="rg-section--grey">
+         - Every section must have: eyebrow + h2 + content
+         - First paragraph of Section 1 only: add class="lead"
+         - Subsections use <div class="subsection"><h3>...</h3>...</div>
+
+         IMAGE RULES:
+         - Floated image (text wraps right): use <figure class="rg-figure--float">
+           wrapping <div class="rg-img-wrap rg-img-wrap--float"> + <p class="rg-img-caption">
+         - Full-width image: use <div class="rg-img-wrap"> alone (16:9)
+         - Component card image: use <div class="rg-img-wrap rg-img-wrap--card"> (16:9)
+         - All images: .webp, loading="lazy"
+         - All images stored in: /images/resources/guides/[topic]/
+
+         ANNOTATION BOXES (use ONE type per annotation):
+         - Mid-section note:       <div class="rg-callout">
+         - Engineering guidance:   <div class="rg-recommendation">
+         - Definitive verdict:     <div class="rg-verdict"> (once per guide, near end)
+
+         TABLES: wrap in <div class="rg-table-wrap"><table class="rg-table">
+
+         COMPONENT CARDS: use <div class="rg-component-card"> for numbered anatomy sections
+    ──────────────────────────────────────────────────────────────── -->
+    <main class="rg-content">
+
+      <!-- ══ SECTION 1 — white background ══════════════════════════ -->
       <section id="section1">
-        <span class="eyebrow">The Basics</span>
-        <h2>[Part 1 Heading]</h2>
-        <p class="lead">[Opening paragraph — use .lead class on first paragraph only]</p>
+        <span class="eyebrow">[Eyebrow label]</span>
+        <h2>1. [Section Heading]</h2>
+        <p class="lead">[Opening paragraph — .lead class on first paragraph of Section 1 only]</p>
 
-        <div class="blog-row-wrap">
-          <div class="blog-img-wrap blog-img-square">
-            <img src="/images/guides/[IMAGE].webp" alt="[Descriptive alt text]" loading="lazy">
-            <span class="blog-img-caption">[Caption text]</span>
+        <!-- Floated image with caption -->
+        <figure class="rg-figure--float">
+          <div class="rg-img-wrap rg-img-wrap--float">
+            <img src="/images/resources/guides/[TOPIC]/[image].webp" alt="[Descriptive alt text]" loading="lazy">
           </div>
-          <p>[Body paragraph wrapping around image]</p>
+          <p class="rg-img-caption">[Caption — one sentence, sentence case]</p>
+        </figure>
+
+        <p>[Body paragraph. Text wraps around the floated image.]</p>
+        <p>[Continue paragraphs as needed.]</p>
+
+        <!-- Callout box — mid-section annotation -->
+        <div class="rg-callout">
+          <span class="rg-callout-label">Key Point</span>
+          <p>[Annotation content.]</p>
         </div>
 
+        <!-- Subsection with h3 -->
         <div class="subsection">
-          <h3>[Subsection heading]</h3>
-          <p>[Content]</p>
-        </div>
+          <h3>[Subsection Heading]</h3>
+          <p>[Subsection content.]</p>
 
-      </section>
-
-      <!-- ── PART 2: Anatomy of the Tech (The How) ── -->
-      <section id="section2" class="bg-light guide-section-inset">
-        <span class="eyebrow">Technical Anatomy</span>
-        <h2>[Part 2 Heading]</h2>
-        <p>[Intro paragraph]</p>
-
-        <div class="component-card">
-          <div class="component-header">
-            <div class="component-number">1</div>
-            <h3>[Component Name]</h3>
-          </div>
-          <div class="blog-row">
-            <div class="blog-text">
-              <p>[Component description]</p>
-            </div>
-            <div class="blog-img-wrap blog-img-square">
-              <img src="/images/guides/[COMPONENT-IMAGE].webp" alt="[Alt text]" loading="lazy">
-            </div>
-          </div>
-        </div>
-
-        <div class="subsection">
-          <h3>[Table heading]</h3>
-          <div class="blog-table-wrap">
-            <table class="blog-table">
+          <!-- Optional table inside subsection -->
+          <div class="rg-table-wrap">
+            <table class="rg-table">
               <thead>
                 <tr>
                   <th>[Column 1]</th>
@@ -145,96 +209,103 @@
 
       </section>
 
-      <!-- ── PART 3: Design Standard (The Expertise) ── -->
+
+      <!-- ══ SECTION 2 — grey background ═══════════════════════════ -->
+      <section id="section2" class="rg-section--grey">
+        <span class="eyebrow">[Eyebrow label]</span>
+        <h2>2. [Section Heading]</h2>
+        <p>[Intro paragraph.]</p>
+
+        <!-- Component card — numbered anatomy pattern -->
+        <div class="rg-component-card">
+          <div class="rg-component-header">
+            <div class="rg-component-number">1</div>
+            <h3>[Component Name]</h3>
+          </div>
+          <div class="rg-component-body">
+            <div class="rg-component-text">
+              <p>[Component description.]</p>
+            </div>
+            <div class="rg-img-wrap rg-img-wrap--card">
+              <img src="/images/resources/guides/[TOPIC]/[component-image].webp" alt="[Alt text]" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- Repeat rg-component-card blocks as needed -->
+
+      </section>
+
+
+      <!-- ══ SECTION 3 — white background ══════════════════════════ -->
       <section id="section3">
-        <span class="eyebrow">Singapore Engineering Standard</span>
-        <h2>[Part 3 Heading]</h2>
-        <p>[Intro paragraph — Singapore-specific context]</p>
+        <span class="eyebrow">[Eyebrow label]</span>
+        <h2>3. [Section Heading]</h2>
 
-        <div class="recommendation-box">
-          <h4>💡 Securevision Recommendation</h4>
-          <p>[Specific, engineering-led recommendation. Reference Singapore standards where applicable.]</p>
+        <figure class="rg-figure--float">
+          <div class="rg-img-wrap rg-img-wrap--float">
+            <img src="/images/resources/guides/[TOPIC]/[image].webp" alt="[Alt text]" loading="lazy">
+          </div>
+          <p class="rg-img-caption">[Caption]</p>
+        </figure>
+
+        <p>[Content.]</p>
+
+        <!-- Recommendation box — engineering guidance -->
+        <div class="rg-recommendation">
+          <span class="rg-recommendation-label">Securevision Recommendation</span>
+          <p>[Specific engineering recommendation for Singapore context.]</p>
         </div>
 
       </section>
 
-      <!-- ── PART 4: System Integration (The Unification) ── -->
-      <section id="section4" class="bg-light guide-section-inset">
-        <span class="eyebrow">System Integration</span>
-        <h2>[Part 4 Heading]</h2>
-        <p>[Intro — explain how this system connects to the other pillars]</p>
+
+      <!-- ══ SECTION 4 — grey background ═══════════════════════════ -->
+      <section id="section4" class="rg-section--grey">
+        <span class="eyebrow">[Eyebrow label]</span>
+        <h2>4. [Section Heading]</h2>
+        <p>[Content.]</p>
       </section>
 
-      <!-- ── PART 5: Architect's Checklist (The Action) ── -->
+
+      <!-- ══ SECTION 5 — white background ══════════════════════════ -->
       <section id="section5">
-        <span class="eyebrow">Self-Assessment</span>
-        <h2>[Part 5 Heading]</h2>
-        <p>[Intro — frame this as a self-audit for the reader]</p>
+        <span class="eyebrow">[Eyebrow label]</span>
+        <h2>5. [Section Heading]</h2>
+        <p>[Content.]</p>
 
-        <div class="faq-grid">
-          <div class="faq-item">
-            <h4>[Checklist question 1]</h4>
-            <p>[Explanation of what to look for]</p>
-          </div>
-          <div class="faq-item">
-            <h4>[Checklist question 2]</h4>
-            <p>[Explanation]</p>
-          </div>
-        </div>
-
-        <div class="recommendation-box" style="margin-top:48px;">
-          <h4>🔍 Next Step: Free Site Assessment</h4>
-          <p>If you answered "no" or "unsure" to any of the above, your current system may have gaps. Our engineers will walk your property, map every risk point, and give you a written assessment.</p>
-          <a href="/contact-gateway.html?intent=[SLUG]-assessment#proposal-form-wrapper" class="btn btn-primary" style="margin-top:20px;">Request a Proposal</a>
+        <!-- Verdict box — one per guide, near the end -->
+        <div class="rg-verdict">
+          <span class="rg-verdict-label">Securevision Verdict</span>
+          <p>[Definitive Securevision position on this topic.]</p>
         </div>
 
       </section>
+
+      <!-- Add more sections following the odd=white / even=grey alternation -->
 
     </main>
 
-    <aside>
-      <div class="sticky-toc">
-        <h3 class="toc-title" onclick="toggleToc()">Guide Navigator</h3>
-        <ul class="toc-list" id="tocList">
-          <li><a href="#section1">1. [Section 1 Name]</a></li>
-          <li><a href="#section2">2. [Section 2 Name]</a></li>
-          <li><a href="#section3">3. [Section 3 Name]</a></li>
-          <li><a href="#section4">4. [Section 4 Name]</a></li>
-          <li><a href="#section5">5. [Section 5 Name]</a></li>
-        </ul>
+  </div><!-- end rg-layout -->
+</div><!-- end container -->
 
-        <div class="founder-card">
-          <div class="fc-head">
-            <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
-            <div>
-              <strong>Ler Wee Meng</strong>
-              <span>Founder &amp; CEO · <span class="sv-years-experience"></span>+ Years</span>
-            </div>
-          </div>
-          <p>Need expert advice? Discuss your site requirements with our engineering team.</p>
-          <a href="https://wa.me/6593860466" class="fc-wa-link">💬 WhatsApp an Engineer</a>
-        </div>
-      </div>
-    </aside>
 
-  </div>
-</div>
-
-<!-- ═══ FINAL CTA ═══ -->
-  <!-- ── FINAL CTA ── -->
-    <!-- ── FINAL CTA ── -->
-  <section class="cta-section cta-high-impact">
-    <div class="container">
-      <h2>Ready to Secure Your Property?</h2>
-      <p class="subtitle">Tell us about your site. We'll assess it and design a system that works as one.</p>
-      <div class="btn-group">
-        <a href="/request-site-assessment-singapore.html?intent=[SLUG]-cta" class="btn btn-primary">Book a Site Assessment</a>
-      </div>
-      <p class="cta-trust-note">Serving Singapore Since 2006</p>
+<!-- ═══ FINAL CTA ═══════════════════════════════════════════════
+     Use cta-property for landed/residential guides.
+     Use cta-high-impact cta-default for commercial/general guides.
+     Update the intent parameter to match [SLUG].
+═══════════════════════════════════════════════════════════════ -->
+<section class="cta-section cta-high-impact cta-property">
+  <div class="container">
+    <h2>Ready to Secure Your Property?</h2>
+    <p class="subtitle">Tell us about your site. We'll assess it and design a system that works as one.</p>
+    <div class="btn-group">
+      <a href="/contact-gateway.html?intent=[SLUG]-assessment" class="btn btn-primary">Book a Site Assessment</a>
+      <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 WhatsApp an Engineer</a>
     </div>
-  </section>
-
-</main>
+    <p class="cta-trust-note">Serving Singapore Since 2006</p>
+  </div>
+</section>
 
 <!-- ═══ FOOTER ═══ -->
 <footer id="sv-footer"></footer>
@@ -246,32 +317,57 @@
   </svg>
 </a>
 
-<!-- ═══ SCRIPTS ═══ -->
+<!-- ═══ SCRIPTS ═══════════════════════════════════════════════════
+     Do not modify. Both JS blocks are required on every guide page.
+     Block 1: TOC mobile accordion toggle
+     Block 2: TOC active section highlight on scroll
+═══════════════════════════════════════════════════════════════ -->
 <script src="/nav-footer.js"></script>
-<script>
-function toggleToc() {
-  const list = document.getElementById('tocList');
-  const title = document.querySelector('.toc-title');
-  if (list) list.classList.toggle('active');
-  if (title) title.classList.toggle('active');
-}
 
-window.addEventListener('scroll', () => {
-  const sections = document.querySelectorAll('main section[id]');
-  const tocLinks = document.querySelectorAll('.toc-list a');
-  let current = '';
-  sections.forEach(section => {
-    if (window.scrollY >= section.offsetTop - 150) {
-      current = section.getAttribute('id');
-    }
+<script>
+/* ── TOC accordion (mobile only) ── */
+(function () {
+  var title = document.querySelector('.rg-toc-title');
+  var list  = document.querySelector('.rg-toc-list');
+  if (!title || !list) return;
+
+  title.addEventListener('click', function () {
+    var open = list.classList.toggle('rg-toc-open');
+    title.classList.toggle('rg-toc-open', open);
   });
-  tocLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) {
-      link.classList.add('active');
-    }
+
+  /* Close accordion when a TOC link is tapped */
+  list.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      list.classList.remove('rg-toc-open');
+      title.classList.remove('rg-toc-open');
+    });
   });
-});
+})();
+
+/* ── TOC active section highlight on scroll ── */
+(function () {
+  var links    = document.querySelectorAll('.rg-toc-list a');
+  var sections = [];
+  links.forEach(function (link) {
+    var id = link.getAttribute('href').replace('#', '');
+    var el = document.getElementById(id);
+    if (el) sections.push({ link: link, el: el });
+  });
+
+  function onScroll() {
+    var scrollY = window.scrollY + 140;
+    var current = null;
+    sections.forEach(function (s) {
+      if (s.el.offsetTop <= scrollY) current = s;
+    });
+    links.forEach(function (l) { l.classList.remove('active'); });
+    if (current) current.link.classList.add('active');
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
 </script>
 
 </body>

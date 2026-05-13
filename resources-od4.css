@@ -1301,17 +1301,13 @@
 
 .guide-card-img-wrap {
     width: 100%;
-    position: relative;
-    padding-top: 56.25%;     /* 16:9 ratio — reliable across all flex/grid contexts */
+    aspect-ratio: 16 / 9;
     overflow: hidden;
     background: var(--bg-light);
-    flex-shrink: 0;
+    flex-shrink: 0;          /* image never squashes */
 }
 
 .guide-card-img-wrap img {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
