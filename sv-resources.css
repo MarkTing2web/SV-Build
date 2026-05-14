@@ -1454,4 +1454,458 @@
 
 /* ── END SECTION D ───────────────────────────────────────────── */
 
+/* ============================================================
+   sv-resources.css — Section E: Checklist UI Components
+   Moved from sv-shared.css Section 34 — May 2026.
+   For use on: /resources/checklists/*.html pages.
+   Interactive diagnostic checklist with section scoring.
+   ============================================================ */
+
+/* ── E1. Page layout ── */
+.cl-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 56px;
+    align-items: flex-start;
+    padding: 56px 0;
+}
+
+/* ── E2. Progress navigation sidebar ── */
+.cl-progress-nav {
+    position: sticky;
+    top: 100px;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 28px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.cl-progress-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.cl-progress-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cl-progress-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-light);
+    cursor: pointer;
+    transition: color 0.2s;
+    text-decoration: none;
+    color: var(--text-light);
+}
+
+.cl-progress-item:last-child {
+    border-bottom: none;
+}
+
+.cl-progress-item:hover {
+    color: var(--page-accent, var(--primary-blue));
+}
+
+.cl-progress-item.active {
+    color: var(--page-accent, var(--primary-blue));
+    font-weight: 600;
+}
+
+.cl-progress-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--border-light);
+    background: var(--white);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-light);
+    transition: all 0.2s;
+}
+
+.cl-progress-item.complete .cl-progress-dot {
+    background: var(--page-accent, var(--primary-blue));
+    border-color: var(--page-accent, var(--primary-blue));
+    color: var(--white);
+}
+
+.cl-progress-item.active .cl-progress-dot {
+    border-color: var(--page-accent, var(--primary-blue));
+    color: var(--page-accent, var(--primary-blue));
+}
+
+.cl-progress-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 1.4;
+    flex: 1;
+}
+
+.cl-progress-count {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-light);
+    white-space: nowrap;
+}
+
+/* ── E3. Section structure ── */
+.cl-main {
+    min-width: 0;
+}
+
+.cl-section {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    margin-bottom: 32px;
+    overflow: hidden;
+    scroll-margin-top: 100px;
+}
+
+.cl-section-header {
+    padding: 32px 40px 28px;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--bg-light);
+}
+
+.cl-section-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--page-accent, var(--primary-blue));
+    color: var(--white);
+    border-radius: 50%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.cl-section-eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--page-accent, var(--primary-blue));
+    margin-bottom: 6px;
+    display: block;
+}
+
+.cl-section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 8px;
+}
+
+.cl-section-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text-light);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.cl-questions {
+    padding: 8px 0;
+}
+
+/* ── E4. Question rows ── */
+.cl-question {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 40px;
+    border-bottom: 1px solid var(--border-light);
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.cl-question:last-child {
+    border-bottom: none;
+}
+
+.cl-question:hover {
+    background: var(--bg-light);
+}
+
+.cl-question.checked {
+    background: rgba(0, 86, 179, 0.03);
+}
+
+.cl-question.checked .cl-check {
+    background: var(--page-accent, var(--primary-blue));
+    border-color: var(--page-accent, var(--primary-blue));
+}
+
+.cl-question.checked .cl-check::after {
+    opacity: 1;
+}
+
+.cl-check {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--border-light);
+    border-radius: 5px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    position: relative;
+    transition: all 0.15s;
+    background: var(--white);
+}
+
+.cl-check::after {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 2px;
+    width: 6px;
+    height: 10px;
+    border: 2px solid var(--white);
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.cl-question-body {
+    flex: 1;
+}
+
+.cl-question-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-dark);
+    line-height: 1.5;
+    margin-bottom: 4px;
+}
+
+.cl-question-note {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ── E5. Score bar & bands ── */
+.cl-score-bar {
+    padding: 28px 40px;
+    background: var(--bg-light);
+    border-top: 2px solid var(--border-light);
+}
+
+.cl-score-bar-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.cl-score-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-light);
+}
+
+.cl-score-count {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.cl-score-track {
+    height: 8px;
+    background: var(--border-light);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.cl-score-fill {
+    height: 100%;
+    background: var(--page-accent, var(--primary-blue));
+    border-radius: 4px;
+    transition: width 0.4s ease;
+    width: 0%;
+}
+
+.cl-score-bands {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.cl-band {
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid var(--border-light);
+    background: var(--white);
+    opacity: 0.5;
+    transition: opacity 0.3s;
+}
+
+.cl-band.active {
+    opacity: 1;
+    border-color: currentColor;
+}
+
+.cl-band-low  { color: #c05621; }
+.cl-band-low.active  { background: #fff7f0; }
+.cl-band-mid  { color: #b7791f; }
+.cl-band-mid.active  { background: #fffdf0; }
+.cl-band-high { color: #276749; }
+.cl-band-high.active { background: #f0fff4; }
+
+.cl-band-range {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.cl-band-title {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+
+.cl-band-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--text-gray);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ── E6. Final score & CTA strip ── */
+.cl-final-score {
+    background: var(--white);
+    border: 2px solid var(--page-accent, var(--primary-blue));
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cl-final-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 64px;
+    font-weight: 800;
+    color: var(--page-accent, var(--primary-blue));
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.cl-final-total {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.cl-final-band-label {
+    display: inline-block;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+
+.cl-final-band-label.low  { background: #fff7f0; color: #c05621; }
+.cl-final-band-label.mid  { background: #fffdf0; color: #b7791f; }
+.cl-final-band-label.high { background: #f0fff4; color: #276749; }
+
+.cl-final-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    max-width: 600px;
+    margin: 0 auto 32px;
+}
+
+.cl-cta-strip {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 28px;
+    border-top: 1px solid var(--border-light);
+    margin-top: 28px;
+}
+
+/* ── E7. Responsive ── */
+@media (max-width: 992px) {
+    .cl-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 32px 0;
+    }
+
+    .cl-progress-nav {
+        position: static;
+        display: none;
+    }
+
+    .cl-section-header,
+    .cl-question,
+    .cl-score-bar {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .cl-score-bands {
+        grid-template-columns: 1fr;
+    }
+
+    .cl-final-score {
+        padding: 28px 24px;
+    }
+
+    .cl-final-number {
+        font-size: 48px;
+    }
+}
+
+/* ── END Section E (Checklist UI) ────────────────────────────── */
+
 /* ── END resources.css ───────────────────────────────────────── */
