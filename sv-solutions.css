@@ -1,0 +1,1153 @@
+/* ============================================================
+   solutions.css
+   Securevision — Solutions Pages Stylesheet
+   Version: 1.0 — May 2026
+
+   SCOPE: /solutions/ pages ONLY — sector pages, problem-based
+   pages, and all persona sub-pages under each sector.
+   Load this file on every solutions page alongside sv-shared.css.
+   Do NOT load on systems, portfolio, resources, insights,
+   or any other page type.
+
+   Load order in <head>:
+     <link rel="stylesheet" href="/sv-shared.css">
+     <link rel="stylesheet" href="/sv-solutions.css">
+     <script src="/site-config.js"></script>
+
+   WHAT THIS FILE OWNS:
+   - Section A: Process step cards (.step-row, .step-item, .step-num)
+   - Section B: Related cards (.rel-card, .rel-card-img)
+   - Section C: Solutions hub components (.featured-condo, .badge-popular,
+       .grid-5, .simple-card, .icon-row)
+   - Section D: Solution detail — pillar cards (.pillar-card, .pillar-content,
+       .pillar-image-wrap, .pillar-link, .pillar-closing-note)
+   - Section E: Pricing & investment (.pricing-card, .size-badge, .prop-types,
+       .price-wrap, .price-range, .pricing-body, .pricing-callout)
+   - Section F: FAQ component (.faq-item, .faq-grid, .faq-list)
+   - Section G: Solution layout responsive overrides (.solution-personas,
+       .solution-pillars, .solution-related, .solution-lifecycle,
+       .solution-proof-card, .proof-grid)
+   - Section H: Persona sub-page components (.pain-card, .framework-card,
+       .service-card, .process-steps, .step-card, .assessment-split,
+       .tech-spec-mini, .testimonial-*)
+
+   WHAT THIS FILE DOES NOT TOUCH:
+   - sv-shared.css global classes (nav, footer, buttons, heroes,
+     CTAs, grids, .card, .container, etc.)
+   - systems.css classes
+   - Any portfolio, insights, or resources page classes
+
+   NOTE: The classes in Sections A–G currently also exist in sv-shared.css.
+   Both files define these classes during the transition period.
+   sv-shared.css will be stripped of these once all solutions pages
+   are confirmed loading solutions.css correctly.
+
+   VERSION HISTORY:
+   v1.0  May 2026   Created. Extracted from sv-shared.css Sections 23, 24,
+                    28 and scattered blocks. Page-specific inline styles
+                    from home-upgrade.html and architects-and-designers.html
+                    consolidated here.
+   ============================================================ */
+
+
+/* ============================================================
+   SECTION A: Process Step Cards
+   .step-row, .step-item, .step-num
+   ============================================================ */
+
+.step-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+}
+
+.step-item,
+.step-row > div {
+    text-align: left;
+    padding: 32px 24px;
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    display: flex;
+    flex-direction: column;
+}
+
+.step-item .step-num,
+.step-row > div .step-num {
+    margin: 0 0 20px 0;
+}
+
+.step-num {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background: var(--primary-blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin: 0 auto 28px;
+    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.20);
+}
+
+.step-num.step-num-sm {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 15px;
+    margin-bottom: 22px;
+}
+
+.step-item h3,
+.step-row > div strong {
+    display: block;
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.step-item p,
+.step-row > div p {
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.65;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* ── END Section A ─────────────────────────────────────────── */
+
+
+/* ============================================================
+   SECTION B: Related Cards
+   .rel-card, .rel-card-img, .rel-card-footer
+   Used on sector pages and solutions hub index.
+   ============================================================ */
+
+.rel-card {
+    background: white;
+    padding: 32px 28px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    transition: 0.3s;
+    text-decoration: none;
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.rel-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-blue);
+}
+
+.rel-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.rel-card strong {
+    display: block;
+    color: var(--primary-blue);
+    font-size: 13px;
+    margin-bottom: 8px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.rel-card p {
+    margin: 0;
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.rel-card-footer {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
+    font-size: 13px;
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*
+   REL-CARD IMAGE PATTERN
+   Use .rel-card-img as the first child inside .rel-card when showing
+   a sector thumbnail. Fixed 16:9 aspect ratio keeps all cards even
+   regardless of image dimensions.
+*/
+.rel-card-img {
+    width: calc(100% + 56px);
+    margin: -32px -28px 20px -28px;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+}
+
+.rel-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.rel-card:hover .rel-card-img img {
+    transform: scale(1.04);
+}
+
+/* ── END Section B ─────────────────────────────────────────── */
+
+
+/* ============================================================
+   SECTION C: Solutions Hub Components
+   .featured-condo, .badge-popular, .grid-5, .simple-card, .icon-row
+   Used on /solutions/index.html
+   ============================================================ */
+
+.featured-condo {
+    border-color: var(--primary-blue) !important;
+    box-shadow: 0 10px 40px rgba(0, 86, 179, 0.1) !important;
+    position: relative;
+}
+
+.badge-popular {
+    position: absolute;
+    top: -12px;
+    right: 24px;
+    background: var(--primary-blue);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    z-index: 2;
+}
+
+.grid-5 {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+}
+
+.simple-card {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    padding: 24px 16px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 14px;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    line-height: 1.4;
+}
+
+.simple-card:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.icon-row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    flex: 1;
+    min-width: 150px;
+}
+
+.icon-circle {
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    flex-shrink: 0;
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+@media (max-width: 992px) {
+    .grid-5 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-5 {
+        grid-template-columns: 1fr 1fr;
+    }
+    .icon-row {
+        gap: 40px;
+    }
+    .icon-item {
+        min-width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-5 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── END Section C ─────────────────────────────────────────── */
+
+
+/* ============================================================
+   SECTION D: Solution Detail — Pillar Cards
+   .pillar-card, .pillar-content, .pillar-image-wrap,
+   .pillar-link, .pillar-closing-note
+   ============================================================ */
+
+.pillar-card {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pillar-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12);
+    border-color: var(--primary-blue);
+}
+
+.pillar-image-wrap {
+    height: 180px;
+    overflow: hidden;
+}
+
+.pillar-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.pillar-card:hover .pillar-image-wrap img {
+    transform: scale(1.05);
+}
+
+.pillar-content {
+    padding: 32px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.pillar-header {
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.pillar-header h3 {
+    font-size: 18px !important;
+    color: var(--text-dark) !important;
+    margin: 0 !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+}
+
+.pillar-badge {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+
+.badge-essential {
+    background: rgba(0, 86, 179, 0.1);
+    color: var(--primary-blue);
+}
+
+.badge-optional {
+    background: rgba(100, 116, 139, 0.1);
+    color: #64748b;
+}
+
+.pillar-content p {
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.pillar-components {
+    margin-bottom: 32px;
+}
+
+.pillar-components strong {
+    display: block;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-light);
+    margin-bottom: 12px;
+}
+
+.pillar-components ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pillar-components li {
+    font-size: 13px;
+    color: var(--text-gray);
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 18px;
+}
+
+.pillar-components li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary-blue);
+    font-weight: bold;
+}
+
+.pillar-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-blue);
+    text-decoration: none;
+    margin-top: auto;
+    display: inline-block;
+    transition: 0.2s;
+}
+
+.pillar-link:hover {
+    color: var(--dark-blue);
+    text-decoration: underline;
+}
+
+.pillar-closing-note {
+    text-align: center;
+    max-width: 800px;
+    margin: 48px auto 0;
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.8;
+    padding: 28px;
+    background: var(--bg-light);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+
+/* ── END Section D ─────────────────────────────────────────── */
+
+
+/* ============================================================
+   SECTION E: Pricing & Investment Cards
+   .pricing-card, .size-badge, .prop-types, .price-wrap,
+   .price-range, .pricing-body, .pricing-callout
+   ============================================================ */
+
+.pricing-card {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: 0.3s;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12);
+    border-color: var(--primary-blue);
+}
+
+.size-badge {
+    display: inline-block;
+    background: var(--bg-light);
+    color: var(--text-light);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.pricing-card h3 {
+    font-size: 20px !important;
+    margin-bottom: 8px !important;
+    color: var(--text-dark) !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+}
+
+.prop-types {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 24px;
+}
+
+.price-wrap {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.price-range {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: var(--primary-blue) !important;
+    font-family: 'Montserrat', sans-serif !important;
+    display: block;
+}
+
+.pricing-body {
+    flex-grow: 1;
+    margin-bottom: 32px;
+}
+
+.pricing-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pricing-body li {
+    font-size: 14px;
+    color: var(--text-gray);
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.5;
+}
+
+.pricing-body li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-green);
+    font-weight: bold;
+}
+
+.pricing-footer p {
+    font-size: 12px;
+    color: var(--text-light);
+    font-style: italic;
+    margin: 0;
+}
+
+.pricing-callout {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 48px;
+    text-align: center;
+    max-width: 850px;
+    margin: 80px auto 40px;
+}
+
+.pricing-callout h3 {
+    font-size: 24px !important;
+    margin-bottom: 16px !important;
+    color: var(--text-dark) !important;
+    font-weight: 700 !important;
+}
+
+.pricing-callout p {
+    font-size: 16px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.pricing-callout ol {
+    display: inline-block;
+    text-align: left;
+    margin: 24px auto;
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.8;
+    padding-left: 40px;
+}
+
+/* ── END Section E ─────────────────────────────────────────── */
+
+
+/* ============================================================
+   SECTION F: FAQ Component
+   .faq-item, .faq-grid, .faq-grid--single, .faq-list
+   Two layout options: grid (all visible) or accordion (details)
+   ============================================================ */
+
+/* ── Shared item shell ── */
+.faq-item {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.faq-item:hover {
+    border-color: var(--page-accent, var(--primary-blue));
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Option A: Grid layout (static, all visible) ── */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.faq-grid--single {
+    grid-template-columns: 1fr;
+}
+
+.faq-grid .faq-item {
+    padding: 28px 32px;
+}
+
+.faq-grid .faq-question {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.4;
+    padding-left: 34px;  /* badge width 24px + gap 10px — reserves space so wrap indents */
+}
+
+.faq-grid .faq-question::before {
+    content: 'Q';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: var(--page-accent, var(--primary-blue));
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    line-height: 24px;
+    margin-left: -34px;  /* pulls badge back into the reserved padding space */
+    margin-right: 10px;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.faq-grid .faq-answer {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin: 0;
+    padding-left: 34px;
+}
+
+/* ── Option B: Accordion list (native <details>) ── */
+.faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.faq-list .faq-item {
+    overflow: hidden;
+}
+
+.faq-list summary.faq-question {
+    list-style: none;
+}
+
+.faq-list summary.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+.faq-list .faq-question {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+    padding: 20px 56px 20px 24px;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    line-height: 1.4;
+    display: block;
+    transition: color 0.2s;
+}
+
+.faq-list .faq-question::after {
+    content: '';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid var(--page-accent, var(--primary-blue));
+    border-bottom: 2px solid var(--page-accent, var(--primary-blue));
+    transform: translateY(-65%) rotate(45deg);
+    transition: transform 0.25s ease;
+}
+
+.faq-list details[open] .faq-question::after {
+    transform: translateY(-35%) rotate(225deg);
+}
+
+.faq-list details[open] .faq-question {
+    color: var(--page-accent, var(--primary-blue));
+}
+
+.faq-list details[open] {
+    border-color: var(--page-accent, var(--primary-blue));
+}
+
+.faq-list .faq-answer {
+    padding: 0 24px 20px 24px;
+    border-top: 1px solid var(--border-light);
+}
+
+.faq-list .faq-answer p {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    .faq-grid .faq-item {
+        padding: 24px;
+    }
+    .faq-list .faq-question {
+        padding: 16px 48px 16px 20px;
+        font-size: 15px;
+    }
+    .faq-list .faq-answer {
+        padding: 0 20px 16px 20px;
+    }
+}
+
+/* ── END Section F ─────────────────────────────────────────── */
+
+
+/* ============================================================
+   SECTION G: Solution Layout Responsive Overrides
+   These classes use inline style for desktop grid definition.
+   Only responsive overrides are needed here.
+   ============================================================ */
+
+@media (max-width: 992px) {
+    .solution-personas,
+    .solution-related,
+    .solution-lifecycle {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .proof-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .step-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) and (min-width: 769px) {
+    .solution-lifecycle {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .solution-personas,
+    .solution-pillars,
+    .solution-related,
+    .solution-lifecycle {
+        grid-template-columns: 1fr;
+    }
+
+    .solution-proof-card {
+        flex-direction: column !important;
+        gap: 24px !important;
+    }
+
+    .step-row {
+        grid-template-columns: 1fr;
+    }
+
+    .proof-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .proof-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── END Section G ─────────────────────────────────────────── */
+
+
+/* ============================================================
+   SECTION H: Persona Sub-Page Components
+   Classes previously defined as inline styles in HTML files.
+   Now canonical here — remove <style> blocks from HTML.
+   Uses var(--page-accent) so each sector's colour applies.
+   ============================================================ */
+
+/* ── H1. Pain points grid (home-upgrade, reduce-manpower etc.) ── */
+.pain-points {
+    background: var(--bg-light);
+    padding: 100px 0;
+}
+
+.pain-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 56px;
+}
+
+.pain-card {
+    background: #fff;
+    padding: 32px;
+    border-radius: 10px;
+    border: 1px solid var(--border-light);
+    transition: 0.3s;
+}
+
+.pain-card:hover {
+    border-color: var(--page-accent, var(--primary-blue));
+}
+
+.pain-icon {
+    font-size: 32px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.pain-card h4 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: var(--page-accent, var(--primary-blue));
+}
+
+.pain-card .problem {
+    font-size: 14px;
+    color: var(--text-gray);
+    margin-bottom: 16px;
+    font-style: italic;
+}
+
+.pain-card .resolution {
+    font-size: 15px;
+    color: var(--text-dark);
+    font-weight: 500;
+    border-top: 1px solid var(--border-light);
+    padding-top: 16px;
+}
+
+/* ── H2. Framework choice grid (home-upgrade) ── */
+.framework-choice {
+    background: #fff;
+    padding: 100px 0;
+}
+
+.framework-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 56px;
+}
+
+.framework-card {
+    padding: 40px;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.framework-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border-color: var(--page-accent, var(--primary-blue));
+}
+
+.framework-card h3 {
+    font-size: 22px;
+    margin-bottom: 16px;
+    color: var(--page-accent, var(--primary-blue));
+}
+
+/* ── H3. Service upgrade grid (home-upgrade) ── */
+.service-upgrade-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 56px;
+}
+
+.service-card {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 32px;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--page-accent, var(--primary-blue));
+    box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+}
+
+.service-card h4 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: var(--page-accent, var(--primary-blue));
+}
+
+/* ── H4. Process steps (home-upgrade) ── */
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 56px;
+}
+
+.step-card {
+    background: #fff;
+    padding: 32px;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    transition: 0.3s;
+    height: 100%;
+    text-align: center;
+}
+
+.step-card:hover {
+    border-color: var(--page-accent, var(--primary-blue));
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.step-badge {
+    width: 32px;
+    height: 32px;
+    background: var(--page-accent, var(--primary-blue));
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    margin: 0 auto 20px;
+    font-size: 13px;
+}
+
+.step-content h4 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: var(--text-dark);
+    text-align: center;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-gray);
+    text-align: center;
+}
+
+/* ── H5. Assessment split layout ── */
+.assessment-depth {
+    background: #fff;
+    padding: 100px 0;
+}
+
+.assessment-content {
+    max-width: 900px;
+    line-height: 1.8;
+}
+
+.assessment-split {
+    display: grid;
+    gap: 60px;
+    align-items: center;
+}
+
+/* ── H6. Tech spec mini (landed-home page) ── */
+.tech-spec-mini {
+    background: var(--bg-light);
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-top: 16px;
+}
+
+.tech-spec-mini h4 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-light);
+    margin-bottom: 12px;
+}
+
+.tech-spec-mini ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tech-spec-mini li {
+    font-size: 13px;
+    color: var(--text-gray);
+    padding: 4px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.tech-spec-mini li:last-child {
+    border-bottom: none;
+}
+
+/* ── H7. Testimonial (architects page) ── */
+.testimonial-text {
+    font-size: 17px;
+    color: var(--text-dark);
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 16px;
+}
+
+.testimonial-attr {
+    font-size: 13px;
+    color: var(--text-light);
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ── H8. Card hover utility ── */
+.card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    border-color: var(--page-accent, var(--primary-blue));
+}
+
+/* ── H9. Responsive overrides for sub-page components ── */
+@media (max-width: 992px) {
+    .framework-grid,
+    .pain-grid,
+    .service-upgrade-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .assessment-split {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .framework-grid,
+    .pain-grid,
+    .service-upgrade-grid,
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── END Section H ─────────────────────────────────────────── */
+
+/* ============================================================
+   SECTION I: Group icon sizing inside .card
+   Mirrors the rule in systems.css — needed on solutions pages
+   that use .card + .group-icon (e.g. landed-home-security-systems.html
+   Brands section). Without this the SVGs render full-size.
+   ============================================================ */
+
+.card .group-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+}
+
+.card .group-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ── END Section I ─────────────────────────────────────────── */

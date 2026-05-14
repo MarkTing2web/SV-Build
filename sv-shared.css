@@ -124,6 +124,29 @@
                          Used in portfolio Equipment Deployed sections
                          alongside <p><strong>Sub-category:</strong>
                          description</p> pattern for inline sub-headings.
+
+   v2.2  May 2026       Systems page CSS extracted to systems.css.
+                         Sections 35-36 removed (818 lines).
+                         All 7 systems pages now load systems.css
+                         alongside sv-shared.css.
+
+   v2.3  May 2026       Solutions page CSS extracted to solutions.css.
+                         Removed from this file (892 lines total):
+                         - step-row / step-item / step-num
+                         - rel-card / rel-card-img / rel-card-footer
+                         - Section 23: Solutions hub components
+                           (featured-condo, badge-popular, grid-5,
+                           simple-card, icon-row)
+                         - Section 24: Solution detail components
+                           (pillar-card, pricing-card, pillar-closing-note)
+                         - Section 28: FAQ component (faq-grid, faq-list)
+                         - proof-grid / proof-card (two duplicate blocks)
+                         - Solution-specific responsive overrides
+                         All solutions pages now load solutions.css
+                         alongside sv-shared.css.
+                         NOTE: rel-card / rel-card-img retained in
+                         sv-shared — used on homepage and portfolio
+                         pages, not solutions-only.
    ========================================================== */
 
 /* (Existing root and core styles remain) */
@@ -1755,123 +1778,7 @@ section .subtitle {
     font-weight: 600;
 }
 
-.step-row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;                 /* tighter than 32px — cards breathe internally */
-    margin-top: 56px;
-}
 
-.step-item,
-.step-row > div {
-    text-align: left;          /* left-align for readability of sentence-length copy */
-    padding: 32px 24px;
-    background: #fff;
-    border: 1px solid var(--border-light);
-    border-radius: 12px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-    display: flex;
-    flex-direction: column;
-}
-
-.step-item .step-num,
-.step-row > div .step-num {
-    margin: 0 0 20px 0;       /* left-align circle — remove auto centering */
-}
-
-.step-num {
-    width: 48px;
-    height: 48px;
-    min-width: 48px;           /* prevents oval in flex context */
-    border-radius: 50%;
-    background: var(--primary-blue);
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;            /* critical — prevents squashing to oval */
-    margin: 0 auto 28px;
-    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.20);
-}
-
-/* ── 5-ITEM GRID: 3+2 layout ─────────────────────────────────────
-   For 5 content cards. First row = 3 cards. Second row = 2 cards
-   centred. Never use 5-col for content — cards become too narrow.
-   Use .subsystem-grid for navigation-only 5-col (short labels).
-───────────────────────────────────────────────────────────────── */
-.grid-3-2 {
-    display: grid;
-    gap: 28px;
-    margin-top: 40px;
-}
-
-/* First 3 items — 3 columns */
-.grid-3-2 > *:nth-child(-n+3) {
-    grid-column: span 1;
-}
-
-/* Last 2 items — centred in a 6-col subgrid */
-.grid-3-2 {
-    grid-template-columns: repeat(6, 1fr);
-}
-
-.grid-3-2 > * {
-    grid-column: span 2;
-}
-
-.grid-3-2 > *:nth-child(4) {
-    grid-column: 2 / 4;       /* centred: skip col 1, span cols 2-3 */
-}
-
-.grid-3-2 > *:nth-child(5) {
-    grid-column: 4 / 6;       /* centred: span cols 4-5, skip col 6 */
-}
-
-/* Size modifiers */
-    margin-bottom: 32px;
-}
-
-.step-num.step-num-sm {
-    width: 36px;
-    height: 36px;
-    min-width: 36px;
-    font-size: 15px;
-    margin-bottom: 22px;
-}
-
-.step-item h3,
-.step-row > div strong {
-    display: block;
-    font-size: 17px;
-    margin-bottom: 10px;
-    color: var(--text-dark);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    line-height: 1.4;
-}
-
-.step-item p,
-.step-row > div p {
-    color: var(--text-gray);
-    font-size: 15px;
-    line-height: 1.65;
-    margin: 0;
-    flex-grow: 1;
-}
-
-
-/* ── 5. RELEVANCE (Solutions by sector) ── */
-.relevance {
-    background: var(--bg-light);
-    padding: var(--spacing-section) 0;
-}
-
-.relevance h2 {
-    margin-bottom: 56px;
-}
 
 .grid-2 {
     display: grid;
@@ -1880,6 +1787,29 @@ section .subtitle {
     grid-auto-rows: 1fr;
 }
 
+/* ── PROOF-GRID — Case study / results card grid
+   Used on: homepage Proven Results section, solutions pages.
+   Global component — do not move to solutions.css.            */
+.proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 56px;
+}
+
+@media (max-width: 992px) {
+    .proof-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .proof-grid { grid-template-columns: 1fr; }
+}
+
+/* ── END proof-grid ───────────────────────────────────────── */
+
+/* ── REL-CARD — Related / sector card grid
+   Used on: homepage sector grid, solutions pages, portfolio related sections.
+   Global component — do not move to solutions.css.              */
 .rel-card {
     background: white;
     padding: 32px 28px;
@@ -1929,23 +1859,9 @@ section .subtitle {
     font-family: 'Montserrat', sans-serif;
 }
 
-/*
-   REL-CARD IMAGE PATTERN
-   Use .rel-card-img as the first child inside .rel-card when showing
-   a sector thumbnail. Fixed 16:9 aspect ratio keeps all cards even
-   regardless of image dimensions.
-   Markup:
-     <a href="..." class="rel-card">
-       <div class="rel-card-img">
-         <img src="..." alt="...">
-       </div>
-       <h3>...</h3>
-       ...
-     </a>
-*/
 .rel-card-img {
-    width: calc(100% + 56px);      /* bleed to card edges — cancels 28px padding each side */
-    margin: -32px -28px 20px -28px; /* pull to card top and sides */
+    width: calc(100% + 56px);
+    margin: -32px -28px 20px -28px;
     border-radius: 12px 12px 0 0;
     overflow: hidden;
     aspect-ratio: 16 / 9;
@@ -1963,6 +1879,8 @@ section .subtitle {
 .rel-card:hover .rel-card-img img {
     transform: scale(1.04);
 }
+
+/* ── END rel-card ─────────────────────────────────────────── */
 
 /* -- PRODUCTS SECTION -- */
 .products-section {
@@ -2003,19 +1921,23 @@ section .subtitle {
 }
 
 .secure-callout {
-    background: linear-gradient(135deg, #0E1A2B 0%, #1a2942 100%);
+    background: #003d82;
     border-radius: 16px;
     padding: 36px;
     color: #fff;
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-top: 40px;
 }
 
 .secure-callout::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at top right, rgba(0, 86, 179, 0.3) 0%, transparent 60%);
+    background: radial-gradient(ellipse at top right, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
 }
 
 .secure-callout>* {
@@ -3322,7 +3244,6 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     .factors-grid,
     .factors-4,
     .property-hub-grid,
-    .proof-grid,
     .pathfinder-grid,
     .comparison-grid,
     .logos-grid,
@@ -3331,9 +3252,6 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     .testimonials-grid,
     .assurance-grid,
     .assurance-section .assurance-grid,
-    .solution-personas,
-    .solution-related,
-    .solution-lifecycle,
     .brand-grid-3 {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -3458,32 +3376,6 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     margin-top: auto;
 }
 
-/* ── 15. PROOF & PROJECTS (Proof Cards) ── */
-.proof-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-}
-
-.proof-card {
-    background: var(--bg-light);
-    border: 1px solid var(--border-light);
-    border-radius: var(--border-radius);
-    padding: 32px;
-    text-align: center;
-}
-
-.proof-placeholder {
-    width: 100%;
-    height: 200px;
-    background-color: var(--border-light);
-    border-radius: 8px;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 48px;
-}
 
 /* ── 16. SUBSYSTEM CARDS ── */
 .subsystem-grid {
@@ -3642,13 +3534,8 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     margin-bottom: 28px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin: 0 0 10px 0;
-    line-height: 1.4;
 }
 
 .process-card p {
@@ -4037,77 +3924,6 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
 }
 
 
-/* Proof / Outcome Cards */
-.proof-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    margin-top: 56px;
-}
-
-.proof-card {
-    background: var(--white);
-    border: 1px solid var(--border-light);
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    transition: 0.3s;
-    overflow: hidden;
-}
-
-.proof-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-
-.proof-image-wrap {
-    height: 180px;
-    width: 100%;
-    overflow: hidden;
-}
-
-.proof-image-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.5s;
-}
-
-.proof-card:hover .proof-image-wrap img {
-    transform: scale(1.05);
-}
-
-.proof-content {
-    padding: 24px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.proof-card h3 {
-    font-size: 20px;
-    margin-bottom: 8px;
-    color: var(--text-dark);
-}
-
-.proof-tag {
-    font-size: 14px;
-    color: var(--primary-blue);
-    margin-bottom: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.proof-card p {
-    font-size: 15px;
-    line-height: 1.6;
-    color: var(--text-gray);
-    flex-grow: 1;
-}
-
-
 /* Category & Factoring */
 .category-group {
     margin-bottom: 80px;
@@ -4264,7 +4080,6 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     .factors-grid,
     .factors-4,
     .property-hub-grid,
-    .proof-grid,
     .pathfinder-grid,
     .comparison-grid,
     .logos-grid,
@@ -4273,20 +4088,11 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     .testimonials-grid,
     .assurance-grid,
     .assurance-section .assurance-grid,
-    .step-row,
     .infinity-box,
-    .solution-personas,
-    .solution-pillars,
-    .solution-related,
-    .solution-lifecycle,
     .brand-grid-3 {
         grid-template-columns: 1fr;
     }
 
-    .solution-proof-card {
-        flex-direction: column !important;
-        gap: 24px !important;
-    }
 
     .system-side {
         border-right: none;
@@ -4340,7 +4146,6 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     .factors-4,
     .grid-4,
     .logos-grid,
-    .solution-lifecycle {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -4373,7 +4178,6 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     .factors-grid,
     .factors-4,
     .property-hub-grid,
-    .proof-grid,
     .trust-flex {
         grid-template-columns: 1fr;
     }
@@ -5176,394 +4980,6 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     text-align: left !important;
 }
 
-
-/* ── 23. SOLUTIONS HUB COMPONENTS ── */
-.featured-condo {
-    border-color: var(--primary-blue) !important;
-    box-shadow: 0 10px 40px rgba(0, 86, 179, 0.1) !important;
-    position: relative;
-}
-
-.badge-popular {
-    position: absolute;
-    top: -12px;
-    right: 24px;
-    background: var(--primary-blue);
-    color: white;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    z-index: 2;
-}
-
-.grid-5 {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
-}
-
-.simple-card {
-    background: #fff;
-    border: 1px solid var(--border-light);
-    padding: 24px 16px;
-    border-radius: 10px;
-    text-align: center;
-    text-decoration: none;
-    color: var(--text-dark);
-    font-weight: 600;
-    font-size: 14px;
-    transition: 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    line-height: 1.4;
-}
-
-.simple-card:hover {
-    border-color: var(--primary-blue);
-    color: var(--primary-blue);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.icon-row {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 32px;
-    margin-top: 48px;
-}
-
-.icon-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    flex: 1;
-    min-width: 150px;
-}
-
-.icon-circle {
-    width: 64px;
-    height: 64px;
-    min-width: 64px;
-    flex-shrink: 0;
-    background: #fff;
-    border: 1px solid var(--border-light);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-}
-
-@media (max-width: 992px) {
-    .grid-5 {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-    .grid-5 {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .icon-row {
-        gap: 40px;
-    }
-
-    .icon-item {
-        min-width: 45%;
-    }
-}
-
-@media (max-width: 480px) {
-    .grid-5 {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ==========================================================================
-   24. SOLUTION DETAIL COMPONENTS
-   ========================================================================== */
-
-/* Pillar Cards (System Architecture) */
-.pillar-card {
-    background: #fff;
-    border: 1px solid var(--border-light);
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.pillar-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12);
-    border-color: var(--primary-blue);
-}
-
-.pillar-image-wrap {
-    height: 180px;
-    overflow: hidden;
-}
-
-.pillar-image-wrap img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: 0.5s;
-}
-
-.pillar-card:hover .pillar-image-wrap img {
-    transform: scale(1.05);
-}
-
-.pillar-content {
-    padding: 32px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.pillar-header {
-    margin-bottom: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 12px;
-}
-
-.pillar-header h3 {
-    font-size: 18px !important;
-    color: var(--text-dark) !important;
-    margin: 0 !important;
-    line-height: 1.3 !important;
-    font-weight: 700 !important;
-}
-
-.pillar-badge {
-    font-size: 10px;
-    font-weight: 700;
-    padding: 4px 8px;
-    border-radius: 4px;
-    letter-spacing: 0.5px;
-    flex-shrink: 0;
-    margin-top: 4px;
-    text-transform: uppercase;
-}
-
-.badge-essential {
-    background: rgba(0, 86, 179, 0.1);
-    color: var(--primary-blue);
-}
-
-.badge-optional {
-    background: rgba(100, 116, 139, 0.1);
-    color: #64748b;
-}
-
-.pillar-content p {
-    font-size: 14px;
-    color: var(--text-gray);
-    line-height: 1.6;
-    margin-bottom: 24px;
-}
-
-.pillar-components {
-    margin-bottom: 32px;
-}
-
-.pillar-components strong {
-    display: block;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--text-light);
-    margin-bottom: 12px;
-}
-
-.pillar-components ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.pillar-components li {
-    font-size: 13px;
-    color: var(--text-gray);
-    margin-bottom: 8px;
-    position: relative;
-    padding-left: 18px;
-}
-
-.pillar-components li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: var(--primary-blue);
-    font-weight: bold;
-}
-
-.pillar-link {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--primary-blue);
-    text-decoration: none;
-    margin-top: auto;
-    display: inline-block;
-    transition: 0.2s;
-}
-
-.pillar-link:hover {
-    color: var(--dark-blue);
-    text-decoration: underline;
-}
-
-.pillar-closing-note {
-    text-align: center;
-    max-width: 800px;
-    margin: 48px auto 0;
-    font-size: 15px;
-    color: var(--text-gray);
-    line-height: 1.8;
-    padding: 28px;
-    background: var(--bg-light);
-    border-radius: 12px;
-    border: 1px solid var(--border-light);
-}
-
-/* Pricing & Investment Guides */
-.pricing-card {
-    background: #fff;
-    border: 1px solid var(--border-light);
-    border-radius: 12px;
-    padding: 40px 32px;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    transition: 0.3s;
-}
-
-.pricing-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12);
-    border-color: var(--primary-blue);
-}
-
-.size-badge {
-    display: inline-block;
-    background: var(--bg-light);
-    color: var(--text-light);
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 4px;
-    margin-bottom: 16px;
-    text-transform: uppercase;
-}
-
-.pricing-card h3 {
-    font-size: 20px !important;
-    margin-bottom: 8px !important;
-    color: var(--text-dark) !important;
-    line-height: 1.3 !important;
-    font-weight: 700 !important;
-}
-
-.prop-types {
-    font-size: 13px;
-    color: var(--text-light);
-    margin-bottom: 24px;
-}
-
-.price-wrap {
-    margin-bottom: 32px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid var(--border-light);
-}
-
-.price-range {
-    font-size: 24px !important;
-    font-weight: 700 !important;
-    color: var(--primary-blue) !important;
-    font-family: 'Montserrat', sans-serif !important;
-    display: block;
-}
-
-.pricing-body {
-    flex-grow: 1;
-    margin-bottom: 32px;
-}
-
-.pricing-body ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.pricing-body li {
-    font-size: 14px;
-    color: var(--text-gray);
-    margin-bottom: 12px;
-    position: relative;
-    padding-left: 20px;
-    line-height: 1.5;
-}
-
-.pricing-body li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--accent-green);
-    font-weight: bold;
-}
-
-.pricing-footer p {
-    font-size: 12px;
-    color: var(--text-light);
-    font-style: italic;
-    margin: 0;
-}
-
-.pricing-callout {
-    background: #fff;
-    border: 1px solid var(--border-light);
-    border-radius: 12px;
-    padding: 48px;
-    text-align: center;
-    max-width: 850px;
-    margin: 80px auto 40px;
-}
-
-.pricing-callout h3 {
-    font-size: 24px !important;
-    margin-bottom: 16px !important;
-    color: var(--text-dark) !important;
-    font-weight: 700 !important;
-}
-
-.pricing-callout p {
-    font-size: 16px;
-    color: var(--text-gray);
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-.pricing-callout ol {
-    display: inline-block;
-    text-align: left;
-    margin: 24px auto;
-    color: var(--text-gray);
-    font-size: 15px;
-    line-height: 1.8;
-    padding-left: 40px;
-}
 
 /* Compliance & Assurance Cards */
 .compliance-card {
@@ -7046,197 +6462,6 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
 .related-project-body h3.related-project-title {
     text-align: center !important;
 }
-
-/* ==========================================================================
-   28. FAQ COMPONENT
-   Added April 2026
-
-   Two layout options — use whichever fits the page:
-
-   Option A: .faq-grid (static Q&A cards in a 2-column grid)
-     Use when: all answers should be visible at once (short answers,
-     solution pages, technical guides).
-     Markup:
-       <div class="faq-grid">
-         <div class="faq-item">
-           <h3 class="faq-question">Question?</h3>
-           <p class="faq-answer">Answer.</p>
-         </div>
-       </div>
-
-   Option B: .faq-list (native <details> accordion, single column)
-     Use when: answers are longer or there are 6+ questions.
-     No JavaScript needed — native HTML behaviour.
-     Markup:
-       <div class="faq-list">
-         <details class="faq-item">
-           <summary class="faq-question">Question?</summary>
-           <div class="faq-answer"><p>Answer.</p></div>
-         </details>
-       </div>
-
-   Both options use --page-accent for the active state indicator.
-   ========================================================================== */
-
-/* ── Shared item shell ── */
-.faq-item {
-    background: var(--white);
-    border: 1px solid var(--border-light);
-    border-radius: 12px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.faq-item:hover {
-    border-color: var(--page-accent, var(--primary-blue));
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-}
-
-/* ── Option A: Grid layout (static, all visible) ── */
-.faq-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    margin-top: 40px;
-}
-
-.faq-grid--single {
-    grid-template-columns: 1fr;
-}
-
-.faq-grid .faq-item {
-    padding: 28px 32px;
-}
-
-.faq-grid .faq-question {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 12px;
-    line-height: 1.4;
-    padding-left: 0;
-}
-
-.faq-grid .faq-question::before {
-    content: 'Q';
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    background: var(--page-accent, var(--primary-blue));
-    color: #fff;
-    border-radius: 50%;
-    font-size: 11px;
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    line-height: 24px;
-    margin-right: 10px;
-    vertical-align: middle;
-    flex-shrink: 0;
-}
-
-.faq-grid .faq-answer {
-    font-size: 15px;
-    color: var(--text-gray);
-    line-height: 1.7;
-    margin: 0;
-    padding-left: 34px;
-}
-
-/* ── Option B: Accordion list (native <details>, single column) ── */
-.faq-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-top: 40px;
-}
-
-.faq-list .faq-item {
-    overflow: hidden;
-}
-
-/* Remove default browser triangle on summary */
-.faq-list summary.faq-question {
-    list-style: none;
-}
-.faq-list summary.faq-question::-webkit-details-marker {
-    display: none;
-}
-
-.faq-list .faq-question {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--text-dark);
-    padding: 20px 56px 20px 24px;
-    cursor: pointer;
-    position: relative;
-    user-select: none;
-    line-height: 1.4;
-    display: block;
-    transition: color 0.2s;
-}
-
-/* Chevron icon — CSS only, no image needed */
-.faq-list .faq-question::after {
-    content: '';
-    position: absolute;
-    right: 24px;
-    top: 50%;
-    transform: translateY(-50%) rotate(0deg);
-    width: 10px;
-    height: 10px;
-    border-right: 2px solid var(--page-accent, var(--primary-blue));
-    border-bottom: 2px solid var(--page-accent, var(--primary-blue));
-    transform: translateY(-65%) rotate(45deg);
-    transition: transform 0.25s ease;
-}
-
-.faq-list details[open] .faq-question::after {
-    transform: translateY(-35%) rotate(225deg);
-}
-
-.faq-list details[open] .faq-question {
-    color: var(--page-accent, var(--primary-blue));
-}
-
-.faq-list details[open] {
-    border-color: var(--page-accent, var(--primary-blue));
-}
-
-.faq-list .faq-answer {
-    padding: 0 24px 20px 24px;
-    border-top: 1px solid var(--border-light);
-}
-
-.faq-list .faq-answer p {
-    font-size: 15px;
-    color: var(--text-gray);
-    line-height: 1.7;
-    margin-top: 16px;
-    margin-bottom: 0;
-}
-
-/* ── Responsive ── */
-    .faq-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .faq-grid .faq-item {
-        padding: 24px;
-    }
-
-    .faq-list .faq-question {
-        padding: 16px 48px 16px 20px;
-        font-size: 15px;
-    }
-
-    .faq-list .faq-answer {
-        padding: 0 20px 16px 20px;
-    }
-}
-
-
 
 /* ==========================================================================
    29. FORM SYSTEM (formerly sv-forms.css)

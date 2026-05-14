@@ -10,7 +10,7 @@
 
    Load order in <head>:
      <link rel="stylesheet" href="/sv-shared.css">
-     <link rel="stylesheet" href="/resources.css">
+     <link rel="stylesheet" href="/sv-resources.css">
      <script src="/site-config.js"></script>
 
    WHAT THIS FILE OWNS:
@@ -1246,24 +1246,20 @@
 .guides-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: 1fr;
     gap: 32px;
     width: 100%;
     margin-top: 48px;
-    align-items: stretch;
 }
 
 @media (max-width: 1024px) {
     .guides-grid {
         grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: auto;
     }
 }
 
 @media (max-width: 600px) {
     .guides-grid {
         grid-template-columns: 1fr;
-        grid-auto-rows: auto;
     }
 }
 
@@ -1305,13 +1301,17 @@
 
 .guide-card-img-wrap {
     width: 100%;
-    aspect-ratio: 16 / 9;
+    position: relative;
+    padding-top: 56.25%;     /* 16:9 ratio — reliable across all flex/grid contexts */
     overflow: hidden;
     background: var(--bg-light);
-    flex-shrink: 0;          /* image never squashes */
+    flex-shrink: 0;
 }
 
 .guide-card-img-wrap img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;

@@ -1,0 +1,744 @@
+/* ============================================================
+   brands.css
+   Securevision — Brands Pages Stylesheet
+   Version: 1.0 — May 2026
+
+   SCOPE: /brands/ pages ONLY — brands hub index and all
+   brand detail pages.
+   Load alongside sv-shared.css on every brands page.
+
+   Load order in <head>:
+     <link rel="stylesheet" href="/sv-shared.css">
+     <link rel="stylesheet" href="/sv-brands.css">
+     <script src="/site-config.js"></script>
+
+   WHAT THIS FILE OWNS:
+   - Section A: Brand detail page — hero layout
+       (.brand-hero-inner, .brand-hero-left, .brand-hero-badges,
+        .brand-hero-badge, .brand-hero-right, .brand-stat-box,
+        .brand-stat-value, .brand-stat-label)
+   - Section B: Brand detail page — body typography overrides
+       (.brand-body-text, .brand-section-intro, .brand-scope-box,
+        .brand-scope-label, .brand-scope-body)
+   - Section C: Brand detail page — product cards
+       (.brand-product-icon, .brand-product-name, .brand-product-desc,
+        .brand-spec-list, .brand-spec-row, .brand-spec-label,
+        .brand-spec-value)
+   - Section D: Brand detail page — property tiles
+       (.property-tile-link, .brand-grid-auto)
+   - Section E: Brand detail page — secure callout extension
+       (.secure-callout-icon, .secure-callout-body)
+   - Section F: Brands hub index — response loop diagram
+       (.loop-section, .loop-wrap, .loop-core, .loop-node,
+        .loop-svg, .node-icon, .node-title, .node-desc)
+   - Section G: Brands hub index — system stack & flow
+       (.stack-grid, .stack-card, .response-flow-flex,
+        .flow-step-item, .flow-arrow-svg)
+   - Section H: Brands hub index — brand group layout
+       (.brand-p-grid, .brand-full-card, .tech-group,
+        .tech-layer-header, .tech-layer-tag, .b-name, .b-desc)
+
+   WHAT THIS FILE DOES NOT TOUCH:
+   - sv-shared.css global classes (nav, footer, buttons, heroes,
+     CTAs, grids, .card, .container, .secure-callout etc.)
+
+   VERSION HISTORY:
+   v1.0  May 2026   Created. Extracted from inline <style> blocks
+                    in brands/index.html and all brand detail pages.
+   ============================================================ */
+
+
+/* ============================================================
+   SECTION A: Brand Detail Hero Layout
+   Replaces inline styles in .hero-solid section
+   ============================================================ */
+
+/* Two-column hero inner wrapper */
+.brand-hero-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 48px;
+    flex-wrap: wrap;
+}
+
+/* Left column — brand identity, h1, intro, CTAs */
+.brand-hero-left {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* Category badge row */
+.brand-hero-badges {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+/* Individual category pill badge */
+.brand-hero-badge {
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.8);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Hero h1 */
+.brand-hero-left h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #fff;
+    line-height: 1.15;
+}
+
+/* Hero intro paragraph */
+.brand-hero-left > p {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    max-width: 600px;
+    margin-bottom: 32px;
+}
+
+/* Right column — credential stat boxes */
+.brand-hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 200px;
+}
+
+/* Individual stat box */
+.brand-stat-box {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+}
+
+/* Large stat value (e.g. "ColorVu", "#1") */
+.brand-stat-value {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* Small stat label below value */
+.brand-stat-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .brand-hero-inner {
+        flex-direction: column;
+        gap: 32px;
+    }
+    .brand-hero-right {
+        flex-direction: row;
+        flex-wrap: wrap;
+        min-width: unset;
+        width: 100%;
+    }
+    .brand-stat-box {
+        flex: 1;
+        min-width: 140px;
+    }
+}
+
+/* ── END Section A ─────────────────────────────────────────── */
+
+
+/* ============================================================
+   SECTION B: Brand Detail Body Typography
+   Replaces inline styles on <p> and section padding
+   ============================================================ */
+
+/* Standard body paragraph — used in about and why-we-carry sections */
+.brand-body-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-gray);
+    margin-bottom: 24px;
+}
+
+.brand-body-text--last {
+    margin-bottom: 40px;
+}
+
+/* Section intro paragraph — slightly larger, below h2 */
+.brand-section-intro {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    color: var(--text-gray);
+    max-width: 700px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+}
+
+/* Alternate intro width variant */
+.brand-section-intro--wide {
+    max-width: 680px;
+    font-size: 16px;
+    margin-bottom: 48px;
+}
+
+/* Section padding override — sv-section-grey/white sections on brand pages */
+.brand-section {
+    padding: 80px 0;
+}
+
+/* Scope / engineering note callout box */
+.brand-scope-box {
+    background: #fff;
+    border-left: 4px solid var(--primary-blue);
+    border-radius: 0 8px 8px 0;
+    padding: 24px 28px;
+}
+
+.brand-scope-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+}
+
+.brand-scope-body {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+/* ── END Section B ─────────────────────────────────────────── */
+
+
+/* ============================================================
+   SECTION C: Brand Detail Product Cards
+   Replaces inline styles on .card elements in Section 3
+   ============================================================ */
+
+/* Product card — extends global .card with text-align:center */
+.brand-product-card {
+    text-align: center;
+}
+
+/* Large emoji/icon at top of product card */
+.brand-product-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+/* Feature card icon (32px variant used in why-we-carry section) */
+.brand-feature-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+    display: block;
+}
+
+/* Product name heading */
+.brand-product-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+/* Product description */
+.brand-product-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Spec list container — sits below product description */
+.brand-spec-list {
+    border-top: 1px solid var(--border-light);
+    padding-top: 16px;
+    text-align: left;
+}
+
+/* Individual spec row */
+.brand-spec-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.brand-spec-row:last-child {
+    border-bottom: none;
+}
+
+/* Spec label (left) — light text */
+.brand-spec-label {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-light);
+}
+
+/* Spec value (right) — bold dark text */
+.brand-spec-value {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* ── END Section C ─────────────────────────────────────────── */
+
+
+/* ============================================================
+   SECTION D: Property Tile Links + Grid
+   Replaces inline styles on .property-tile-link elements
+   ============================================================ */
+
+/* Auto-fit grid for property tiles */
+.brand-grid-auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* Individual property tile — icon + label link */
+.property-tile-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 28px 16px;
+    background: var(--bg-light);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.property-tile-link:hover {
+    border-color: var(--primary-blue);
+    background: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+/* Emoji icon inside tile */
+.property-tile-icon {
+    font-size: 32px;
+    line-height: 1;
+}
+
+/* Label text inside tile */
+.property-tile-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+@media (max-width: 768px) {
+    .brand-grid-auto {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-grid-auto {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* ── END Section D ─────────────────────────────────────────── */
+
+
+/* ============================================================
+   SECTION E: Secure Callout Extension
+   .secure-callout is defined in sv-shared.css.
+   These classes handle the inner layout for brand pages.
+   ============================================================ */
+
+/* Icon column inside secure-callout */
+.secure-callout-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+/* Text body inside secure-callout */
+.secure-callout-body p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ── END Section E ─────────────────────────────────────────── */
+
+
+/* ============================================================
+   SECTION F: Brands Hub Index — Response Loop Diagram
+   Scope: /brands/index.html only
+   ============================================================ */
+
+.loop-section {
+    padding: var(--spacing-section) 0;
+    background: linear-gradient(to bottom, var(--white), var(--bg-light));
+    overflow: hidden;
+}
+
+.loop-wrap {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 60px auto;
+}
+
+.loop-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 190px;
+    height: 190px;
+    background: var(--primary-blue);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 86, 179, 0.3), inset 0 0 20px rgba(255,255,255,0.1);
+    z-index: 10;
+    color: var(--white);
+    padding: 20px;
+}
+
+.loop-core strong {
+    display: block;
+    font-size: 18px;
+    color: var(--white);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 1.2;
+}
+
+.loop-core span {
+    font-size: 11px;
+    color: rgba(255,255,255,0.9);
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+.loop-node {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    transition: all 0.4s ease;
+    z-index: 5;
+}
+
+.node-1 { top: 2%;  left: 50%;   transform: translate(-50%, 0); }
+.node-2 { top: 30%; left: 102%;  transform: translate(-100%, -50%); }
+.node-3 { top: 85%; left: 80%;   transform: translate(-50%, -100%); }
+.node-4 { top: 85%; left: 20%;   transform: translate(-50%, -100%); }
+.node-5 { top: 30%; left: -2%;   transform: translate(0, -50%); }
+
+.node-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dark);
+    margin: 0 auto 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.node-3 .node-icon {
+    border: 2px solid var(--primary-blue);
+    background: rgba(0, 86, 179, 0.08);
+    color: var(--primary-blue);
+}
+
+.node-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.node-desc {
+    font-size: 10px;
+    color: var(--text-light);
+    line-height: 1.3;
+}
+
+.loop-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .loop-wrap  { width: 320px; height: 320px; }
+    .loop-core  { width: 140px; height: 140px; }
+    .loop-core strong { font-size: 14px; }
+    .node-desc  { display: none; }
+}
+
+/* ── END Section F ─────────────────────────────────────────── */
+
+
+/* ============================================================
+   SECTION G: Brands Hub Index — System Stack & Flow
+   Scope: /brands/index.html only
+   ============================================================ */
+
+.stack-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+}
+
+.stack-card {
+    background: #fff;
+    border: 1px solid rgba(0, 86, 179, 0.15);
+    border-radius: 16px;
+    padding: 30px 24px;
+    text-align: left;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.stack-card:hover {
+    border-color: var(--primary-blue);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
+}
+
+.stack-card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    color: var(--primary-blue);
+}
+
+.stack-card p {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.response-flow-flex {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 60px 0;
+    position: relative;
+}
+
+.flow-step-item {
+    flex: 1;
+    background: #fff;
+    border: 1px solid rgba(0, 86, 179, 0.12);
+    padding: 24px 16px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.flow-step-item.decision-highlight {
+    border: 2px solid var(--primary-blue);
+    background: rgba(0, 86, 179, 0.04);
+    box-shadow: 0 15px 35px rgba(0, 86, 179, 0.12);
+    transform: translateY(-5px) scale(1.05);
+    z-index: 2;
+}
+
+.flow-step-item h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: var(--primary-blue);
+    margin-bottom: 8px;
+}
+
+.flow-step-item p {
+    font-size: 11px;
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+.flow-arrow-svg {
+    align-self: center;
+    color: var(--primary-blue);
+    opacity: 0.3;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .stack-grid           { grid-template-columns: 1fr 1fr; }
+    .response-flow-flex   { flex-direction: column; align-items: stretch; }
+    .flow-arrow-svg       { transform: rotate(90deg); margin: 10px auto; }
+}
+
+/* ── END Section G ─────────────────────────────────────────── */
+
+
+/* ============================================================
+   SECTION H: Brands Hub Index — Brand Group Layout
+   Scope: /brands/index.html only
+   ============================================================ */
+
+.brand-p-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+@media (min-width: 992px) {
+    .brand-p-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .brand-p-grid:has(> :only-child) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.brand-full-card {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 20px;
+    padding: 40px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    position: relative;
+    cursor: pointer;
+}
+
+.brand-full-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+    border-color: var(--primary-blue);
+}
+
+.brand-full-card .btn {
+    margin-top: 24px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Stretched link — whole card clickable */
+.brand-full-card .btn::after {
+    content: "";
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    bottom: -40px;
+    left: -40px;
+    z-index: 1;
+}
+
+/* Brand name inside full card */
+.b-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+}
+
+/* Brand description inside full card */
+.b-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+/* Tech group — the large rounded container per category */
+.tech-group {
+    background: var(--bg-light);
+    border: 1px solid var(--border-light);
+    border-radius: 40px;
+    padding: 100px 60px;
+    margin-bottom: 100px;
+    position: relative;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.02);
+}
+
+.tech-layer-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.tech-layer-tag {
+    display: inline-block;
+    background: var(--primary-blue);
+    color: var(--white);
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.2);
+}
+
+@media (max-width: 768px) {
+    .brand-p-grid   { grid-template-columns: 1fr; }
+    .tech-group     { padding: 60px 24px; border-radius: 20px; margin-bottom: 48px; }
+}
+
+/* ── END Section H ─────────────────────────────────────────── */

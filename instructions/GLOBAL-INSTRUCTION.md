@@ -49,10 +49,14 @@
 ### The CSS Stack (in load order — every page must load in this order)
 ```html
 <link rel="stylesheet" href="/sv-shared.css">       <!-- Global: nav, footer, buttons, typography, hero, CTA -->
-<script src="/site-config.js"></script>              <!-- Dynamic values: year, licence number, contact -->
-<link rel="stylesheet" href="/sv-guides.css">        <!-- Technical guide pages only -->
-<link rel="stylesheet" href="/sv-forms.css">         <!-- Pages with forms only -->
+<link rel="stylesheet" href="/sv-systems.css">         <!-- /systems/ pages only -->
+<link rel="stylesheet" href="/sv-solutions.css">       <!-- /solutions/ pages only -->
+<link rel="stylesheet" href="/sv-brands.css">          <!-- /brands/ pages only -->
+<link rel="stylesheet" href="/sv-resources.css">       <!-- /resources/guides/ pages only -->
+<link rel="stylesheet" href="/sv-forms.css">        <!-- Pages with forms only -->
+<script src="/site-config.js"></script>             <!-- Dynamic values: year, licence number, contact -->
 ```
+Load only the files relevant to the page type. Most pages only need sv-shared.css + site-config.js.
 
 ### CSS Responsibility by File
 | What | Where it lives |
@@ -62,7 +66,10 @@
 | Hero classes, CTA section classes | `sv-shared.css` |
 | Founder card, author bio strip/footer | `sv-shared.css` |
 | WhatsApp float button | `sv-shared.css` |
-| Technical guide layout, TOC, blog-row, tables | `sv-guides.css` |
+| Systems page components (arch-grid, compare-wrap, scenario-grid etc.) | `systems.css` |
+| Solutions page components (pillar-card, pricing-card, faq-grid, rel-card etc.) | `solutions.css` |
+| Brand page components (hero layout, stat boxes, product cards, spec lists) | `brands.css` |
+| Resource guide layout, TOC, blog-row, tables | `resources.css` |
 | Form fields, checkboxes, booking slots | `sv-forms.css` |
 | **Page-specific overrides** | **NONE — not permitted** |
 
@@ -507,12 +514,12 @@ YouTube:          http://www.youtube.com/@securevision
 | Page Type | Template File | CSS Files | Instruction File |
 |---|---|---|---|
 | Homepage | (unique — index.html) | sv-shared.css | GLOBAL-INSTRUCTION.md |
-| Sector solution pages | _template-sector-solution.html | sv-shared.css | INSTRUCTION-solution.md |
-| Persona sub-pages | _template-persona-standardized.html | sv-shared.css | INSTRUCTION-persona.md (to create) |
-| Systems hub index | (unique — /systems/index.html) | sv-shared.css | GLOBAL-INSTRUCTION.md |
-| Systems detail pages | (unique per system) | sv-shared.css | GLOBAL-INSTRUCTION.md |
-| Technical pillar guides | _template-technical-guide.html | sv-shared.css + sv-guides.css | INSTRUCTION-technical-guide.md |
-| Brand pages | _template-brand.html | sv-shared.css | INSTRUCTION-brand.md |
+| Sector solution pages | _template-sector-solution.html | sv-shared.css + solutions.css | INSTRUCTION-solution.md |
+| Persona sub-pages | _template-persona-standardized.html | sv-shared.css + solutions.css | INSTRUCTION-persona.md (to create) |
+| Systems hub index | (unique — /systems/index.html) | sv-shared.css + systems.css | GLOBAL-INSTRUCTION.md |
+| Systems detail pages | (unique per system) | sv-shared.css + systems.css | GLOBAL-INSTRUCTION.md |
+| Technical pillar guides | _template-technical-guide.html | sv-shared.css + resources.css | INSTRUCTION-technical-guide.md |
+| Brand pages | _template-brand.html | sv-shared.css + brands.css | INSTRUCTION-brand.md |
 | Portfolio case studies | _template-portfolio.html | sv-shared.css | INSTRUCTION-portfolio.md |
 | Insights articles | _template-insights.html | sv-shared.css | INSTRUCTION-insights.md |
 | Utility (contact, about) | (unique per page) | sv-shared.css + sv-forms.css | GLOBAL-INSTRUCTION.md |
@@ -712,7 +719,8 @@ for networking — it belongs in the capability narrative, not the navigation.
 
 ---
 
-*Securevision Global Design Instruction v3.2 — May 2026*
+*Securevision Global Design Instruction v3.3 — May 2026*
+*Changes from v3.2: Section 2 CSS stack updated — sv-guides.css retired, systems.css/solutions.css/brands.css/resources.css added. Template table updated with correct CSS file per page type.*
 *Changes from v3.1: Section 7 Systems nav updated to 5-group client-centric taxonomy (Premises Security, Entry & Access, Vehicle Management, Communications, Platform & Management). Section 8 systems hero classes added. Section 13 cta-comms added. Section 20 template table updated — _template-subsystem.html removed (retired), systems pages are now unique builds. Template selection guide updated with systems page routing. Section 21 URL map: /systems/ip-phone-communications.html added. Section 23 added — Systems Taxonomy with 5-group reference table, page structure spec, canonical arch icons, and infrastructure positioning rule.*
 *Do not modify without updating version number and date*
 
@@ -749,6 +757,6 @@ DO NOT TOUCH: nav, footer, hero, author bio strip, sidebar, CTA section, any oth
 
 ---
 
-*Securevision Global Design Instruction v3.2 — May 2026*
+*Securevision Global Design Instruction v3.3 — May 2026*
 *Changes from v3.1 documented in Section 23 above.*
 *Do not modify without updating version number and date*
