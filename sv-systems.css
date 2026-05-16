@@ -31,6 +31,10 @@
 
    VERSION HISTORY:
    v1.0  May 2026   Created. Extracted from sv-shared.css Sections 35–36.
+   v1.2  May 2026   Section 38 added: .img-float-right, .img-float-left,
+                    .clearfix — float image layout for network-infrastructure
+                    and any systems page with long-form prose + images.
+                    Width 38% / max 380px to avoid full-viewport images.
    ============================================================ */
 
 
@@ -1022,5 +1026,51 @@ a.arch-card-link p {
 }
 
 /* ── END Section 37 (Systems Block) ─────────────────────────── */
+
+/* ============================================================
+   sv-systems.css — Section 38: Float Image Layout
+   Used on network-infrastructure.html and any systems page
+   with long-form prose where an image sits beside running text.
+   Image floats beside the first paragraphs; remaining text
+   flows underneath once the float clears.
+   Width set to 38% / max 380px — keeps image clearly to the
+   side without dominating the viewport at desktop sizes.
+   ============================================================ */
+
+.img-float-right {
+  float: right;
+  width: 38%;
+  max-width: 380px;
+  margin: 4px 0 28px 40px;
+  border-radius: 12px;
+  display: block;
+}
+
+.img-float-left {
+  float: left;
+  width: 38%;
+  max-width: 380px;
+  margin: 4px 40px 28px 0;
+  border-radius: 12px;
+  display: block;
+}
+
+.clearfix::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 768px) {
+  .img-float-right,
+  .img-float-left {
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 28px 0;
+  }
+}
+
+/* ── END Section 38 (Float Image Layout) ────────────────────── */
 
 /* ── END sv-systems.css ─────────────────────────────────────── */
