@@ -325,7 +325,7 @@ Required on all non-homepage pages. Use `.sv-breadcrumb`. All hrefs must be abso
 
 ```html
 <div class="author-bio-strip">
-  <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="author-bio-photo">
+  <img src="/images/ler-wee-meng-bio.webp" alt="Ler Wee Meng" class="author-bio-photo">
   <div class="author-bio-text">
     <span class="author-bio-name sv-author-name">Ler Wee Meng</span>
     <span class="author-bio-credentials">Founder & CEO · Securevision · 37+ Years Experience</span>
@@ -340,7 +340,7 @@ Required on all non-homepage pages. Use `.sv-breadcrumb`. All hrefs must be abso
 ```html
 <div class="founder-card">
   <div class="fc-head">
-    <img src="/images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
+    <img src="/images/ler-wee-meng-bio.webp" alt="Ler Wee Meng">
     <div>
       <strong>Ler Wee Meng</strong>
       <span>Founder & CEO · 37+ Years</span>

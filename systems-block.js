@@ -129,7 +129,7 @@
     cardsHtml += '</div>';
 
     /* Optional CTA */
-    var ctaHtml = cta ? '<div class="text-center mt-48"><a href="' + ctaHref + '" class="btn btn-primary">' + cta + '</a></div>' : "";
+    var ctaHtml = cta ? '<div class="text-center mt-80"><a href="' + ctaHref + '" class="btn btn-primary">' + cta + '</a></div>' : "";
 
     /* Replace placeholder */
     var wrapper = document.createElement("div");

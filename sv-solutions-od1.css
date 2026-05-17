@@ -107,6 +107,40 @@
                     .assessment-image — portrait image column for
                     assessment split layout; box-shadow + border-radius
                     replaces inline style on the image wrapper div.
+   v1.5  May 2026   Added Section O: Dark Interstitial Section.
+                    .sv-section-dark — mid-blue #2d4a6b band, 72px
+                    padding, white text. Replaces inline
+                    style="background:#2d4a6b; padding:72px 0;"
+                    on residential.html and commercial.html
+                    interstitial sections.
+                    .sv-section-dark h2, .subtitle, .eyebrow-light —
+                    white/muted text overrides for dark background.
+   v1.6  May 2026   Added Section P: Commercial & Persona Page Classes.
+                    Hero background rules for .hero-retail, .hero-hotel,
+                    .hero-office, .hero-mcst, .hero-security-contractors,
+                    .hero-managing-agents, .hero-day-care, .hero-aged-care.
+                    .split-grid / .split-grid.align-center — 2-col
+                    image+text layout replacing page-specific grid-2 classes.
+                    .problem-grid — 2-col problem card grid (retail/hotel/office).
+                    .feature-box-grid--3/4, .feature-box, .feature-box__title
+                    — white feature boxes replacing inline div wrappers.
+                    .numbered-label — accent number above card h3.
+                    .bordered-heading — h3 with accent left border.
+                    .proof-stat-grid, .proof-stat-grid--flex, .proof-stat-item
+                    — bordered stat callout container replacing inline grids.
+                    .solution-proof-card — desktop flex definition added.
+                    .stat-number / .stat-label — large proof stats (day-care).
+                    .trust-callout — centred trust card replacing inline card.
+                    .callout-highlight — accent blue inline box.
+                    .sv-trust-note — slim editorial sub-hero note.
+   v1.7  May 2026   Added Section Q: Industrial, Institutions &
+                    Managed Living Hero Rules.
+                    Hero background rules for .hero-manufacturing,
+                    .hero-tech-park, .hero-logistics (industrial);
+                    .hero-govt-office, .hero-schools, .hero-community
+                    (institutions); .hero-coliving, .hero-dormitories,
+                    .hero-hostels (managed living). All use standard
+                    gradient + no-repeat center/cover with mobile swap.
    ============================================================ */
 
 
@@ -2085,3 +2119,493 @@
 }
 
 /* ── END Section N ──────────────────────────────────────────── */
+
+/* ============================================================
+   sv-solutions.css — Section O: Dark Interstitial Section
+   Used on residential.html and commercial.html for the
+   "See It In Practice" band between content sections.
+
+   v1.5  May 2026   Added Section O:
+                    .sv-section-dark — mid-blue band (#2d4a6b)
+                    with white text, 72px vertical padding.
+                    Replaces inline style="background:#2d4a6b;
+                    padding:72px 0;" on interstitial sections.
+                    .sv-section-dark h2 — white heading with
+                    clamped size matching original inline style.
+                    .sv-section-dark .subtitle — muted white text.
+   ============================================================ */
+
+.sv-section-dark {
+    background: #2d4a6b;
+    padding: 72px 0;
+    color: #fff;
+}
+
+.sv-section-dark h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(22px, 3vw, 32px);
+    font-weight: 700;
+    color: #ffffff;
+    margin: 16px 0 20px;
+    line-height: 1.3;
+}
+
+.sv-section-dark .subtitle {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.75);
+    max-width: 560px;
+    margin: 0 auto 36px;
+    line-height: 1.7;
+}
+
+.sv-section-dark .eyebrow-light {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* ── END Section O ──────────────────────────────────────────── */
+
+/* ============================================================
+   sv-solutions.css — Section P: Commercial & Persona Page Classes
+   Classes introduced by retail, hotel, office, mcst,
+   security-contractors, managing-agents, day-care, aged-care.
+
+   v1.6  May 2026   Added Section P:
+                    .split-grid — 2-col image+text layout replacing
+                    retail-grid-2/hotel-grid-2/office-grid-2.
+                    .feature-box-grid — 2/3/4-col grid of white
+                    feature boxes replacing inline white-bg divs
+                    with strong title + paragraph.
+                    .feature-box — individual white feature box.
+                    .feature-box__title — uppercase label above text.
+                    .numbered-label — large accent number (01/02/03)
+                    above card h3 in process step cards.
+                    .bordered-heading — h3 with accent left border
+                    used in mcst/managing-agents scope lists.
+                    .proof-stat-grid — inline stat callout grid
+                    inside a bordered bg-light container.
+                    .proof-stat-item — individual stat with bold
+                    value + descriptor text.
+                    .solution-proof-card — desktop flex definition
+                    for the proof split card (image + text).
+                    .stat-number / .stat-label — large text stat
+                    used in day-care proof section.
+                    .trust-callout — centred trust card replacing
+                    inline card with max-width:860px + text-center.
+                    .callout-highlight — inline blue accent box
+                    replacing style="background:var(--primary-blue);
+                    color:#fff; padding:24px; border-radius:8px".
+                    .sv-trust-note — slim editorial note below hero.
+                    Hero/mobile background rules for retail, hotel,
+                    office, mcst, security-contractors, managing-agents.
+   ============================================================ */
+
+/* ── P1. Hero background rules
+   Retail already had hero-retail + cta-retail in its <style> block.
+   Now canonical here. All six heroes get desktop + mobile swap.   ── */
+.hero-retail {
+    background: linear-gradient(rgba(14, 26, 43, 0.72), rgba(14, 26, 43, 0.72)), url('/images/solutions/solution-commercial-retail-hero.webp') no-repeat center/cover;
+}
+@media (max-width: 768px) {
+    .hero-retail { background-position: 70% center; }
+}
+
+.hero-hotel {
+    background: linear-gradient(rgba(14, 26, 43, 0.72), rgba(14, 26, 43, 0.72)), url('/images/solutions/solution-commercial-hotel-hero.png') no-repeat center/cover;
+}
+@media (max-width: 768px) {
+    .hero-hotel { background-position: 70% center; }
+}
+
+.hero-office {
+    background: linear-gradient(rgba(14, 26, 43, 0.72), rgba(14, 26, 43, 0.72)), url('/images/solutions/solution-commercial-office-hero.webp') no-repeat center/cover;
+}
+
+.hero-mcst {
+    background: linear-gradient(rgba(14, 26, 43, 0.75), rgba(14, 26, 43, 0.75)), url('/images/solutions/solution-condominiums-mcst-hero.webp') no-repeat center/cover;
+}
+
+.hero-security-contractors {
+    background: linear-gradient(rgba(14, 26, 43, 0.75), rgba(14, 26, 43, 0.75)), url('/images/solutions/solution-condominiums-security-contractors-hero.webp') no-repeat center/cover;
+}
+
+.hero-managing-agents {
+    background: linear-gradient(rgba(14, 26, 43, 0.75), rgba(14, 26, 43, 0.75)), url('/images/solutions/solution-condominiums-managing-agents-hero.webp') no-repeat center/cover;
+}
+
+/* Mobile swap — day-care and aged-care */
+.hero-day-care {
+    background: #0e1a2b url('/images/solutions/solution-healthcare-daycare-hero.webp') no-repeat center/cover;
+}
+
+.hero-aged-care {
+    background: #0e1a2b url('/images/solutions/solution-healthcare-aged-care-hero.webp') no-repeat center/cover;
+}
+
+/* ── P2. Split grid
+   2-col image + text layout. Replaces retail/hotel/office-grid-2
+   and the inline display:grid 1fr 1fr pattern.
+   Align-center variant available via .split-grid.align-center.  ── */
+.split-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.split-grid.align-center {
+    align-items: center;
+}
+
+.split-grid img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .split-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    /* Swap image below text on mobile */
+    .split-grid .mobile-order-1 { order: 1; }
+    .split-grid .mobile-order-2 { order: 2; }
+}
+
+/* ── P3. Problem grid
+   2-col grid for core problem cards. Used on retail/hotel/office
+   Section 2. Replaces .problem-grid from page <style> blocks.   ── */
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+@media (max-width: 768px) {
+    .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+}
+
+/* ── P4. Feature box grid + individual feature box
+   White rounded boxes with uppercase label + description.
+   Used in retail/hotel/office Section 3 "bridge" sections.
+   Replaces inline div with background:#fff; padding:32px etc.   ── */
+.feature-box-grid {
+    display: grid;
+    gap: 24px;
+}
+
+.feature-box-grid--3 { grid-template-columns: repeat(3, 1fr); }
+.feature-box-grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+.feature-box {
+    background: #fff;
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+
+.feature-box__title {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--page-accent, var(--primary-blue));
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.feature-box p {
+    font-size: 14px;
+    color: var(--text-gray);
+    margin: 0;
+    line-height: 1.6;
+}
+
+@media (max-width: 992px) {
+    .feature-box-grid--3,
+    .feature-box-grid--4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .feature-box-grid--3,
+    .feature-box-grid--4 { grid-template-columns: 1fr; }
+}
+
+/* ── P5. Numbered label
+   Large accent number (01 / 02 / 03) above a card h3.
+   Replaces inline div with font-size:24px; font-weight:700;
+   color:var(--page-accent) in mcst/security-contractors/
+   managing-agents process step cards.                            ── */
+.numbered-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--page-accent, var(--primary-blue));
+    margin-bottom: 12px;
+    display: block;
+    line-height: 1;
+}
+
+/* ── P6. Bordered heading
+   H3 with left accent border. Used in mcst/managing-agents
+   "What We Typically Help Review" scope lists.                   ── */
+.bordered-heading {
+    border-left: 4px solid var(--page-accent, var(--primary-blue));
+    padding-left: 15px;
+    margin-bottom: 12px;
+}
+
+/* ── P7. Proof stat grid
+   Bordered bg-light container with 2/3-col inline stat items.
+   Replaces inline grid+border+padding+border-radius containers
+   in retail/hotel/office proof sections.                         ── */
+.proof-stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    border: 1px solid var(--border-light);
+    padding: 32px;
+    border-radius: 12px;
+    background: var(--bg-light);
+    margin-top: 32px;
+}
+
+.proof-stat-grid--flex {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    border: 1px solid var(--border-light);
+    padding: 32px;
+    border-radius: 12px;
+    background: var(--bg-light);
+    margin-top: 32px;
+}
+
+.proof-stat-item {
+    flex: 1;
+    min-width: 160px;
+}
+
+.proof-stat-item strong {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--page-accent, var(--primary-blue));
+    margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+    .proof-stat-grid { grid-template-columns: 1fr; gap: 16px; }
+}
+
+/* ── P8. Solution proof card — desktop definition
+   Flex split: text left, image right. Was inline only.
+   Responsive override already existed in Section G.              ── */
+.solution-proof-card {
+    max-width: 960px;
+    margin: 40px auto 0;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.solution-proof-card > div {
+    flex: 1;
+    min-width: 280px;
+}
+
+.solution-proof-card img {
+    width: 100%;
+    border-radius: 12px;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+/* ── P9. Stat number / stat label
+   Large text stat used in day-care proof cards.
+   Replaces the undefined .stat-number / .stat-label classes.    ── */
+.stat-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--page-accent, var(--primary-blue));
+    margin-bottom: 8px;
+    display: block;
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.5;
+}
+
+/* ── P10. Trust callout card
+   Centred trust statement inside a card. Replaces inline
+   card with max-width:860px; margin:0 auto; text-align:center.  ── */
+.trust-callout {
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 48px;
+}
+
+.trust-callout h2 {
+    font-size: clamp(20px, 2.5vw, 28px) !important;
+    margin-bottom: 16px !important;
+}
+
+.trust-callout p {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ── P11. Callout highlight
+   Inline accent box — blue background with white text.
+   Replaces inline style="background:var(--primary-blue);
+   color:#fff; padding:24px; border-radius:8px".                 ── */
+.callout-highlight {
+    background: var(--page-accent, var(--primary-blue));
+    color: #fff;
+    padding: 24px 28px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.callout-highlight p {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    margin: 0;
+    color: #fff;
+    font-size: 15px;
+}
+
+/* ── P12. sv-trust-note
+   Slim editorial note below hero on retail/hotel pages.
+   Replaces the bare .sv-trust-note div with no styling.         ── */
+.sv-trust-note {
+    background: var(--bg-light);
+    border-bottom: 1px solid var(--border-light);
+    padding: 10px 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    text-align: center;
+}
+
+/* ── END Section P ──────────────────────────────────────────── */
+
+/* ============================================================
+   sv-solutions.css — Section Q: Industrial, Institutions &
+   Managed Living Hero Rules
+   Hero backgrounds for pages without hero class in their
+   <style> block (manufacturing, tech-park, logistics,
+   govt-office, schools, community) plus managed-living heroes
+   with corrected gradient format (co-living, dormitories,
+   hostels).
+
+   v1.7  May 2026   Added Section Q:
+                    Hero background rules for .hero-manufacturing,
+                    .hero-tech-park, .hero-logistics,
+                    .hero-govt-office, .hero-schools,
+                    .hero-community, .hero-coliving,
+                    .hero-dormitories, .hero-hostels.
+                    All use standard gradient overlay +
+                    no-repeat center/cover pattern with
+                    mobile swap at max-width 768px.
+   ============================================================ */
+
+/* Industrial — shared accent #5a0892 */
+.hero-manufacturing {
+    background: linear-gradient(rgba(14, 26, 43, 0.72), rgba(14, 26, 43, 0.72)), url('/images/solutions/solution-industrial-manufacturing-hero.webp') no-repeat center/cover;
+}
+@media (max-width: 768px) {
+    .hero-manufacturing {
+        background-image: linear-gradient(rgba(14, 26, 43, 0.82), rgba(14, 26, 43, 0.82)), url('/images/solutions/solution-industrial-manufacturing-hero-mobile.webp');
+    }
+}
+
+.hero-tech-park {
+    background: linear-gradient(rgba(14, 26, 43, 0.72), rgba(14, 26, 43, 0.72)), url('/images/solutions/solution-industrial-tech-park-hero.webp') no-repeat center/cover;
+}
+@media (max-width: 768px) {
+    .hero-tech-park {
+        background-image: linear-gradient(rgba(14, 26, 43, 0.82), rgba(14, 26, 43, 0.82)), url('/images/solutions/solution-industrial-tech-park-hero-mobile.webp');
+    }
+}
+
+.hero-logistics {
+    background: linear-gradient(rgba(14, 26, 43, 0.72), rgba(14, 26, 43, 0.72)), url('/images/solutions/solution-industrial-logistics-hero.webp') no-repeat center/cover;
+}
+@media (max-width: 768px) {
+    .hero-logistics {
+        background-image: linear-gradient(rgba(14, 26, 43, 0.82), rgba(14, 26, 43, 0.82)), url('/images/solutions/solution-industrial-logistics-hero-mobile.webp');
+    }
+}
+
+/* Institutions — shared accent #1B4F72 */
+.hero-govt-office {
+    background: linear-gradient(rgba(14, 26, 43, 0.72), rgba(14, 26, 43, 0.72)), url('/images/solutions/solution-institutions-govt-office-hero.webp') no-repeat center/cover;
+}
+@media (max-width: 768px) {
+    .hero-govt-office {
+        background-image: linear-gradient(rgba(14, 26, 43, 0.82), rgba(14, 26, 43, 0.82)), url('/images/solutions/solution-institutions-govt-office-hero-mobile.webp');
+    }
+}
+
+.hero-schools {
+    background: linear-gradient(rgba(14, 26, 43, 0.72), rgba(14, 26, 43, 0.72)), url('/images/solutions/solution-institutions-schools-hero.webp') no-repeat center/cover;
+}
+@media (max-width: 768px) {
+    .hero-schools {
+        background-image: linear-gradient(rgba(14, 26, 43, 0.82), rgba(14, 26, 43, 0.82)), url('/images/solutions/solution-institutions-schools-hero-mobile.webp');
+    }
+}
+
+.hero-community {
+    background: linear-gradient(rgba(14, 26, 43, 0.72), rgba(14, 26, 43, 0.72)), url('/images/solutions/solution-institutions-community-hero.webp') no-repeat center/cover;
+}
+@media (max-width: 768px) {
+    .hero-community {
+        background-image: linear-gradient(rgba(14, 26, 43, 0.82), rgba(14, 26, 43, 0.82)), url('/images/solutions/solution-institutions-community-hero-mobile.webp');
+    }
+}
+
+/* Managed Living */
+.hero-coliving {
+    background: linear-gradient(rgba(14, 26, 43, 0.72), rgba(14, 26, 43, 0.72)), url('/images/solutions/solution-managed-living-co-living-hero.webp') no-repeat center/cover;
+}
+@media (max-width: 768px) {
+    .hero-coliving {
+        background-image: linear-gradient(rgba(14, 26, 43, 0.82), rgba(14, 26, 43, 0.82)), url('/images/solutions/solution-managed-living-co-living-hero-mobile.webp');
+    }
+}
+
+.hero-dormitories {
+    background: linear-gradient(rgba(14, 26, 43, 0.72), rgba(14, 26, 43, 0.72)), url('/images/solutions/solution-managed-living-dormitories-hero.webp') no-repeat center/cover;
+}
+@media (max-width: 768px) {
+    .hero-dormitories {
+        background-image: linear-gradient(rgba(14, 26, 43, 0.82), rgba(14, 26, 43, 0.82)), url('/images/solutions/solution-managed-living-dormitories-hero-mobile.webp');
+    }
+}
+
+.hero-hostels {
+    background: linear-gradient(rgba(14, 26, 43, 0.72), rgba(14, 26, 43, 0.72)), url('/images/solutions/solution-managed-living-hostels-hero.webp') no-repeat center/cover;
+}
+@media (max-width: 768px) {
+    .hero-hostels {
+        background-image: linear-gradient(rgba(14, 26, 43, 0.82), rgba(14, 26, 43, 0.82)), url('/images/solutions/solution-managed-living-hostels-hero-mobile.webp');
+    }
+}
+
+/* ── END Section Q ──────────────────────────────────────────── */

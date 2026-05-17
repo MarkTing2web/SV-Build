@@ -117,7 +117,7 @@ Insights articles do not use the full `.hero-high-impact` hero. They use a compa
     </h1>
     <!-- Hero byline — exactly 2 lines per Blog Standards Section 2 -->
     <div class="hero-byline">
-      <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="hero-byline-img">
+      <img src="images/ler-wee-meng-bio.webp" alt="Ler Wee Meng" class="hero-byline-img">
       <div class="hero-byline-text">
         <strong>Ler Wee Meng</strong>
         <span>Founder &amp; CEO · Securevision · 37+ Years Experience · [PUBLISH DATE]</span>
@@ -159,7 +159,7 @@ Insights articles do not use the full `.hero-high-impact` hero. They use a compa
       <!-- AUTHOR BIO FOOTER — mandatory, end of article prose -->
       <div class="author-bio-footer">
         <div class="abf-flex">
-          <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng" class="abf-img">
+          <img src="images/ler-wee-meng-bio.webp" alt="Ler Wee Meng" class="abf-img">
           <div class="abf-content">
             <h3>About the Author</h3>
             <p>Ler Wee Meng is the Founder and CEO of Securevision Pte Ltd, Singapore's integrated security systems specialist. He holds a Bachelor of Engineering from the National University of Singapore and a Bachelor of Laws from the University of London, and brings 37 years of hands-on experience spanning R&D, engineering, project management, and systems integration.</p>
@@ -201,7 +201,7 @@ Insights articles do not use the full `.hero-high-impact` hero. They use a compa
         <!-- Founder card -->
         <div class="founder-card">
           <div class="fc-head">
-            <img src="images/ler-wee-meng-bio.jpeg" alt="Ler Wee Meng">
+            <img src="images/ler-wee-meng-bio.webp" alt="Ler Wee Meng">
             <div>
               <strong>Ler Wee Meng</strong>
               <span>Founder &amp; CEO · 37+ Years</span>
