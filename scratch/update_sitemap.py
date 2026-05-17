@@ -105,7 +105,7 @@ def update_md_sitemap(file_path, html_files):
         f.writelines(lines)
 
 if __name__ == "__main__":
-    root = "d:/Ler Wee Meng/Project-Web/SV-Build"
+    root = "c:/Projects/SV-Build"
     html_files = get_html_files(root)
     
     update_xml_sitemap(os.path.join(root, "sitemap.xml"), html_files)
