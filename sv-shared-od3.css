@@ -190,24 +190,6 @@
                          .hero-highlight class added — replaces
                          inline style="color:#FFD700;" on hero H1
                          highlight spans across all guide pages.
-
-   v3.0  May 2026       Hero tier system introduced.
-                         .hero-high-impact stripped of min-height
-                         and padding — now structural base only.
-                         Three tier modifier classes added:
-                         .hero-full     80vh / 160px 0 140px
-                                        Homepage only.
-                         .hero-standard 60vh / 120px 0 100px
-                                        Hub/index, solutions landing,
-                                        systems, brands pages.
-                         .hero-compact  45vh / 100px 0 80px
-                                        Guide articles, insights
-                                        articles, solutions persona
-                                        sub-pages.
-                         Mobile overrides added at 768px:
-                         full→70vh, standard→55vh,
-                         compact→400px fixed floor.
-                         portfolio-hero unchanged (already 60vh).
    ========================================================== */
 
 /* (Existing root and core styles remain) */
@@ -2587,14 +2569,14 @@ section .subtitle {
 .cta-care { background-image: linear-gradient(rgba(14, 26, 43, 0.88), rgba(14, 26, 43, 0.88)), url('/images/cta-care.webp') !important; }
 
 
-/* Hero High-Impact Component — structural base only.
-   Height and padding are set by tier modifier classes below.
-   Always pair with one of: .hero-full, .hero-standard, .hero-compact */
+/* Hero High-Impact Component */
 .hero-high-impact {
     position: relative;
+    padding: 160px 0 140px;
     background-size: cover !important;
     background-position: center !important;
     color: #fff !important;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -2603,51 +2585,6 @@ section .subtitle {
 .hero-high-impact .container {
     position: relative;
     z-index: 5;
-}
-
-/* ── HERO HEIGHT TIERS ─────────────────────────────────────────
-   Three tiers define height and padding across the site.
-   Apply one tier class to every <header class="hero-high-impact">
-
-   .hero-full      Homepage only
-   .hero-standard  Hub/index pages, solutions landing, systems,
-                   brands, portfolio (portfolio-hero handles its own)
-   .hero-compact   Guide articles, insights articles,
-                   solutions persona sub-pages
-   ──────────────────────────────────────────────────────────── */
-
-.hero-full {
-    min-height: 80vh;
-    padding: 160px 0 140px;
-}
-
-.hero-standard {
-    min-height: 60vh;
-    padding: 120px 0 100px;
-}
-
-.hero-compact {
-    min-height: 45vh;
-    padding: 100px 0 80px;
-}
-
-/* Mobile responsive overrides — proportional reduction for full/standard,
-   fixed floor for compact to prevent content being clipped */
-@media (max-width: 768px) {
-    .hero-full {
-        min-height: 70vh;
-        padding: 120px 0 80px;
-    }
-
-    .hero-standard {
-        min-height: 55vh;
-        padding: 100px 0 70px;
-    }
-
-    .hero-compact {
-        min-height: 400px;
-        padding: 80px 0 60px;
-    }
 }
 
 .hero-title-main {

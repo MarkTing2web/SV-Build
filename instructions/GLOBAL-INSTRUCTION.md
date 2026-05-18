@@ -1,6 +1,6 @@
 # SECUREVISION WEBSITE — GLOBAL DESIGN INSTRUCTION
 ## For use with Anti-Gravity AI Web Builder
-## Version 3.2 — May 2026
+## Version 3.4 — May 2026
 ## This file lives at: /_instructions/GLOBAL-INSTRUCTION.md
 
 ---
@@ -155,7 +155,7 @@ If you believe a style is missing from the CSS files, add a comment <!-- NEEDS C
 Each technical guide page sets its single accent in a minimal `:root` block:
 ```html
 <style>
-  :root { --primary-access: #0056b3; } /* CCTV blue — only permitted inline style block */
+  :root { --page-accent: #2b6cb0; } /* example: CCTV blue — only permitted inline style block */
 </style>
 ```
 This is the ONLY permitted `<style>` block in any HTML file.
@@ -272,18 +272,25 @@ Contact             → /contact.html
 
 ### Hero inner structure (standard for technical guides)
 ```html
-<header class="hero-high-impact hero-[PAGE]">
+<header class="hero-high-impact hero-[PAGE]"
+        style="background-image: url('/images/resources/guides/[topic]/hero-[page].webp');">
   <div class="container">
     <span class="eyebrow-light">Technical Pillar Guide</span>
-    <h1 class="hero-title-main">[H1 with <span style="color:#FFD700;">keyword span</span>]</h1>
+    <h1 class="hero-title-main">[H1 text]</h1>
     <p class="hero-subtitle-main">[One sentence: what this guide covers]</p>
-    <div class="btn-group">
-      <a href="/request-site-assessment-singapore.html?intent=[page]-assessment" class="btn btn-primary">Book Site Assessment</a>
-      <a href="https://wa.me/6593860466" class="btn btn-whatsapp-standard">WhatsApp an Engineer</a>
+    <div class="rg-hero-author">
+      <img src="/images/ler-wee-meng-bio.webp" alt="Ler Wee Meng" class="rg-hero-author-photo">
+      <div>
+        <span class="rg-hero-author-name sv-author-name">Ler Wee Meng</span>
+        <span class="rg-hero-author-credentials">Founder & CEO, Securevision · <span class="sv-years-experience"></span>+ Years Experience</span>
+      </div>
     </div>
   </div>
 </header>
 ```
+
+Note: Technical guide heroes do NOT include a btn-group. The author block replaces it.
+The single final CTA section (Section 13) handles conversion — no hero CTA duplication.
 
 ---
 
@@ -355,31 +362,66 @@ Required on all non-homepage pages. Use `.sv-breadcrumb`. All hrefs must be abso
 
 ## 13. CTA SECTION (final section — every page)
 
-Place OUTSIDE the `.container` / `.layout-with-sidebar` wrapper so it stretches full width.
+Place OUTSIDE the `.container` / `.rg-layout` wrapper so it stretches full width.
+Do NOT add inline `style=""` attributes — padding and alignment are handled by `.cta-high-impact`.
 
+### Canonical CTA button labels — 3 labels, used by destination
+
+| Visible label | Button class | Destination | Used when |
+|---|---|---|---|
+| `Book a Site Assessment` | `btn btn-primary` | `/contact-gateway.html?intent=[page]-assessment` | Primary CTA — all guide and solution pages |
+| `Request a Proposal` | `btn btn-primary` | `/contact-gateway.html?intent=proposal-request` | Primary CTA — evaluator/contractor pages |
+| `💬 WhatsApp` | `btn btn-outline-light` | `https://wa.me/6593860466` | Secondary CTA — paired with primary on all pages |
+
+**Retired labels — do not use on any button:**
+- `Book Free Assessment` → use `Book a Site Assessment`
+- `Book Site Assessment` → use `Book a Site Assessment` (missing "a")
+- `WhatsApp Us` → use `💬 WhatsApp`
+- `WhatsApp an Engineer` → **retained only** in `fc-wa-link` inside the sidebar founder card, and in `aria-label`/`title` attributes of the floating button. Nowhere else.
+
+### Standard final CTA — hot pages (assessment intent)
 ```html
 <!-- FINAL CTA — outside layout wrapper -->
-<section class="cta-section cta-high-impact cta-[PAGE]" style="text-align:center; padding:120px 0;">
+<section class="cta-section cta-high-impact cta-[PAGE]">
   <div class="container">
-    <span class="eyebrow-light">Get Started</span>
-    <h2 style="color:#fff; margin-bottom:20px;">[CTA Heading]</h2>
+    <h2>[CTA Heading]</h2>
     <p class="subtitle">[One supporting sentence]</p>
     <div class="btn-group">
-      <a href="/request-site-assessment-singapore.html" class="btn btn-primary">Book Free Assessment</a>
-      <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 WhatsApp Us</a>
+      <a href="/contact-gateway.html?intent=[page]-assessment" class="btn btn-primary">Book a Site Assessment</a>
+      <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 WhatsApp</a>
     </div>
+    <p class="cta-trust-note">Serving Singapore Since 2006</p>
   </div>
 </section>
 ```
 
-CTA background classes (from sv-shared.css):
+### Alternate final CTA — evaluator/proposal intent
+```html
+<!-- FINAL CTA — outside layout wrapper -->
+<section class="cta-section cta-high-impact cta-[PAGE]">
+  <div class="container">
+    <h2>[CTA Heading]</h2>
+    <p class="subtitle">[One supporting sentence]</p>
+    <div class="btn-group">
+      <a href="/contact-gateway.html?intent=proposal-request" class="btn btn-primary">Request a Proposal</a>
+      <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 WhatsApp</a>
+    </div>
+    <p class="cta-trust-note">Serving Singapore Since 2006</p>
+  </div>
+</section>
 ```
-cta-cctv | cta-alarm | cta-access | cta-vehicle | cta-surveillance
-cta-platform | cta-comms
-cta-res | cta-condo | cta-com | cta-indus | cta-gov | cta-healthcare
-cta-managed | cta-dc                  ← NEEDS CSS: add to sv-shared.css
-cta-skyline (generic fallback)
+
+### CTA background classes (from sv-shared.css)
 ```
+cta-property    ← Asset protection / property managers (guides, most solution pages)
+cta-facilities  ← Operations / facilities / engineering
+cta-compliance  ← Compliance / risk / governance
+cta-care        ← Healthcare / senior care / social
+cta-skyline     ← Generic fallback
+```
+
+Legacy per-page CTA classes (`cta-cctv`, `cta-alarm`, `cta-res`, etc.) are deprecated.
+Use the persona-group classes above for all new and updated pages.
 
 ---
 
@@ -492,7 +534,7 @@ Established:      2006
 Founder:          Ler Wee Meng
 Founder quals:    BEng (NUS) · LLB (UOL)
 Experience:       37+ years
-Police Licence:   L/PS/000267/2023P
+Police Licence:   L/PS/001568/2026P
 bizSAFE:          Level 3
 BCA:              Registered Contractor
 Sites protected:  2,000+
@@ -719,7 +761,8 @@ for networking — it belongs in the capability narrative, not the navigation.
 
 ---
 
-*Securevision Global Design Instruction v3.3 — May 2026*
+*Securevision Global Design Instruction v3.4 — May 2026*
+*Changes from v3.3: Section 5 page-accent example corrected (--primary-access → --page-accent). Section 8 hero structure updated — guide heroes use rg-hero-author block, no btn-group. Section 13 overhauled — canonical CTA label table added (3 labels: Book a Site Assessment / Request a Proposal / 💬 WhatsApp), illegal inline styles removed from template, CTA background classes updated to persona-group system (cta-property / cta-facilities / cta-compliance / cta-care), legacy per-page classes deprecated. Section 13 now includes both standard and proposal-intent CTA variants. Section 19 licence number updated to L/PS/001568/2026P.*
 *Changes from v3.2: Section 2 CSS stack updated — sv-guides.css retired, systems.css/solutions.css/brands.css/resources.css added. Template table updated with correct CSS file per page type.*
 *Changes from v3.1: Section 7 Systems nav updated to 5-group client-centric taxonomy (Premises Security, Entry & Access, Vehicle Management, Communications, Platform & Management). Section 8 systems hero classes added. Section 13 cta-comms added. Section 20 template table updated — _template-subsystem.html removed (retired), systems pages are now unique builds. Template selection guide updated with systems page routing. Section 21 URL map: /systems/ip-phone-communications.html added. Section 23 added — Systems Taxonomy with 5-group reference table, page structure spec, canonical arch icons, and infrastructure positioning rule.*
 *Do not modify without updating version number and date*
@@ -757,6 +800,6 @@ DO NOT TOUCH: nav, footer, hero, author bio strip, sidebar, CTA section, any oth
 
 ---
 
-*Securevision Global Design Instruction v3.3 — May 2026*
-*Changes from v3.1 documented in Section 23 above.*
+*Securevision Global Design Instruction v3.4 — May 2026*
+*Changes from v3.3 documented above.*
 *Do not modify without updating version number and date*
