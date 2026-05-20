@@ -1,7 +1,7 @@
 import os
 import datetime
 
-root_dir = r'c:\Projects\SV-Build'
+root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 base_url = 'https://www.securevision.com.sg'
 lastmod = datetime.date.today().strftime('%Y-%m-%d')
 
