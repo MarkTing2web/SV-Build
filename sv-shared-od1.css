@@ -67,13 +67,6 @@
                          portfolio-section-narrow class retained
                          in CSS but no longer needed on pages.
 
-   v1.10 May 2026       .nav-card promoted from sv-insights.css
-                         to sv-shared.css. Now used by both
-                         /insights/ related articles and
-                         /resources/guides/ related guides.
-                         Duplicate in sv-insights.css retained
-                         until confirmed stable here.
-
    v1.8  April 2026     portfolio-section-narrow set to
                          max-width: 100% — removes narrow
                          viewport from portfolio prose
@@ -186,6 +179,35 @@
                          Section 33 dead stub (~9 lines) deleted.
                          sv-forms.css created fresh from Section 29
                          content — load on all pages with forms.
+
+   v2.9  May 2026       .visually-hidden utility class added.
+                         Standard WCAG visually-hidden pattern —
+                         hides element visually while keeping it
+                         accessible to screen readers and crawlers.
+                         Primary use: .rg-img-caption elements on
+                         resource guide pages where captions are
+                         present in markup but not displayed.
+                         .hero-highlight class added — replaces
+                         inline style="color:#FFD700;" on hero H1
+                         highlight spans across all guide pages.
+
+   v3.0  May 2026       Hero tier system introduced.
+                         .hero-high-impact stripped of min-height
+                         and padding — now structural base only.
+                         Three tier modifier classes added:
+                         .hero-full     80vh / 160px 0 140px
+                                        Homepage only.
+                         .hero-standard 60vh / 120px 0 100px
+                                        Hub/index, solutions landing,
+                                        systems, brands pages.
+                         .hero-compact  45vh / 100px 0 80px
+                                        Guide articles, insights
+                                        articles, solutions persona
+                                        sub-pages.
+                         Mobile overrides added at 768px:
+                         full→70vh, standard→55vh,
+                         compact→400px fixed floor.
+                         portfolio-hero unchanged (already 60vh).
    ========================================================== */
 
 /* (Existing root and core styles remain) */
@@ -2565,14 +2587,14 @@ section .subtitle {
 .cta-care { background-image: linear-gradient(rgba(14, 26, 43, 0.88), rgba(14, 26, 43, 0.88)), url('/images/cta-care.webp') !important; }
 
 
-/* Hero High-Impact Component */
+/* Hero High-Impact Component — structural base only.
+   Height and padding are set by tier modifier classes below.
+   Always pair with one of: .hero-full, .hero-standard, .hero-compact */
 .hero-high-impact {
     position: relative;
-    padding: 160px 0 140px;
     background-size: cover !important;
     background-position: center !important;
     color: #fff !important;
-    min-height: 80vh;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -2583,12 +2605,62 @@ section .subtitle {
     z-index: 5;
 }
 
+/* ── HERO HEIGHT TIERS ─────────────────────────────────────────
+   Three tiers define height and padding across the site.
+   Apply one tier class to every <header class="hero-high-impact">
+
+   .hero-full      Homepage only
+   .hero-standard  Hub/index pages, solutions landing, systems,
+                   brands, portfolio (portfolio-hero handles its own)
+   .hero-compact   Guide articles, insights articles,
+                   solutions persona sub-pages
+   ──────────────────────────────────────────────────────────── */
+
+.hero-full {
+    min-height: 80vh;
+    padding: 160px 0 140px;
+}
+
+.hero-standard {
+    min-height: 60vh;
+    padding: 120px 0 100px;
+}
+
+.hero-compact {
+    min-height: 45vh;
+    padding: 100px 0 80px;
+}
+
+/* Mobile responsive overrides — proportional reduction for full/standard,
+   fixed floor for compact to prevent content being clipped */
+@media (max-width: 768px) {
+    .hero-full {
+        min-height: 70vh;
+        padding: 120px 0 80px;
+    }
+
+    .hero-standard {
+        min-height: 55vh;
+        padding: 100px 0 70px;
+    }
+
+    .hero-compact {
+        min-height: 400px;
+        padding: 80px 0 60px;
+    }
+}
+
 .hero-title-main {
     color: #ffffff !important;
     font-size: clamp(36px, 5.5vw, 68px) !important;
     font-weight: 800 !important;
     line-height: 1.1 !important;
     margin: 0 0 28px 0 !important;
+}
+
+/* Gold highlight span inside hero H1 — replaces inline style="color:#FFD700;" */
+.hero-highlight {
+    color: #FFD700;
 }
 
 .hero-subtitle-main {
@@ -4281,6 +4353,21 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     display: none !important;
 }
 
+/* Hides element visually while keeping it accessible to screen readers and search.
+   Use on .rg-img-caption elements when captions should be present in markup
+   but not displayed. Standard WCAG visually-hidden pattern. */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* System Browse Tiles */
 .system-browse {
     padding: 100px 0;
@@ -4662,51 +4749,3 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     gap: 8px;
 }
 
-
-/* ============================================================
-   NAV-CARD — Shared Related Content Card
-   v1.10  May 2026
-
-   Used by both /insights/ article pages (related insights)
-   and /resources/guides/ pages (related guides).
-   Previously defined only in sv-insights.css — promoted here
-   so guide pages can use it without loading sv-insights.css.
-
-   sv-insights.css retains its copy for now; once confirmed
-   stable here, remove the duplicate from sv-insights.css.
-   ============================================================ */
-
-.nav-card {
-  padding: 30px;
-  background: #fff;
-  border: 1px solid var(--border-light);
-  border-radius: 12px;
-  text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
-  display: block;
-}
-
-.nav-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-  border-color: var(--primary-blue);
-}
-
-.nav-card span {
-  display: block;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #94a3b8;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-
-.nav-card strong {
-  display: block;
-  font-size: 1.1rem;
-  color: var(--text-dark);
-  line-height: 1.4;
-}
-
-/* ── END NAV-CARD ─────────────────────────────────────────── */

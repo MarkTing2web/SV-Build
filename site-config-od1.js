@@ -167,20 +167,3 @@ SECUREVISION.insights = [
   { slug: "why-mechanical-locks-not-enough",                         title: "Why Mechanical Locks Are Not Enough",                             category: "Security Planning",   tags: ["locks","access-control","digital","residential"] },
   { slug: "wifi-remote-control-auto-gate",                           title: "WiFi and Remote Control for Your Auto Gate",                      category: "Technology",          tags: ["auto-gate","wifi","remote","smart-home"] }
 ];
-
-// ── GUIDES REGISTRY ────────────────────────────────────────────────────
-// Drives the automatic Related Guides section on every guide page.
-// slug must match the HTML filename exactly (without .html).
-// To add a new guide: add one object here. Nothing else needed.
-
-SECUREVISION.guides = [
-  { slug: "cctv-guide",                          title: "The Complete CCTV Guide",                             category: "Surveillance",   tags: ["cctv","cameras","nvr","surveillance"] },
-  { slug: "burglar-alarm-guide",                 title: "The Complete Burglar Alarm Guide",                    category: "Intrusion",      tags: ["burglar-alarm","intrusion","detector","zones"] },
-  { slug: "door-access-guide",                   title: "The Complete Door Access Control Guide",              category: "Access Control", tags: ["access-control","door","card","reader"] },
-  { slug: "auto-gate-guide",                     title: "The Complete Auto Gate Guide",                        category: "Vehicle & Gate", tags: ["auto-gate","motor","gate","residential"] },
-  { slug: "intercom-guide",                      title: "The Complete Intercom Guide",                         category: "Communications", tags: ["intercom","video-intercom","ip","visitor"] },
-  { slug: "office-telephone-guide",              title: "The Complete Office Telephone Guide",                 category: "Communications", tags: ["ip-phone","voip","pbx","office","telephony"] },
-  { slug: "wifi-network-guide",                  title: "The Complete WiFi & Network Guide",                   category: "Network",        tags: ["wifi","networking","router","infrastructure"] },
-  { slug: "security-renovation-guide",           title: "Security Planning for Renovations",                  category: "Planning",       tags: ["renovation","planning","multi-system","new-build"] },
-  { slug: "how-to-evaluate-security-contractor", title: "How to Evaluate a Security Contractor",              category: "Planning",       tags: ["contractor","selection","tender","integrator"] }
-];

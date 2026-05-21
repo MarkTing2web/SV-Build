@@ -1,13 +1,10 @@
 /**
  * nav-footer.js — Securevision Global Navigation & Footer
- * Version: 4.3 — May 2026
+ * Version: 4.2 — May 2026
  * Changes: Portfolio dropdown updated to all 8 property types.
  *          Brands dropdown restructured to 5 system groups matching new taxonomy.
  *          Mobile nav Portfolio and Brands submenus updated to match.
  *          Brand anchor IDs updated: #premises #entry #vehicle #comms #platform.
- *          v4.3: Related Guides auto-renderer added to runHydration().
- *          Reads SECUREVISION.guides[] from site-config.js.
- *          Fires on pages with id="related-guides-grid" and data-guide="[slug]".
  * Source of truth: /index.html (homepage)
  *
  * HOW TO USE ON ANY PAGE:
@@ -136,51 +133,6 @@
         return "<a href=\"/insights/" + a.slug + ".html\" class=\"nav-card\">" +
           "<span>" + a.category + "</span>" +
           "<strong>" + a.title + "</strong>" +
-          "</a>";
-      }).join("");
-    })();
-
-    // ── Related Guides auto-renderer ────────────────────────────
-    // Fires on any page that has id="related-guides-grid" and
-    // a <body data-guide="[slug]"> attribute.
-    // Selection: same category first, then tag overlap, then any.
-    // Always renders exactly 3 cards (or fewer if registry is small).
-    (function () {
-      var grid = document.getElementById("related-guides-grid");
-      if (!grid) return;
-      if (!Array.isArray(SECUREVISION.guides)) return;
-
-      var currentSlug = document.body.getAttribute("data-guide") || "";
-      var currentGuide = SECUREVISION.guides.find(function (g) { return g.slug === currentSlug; });
-      var currentCategory = currentGuide ? currentGuide.category : "";
-      var currentTags = currentGuide ? currentGuide.tags : [];
-
-      var pool = SECUREVISION.guides.filter(function (g) { return g.slug !== currentSlug; });
-
-      function shuffleG(arr) {
-        var a = arr.slice();
-        for (var i = a.length - 1; i > 0; i--) {
-          var j = Math.floor(Math.random() * (i + 1));
-          var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
-        }
-        return a;
-      }
-
-      function scoreG(guide) {
-        var s = 0;
-        if (guide.category === currentCategory) s += 10;
-        currentTags.forEach(function (tag) {
-          if (guide.tags.indexOf(tag) !== -1) s += 2;
-        });
-        return s;
-      }
-
-      var picks = shuffleG(pool).sort(function (a, b) { return scoreG(b) - scoreG(a); }).slice(0, 3);
-
-      grid.innerHTML = picks.map(function (g) {
-        return "<a href=\"/resources/guides/" + g.slug + ".html\" class=\"nav-card\">" +
-          "<span>" + g.category + "</span>" +
-          "<strong>" + g.title + "</strong>" +
           "</a>";
       }).join("");
     })();

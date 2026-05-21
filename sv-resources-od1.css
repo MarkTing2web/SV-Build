@@ -1,7 +1,7 @@
 /* ============================================================
    sv-resources.css
    Securevision — Resources Stylesheet
-   Version: 1.2 — May 2026
+   Version: 1.1 — May 2026
 
    SCOPE: All /resources/ pages.
    Load on every resource page alongside sv-shared.css.
@@ -26,9 +26,6 @@
      classes: .quick-card, .guide-card-link, .guide-meta,
      .filter-btn, .resource-link, .video-thumbnail, .trade-grid,
      .faq-hub-grid, etc.
-   - Related guides grid (Section G) — .guides-related-grid,
-     a namespaced alias of .insights-related-grid for use on
-     /resources/guides/ pages. Driven by nav-footer.js renderer.
 
    WHAT THIS FILE DOES NOT TOUCH:
    - sv-shared.css global classes (nav, footer, buttons,
@@ -61,12 +58,6 @@
                     avoid collision with sv-shared Section 28
                     canonical FAQ component; .support-card-wa
                     replaces inline border style using --accent-green.
-   v1.2  May 2026   Section G added: Related Guides Grid.
-                    .guides-related-grid — namespaced 3-column
-                    grid for guide page related content. Driven
-                    by Related Guides auto-renderer in nav-footer.js
-                    reading SECUREVISION.guides[] registry in
-                    site-config.js.
    ============================================================ */
 
 
@@ -1245,6 +1236,17 @@
     background-position: center;
 }
 
+/* ── C3. Per-guide mobile hero image overrides ───────────────
+   Use when a guide has a dedicated mobile crop of its hero.
+   Target the page-specific hero class at ≤768px.
+   Add one rule per guide that has a mobile image variant.   */
+
+@media (max-width: 768px) {
+    .hero-burglar-alarm {
+        background-image: url('/images/resources/guides/alarm/burglar-alarm-guide-singapore-mobile.webp') !important;
+    }
+}
+
 /* ── END SECTION C ───────────────────────────────────────────── */
 
 
@@ -2403,41 +2405,5 @@ section[id] {
 }
 
 /* ── END Section F (Resources Hub) ───────────────────────────── */
-
-
-/* ============================================================
-   SECTION G: RELATED GUIDES GRID
-   Used at the bottom of every /resources/guides/[guide].html
-   page. Alias of .insights-related-grid (sv-insights.css) —
-   same 3-column layout, namespaced for the guides context.
-   Hard cap of 3 columns. Cards rendered by the Related Guides
-   auto-renderer in nav-footer.js; styled via .nav-card in
-   sv-shared.css.
-
-   Do NOT use .insights-related-grid on guide pages — keep
-   the namespace clean so guide and insight styles can diverge
-   independently if needed in future.
-   ============================================================ */
-
-.guides-related-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 40px;
-}
-
-@media (max-width: 992px) {
-  .guides-related-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .guides-related-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ── END SECTION G (Related Guides Grid) ─────────────────────── */
 
 /* ── END resources.css ───────────────────────────────────────── */
