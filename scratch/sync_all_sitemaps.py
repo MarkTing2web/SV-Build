@@ -5,7 +5,7 @@ root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 base_url = 'https://www.securevision.com.sg'
 lastmod = datetime.date.today().strftime('%Y-%m-%d')
 
-exclude_dirs = {'.git', '.vercel', 'scratch', 'node_modules', 'templates', 'images', 'artifacts'}
+exclude_dirs = {'.git', '.vercel', 'scratch', 'node_modules', 'templates', 'images', 'artifacts', 'temp-solutions', 'instructions', '.github'}
 exclude_files = {'sitemap.xml', 'site-config.js', 'nav-footer.js'}
 
 urls = []
@@ -20,7 +20,7 @@ for root, dirs, files in os.walk(root_dir):
             if rel_path == 'index.html':
                 url_path = '/'
             elif rel_path.endswith('/index.html'):
-                url_path = '/' + rel_path[:-10] + '/'
+                url_path = '/' + rel_path[:-11] + '/'
             else:
                 url_path = '/' + rel_path
             
