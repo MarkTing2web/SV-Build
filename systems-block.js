@@ -104,8 +104,10 @@
 
     var colsAttr  = el.getAttribute("data-cols") || "";
     /* Grid — data-cols overrides auto logic.
-       data-cols="2" forces 2-col; otherwise auto by count */
-    var gridClass = colsAttr === "2" ? "grid-2" : (keys.length <= 2 ? "grid-2" : "sv-systems-grid");
+       data-cols="2" forces 2-col
+       data-cols="3" forces 3-col (used on portfolio pages)
+       otherwise auto by count */
+    var gridClass = colsAttr === "2" ? "grid-2" : colsAttr === "3" ? "grid-3" : (keys.length <= 2 ? "grid-2" : "sv-systems-grid");
     var cardsHtml = '<div class="' + gridClass + ' mt-48">';
 
     for (var i = 0; i < keys.length; i++) {

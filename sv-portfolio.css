@@ -51,6 +51,11 @@
                        .bg-white, .bg-light, .border-top,
                        .comparison-table, .snapshot-explore-card
 
+   v1.2  May 2026    Added .grid-3 utility class to support
+                     systems-block.js data-cols="3" on portfolio
+                     pages. Collapses to 2-col at 992px and
+                     1-col at 600px.
+
    Link tag for all portfolio HTML pages:
    <link rel="stylesheet" href="/sv-portfolio.css">
    Place AFTER sv-shared.css, BEFORE </head>
@@ -1092,3 +1097,28 @@
 }
 
 /* ── END sv-portfolio.css ───────────────────────────────────── */
+
+/* ============================================================
+   SECTION 14 — GRID UTILITIES
+   .grid-3 used by systems-block.js when data-cols="3"
+   ============================================================ */
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 992px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── END SECTION 14 ───────────────────────────────────────── */
