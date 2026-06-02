@@ -18,6 +18,10 @@
      Version history:
        v1.0  May 2026   Initial build. All sectors covered.
                         Excludes 5 pages pending photography.
+       v1.1  Jun 2026   Multi-category mode added.
+                        data-categories (comma-separated) picks 1
+                        project per listed category. Used on homepage
+                        for the 6-sector cross-sell block.
   ─────────────────────────────────────────────────────────────────── */
 
   var PROJECTS = [
@@ -471,6 +475,7 @@
 
   /* ─── RENDER ─────────────────────────────────────────────────────── */
   function renderBlock(el) {
+    var categoriesAttr = el.getAttribute("data-categories") || "";
     var category = el.getAttribute("data-category") || "commercial";
     var exclude  = el.getAttribute("data-exclude")  || "";
     var heading  = el.getAttribute("data-heading")  || "Related Case Studies";
@@ -478,7 +483,25 @@
     var intro    = el.getAttribute("data-intro")    || "Explore how we have solved similar security challenges across Singapore.";
     var bgClass  = el.getAttribute("data-bg")       || "sv-section-grey";
 
-    var picks = pickProjects(category, exclude, 3);
+    var multiMode = categoriesAttr !== "";
+    var picks;
+
+    if (multiMode) {
+      /* Multi-category mode: pick 1 random project from each listed category */
+      picks = [];
+      var cats = categoriesAttr.split(",");
+      for (var c = 0; c < cats.length; c++) {
+        var cat = cats[c].trim();
+        var pool = PROJECTS.filter(function(p) {
+          return p.category === cat && p.slug !== exclude;
+        });
+        if (pool.length > 0) {
+          picks.push(shuffle(pool)[0]);
+        }
+      }
+    } else {
+      picks = pickProjects(category, exclude, 3);
+    }
 
     var cardsHtml = "";
     for (var i = 0; i < picks.length; i++) {
@@ -495,8 +518,8 @@
         '</a>';
     }
 
-    /* If fewer than 3 projects found, pad with an Explore More card */
-    while (picks.length < 3) {
+    /* Single-category mode only: pad to 3 if needed */
+    if (!multiMode) while (picks.length < 3) {
       cardsHtml +=
         '<a href="/portfolio/" class="card card-clickable related-project-card">' +
           '<div class="related-project-body" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;text-align:center;">' +
@@ -508,6 +531,7 @@
         '</a>';
       picks.push({}); /* prevent infinite loop */
     }
+    }  /* end if (!multiMode) */
 
     var sectionHtml =
       '<section class="' + bgClass + ' section-spacing">' +

@@ -495,6 +495,20 @@
         '</a>';
     }
 
+    /* If fewer than 3 projects found, pad with an Explore More card */
+    while (picks.length < 3) {
+      cardsHtml +=
+        '<a href="/portfolio/" class="card card-clickable related-project-card">' +
+          '<div class="related-project-body" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:200px;text-align:center;">' +
+            '<span class="related-project-badge">Portfolio</span>' +
+            '<h3 class="related-project-title">Explore More Projects</h3>' +
+            '<p class="related-project-text">Browse the full Securevision portfolio — case studies across every sector and property type.</p>' +
+            '<span class="related-project-link">View All Projects &rarr;</span>' +
+          '</div>' +
+        '</a>';
+      picks.push({}); /* prevent infinite loop */
+    }
+
     var sectionHtml =
       '<section class="' + bgClass + ' section-spacing">' +
         '<div class="container">' +
