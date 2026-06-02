@@ -531,7 +531,6 @@
         '</a>';
       picks.push({}); /* prevent infinite loop */
     }
-    }  /* end if (!multiMode) */
 
     var sectionHtml =
       '<section class="' + bgClass + ' section-spacing">' +
