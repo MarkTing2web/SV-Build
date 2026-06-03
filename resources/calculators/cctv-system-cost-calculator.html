@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCTV System Cost Calculator — Estimate Your Budget | Securevision Singapore</title>
+    <meta name="description" content="Get a ballpark budget for a CCTV system in Singapore. Choose your recorder, cameras, and storage — see an indicative budget range instantly. From Securevision, Singapore's trusted security systems integrator.">
+    <link rel="canonical" href="https://www.securevision.com.sg/resources/calculators/cctv-system-cost-calculator.html">
+    <meta property="og:title" content="CCTV System Cost Calculator | Securevision Singapore">
+    <meta property="og:description" content="Estimate the budget for a CCTV system in Singapore. Select your recorder, cameras, and storage — get an indicative range before you enquire.">
+    <meta property="og:url" content="https://www.securevision.com.sg/resources/calculators/cctv-system-cost-calculator.html">
+    <meta property="og:image" content="https://www.securevision.com.sg/images/og-default.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Securevision">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/sv-shared.css">
+    <link rel="stylesheet" href="/sv-resources.css">
+    <script src="/site-config.js"></script>
+
+    <style>
+        :root { --page-accent: #0056b3; }
+        .hero-compact { min-height: 44vh !important; padding: 80px 0 64px !important; }
+
+        .cost-wrap { max-width: 860px; margin: 0 auto; padding: 56px 0 72px; }
+
+        .cost-panel {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,.06);
+            padding: 28px;
+            margin-bottom: 20px;
+        }
+
+        .cost-panel-head {
+            display: flex; align-items: baseline;
+            justify-content: space-between; flex-wrap: wrap;
+            gap: 8px; margin-bottom: 22px;
+        }
+
+        .cost-panel-head h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px; font-weight: 700;
+            color: var(--text-dark); margin: 0;
+        }
+
+        .cost-panel-hint { font-size: 13px; color: var(--text-light); }
+
+        /* Pill selectors — no prices shown */
+        .pill-row { display: flex; flex-wrap: wrap; gap: 10px; }
+
+        .pill-btn {
+            flex: 1; min-width: 90px;
+            padding: 14px 10px;
+            border: 1px solid var(--border-light);
+            border-radius: 10px; background: #fff;
+            cursor: pointer; text-align: center;
+            transition: all .15s;
+        }
+
+        .pill-btn:hover { border-color: var(--primary-blue); background: #f5f8fe; }
+
+        .pill-btn.active {
+            background: #eef4fb;
+            border: 1.5px solid var(--primary-blue);
+        }
+
+        .pill-main {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px; font-weight: 700;
+            color: var(--text-dark); display: block; margin-bottom: 3px;
+        }
+
+        .pill-btn.active .pill-main { color: var(--primary-blue); }
+
+        .pill-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px; color: var(--text-light); display: block;
+        }
+
+        .pill-btn.active .pill-sub { color: var(--primary-blue); opacity: .75; }
+
+        /* Camera inputs */
+        .cam-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 4px; }
+
+        .cam-card {
+            border: 1px solid var(--border-light);
+            border-radius: 10px; padding: 18px; background: #fafbfc;
+        }
+
+        .cam-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px; font-weight: 700;
+            color: var(--text-dark); margin-bottom: 4px;
+        }
+
+        .cam-desc { font-size: 12px; color: var(--text-light); margin-bottom: 14px; }
+
+        .cam-row { display: flex; align-items: center; gap: 12px; }
+
+        .cam-row input[type="number"] {
+            font-family: 'Inter', sans-serif;
+            font-size: 20px; font-weight: 600; color: var(--text-dark);
+            padding: 10px 14px;
+            border: 1px solid var(--border-light);
+            border-radius: 8px; background: #fff; width: 110px;
+        }
+
+        .cam-row input:focus {
+            outline: none; border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0,86,179,.12);
+        }
+
+        .cam-row span { font-size: 13px; color: var(--text-light); }
+
+        .cam-total-bar {
+            display: flex; align-items: center; justify-content: space-between;
+            margin-top: 14px; padding: 10px 14px;
+            background: var(--bg-light); border-radius: 8px;
+            font-size: 13px; color: var(--text-gray);
+        }
+
+        .cam-total-bar strong { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--text-dark); }
+
+        .upgrade-notice {
+            display: none;
+            background: #fffbeb; border: 1px solid #fde68a;
+            border-radius: 8px; padding: 12px 16px;
+            font-size: 13px; color: #92670c;
+            margin-top: 12px; line-height: 1.55;
+        }
+
+        /* HDD helper */
+        .hdd-helper {
+            display: block; margin-top: 12px;
+            font-size: 12px; color: var(--primary-blue); text-decoration: none;
+        }
+        .hdd-helper:hover { text-decoration: underline; }
+
+        /* Calculate button */
+        .cost-btn-row { text-align: center; margin: 28px 0; }
+
+        .cost-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px; font-weight: 700;
+            padding: 16px 64px;
+            background: var(--primary-blue); color: #fff;
+            border: none; border-radius: 10px; cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0,86,179,.28);
+            transition: background .15s, transform .15s;
+            min-height: 56px;
+        }
+
+        .cost-btn:hover { background: var(--dark-blue); transform: translateY(-1px); }
+        .cost-btn:active { transform: none; }
+
+        /* Results */
+        .cost-results-area { display: none; }
+
+        /* Budget card — the hero of the results */
+        .budget-card {
+            background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+            border-radius: 12px; padding: 36px 32px;
+            color: #fff; margin-bottom: 20px;
+        }
+
+        .budget-eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: .7px; color: rgba(255,255,255,.70); margin-bottom: 10px;
+        }
+
+        .budget-range {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px; font-weight: 800;
+            color: #fff; line-height: 1; margin-bottom: 8px;
+        }
+
+        .budget-sub { font-size: 13px; color: rgba(255,255,255,.65); margin-bottom: 28px; }
+
+        /* System summary inside budget card */
+        .system-summary {
+            background: rgba(255,255,255,.10);
+            border: 1px solid rgba(255,255,255,.18);
+            border-radius: 10px; padding: 20px 22px;
+            margin-bottom: 24px;
+        }
+
+        .summary-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: .5px;
+            color: rgba(255,255,255,.60); margin-bottom: 14px;
+        }
+
+        .summary-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 10px 24px;
+        }
+
+        .summary-item {
+            display: flex; align-items: flex-start; gap: 8px;
+        }
+
+        .summary-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: rgba(255,255,255,.60);
+            flex-shrink: 0; margin-top: 5px;
+        }
+
+        .summary-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px; color: rgba(255,255,255,.90);
+            line-height: 1.4;
+        }
+
+        .summary-text span {
+            display: block; font-size: 11px;
+            color: rgba(255,255,255,.55);
+        }
+
+        .budget-cta {
+            display: flex; gap: 14px; flex-wrap: wrap;
+            align-items: center; padding-top: 22px;
+            border-top: 1px solid rgba(255,255,255,.18);
+        }
+
+        .budget-cta p {
+            font-size: 13px; color: rgba(255,255,255,.80);
+            flex: 1; min-width: 180px; margin: 0;
+        }
+
+        .budget-card .btn-primary {
+            background: #fff; color: var(--primary-blue); border-color: #fff;
+        }
+        .budget-card .btn-primary:hover { background: #eef4fb; }
+
+        /* Note and disclaimer */
+        .cost-note {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px; color: var(--text-light); line-height: 1.65;
+            padding: 16px 20px; background: var(--bg-light);
+            border: 1px solid var(--border-light); border-radius: 10px;
+            margin-bottom: 14px;
+        }
+
+        .cost-note strong { color: var(--text-gray); }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .cam-grid { grid-template-columns: 1fr; }
+            .cost-btn { width: 100%; }
+            .budget-range { font-size: 34px; }
+            .summary-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .cost-panel { padding: 20px 16px; }
+            .budget-card { padding: 24px 18px; }
+            .pill-btn { min-width: 76px; }
+        }
+    </style>
+</head>
+
+<body data-guide="cctv">
+    <nav id="sv-nav"></nav>
+
+    <header class="hero-high-impact hero-guide hero-compact"
+            style="background-image: url('/images/resources/guides/cctv/hero-cctv.webp');">
+        <div class="container">
+            <span class="eyebrow-light">Planning Tool &middot; Surveillance</span>
+            <h1 class="hero-title-main">CCTV System Cost Calculator</h1>
+            <p class="hero-subtitle-main">Get a budget estimate before you enquire — so you know whether a system fits your plans before picking up the phone. Supply, installation, and programming are all included in the figures.</p>
+        </div>
+    </header>
+
+    <section class="sv-section-white">
+        <div class="container">
+        <div class="cost-wrap">
+
+            <!-- NVR -->
+            <div class="cost-panel">
+                <div class="cost-panel-head">
+                    <h2>1 &middot; Recorder (NVR)</h2>
+                    <span class="cost-panel-hint">How many camera channels do you need? We&rsquo;ll step up automatically if your camera count exceeds the selection.</span>
+                </div>
+                <div class="pill-row" id="nvr-pills"></div>
+            </div>
+
+            <!-- CAMERAS -->
+            <div class="cost-panel">
+                <div class="cost-panel-head">
+                    <h2>2 &middot; Cameras</h2>
+                    <span class="cost-panel-hint">Enter how many of each type. You can mix resolutions in one system.</span>
+                </div>
+                <div class="cam-grid">
+                    <div class="cam-card">
+                        <div class="cam-label">2MP cameras <span style="font-weight:400;color:var(--text-light);font-size:13px">(1080p)</span></div>
+                        <div class="cam-desc">General surveillance — corridors, car parks, open areas</div>
+                        <div class="cam-row">
+                            <input type="number" id="q2mp" value="0" min="0" max="64" oninput="onCamChange()">
+                            <span>cameras</span>
+                        </div>
+                    </div>
+                    <div class="cam-card">
+                        <div class="cam-label">4MP cameras</div>
+                        <div class="cam-desc">Higher detail — entrances, reception, high-value areas</div>
+                        <div class="cam-row">
+                            <input type="number" id="q4mp" value="0" min="0" max="64" oninput="onCamChange()">
+                            <span>cameras</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cam-total-bar">
+                    <span>Total cameras: <strong id="cam-total">0</strong></span>
+                    <span id="nvr-status" style="font-size:12px;color:var(--text-light)"></span>
+                </div>
+                <div class="upgrade-notice" id="upgrade-notice"></div>
+            </div>
+
+            <!-- HDD -->
+            <div class="cost-panel">
+                <div class="cost-panel-head">
+                    <h2>3 &middot; Storage</h2>
+                    <span class="cost-panel-hint">Surveillance-grade hard disk only &mdash; rated for 24/7 continuous recording.</span>
+                </div>
+                <div class="pill-row" id="hdd-pills"></div>
+                <a href="/resources/calculators/cctv-storage-bandwidth-calculator.html" class="hdd-helper">
+                    Not sure how much storage you need? Use our Storage Calculator first &rarr;
+                </a>
+            </div>
+
+            <!-- CALCULATE -->
+            <div class="cost-btn-row">
+                <button class="cost-btn" onclick="calculate()">Calculate budget &rarr;</button>
+            </div>
+
+            <!-- RESULTS -->
+            <div class="cost-results-area" id="results">
+
+                <div class="budget-card">
+                    <div class="budget-eyebrow">Estimated system budget</div>
+                    <div class="budget-range" id="r-range">&mdash;</div>
+                    <div class="budget-sub" id="r-sub">Excluding GST &middot; Indicative estimate</div>
+
+                    <div class="system-summary">
+                        <div class="summary-title">Your system includes</div>
+                        <div class="summary-grid" id="summary-grid"></div>
+                    </div>
+
+                    <div class="budget-cta">
+                        <p>If this budget works for you, the next step is a site survey &mdash; we&rsquo;ll confirm the exact specification and give you an accurate proposal.</p>
+                        <a href="/contact-gateway.html?intent=cctv-cost-calculator" class="btn btn-primary" id="r-btn">Request a Proposal &rarr;</a>
+                        <a href="https://wa.me/6593860466" target="_blank" rel="noopener" class="btn btn-whatsapp">💬 WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="cost-note" id="r-note"></div>
+
+            </div>
+
+        </div>
+        </div>
+    </section>
+
+    <section class="cta-section cta-high-impact cta-facilities">
+        <div class="container">
+            <span class="eyebrow-light">Get Started</span>
+            <h2>Budget Looks Right? Let&rsquo;s Confirm the Details.</h2>
+            <p class="subtitle">A site survey turns the estimate into an accurate, itemised proposal &mdash; covering cable routes, mounting positions, and everything you need to move forward with confidence. <span class="sv-years-experience"></span>+ years of Singapore experience.</p>
+            <div class="btn-group">
+                <a href="/contact-gateway.html?intent=cctv-cost-calculator" class="btn btn-primary">Request a Proposal</a>
+                <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 WhatsApp</a>
+            </div>
+            <p class="cta-trust-note">Police Licence <span class="sv-licence"></span> &middot; <span class="sv-bizsafe"></span> &middot; Serving Singapore Since 2006</p>
+        </div>
+    </section>
+
+    <footer id="sv-footer"></footer>
+
+    <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
+    </a>
+
+    <script src="/nav-footer.js"></script>
+    <script>
+    /* ============================================================
+       CCTV SYSTEM COST CALCULATOR
+       All prices in SGD, excluding GST.
+
+       ★ TO UPDATE PRICES — edit the PRICING object below only.
+         Do not touch anything else in this file for price updates.
+    ============================================================ */
+
+    const PRICING = {
+        updated: 'June 2026',
+
+        /* NVR — channel count and supply price */
+        nvr: [
+            { ch: 4,  label: '4-channel',  sub: 'Up to 4 cameras',  price: 280 },
+            { ch: 8,  label: '8-channel',  sub: 'Up to 8 cameras',  price: 320 },
+            { ch: 16, label: '16-channel', sub: 'Up to 16 cameras', price: 480 },
+            { ch: 32, label: '32-channel', sub: 'Up to 32 cameras', price: 680 }
+        ],
+
+        /* Hard disks — surveillance-grade, 24/7 rated */
+        hdd: [
+            { tb: 1,  label: '1 TB',  sub: '~7 days / 8 cams',  price: 180 },
+            { tb: 2,  label: '2 TB',  sub: '~14 days / 8 cams', price: 220 },
+            { tb: 4,  label: '4 TB',  sub: '~30 days / 8 cams', price: 320 },
+            { tb: 6,  label: '6 TB',  sub: '~45 days / 8 cams', price: 380 },
+            { tb: 8,  label: '8 TB',  sub: '~60 days / 8 cams', price: 480 },
+            { tb: 10, label: '10 TB', sub: '~75 days / 8 cams', price: 680 }
+        ],
+
+        /* Camera supply price per unit */
+        cam2mp: { label: '2MP (1080p)', price: 120 },
+        cam4mp: { label: '4MP',         price: 220 },
+
+        /* Installation */
+        perCamera:   150,   /* per camera point — Cat6 UTP, PVC conduit, PoE */
+        setupAndPgm: 400,   /* recorder config, naming, remote access, handover */
+
+        /* Estimate range applied to sub-total */
+        rangeLow:  0.85,
+        rangeHigh: 1.15
+    };
+
+    /* ── State ─────────────────────────────────────────────── */
+    let selNVRch = PRICING.nvr[0].ch;
+    let selHDDtb = PRICING.hdd[1].tb;
+
+    /* ── Helpers ───────────────────────────────────────────── */
+    const $   = id => document.getElementById(id);
+    const sgd = n => 'S$\u00a0' + Math.round(n).toLocaleString('en-SG');
+
+    function getNVRfor(n) {
+        return PRICING.nvr.find(r => r.ch >= n) || PRICING.nvr[PRICING.nvr.length - 1];
+    }
+
+    function cams() {
+        const q2 = Math.max(0, parseInt($('q2mp').value) || 0);
+        const q4 = Math.max(0, parseInt($('q4mp').value) || 0);
+        return { q2, q4, total: q2 + q4 };
+    }
+
+    /* ── Render pills ──────────────────────────────────────── */
+    function renderNVR() {
+        $('nvr-pills').innerHTML = PRICING.nvr.map(n =>
+            `<button class="pill-btn${n.ch === selNVRch ? ' active' : ''}"
+                     onclick="pickNVR(${n.ch})">
+                <span class="pill-main">${n.label}</span>
+                <span class="pill-sub">${n.sub}</span>
+            </button>`
+        ).join('');
+    }
+
+    function renderHDD() {
+        $('hdd-pills').innerHTML = PRICING.hdd.map(h =>
+            `<button class="pill-btn${h.tb === selHDDtb ? ' active' : ''}"
+                     onclick="pickHDD(${h.tb})">
+                <span class="pill-main">${h.label}</span>
+                <span class="pill-sub">${h.sub}</span>
+            </button>`
+        ).join('');
+    }
+
+    /* ── Selection handlers ────────────────────────────────── */
+    function pickNVR(ch) {
+        selNVRch = ch; renderNVR(); onCamChange();
+        $('results').style.display = 'none';
+    }
+
+    function pickHDD(tb) {
+        selHDDtb = tb; renderHDD();
+        $('results').style.display = 'none';
+    }
+
+    /* ── Camera change — live upgrade notice ───────────────── */
+    function onCamChange() {
+        const { total } = cams();
+        $('cam-total').textContent = total;
+
+        const sel    = PRICING.nvr.find(n => n.ch === selNVRch);
+        const needed = getNVRfor(total);
+        const notice = $('upgrade-notice');
+        const status = $('nvr-status');
+
+        if (total > 0 && needed.ch > sel.ch) {
+            notice.style.display = 'block';
+            notice.innerHTML =
+                `<strong>Recorder upgraded:</strong> Your ${total} cameras exceed the `
+                + `${sel.label} NVR's capacity. We&rsquo;ve stepped up to a `
+                + `<strong>${needed.label} NVR</strong> automatically.`;
+            status.textContent = `Using ${needed.label} NVR`;
+        } else {
+            notice.style.display = 'none';
+            status.textContent   = '';
+        }
+    }
+
+    /* ── Calculate ─────────────────────────────────────────── */
+    function calculate() {
+        const { q2, q4, total } = cams();
+
+        if (total === 0) {
+            alert('Please enter at least one camera to calculate a budget.');
+            return;
+        }
+
+        const selNVR    = PRICING.nvr.find(n => n.ch === selNVRch);
+        const actualNVR = getNVRfor(total);
+        const upgraded  = actualNVR.ch > selNVR.ch;
+        const hdd       = PRICING.hdd.find(h => h.tb === selHDDtb);
+
+        const sub = actualNVR.price
+                  + (q2 * PRICING.cam2mp.price)
+                  + (q4 * PRICING.cam4mp.price)
+                  + hdd.price
+                  + (total * PRICING.perCamera)
+                  + PRICING.setupAndPgm;
+
+        const lo = Math.ceil(sub * PRICING.rangeLow  / 100) * 100;
+        const hi = Math.ceil(sub * PRICING.rangeHigh / 100) * 100;
+
+        /* Budget range */
+        $('r-range').textContent = `${sgd(lo)} \u2013 ${sgd(hi)}`;
+        $('r-sub').textContent   = `Excluding GST \u00b7 Indicative estimate \u00b7 Prices as at ${PRICING.updated}`;
+
+        /* System summary items */
+        const sumItems = [];
+
+        const nvrLabel = `${actualNVR.label} NVR${upgraded ? ' <span>(upgraded to fit your camera count)</span>' : ''}`;
+        sumItems.push({ label: nvrLabel });
+
+        if (q2 > 0 && q4 > 0) {
+            sumItems.push({ label: `${q2} &times; 2MP cameras + ${q4} &times; 4MP cameras`, sub: `${total} cameras total` });
+        } else if (q2 > 0) {
+            sumItems.push({ label: `${q2} &times; 2MP cameras (1080p)` });
+        } else {
+            sumItems.push({ label: `${q4} &times; 4MP cameras` });
+        }
+
+        sumItems.push({ label: `${hdd.label} surveillance-grade hard disk`, sub: '24/7 continuous-write rated' });
+        sumItems.push({ label: 'Supply, installation &amp; programming', sub: 'Cat6 on PVC conduit, runs up to 80\u202fm' });
+
+        $('summary-grid').innerHTML = sumItems.map(i =>
+            `<div class="summary-item">
+                <div class="summary-dot"></div>
+                <div class="summary-text">${i.label}${i.sub ? `<span>${i.sub}</span>` : ''}</div>
+            </div>`
+        ).join('');
+
+        /* Proposal link prefill */
+        $('r-btn').href = `/contact-gateway.html?intent=cctv-cost-calculator&cameras=${total}&nvr=${actualNVR.ch}ch&hdd=${hdd.label}&budget=${sgd(lo)}-${sgd(hi)}`;
+
+        /* Explanatory note */
+        $('r-note').innerHTML =
+            `<strong>About this estimate.</strong> This budget covers typical supply and standard installation for a `
+            + `${total}-camera system. Final cost depends on site conditions — cable routing, `
+            + `access requirements, ceiling or wall construction, and camera positioning. `
+            + `For sites with long cable runs, external conduit work, or high-level mounting, costs may vary. `
+            + `A site survey gives you an accurate, itemised proposal with no obligation. All prices exclude GST.`;
+
+        /* Show and scroll */
+        $('results').style.display = 'block';
+        setTimeout(() => $('results').scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    }
+
+    /* ── Init ──────────────────────────────────────────────── */
+    renderNVR();
+    renderHDD();
+    </script>
+</body>
+</html>

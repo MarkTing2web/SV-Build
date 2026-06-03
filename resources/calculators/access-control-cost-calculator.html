@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Door Access Control Cost Calculator — Estimate Your Budget | Securevision Singapore</title>
+    <meta name="description" content="Get a ballpark budget for a door access control system in Singapore. Choose your door count, technology, and credentials — see an indicative estimate instantly.">
+    <link rel="canonical" href="https://www.securevision.com.sg/resources/calculators/access-control-cost-calculator.html">
+    <meta property="og:title" content="Door Access Control Cost Calculator | Securevision Singapore">
+    <meta property="og:description" content="Estimate the cost of a door access control system in Singapore. Card+PIN, face recognition, video intercom — get an indicative budget range before you enquire.">
+    <meta property="og:url" content="https://www.securevision.com.sg/resources/calculators/access-control-cost-calculator.html">
+    <meta property="og:image" content="https://www.securevision.com.sg/images/og-default.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Securevision">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/sv-shared.css">
+    <link rel="stylesheet" href="/sv-resources.css">
+    <script src="/site-config.js"></script>
+
+    <style>
+        :root { --page-accent: #0056b3; }
+        .hero-compact { min-height: 44vh !important; padding: 80px 0 64px !important; }
+
+        /* ── Shared panel styles ───────────────────────────── */
+        .ac-wrap { max-width: 860px; margin: 0 auto; padding: 56px 0 72px; }
+
+        .ac-panel {
+            background: #fff;
+            border: 1px solid #E8EAED;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,.06);
+            padding: 28px;
+            margin-bottom: 20px;
+        }
+
+        .ac-panel h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px; font-weight: 700;
+            color: #1B1F23; margin: 0 0 4px;
+        }
+
+        .ac-hint { font-size: 13px; color: #5F6368; margin-bottom: 20px; line-height: 1.5; }
+
+        /* ── Number inputs ─────────────────────────────────── */
+        .qty-row { display: flex; align-items: center; gap: 12px; }
+
+        .qty-input {
+            font-family: 'Inter', sans-serif;
+            font-size: 20px; font-weight: 600; color: #1B1F23;
+            padding: 10px 14px; width: 110px;
+            border: 1px solid #E8EAED;
+            border-radius: 8px; background: #fff;
+        }
+
+        .qty-input:focus {
+            outline: none; border-color: #0056b3;
+            box-shadow: 0 0 0 3px rgba(0,86,179,.12);
+        }
+
+        .qty-label { font-size: 13px; color: #5F6368; }
+
+        /* ── Door technology cards ─────────────────────────── */
+        .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+
+        .tech-card {
+            border: 1px solid #E8EAED;
+            border-radius: 10px; padding: 18px;
+            background: #fafbfc;
+        }
+
+        .tech-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px; font-weight: 700;
+            color: #1B1F23; margin-bottom: 3px;
+        }
+
+        .tech-desc { font-size: 12px; color: #5F6368; margin-bottom: 14px; line-height: 1.5; }
+
+        /* ── Total bar ─────────────────────────────────────── */
+        .total-bar {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 10px 14px; background: #F8F9FA;
+            border-radius: 8px; font-size: 13px; color: #333;
+            margin-top: 4px;
+        }
+
+        .total-bar strong { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1B1F23; }
+        .total-bar em { font-style: normal; font-size: 12px; color: #5F6368; }
+
+        /* ── Toggle pills ──────────────────────────────────── */
+        .toggle-row { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-bottom: 4px; }
+        .toggle-name { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: #1B1F23; flex-shrink: 0; }
+        .toggle-pills { display: flex; gap: 8px; }
+
+        .toggle-pill {
+            padding: 9px 22px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px; font-weight: 600;
+            border: 1px solid #E8EAED; border-radius: 8px;
+            background: #fff; cursor: pointer;
+            transition: all .15s; color: #5F6368;
+        }
+
+        .toggle-pill:hover { border-color: #0056b3; }
+
+        .toggle-pill.on {
+            background: #eef4fb; border: 1.5px solid #0056b3; color: #0056b3;
+        }
+
+        /* ── Intercom sub-panel ─────────────────────────────── */
+        .intercom-sub {
+            display: none;
+            margin-top: 18px; padding: 18px 20px;
+            background: #f0f5fb; border: 1px solid #c7d8ed;
+            border-radius: 10px;
+        }
+
+        .intercom-sub.show { display: block; }
+
+        .intercom-sub-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px; font-weight: 700; color: #1B1F23;
+            margin-bottom: 4px;
+        }
+
+        .intercom-sub-note { font-size: 12px; color: #5F6368; margin-bottom: 14px; line-height: 1.5; }
+
+        .intercom-sub hr { border: none; border-top: 1px solid #c7d8ed; margin: 16px 0; }
+
+        /* ── Cards section ─────────────────────────────────── */
+        .cards-note { font-size: 12px; color: #5F6368; line-height: 1.6; }
+        .cards-note b { color: #0056b3; }
+
+        /* ── Calculate button ──────────────────────────────── */
+        .ac-btn-row { text-align: center; margin: 32px 0 28px; }
+
+        .ac-btn {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 17px; font-weight: 700;
+            padding: 17px 70px;
+            background: #0056b3; color: #fff;
+            border: none; border-radius: 10px; cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0,86,179,.30);
+            transition: background .15s, transform .15s;
+            min-height: 56px; letter-spacing: .2px;
+        }
+
+        .ac-btn:hover { background: #003d82; transform: translateY(-1px); }
+        .ac-btn:active { transform: none; }
+
+        /* ── Results ───────────────────────────────────────── */
+        .ac-results { display: none; }
+
+        .budget-card {
+            background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+            border-radius: 12px; padding: 36px 32px;
+            color: #fff; margin-bottom: 20px;
+        }
+
+        .bud-eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: .7px; color: rgba(255,255,255,.70); margin-bottom: 10px;
+        }
+
+        .bud-range {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px; font-weight: 800;
+            color: #fff; line-height: 1; margin-bottom: 8px;
+        }
+
+        .bud-sub { font-size: 13px; color: rgba(255,255,255,.65); margin-bottom: 26px; }
+
+        .bud-summary {
+            background: rgba(255,255,255,.10);
+            border: 1px solid rgba(255,255,255,.18);
+            border-radius: 10px; padding: 20px 22px; margin-bottom: 22px;
+        }
+
+        .bud-summary-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 12px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: .5px; color: rgba(255,255,255,.60); margin-bottom: 12px;
+        }
+
+        .bud-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; }
+
+        .bud-item { display: flex; align-items: flex-start; gap: 8px; }
+
+        .bud-dot {
+            width: 6px; height: 6px; border-radius: 50%;
+            background: rgba(255,255,255,.55);
+            flex-shrink: 0; margin-top: 5px;
+        }
+
+        .bud-text { font-family: 'Inter', sans-serif; font-size: 13px; color: rgba(255,255,255,.90); line-height: 1.4; }
+        .bud-text span { display: block; font-size: 11px; color: rgba(255,255,255,.55); }
+
+        .bud-excl {
+            background: rgba(255,255,255,.07);
+            border: 1px solid rgba(255,255,255,.14);
+            border-radius: 8px; padding: 12px 16px;
+            font-size: 12px; color: rgba(255,255,255,.65);
+            margin-bottom: 22px; line-height: 1.6;
+        }
+
+        .bud-excl strong { color: rgba(255,255,255,.85); }
+
+        .bud-cta {
+            display: flex; gap: 14px; flex-wrap: wrap;
+            align-items: center; padding-top: 22px;
+            border-top: 1px solid rgba(255,255,255,.18);
+        }
+
+        .bud-cta p { font-size: 13px; color: rgba(255,255,255,.80); flex: 1; min-width: 180px; margin: 0; }
+
+        .budget-card .btn-primary { background: #fff; color: #0056b3; border-color: #fff; }
+        .budget-card .btn-primary:hover { background: #eef4fb; }
+
+        .ac-note {
+            font-family: 'Inter', sans-serif; font-size: 12px;
+            color: #5F6368; line-height: 1.65;
+            padding: 14px 18px; background: #F8F9FA;
+            border: 1px solid #E8EAED; border-radius: 10px;
+        }
+
+        .ac-note strong { color: #333; }
+
+        /* ── Responsive ────────────────────────────────────── */
+        @media (max-width: 640px) {
+            .tech-grid { grid-template-columns: 1fr; }
+            .ac-btn { width: 100%; padding: 17px 32px; }
+            .bud-range { font-size: 34px; }
+            .bud-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .ac-panel { padding: 20px 16px; }
+            .budget-card { padding: 24px 18px; }
+        }
+    </style>
+</head>
+
+<body data-guide="access">
+    <nav id="sv-nav"></nav>
+
+    <header class="hero-high-impact hero-guide hero-compact"
+            style="background-image: url('/images/resources/guides/access/hero-access.webp');">
+        <div class="container">
+            <span class="eyebrow-light">Planning Tool &middot; Entry &amp; Access</span>
+            <h1 class="hero-title-main">Door Access Control Cost Calculator</h1>
+            <p class="hero-subtitle-main">Get a budgetary estimate for your office or commercial premises before you pick up the phone. Supply, installation, and programming included. Network switches, internet, and AC power are by others.</p>
+        </div>
+    </header>
+
+    <section class="sv-section-white">
+        <div class="container">
+        <div class="ac-wrap">
+
+            <!-- ── STEP 1: ACCESS POINTS ─────────────────── -->
+            <div class="ac-panel">
+                <h2>1 &middot; Access points</h2>
+                <p class="ac-hint">Enter how many doors you need for each technology. You can mix types in one system.</p>
+
+                <div class="tech-grid">
+
+                    <div class="tech-card">
+                        <div class="tech-name">Card + PIN</div>
+                        <div class="tech-desc">Standard credential access — suitable for most internal and secondary doors.</div>
+                        <div class="qty-row">
+                            <input type="number" class="qty-input" id="q-card" value="0" min="0" max="64" oninput="onDoorChange()">
+                            <span class="qty-label">doors</span>
+                        </div>
+                    </div>
+
+                    <div class="tech-card">
+                        <div class="tech-name">Face recognition</div>
+                        <div class="tech-desc">Touchless biometric — for main entrances and higher-security areas.</div>
+                        <div class="qty-row">
+                            <input type="number" class="qty-input" id="q-face" value="0" min="0" max="64" oninput="onDoorChange()">
+                            <span class="qty-label">doors</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Video intercom toggle -->
+                <div class="toggle-row" style="margin-bottom:0">
+                    <span class="toggle-name">Video intercom at main entrance?</span>
+                    <div class="toggle-pills">
+                        <button class="toggle-pill" id="ic-yes" onclick="setIntercom(true)">Yes</button>
+                        <button class="toggle-pill on" id="ic-no" onclick="setIntercom(false)">No</button>
+                    </div>
+                </div>
+
+                <!-- Intercom sub-options -->
+                <div class="intercom-sub" id="intercom-sub">
+
+                    <div class="intercom-sub-title">Indoor monitors</div>
+                    <p class="intercom-sub-note">One monitor is standard for most offices. Add more if you need viewing points in additional rooms (e.g. a manager's office as well as reception).</p>
+                    <div class="qty-row">
+                        <input type="number" class="qty-input" id="q-monitors" value="1" min="1" max="10" oninput="onDoorChange()">
+                        <span class="qty-label">monitor(s)</span>
+                    </div>
+
+                    <hr>
+
+                    <div class="toggle-row">
+                        <span class="toggle-name">Also add mobile app access?</span>
+                        <div class="toggle-pills">
+                            <button class="toggle-pill on" id="app-yes" onclick="setApp(true)">Yes</button>
+                            <button class="toggle-pill" id="app-no" onclick="setApp(false)">No</button>
+                        </div>
+                    </div>
+                    <p style="font-size:12px;color:#5F6368;margin-top:6px">Answer the door from anywhere on your phone. One-time charge per system.</p>
+
+                </div>
+
+                <!-- Door total bar -->
+                <div class="total-bar" style="margin-top:16px">
+                    <span>Total access points: <strong id="door-total">0</strong></span>
+                    <em id="panel-status"></em>
+                </div>
+            </div>
+
+            <!-- ── STEP 2: ACCESS CARDS ───────────────────── -->
+            <div class="ac-panel">
+                <h2>2 &middot; Access cards</h2>
+                <p class="ac-hint">Mifare proximity cards — compatible with all major access control brands.</p>
+                <div class="qty-row" style="margin-bottom:10px">
+                    <input type="number" class="qty-input" id="q-cards" value="10" min="10" max="1000" step="5">
+                    <span class="qty-label">cards</span>
+                </div>
+                <p class="cards-note"><b>Minimum order: 10 cards.</b> Estimate based on number of regular users. Allow extra for visitor cards and spares.</p>
+            </div>
+
+            <!-- ── CALCULATE BUTTON ───────────────────────── -->
+            <div class="ac-btn-row">
+                <button class="ac-btn" id="calc-btn" onclick="calculate()">
+                    Calculate budget &rarr;
+                </button>
+            </div>
+
+            <!-- ── RESULTS ────────────────────────────────── -->
+            <div class="ac-results" id="results">
+
+                <div class="budget-card">
+                    <div class="bud-eyebrow">Budgetary system estimate</div>
+                    <div class="bud-range" id="r-range">&mdash;</div>
+                    <div class="bud-sub" id="r-sub"></div>
+
+                    <div class="bud-summary">
+                        <div class="bud-summary-title">What&rsquo;s included</div>
+                        <div class="bud-grid" id="bud-grid"></div>
+                    </div>
+
+                    <div class="bud-excl" id="bud-excl"></div>
+
+                    <div class="bud-cta">
+                        <p>If this budget works for you, a site visit confirms the door specs, cable routing, and hardware — and turns this estimate into an accurate proposal.</p>
+                        <a href="/contact-gateway.html?intent=access-control-calculator" class="btn btn-primary" id="r-btn">Request a Proposal &rarr;</a>
+                        <a href="https://wa.me/6593860466" target="_blank" rel="noopener" class="btn btn-whatsapp">💬 WhatsApp</a>
+                    </div>
+                </div>
+
+                <div class="ac-note" id="r-note"></div>
+
+            </div>
+
+        </div><!-- /.ac-wrap -->
+        </div>
+    </section>
+
+    <section class="cta-section cta-high-impact cta-facilities">
+        <div class="container">
+            <span class="eyebrow-light">Get Started</span>
+            <h2>Budget Looks Right? Let&rsquo;s Confirm the Details.</h2>
+            <p class="subtitle">A site survey turns this estimate into a door-by-door proposal — bracket types, cable routes, hardware spec, and a price you can hold us to. <span class="sv-years-experience"></span>+ years of Singapore experience.</p>
+            <div class="btn-group">
+                <a href="/contact-gateway.html?intent=access-control-calculator" class="btn btn-primary">Request a Proposal</a>
+                <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 WhatsApp</a>
+            </div>
+            <p class="cta-trust-note">Police Licence <span class="sv-licence"></span> &middot; <span class="sv-bizsafe"></span> &middot; Serving Singapore Since 2006</p>
+        </div>
+    </section>
+
+    <footer id="sv-footer"></footer>
+
+    <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
+    </a>
+
+    <script src="/nav-footer.js"></script>
+    <script>
+    /* ============================================================
+       DOOR ACCESS CONTROL COST CALCULATOR
+       All prices in SGD, excluding GST.
+
+       ★ TO UPDATE PRICES — edit the PRICING object below only.
+
+       Panel logic:
+         1 card+PIN door  → standalone at cardPin1door (ctrl + reader)
+         2+ card+PIN doors → ceil(qty÷2) × panel2door + qty × cardPinReader
+         Face recognition  → standalone faceReader per door (always)
+         Intercom          → intercomStation + monitors × intercomMonitor
+                             + (mobileApp? intercomApp : 0)
+
+       Standard per-door cost:
+         emLockBrackets + powerSupply + exitButton + breakglass
+         + installPerDoor + networkCablePerDevice
+
+       Software licence: charged once if totalDoors > 8
+    ============================================================ */
+
+    const PRICING = {
+        updated: 'June 2026',
+
+        /* Controllers / readers */
+        cardPin1door:          180,
+        panel2door:            580,
+        cardPinReader:         180,
+        faceReader:            320,
+
+        /* Video intercom */
+        intercomStation:       480,
+        intercomMonitor:       680,  /* per monitor */
+        intercomApp:           120,  /* one-time mobile app charge */
+
+        /* Standard per-door accessories */
+        emLockBrackets:        120,
+        powerSupply:           200,
+        exitButton:             80,
+        breakglass:             80,
+
+        /* Installation */
+        installPerDoor:        400,  /* hardware install — mounting, door wiring, lock */
+        networkCablePerDevice: 150,  /* network cable run per access point to switch   */
+        setupAndPgm:           400,  /* system setup, programming, handover — flat     */
+
+        /* Software licence — only if total doors > 8 */
+        softwareLicence:       400,
+
+        /* Access cards */
+        cardUnit:                5,
+        cardMinOrder:           10,
+
+        /* Estimate range */
+        rangeLow:  0.85,
+        rangeHigh: 1.15
+    };
+
+    /* ── State ─────────────────────────────────────────────── */
+    let intercomOn = false;
+    let mobileApp  = true;   /* default: mobile app included */
+
+    /* ── Helpers ───────────────────────────────────────────── */
+    const $   = id => document.getElementById(id);
+    const sgd = n  => 'S$\u00a0' + Math.round(n).toLocaleString('en-SG');
+    const pos = id => Math.max(0, parseInt($(id).value) || 0);
+
+    /* ── Intercom toggle ───────────────────────────────────── */
+    function setIntercom(on) {
+        intercomOn = on;
+        $('ic-yes').classList.toggle('on', on);
+        $('ic-no').classList.toggle('on', !on);
+        $('intercom-sub').classList.toggle('show', on);
+        onDoorChange();
+        $('results').style.display = 'none';
+    }
+
+    function setApp(on) {
+        mobileApp = on;
+        $('app-yes').classList.toggle('on', on);
+        $('app-no').classList.toggle('on', !on);
+        $('results').style.display = 'none';
+    }
+
+    /* ── Live total + panel hint ───────────────────────────── */
+    function onDoorChange() {
+        const qCard = pos('q-card');
+        const qFace = pos('q-face');
+        const total = qCard + qFace + (intercomOn ? 1 : 0);
+
+        $('door-total').textContent = total;
+
+        const status = $('panel-status');
+        if (qCard === 1) {
+            status.textContent = '1\u00d7 standalone unit for card+PIN door';
+        } else if (qCard >= 2) {
+            const p = Math.ceil(qCard / 2);
+            status.textContent = `${p}\u00d7 2-door panel${p > 1 ? 's' : ''} for card+PIN doors`;
+        } else {
+            status.textContent = '';
+        }
+
+        $('results').style.display = 'none';
+    }
+
+    /* ── Calculate ─────────────────────────────────────────── */
+    function calculate() {
+        const qCard = pos('q-card');
+        const qFace = pos('q-face');
+        const total = qCard + qFace + (intercomOn ? 1 : 0);
+
+        if (total === 0) {
+            alert('Please enter at least one access point to calculate a budget.');
+            return;
+        }
+
+        /* Card+PIN controller cost */
+        let ctrlCost = 0, rdCost = 0;
+        if (qCard === 1) {
+            ctrlCost = PRICING.cardPin1door;
+        } else if (qCard >= 2) {
+            ctrlCost = Math.ceil(qCard / 2) * PRICING.panel2door;
+            rdCost   = qCard * PRICING.cardPinReader;
+        }
+
+        /* Face recognition */
+        const faceCost = qFace * PRICING.faceReader;
+
+        /* Intercom */
+        let icCost = 0;
+        let numMonitors = 1;
+        if (intercomOn) {
+            numMonitors = Math.max(1, pos('q-monitors'));
+            icCost = PRICING.intercomStation
+                   + numMonitors * PRICING.intercomMonitor
+                   + (mobileApp ? PRICING.intercomApp : 0);
+        }
+
+        /* Standard per-door accessories */
+        const accessCost = total * (
+            PRICING.emLockBrackets + PRICING.powerSupply +
+            PRICING.exitButton     + PRICING.breakglass
+        );
+
+        /* Installation (hardware + network cable run per device) */
+        const instCost    = total * (PRICING.installPerDoor + PRICING.networkCablePerDevice);
+        const setupCost   = PRICING.setupAndPgm;
+        const swCost      = total > 8 ? PRICING.softwareLicence : 0;
+
+        /* Cards */
+        const numCards = Math.max(PRICING.cardMinOrder, pos('q-cards'));
+        const cardCost = numCards * PRICING.cardUnit;
+
+        /* Sub-total */
+        const sub = ctrlCost + rdCost + faceCost + icCost
+                  + accessCost + instCost + setupCost + swCost + cardCost;
+
+        /* Range — rounded to nearest S$100 */
+        const lo = Math.ceil(sub * PRICING.rangeLow  / 100) * 100;
+        const hi = Math.ceil(sub * PRICING.rangeHigh / 100) * 100;
+
+        /* ── Render budget card ──────────────────────────── */
+        $('r-range').textContent = `${sgd(lo)} \u2013 ${sgd(hi)}`;
+        $('r-sub').textContent   =
+            `Excluding GST \u00b7 Budgetary estimate \u00b7 Prices as at ${PRICING.updated}`;
+
+        /* System summary */
+        const items = [];
+
+        if (qCard === 1) {
+            items.push({ t: '1\u00d7 card + PIN standalone controller' });
+        } else if (qCard >= 2) {
+            const panels = Math.ceil(qCard / 2);
+            items.push({ t: `${panels}\u00d7 2-door access panel${panels > 1 ? 's' : ''}`, s: `${qCard} card + PIN readers` });
+        }
+
+        if (qFace > 0) {
+            items.push({ t: `${qFace}\u00d7 face recognition reader${qFace > 1 ? 's' : ''}`, s: 'Standalone biometric controller per door' });
+        }
+
+        if (intercomOn) {
+            let icDesc = `${numMonitors} indoor monitor${numMonitors > 1 ? 's' : ''}`;
+            if (mobileApp) icDesc += ' + mobile app';
+            items.push({ t: 'Video intercom door station', s: icDesc });
+        }
+
+        items.push({ t: `${total}\u00d7 EM lock + bracket assembly`, s: 'Power supply, exit button &amp; breakglass per door' });
+
+        items.push({ t: `Supply, installation &amp; cable runs`, s: `Hardware install + network cable per device included` });
+
+        items.push({ t: `${numCards} Mifare proximity card${numCards !== 1 ? 's' : ''}`, s: 'Compatible with all major access control brands' });
+
+        if (swCost > 0) {
+            items.push({ t: 'Management software licence', s: 'Applied for systems with more than 8 doors' });
+        }
+
+        $('bud-grid').innerHTML = items.map(i =>
+            `<div class="bud-item">
+                <div class="bud-dot"></div>
+                <div class="bud-text">${i.t}${i.s ? `<span>${i.s}</span>` : ''}</div>
+            </div>`
+        ).join('');
+
+        /* Exclusions block */
+        $('bud-excl').innerHTML =
+            `<strong>Not included in this estimate:</strong> Network switches, structured cabling infrastructure, `
+            + `internet connectivity, and AC power points at each door location &mdash; these are assumed to be provided by others. `
+            + `This is a budgetary estimate only. Actual costs depend on door type, bracket requirements, cable routing, and site complexity.`;
+
+        /* Proposal link */
+        $('r-btn').href =
+            `/contact-gateway.html?intent=access-control-calculator`
+            + `&doors=${total}&card=${qCard}&face=${qFace}`
+            + `&intercom=${intercomOn ? 'yes' : 'no'}`
+            + `&budget=${sgd(lo)}-${sgd(hi)}`;
+
+        /* Note */
+        $('r-note').innerHTML =
+            `<strong>About this estimate.</strong> `
+            + `This budget covers typical supply and standard installation for a ${total}-door access control system. `
+            + (qCard >= 2 ? `Card+PIN doors use ${Math.ceil(qCard / 2)}\u00d7 2-door panels with individual readers. ` : '')
+            + `The installation rate includes hardware mounting, door wiring, and a network cable run of up to 80\u202fm per device. `
+            + `Glass doors, concealed installations, longer cable runs, and high-level mounting may affect the final cost. `
+            + `Network switches, internet, and AC power at door locations are by others. `
+            + `All prices exclude prevailing GST. Specifications are typical for the category — no specific brand is implied.`;
+
+        /* Show */
+        $('results').style.display = 'block';
+        setTimeout(() => $('results').scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+    }
+
+    /* ── Init ──────────────────────────────────────────────── */
+    onDoorChange();
+    </script>
+</body>
+</html>

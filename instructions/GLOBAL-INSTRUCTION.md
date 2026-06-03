@@ -1,6 +1,6 @@
 # SECUREVISION WEBSITE — GLOBAL DESIGN INSTRUCTION
 ## For use with Anti-Gravity AI Web Builder
-## Version 3.4 — May 2026
+## Version 3.5 — June 2026
 ## This file lives at: /_instructions/GLOBAL-INSTRUCTION.md
 
 ---
@@ -230,6 +230,7 @@ Portfolio           → /portfolio/
   → View All        → /portfolio/
 Resources           → /resources/
   Guides            → /resources/guides/
+  Calculators       → /resources/calculators/
 Insights            → /insights/
 About               → /about.html
 Contact             → /contact.html
@@ -565,6 +566,7 @@ YouTube:          http://www.youtube.com/@securevision
 | Portfolio case studies | _template-portfolio.html | sv-shared.css | INSTRUCTION-portfolio.md |
 | Insights articles | _template-insights.html | sv-shared.css | INSTRUCTION-insights.md |
 | Utility (contact, about) | (unique per page) | sv-shared.css + sv-forms.css | GLOBAL-INSTRUCTION.md |
+| Calculator / tool pages | (unique per tool) | sv-shared.css + sv-resources.css | GLOBAL-INSTRUCTION.md |
 
 ### Template selection guide
 ```
@@ -598,6 +600,16 @@ Is this a /brands/[brand].html brand page?
 
 Is this a /insights/[slug].html article?
   → _template-insights.html
+
+Is this a /resources/calculators/[tool].html calculator page?
+  → unique page — no template; build against GLOBAL-INSTRUCTION.md
+  → CSS: sv-shared.css + sv-resources.css (Section H and beyond for .calc- classes)
+  → JS: external file at /resources/calculators/[tool].js
+  → Hero: hero-high-impact hero-guide hero-compact (inline background-image optional;
+    omit for a clean dark-navy header, or reuse a relevant existing hero image)
+  → Page accent: #0056b3 (default; adjust only if tool belongs to a non-blue system)
+  → Section structure: Hero → Calculator section (sv-section-white) → CTA
+  → CTA: cta-section cta-high-impact cta-facilities (operations/sizing buyer persona)
 ```
 
 ---
@@ -644,6 +656,8 @@ Is this a /insights/[slug].html article?
 | portfolio.html | /portfolio/ |
 | security-articles-singapore.html | /insights/ |
 | insights-[slug].html | /insights/[slug].html |
+| *(new)* | /resources/calculators/ |
+| *(new)* | /resources/calculators/cctv-storage-bandwidth-calculator.html |
 
 ---
 
@@ -761,7 +775,8 @@ for networking — it belongs in the capability narrative, not the navigation.
 
 ---
 
-*Securevision Global Design Instruction v3.4 — May 2026*
+*Securevision Global Design Instruction v3.5 — June 2026*
+*Changes from v3.4: Section 7 nav updated — Calculators sub-item added under Resources. Section 20 template table updated — Calculator/tool page type added. Section 20 template selection guide updated — calculator page routing added. Section 21 URL map updated — /resources/calculators/ and /resources/calculators/cctv-storage-bandwidth-calculator.html added.*
 *Changes from v3.3: Section 5 page-accent example corrected (--primary-access → --page-accent). Section 8 hero structure updated — guide heroes use rg-hero-author block, no btn-group. Section 13 overhauled — canonical CTA label table added (3 labels: Book a Site Assessment / Request a Proposal / 💬 WhatsApp), illegal inline styles removed from template, CTA background classes updated to persona-group system (cta-property / cta-facilities / cta-compliance / cta-care), legacy per-page classes deprecated. Section 13 now includes both standard and proposal-intent CTA variants. Section 19 licence number updated to L/PS/001568/2026P.*
 *Changes from v3.2: Section 2 CSS stack updated — sv-guides.css retired, systems.css/solutions.css/brands.css/resources.css added. Template table updated with correct CSS file per page type.*
 *Changes from v3.1: Section 7 Systems nav updated to 5-group client-centric taxonomy (Premises Security, Entry & Access, Vehicle Management, Communications, Platform & Management). Section 8 systems hero classes added. Section 13 cta-comms added. Section 20 template table updated — _template-subsystem.html removed (retired), systems pages are now unique builds. Template selection guide updated with systems page routing. Section 21 URL map: /systems/ip-phone-communications.html added. Section 23 added — Systems Taxonomy with 5-group reference table, page structure spec, canonical arch icons, and infrastructure positioning rule.*
@@ -800,6 +815,6 @@ DO NOT TOUCH: nav, footer, hero, author bio strip, sidebar, CTA section, any oth
 
 ---
 
-*Securevision Global Design Instruction v3.4 — May 2026*
-*Changes from v3.3 documented above.*
+*Securevision Global Design Instruction v3.5 — June 2026*
+*Changes from v3.4 documented above.*
 *Do not modify without updating version number and date*

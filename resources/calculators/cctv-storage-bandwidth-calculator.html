@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCTV Bandwidth & Storage Calculator — Plan Your Recording System | Securevision Singapore</title>
+    <meta name="description" content="Free CCTV storage and bandwidth calculator for Singapore. Enter your camera count, resolution, and codec — instantly see the storage capacity and network bandwidth your system needs.">
+    <link rel="canonical" href="https://www.securevision.com.sg/resources/calculators/cctv-storage-bandwidth-calculator.html">
+    <meta property="og:title" content="CCTV Bandwidth & Storage Calculator | Securevision Singapore">
+    <meta property="og:description" content="Calculate your CCTV recording bandwidth and storage in under a minute. Free planning tool from Securevision — Singapore's trusted security systems integrator.">
+    <meta property="og:url" content="https://www.securevision.com.sg/resources/calculators/cctv-storage-bandwidth-calculator.html">
+    <meta property="og:image" content="https://www.securevision.com.sg/images/og-default.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Securevision">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/sv-shared.css">
+    <link rel="stylesheet" href="/sv-resources.css">
+    <script src="/site-config.js"></script>
+
+    <style>
+        /* Page accent */
+        :root { --page-accent: #0056b3; }
+
+        /* ── Calculator component styles ──────────────────────────
+           Scoped to .calc-wrap. Move to sv-resources.css Section H
+           once that CSS update is deployed.
+        ──────────────────────────────────────────────────────── */
+
+        .calc-wrap {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 56px 0 72px;
+        }
+
+        .calc-intro {
+            margin-bottom: 36px;
+        }
+
+        .calc-intro .eyebrow {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--primary-blue);
+            margin-bottom: 8px;
+        }
+
+        .calc-intro p {
+            font-size: 15px;
+            color: var(--text-light);
+            max-width: 680px;
+            margin-top: 8px;
+        }
+
+        /* Panels */
+        .calc-panel {
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+            padding: 28px;
+            margin-bottom: 20px;
+        }
+
+        .calc-panel-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 22px;
+        }
+
+        .calc-panel-head h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        .calc-panel-hint {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        /* Camera group */
+        .calc-group {
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+            padding: 22px;
+            background: #fafbfc;
+        }
+
+        .calc-field-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .calc-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .calc-field label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-light);
+        }
+
+        .calc-field select,
+        .calc-field input[type="number"] {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: var(--text-dark);
+            padding: 10px 12px;
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            background: #fff;
+            width: 100%;
+        }
+
+        .calc-field select:focus,
+        .calc-field input[type="number"]:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0,86,179,.12);
+        }
+
+        .calc-suffix-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .calc-suffix-row input[type="number"] { flex: 1; min-width: 0; }
+
+        .calc-suffix-row span {
+            font-size: 13px;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+
+        .calc-cond { display: none; }
+        .calc-cond.show { display: flex; flex-direction: column; gap: 6px; }
+
+        .calc-group-preview {
+            margin-top: 14px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .calc-group-preview strong {
+            color: var(--primary-blue);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Advanced toggle */
+        .calc-adv-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--text-gray);
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .calc-adv-toggle input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--primary-blue);
+            flex-shrink: 0;
+        }
+
+        /* Storage either/or cards */
+        .calc-storage-options {
+            display: flex;
+            align-items: stretch;
+        }
+
+        .calc-storage-opt {
+            flex: 1;
+            border: 1px solid var(--border-light);
+            padding: 24px 22px;
+            background: #fafbfc;
+        }
+
+        .calc-storage-opt:first-child {
+            border-radius: 10px 0 0 10px;
+            border-right: none;
+        }
+
+        .calc-storage-opt:last-child {
+            border-radius: 0 10px 10px 0;
+            border-left: none;
+        }
+
+        .calc-or-mid {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 52px;
+            flex-shrink: 0;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            background: #fafbfc;
+        }
+
+        .calc-or-mid span {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-light);
+        }
+
+        .calc-opt-icon { font-size: 26px; margin-bottom: 10px; line-height: 1; }
+
+        .calc-opt-question {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .calc-opt-result {
+            font-size: 13px;
+            color: var(--primary-blue);
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        /* Calculate button */
+        .calc-btn-row { text-align: center; margin: 28px 0; }
+
+        .calc-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 16px 64px;
+            background: var(--primary-blue);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 4px 16px rgba(0,86,179,.28);
+            transition: background .15s, transform .15s, box-shadow .15s;
+            min-height: 56px;
+        }
+
+        .calc-btn:hover {
+            background: var(--dark-blue);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 22px rgba(0,86,179,.34);
+        }
+
+        .calc-btn:active { transform: none; }
+
+        /* Results area */
+        .calc-results-area { display: none; }
+
+        .calc-results {
+            background: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+            border-radius: 12px;
+            padding: 32px 28px;
+            color: #fff;
+            box-shadow: 0 8px 24px rgba(0,0,0,.10);
+            margin-bottom: 16px;
+        }
+
+        .calc-results h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            margin: 0 0 4px;
+        }
+
+        .calc-results-sub {
+            font-size: 13px;
+            color: rgba(255,255,255,.70);
+            margin: 0 0 24px;
+        }
+
+        .calc-stat-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .calc-stat {
+            background: rgba(255,255,255,.09);
+            border: 1px solid rgba(255,255,255,.18);
+            border-radius: 10px;
+            padding: 22px 20px;
+        }
+
+        .calc-stat-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            color: rgba(255,255,255,.70);
+            margin-bottom: 10px;
+        }
+
+        .calc-stat-num {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 38px;
+            font-weight: 800;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .calc-stat-unit {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(255,255,255,.85);
+        }
+
+        .calc-stat-note {
+            font-size: 12px;
+            color: rgba(255,255,255,.65);
+            margin-top: 10px;
+            line-height: 1.55;
+        }
+
+        .calc-breakdown {
+            background: rgba(255,255,255,.07);
+            border: 1px solid rgba(255,255,255,.13);
+            border-radius: 10px;
+            padding: 8px 18px 14px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        .calc-bd {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+        }
+
+        .calc-bd th, .calc-bd td {
+            text-align: left;
+            padding: 9px 6px;
+            border-bottom: 1px solid rgba(255,255,255,.12);
+            color: rgba(255,255,255,.90);
+        }
+
+        .calc-bd th {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            color: rgba(255,255,255,.60);
+            font-weight: 600;
+        }
+
+        .calc-bd td.r, .calc-bd th.r { text-align: right; }
+        .calc-bd tr:last-child td { border-bottom: none; }
+
+        .calc-results-cta {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            align-items: center;
+            padding-top: 22px;
+            border-top: 1px solid rgba(255,255,255,.18);
+        }
+
+        .calc-cta-text {
+            font-size: 13px;
+            color: rgba(255,255,255,.80);
+            flex: 1;
+            min-width: 160px;
+        }
+
+        /* Button overrides inside the dark results panel */
+        .calc-results .btn-primary {
+            background: #fff;
+            color: var(--primary-blue);
+            border-color: #fff;
+        }
+
+        .calc-results .btn-primary:hover {
+            background: #eef4fb;
+            transform: translateY(-1px);
+        }
+
+        .calc-disclaimer {
+            font-size: 12px;
+            color: var(--text-light);
+            line-height: 1.65;
+            padding: 16px 18px;
+            background: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 10px;
+        }
+
+        .calc-disclaimer strong { color: var(--text-gray); }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .calc-field-grid { grid-template-columns: repeat(2,1fr); }
+            .calc-stat-row { grid-template-columns: 1fr; }
+            .calc-storage-options { flex-direction: column; }
+            .calc-storage-opt:first-child { border-radius: 10px 10px 0 0; border-right: 1px solid var(--border-light); border-bottom: none; }
+            .calc-storage-opt:last-child { border-radius: 0 0 10px 10px; border-left: 1px solid var(--border-light); border-top: none; }
+            .calc-or-mid { width: 100%; height: 44px; border-left: 1px solid var(--border-light); border-right: 1px solid var(--border-light); border-top: none; border-bottom: none; }
+            .calc-btn { width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            .calc-field-grid { grid-template-columns: 1fr; }
+            .calc-panel { padding: 20px 16px 24px; }
+            .calc-results { padding: 24px 16px; }
+            .calc-stat-num { font-size: 30px; }
+        }
+    </style>
+</head>
+
+<body data-guide="cctv">
+    <nav id="sv-nav"></nav>
+
+    <!-- HERO -->
+    <header class="hero-high-impact hero-guide hero-compact"
+            style="background-image: url('/images/resources/guides/cctv/hero-cctv.webp');">
+        <div class="container">
+            <span class="eyebrow-light">Planning Tool &middot; Surveillance</span>
+            <h1 class="hero-title-main">CCTV Bandwidth &amp;<br>Storage Calculator</h1>
+            <p class="hero-subtitle-main">Size your recording network and storage in under a minute. Set your camera parameters once and get all three answers — no adding cameras one by one.</p>
+        </div>
+    </header>
+
+    <!-- CALCULATOR -->
+    <section class="sv-section-white">
+        <div class="container">
+        <div class="calc-wrap">
+
+            <!-- STEP 1: CAMERAS -->
+            <div class="calc-panel">
+                <div class="calc-panel-head">
+                    <h2>1 &middot; Your cameras</h2>
+                    <span class="calc-panel-hint">Set the parameters that apply to your installation.</span>
+                </div>
+                <div id="calc-groups"></div>
+                <label class="calc-adv-toggle">
+                    <input type="checkbox" id="calc-adv">
+                    Advanced &mdash; override estimated bitrate manually (Mbps per camera)
+                </label>
+            </div>
+
+            <!-- STEP 2: STORAGE -->
+            <div class="calc-panel">
+                <div class="calc-panel-head">
+                    <h2>2 &middot; Storage &mdash; answer one or both</h2>
+                    <span class="calc-panel-hint">Fill in whichever question applies. Results appear independently.</span>
+                </div>
+                <div class="calc-storage-options">
+                    <div class="calc-storage-opt">
+                        <div class="calc-opt-icon">📅</div>
+                        <div class="calc-opt-question">I want to keep footage for how long?</div>
+                        <div class="calc-opt-result">&rarr; We'll calculate the storage you need.</div>
+                        <div class="calc-field">
+                            <label>Retention period</label>
+                            <div class="calc-suffix-row">
+                                <input type="number" id="calc-retention" min="1" max="3650" placeholder="Default: 30 days">
+                                <span>days</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="calc-or-mid"><span>or</span></div>
+                    <div class="calc-storage-opt">
+                        <div class="calc-opt-icon">💾</div>
+                        <div class="calc-opt-question">I have a recorder with this much usable storage.</div>
+                        <div class="calc-opt-result">&rarr; We'll calculate how many days it will hold.</div>
+                        <div class="calc-field">
+                            <label>Usable capacity</label>
+                            <div class="calc-suffix-row">
+                                <input type="number" id="calc-hdd" min="0" step="0.5" placeholder="e.g. 40">
+                                <span>TB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CALCULATE -->
+            <div class="calc-btn-row">
+                <button class="calc-btn" id="calc-btn">Calculate &rarr;</button>
+            </div>
+
+            <!-- RESULTS -->
+            <div class="calc-results-area" id="calc-results-area">
+                <div class="calc-results">
+                    <h2>Your estimate</h2>
+                    <p class="calc-results-sub" id="calc-res-sub">Based on your cameras and settings above.</p>
+                    <div class="calc-stat-row">
+                        <div class="calc-stat">
+                            <div class="calc-stat-label">Record bandwidth</div>
+                            <div><span class="calc-stat-num" id="calc-bw-val">&mdash;</span>&nbsp;<span class="calc-stat-unit" id="calc-bw-unit">Mbps</span></div>
+                            <div class="calc-stat-note">Aggregate stream load to the recorder. Size your switch and PoE uplink for this.</div>
+                        </div>
+                        <div class="calc-stat">
+                            <div class="calc-stat-label">Storage required</div>
+                            <div><span class="calc-stat-num" id="calc-st-val">&mdash;</span>&nbsp;<span class="calc-stat-unit">TB</span></div>
+                            <div class="calc-stat-note" id="calc-st-note">Enter a retention period above.</div>
+                        </div>
+                        <div class="calc-stat">
+                            <div class="calc-stat-label">Your recorder holds</div>
+                            <div><span class="calc-stat-num" id="calc-day-val">&mdash;</span>&nbsp;<span class="calc-stat-unit">days</span></div>
+                            <div class="calc-stat-note" id="calc-day-note">Enter your usable capacity above.</div>
+                        </div>
+                    </div>
+                    <div class="calc-breakdown">
+                        <table class="calc-bd">
+                            <thead>
+                                <tr>
+                                    <th>Camera group</th>
+                                    <th class="r">Per camera</th>
+                                    <th class="r">Bandwidth</th>
+                                    <th class="r">Storage / day</th>
+                                </tr>
+                            </thead>
+                            <tbody id="calc-bd-body"></tbody>
+                        </table>
+                    </div>
+                    <div class="calc-results-cta">
+                        <p class="calc-cta-text">Want this specced properly? We'll size the recorder, drives, and switch for you.</p>
+                        <a href="/contact-gateway.html?intent=cctv-calculator" class="btn btn-primary" id="calc-proposal-btn">Request a Proposal &rarr;</a>
+                        <a href="https://wa.me/6593860466" target="_blank" rel="noopener" class="btn btn-whatsapp">💬 WhatsApp</a>
+                    </div>
+                </div>
+                <p class="calc-disclaimer">
+                    <strong>How these figures are estimated.</strong> Bandwidth is derived from reference bitrates of approximately 1&nbsp;Mbps per megapixel for H.264 at medium scene complexity and 15&nbsp;fps &mdash; consistent with Hikvision and Seagate operational defaults. H.265 applies a 50% reduction; H.265+ (Smart codec) approximately 65%. Frame rate scales sub-linearly. Storage uses 1&nbsp;Mbps continuous &asymp;&nbsp;0.45&nbsp;GB/hour. Capacities in decimal units (1&nbsp;TB = 1,000&nbsp;GB). These are planning estimates &mdash; real figures vary with scene activity, camera firmware, and bitrate mode. For a guaranteed specification, <a href="/contact-gateway.html?intent=cctv-calculator">request a proposal</a>.
+                </p>
+            </div>
+
+        </div><!-- /.calc-wrap -->
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-section cta-high-impact cta-facilities">
+        <div class="container">
+            <span class="eyebrow-light">Get Started</span>
+            <h2>Ready to Spec the Right System?</h2>
+            <p class="subtitle">Our team sizes the recorder, drives, and switch &mdash; then builds it. <span class="sv-years-experience"></span>+ years of Singapore experience at your service.</p>
+            <div class="btn-group">
+                <a href="/contact-gateway.html?intent=cctv-calculator" class="btn btn-primary">Request a Proposal</a>
+                <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 WhatsApp</a>
+            </div>
+            <p class="cta-trust-note">Police Licence <span class="sv-licence"></span> &middot; <span class="sv-bizsafe"></span> &middot; Serving Singapore Since 2006</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="sv-footer"></footer>
+
+    <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+        </svg>
+    </a>
+
+    <script src="/nav-footer.js"></script>
+    <script src="/resources/calculators/cctv-calculator.js"></script>
+</body>
+</html>
