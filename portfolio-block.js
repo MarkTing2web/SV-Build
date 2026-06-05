@@ -184,7 +184,7 @@
     {
       slug:     "/portfolio/condominiums/the-bale-intercom-cctv.html",
       category: "condominiums",
-      image:    "/images/portfolio/condominiums/the-bale-rel.webp",
+      image:    "/images/portfolio/condominiums/the-bale-telok-kurau-rel.webp",
       badge:    "Condominium",
       title:    "The Bale",
       text:     "Replacing telephony intercom and upgrading CCTV for a 36-unit freehold estate in Bedok — new video access at every entry point and 15 fresh surveillance cameras."
