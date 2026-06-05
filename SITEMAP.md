@@ -4,7 +4,6 @@ Last updated: 2026-06-05
 
 - [/](https://www.securevision.com.sg/)
 - [/about.html](https://www.securevision.com.sg/about.html)
-- [/booking-success.html](https://www.securevision.com.sg/booking-success.html)
 - [/brands/](https://www.securevision.com.sg/brands/)
 - [/brands/aiphone-intercom.html](https://www.securevision.com.sg/brands/aiphone-intercom.html)
 - [/brands/ajax-alarms.html](https://www.securevision.com.sg/brands/ajax-alarms.html)
@@ -36,7 +35,6 @@ Last updated: 2026-06-05
 - [/brands/yeastar-ip-phone.html](https://www.securevision.com.sg/brands/yeastar-ip-phone.html)
 - [/brands/zkteco-entry-access.html](https://www.securevision.com.sg/brands/zkteco-entry-access.html)
 - [/contact-gateway.html](https://www.securevision.com.sg/contact-gateway.html)
-- [/contact-success.html](https://www.securevision.com.sg/contact-success.html)
 - [/contact.html](https://www.securevision.com.sg/contact.html)
 - [/insights/](https://www.securevision.com.sg/insights/)
 - [/insights/10-tips-securing-your-premises.html](https://www.securevision.com.sg/insights/10-tips-securing-your-premises.html)
@@ -206,5 +204,3 @@ Last updated: 2026-06-05
 - [/systems/security-management-platform.html](https://www.securevision.com.sg/systems/security-management-platform.html)
 - [/systems/vehicle-lpr-management.html](https://www.securevision.com.sg/systems/vehicle-lpr-management.html)
 - [/terms.html](https://www.securevision.com.sg/terms.html)
-- [/thank-you-booking.html](https://www.securevision.com.sg/thank-you-booking.html)
-- [/thank-you-proposal.html](https://www.securevision.com.sg/thank-you-proposal.html)
