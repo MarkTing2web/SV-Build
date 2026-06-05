@@ -1,6 +1,6 @@
 /**
  * nav-footer.js — Securevision Global Navigation & Footer
- * Version: 4.3 — May 2026
+ * Version: 4.4 — June 2026
  * Changes: Portfolio dropdown updated to all 8 property types.
  *          Brands dropdown restructured to 5 system groups matching new taxonomy.
  *          Mobile nav Portfolio and Brands submenus updated to match.
@@ -8,6 +8,7 @@
  *          v4.3: Related Guides auto-renderer added to runHydration().
  *          Reads SECUREVISION.guides[] from site-config.js.
  *          Fires on pages with id="related-guides-grid" and data-guide="[slug]".
+ *          v4.4: JSON-LD LocalBusiness schema injected sitewide via runHydration().
  * Source of truth: /index.html (homepage)
  *
  * HOW TO USE ON ANY PAGE:
@@ -183,6 +184,77 @@
           "<strong>" + g.title + "</strong>" +
           "</a>";
       }).join("");
+    })();
+
+    // ── JSON-LD: LocalBusiness Schema ────────────────────────────────
+    // Injected once per page load into <head>.
+    // Gives Google and AI engines (ChatGPT, Perplexity, Gemini, Claude)
+    // a structured, machine-readable business card for Securevision.
+    // Covers every page automatically — no per-page maintenance needed.
+    (function () {
+      var schema = {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Securevision Pte Ltd",
+        "url": "https://www.securevision.com.sg",
+        "logo": "https://www.securevision.com.sg/images/securevision-logo-blue.png",
+        "image": "https://www.securevision.com.sg/images/og-default.jpg",
+        "description": "Singapore-based security systems integrator founded in 2006. Police Licensed, BCA Registered, bizSAFE Level 3. Specialists in CCTV, access control, burglar alarms, vehicle management, IP telephony and integrated security platforms for residential, commercial, industrial and institutional properties.",
+        "foundingDate": "2006",
+        "telephone": "+6562864796",
+        "email": "enquiry@securevision.com.sg",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Blk 1013 Geylang East Avenue 3 #02-142",
+          "addressLocality": "Singapore",
+          "postalCode": "389728",
+          "addressCountry": "SG"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 1.3197,
+          "longitude": 103.8872
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "08:00",
+            "closes": "17:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Saturday"],
+            "opens": "09:00",
+            "closes": "13:00"
+          }
+        ],
+        "areaServed": {
+          "@type": "Country",
+          "name": "Singapore"
+        },
+        "hasCredential": [
+          "Police Licence L/PS/001568/2026P",
+          "bizSAFE Level 3",
+          "BCA Registered Contractor"
+        ],
+        "sameAs": [
+          "https://www.facebook.com/securevision",
+          "https://www.linkedin.com/company/securevision-pte-ltd",
+          "http://www.youtube.com/@securevision"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+6593860466",
+          "contactType": "customer service",
+          "areaServed": "SG",
+          "availableLanguage": ["English", "Chinese"]
+        }
+      };
+      var script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.textContent = JSON.stringify(schema);
+      document.head.appendChild(script);
     })();
   }
 

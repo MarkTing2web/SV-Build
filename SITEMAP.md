@@ -1,6 +1,6 @@
 # Securevision Site Structure
 
-Last updated: 2026-05-24
+Last updated: 2026-06-05
 
 - [/](https://www.securevision.com.sg/)
 - [/about.html](https://www.securevision.com.sg/about.html)
@@ -60,7 +60,6 @@ Last updated: 2026-05-24
 - [/insights/how-to-choose-auto-gate-motor.html](https://www.securevision.com.sg/insights/how-to-choose-auto-gate-motor.html)
 - [/insights/how-to-choose-cctv.html](https://www.securevision.com.sg/insights/how-to-choose-cctv.html)
 - [/insights/how-to-choose-multi-door-access.html](https://www.securevision.com.sg/insights/how-to-choose-multi-door-access.html)
-- [/insights/index-od1.html](https://www.securevision.com.sg/insights/index-od1.html)
 - [/insights/is-my-security-system-still-working.html](https://www.securevision.com.sg/insights/is-my-security-system-still-working.html)
 - [/insights/maintain-burglar-alarm.html](https://www.securevision.com.sg/insights/maintain-burglar-alarm.html)
 - [/insights/maintenance-contract.html](https://www.securevision.com.sg/insights/maintenance-contract.html)
@@ -98,6 +97,7 @@ Last updated: 2026-05-24
 - [/portfolio/condominiums/newton21-newton-condo.html](https://www.securevision.com.sg/portfolio/condominiums/newton21-newton-condo.html)
 - [/portfolio/condominiums/rezi-3two-condo.html](https://www.securevision.com.sg/portfolio/condominiums/rezi-3two-condo.html)
 - [/portfolio/condominiums/suites-cairnhill-intercom-lpr.html](https://www.securevision.com.sg/portfolio/condominiums/suites-cairnhill-intercom-lpr.html)
+- [/portfolio/condominiums/the-bale-intercom-cctv.html](https://www.securevision.com.sg/portfolio/condominiums/the-bale-intercom-cctv.html)
 - [/portfolio/condominiums/the-lviv-newton-condo.html](https://www.securevision.com.sg/portfolio/condominiums/the-lviv-newton-condo.html)
 - [/portfolio/condominiums/the-verte-telok-kurau-condo.html](https://www.securevision.com.sg/portfolio/condominiums/the-verte-telok-kurau-condo.html)
 - [/portfolio/condominiums/village-pasir-panjang-condo.html](https://www.securevision.com.sg/portfolio/condominiums/village-pasir-panjang-condo.html)
@@ -107,11 +107,10 @@ Last updated: 2026-05-24
 - [/portfolio/healthcare/surya-home.html](https://www.securevision.com.sg/portfolio/healthcare/surya-home.html)
 - [/portfolio/industrial/cogent-logistics-hub-cctv.html](https://www.securevision.com.sg/portfolio/industrial/cogent-logistics-hub-cctv.html)
 - [/portfolio/industrial/cyrus-tech-industrial.html](https://www.securevision.com.sg/portfolio/industrial/cyrus-tech-industrial.html)
-- [/portfolio/industrial/hoy-san-industrial-od1.html](https://www.securevision.com.sg/portfolio/industrial/hoy-san-industrial-od1.html)
 - [/portfolio/industrial/hoy-san-industrial.html](https://www.securevision.com.sg/portfolio/industrial/hoy-san-industrial.html)
 - [/portfolio/industrial/mitsubishi-elevator-face-access-bms.html](https://www.securevision.com.sg/portfolio/industrial/mitsubishi-elevator-face-access-bms.html)
 - [/portfolio/industrial/multibase-construction-security-upgrade.html](https://www.securevision.com.sg/portfolio/industrial/multibase-construction-security-upgrade.html)
-- [/portfolio/industrial/smartflex-Tampines.html](https://www.securevision.com.sg/portfolio/industrial/smartflex-Tampines.html)
+- [/portfolio/industrial/smartflex-tampines.html](https://www.securevision.com.sg/portfolio/industrial/smartflex-tampines.html)
 - [/portfolio/industrial/sta-compliance-imaging.html](https://www.securevision.com.sg/portfolio/industrial/sta-compliance-imaging.html)
 - [/portfolio/industrial/sta-inspection-industrial.html](https://www.securevision.com.sg/portfolio/industrial/sta-inspection-industrial.html)
 - [/portfolio/industrial/stmicroelectronics-loyang-perimeter-alarm.html](https://www.securevision.com.sg/portfolio/industrial/stmicroelectronics-loyang-perimeter-alarm.html)
@@ -134,6 +133,12 @@ Last updated: 2026-05-24
 - [/privacy.html](https://www.securevision.com.sg/privacy.html)
 - [/request-site-assessment-singapore.html](https://www.securevision.com.sg/request-site-assessment-singapore.html)
 - [/resources/](https://www.securevision.com.sg/resources/)
+- [/resources/calculators/access-control-cost-calculator.html](https://www.securevision.com.sg/resources/calculators/access-control-cost-calculator.html)
+- [/resources/calculators/cctv-camera-coverage-calculator.html](https://www.securevision.com.sg/resources/calculators/cctv-camera-coverage-calculator.html)
+- [/resources/calculators/cctv-storage-bandwidth-calculator.html](https://www.securevision.com.sg/resources/calculators/cctv-storage-bandwidth-calculator.html)
+- [/resources/calculators/cctv-system-cost-calculator.html](https://www.securevision.com.sg/resources/calculators/cctv-system-cost-calculator.html)
+- [/resources/cctv-calculator-prototype.html](https://www.securevision.com.sg/resources/cctv-calculator-prototype.html)
+- [/resources/cctv-storage-bandwidth-calculator.html](https://www.securevision.com.sg/resources/cctv-storage-bandwidth-calculator.html)
 - [/resources/checklists/](https://www.securevision.com.sg/resources/checklists/)
 - [/resources/checklists/care-facility-checklist.html](https://www.securevision.com.sg/resources/checklists/care-facility-checklist.html)
 - [/resources/checklists/commercial-security-checklist.html](https://www.securevision.com.sg/resources/checklists/commercial-security-checklist.html)
@@ -151,7 +156,6 @@ Last updated: 2026-05-24
 - [/resources/guides/office-telephone-guide.html](https://www.securevision.com.sg/resources/guides/office-telephone-guide.html)
 - [/resources/guides/security-renovation-guide.html](https://www.securevision.com.sg/resources/guides/security-renovation-guide.html)
 - [/resources/guides/wifi-network-guide.html](https://www.securevision.com.sg/resources/guides/wifi-network-guide.html)
-- [/resources/index-od1.html](https://www.securevision.com.sg/resources/index-od1.html)
 - [/sitemap.html](https://www.securevision.com.sg/sitemap.html)
 - [/solutions/](https://www.securevision.com.sg/solutions/)
 - [/solutions/automate-vehicle-access.html](https://www.securevision.com.sg/solutions/automate-vehicle-access.html)
