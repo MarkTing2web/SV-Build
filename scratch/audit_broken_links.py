@@ -128,7 +128,7 @@ else:
 lines.append("\n## Section C: Confirmation")
 lines.append("All other internal href links are confirmed valid.")
 
-report_path = os.path.join(ai_dir, "broken-links-report.md")
+report_path = os.path.join(ai_dir, "broken-links-report-v2.md")
 with open(report_path, "w", encoding="utf-8") as f:
     f.write("\n".join(lines))
 
