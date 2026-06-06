@@ -17,6 +17,65 @@
   <link rel="stylesheet" href="/sv-brands.css">
   <script src="/site-config.js"></script>
 
+  <style>
+    /* Stack grid — override sv-brands.css repeat(5,1fr) to 3 columns */
+    .stack-grid { grid-template-columns: repeat(3, 1fr) !important; }
+    @media (max-width: 768px) { .stack-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+    @media (max-width: 480px) { .stack-grid { grid-template-columns: 1fr !important; } }
+
+    /* Clickable stack cards */
+    a.stack-card { text-decoration: none; color: inherit; display: block; }
+    a.stack-card:hover h4 { color: var(--primary-blue); }
+
+    /* Equal height cards — flex column so button always at bottom */
+    .brand-full-card { display: flex !important; flex-direction: column !important; }
+    .brand-full-card .b-desc { flex-grow: 1; }
+    .brand-full-card .btn { margin-top: auto !important; }
+
+    /* Sub-group label — spans full grid width */
+    .brand-p-grid-label {
+      grid-column: 1 / -1;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--primary-blue);
+      padding: 28px 0 10px;
+      border-bottom: 2px solid rgba(0,86,179,0.12);
+      margin-bottom: 4px;
+    }
+    .brand-p-grid-label:first-child { padding-top: 4px; }
+
+    /* Ghost placeholder card */
+    .brand-full-card--ghost {
+      background: transparent !important;
+      border: 2px dashed rgba(0,0,0,0.1) !important;
+      box-shadow: none !important;
+      pointer-events: none;
+    }
+    .brand-full-card--ghost:hover { transform: none !important; border-color: rgba(0,0,0,0.1) !important; }
+
+    /* Legacy card treatment */
+    .brand-full-card--legacy { border: 2px solid #d97706 !important; background: #fffbeb !important; }
+    .brand-full-card--legacy .b-name { color: #92400e; }
+    .brand-full-card--legacy:hover { border-color: #b45309 !important; }
+    .brand-legacy-badge {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      background: #d97706;
+      color: #fff;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      align-self: flex-start;
+    }
+  </style>
+
   <link rel="canonical" href="https://www.securevision.com.sg/brands/">
   <meta property="og:title" content="Security Technology Partners for Singapore | Securevision">
   <meta property="og:description" content="Authorised Singapore partner for 20+ global security manufacturers. We specify Hikvision, Suprema, Ajax, and FAAC based on engineering judgment and site suitability.">
@@ -131,30 +190,34 @@
       <div class="section-header-left">
         <span class="eyebrow">Part 1: The Architecture</span>
         <h2>The Security Stack</h2>
-        <p class="subtitle" style="text-align: left; margin-left: 0;">Every system is built across six system groups</p>
+        <p class="subtitle" style="text-align: left; margin-left: 0;">Every system is built across six system groups — click any to explore</p>
       </div>
 
       <div class="stack-grid">
-        <div class="stack-card">
+        <a href="/systems/premises-security.html" class="stack-card stack-card--link">
           <h4>Premises Security</h4>
           <p>Monitor and detect events on-site</p>
-        </div>
-        <div class="stack-card">
-          <h4>Entry & Access</h4>
+        </a>
+        <a href="/systems/entry-access-control.html" class="stack-card stack-card--link">
+          <h4>Entry &amp; Access</h4>
           <p>Control who enters and track movement</p>
-        </div>
-        <div class="stack-card">
+        </a>
+        <a href="/systems/vehicle-lpr-management.html" class="stack-card stack-card--link">
           <h4>Vehicle Management</h4>
           <p>Automate vehicle flow and barriers</p>
-        </div>
-        <div class="stack-card">
-          <h4>Communications</h4>
-          <p>Connect your team and intercoms</p>
-        </div>
-        <div class="stack-card">
-          <h4>Platform & Management</h4>
+        </a>
+        <a href="/systems/ip-phone-communications.html" class="stack-card stack-card--link">
+          <h4>IP Telephony</h4>
+          <p>Replace legacy keyphones with modern SIP</p>
+        </a>
+        <a href="/systems/network-infrastructure.html" class="stack-card stack-card--link">
+          <h4>Network Infrastructure</h4>
+          <p>The IP layer every security device runs on</p>
+        </a>
+        <a href="/systems/security-management-platform.html" class="stack-card stack-card--link">
+          <h4>Platform &amp; Management</h4>
           <p>Connect and coordinate everything</p>
-        </div>
+        </a>
       </div>
 
       <div class="mt-100 text-center">
@@ -226,229 +289,301 @@
       </div>
 
       <!-- 1. DETECTION SYSTEMS -->
-      <div class="tech-group" id="premises" style="margin-top: 80px;">
+      <div class="tech-group" id="burglar" style="margin-top: 80px;">
         <div class="tech-layer-header">
-          <span class="tech-layer-tag">Premises Security</span>
-          <h3 style="font-size: 36px; margin-bottom: 12px; text-align: left;">1. Premises Security</h3>
-          <p class="subtitle" style="margin-left: 0; margin-right: auto; color: var(--text-dark); font-size: 18px; max-width: 600px; text-align: left;">CCTV, AI analytics, intrusion detection, and alarms — monitor your property and detect what matters</p>
+          <span class="tech-layer-tag">Burglar Alarm</span>
+          <h3 style="font-size: 36px; margin-bottom: 12px; text-align: left;">1. Burglar Alarm</h3>
+          <p class="subtitle" style="margin-left: 0; margin-right: auto; color: var(--text-dark); font-size: 18px; max-width: 600px; text-align: left;">Wired and wireless intrusion detection — protecting homes and businesses against unauthorised entry</p>
+          <a href="/systems/premises-security.html" class="btn btn-secondary" style="margin-top: 16px;">Explore Premises Security →</a>
         </div>
         <div class="brand-p-grid">
+
           <div class="brand-full-card">
-            <h3 class="b-name">Hikvision</h3>
-            <p class="b-desc">World-leading IP surveillance with powerful deep-learning analytics for proactive detection.</p>
-            <a href="/brands/hikvision-cctv.html" class="btn btn-outline-dark">View Specification</a>
-          </div>
-          <div class="brand-full-card">
-            <h3 class="b-name">Hanwha Vision</h3>
-            <p class="b-desc">Premium Korean engineering specialised in high-performance optics and secure AI detection.</p>
-            <a href="/brands/hanwha-cctv.html" class="btn btn-outline-dark">View Specification</a>
-          </div>
-          <div class="brand-full-card">
-            <h3 class="b-name">Uniview</h3>
-            <p class="b-desc">Reliable IP video fundamentals with a focus on ease of deployment and professional clarity.</p>
-            <a href="/brands/uniview-cctv.html" class="btn btn-outline-dark">View Specification</a>
-          </div>
-          <div class="brand-full-card">
-            <h3 class="b-name">Milesight</h3>
-            <p class="b-desc">Advanced AIoT cameras that bridge the gap between traditional security and smart building analytics.</p>
-            <a href="/brands/milesight-cctv.html" class="btn btn-outline-dark">View Specification</a>
+            <h3 class="b-name">RISCO</h3>
+            <p class="b-desc">Israeli-engineered wired alarm systems with VUpoint video verification — our primary recommendation for wired alarm installations.</p>
+            <a href="/brands/risco-alarms.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
           <div class="brand-full-card">
             <h3 class="b-name">Ajax Systems</h3>
-            <p class="b-desc">The most awarded wireless security system in Europe, combining cutting-edge radio technology with stunning design.</p>
-            <a href="/brands/ajax-alarms.html" class="btn btn-outline-dark">View Specification</a>
-          </div>
-          <div class="brand-full-card">
-            <h3 class="b-name">Risco Group</h3>
-            <p class="b-desc">High-performance intrusion detection systems that seamlessly integrate cloud verification and smart logic.</p>
-            <a href="/brands/risco-alarms.html" class="btn btn-outline-dark">View Specification</a>
+            <p class="b-desc">The most awarded wireless alarm system in Europe — Jeweller radio protocol, 7-year battery life, and an app that actually works.</p>
+            <a href="/brands/ajax-alarms.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
           <div class="brand-full-card">
             <h3 class="b-name">Paradox</h3>
-            <p class="b-desc">Advanced alarm and motion detection technologies that offer precise, customizable protection for all sites.</p>
-            <a href="/brands/paradox-alarms.html" class="btn btn-outline-dark">View Specification</a>
+            <p class="b-desc">Highly configurable wired alarm panels — EVO and Spectra series, PC-programmable via BabyWare with saved configuration files.</p>
+            <a href="/brands/paradox-alarms.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
           <div class="brand-full-card">
             <h3 class="b-name">DSC</h3>
-            <p class="b-desc">Robust, field-proven intrusion solutions known for legendary reliability and wide-ranging sensor compatibility.</p>
-            <a href="/brands/dsc-alarms.html" class="btn btn-outline-dark">View Specification</a>
+            <p class="b-desc">Long-established wired alarm platform — distributed zone expansion for multi-floor buildings, widely understood by Singapore engineers.</p>
+            <a href="/brands/dsc-alarms.html" class="btn btn-outline-dark">Explore &rarr;</a>
+          </div>
+          <div class="brand-full-card brand-full-card--legacy">
+            <span class="brand-legacy-badge">Legacy · Discontinued 2020</span>
+            <h3 class="b-name">GE Caddx</h3>
+            <p class="b-desc">Singapore's most widely installed alarm for over two decades. Manufacturing and factory support ended January 2020. Securevision services existing NX4 and NX8 systems — no new installations.</p>
+            <a href="/brands/ge-caddx-alarms.html" class="btn btn-outline-dark">Explore &rarr;</a>
+          </div>
+          <div class="brand-full-card brand-full-card--ghost" aria-hidden="true"></div>
+
+        </div>
+      </div>
+
+      <div class="tech-group" id="cctv">
+        <div class="tech-layer-header">
+          <span class="tech-layer-tag">CCTV &amp; Surveillance</span>
+          <h3 style="font-size: 36px; margin-bottom: 12px; text-align: left;">2. CCTV &amp; Surveillance</h3>
+          <p class="subtitle" style="margin-left: 0; margin-right: auto; color: var(--text-dark); font-size: 18px; max-width: 600px; text-align: left;">IP cameras, NVRs, and AI analytics — see what is happening across your property in real time</p>
+          <a href="/systems/premises-security.html" class="btn btn-secondary" style="margin-top: 16px;">Explore CCTV &amp; Surveillance →</a>
+        </div>
+        <div class="brand-p-grid">
+
+          <div class="brand-full-card">
+            <h3 class="b-name">Hikvision</h3>
+            <p class="b-desc">World's largest CCTV manufacturer — our primary recommendation for IP cameras across residential, commercial, and industrial projects.</p>
+            <a href="/brands/hikvision-cctv.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
           <div class="brand-full-card">
-            <h3 class="b-name">GE-Caddx</h3>
-            <p class="b-desc">Legendary security systems specified for their reliability and widespread use in established residential and commercial properties.</p>
-            <a href="/brands/ge-caddx-alarms.html" class="btn btn-outline-dark">View Specification</a>
+            <h3 class="b-name">Milesight</h3>
+            <p class="b-desc">NDAA-compliant specialist cameras with edge AI analytics and deep VMS integration — specified for government-related and high-security projects.</p>
+            <a href="/brands/milesight-cctv.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">Hanwha Vision</h3>
+            <p class="b-desc">South Korean camera brand — formerly Samsung Techwin. Non-Chinese alternative for clients with procurement restrictions.</p>
+            <a href="/brands/hanwha-cctv.html" class="btn btn-outline-dark">Explore &rarr;</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">Uniview</h3>
+            <p class="b-desc">Professional IP cameras and NVRs — supported for existing installations and clients with a preference for the brand.</p>
+            <a href="/brands/uniview-cctv.html" class="btn btn-outline-dark">Explore &rarr;</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">Dahua</h3>
+            <p class="b-desc">China's second-largest CCTV manufacturer — supported for existing installations and projects where Dahua is specified.</p>
+            <a href="/brands/dahua-cctv.html" class="btn btn-outline-dark">Explore &rarr;</a>
+          </div>
+          <div class="brand-full-card brand-full-card--ghost" aria-hidden="true"></div>
+
         </div>
       </div>
 
       <!-- 2. PEOPLE ACCESS SYSTEMS -->
-      <div class="tech-group" id="entry">
+      <div class="tech-group" id="access">
         <div class="tech-layer-header">
-          <span class="tech-layer-tag">Entry &amp; Access</span>
-          <h3 style="font-size: 36px; margin-bottom: 12px; text-align: left;">2. Entry &amp; Access</h3>
-          <p class="subtitle" style="margin-left: 0; margin-right: auto; color: var(--text-dark); font-size: 18px; max-width: 600px; text-align: left;">Door access, biometrics, intercoms, and visitor management — control who enters and verify identity</p>
+          <span class="tech-layer-tag">Entry &amp; Access Control</span>
+          <h3 style="font-size: 36px; margin-bottom: 12px; text-align: left;">3. Entry &amp; Access Control</h3>
+          <p class="subtitle" style="margin-left: 0; margin-right: auto; color: var(--text-dark); font-size: 18px; max-width: 600px; text-align: left;">Card readers, biometrics, and door controllers — manage who can access which doors and when</p>
+          <a href="/systems/entry-access-control.html" class="btn btn-secondary" style="margin-top: 16px;">Explore Entry &amp; Access Control →</a>
         </div>
         <div class="brand-p-grid">
-          <!-- Row 1 -->
+
           <div class="brand-full-card">
             <h3 class="b-name">ZKTeco</h3>
-            <p class="b-desc">Versatile range of access terminals covering biometrics, time attendance, and visitor management.</p>
-            <a href="/brands/zkteco-entry-access.html" class="btn btn-outline-dark">View Specification</a>
+            <p class="b-desc">Face recognition, card, and biometric access controllers — SpeedFace, InBio, and ProID series. Our primary access control brand for commercial and industrial projects.</p>
+            <a href="/brands/zkteco-entry-access.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
-          <div class="brand-full-card">
-            <h3 class="b-name">EntryPass</h3>
-            <p class="b-desc">Innovative network-based access control solutions that provide seamless integration and scalable management.</p>
-            <a href="/brands/entrypass-entry-access.html" class="btn btn-outline-dark">View Specification</a>
-          </div>
-          <div class="brand-full-card">
-            <h3 class="b-name">MicroEngine</h3>
-            <p class="b-desc">Sophisticated enterprise-grade security management systems focused on scale and engineering reliability.</p>
-            <a href="/brands/microengine-entry-access.html" class="btn btn-outline-dark">View Specification</a>
-          </div>
-
-          <!-- Row 2 -->
           <div class="brand-full-card">
             <h3 class="b-name">Suprema</h3>
-            <p class="b-desc">Superior biometric terminals for facial and fingerprint recognition, setting the standard for secure identity.</p>
-            <a href="/brands/suprema-entry-access.html" class="btn btn-outline-dark">View Specification</a>
+            <p class="b-desc">Enterprise biometric access — FaceStation and BioStation series on the BioStar 2 platform. Primary biometric brand for high-security and institutional projects.</p>
+            <a href="/brands/suprema-entry-access.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
           <div class="brand-full-card">
             <h3 class="b-name">HID Global</h3>
-            <p class="b-desc">The trusted global standard for secure credentials and high-security physical access control.</p>
-            <a href="/brands/hid-entry-access.html" class="btn btn-outline-dark">View Specification</a>
+            <p class="b-desc">The global standard for access card readers and credentials — ProxPoint, Signo, and iCLASS series, paired with ZKTeco or Suprema controllers.</p>
+            <a href="/brands/hid-entry-access.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
           <div class="brand-full-card">
-            <h3 class="b-name">Hikvision</h3>
-            <p class="b-desc">Advanced access ecosystems leveraging deep-learning facial recognition for fast, contactless entry.</p>
-            <a href="/brands/hikvision-cctv.html" class="btn btn-outline-dark">View Specification</a>
+            <h3 class="b-name">EntryPass</h3>
+            <p class="b-desc">Networked access control for multi-door commercial installations — Platform 1 and N-series. Supported for existing installations.</p>
+            <a href="/brands/entrypass-entry-access.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">MicroEngine</h3>
+            <p class="b-desc">Multi-door access control for offices and commercial buildings — xPortal and Plato series. Supported for existing installations.</p>
+            <a href="/brands/microengine-entry-access.html" class="btn btn-outline-dark">Explore &rarr;</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">Hikvision (Access)</h3>
+            <p class="b-desc">MinMoe standalone face recognition terminals and HikCentral Access Control — free for up to 16 doors. Anti-passback, time zones, attendance included. Space to watch.</p>
+            <a href="/brands/hikvision-access.html" class="btn btn-outline-dark">Explore &rarr;</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">Akuvox (Access)</h3>
+            <p class="b-desc">Akuvox IP door stations with built-in access control — face recognition, card, and PIN at the door. Integrated with the SmartPlus cloud platform for resident and visitor management.</p>
+            <a href="/brands/akuvox-access.html" class="btn btn-outline-dark">Explore &rarr;</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">Apollo</h3>
+            <p class="b-desc">US-manufactured enterprise access control — ASP controllers, APACS software, IDEMIA biometric readers. Specified for hospitals, universities, and high-security institutions where Chinese brands are excluded.</p>
+            <a href="/brands/apollo-access.html" class="btn btn-outline-dark">Explore &rarr;</a>
+          </div>
+          <div class="brand-full-card brand-full-card--ghost" aria-hidden="true"></div>
 
-          <!-- Row 3 -->
+        </div>
+      </div>
+
+      <div class="tech-group" id="intercom">
+        <div class="tech-layer-header">
+          <span class="tech-layer-tag">Intercom &amp; Video Entry</span>
+          <h3 style="font-size: 36px; margin-bottom: 12px; text-align: left;">4. Intercom &amp; Video Entry</h3>
+          <p class="subtitle" style="margin-left: 0; margin-right: auto; color: var(--text-dark); font-size: 18px; max-width: 600px; text-align: left;">IP video intercoms for condominiums, landed homes, and offices — see and speak to visitors from anywhere</p>
+          <a href="/systems/entry-access-control.html" class="btn btn-secondary" style="margin-top: 16px;">Explore Intercom &amp; Video Entry →</a>
+        </div>
+        <div class="brand-p-grid">
+
           <div class="brand-full-card">
             <h3 class="b-name">Akuvox</h3>
-            <p class="b-desc">Smart IP intercoms that provide a modern, cloud-connected verification point for residents and visitors.</p>
-            <a href="/brands/akuvox-intercom.html" class="btn btn-outline-dark">View Specification</a>
+            <p class="b-desc">IP video intercoms for condominiums, landed homes, and commercial buildings — R-series door stations and SmartPlus cloud platform. Our primary intercom brand.</p>
+            <a href="/brands/akuvox-intercom.html" class="btn btn-outline-dark">Explore &rarr;</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">Hikvision (Intercom)</h3>
+            <p class="b-desc">Hikvision video intercoms and door stations — DS-KV series, indoor monitors, and HikCentral integration. Popular across condominiums and commercial buildings.</p>
+            <a href="/brands/hikvision-intercom.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
           <div class="brand-full-card">
             <h3 class="b-name">Aiphone</h3>
-            <p class="b-desc">World-renowned intercom systems, ensuring crystal-clear audio-visual verification for any property size.</p>
-            <a href="/brands/aiphone-intercom.html" class="btn btn-outline-dark">View Specification</a>
+            <p class="b-desc">Established Japanese intercom brand — GT series for condominiums, JOS video series for residential. Serviced for existing installations.</p>
+            <a href="/brands/aiphone-intercom.html" class="btn btn-outline-dark">Explore &rarr;</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">Fanvil (Intercom)</h3>
+            <p class="b-desc">Fanvil SIP door phones and IP intercoms — cost-effective video entry for offices and commercial premises. Separate page for Fanvil IP telephony.</p>
+            <a href="/brands/fanvil-intercom.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
           <div class="brand-full-card">
             <h3 class="b-name">Kocom</h3>
-            <p class="b-desc">Reliable video door phone systems that combine elegant design with robust residential security logic.</p>
-            <a href="/brands/kocom-intercom.html" class="btn btn-outline-dark">View Specification</a>
+            <p class="b-desc">Audio intercom for HDB and older residential installations — serviced and supported for existing owners.</p>
+            <a href="/brands/kocom-intercom.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
+          <div class="brand-full-card brand-full-card--ghost" aria-hidden="true"></div>
+
         </div>
       </div>
 
       <div class="tech-group" id="vehicle">
         <div class="tech-layer-header">
           <span class="tech-layer-tag">Vehicle Management</span>
-          <h3 style="font-size: 36px; margin-bottom: 12px; text-align: left;">3. Vehicle Management</h3>
+          <h3 style="font-size: 36px; margin-bottom: 12px; text-align: left;">5. Vehicle Management</h3>
           <p class="subtitle" style="margin-left: 0; margin-right: auto; color: var(--text-dark); font-size: 18px; max-width: 600px; text-align: left;">Auto-gates, barriers, LPR, and car park systems — automate vehicle flow and reduce guard dependency</p>
+          <a href="/systems/vehicle-lpr-management.html" class="btn btn-secondary" style="margin-top: 16px;">Explore Vehicle Management →</a>
         </div>
         <div class="brand-p-grid">
+          <div class="brand-full-card" style="border: 2px solid var(--primary-blue); background: rgba(0,86,179,0.02);">
+            <span class="tech-layer-tag" style="background: var(--primary-blue); color: var(--white); margin-bottom: 16px; display: inline-block;">Securevision Proprietary Platform</span>
+            <h3 class="b-name">GantryGo</h3>
+            <p class="b-desc">Securevision's own cloud-based LPR vehicle management platform — resident whitelisting, visitor pre-registration, delivery grace periods, taxi pass-through, overnight parking alerts, and full vehicle log. Built for Singapore condominiums.</p>
+            <a href="/brands/gantrygo.html" class="btn btn-primary" style="width: 100%; margin-top: 24px; text-align: center;">Explore GantryGo</a>
+          </div>
           <div class="brand-full-card">
             <h3 class="b-name">FAAC</h3>
-            <p class="b-desc">Italian-engineered gate and barrier automation known for durability and high-usage performance.</p>
-            <a href="/brands/faac-autogate.html" class="btn btn-outline-dark">View Specification</a>
+            <p class="b-desc">Italian-engineered gate and barrier automation — swing motors, sliding motors, and boom barriers known for durability and high-usage performance.</p>
+            <a href="/brands/faac-autogate.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
           <div class="brand-full-card">
             <h3 class="b-name">MAG</h3>
-            <p class="b-desc">Reliable barrier and gate systems widely specified across Singapore for residential and commercial entry.</p>
-            <a href="/brands/mag-autogate.html" class="btn btn-outline-dark">View Specification</a>
+            <p class="b-desc">Reliable sliding gate motors and car park barriers — widely specified across Singapore for residential and commercial entry.</p>
+            <a href="/brands/mag-autogate.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
           <div class="brand-full-card">
             <h3 class="b-name">Dormer</h3>
-            <p class="b-desc">High-performance gate automation and commercial entry hardware for industrial-scale security.</p>
-            <a href="/brands/dormer-autogate.html" class="btn btn-outline-dark">View Specification</a>
-          </div>
-          <div class="brand-full-card">
-            <h3 class="b-name">GantryGo (LPR Software)</h3>
-            <p class="b-desc">Proprietary AI-driven software for License Plate Recognition (LPR) and intelligent gate interface management.</p>
-            <a href="/brands/gantrygo.html" class="btn btn-outline-dark">View Specification</a>
+            <p class="b-desc">Concealed underground swing gate motors for landed homes and private estates — clean installation with no visible mechanism.</p>
+            <a href="/brands/dormer-autogate.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
           <div class="brand-full-card">
             <h3 class="b-name">Ebelco</h3>
-            <p class="b-desc">Industrial-strength electromagnetic locks and door security solutions designed for fail-safe protection.</p>
-            <a href="/brands/ebelco.html" class="btn btn-outline-dark">View Specification</a>
+            <p class="b-desc">Electromagnetic locks and drop bolts for access-controlled doors — primary EM lock brand across Securevision access control installations.</p>
+            <a href="/brands/ebelco-locks.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
           <div class="brand-full-card">
             <h3 class="b-name">VIRO</h3>
-            <p class="b-desc">Premium Italian security hardware specialising in high-durability electric locks and automated access components.</p>
-            <a href="/brands/viro.html" class="btn btn-outline-dark">View Specification</a>
+            <p class="b-desc">Electric locks and outdoor gate hardware — Italian-engineered for residential and light commercial applications.</p>
+            <a href="/brands/viro-locks.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
         </div>
       </div>
 
-      <!-- 4. COMMUNICATIONS -->
-      <div class="tech-group" id="comms">
+      <!-- 4. IP TELEPHONY -->
+      <div class="tech-group" id="telephony">
         <div class="tech-layer-header">
-          <span class="tech-layer-tag">Communications</span>
-          <h3 style="font-size: 36px; margin-bottom: 12px; text-align: left;">4. Communications</h3>
+          <span class="tech-layer-tag">IP Telephony</span>
+          <h3 style="font-size: 36px; margin-bottom: 12px; text-align: left;">6. IP Telephony</h3>
           <p class="subtitle" style="margin-left: 0; margin-right: auto; color: var(--text-dark); font-size: 18px; max-width: 700px; text-align: left;">IP phones and IPPBX systems — replace legacy keyphones with modern, flexible office communications</p>
+          <a href="/systems/ip-phone-communications.html" class="btn btn-secondary" style="margin-top: 16px;">Explore IP Telephony →</a>
         </div>
         <div class="brand-p-grid">
           <div class="brand-full-card">
             <h3 class="b-name">Yeastar</h3>
             <p class="b-desc">Leading IPPBX platform for SMEs and enterprise — the P-Series and S-Series manage all extensions, call routing, IVR, and remote access via the Linkus mobile app.</p>
-            <a href="/brands/yeastar-ip-phone.html" class="btn btn-outline-dark">View Specification</a>
+            <a href="/brands/yeastar-ippbx.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
           <div class="brand-full-card">
             <h3 class="b-name">Fanvil</h3>
             <p class="b-desc">Cost-effective SIP handsets across a wide model range — from basic desk phones to PoE-powered reception terminals. Auto-provisioned via Yeastar.</p>
-            <a href="/brands/fanvil-ip-phone.html" class="btn btn-outline-dark">View Specification</a>
+            <a href="/brands/fanvil-ip-phone.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
           <div class="brand-full-card">
             <h3 class="b-name">Yealink</h3>
             <p class="b-desc">Mid-to-high tier SIP handsets and video phones — strong build quality, clear audio, and a wide product range from entry-level to executive models.</p>
-            <a href="/brands/yealink.html" class="btn btn-outline-dark">View Specification</a>
-          </div>
-          <div class="brand-full-card">
-            <h3 class="b-name">Omada (TP-Link)</h3>
-            <p class="b-desc">Cloud-managed network switches and access points — specified alongside IP phone installations to ensure PoE capacity and voice/data VLAN separation.</p>
-            <a href="/brands/omada.html" class="btn btn-outline-dark">View Specification</a>
-          </div>
-          <div class="brand-full-card">
-            <h3 class="b-name">Ruijie</h3>
-            <p class="b-desc">Enterprise-grade managed switches for structured network infrastructure — deployed in commercial and industrial installations requiring high port density and resilience.</p>
-            <a href="/brands/ruijie.html" class="btn btn-outline-dark">View Specification</a>
+            <a href="/brands/yealink-ip-phone.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
         </div>
       </div>
 
-      <!-- 5. PLATFORM & MANAGEMENT -->
+      <!-- 5. NETWORK INFRASTRUCTURE -->
+      <div class="tech-group" id="network">
+        <div class="tech-layer-header">
+          <span class="tech-layer-tag">Network Infrastructure</span>
+          <h3 style="font-size: 36px; margin-bottom: 12px; text-align: left;">7. Network Infrastructure</h3>
+          <p class="subtitle" style="margin-left: 0; margin-right: auto; color: var(--text-dark); font-size: 18px; max-width: 700px; text-align: left;">Cloud-managed PoE switches, wireless bridges, and access points — the IP layer that every camera, reader, and intercom runs on</p>
+          <a href="/systems/network-infrastructure.html" class="btn btn-secondary" style="margin-top: 16px;">Explore Network Infrastructure →</a>
+        </div>
+        <div class="brand-p-grid">
+          <div class="brand-full-card">
+            <h3 class="b-name">Omada (TP-Link)</h3>
+            <p class="b-desc">Cloud-managed PoE switches, stackable L3 switches with fibre uplinks, and Wi-Fi 6 access points — specified for larger deployments requiring physical stacking and high port density.</p>
+            <a href="/brands/omada-network.html" class="btn btn-outline-dark">Explore &rarr;</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">Ruijie / Reyee</h3>
+            <p class="b-desc">Cloud-managed PoE switches, wall plate access points, and point-to-point wireless bridges — deployed across residential, condominium, and commercial security installations.</p>
+            <a href="/brands/ruijie-reyee-network.html" class="btn btn-outline-dark">Explore &rarr;</a>
+          </div>
+          <div class="brand-full-card">
+            <h3 class="b-name">HRUI</h3>
+            <p class="b-desc">Chinese manufacturer of AI PoE switches with built-in watchdog for automatic device reboot, VLAN support, and SFP uplink options — cost-effective for camera access layer deployments.</p>
+            <a href="/brands/hrui-network.html" class="btn btn-outline-dark">Explore &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. PLATFORM & MANAGEMENT -->
       <div class="tech-group" id="platform">
         <div class="tech-layer-header">
           <span class="tech-layer-tag">Platform &amp; Management</span>
-          <h3 style="font-size: 36px; margin-bottom: 12px; text-align: left;">5. Platform &amp; Management</h3>
+          <h3 style="font-size: 36px; margin-bottom: 12px; text-align: left;">8. Platform &amp; Management</h3>
           <p class="subtitle" style="margin-left: 0; margin-right: auto; color: var(--text-dark); font-size: 18px; max-width: 700px; text-align: left;">We specify the right platform for your property type and operational complexity — not the same one for everyone</p>
+          <a href="/systems/security-management-platform.html" class="btn btn-secondary" style="margin-top: 16px;">Explore Platform &amp; Management →</a>
         </div>
         <div class="brand-p-grid">
           <div class="brand-full-card" style="border-color: var(--primary-blue);">
             <span class="tech-layer-tag" style="background: var(--primary-blue); color: var(--white); margin-bottom: 20px;">Condominiums &amp; Estates</span>
             <h3 class="b-name">VESTA Platform</h3>
-            <p class="b-desc">Securevision's own estate management platform — purpose-built for condominiums. Connects surveillance, access, vehicle, and intercom into one guard and resident management dashboard.</p>
-            <a href="/systems/security-management-platform.html" class="btn btn-primary" style="width: 100%; margin-top: 32px;">Explore VESTA</a>
+            <p class="b-desc">Securevision's own smart living platform for Singapore condominiums — intercom, visitor pre-registration, GantryGo vehicle access, facility booking, IoT amenity controls, and estate communications in one resident app.</p>
+            <a href="/brands/vesta.html" class="btn btn-primary" style="width: 100%; margin-top: 32px;">Explore VESTA</a>
           </div>
           <div class="brand-full-card">
-            <span class="tech-layer-tag" style="margin-bottom: 20px;">Multi-Site &amp; Industrial</span>
-            <h3 class="b-name">Milestone VMS</h3>
-            <p class="b-desc">Professional video management platform for complex, multi-camera, and multi-site deployments — full analytics, cross-system integrations, and enterprise-grade reporting.</p>
-            <a href="/brands/milestone.html" class="btn btn-outline-dark">View Specification</a>
-          </div>
-          <div class="brand-full-card">
-            <span class="tech-layer-tag" style="margin-bottom: 20px;">Multi-Site &amp; Industrial</span>
+            <span class="tech-layer-tag" style="margin-bottom: 20px;">Multi-Site &amp; Commercial</span>
             <h3 class="b-name">HikCentral</h3>
             <p class="b-desc">Hikvision's unified security management platform — centralised dashboards, AI-powered event search, and cross-site video and access control management at scale.</p>
-            <a href="/brands/hikvision-cctv.html" class="btn btn-outline-dark">View Specification</a>
+            <a href="/brands/hikcentral.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
           <div class="brand-full-card">
             <span class="tech-layer-tag" style="margin-bottom: 20px;">Offices &amp; Commercial</span>
             <h3 class="b-name">ZKTeco CVSecurity</h3>
-            <p class="b-desc">Unified security management that integrates access control, video, and attendance into one dashboard — well-suited to office environments where HR and security requirements overlap.</p>
-            <a href="/brands/zkteco-entry-access.html" class="btn btn-outline-dark">View Specification</a>
+            <p class="b-desc">ZKTeco's unified security platform integrating access control, CCTV, LPR, intercom, and attendance on one on-premise system. One-time licence. Strongest for ZKTeco access control deployments.</p>
+            <a href="/brands/zkteco-cvsecurity.html" class="btn btn-outline-dark">Explore &rarr;</a>
           </div>
         </div>
       </div>
