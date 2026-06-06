@@ -74,6 +74,7 @@ Last updated: 2026-06-06
 - [/insights/managing-agents-guide-estate-security-systems.html](https://www.securevision.com.sg/insights/managing-agents-guide-estate-security-systems.html)
 - [/insights/managing-multiple-estates-with-vesta.html](https://www.securevision.com.sg/insights/managing-multiple-estates-with-vesta.html)
 - [/insights/mcst-legal-obligations-security.html](https://www.securevision.com.sg/insights/mcst-legal-obligations-security.html)
+- [/insights/pdpa-cctv-singapore.html](https://www.securevision.com.sg/insights/pdpa-cctv-singapore.html)
 - [/insights/rackmount-nvr.html](https://www.securevision.com.sg/insights/rackmount-nvr.html)
 - [/insights/reduce-false-alarms.html](https://www.securevision.com.sg/insights/reduce-false-alarms.html)
 - [/insights/security-system-refresh.html](https://www.securevision.com.sg/insights/security-system-refresh.html)
