@@ -85,6 +85,7 @@ Last updated: 2026-06-06
 - [/insights/upgrade-existing-security-system.html](https://www.securevision.com.sg/insights/upgrade-existing-security-system.html)
 - [/insights/upgrade-or-repair.html](https://www.securevision.com.sg/insights/upgrade-or-repair.html)
 - [/insights/using-your-burglar-alarm.html](https://www.securevision.com.sg/insights/using-your-burglar-alarm.html)
+- [/insights/video-analytics-retail-singapore.html](https://www.securevision.com.sg/insights/video-analytics-retail-singapore.html)
 - [/insights/why-mechanical-locks-not-enough.html](https://www.securevision.com.sg/insights/why-mechanical-locks-not-enough.html)
 - [/insights/why-security-needs-managed-network.html](https://www.securevision.com.sg/insights/why-security-needs-managed-network.html)
 - [/insights/wifi-remote-control-auto-gate.html](https://www.securevision.com.sg/insights/wifi-remote-control-auto-gate.html)
