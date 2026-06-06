@@ -1,1222 +1,466 @@
 <!DOCTYPE html>
 <html lang="en-GB">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Security Guides, Checklists & Calculators | Securevision</title>
-    <meta name="description"
-        content="Singapore's complete security knowledge base. Technical guides, planning checklists, and sizing calculators for homeowners, architects, and building managers. Estimate CCTV, access control, and more.">
-    <link rel="canonical" href="https://www.securevision.com.sg/resources/">
-    <meta property="og:title" content="Security Guides, Checklists & Calculators | Securevision">
-    <meta property="og:description" content="Singapore's complete security knowledge base. Technical guides, planning checklists, manufacturer documentation and compliance resources for homeowners, architects and building managers.">
-    <meta property="og:url" content="https://www.securevision.com.sg/resources/">
-    <meta property="og:image" content="https://www.securevision.com.sg/images/og-default.jpg">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Securevision">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Resources Singapore | Guides, Checklists & Product Library | Securevision</title>
+  <meta name="description" content="Singapore's complete security knowledge base — technical guides, planning checklists, sizing calculators, and a full product library. Free resources for homeowners, architects, and building managers.">
+  <link rel="canonical" href="https://www.securevision.com.sg/resources/">
+  <meta property="og:title" content="Security Resources Singapore | Guides, Checklists & Product Library | Securevision">
+  <meta property="og:description" content="Technical guides, planning checklists, sizing calculators, and a full product library for Singapore security systems — free from Securevision.">
+  <meta property="og:url" content="https://www.securevision.com.sg/resources/">
+  <meta property="og:image" content="https://www.securevision.com.sg/images/og-default.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Securevision">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="/sv-shared.css">
-    <link rel="stylesheet" href="/sv-resources.css">
-    <script src="/site-config.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/sv-shared.css">
+  <link rel="stylesheet" href="/sv-resources.css">
+  <script src="/site-config.js"></script>
 
-    <style>
-        /* ── Library section ──────────────────────────────── */
-        .lib-category {
-            margin-bottom: 56px;
-        }
-        .lib-category:last-child {
-            margin-bottom: 0;
-        }
-        .lib-cat-heading {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--primary-blue);
-            margin-bottom: 24px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--border-light);
-        }
-        .lib-brand-card {
-            display: flex;
-            flex-direction: column;
-        }
-        .lib-brand-desc {
-            font-size: 13px;
-            color: var(--text-light);
-            margin-bottom: 12px;
-            flex-grow: 1;
-        }
-        .lib-badge {
-            display: inline-block;
-            font-size: 10px;
-            font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            padding: 3px 10px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-            align-self: flex-start;
-        }
-        .lib-badge--active  { background: #e6f4ea; color: #1e7e34; }
-        .lib-badge--support { background: #e8f0fe; color: #1a56db; }
-        .lib-badge--legacy  { background: #fef3cd; color: #856404; }
-        .lib-footnote {
-            font-size: 13px;
-            color: var(--text-light);
-            margin-top: 16px;
-            font-style: italic;
-        }
-        .lib-footnote a { color: var(--primary-blue); }
-        .lib-category.lib-hidden { display: none; }
-    </style>
+  <style>
+    /* ── Long resource card — image left, text right ── */
+    .res-row {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 0;
+      background: #fff;
+      border: 1.5px solid #CBD5E0;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+      margin-bottom: 32px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .res-row:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      transform: translateY(-3px);
+    }
+    .res-row:last-child { margin-bottom: 0; }
+
+    .res-row-img {
+      position: relative;
+      overflow: hidden;
+      background: #0E1A2B;
+    }
+    .res-row-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.9;
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .res-row:hover .res-row-img img {
+      opacity: 1;
+      transform: scale(1.03);
+    }
+    .res-row-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(14,26,43,0.3), transparent);
+      pointer-events: none;
+    }
+    .res-row-cat {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--row-colour, var(--primary-blue));
+      border-radius: 20px;
+      padding: 5px 14px;
+    }
+
+    .res-row-body {
+      padding: 36px 40px;
+      display: flex;
+      flex-direction: column;
+      border-left: 4px solid var(--row-colour, var(--primary-blue));
+    }
+    .res-row-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 0 0 14px;
+      line-height: 1.3;
+    }
+    .res-row-desc {
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--text-gray);
+      line-height: 1.8;
+      margin: 0 0 20px;
+      flex-grow: 1;
+    }
+    .res-row-who {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin: 0 0 24px;
+      padding: 14px 16px;
+      background: var(--bg-light);
+      border-radius: 8px;
+      border-left: 3px solid var(--row-colour, var(--primary-blue));
+    }
+    .res-row-who strong {
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+    .res-row-stats {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .res-row-stat {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      color: var(--text-light);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .res-row-footer {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    /* ── Intro section ── */
+    .res-intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .res-intro-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .res-intro-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .res-intro-item h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin: 0 0 6px;
+    }
+    .res-intro-item p {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--text-light);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .res-row { grid-template-columns: 1fr; }
+      .res-row-img { height: 220px; }
+      .res-intro-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
+    @media (max-width: 600px) {
+      .res-row-body { padding: 24px 20px; }
+      .res-row-title { font-size: 18px; }
+    }
+  </style>
 </head>
+<body>
 
-<body class="bg-white">
-    <nav id="sv-nav"></nav>
+<nav id="sv-nav"></nav>
 
-    <header class="hero-high-impact hero-standard hero-resources"
-        style="background-image: url('/images/resources/resources-knowledge-base-singapore.webp');">
-        <div class="hero-overlay"></div>
-        <div class="container pos-relative z-2">
-            <div class="hero-trust-badge">Police Licensed • <span class="sv-years-experience"></span>+ Years Experience • 1,000+ Singapore Sites</div>
-            <h1>Singapore's Complete<br><em>Security Knowledge Base</em></h1>
-            <p class="hero-subtitle-main">Professional resources for homeowners, architects, and building managers. From technical
-                guides to planning checklists, manufacturer documentation to compliance templates — everything you need
-                to make informed security decisions.</p>
+<!-- ═══ HERO ═══ -->
+<section class="hero-solid">
+  <div class="container">
+    <span class="eyebrow-light">Resources</span>
+    <h1>Singapore's Security Knowledge Base</h1>
+    <p class="subtitle">Free professional resources for homeowners, facility managers, architects, and building professionals — written from <span class="sv-years-experience"></span> years of Singapore security installations. No login, no registration, no gatekeeping.</p>
+  </div>
+</section>
 
-            <div class="quick-access-grid">
-                <a href="#guides" class="quick-card">
-                    <span class="icon">📚</span>
-                    <strong>Technical Guides</strong>
-                    <span>In-depth system guides</span>
-                </a>
-                <a href="#checklists" class="quick-card">
-                    <span class="icon">✅</span>
-                    <strong>Checklists</strong>
-                    <span>Scored gap assessments</span>
-                </a>
-                <a href="#tools" class="quick-card">
-                    <span class="icon">🧮</span>
-                    <strong>Calculators</strong>
-                    <span>Sizing &amp; budget tools</span>
-                </a>
-                <a href="#library" class="quick-card">
-                    <span class="icon">📄</span>
-                    <strong>Product Library</strong>
-                    <span>Manufacturer docs</span>
-                </a>
-                <a href="#trade" class="quick-card">
-                    <span class="icon">🏢</span>
-                    <strong>For Trade &amp; Professionals</strong>
-                    <span>Templates &amp; tools</span>
-                </a>
-            </div>
+<!-- ── TRUST BAR ── -->
+<div class="sv-trust-bar">
+  <div class="container">
+    <div class="trust-bar-inner">
+      <span>Police Licensed</span><span class="divider">|</span>
+      <span class="sv-bizsafe"></span><span class="divider">|</span>
+      <span>BCA Registered</span><span class="divider">|</span>
+      <span><span class="sv-sites"></span> Sites Protected</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ BREADCRUMB ═══ -->
+<nav class="sv-breadcrumb" aria-label="Breadcrumb">
+  <div class="container">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li>Resources</li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+<!-- ═══ SECTION 1 — INTRO (grey) ═══ -->
+<section class="sv-section-grey">
+  <div class="container">
+    <span class="eyebrow">What's Here</span>
+    <h2>Resources for Every Stage of the Security Journey</h2>
+    <p class="subtitle" style="max-width: 820px;">Whether you are trying to understand a system before specifying it, assess gaps in an existing installation, size a budget before requesting proposals, or look up technical documentation for a product you already have — this section has a resource for each of those needs.</p>
+
+    <div class="res-intro-grid">
+      <div class="res-intro-item">
+        <span class="res-intro-icon">🏠</span>
+        <div>
+          <h4>Homeowners &amp; Residents</h4>
+          <p>Use the technical guides to understand what a system does before committing to one. Use the checklists to find gaps in what you currently have.</p>
         </div>
-    </header>
-
-    <!-- SECTION 1: TECHNICAL GUIDES -->
-    <section id="guides" class="section-padding">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow">Expert Knowledge</span>
-                <h2>Technical Pillar Guides</h2>
-                <p>Comprehensive system guides written by Wee Meng Ler. From fundamentals to advanced configurations,
-                    everything you need to specify the right solution.</p>
-            </div>
-
-            <!-- Row 1: Alarm · CCTV · Door Access -->
-            <div class="grid-3 mt-56">
-
-                <a href="/resources/guides/burglar-alarm-guide.html" class="guide-card-link">
-                    <div class="card">
-                        <img src="/images/resources/guides/alarm/burglar-alarm-guide-singapore-rel.webp"
-                            alt="Burglar Alarm & Intrusion Detection Guide"
-                            class="guide-card-img">
-                        <div class="guide-meta">
-                            <span class="meta-author">✍️ Ler Wee Meng, <span class="sv-years-experience"></span> yrs</span>
-                            <span class="meta-update">● Updated Apr 2026</span>
-                        </div>
-                        <h3>Burglar &amp; Intrusion Alarm System Guide</h3>
-                        <p>Sensor selection, wired vs wireless, monitoring tiers, and layered defence for Singapore
-                            residential and commercial properties.</p>
-                        <div class="guide-footer-meta">
-                            <span>⏱ 20 min read</span>
-                            <span class="badge badge-primary">Alarm Systems</span>
-                        </div>
-                        <span class="btn btn-primary">Read Guide &rarr;</span>
-                    </div>
-                </a>
-
-                <a href="/resources/guides/cctv-guide.html" class="guide-card-link">
-                    <div class="card">
-                        <img src="/images/resources/guides/cctv/hero-cctv.webp"
-                            alt="Complete Guide to CCTV & Surveillance Systems"
-                            class="guide-card-img">
-                        <div class="guide-meta">
-                            <span class="meta-author">✍️ Ler Wee Meng, <span class="sv-years-experience"></span> yrs</span>
-                            <span class="meta-update">● Updated Mar 2026</span>
-                        </div>
-                        <h3>Complete Guide to CCTV &amp; Surveillance Systems</h3>
-                        <p>From IP camera basics to AI analytics — everything you need to specify the right surveillance
-                            system for your property.</p>
-                        <div class="guide-footer-meta">
-                            <span>⏱ 18 min read</span>
-                            <span class="badge badge-primary">Surveillance</span>
-                        </div>
-                        <span class="btn btn-primary">Read Guide &rarr;</span>
-                    </div>
-                </a>
-
-                <a href="/resources/guides/door-access-guide.html" class="guide-card-link">
-                    <div class="card">
-                        <img src="/images/resources/guides/access/hero-door-access.webp"
-                            alt="Door Access Control Systems Guide"
-                            class="guide-card-img">
-                        <div class="guide-meta">
-                            <span class="meta-author">✍️ Ler Wee Meng, <span class="sv-years-experience"></span> yrs</span>
-                            <span class="meta-update">● Updated Mar 2026</span>
-                        </div>
-                        <h3>Door Access Control Systems Guide</h3>
-                        <p>Card readers, biometrics, cloud management, lock selection, PDPA compliance, and fire safety
-                            integration for Singapore properties.</p>
-                        <div class="guide-footer-meta">
-                            <span>⏱ 30 min read</span>
-                            <span class="badge badge-primary">Access Control</span>
-                        </div>
-                        <span class="btn btn-primary">Read Guide &rarr;</span>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Row 2: Intercom · Auto Gate · Network -->
-            <div class="grid-3 mt-32">
-
-                <a href="/resources/guides/intercom-guide.html" class="guide-card-link">
-                    <div class="card">
-                        <img src="/images/resources/guides/intercom/hero-intercom.webp"
-                            alt="Intercom Systems & Video Entry Guide"
-                            class="guide-card-img">
-                        <div class="guide-meta">
-                            <span class="meta-author">✍️ Ler Wee Meng, <span class="sv-years-experience"></span> yrs</span>
-                            <span class="meta-update">● Updated Mar 2026</span>
-                        </div>
-                        <h3>Intercom Systems &amp; Video Entry Guide</h3>
-                        <p>Residential, condo, and commercial intercom systems — analogue vs IP, cloud platforms, door
-                            release mechanisms, and mobile app integration.</p>
-                        <div class="guide-footer-meta">
-                            <span>⏱ 22 min read</span>
-                            <span class="badge badge-primary">Intercom</span>
-                        </div>
-                        <span class="btn btn-primary">Read Guide &rarr;</span>
-                    </div>
-                </a>
-
-                <a href="/resources/guides/auto-gate-guide.html" class="guide-card-link">
-                    <div class="card">
-                        <img src="/images/resources/guides/autogate/hero-auto-gate.webp"
-                            alt="Auto Gates & Vehicle Barriers Guide"
-                            class="guide-card-img">
-                        <div class="guide-meta">
-                            <span class="meta-author">✍️ Ler Wee Meng, <span class="sv-years-experience"></span> yrs</span>
-                            <span class="meta-update">● Updated Mar 2026</span>
-                        </div>
-                        <h3>Auto Gates &amp; Vehicle Barriers Guide</h3>
-                        <p>Swing vs sliding gates, motor selection, rolling-code keyfobs, safety sensors, and LPR
-                            integration for Singapore estates.</p>
-                        <div class="guide-footer-meta">
-                            <span>⏱ 16 min read</span>
-                            <span class="badge badge-primary">Gates &amp; Barriers</span>
-                        </div>
-                        <span class="btn btn-primary">Read Guide &rarr;</span>
-                    </div>
-                </a>
-
-                <a href="/resources/guides/wifi-network-guide.html" class="guide-card-link">
-                    <div class="card">
-                        <img src="/images/resources/guides/network/hero-wifi-network.webp"
-                            alt="Home Network & Wi-Fi Planning Guide"
-                            class="guide-card-img">
-                        <div class="guide-meta">
-                            <span class="meta-author">✍️ Ler Wee Meng, <span class="sv-years-experience"></span> yrs</span>
-                            <span class="meta-update">● Updated Apr 2026</span>
-                        </div>
-                        <h3>Home Network &amp; Wi-Fi Planning Guide</h3>
-                        <p>Wired vs wireless, Cat 6 cabling, PoE switches, static IPs, mesh systems, and why your router
-                            swap broke the cameras.</p>
-                        <div class="guide-footer-meta">
-                            <span>⏱ 22 min read</span>
-                            <span class="badge badge-primary">Network &amp; Wi-Fi</span>
-                        </div>
-                        <span class="btn btn-primary">Read Guide &rarr;</span>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Row 3: Telephony · Renovation Planning · Evaluate Contractor -->
-            <div class="grid-3 mt-32">
-
-                <a href="/resources/guides/office-telephone-guide.html" class="guide-card-link">
-                    <div class="card">
-                        <img src="/images/resources/guides/telephony/hero-office-telephone.webp"
-                            alt="Office Telephone Systems & IP Phone Upgrade Guide"
-                            class="guide-card-img">
-                        <div class="guide-meta">
-                            <span class="meta-author">✍️ Ler Wee Meng, <span class="sv-years-experience"></span> yrs</span>
-                            <span class="meta-update">● Updated Apr 2026</span>
-                        </div>
-                        <h3>Office Telephone Systems &amp; IP Phone Upgrade Guide</h3>
-                        <p>Replace your ageing PABX with a Yeastar IP system — SingTel SIP trunks, Fanvil door phones,
-                            and the case for upgrading explained.</p>
-                        <div class="guide-footer-meta">
-                            <span>⏱ 18 min read</span>
-                            <span class="badge badge-primary">Telephony</span>
-                        </div>
-                        <span class="btn btn-primary">Read Guide &rarr;</span>
-                    </div>
-                </a>
-
-                <a href="/resources/guides/security-renovation-guide.html" class="guide-card-link">
-                    <div class="card">
-                        <img src="/images/resources/guides/renovation/hero-security-renovation.webp"
-                            alt="Security Planning During Renovation Guide"
-                            class="guide-card-img">
-                        <div class="guide-meta">
-                            <span class="meta-author">✍️ Ler Wee Meng, <span class="sv-years-experience"></span> yrs</span>
-                            <span class="meta-update">● Updated May 2026</span>
-                        </div>
-                        <h3>Security Planning During Renovation</h3>
-                        <p>The only time to plan without compromise is before the walls close — conduit routes, M&amp;E
-                            schedules, and what mistakes cost to fix later.</p>
-                        <div class="guide-footer-meta">
-                            <span>⏱ 18 min read</span>
-                            <span class="badge badge-primary">Renovation Planning</span>
-                        </div>
-                        <span class="btn btn-primary">Read Guide &rarr;</span>
-                    </div>
-                </a>
-
-                <a href="/resources/guides/how-to-evaluate-security-contractor.html" class="guide-card-link">
-                    <div class="card">
-                        <img src="/images/resources/guides/contractor/hero-evaluate-contractor.webp"
-                            alt="How to Evaluate a Security Contractor in Singapore"
-                            class="guide-card-img">
-                        <div class="guide-meta">
-                            <span class="meta-author">✍️ Ler Wee Meng, <span class="sv-years-experience"></span> yrs</span>
-                            <span class="meta-update">● Updated May 2026</span>
-                        </div>
-                        <h3>How to Evaluate a Security Contractor</h3>
-                        <p>PSIA licensing, reading a quotation, site assessment standards, red flags in proposals, and
-                            what a proper handover looks like.</p>
-                        <div class="guide-footer-meta">
-                            <span>⏱ 20 min read</span>
-                            <span class="badge badge-primary">Buyer's Guide</span>
-                        </div>
-                        <span class="btn btn-primary">Read Guide &rarr;</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="text-center mt-48">
-                <a href="/resources/guides/" class="btn btn-secondary">View All 9 Guides &rarr;</a>
-            </div>
+      </div>
+      <div class="res-intro-item">
+        <span class="res-intro-icon">🏢</span>
+        <div>
+          <h4>Facility Managers &amp; MCSTs</h4>
+          <p>Use the property-specific checklists to assess your estate and build the case for an upgrade. Use the calculators for budget planning before AGMs or board approval.</p>
         </div>
-    </section>
-
-    <!-- SECTION 2: CHECKLISTS -->
-    <section id="checklists" class="sv-section-grey">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow">Assessment Tools</span>
-                <h2>Planning Checklists</h2>
-                <p class="subtitle">Interactive scored assessments that tell you where your security setup stands — before you speak to anyone. Each checklist takes 10–15 minutes and produces a gap analysis specific to your property type.</p>
-            </div>
-
-            <div class="grid-3">
-                <a href="/resources/checklists/commercial-security-checklist.html" class="rel-card">
-                    <h3>Commercial Security Planning</h3>
-                    <p>For offices, retail units, hotels, and commercial buildings. Assess access control, CCTV, visitor
-                        management, alarms, and system integration.</p>
-                    <div class="rel-card-footer">Start Assessment → 31 questions</div>
-                </a>
-                <a href="/resources/checklists/mcst-checklist.html" class="rel-card">
-                    <h3>MCST Estate Security Upgrade</h3>
-                    <p>For MCST councils and managing agents. Covers access control, intercom, CCTV, vehicle systems,
-                        and AGM readiness.</p>
-                    <div class="rel-card-footer">Start Assessment → 28 questions</div>
-                </a>
-                <a href="/resources/checklists/institutional-security-checklist.html" class="rel-card">
-                    <h3>Institutional Security Planning</h3>
-                    <p>For schools, government offices, statutory boards, and community facilities. Includes emergency
-                        response and compliance audit trail.</p>
-                    <div class="rel-card-footer">Start Assessment → 29 questions</div>
-                </a>
-                <a href="/resources/checklists/care-facility-checklist.html" class="rel-card">
-                    <h3>Care Facility Security Planning</h3>
-                    <p>For nursing homes, senior day care, and specialist care centres. Covers safe-zone monitoring,
-                        staff alerts, and MOH compliance.</p>
-                    <div class="rel-card-footer">Start Assessment → 28 questions</div>
-                </a>
-                <a href="/resources/checklists/dormitory-checklist.html" class="rel-card">
-                    <h3>Dormitory Security &amp; Compliance</h3>
-                    <p>For MOM-licensed worker dormitories. Covers entry throughput, movement tracking, and MOM
-                        compliance reporting.</p>
-                    <div class="rel-card-footer">Start Assessment → 27 questions</div>
-                </a>
-                <a href="/resources/checklists/intercom-checklist.html" class="rel-card">
-                    <h3>Intercom System Health Check</h3>
-                    <p>For any property with an existing intercom. Assess age, spare parts risk, feature gaps, and
-                        integration readiness.</p>
-                    <div class="rel-card-footer">Start Assessment → 26 questions</div>
-                </a>
-            </div>
-
-            <div class="text-center mt-16">
-                <a href="/resources/checklists/" class="btn btn-secondary">Browse All Checklists →</a>
-            </div>
+      </div>
+      <div class="res-intro-item">
+        <span class="res-intro-icon">📐</span>
+        <div>
+          <h4>Architects &amp; Consultants</h4>
+          <p>Use the technical guides for system specification depth. Use the product library for datasheets and installation manuals during design and construction phases.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- SECTION 3: CALCULATORS -->
-    <section id="tools" class="section-padding">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow">Sizing &amp; Budget Tools</span>
-                <h2>Planning Calculators</h2>
-                <p class="subtitle">Estimate bandwidth, storage, camera coverage, system costs, and more — before you enquire. All figures are indicative. A site survey gives you the accurate number.</p>
-            </div>
+<!-- ═══ SECTION 2 — RESOURCE ROWS (white) ═══ -->
+<section class="sv-section-white">
+  <div class="container">
+    <span class="eyebrow">Browse by Resource Type</span>
+    <h2>Choose Where to Start</h2>
 
-            <div class="grid-4">
-                <a href="/resources/calculators/cctv-storage-bandwidth-calculator.html" class="card text-center">
-                    <h3 class="vid-title">CCTV Bandwidth &amp; Storage Calculator</h3>
-                    <p>Calculate recording bandwidth, NVR storage required, and how long your recorder will last — set all cameras at once.</p>
-                </a>
-                <a href="/resources/calculators/cctv-camera-coverage-calculator.html" class="card text-center">
-                    <h3 class="vid-title">Camera Coverage Calculator</h3>
-                    <p>Find out how many cameras your site needs. See detection, recognition, and identification coverage zones for each camera.</p>
-                </a>
-                <a href="/resources/calculators/cctv-system-cost-calculator.html" class="card text-center">
-                    <h3 class="vid-title">CCTV System Cost Calculator</h3>
-                    <p>Get a budgetary estimate for a CCTV system — recorder, cameras, and storage. Supply, installation, and programming included.</p>
-                </a>
-                <a href="/resources/calculators/access-control-cost-calculator.html" class="card text-center">
-                    <h3 class="vid-title">Door Access Control Cost Calculator</h3>
-                    <p>Estimate the cost of a door access system — card+PIN, face recognition, or video intercom. Supply and installation included.</p>
-                </a>
-            </div>
+    <!-- ── Technical Guides ── -->
+    <div class="res-row" style="--row-colour: #0056b3; margin-top: 40px;">
+      <div class="res-row-img">
+        <img src="/images/resources/guides/alarm/burglar-alarm-guide-singapore-rel.webp"
+             alt="Technical security guides written by Securevision engineers">
+        <div class="res-row-img-overlay"></div>
+        <span class="res-row-cat">Technical Guides</span>
+      </div>
+      <div class="res-row-body">
+        <h2 class="res-row-title">Technical Guides — In-Depth System Knowledge</h2>
+        <p class="res-row-desc">Nine comprehensive guides covering every security system Securevision installs — burglar alarms, CCTV, door access control, intercoms, auto gates, network infrastructure, and IP telephony. Each guide is written by Wee Meng Ler from direct installation experience, not sourced from manufacturer marketing material. They cover how a system works, how to specify one correctly, what to watch out for, and what questions to ask before buying. The renovation planning guide and contractor evaluation guide are essential reading before any significant security investment.</p>
+        <div class="res-row-who">
+          <strong>Best for:</strong> Anyone making a security decision for the first time, or needing to specify a system with confidence. Homeowners planning a new home, architects designing security into a project, managers preparing a board paper, or MCST committees evaluating upgrade proposals.
         </div>
-    </section>
-
-    <!-- SECTION 4: PRODUCT LIBRARY -->
-    <section id="library" class="section-padding sv-section-grey">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow">Manufacturer Resources</span>
-                <h2>Product Documentation Library</h2>
-                <p>Installation manuals, quick-start guides, and datasheets for the systems we supply and support.
-                    Documents open directly — no login required.</p>
-            </div>
-
-            <div class="filter-row">
-                <button class="filter-btn active" onclick="filterLibrary('all', this)">All</button>
-                <button class="filter-btn" onclick="filterLibrary('alarm', this)">Burglar Alarm</button>
-                <button class="filter-btn" onclick="filterLibrary('cctv', this)">CCTV</button>
-                <button class="filter-btn" onclick="filterLibrary('access', this)">Door Access</button>
-                <button class="filter-btn" onclick="filterLibrary('intercom', this)">Intercom</button>
-                <button class="filter-btn" onclick="filterLibrary('gates', this)">Gates &amp; Barriers</button>
-                <button class="filter-btn" onclick="filterLibrary('telephony', this)">IP Telephony</button>
-                <button class="filter-btn" onclick="filterLibrary('hardware', this)">Door Hardware</button>
-                <button class="filter-btn" onclick="filterLibrary('platform', this)">Platform</button>
-            </div>
-
-            <!-- ── BURGLAR ALARM ─────────────────────────────────────── -->
-            <div class="lib-category" data-cat="alarm">
-                <h3 class="lib-cat-heading">Burglar Alarm</h3>
-                <div class="grid-4">
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">RISCO</div>
-                        <p class="lib-brand-desc">Wired &amp; wireless intrusion detection. LightSYS2, Agility, and ProSYS Plus series.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">LightSYS2 User Manual</span>
-                            <span class="download-meta">PDF · Installation &amp; programming</span>
-                            <a href="/resources/library/risco-lightsys2-user-manual.pdf" class="download-btn" target="_blank">Download ↓</a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">Other models</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">AJAX</div>
-                        <p class="lib-brand-desc">Wireless security systems. Hub, Hub 2 Plus, MotionProtect, DoorProtect, and KeyPad series.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">Hub Plus User Manual</span>
-                            <span class="download-meta">PDF · Installation &amp; setup</span>
-                            <a href="/resources/library/ajax-hub-plus-user-manual.pdf" class="download-btn" target="_blank">Download ↓</a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">Hub Plus Brochure</span>
-                            <span class="download-meta">PDF · Product overview</span>
-                            <a href="/resources/library/ajax-hub-plus-brochure.pdf" class="download-btn" target="_blank">Download ↓</a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">MotionProtect User Manual</span>
-                            <span class="download-meta">PDF · Installation &amp; setup</span>
-                            <a href="/resources/library/ajax-motionprotect-user-manual.pdf" class="download-btn" target="_blank">Download ↓</a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">MotionProtect Brochure</span>
-                            <span class="download-meta">PDF · Product overview</span>
-                            <a href="/resources/library/ajax-motionprotect-brochure.pdf" class="download-btn" target="_blank">Download ↓</a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">DoorProtect User Manual</span>
-                            <span class="download-meta">PDF · Installation &amp; setup</span>
-                            <a href="/resources/library/ajax-doorprotect-user-manual.pdf" class="download-btn" target="_blank">Download ↓</a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">DoorProtect Contact Sheet</span>
-                            <span class="download-meta">PDF · Wiring reference</span>
-                            <a href="/resources/library/ajax-doorprotect-contact.pdf" class="download-btn" target="_blank">Download ↓</a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">KeyPad User Manual</span>
-                            <span class="download-meta">PDF · Installation &amp; setup</span>
-                            <a href="/resources/library/ajax-keypad-user-manual.pdf" class="download-btn" target="_blank">Download ↓</a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">Wireless KeyPad Guide</span>
-                            <span class="download-meta">PDF · Installation &amp; setup</span>
-                            <a href="/resources/library/ajax-keypad-wireless.pdf" class="download-btn" target="_blank">Download ↓</a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">StreetSiren User Manual</span>
-                            <span class="download-meta">PDF · Installation &amp; setup</span>
-                            <a href="/resources/library/ajax-streetsiren-user-manual.pdf" class="download-btn" target="_blank">Download ↓</a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">SpaceControl Keyfob Guide</span>
-                            <span class="download-meta">PDF · Product guide</span>
-                            <a href="/resources/library/ajax-spacecontrol-keyfob.pdf" class="download-btn" target="_blank">Download ↓</a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">Panic Button Brochure</span>
-                            <span class="download-meta">PDF · Product overview</span>
-                            <a href="/resources/library/ajax-panic-button-brochure.pdf" class="download-btn" target="_blank">Download ↓</a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">Full Product Brochure</span>
-                            <span class="download-meta">PDF · Range overview</span>
-                            <a href="/resources/library/ajax-product-brochure.pdf" class="download-btn" target="_blank">Download ↓</a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">Other models</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">DSC</div>
-                        <p class="lib-brand-desc">PowerSeries Neo wired and wireless alarm panels. Supported for existing installations.</p>
-                        <span class="lib-badge lib-badge--support">Supported</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">PARADOX</div>
-                        <p class="lib-brand-desc">Spectra and Magellan alarm systems. Supported for existing installations.</p>
-                        <span class="lib-badge lib-badge--support">Supported</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">GE CADDX</div>
-                        <p class="lib-brand-desc">NX series panels. No longer sold — archived for existing owners. Ask us about a replacement assessment.</p>
-                        <span class="lib-badge lib-badge--legacy">Legacy</span>
-                        <div class="download-item">
-                            <span class="download-name">NX-8V2 Installation Manual</span>
-                            <span class="download-meta">PDF · Programming &amp; installation</span>
-                            <a href="/resources/library/ge-caddx-nx8v2-installation-manual.pdf" class="download-btn" target="_blank">Download ↓</a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">Considering a replacement?</span>
-                            <span class="download-meta">We can assess and recommend</span>
-                            <a href="/contact.html" class="download-btn">Enquire &rarr;</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ── CCTV & SURVEILLANCE ──────────────────────────────── -->
-            <div class="lib-category" data-cat="cctv">
-                <h3 class="lib-cat-heading">CCTV &amp; Surveillance</h3>
-                <div class="grid-4">
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">HIKVISION</div>
-                        <p class="lib-brand-desc">IP cameras, NVRs, ColorVu, AcuSense, and DeepinView series. Our primary CCTV brand.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">MILESIGHT</div>
-                        <p class="lib-brand-desc">IP cameras, NVRs, and LPR solutions. Active across commercial and industrial projects.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                </div>
-                <p class="lib-footnote">We also work with Dahua, Uniview, and Hanwha on selected projects.
-                    <a href="/contact.html">Contact us</a> if you need documentation for these brands.</p>
-            </div>
-
-            <!-- ── DOOR ACCESS ──────────────────────────────────────── -->
-            <div class="lib-category" data-cat="access">
-                <h3 class="lib-cat-heading">Door Access Control</h3>
-                <div class="grid-4">
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">ZKTECO</div>
-                        <p class="lib-brand-desc">Face recognition, card, and biometric access controllers. SpeedFace, InBio, and ProID series.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">MICROENGINE</div>
-                        <p class="lib-brand-desc">Multi-door access control for offices and commercial buildings. xPortal and Plato series.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">ENTRYPASS</div>
-                        <p class="lib-brand-desc">Networked access control for multi-door commercial installations. Platform 1 and N-series.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">SUPREMA</div>
-                        <p class="lib-brand-desc">Enterprise biometric access. FaceStation, BioStation, and BioStar 2 platform.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">HID</div>
-                        <p class="lib-brand-desc">Access card readers and credentials. ProxPoint, Signo, and iCLASS series.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ── INTERCOM & VIDEO ENTRY ───────────────────────────── -->
-            <div class="lib-category" data-cat="intercom">
-                <h3 class="lib-cat-heading">Intercom &amp; Video Entry</h3>
-                <div class="grid-4">
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">AKUVOX</div>
-                        <p class="lib-brand-desc">IP video intercoms for condominiums and commercial buildings. R-series door phones and SmartPlus platform.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">AIPHONE</div>
-                        <p class="lib-brand-desc">Established intercom brand. JOS video series for residential, GT series for condominiums and apartments.</p>
-                        <span class="lib-badge lib-badge--legacy">Legacy</span>
-                        <div class="download-item">
-                            <span class="download-name">TC-M Series Guide</span>
-                            <span class="download-meta">PDF · Installation reference</span>
-                            <a href="/resources/library/aiphone-tc-m-series.pdf" class="download-btn" target="_blank">Download ↓</a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">LEF Series Guide</span>
-                            <span class="download-meta">PDF · Installation reference</span>
-                            <a href="/resources/library/aiphone-lef-series.pdf" class="download-btn" target="_blank">Download ↓</a>
-                        </div>
-                        <div class="download-item">
-                            <span class="download-name">Other models</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">KOCOM</div>
-                        <p class="lib-brand-desc">Audio intercom for HDB and older residential installations. Serviced for existing owners.</p>
-                        <span class="lib-badge lib-badge--legacy">Legacy</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ── AUTO GATES & BARRIERS ────────────────────────────── -->
-            <div class="lib-category" data-cat="gates">
-                <h3 class="lib-cat-heading">Auto Gates &amp; Barriers</h3>
-                <div class="grid-4">
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">MAG</div>
-                        <p class="lib-brand-desc">Swing and sliding gate motors, and our primary car park barrier brand.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">DORMER</div>
-                        <p class="lib-brand-desc">Concealed swing gate motors for landed homes and private estates.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">FAAC</div>
-                        <p class="lib-brand-desc">Italian-engineered swing and sliding gate motors. 415, 746, and 844 series.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ── IP TELEPHONY ─────────────────────────────────────── -->
-            <div class="lib-category" data-cat="telephony">
-                <h3 class="lib-cat-heading">IP Telephony</h3>
-                <div class="grid-4">
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">YEASTAR</div>
-                        <p class="lib-brand-desc">IP PBX systems for offices. S20, S50, and P-Series with SIP trunk support and Linkus mobile app.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">FANVIL</div>
-                        <p class="lib-brand-desc">SIP desk phones and door intercoms. X-series handsets and i-series door units.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">YEALINK</div>
-                        <p class="lib-brand-desc">SIP desk phones. Supported for existing installations.</p>
-                        <span class="lib-badge lib-badge--support">Supported</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">PANASONIC KEYPHONE</div>
-                        <p class="lib-brand-desc">KX-TES and KX-TA PBX series. No longer sold — serviced and supported for existing owners.</p>
-                        <span class="lib-badge lib-badge--legacy">Legacy</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ── DOOR HARDWARE & EM LOCKS ─────────────────────────── -->
-            <div class="lib-category" data-cat="hardware">
-                <h3 class="lib-cat-heading">Door Hardware &amp; EM Locks</h3>
-                <div class="grid-4">
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">EBELCO</div>
-                        <p class="lib-brand-desc">Electromagnetic locks, drop bolts, and door hardware. Primary EM lock brand across our access control installations.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">VIRO</div>
-                        <p class="lib-brand-desc">Electric locks and outdoor gate hardware for residential and light commercial applications.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">Documentation on request</span>
-                            <span class="download-meta">Contact us with your model number</span>
-                            <a href="/contact.html" class="download-btn">Request &rarr;</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- ── PLATFORM & MANAGEMENT ────────────────────────────── -->
-            <div class="lib-category" data-cat="platform">
-                <h3 class="lib-cat-heading">Platform &amp; Management</h3>
-                <div class="grid-4">
-
-                    <div class="card lib-brand-card">
-                        <div class="brand-label">VESTA</div>
-                        <p class="lib-brand-desc">Integrated security management platform for condominiums and managed estates. Access, CCTV, and visitor management in one system.</p>
-                        <span class="lib-badge lib-badge--active">Active</span>
-                        <div class="download-item">
-                            <span class="download-name">Platform overview</span>
-                            <span class="download-meta">Contact us to arrange a demonstration</span>
-                            <a href="/contact.html" class="download-btn">Enquire &rarr;</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
+        <div class="res-row-stats">
+          <span class="res-row-stat">📖 9 guides</span>
+          <span class="res-row-stat">⏱ 16–30 min reads</span>
+          <span class="res-row-stat">✍️ Expert-authored</span>
+          <span class="res-row-stat">🔄 Regularly updated</span>
         </div>
-    </section>
-
-    <!-- SECTION 5: VIDEO TRAINING -->
-    <section id="videos" class="section-padding">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow">Visual Learning</span>
-                <h2>How-To Videos &amp; Training</h2>
-                <p>Step-by-step tutorials from Securevision and manufacturer partners. Watch, learn, and implement.</p>
-            </div>
-
-            <div class="filter-row">
-                <button class="filter-btn active">All Videos</button>
-                <button class="filter-btn">CCTV</button>
-                <button class="filter-btn">Access Control</button>
-                <button class="filter-btn">Alarm</button>
-                <button class="filter-btn">Intercom</button>
-            </div>
-
-            <div class="grid-3">
-                <a href="#" class="guide-card-link">
-                    <div class="card">
-                        <div class="video-thumbnail">
-                            <div class="play-overlay">▶</div>
-                            <span class="vid-badge">12:45</span>
-                            <span class="vid-source">Securevision</span>
-                        </div>
-                        <h3 class="vid-title">Camera Positioning for Maximum Coverage</h3>
-                        <p class="vid-meta">By Wee Meng • CCTV Fundamentals</p>
-                    </div>
-                </a>
-                <a href="#" class="guide-card-link">
-                    <div class="card">
-                        <div class="video-thumbnail">
-                            <div class="play-overlay">▶</div>
-                            <span class="vid-badge">8:30</span>
-                            <span class="vid-source">Hikvision</span>
-                        </div>
-                        <h3 class="vid-title">Access Control Setup: Step by Step</h3>
-                        <p class="vid-meta">Product Tutorial</p>
-                    </div>
-                </a>
-                <a href="#" class="guide-card-link">
-                    <div class="card">
-                        <div class="video-thumbnail video-thumbnail--dark">
-                            <div class="play-overlay play-overlay--audio">🔊</div>
-                            <span class="vid-badge">15:20</span>
-                            <span class="vid-source">NotebookLM</span>
-                        </div>
-                        <h3 class="vid-title">CCTV System Basics: Audio Deep Dive</h3>
-                        <p class="vid-meta">AI-Generated Guide</p>
-                    </div>
-                </a>
-                <a href="#" class="guide-card-link">
-                    <div class="card">
-                        <div class="video-thumbnail">
-                            <div class="play-overlay">▶</div>
-                            <span class="vid-badge">10:15</span>
-                            <span class="vid-source">Akuvox</span>
-                        </div>
-                        <h3 class="vid-title">SmartPlus App Configuration</h3>
-                        <p class="vid-meta">Product Tutorial</p>
-                    </div>
-                </a>
-                <a href="#" class="guide-card-link">
-                    <div class="card">
-                        <div class="video-thumbnail">
-                            <div class="play-overlay">▶</div>
-                            <span class="vid-badge">9:45</span>
-                            <span class="vid-source">Securevision</span>
-                        </div>
-                        <h3 class="vid-title">Reducing False Alarms: Best Practices</h3>
-                        <p class="vid-meta">By Wee Meng • Alarm Systems</p>
-                    </div>
-                </a>
-                <a href="#" class="guide-card-link">
-                    <div class="card">
-                        <div class="video-thumbnail">
-                            <div class="play-overlay">▶</div>
-                            <span class="vid-badge">11:00</span>
-                            <span class="vid-source">ZKTeco</span>
-                        </div>
-                        <h3 class="vid-title">Biometric Reader Installation</h3>
-                        <p class="vid-meta">Product Tutorial</p>
-                    </div>
-                </a>
-            </div>
+        <div class="res-row-footer">
+          <a href="/resources/guides.html" class="btn btn-primary">Browse All Guides →</a>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- SECTION 6: FAQ LIBRARY -->
-    <section id="faq" class="section-padding sv-section-grey">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow">Quick Answers</span>
-                <h2>Frequently Asked Questions</h2>
-                <p>Common questions answered by our team. Can't find what you need? Contact us directly.</p>
-            </div>
-
-            <div class="faq-search-wrap">
-                <input type="text" class="faq-search" placeholder="Search FAQs...">
-                <select class="filter-btn">
-                    <option>All Systems</option>
-                    <option>CCTV</option>
-                    <option>Access Control</option>
-                    <option>Alarm Systems</option>
-                    <option>Intercom</option>
-                </select>
-            </div>
-
-            <div class="faq-hub-grid">
-                <div class="faq-card">
-                    <span class="faq-category">CCTV</span>
-                    <h3>What's the difference between IP cameras and analog CCTV?</h3>
-                    <p>IP cameras transmit digital video over network cables and offer higher resolution (up to 4K),
-                        remote access, and advanced features like motion detection and analytics. Analog cameras use
-                        coaxial cables and offer lower resolution but are more cost-effective for basic monitoring
-                        needs. Most modern installations use IP cameras for flexibility and image quality.</p>
-                </div>
-                <div class="faq-card">
-                    <span class="faq-category">Access Control</span>
-                    <h3>Can I use my smartphone to unlock doors with access control?</h3>
-                    <p>Yes, modern access control systems support mobile credentials via Bluetooth or NFC. You can use
-                        your smartphone as a digital key, eliminating the need for physical cards. This is particularly
-                        useful for visitor management and temporary access grants. The system can also send you
-                        notifications when doors are accessed.</p>
-                </div>
-                <div class="faq-card">
-                    <span class="faq-category">Alarm Systems</span>
-                    <h3>How do I prevent false alarms from my security system?</h3>
-                    <p>False alarms are typically caused by improper sensor placement, pets triggering motion detectors,
-                        or environmental factors. Use pet-immune sensors, ensure proper installation away from air vents
-                        and windows, and train all users on proper arming/disarming procedures. Regular maintenance and
-                        sensor testing also significantly reduce false alarms.</p>
-                </div>
-                <div class="faq-card">
-                    <span class="faq-category">CCTV</span>
-                    <h3>How long does CCTV footage get stored?</h3>
-                    <p>Storage duration depends on your hard drive capacity, camera resolution, and recording settings.
-                        Typical installations store 30–90 days of footage. Using motion-activated recording instead of
-                        continuous recording can extend storage time. Cloud storage options are also available for
-                        longer retention and offsite backup.</p>
-                </div>
-                <div class="faq-card">
-                    <span class="faq-category">Intercom</span>
-                    <h3>Can video intercom systems integrate with my existing access control?</h3>
-                    <p>Yes, most modern IP-based intercom systems can integrate with access control platforms. This
-                        allows you to see visitors on your intercom screen and grant access remotely using the same
-                        credentials as your access control system. Integration creates a seamless visitor management
-                        experience.</p>
-                </div>
-                <div class="faq-card">
-                    <span class="faq-category">CCTV</span>
-                    <h3>Do I need internet for my CCTV system to work?</h3>
-                    <p>No, CCTV systems work independently of internet connectivity. Cameras record to local storage
-                        (NVR/DVR) without internet. However, internet is required for remote viewing on mobile apps and
-                        cloud backup features. For maximum reliability, we recommend local storage with optional cloud
-                        backup.</p>
-                </div>
-            </div>
+    <!-- ── Checklists ── -->
+    <div class="res-row" style="--row-colour: #276749;">
+      <div class="res-row-img">
+        <img src="/images/resources/guides/access/hero-door-access.webp"
+             alt="Security planning checklists for Singapore properties">
+        <div class="res-row-img-overlay"></div>
+        <span class="res-row-cat">Checklists</span>
+      </div>
+      <div class="res-row-body">
+        <h2 class="res-row-title">Planning Checklists — Know Your Gaps Before You Enquire</h2>
+        <p class="res-row-desc">Six interactive scored assessments, each tailored to a specific property type: commercial offices, condominiums (MCST), institutions, care facilities, dormitories, and an intercom system health check. Answer 26–31 questions about your current setup — no technical knowledge required. Each checklist scores your responses and produces a gap analysis by category: perimeter, access control, surveillance, alarm systems, and compliance. The results give you a clear picture of what to address and in what priority before you speak to any contractor.</p>
+        <div class="res-row-who">
+          <strong>Best for:</strong> Facility managers and MCSTs preparing an AGM upgrade proposal. Property owners who want an honest assessment of where their current security falls short. Operations managers reviewing a new site before taking over. Anyone who wants to know what questions to ask before requesting proposals.
         </div>
-    </section>
-
-    <!-- SECTION 7: FOR PROFESSIONALS -->
-    <section id="trade" class="section-padding">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow">Professional Tools</span>
-                <h2>For Trade &amp; Professionals</h2>
-                <p>Templates, compliance guides, and professional resources for architects, consultants, and building
-                    managers.</p>
-            </div>
-
-            <div class="notice-box">
-                <span class="notice-icon">🔒</span>
-                <div class="notice-text">
-                    <strong>Light Gating:</strong> Name and email required for downloads. We'll send you updates on new
-                    resources and industry regulations — you can unsubscribe anytime.
-                </div>
-            </div>
-
-            <div class="trade-grid">
-                <div class="trade-category">
-                    <div class="trade-head">
-                        <span class="icon">📋</span>
-                        <h3>AGM Templates</h3>
-                    </div>
-                    <div class="download-item">
-                        <span class="download-name">Security Proposal Template</span>
-                        <span class="download-meta">DOCX • 85KB</span>
-                        <a href="#" class="download-btn">Download Template &darr;</a>
-                    </div>
-                    <div class="download-item">
-                        <span class="download-name">Budget Presentation Slides</span>
-                        <span class="download-meta">PPTX • 1.2MB</span>
-                        <a href="#" class="download-btn">Download Template &darr;</a>
-                    </div>
-                </div>
-                <div class="trade-category">
-                    <div class="trade-head">
-                        <span class="icon">📄</span>
-                        <h3>Tender Documents</h3>
-                    </div>
-                    <div class="download-item">
-                        <span class="download-name">RFP Template</span>
-                        <span class="download-meta">DOCX • 145KB</span>
-                        <a href="#" class="download-btn">Download Template &darr;</a>
-                    </div>
-                    <div class="download-item">
-                        <span class="download-name">Technical Specification Sheets</span>
-                        <span class="download-meta">PDF Bundle • 2.4MB</span>
-                        <a href="#" class="download-btn">Download Specs &darr;</a>
-                    </div>
-                </div>
-                <div class="trade-category">
-                    <div class="trade-head">
-                        <span class="icon">🔒</span>
-                        <h3>Compliance &amp; Regs</h3>
-                    </div>
-                    <div class="download-item">
-                        <span class="download-name">BCA Compliance Checklist</span>
-                        <span class="download-meta">PDF • 180KB</span>
-                        <a href="#" class="download-btn">Download Checklist &darr;</a>
-                    </div>
-                    <div class="download-item">
-                        <span class="download-name">PDPA Guidelines for CCTV</span>
-                        <span class="download-meta">PDF • 220KB</span>
-                        <a href="#" class="download-btn">Download Guide &darr;</a>
-                    </div>
-                </div>
-                <div class="trade-category">
-                    <div class="trade-head">
-                        <span class="icon">🏗️</span>
-                        <h3>Design Tools</h3>
-                    </div>
-                    <div class="download-item">
-                        <span class="download-name">CAD Blocks Library</span>
-                        <span class="download-meta">DWG • 3.5MB</span>
-                        <a href="#" class="download-btn">Download Library &darr;</a>
-                    </div>
-                    <div class="download-item">
-                        <span class="download-name">Site Survey Checklist</span>
-                        <span class="download-meta">PDF • 95KB</span>
-                        <a href="#" class="download-btn">Download Checklist &darr;</a>
-                    </div>
-                </div>
-                <div class="trade-category">
-                    <div class="trade-head">
-                        <span class="icon">🔧</span>
-                        <h3>Maintenance &amp; Ops</h3>
-                    </div>
-                    <div class="download-item">
-                        <span class="download-name">Preventive Maintenance Schedule</span>
-                        <span class="download-meta">XLSX • 75KB</span>
-                        <a href="#" class="download-btn">Download Schedule &darr;</a>
-                    </div>
-                    <div class="download-item">
-                        <span class="download-name">Service Contract Template</span>
-                        <span class="download-meta">DOCX • 120KB</span>
-                        <a href="#" class="download-btn">Download Template &darr;</a>
-                    </div>
-                </div>
-                <div class="trade-category">
-                    <div class="trade-head">
-                        <span class="icon">💰</span>
-                        <h3>Business Tools</h3>
-                    </div>
-                    <div class="download-item">
-                        <span class="download-name">ROI Calculator</span>
-                        <span class="download-meta">XLSX • 65KB</span>
-                        <a href="#" class="download-btn">Download Calculator &darr;</a>
-                    </div>
-                    <div class="download-item">
-                        <span class="download-name">Case Study Library</span>
-                        <span class="download-meta">PDF Bundle • 4.2MB</span>
-                        <a href="#" class="download-btn">Download Library &darr;</a>
-                    </div>
-                </div>
-            </div>
+        <div class="res-row-stats">
+          <span class="res-row-stat">✅ 6 checklists</span>
+          <span class="res-row-stat">⏱ 10–15 min each</span>
+          <span class="res-row-stat">🏢 Property-specific scoring</span>
+          <span class="res-row-stat">📊 Gap analysis output</span>
         </div>
-    </section>
-
-    <!-- SECTION 8: SUPPORT & CONTACT -->
-    <section id="support" class="section-padding sv-section-grey">
-        <div class="container">
-            <div class="section-header">
-                <span class="eyebrow">Get Help</span>
-                <h2>Expert Support &amp; Contact</h2>
-                <p>Can't find what you need? Our team is here to help. <span class="sv-years-experience"></span> years of experience at your service.</p>
-            </div>
-
-            <div class="grid-4 mt-56">
-                <div class="card text-center">
-                    <span class="card-icon">💬</span>
-                    <h3>Technical Support</h3>
-                    <p>Get help with system configuration, troubleshooting, or technical questions.</p>
-                    <a href="/contact-gateway.html?intent=technical-support" class="btn btn-secondary">Request a Proposal</a>
-                </div>
-                <div class="card text-center">
-                    <span class="card-icon">📞</span>
-                    <h3>Sales Enquiry</h3>
-                    <p>Request a proposal, schedule a site survey, or discuss your requirements.</p>
-                    <a href="/contact-gateway.html?intent=sales-enquiry" class="btn btn-secondary">Request a Proposal</a>
-                </div>
-                <div class="card text-center">
-                    <span class="card-icon">📅</span>
-                    <h3>Book Consultation</h3>
-                    <p>Schedule a site assessment with our engineering team to discuss your requirements.</p>
-                    <a href="/request-site-assessment-singapore.html?intent=resources-consultation" class="btn btn-secondary">Book a Site Assessment</a>
-                </div>
-                <div class="card text-center support-card-wa">
-                    <span class="card-icon">🚨</span>
-                    <h3>Emergency Service</h3>
-                    <p>24/7 emergency support for existing customers. System down? We're here.</p>
-                    <a href="tel:+6593860466" class="btn btn-whatsapp">+65 9386 0466</a>
-                </div>
-            </div>
+        <div class="res-row-footer">
+          <a href="/resources/checklists.html" class="btn btn-primary">Browse All Checklists →</a>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- FINAL CTA -->
-    <section class="cta-section cta-high-impact cta-skyline">
-        <div class="container">
-            <span class="eyebrow-light">Get Started</span>
-            <h2>Need Expert Security Advice?</h2>
-            <p class="subtitle">From technical planning to professional deployment. Let our <span class="sv-years-experience"></span> years of Singapore expertise turn your security goals into reality.</p>
-            <div class="btn-group">
-                <a href="/request-site-assessment-singapore.html?intent=resources-hub" class="btn btn-primary">Book a Site Assessment</a>
-                <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 WhatsApp</a>
-            </div>
-            <p class="cta-trust-note">Police Licence <span class="sv-licence"></span> · <span class="sv-bizsafe"></span> · Serving Singapore Since 2006</p>
+    <!-- ── Calculators ── -->
+    <div class="res-row" style="--row-colour: #553c9a;">
+      <div class="res-row-img">
+        <img src="/images/resources/guides/cctv/hero-cctv.webp"
+             alt="Security system planning calculators for Singapore">
+        <div class="res-row-img-overlay"></div>
+        <span class="res-row-cat">Calculators</span>
+      </div>
+      <div class="res-row-body">
+        <h2 class="res-row-title">Planning Calculators — Size Your System Before You Budget</h2>
+        <p class="res-row-desc">Four interactive tools that answer the most common sizing and budgeting questions before a security installation. Calculate how much NVR storage your cameras will need and how long recordings will last. Find out how many cameras cover your site and what resolution each position needs. Get indicative cost estimates for a CCTV system or a door access control system — broken down by supply, installation, and programming. All figures are Singapore-calibrated. They are indicative, not quoted — a site survey gives you the accurate number, but these tools help you understand scale and prepare a realistic budget before that conversation.</p>
+        <div class="res-row-who">
+          <strong>Best for:</strong> Operations managers and property owners preparing a capital expenditure request. Anyone who wants to understand rough cost before committing time to a site survey. Budget committee members who need a ballpark figure before approving a procurement process.
         </div>
-    </section>
+        <div class="res-row-stats">
+          <span class="res-row-stat">🧮 4 calculators</span>
+          <span class="res-row-stat">⚡ Instant results</span>
+          <span class="res-row-stat">🇸🇬 Singapore-calibrated</span>
+          <span class="res-row-stat">🆓 No login required</span>
+        </div>
+        <div class="res-row-footer">
+          <a href="/resources/calculators.html" class="btn btn-primary">Browse All Calculators →</a>
+        </div>
+      </div>
+    </div>
 
-    <!-- FOOTER -->
-    <footer id="sv-footer"></footer>
+    <!-- ── Product Library ── -->
+    <div class="res-row" style="--row-colour: #dd6b20;">
+      <div class="res-row-img">
+        <img src="/images/resources/guides/network/hero-wifi-network.webp"
+             alt="Security product library — datasheets, manuals and specifications">
+        <div class="res-row-img-overlay"></div>
+        <span class="res-row-cat">Product Library</span>
+      </div>
+      <div class="res-row-body">
+        <h2 class="res-row-title">Product Library — Datasheets, Manuals &amp; Specifications</h2>
+        <p class="res-row-desc">A structured reference library of datasheets, installation manuals, brochures, and product videos for every brand and model Securevision installs in Singapore. Organised across eight system categories — burglar alarm, CCTV, access control, intercom, vehicle management, IP telephony, network infrastructure, and platform management. Each product entry includes key specifications, download links for datasheets and manuals, and where available a product video. Datasheets are hosted directly on this site for fast access. Installation manuals link to Google Drive. This is the right place to look up a specific model, verify a specification, or download documentation for an existing system.</p>
+        <div class="res-row-who">
+          <strong>Best for:</strong> Engineers and installers verifying specifications during design. Facility managers looking up documentation for systems already installed. Architects and consultants specifying products for a project. Existing Securevision customers needing a manual or datasheet post-installation.
+        </div>
+        <div class="res-row-stats">
+          <span class="res-row-stat">📂 8 categories</span>
+          <span class="res-row-stat">🏷️ 35+ brands</span>
+          <span class="res-row-stat">📄 Datasheets &amp; manuals</span>
+          <span class="res-row-stat">🎬 Product videos</span>
+        </div>
+        <div class="res-row-footer">
+          <a href="/resources/library.html" class="btn btn-primary">Browse Product Library →</a>
+        </div>
+      </div>
+    </div>
 
-    <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-        </svg>
-    </a>
+    <!-- ── Training Videos ── -->
+    <div class="res-row" style="--row-colour: #c0392b;">
+      <div class="res-row-img">
+        <img src="/images/resources/guides/telephony/hero-office-telephone.webp"
+             alt="Security system training videos and how-to guides Singapore">
+        <div class="res-row-img-overlay"></div>
+        <span class="res-row-cat">Training Videos</span>
+      </div>
+      <div class="res-row-body">
+        <h2 class="res-row-title">Training Videos — How-To Guides for Your System</h2>
+        <p class="res-row-desc">Step-by-step video guides for Securevision-installed systems — Akuvox SmartPlus app tutorials for residents and managing agents, CCTV system operation guides, burglar alarm walkthroughs, and product tutorials from our manufacturer partners. The Akuvox SmartPlus series covers everything from first-time app setup to managing visitors, changing phones, and what to do when moving out. Videos are produced specifically for Singapore users and recorded by Securevision. The Ajax Hub 2 Plus manufacturer overview is available now; Securevision-produced tutorials are in production and will be published progressively.</p>
+        <div class="res-row-who">
+          <strong>Best for:</strong> Residents moving into a property with an Akuvox SmartPlus intercom who need to get set up quickly. Managing agents handling resident onboarding and account changes. Facility managers who want a quick visual reference for operating their system rather than reading a manual.
+        </div>
+        <div class="res-row-stats">
+          <span class="res-row-stat">🎬 8 SmartPlus tutorials</span>
+          <span class="res-row-stat">📺 Manufacturer videos</span>
+          <span class="res-row-stat">▶ Click-to-play embeds</span>
+          <span class="res-row-stat">🇸🇬 Singapore-produced</span>
+        </div>
+        <div class="res-row-footer">
+          <a href="/resources/training-videos.html" class="btn btn-primary">Browse Training Videos →</a>
+        </div>
+      </div>
+    </div>
 
-    <script src="/nav-footer.js"></script>
-    <script>
-        function filterLibrary(cat, btn) {
-            document.querySelectorAll('#library .filter-btn').forEach(function(b) {
-                b.classList.remove('active');
-            });
-            btn.classList.add('active');
-            document.querySelectorAll('.lib-category').forEach(function(el) {
-                if (cat === 'all' || el.dataset.cat === cat) {
-                    el.classList.remove('lib-hidden');
-                } else {
-                    el.classList.add('lib-hidden');
-                }
-            });
-        }
-    </script>
+    <!-- ── FAQ ── -->
+    <div class="res-row" style="--row-colour: #276749;">
+      <div class="res-row-img">
+        <img src="/images/resources/guides/contractor/hero-evaluate-contractor.webp"
+             alt="Frequently asked questions about security systems in Singapore">
+        <div class="res-row-img-overlay"></div>
+        <span class="res-row-cat">FAQ</span>
+      </div>
+      <div class="res-row-body">
+        <h2 class="res-row-title">FAQ — Common Questions Answered by Our Engineers</h2>
+        <p class="res-row-desc">Twenty-five common questions about security systems in Singapore — answered directly by Securevision's engineering team with Singapore-specific context. Organised across six categories: CCTV and surveillance, burglar alarms, door access control, intercom and video entry, auto gates and vehicle management, and general questions about licensing, installation timelines, and warranties. Each answer links through to relevant calculators, guides, or contact options where the question warrants more detail. The FAQ is structured for Google rich results — many answers surface directly in search without requiring a click-through.</p>
+        <div class="res-row-who">
+          <strong>Best for:</strong> Anyone with a quick specific question before making a decision — homeowners comparing wired vs wireless alarms, facility managers asking about power failure behaviour on access doors, residents asking about CCTV storage duration, or anyone checking that a contractor holds the correct Singapore Police Licence.
+        </div>
+        <div class="res-row-stats">
+          <span class="res-row-stat">💬 25 questions</span>
+          <span class="res-row-stat">📂 6 categories</span>
+          <span class="res-row-stat">🔍 Accordion layout</span>
+          <span class="res-row-stat">⚡ Google rich results</span>
+        </div>
+        <div class="res-row-footer">
+          <a href="/resources/faq.html" class="btn btn-primary">Browse FAQ →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Insights ── -->
+    <div class="res-row" style="--row-colour: #c0392b;">
+      <div class="res-row-img">
+        <img src="/images/resources/guides/renovation/hero-security-renovation.webp"
+             alt="Securevision Insights — security articles for Singapore">
+        <div class="res-row-img-overlay"></div>
+        <span class="res-row-cat">Insights</span>
+      </div>
+      <div class="res-row-body">
+        <h2 class="res-row-title">Insights — Short Articles on Singapore Security Topics</h2>
+        <p class="res-row-desc">A growing library of short-form articles covering Singapore security topics — technology explanations, practical advice for property owners and managers, estate management guidance for MCSTs, industry commentary, and answers to common questions. Written in plain English without jargon. Insights cover the questions that arise between the technical guides: should I repair or replace my system, what does AI analytics actually do on a practical level, how do I get a security upgrade approved at an AGM, what are the MCST's legal obligations for CCTV. New articles published regularly.</p>
+        <div class="res-row-who">
+          <strong>Best for:</strong> Anyone who wants to stay informed on security topics relevant to Singapore property ownership and management. MCSTs navigating legal obligations. Property owners facing a specific decision. Managers looking for practical guidance rather than technical depth.
+        </div>
+        <div class="res-row-stats">
+          <span class="res-row-stat">💡 Growing library</span>
+          <span class="res-row-stat">📰 Regular updates</span>
+          <span class="res-row-stat">🇸🇬 Singapore-focused</span>
+          <span class="res-row-stat">⏱ 5–8 min reads</span>
+        </div>
+        <div class="res-row-footer">
+          <a href="/insights/" class="btn btn-primary">Browse Insights →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ SECTION 3 — CTA (grey) ═══ -->
+<section class="sv-section-grey">
+  <div class="container">
+    <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text-light); margin-bottom: 20px;">All resources are free and require no registration. When you are ready to discuss your specific project, our engineers are available for a free site assessment.</p>
+    <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+      <a href="/request-site-assessment-singapore.html" class="btn btn-primary">Book a Free Site Assessment</a>
+      <a href="https://wa.me/6593860466" class="btn btn-whatsapp">💬 WhatsApp an Engineer</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="sv-footer"></footer>
+<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+  </svg>
+</a>
+<script src="/nav-footer.js"></script>
 </body>
-
 </html>
