@@ -21,9 +21,17 @@
   <link rel="stylesheet" href="/sv-portfolio.css">
   <script src="/site-config.js"></script>
   <style>
-  .portfolio-hero { background-image: url('/images/portfolio/commercial/scape-hero.webp'); }
+  .portfolio-hero { background-image: url('/images/portfolio/commercial/scape-hero.webp');  position: relative; }
   @media (max-width: 768px) {
-    .portfolio-hero { background-image: url('/images/portfolio/commercial/scape-mobile.webp'); background-position: center; }
+    .portfolio-hero { background-image: url('/images/portfolio/commercial/scape-mobile.webp'); background-position: center;  position: relative; }
+  }
+
+  .portfolio-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, rgba(14,26,43,0.72) 0%, rgba(14,26,43,0.45) 60%, rgba(14,26,43,0.3) 100%);
+    z-index: 1;
   }
 </style>
 </head>

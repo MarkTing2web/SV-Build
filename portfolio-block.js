@@ -228,8 +228,8 @@
       category: "data-centres",
       image:    "/images/portfolio/data-centres/fort-st-engineering-rel.webp",
       badge:    "Data Centre",
-      title:    "FORT — ST Engineering",
-      text:     "Security infrastructure for a critical ST Engineering data centre facility in Singapore."
+      title:    "FORT by ST Engineering",
+      text:     "Live-environment access control upgrade across active data hall floors."
     },
 
     /* ── HEALTHCARE ─────────────────────────────────────────────── */

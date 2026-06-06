@@ -70,17 +70,7 @@
       background: linear-gradient(150deg, #0a1220 0%, #1a1030 50%, #0e1a2b 100%);
       padding: 128px 0 80px; position: relative; overflow: hidden;
     }
-    .portfolio-hero::before {
-      content: ''; position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 45% 55% at 90% 30%, rgba(114,9,183,0.2) 0%, transparent 55%),
-        radial-gradient(ellipse 30% 40% at 10% 70%, rgba(114,9,183,0.08) 0%, transparent 50%),
-        repeating-linear-gradient(
-          0deg, transparent 0px, transparent 39px,
-          rgba(255,255,255,0.015) 39px, rgba(255,255,255,0.015) 40px
-        );
-      pointer-events: none;
-    }
+    
     .hero-inner { position: relative; z-index: 1; max-width: 780px; }
 
     .hero-kicker { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 24px; }
@@ -266,9 +256,17 @@
       .footer-grid { grid-template-columns: 1fr; }
     }
     :root { --page-accent: #744210; }
-  .portfolio-hero { background-image: url('/images/portfolio/industrial/sta-compliance-imaging-hero.webp'); }
+  .portfolio-hero { background-image: url('/images/portfolio/industrial/sta-compliance-imaging-hero.webp');  position: relative; }
   @media (max-width: 768px) {
-    .portfolio-hero { background-image: url('/images/portfolio/industrial/sta-compliance-imaging-hero.webp'); background-position: center; }
+    .portfolio-hero { background-image: url('/images/portfolio/industrial/sta-compliance-imaging-hero.webp'); background-position: center;  position: relative; }
+  }
+
+  .portfolio-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, rgba(14,26,43,0.72) 0%, rgba(14,26,43,0.45) 60%, rgba(14,26,43,0.3) 100%);
+    z-index: 1;
   }
 </style>
 </head>
