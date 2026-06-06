@@ -69,6 +69,7 @@ Last updated: 2026-06-06
 - [/insights/how-to-choose-cctv.html](https://www.securevision.com.sg/insights/how-to-choose-cctv.html)
 - [/insights/how-to-choose-multi-door-access.html](https://www.securevision.com.sg/insights/how-to-choose-multi-door-access.html)
 - [/insights/is-my-security-system-still-working.html](https://www.securevision.com.sg/insights/is-my-security-system-still-working.html)
+- [/insights/lpr-vs-rfid-vehicle-access-singapore.html](https://www.securevision.com.sg/insights/lpr-vs-rfid-vehicle-access-singapore.html)
 - [/insights/maintain-burglar-alarm.html](https://www.securevision.com.sg/insights/maintain-burglar-alarm.html)
 - [/insights/maintenance-contract.html](https://www.securevision.com.sg/insights/maintenance-contract.html)
 - [/insights/managing-agents-guide-estate-security-systems.html](https://www.securevision.com.sg/insights/managing-agents-guide-estate-security-systems.html)
