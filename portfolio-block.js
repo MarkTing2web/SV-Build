@@ -10,10 +10,6 @@
        industrial | institutions | managed-living | residential
 
      Pages excluded (no rel image available yet):
-       healthcare/surya-home
-       industrial/sta-compliance-imaging
-       institutions/sengkang-interim-bus-interchange
-       managed-living/scb-worker-dormitory-jalan-papan
 
      Version history:
        v1.0  May 2026   Initial build. All sectors covered.
@@ -244,6 +240,14 @@
 
     /* ── INDUSTRIAL ─────────────────────────────────────────────── */
     {
+      slug:     "/portfolio/industrial/sta-compliance-imaging.html",
+      category: "industrial",
+      image:    "/images/portfolio/industrial/sta-compliance-imaging-rel.webp",
+      badge:    "Industrial",
+      title:    "STA Compliance Imaging",
+      text:     "Securevision helped STA Inspection eliminate manual undercarriage records by building an automated camera system triggered by vehicle entry."
+    },
+    {
       slug:     "/portfolio/industrial/cogent-logistics-hub-cctv.html",
       category: "industrial",
       image:    "/images/portfolio/industrial/cogent-1-logistics-hub-rel.webp",
@@ -310,6 +314,14 @@
 
     /* ── INSTITUTIONS ───────────────────────────────────────────── */
     {
+      slug:     "/portfolio/institutions/sengkang-interim-bus-interchange.html",
+      category: "institutions",
+      image:    "/images/portfolio/institutions/sengkang-interim-bus-interchange-rel.webp",
+      badge:    "Institution",
+      title:    "Sengkang Interim Bus Interchange",
+      text:     "Securevision delivered the design-and-build CCTV system for the LTA Sengkang Interim Bus Interchange under W'Ray — 53 IP cameras, 5 NVRs, and 28-day retention against tender specification."
+    },
+    {
       slug:     "/portfolio/institutions/catholic-centre-waterloo.html",
       category: "institutions",
       image:    "/images/portfolio/institutions/catholic-centre-waterloo-rel.webp",
@@ -359,6 +371,14 @@
     },
 
     /* ── MANAGED LIVING ─────────────────────────────────────────── */
+    {
+      slug:     "/portfolio/managed-living/scb-worker-dormitory-jalan-papan.html",
+      category: "managed-living",
+      image:    "/images/portfolio/managed-living/scb-worker-dormitory-rel.webp",
+      badge:    "Managed Living",
+      title:    "SCB Worker Dormitory",
+      text:     "Securevision installed turnstile access control with ZKTeco SpeedFace terminals and CCTV for SCB's worker dormitory at Jalan Papan."
+    },
     {
       slug:     "/portfolio/managed-living/nursing-hostel-jalan-seh-chuan.html",
       category: "managed-living",
