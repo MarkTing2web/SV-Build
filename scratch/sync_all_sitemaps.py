@@ -56,6 +56,7 @@ html_content = f'''<!DOCTYPE html>
   <meta charset="UTF-8">
   <title>Sitemap | Securevision Singapore</title>
   <link rel="stylesheet" href="/sv-shared.css">
+  <script src="/site-config.js"></script>
 </head>
 <body>
   <nav id="sv-nav"></nav>
