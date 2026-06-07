@@ -48,15 +48,17 @@
 
 ### The CSS Stack (in load order — every page must load in this order)
 ```html
-<link rel="stylesheet" href="/sv-shared.css">       <!-- Global: nav, footer, buttons, typography, hero, CTA -->
-<link rel="stylesheet" href="/sv-systems.css">         <!-- /systems/ pages only -->
-<link rel="stylesheet" href="/sv-solutions.css">       <!-- /solutions/ pages only -->
-<link rel="stylesheet" href="/sv-brands.css">          <!-- /brands/ pages only -->
-<link rel="stylesheet" href="/sv-resources.css">       <!-- /resources/guides/ pages only -->
-<link rel="stylesheet" href="/sv-forms.css">        <!-- Pages with forms only -->
-<script src="/site-config.js"></script>             <!-- Dynamic values: year, licence number, contact -->
+<link rel="stylesheet" href="/sv-shared.css">       <!-- Always required -->
+<link rel="stylesheet" href="/sv-solutions.css">     <!-- /solutions/ pages only -->
+<link rel="stylesheet" href="/sv-systems.css">       <!-- /systems/ pages only -->
+<link rel="stylesheet" href="/sv-brands.css">        <!-- /brands/ pages only -->
+<link rel="stylesheet" href="/sv-portfolio.css">     <!-- /portfolio/ pages only -->
+<link rel="stylesheet" href="/sv-insights.css">      <!-- /insights/ pages only -->
+<link rel="stylesheet" href="/sv-resources.css">     <!-- /resources/ pages only -->
+<link rel="stylesheet" href="/sv-forms.css">         <!-- Pages with forms only -->
+<script src="/site-config.js"></script>              <!-- Always required — dynamic values -->
 ```
-Load only the files relevant to the page type. Most pages only need sv-shared.css + site-config.js.
+Load only the files relevant to the page type. Every page loads sv-shared.css and site-config.js. Load only the section-specific CSS file that matches the page's folder.
 
 ### CSS Responsibility by File
 | What | Where it lives |
@@ -75,9 +77,18 @@ Load only the files relevant to the page type. Most pages only need sv-shared.cs
 
 ### Inline Style Rule
 ```
-ZERO inline <style> blocks are permitted in any HTML page.
-ZERO style="" attributes are permitted except for background-image on hero sections.
-If you believe a style is missing from the CSS files, add a comment <!-- NEEDS CSS: description --> and stop.
+ZERO style="" attributes are permitted in <body> with one exception:
+  stat-bar-fill elements may use style="width:X%" — these are data-driven bar widths.
+
+Background-image on hero sections goes in the <style> block in <head> — NOT as a style= attribute
+on the <header> element itself.
+
+The only permitted <style> block per page contains exactly 3 rules:
+  :root { --page-accent: #0056b3; }
+  .hero-[slug] { background-image: url('...desktop.webp'); }
+  @media (max-width: 768px) { .hero-[slug] { background-image: url('...-mobile.webp'); } }
+
+If a visual effect is needed that has no existing class, add <!-- NEEDS CSS: description --> and stop.
 ```
 
 ---
@@ -151,14 +162,17 @@ If you believe a style is missing from the CSS files, add a comment <!-- NEEDS C
 --c-homes:          #38B000    /* = --c-residential */
 ```
 
-### Page accent colour — set once per page via `:root` override
-Each technical guide page sets its single accent in a minimal `:root` block:
+### Page accent colour — always #0056b3 sitewide
+Every page uses the same accent colour. Do not change this per sector or per page type.
 ```html
 <style>
-  :root { --page-accent: #2b6cb0; } /* example: CCTV blue — only permitted inline style block */
+  :root { --page-accent: #0056b3; }
+  .hero-[slug] { background-image: url('/images/[path]/[slug].webp'); }
+  @media (max-width: 768px) { .hero-[slug] { background-image: url('/images/[path]/[slug]-mobile.webp'); } }
 </style>
 ```
-This is the ONLY permitted `<style>` block in any HTML file.
+The sector colour variables (--c-residential, --c-condos etc.) exist in sv-shared.css for reference
+and potential future use. They are NOT applied as --page-accent on any current page.
 
 ---
 
@@ -178,14 +192,24 @@ This is the ONLY permitted `<style>` block in any HTML file.
 
 ### Section Background Sequence (every multi-section page)
 ```
-Hero:       dark gradient (#0E1A2B → #1a2942) with background image
-Section 2:  white #FFFFFF
-Section 3:  light #F8F9FA
-Section 4:  white #FFFFFF
-Section 5:  light #F8F9FA
-...alternating...
-Final CTA:  dark gradient with background image (cta-skyline or page-specific)
+Hero:        dark overlay via CSS ::before — no inline gradient in HTML
+Trust bar:   white — immediately after hero
+Breadcrumb:  white — immediately after trust bar
+Section 1:   sv-section-grey (#EEF2F7) — first content section is ALWAYS grey
+Section 2:   sv-section-white (#FAFBFC)
+Section 3:   sv-section-grey (#EEF2F7)
+Section 4:   sv-section-white (#FAFBFC)
+...strictly alternating grey/white — never two consecutive same...
+Final CTA:   cta-section cta-high-impact — outside <main>, not part of alternation
 ```
+Use class names sv-section-grey and sv-section-white — never inline background styles.
+Never use inline padding, inline background, or inline colour on section elements.
+
+**The alternation rule is strict:**
+- First content section after breadcrumb is always sv-section-grey
+- Every subsequent section alternates: grey → white → grey → white
+- Never two consecutive sections with the same background
+- The final CTA section (cta-section cta-high-impact) is outside `<main>` and is not counted in the alternation
 
 ---
 
@@ -245,30 +269,32 @@ Contact             → /contact.html
 
 ## 8. HERO SECTION
 
-### Hero class combinations
+### Hero height classes — combine with hero-high-impact and page-specific class
+```
+hero-full      85vh desktop / 480px mobile — homepage only
+hero-standard  65vh desktop / 380px mobile — sector hubs, systems pages, deep-dives, problem pages
+hero-compact   44vh desktop / 280px mobile — persona sub-pages, portfolio, insights, resources
+```
+
+### Hero class combination — 3 classes always required
 ```html
-<!-- Technical guide pages -->
-<header class="hero-high-impact hero-cctv">         <!-- CCTV guide -->
-<header class="hero-high-impact hero-alarm">        <!-- Burglar alarm guide -->
-<header class="hero-high-impact hero-access">       <!-- Door access guide -->
-<header class="hero-high-impact hero-vehicle">      <!-- Auto gate guide -->
+<header class="hero-high-impact hero-standard hero-[slug]">
+```
+- `hero-high-impact` — always present, enables overlay and text layout
+- `hero-standard` or `hero-compact` — sets viewport height (see table above)
+- `hero-[slug]` — page-specific class that matches the slug in the `<style>` block
 
-<!-- Solution pages — 8 sectors -->
-<header class="hero-high-impact hero-res">          <!-- Residential -->
-<header class="hero-high-impact hero-condo">        <!-- Condominiums -->
-<header class="hero-high-impact hero-com">          <!-- Commercial -->
-<header class="hero-high-impact hero-indus">        <!-- Industrial -->
-<header class="hero-high-impact hero-gov">          <!-- Institutions -->
-<header class="hero-high-impact hero-healthcare">   <!-- Healthcare -->
-<header class="hero-high-impact hero-managed">      <!-- Managed Living — NEEDS CSS -->
-<header class="hero-high-impact hero-dc">           <!-- Data Centres — NEEDS CSS -->
+### Background image — in style block only, never inline on element
+```html
+<!-- In <head> style block — correct -->
+<style>
+  :root { --page-accent: #0056b3; }
+  .hero-residential { background-image: url('/images/solutions/hero-solutions/residential.webp'); }
+  @media (max-width: 768px) { .hero-residential { background-image: url('/images/solutions/hero-solutions/residential-mobile.webp'); } }
+</style>
 
-<!-- Systems pages — 5 groups -->
-<header class="hero-high-impact hero-surveillance"> <!-- Premises Security -->
-<header class="hero-high-impact hero-access">       <!-- Entry & Access -->
-<header class="hero-high-impact hero-vehicle">      <!-- Vehicle Management -->
-<header class="hero-high-impact hero-comms">        <!-- Communications — accent: #5a0892 -->
-<header class="hero-high-impact hero-platform">     <!-- Platform & Management -->
+<!-- On the element — WRONG, never do this -->
+<header class="hero-high-impact hero-standard hero-residential" style="background-image: url(...)">
 ```
 
 ### Hero inner structure (standard for technical guides)
@@ -329,7 +355,38 @@ Required on all non-homepage pages. Use `.sv-breadcrumb`. All hrefs must be abso
 
 ---
 
-## 11. AUTHOR BIO STRIP (technical guides and insights)
+
+---
+
+## 11. TRUST BAR
+
+Required on every page except the homepage. Place immediately after the closing `</header>` tag, before the breadcrumb.
+
+```html
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-bar-inner">
+      <span>Police Licensed</span>
+      <span class="trust-divider">|</span>
+      <span class="sv-bizsafe"></span>
+      <span class="trust-divider">|</span>
+      <span><strong class="sv-sites"></strong> Sites Protected</span>
+    </div>
+  </div>
+</div>
+```
+
+**Rules:**
+- Outer class: `trust-bar` — not `sv-trust-bar`
+- Inner class: `trust-bar-inner` — not `trust-flex-inline`
+- Divider class: `trust-divider` — not `divider`, not `sep`
+- Exactly 3 items: Police Licensed · bizSAFE Level 3 · Sites Protected
+- **BCA Registered is never in the trust bar** — it belongs in the footer
+- `sv-bizsafe` is a dynamic class populated by `nav-footer.js` — never write "bizSAFE Level 3" as plain text
+- `sv-sites` must be inside `<strong>` — never a bare span and never a hardcoded number
+- Zero inline `style=` on any element inside the trust bar
+
+## 12. AUTHOR BIO STRIP (technical guides and insights)
 
 ```html
 <div class="author-bio-strip">
@@ -343,7 +400,7 @@ Required on all non-homepage pages. Use `.sv-breadcrumb`. All hrefs must be abso
 
 ---
 
-## 12. FOUNDER CARD (sidebar — technical guides)
+## 13. FOUNDER CARD (sidebar — technical guides)
 
 ```html
 <div class="founder-card">
@@ -361,7 +418,7 @@ Required on all non-homepage pages. Use `.sv-breadcrumb`. All hrefs must be abso
 
 ---
 
-## 13. CTA SECTION (final section — every page)
+## 14. CTA SECTION (final section — every page)
 
 Place OUTSIDE the `.container` / `.rg-layout` wrapper so it stretches full width.
 Do NOT add inline `style=""` attributes — padding and alignment are handled by `.cta-high-impact`.
@@ -380,37 +437,43 @@ Do NOT add inline `style=""` attributes — padding and alignment are handled by
 - `WhatsApp Us` → use `💬 WhatsApp`
 - `WhatsApp an Engineer` → **retained only** in `fc-wa-link` inside the sidebar founder card, and in `aria-label`/`title` attributes of the floating button. Nowhere else.
 
-### Standard final CTA — hot pages (assessment intent)
+### CTA destination URLs
+```
+Primary assessment CTA:  /request-site-assessment-singapore.html?intent=[slug]-cta
+Proposal CTA:            /request-site-assessment-singapore.html?intent=[slug]-proposal
+```
+Note: the old /contact-gateway.html destination is deprecated. Use /request-site-assessment-singapore.html.
+
+### Standard final CTA — hub, systems, deep-dive, problem pages
 ```html
-<!-- FINAL CTA — outside layout wrapper -->
-<section class="cta-section cta-high-impact cta-[PAGE]">
+<section class="cta-section cta-high-impact">
   <div class="container">
     <h2>[CTA Heading]</h2>
     <p class="subtitle">[One supporting sentence]</p>
     <div class="btn-group">
-      <a href="/contact-gateway.html?intent=[page]-assessment" class="btn btn-primary">Book a Site Assessment</a>
-      <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 WhatsApp</a>
+      <a href="/request-site-assessment-singapore.html?intent=[slug]-cta" class="btn btn-primary">Book a Site Assessment</a>
     </div>
     <p class="cta-trust-note">Serving Singapore Since 2006</p>
   </div>
 </section>
 ```
 
-### Alternate final CTA — evaluator/proposal intent
+### Alternate final CTA — proposal intent (persona sub-pages, brands, portfolio, insights)
 ```html
-<!-- FINAL CTA — outside layout wrapper -->
-<section class="cta-section cta-high-impact cta-[PAGE]">
+<section class="cta-section cta-high-impact">
   <div class="container">
     <h2>[CTA Heading]</h2>
     <p class="subtitle">[One supporting sentence]</p>
     <div class="btn-group">
-      <a href="/contact-gateway.html?intent=proposal-request" class="btn btn-primary">Request a Proposal</a>
-      <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 WhatsApp</a>
+      <a href="/request-site-assessment-singapore.html?intent=[slug]-proposal" class="btn btn-primary">Request a Proposal</a>
     </div>
     <p class="cta-trust-note">Serving Singapore Since 2006</p>
   </div>
 </section>
 ```
+A second WhatsApp button inside the CTA btn-group is optional. Use it on guides and insights where
+a conversational entry is natural. Omit it on solution and brand pages where the primary CTA is sufficient.
+The page-type class (cta-property, cta-facilities etc.) is optional — omit if no matching background exists.
 
 ### CTA background classes (from sv-shared.css)
 ```
@@ -426,95 +489,83 @@ Use the persona-group classes above for all new and updated pages.
 
 ---
 
-## 14. FOOTER — FROZEN COMPONENT
+## 15. FOOTER — INJECTED COMPONENT
 
-**Do not modify the footer HTML. Copy it verbatim from the template.**  
-Footer uses `.site-footer` > `.footer-container` > `.footer-grid` structure as defined in `sv-shared.css`.
-
----
-
-## 15. FLOATING WHATSAPP BUTTON
-
-Place just before `</body>` on every page. Class `.sv-wa-float` is in `sv-shared.css`:
+The footer is injected at runtime by `nav-footer.js`. Do not write any footer HTML.
+The only permitted footer HTML on any page is the placeholder:
 ```html
-<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-  </svg>
-</a>
+<footer id="sv-footer"></footer>
 ```
+`nav-footer.js` populates this at runtime with the full footer, JSON-LD LocalBusiness schema,
+and all dynamic values. Never hardcode footer content, address, phone, or links.
 
 ---
 
-## 16. JAVASCRIPT CONVENTIONS
+## 16. FLOATING WHATSAPP BUTTON — INJECTED, NEVER HARDCODE
 
-Vanilla JS only. All scripts in one `<script>` block before `</body>`.
+The WhatsApp floating button is injected at runtime by `nav-footer.js`.
+**Never write `sv-wa-float` HTML in any page.** Never add a standalone WhatsApp anchor before `</body>`.
 
-### Mandatory scripts (every page)
-```javascript
-// Dynamic year
-document.querySelectorAll('.years-since').forEach(el => {
-  el.textContent = new Date().getFullYear() - 2006;
-});
-
-// Mobile menu
-function toggleMobileMenu() {
-  document.getElementById('mobileMenu').classList.toggle('active');
-}
-function toggleSubmenu(id) {
-  const sub = document.getElementById(id);
-  const isOpen = sub.style.display === 'block';
-  document.querySelectorAll('.mobile-submenu').forEach(s => s.style.display = 'none');
-  if (!isOpen) sub.style.display = 'block';
-}
-```
-
-### Technical guide pages also require
-```javascript
-// TOC scroll-spy
-function toggleToc() {
-  document.getElementById('tocList').classList.toggle('active');
-  document.querySelector('.toc-title').classList.toggle('active');
-}
-window.addEventListener('scroll', () => {
-  const sections = document.querySelectorAll('section[id]');
-  const tocLinks = document.querySelectorAll('.toc-list a');
-  let current = '';
-  sections.forEach(section => {
-    if (window.scrollY >= section.offsetTop - 150) current = section.getAttribute('id');
-  });
-  tocLinks.forEach(link => {
-    link.classList.remove('active');
-    if (link.getAttribute('href') === '#' + current) link.classList.add('active');
-  });
-});
-```
+If you see `sv-wa-float` HTML in an existing page, remove it — it is a legacy artefact.
+The button will still appear at runtime via `nav-footer.js`.
 
 ---
 
-## 17. SEO REQUIREMENTS
+## 17. JAVASCRIPT CONVENTIONS
+
+Vanilla JS only. No frameworks (no jQuery, no React, no Alpine).
+
+### Mandatory scripts — loaded via external files, not inline
+```html
+<!-- Always load these two, in this order, last before </body> -->
+<script src="/site-config.js"></script>    <!-- Dynamic values: year, licence, site count -->
+<script src="/nav-footer.js"></script>     <!-- Nav, footer, WhatsApp float, JSON-LD schema -->
+
+<!-- Load these only when the page uses the corresponding injection block -->
+<script src="/systems-block.js"></script>    <!-- When sv-systems-block placeholder is present -->
+<script src="/solutions-block.js"></script>  <!-- When sv-solutions-block placeholder is present -->
+<script src="/portfolio-block.js"></script>  <!-- When sv-portfolio-block placeholder is present -->
+```
+
+**Do not write inline JS for:** nav toggle, mobile menu, dynamic year, dynamic site count,
+dynamic licence number, WhatsApp float, JSON-LD schema. All of these are handled by the
+external files above.
+
+### Page-specific JS
+If a page needs custom JS (e.g. a calculator, a filter, a toggle), write it in a dedicated
+external file `/[section]/[page].js` and load it before `nav-footer.js`. Do not add inline
+`<script>` blocks to HTML pages for general functionality.
+
+---
+
+## 18. SEO REQUIREMENTS
 
 ```html
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>[Page Title] | Securevision Singapore</title>
-<meta name="description" content="[140–160 chars, unique per page]">
-<link rel="canonical" href="https://www.securevision.com.sg/[new-path]">
-<meta property="og:title" content="[Same as title]">
-<meta property="og:description" content="[Same as meta description]">
-<meta property="og:image" content="https://www.securevision.com.sg/images/og-default.jpg">
-<meta property="og:url" content="https://www.securevision.com.sg/[new-path]">
+<title>[Topic] Singapore | Securevision</title>
+<meta name="description" content="[120–160 chars, benefit-led, must include Singapore]">
+<link rel="canonical" href="https://www.securevision.com.sg/[path]">
+<meta property="og:title" content="[Same as title — copy exactly]">
+<meta property="og:description" content="[Same as meta description — copy exactly]">
+<meta property="og:image" content="https://www.securevision.com.sg/images/[section]/hero-[section]/[slug].webp">
+<meta property="og:url" content="https://www.securevision.com.sg/[path]">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Securevision">
 ```
 
-Canonical and og:url must reflect the **new folder-based URL** (e.g. `/solutions/residential.html`, `/insights/maintenance-contract.html`), not the old flat-file names.
+**Title format:** `[Topic] Singapore | Securevision` — Singapore comes before the pipe, not after.
+**Title length:** 50–60 characters.
+**Description length:** 120–160 characters.
+**og:image:** Must be the actual hero image for this page — never `og-default.jpg`.
+**og:title / og:description:** Must match title and description exactly — no variations.
+**Canonical and og:url:** Must be the live absolute URL. Use new canonical paths, not old flat filenames.
 
-One H1 per page only. H1 → H2 → H3 hierarchy must be logical.
+One H1 per page only. H1 → H2 → H3 hierarchy must be logical. Never skip a heading level.
 
 ---
 
-## 18. RESPONSIVE BREAKPOINTS
+## 19. RESPONSIVE BREAKPOINTS
 
 ```css
 /* Desktop default — no query */
@@ -525,9 +576,9 @@ One H1 per page only. H1 → H2 → H3 hierarchy must be logical.
 
 ---
 
-## 19. COMPANY CONSTANTS
+## 20. COMPANY CONSTANTS
 
-Never paraphrase these. Copy exactly.
+Reference table for schema, meta, and non-HTML contexts. Never paraphrase these.
 
 ```
 Company:          Securevision Pte Ltd
@@ -550,21 +601,36 @@ LinkedIn:         https://www.linkedin.com/company/securevision-pte-ltd
 YouTube:          http://www.youtube.com/@securevision
 ```
 
+**In HTML body content, always use dynamic classes — never hardcode these values:**
+
+| Value | Dynamic class | Usage |
+|---|---|---|
+| Police licence number | `sv-licence` | `<span class="sv-licence"></span>` |
+| bizSAFE level | `sv-bizsafe` | `<span class="sv-bizsafe"></span>` |
+| Sites protected count | `sv-sites` | `<strong class="sv-sites"></strong> Sites Protected` |
+| Years in business | `sv-years-business` | `<span class="sv-years-business"></span> years` |
+| Years experience (founder) | `sv-years-experience` | `<span class="sv-years-experience"></span>+ Years Experience` |
+| Current year | `sv-current-year` | `<span class="sv-current-year"></span>` |
+
+All of these are populated at runtime by `site-config.js` and `nav-footer.js`.
+The constants table above is for reference only — do not copy these values directly into HTML body content.
+"Since 2006" and "$2,000 to $6,000" (price ranges) and "2,000 residents" (capacity) as static text are acceptable.
+
 ---
 
-## 20. TEMPLATE REFERENCE TABLE
+## 21. TEMPLATE REFERENCE TABLE
 
 | Page Type | Template File | CSS Files | Instruction File |
 |---|---|---|---|
 | Homepage | (unique — index.html) | sv-shared.css | GLOBAL-INSTRUCTION.md |
-| Sector solution pages | _template-sector-solution.html | sv-shared.css + solutions.css | INSTRUCTION-solution.md |
-| Persona sub-pages | _template-persona-standardized.html | sv-shared.css + solutions.css | INSTRUCTION-persona.md (to create) |
+| Sector solution pages | _template-solution-standard.html | sv-shared.css + sv-solutions.css | INSTRUCTION-solution.md |
+| Persona sub-pages | _template-solution-standard.html (hero-compact) | sv-shared.css + sv-solutions.css | INSTRUCTION-solution.md |
 | Systems hub index | (unique — /systems/index.html) | sv-shared.css + systems.css | GLOBAL-INSTRUCTION.md |
 | Systems detail pages | (unique per system) | sv-shared.css + systems.css | GLOBAL-INSTRUCTION.md |
 | Technical pillar guides | _template-technical-guide.html | sv-shared.css + resources.css | INSTRUCTION-technical-guide.md |
 | Brand pages | _template-brand.html | sv-shared.css + brands.css | INSTRUCTION-brand.md |
-| Portfolio case studies | _template-portfolio.html | sv-shared.css | INSTRUCTION-portfolio.md |
-| Insights articles | _template-insights.html | sv-shared.css | INSTRUCTION-insights.md |
+| Portfolio case studies | _template-portfolio.html | sv-shared.css + sv-portfolio.css | INSTRUCTION-portfolio.md |
+| Insights articles | _template-insights.html | sv-shared.css + sv-insights.css | INSTRUCTION-insights.md |
 | Utility (contact, about) | (unique per page) | sv-shared.css + sv-forms.css | GLOBAL-INSTRUCTION.md |
 | Calculator / tool pages | (unique per tool) | sv-shared.css + sv-resources.css | GLOBAL-INSTRUCTION.md |
 
@@ -614,7 +680,7 @@ Is this a /resources/calculators/[tool].html calculator page?
 
 ---
 
-## 21. URL REFERENCE MAP (old filename → new canonical path)
+## 22. URL REFERENCE MAP (old filename → new canonical path)
 
 | Old filename | New canonical URL |
 |---|---|
@@ -661,7 +727,7 @@ Is this a /resources/calculators/[tool].html calculator page?
 
 ---
 
-## 22. SECTOR TAXONOMY — 8 SECTORS
+## 23. SECTOR TAXONOMY — 8 SECTORS
 
 This is the canonical classification for all Solutions pages, Portfolio pages, and nav labels.
 Every sector has a solution page, a nav entry, and a portfolio filter tab.
@@ -697,7 +763,7 @@ All pages use `--page-accent: #0056b3`. Do not use these to override page-accent
 /solutions/residential/
   new-build.html
   home-upgrade.html
-  architects.html
+  architects-and-designers.html
 
 /solutions/condominiums/
   mcst.html
@@ -711,12 +777,12 @@ All pages use `--page-accent: #0056b3`. Do not use these to override page-accent
 
 /solutions/healthcare/
   aged-care.html
-  hostels.html        ← review: confirm these are eldercare-adjacent
-  dormitories.html    ← MOVE to /solutions/managed-living/ subfolder
+  day-care.html
 
 /solutions/managed-living/
-  dormitories.html    ← migrated from /solutions/healthcare/
-  co-living.html      ← to create
+  dormitories.html
+  hostels.html
+  co-living.html
 
 /solutions/institutions/
   (to create — school, govt-office, defence sub-personas)
@@ -733,7 +799,7 @@ industrial-security-cyrus-tech-park-singapore.html → /portfolio/cyrus-tech-par
 
 ---
 
-## 23. SYSTEMS TAXONOMY — 5 GROUPS
+## 24. SYSTEMS TAXONOMY — 6 GROUPS
 
 This is the canonical classification for all Systems pages, the systems hub index, and nav labels.
 Every group has a detail page. The hub index at /systems/ presents all five.
@@ -741,10 +807,11 @@ Every group has a detail page. The hub index at /systems/ presents all five.
 | # | Nav label | System file | Page accent | What it covers |
 |---|---|---|---|---|
 | 1 | Premises Security | /systems/premises-security.html | #0056b3 | CCTV, AI analytics, burglar alarm, sensors, intrusion detection |
-| 2 | Entry & Access | /systems/entry-access-control.html | #0056b3 | Door access, biometrics, intercom, visitor management |
-| 3 | Vehicle Management | /systems/vehicle-lpr-management.html | #0056b3 | Auto-gates, barriers, LPR, car park management, UHF tags |
-| 4 | Communications | /systems/ip-phone-communications.html | #5a0892 | IP phones, IPPBX (Yeastar), handsets (Fanvil, Yealink) |
-| 5 | Platform & Management | /systems/security-management-platform.html | #0056b3 | VESTA (condos), Milestone/HikCentral (complex sites), ZKTeco CVSecurity (offices) |
+| 2 | Entry & Access Control | /systems/entry-access-control.html | #0056b3 | Door access, biometrics, intercom, visitor management |
+| 3 | Vehicle & LPR Management | /systems/vehicle-lpr-management.html | #0056b3 | Auto-gates, barriers, LPR, car park management, UHF tags |
+| 4 | IP Phone Communications | /systems/ip-phone-communications.html | #0056b3 | IP phones, IPPBX (Yeastar), handsets (Fanvil, Yealink) |
+| 5 | Network Infrastructure | /systems/network-infrastructure.html | #0056b3 | Managed switches, structured cabling, WiFi access points |
+| 6 | Security Management Platform | /systems/security-management-platform.html | #0056b3 | VESTA (condos), Milestone/HikCentral (complex sites), ZKTeco CVSecurity (offices) |
 
 ### Systems page structure (8 sections — consistent across all 5 pages)
 ```
@@ -775,7 +842,8 @@ for networking — it belongs in the capability narrative, not the navigation.
 
 ---
 
-*Securevision Global Design Instruction v3.5 — June 2026*
+*Securevision Global Design Instruction v3.6 — June 2026*
+*Changes from v3.5: Section 2 CSS stack updated — sv-portfolio.css and sv-insights.css added. Section 2 inline style rule clarified — background-image in style block only, stat-bar-fill the only permitted inline. Section 5 page-accent rule updated — always #0056b3 sitewide. Section 6 section alternation updated — sv-section-grey/white class names, EEF2F7/FAFBFC colours, alternation rule explicit. Section 8 hero updated — height class table added (hero-full/standard/compact), background-image moved from inline to style block. Section 11 Trust Bar added as new dedicated section. Section 11a Dynamic Values added. Sections renumbered accordingly. Section 14 Footer updated — injected by nav-footer.js, placeholder only. Section 15 WhatsApp Float updated — injected, never hardcode. Section 16 JS updated — nav-footer.js and site-config.js replace all inline JS. Section 17 SEO updated — title format corrected, og:image must be actual hero path. Section 20 Company Constants updated — dynamic class table added. Section 21 Template table updated — correct filenames, sv-portfolio.css and sv-insights.css added. Section 23 Sector Taxonomy updated — architects-and-designers.html path corrected, managed-living sub-pages corrected. Section 24 Systems Taxonomy updated — Network Infrastructure added as group 5, Platform moved to group 6, count corrected to 6.*
 *Changes from v3.4: Section 7 nav updated — Calculators sub-item added under Resources. Section 20 template table updated — Calculator/tool page type added. Section 20 template selection guide updated — calculator page routing added. Section 21 URL map updated — /resources/calculators/ and /resources/calculators/cctv-storage-bandwidth-calculator.html added.*
 *Changes from v3.3: Section 5 page-accent example corrected (--primary-access → --page-accent). Section 8 hero structure updated — guide heroes use rg-hero-author block, no btn-group. Section 13 overhauled — canonical CTA label table added (3 labels: Book a Site Assessment / Request a Proposal / 💬 WhatsApp), illegal inline styles removed from template, CTA background classes updated to persona-group system (cta-property / cta-facilities / cta-compliance / cta-care), legacy per-page classes deprecated. Section 13 now includes both standard and proposal-intent CTA variants. Section 19 licence number updated to L/PS/001568/2026P.*
 *Changes from v3.2: Section 2 CSS stack updated — sv-guides.css retired, systems.css/solutions.css/brands.css/resources.css added. Template table updated with correct CSS file per page type.*
@@ -815,6 +883,6 @@ DO NOT TOUCH: nav, footer, hero, author bio strip, sidebar, CTA section, any oth
 
 ---
 
-*Securevision Global Design Instruction v3.5 — June 2026*
-*Changes from v3.4 documented above.*
+*Securevision Global Design Instruction v3.6 — June 2026*
+*Changes from v3.5 documented above.*
 *Do not modify without updating version number and date*

@@ -198,8 +198,9 @@
     --text-dark: #1B1F23;
     --text-gray: #333333;
     --text-light: #5F6368;
-    --bg-light: #F8F9FA;
+    --bg-light: #EEF2F7;
     --white: #ffffff;
+    --bg-section-white: #FAFBFC;
     --border-light: #E8EAED;
     /* spacing & layout */
     --spacing-lg: 80px;
@@ -637,6 +638,10 @@ h4 {
     margin-top: 32px !important;
 }
 
+.mt-24 {
+    margin-top: 24px !important;
+}
+
 .section-divider {
     font-weight: 600;
     color: var(--text-dark);
@@ -980,7 +985,7 @@ h4 {
 
 /* BREADCRUMBS */
 .sv-breadcrumb {
-    background: var(--bg-light);
+    background: var(--bg-section-white, #FAFBFC);
     padding: 12px 0;
     border-bottom: 1px solid var(--border-light);
 }
@@ -1198,11 +1203,12 @@ section .subtitle {
    The templates use these classes — do not override with inline styles.
 */
 .sv-section-white {
-    background: var(--white) !important;
+    background: var(--bg-section-white, #FAFBFC) !important;
 }
 
 .sv-section-grey {
     background: var(--bg-light) !important;
+    /* --bg-light is now #EEF2F7 */
 }
 
 /* ── CARD DEFAULTS: light border always present ── */
@@ -1232,8 +1238,22 @@ section .subtitle {
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.9) !important;
-    margin-bottom: 12px;
+    color: rgba(255, 255, 255, 0.70);
+    margin-bottom: 16px;
+    display: block;
+}
+
+/* Hero typography — standardised across all pages.
+   No per-page colour overrides permitted on these elements. */
+.hero-high-impact .eyebrow-light  { color: rgba(255, 255, 255, 0.70); }
+.hero-high-impact .hero-title-main { color: #ffffff; }
+.hero-high-impact .hero-subtitle-main { color: rgba(255, 255, 255, 0.90); }
+.hero-high-impact .hero-trust-note {
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    margin-top: 24px;
     display: block;
 }
 
@@ -1434,69 +1454,76 @@ section .subtitle {
     line-height: 1;
 }
 
-/*
-   CANONICAL TRUST BAR INNER CLASS: .trust-flex-inline
-   This is the single source of truth for the inner trust bar layout.
-   Always use this class inside .sv-trust-bar on all pages.
-   Divider spans use class="sep"
+/* ── TRUST BAR ───────────────────────────────────────────────
+   Quiet credential strip below the hero.
+   3 items: Police Licensed · bizSAFE Level 3 · Sites Protected
+   Canonical outer: .trust-bar
+   Canonical inner: .trust-bar-inner
+   Divider:         .trust-divider
+   Legacy aliases (.sv-trust-bar, .trust-flex-inline, .trust-inner)
+   retained for backward compatibility during transition.
+─────────────────────────────────────────────────────────────── */
+.trust-bar,
+.sv-trust-bar {
+    background: var(--bg-section-white, #FAFBFC);
+    padding: 10px 0;
+    /* No border-bottom — breadcrumb provides the single closing line for the strip */
+    line-height: 1;
+}
 
-   .trust-bar-inner is an alias for forward compatibility.
-   .trust-inner (used in portfolio additions) shares the same spec.
-
-   Font size: 11px desktop / 10px mobile — do NOT increase.
-   This matches the visual weight of the original trust bar.
-*/
-.trust-flex-inline,
 .trust-bar-inner,
+.trust-flex-inline,
 .trust-inner {
     display: flex;
-    justify-content: center;
     align-items: center;
+    column-gap: 20px;
     flex-wrap: nowrap;
-    /* keep on one line — prevents height expansion */
-    column-gap: 24px;
-    font-size: 11px;
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
+    white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
     color: var(--text-light);
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    white-space: nowrap;
-    text-align: center;
+    justify-content: flex-start;
 }
 
-.trust-flex-inline span:not(.sep):not(.divider),
-.trust-bar-inner span:not(.sep):not(.divider),
-.trust-inner span:not(.sep):not(.divider) {
-    white-space: nowrap;
+.trust-bar-inner strong,
+.trust-flex-inline strong,
+.trust-inner strong {
+    color: var(--text-dark);
+    font-weight: 600;
 }
 
-.trust-flex-inline .sep,
-.trust-flex-inline .divider,
+.trust-divider,
 .trust-bar-inner .sep,
-.trust-bar-inner .divider,
+.trust-flex-inline .sep,
 .trust-inner .sep,
+.trust-bar-inner .divider,
+.trust-flex-inline .divider,
 .trust-inner .divider {
     color: var(--border-light);
     font-weight: 400;
     font-size: 14px;
     flex-shrink: 0;
+    padding: 0 4px;
+    user-select: none;
 }
 
-    .trust-flex-inline,
+@media (max-width: 768px) {
     .trust-bar-inner,
+    .trust-flex-inline,
     .trust-inner {
         flex-wrap: wrap;
-        column-gap: 16px;
-        row-gap: 6px;
-        font-size: 10px;
+        column-gap: 12px;
+        row-gap: 4px;
+        font-size: 12px;
+        justify-content: flex-start;
     }
-
-    .trust-flex-inline .sep,
-    .trust-flex-inline .divider,
+    .trust-divider,
     .trust-bar-inner .sep,
-    .trust-bar-inner .divider,
+    .trust-flex-inline .sep,
     .trust-inner .sep,
+    .trust-bar-inner .divider,
+    .trust-flex-inline .divider,
     .trust-inner .divider {
         display: none;
     }
@@ -2583,6 +2610,39 @@ section .subtitle {
     z-index: 5;
 }
 
+/* ── HERO HEIGHT SYSTEM ──────────────────────────────────────
+   Three tiers based on page purpose.
+   Always combine with .hero-high-impact and the page-specific class.
+
+   Homepage:                  hero-full
+   Systems / Solution hubs /
+   Brands index:              hero-standard
+   Portfolio / Insights /
+   Resources / Brand detail /
+   Persona sub-pages:         hero-compact
+─────────────────────────────────────────────────────────────── */
+
+.hero-full {
+    min-height: 85vh;
+    padding: 180px 0 160px;
+}
+
+.hero-standard {
+    min-height: 65vh;
+    padding: 160px 0 120px;
+}
+
+.hero-compact {
+    min-height: 44vh;
+    padding: 130px 0 80px;
+}
+
+@media (max-width: 768px) {
+    .hero-full     { min-height: 480px; padding: 120px 0 100px; }
+    .hero-standard { min-height: 380px; padding: 110px 0 80px; }
+    .hero-compact  { min-height: 280px; padding: 100px 0 60px; }
+}
+
 .hero-title-main {
     color: #ffffff !important;
     font-size: clamp(36px, 5.5vw, 68px) !important;
@@ -2610,21 +2670,31 @@ section .subtitle {
     font-family: 'Montserrat', sans-serif;
 }
 
-/* Master Overlay for All High-Impact Heroes */
+/* Master Overlay for All High-Impact Heroes
+   Three control points — left (text side), mid, right (image side).
+   Defaults: dark left for legibility, light right to show the image.
+   Override per page via :root { --hero-overlay-left: 0.85; } in <style> block. */
 .hero-high-impact::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 0.25) 50%, transparent 100%);
+    inset: 0;
+    background: linear-gradient(
+        105deg,
+        rgba(14, 26, 43, var(--hero-overlay-left, 0.72)) 0%,
+        rgba(14, 26, 43, var(--hero-overlay-mid, 0.45)) 50%,
+        rgba(14, 26, 43, var(--hero-overlay-right, 0.18)) 100%
+    );
     z-index: 1;
 }
 
-/* Increased intensity for complex guides or busy backgrounds */
+/* Increased intensity for pages with very bright hero images */
 .hero-intense-overlay::before {
-    background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 0.6) 50%, rgba(14, 26, 43, 0.4) 100%) !important;
+    background: linear-gradient(
+        105deg,
+        rgba(14, 26, 43, 0.85) 0%,
+        rgba(14, 26, 43, 0.65) 50%,
+        rgba(14, 26, 43, 0.35) 100%
+    ) !important;
 }
 
 

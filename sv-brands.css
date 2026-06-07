@@ -1,7 +1,7 @@
 /* ============================================================
    brands.css
    Securevision — Brands Pages Stylesheet
-   Version: 1.0 — May 2026
+   Version: 1.1 — June 2026
 
    SCOPE: /brands/ pages ONLY — brands hub index and all
    brand detail pages.
@@ -45,6 +45,14 @@
    VERSION HISTORY:
    v1.0  May 2026   Created. Extracted from inline <style> blocks
                     in brands/index.html and all brand detail pages.
+   v1.1  Jun 2026   Typography corrections:
+                    - brand-body-text: font-size 16px → 15px,
+                      line-height 1.8 → 1.7 (standard body spec)
+                    - brand-product-desc: font-size 14px → 13px
+                      (compact card spec; 14px is banned system-wide)
+                    Added Section C-EXT: brand-grid-3 base definition
+                    (class was used on all brand pages but had no base
+                    rule — only a responsive override in sv-shared.css)
    ============================================================ */
 
 
@@ -173,8 +181,8 @@
 /* Standard body paragraph — used in about and why-we-carry sections */
 .brand-body-text {
     font-family: 'Inter', sans-serif;
-    font-size: 16px;
-    line-height: 1.8;
+    font-size: 15px;
+    line-height: 1.7;
     color: var(--text-gray);
     margin-bottom: 24px;
 }
@@ -270,7 +278,7 @@
 /* Product description */
 .brand-product-desc {
     font-family: 'Inter', sans-serif;
-    font-size: 14px;
+    font-size: 13px;
     color: var(--text-gray);
     line-height: 1.6;
     margin-bottom: 20px;
@@ -310,6 +318,35 @@
 }
 
 /* ── END Section C ─────────────────────────────────────────── */
+
+
+/* ============================================================
+   SECTION C-EXT: Brand grid-3 base definition
+   brand-grid-3 is used alongside grid-3 on brand pages.
+   sv-shared.css only has a responsive override for this class;
+   the base rule lives here to avoid relying on an undefined class.
+   ============================================================ */
+
+/* Base: same 3-column layout as grid-3, with brand-specific gap */
+.brand-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+@media (max-width: 992px) {
+    .brand-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .brand-grid-3 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── END Section C-EXT ──────────────────────────────────────── */
 
 
 /* ============================================================
@@ -742,3 +779,290 @@
 }
 
 /* ── END Section H ─────────────────────────────────────────── */
+
+
+/* ============================================================
+   sv-brands.css — SECTION I: Inline Style Extraction
+   Wave 2 CSS Fix — June 2026
+
+   PURPOSE:
+   Extracts repeating inline style patterns found across
+   all 38 brand detail pages and brands/index.html.
+
+   APPEND this block to the END of sv-brands.css,
+   after the final line of Section H (the @media block).
+
+   VERSION: Add to sv-brands.css as v1.1
+   ============================================================ */
+
+
+/* ============================================================
+   SECTION I — Brand Detail Pages: Contact / Distributor Card
+
+   This is the most widespread inline style pattern on the site.
+   Appears on ~30 brand detail pages in this form:
+
+   <div style="display:flex; align-items:center; gap:20px;
+     flex-wrap:wrap; background:#fff; border:1.5px solid #CBD5E0;
+     border-left:4px solid var(--primary-blue); border-radius:10px;
+     padding:20px 24px;">
+     <span style="font-size:24px; flex-shrink:0;">[emoji]</span>
+     <div style="flex:1; min-width:200px;">
+       <p style="font-family:'Montserrat',sans-serif; font-size:13px;
+         font-weight:700; color:var(--text-dark); margin:0 0 4px;">
+       <p style="font-family:'Inter',sans-serif; font-size:13px;
+         color:var(--text-light); margin:0;">
+     </div>
+     <a style="white-space:nowrap; flex-shrink:0;" ...>
+   </div>
+
+   Replace all of the above with:
+
+   <div class="brand-contact-card">
+     <span class="brand-contact-icon">[emoji]</span>
+     <div class="brand-contact-body">
+       <p class="brand-contact-name">[Name]</p>
+       <p class="brand-contact-detail">[Detail]</p>
+     </div>
+     <a href="..." class="btn btn-primary brand-contact-cta">...</a>
+   </div>
+   ============================================================ */
+
+/* Outer card wrapper */
+.brand-contact-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    background: #fff;
+    border: 1.5px solid #CBD5E0;
+    border-left: 4px solid var(--primary-blue);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-top: 12px;
+}
+
+/* Emoji or icon column */
+.brand-contact-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+/* Text body column */
+.brand-contact-body {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Contact name / label */
+.brand-contact-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 4px;
+}
+
+/* Contact detail / address / email */
+.brand-contact-detail {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* CTA button — keeps button from stretching full width */
+.brand-contact-cta {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Section wrapper that contains one or more brand-contact-cards.
+   Replaces: <section style="padding:32px 0;"> wrapping the card block */
+.brand-contact-section {
+    padding: 32px 0;
+}
+
+@media (max-width: 600px) {
+    .brand-contact-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .brand-contact-cta {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/* ============================================================
+   SECTION J — Brands Hub Index: Section Group Layouts
+
+   Replaces inline styles in brands/index.html:
+
+   Section group headings:
+     <h3 style="font-size:36px; margin-bottom:12px; text-align:left;">
+     <p style="margin-left:0; margin-right:auto; color:var(--text-dark);
+       font-size:18px; max-width:600px; text-align:left;">
+     <a style="margin-top:16px;">
+
+   Feature card variants:
+     <div style="border:2px solid var(--primary-blue);
+       background:rgba(0,86,179,0.02);">
+     <span style="background:var(--primary-blue); color:var(--white);
+       margin-bottom:16px; display:inline-block;">
+
+   CTA row:
+     <div style="justify-content:center; margin-top:40px;">
+   ============================================================ */
+
+/* Section group heading — used per technology group */
+.brand-group-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-align: left;
+    color: var(--text-dark);
+}
+
+/* Section group intro paragraph */
+.brand-group-intro {
+    margin-left: 0;
+    margin-right: auto;
+    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    max-width: 650px;
+    text-align: left;
+    line-height: 1.7;
+}
+
+/* CTA link below section group intro */
+.brand-group-cta-link {
+    margin-top: 16px;
+    display: inline-block;
+}
+
+/* Featured / highlighted brand card — blue border variant */
+.brand-featured-card {
+    border: 2px solid var(--primary-blue);
+    background: rgba(0, 86, 179, 0.02);
+    border-radius: var(--border-radius);
+    padding: 32px;
+}
+
+/* Badge inside featured brand card */
+.brand-featured-badge {
+    background: var(--primary-blue);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    display: inline-block;
+}
+
+/* Centred CTA row at bottom of brand group sections */
+.brand-group-cta-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+
+/* ============================================================
+   SECTION K — Brand Detail Pages: SECURE™ Integration Callout
+
+   Replaces the inline-styled dark panel used in the
+   "Why We Carry" section of brand pages:
+
+   <div style="margin-top:40px; background:#0E1A2B;
+     border-radius:12px; padding:32px 40px;
+     display:flex; align-items:flex-start; gap:24px;">
+     <div style="font-size:32px; flex-shrink:0;">[emoji]</div>
+     <div>
+       <p style="font-family:'Montserrat'; font-size:11px;
+         font-weight:700; text-transform:uppercase;
+         letter-spacing:1.5px; color:rgba(255,255,255,0.5);
+         margin-bottom:8px;">SECURE™ Integration</p>
+       <p style="font-family:'Inter'; font-size:15px;
+         color:rgba(255,255,255,0.85); line-height:1.7; margin:0;">
+         [integration text]
+       </p>
+     </div>
+   </div>
+
+   Replace with:
+
+   <div class="brand-integration-callout">
+     <div class="brand-integration-icon">[emoji]</div>
+     <div class="brand-integration-body">
+       <p class="brand-integration-label">SECURE™ Integration</p>
+       <p class="brand-integration-text">[text]</p>
+     </div>
+   </div>
+   ============================================================ */
+
+.brand-integration-callout {
+    margin-top: 40px;
+    background: #0E1A2B;
+    border-radius: 12px;
+    padding: 32px 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.brand-integration-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.brand-integration-body {
+    flex: 1;
+}
+
+.brand-integration-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+
+.brand-integration-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .brand-integration-callout {
+        flex-direction: column;
+        padding: 24px;
+        gap: 16px;
+    }
+    .brand-group-heading {
+        font-size: 26px;
+    }
+    .brand-group-intro {
+        font-size: 16px;
+    }
+}
+
+/* ── END SECTION K ──────────────────────────────────────── */
+

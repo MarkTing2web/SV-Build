@@ -206,7 +206,7 @@
 .step-row > div p {
     color: var(--text-gray);
     font-size: 15px;
-    line-height: 1.65;
+    line-height: 1.7;
     margin: 0;
     flex-grow: 1;
 }
@@ -499,7 +499,7 @@
 }
 
 .pillar-content p {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--text-gray);
     line-height: 1.6;
     margin-bottom: 24px;
@@ -561,7 +561,7 @@
     margin: 48px auto 0;
     font-size: 15px;
     color: var(--text-gray);
-    line-height: 1.8;
+    line-height: 1.7;
     padding: 28px;
     background: var(--bg-light);
     border-radius: 12px;
@@ -646,12 +646,12 @@
 }
 
 .pricing-body li {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--text-gray);
     margin-bottom: 12px;
     position: relative;
     padding-left: 20px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .pricing-body li::before {
@@ -699,7 +699,7 @@
     margin: 24px auto;
     color: var(--text-gray);
     font-size: 15px;
-    line-height: 1.8;
+    line-height: 1.7;
     padding-left: 40px;
 }
 
@@ -974,7 +974,7 @@
 }
 
 .pain-card .problem {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--text-gray);
     margin-bottom: 16px;
     font-style: italic;
@@ -1098,7 +1098,7 @@
 }
 
 .step-content p {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
     color: var(--text-gray);
     text-align: center;
@@ -1112,7 +1112,7 @@
 
 .assessment-content {
     max-width: 900px;
-    line-height: 1.8;
+    line-height: 1.7;
 }
 
 .assessment-split {
@@ -1176,7 +1176,7 @@
 .testimonial-text {
     font-size: 17px;
     color: var(--text-dark);
-    line-height: 1.8;
+    line-height: 1.7;
     font-style: italic;
     margin-bottom: 16px;
 }
@@ -1478,7 +1478,7 @@
 .callout-box p {
     font-size: 16px;
     color: var(--text-gray);
-    line-height: 1.8;
+    line-height: 1.7;
     margin-bottom: 14px;
 }
 
@@ -1546,7 +1546,7 @@
 .section-intro {
     font-size: 17px;
     color: var(--text-gray);
-    line-height: 1.8;
+    line-height: 1.7;
     max-width: 800px;
     margin-bottom: 24px;
 }
@@ -1673,7 +1673,7 @@
     padding: 5px 0 5px 16px;
     position: relative;
     border-top: 1px solid var(--border-light);
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .card-body ul li::before {
@@ -1832,7 +1832,7 @@
 
 /* Used inside .callout-box — tighter spacing variant */
 .callout-box .impact-list li {
-    font-size: 14px;
+    font-size: 13px;
     padding: 8px 0 8px 20px;
 }
 
@@ -2313,7 +2313,7 @@
 }
 
 .feature-box p {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--text-gray);
     margin: 0;
     line-height: 1.6;
@@ -2435,9 +2435,9 @@
 }
 
 .stat-label {
-    font-size: 14px;
+    font-size: 15px;
     color: var(--text-gray);
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 /* ── P10. Trust callout card
@@ -2496,3 +2496,777 @@
 }
 
 /* ── END Section P ──────────────────────────────────────────── */
+/* ============================================================
+   SECTION Q: Solutions Sector Hub — Inline Style Extraction
+   Added June 2026
+
+   Covers recurring inline patterns across all 8 sector hub pages:
+   - .systems-deepdive-card   Deep-dive link card (all 8 pages)
+   - .sol-grid-3              3-column section grid
+   - .sol-grid-4              4-column section grid
+   - .sol-grid-4-auto         Auto-fit 4-col (min 260px)
+   - .sol-card-flush          Card with flush top image
+   - .sol-card-flush-img      Image inside flush card (standard height)
+   - .sol-card-flush-img--lg  Taller image variant
+   - .sol-card-body           Padded body inside flush card
+   - .sol-card-link           CTA link inside flush card
+   - .sol-step-num-lg         Large grey step number (data-centres)
+   - .sol-stat-display        Large accent stat (data-centres)
+   - .sol-checklist-split     2-col checklist/guide download box
+   - .sol-checklist-img       Image column inside checklist split
+   - .sol-badge-grid          4-col compliance badge grid
+   - .sol-badge-item          Individual compliance badge card
+   - .sol-approach-card       Numbered approach step card (industrial)
+   - .sol-approach-num        Numbered label inside approach card
+   - .sol-mistake-list        Risk/mistake list with icon marker
+   - .sol-mistake-item        Individual mistake list item
+   - .sol-mistake-icon        Icon/marker inside mistake item
+   - .sol-section-intro-wrap  Constrained intro paragraph wrapper
+   ============================================================ */
+
+
+/* ── Q1. Systems Deep-Dive Card
+   Full-width link card: image left (340px), text right.
+   Appears on every sector hub page as the deep-dive CTA.
+   The mobile override (flex-direction:column) was previously
+   hardcoded in condominiums.html style block — now lives here. ── */
+
+.systems-deepdive-card {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    background: var(--white, #fff);
+    border-radius: 12px;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--border-light, #E8EAED);
+    transition: box-shadow 0.2s ease;
+}
+
+.systems-deepdive-card:hover {
+    box-shadow: 0 8px 32px rgba(0, 86, 179, 0.10);
+}
+
+.systems-deepdive-card__img {
+    flex: 0 0 340px;
+    height: 240px;
+    overflow: hidden;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.systems-deepdive-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.systems-deepdive-card__body {
+    flex: 1;
+    padding: 20px 20px 20px 0;
+}
+
+.systems-deepdive-card__body h3 {
+    margin: 12px 0 16px;
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.3;
+    color: var(--text-dark);
+}
+
+.systems-deepdive-card__body p {
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.systems-deepdive-card__cta {
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 15px;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .systems-deepdive-card {
+        flex-direction: column;
+    }
+
+    .systems-deepdive-card__img {
+        flex: 0 0 200px;
+        width: 100%;
+        height: 200px;
+    }
+
+    .systems-deepdive-card__body {
+        padding: 0;
+    }
+}
+
+
+/* ── Q2. Section Grids
+   Standard multi-column grids for solution sections.
+   Replace inline display:grid declarations.               ── */
+
+/* 3-column equal grid — gap 32px */
+.sol-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+/* 4-column equal grid — gap 32px */
+.sol-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+/* 4-column auto-fit — wraps at 260px min */
+.sol-grid-4-auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    margin-top: 48px;
+}
+
+/* 2-column equal grid — gap 28px (personas, pillars) */
+.sol-grid-2-pillars {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    margin-top: 48px;
+}
+
+@media (max-width: 900px) {
+    .sol-grid-3,
+    .sol-grid-4,
+    .sol-grid-4-auto,
+    .sol-grid-2-pillars {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .sol-grid-3,
+    .sol-grid-4,
+    .sol-grid-4-auto,
+    .sol-grid-2-pillars {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ── Q3. Flush Card (card with full-bleed top image)
+   Replaces: card card-clickable style="padding:0; overflow:hidden"
+   Used on institutions (3×), commercial (3×), data-centres (3×). ── */
+
+.sol-card-flush {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.sol-card-flush:hover {
+    box-shadow: 0 8px 24px rgba(0, 86, 179, 0.10);
+    transform: translateY(-3px);
+}
+
+/* Standard flush card image — 200px */
+.sol-card-flush-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    flex-shrink: 0;
+}
+
+/* Taller variant — 220px (institutions) */
+.sol-card-flush-img--lg {
+    height: 220px;
+}
+
+.sol-card-body {
+    padding: 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.sol-card-body h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.sol-card-body p {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.sol-card-link {
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: auto;
+}
+
+.sol-card-link:hover {
+    text-decoration: underline;
+}
+
+/* Card contrast — flush cards follow section background rules */
+.sv-section-grey .sol-card-flush {
+    background: var(--white);
+}
+
+.sv-section-white .sol-card-flush {
+    background: var(--bg-light, #EEF2F7);
+}
+
+
+/* ── Q4. Large Step Number
+   Large grey sequential number above card heading.
+   Used on data-centres process steps (01–04).
+   Replaces: style="font-size:40px; font-weight:700;
+             color:#d1d5db; line-height:1; margin-bottom:16px" ── */
+
+.sol-step-num-lg {
+    font-size: 40px;
+    font-weight: 700;
+    color: #d1d5db;
+    line-height: 1;
+    margin-bottom: 16px;
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+}
+
+
+/* ── Q5. Large Stat Display
+   Large accent-coloured stat for proof sections.
+   Replaces: style="font-size:48px; font-weight:700;
+             color:var(--page-accent); font-family:Montserrat"
+   Uses --primary-blue directly (page-accent standardised).  ── */
+
+.sol-stat-display {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.sol-stat-display-label {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+
+/* ── Q6. Checklist Split
+   Two-column box: text/checklist left, image right.
+   Appears on commercial, institutions, healthcare guide download.
+   Replaces: style="background:var(--white); border-radius:24px;
+             padding:60px; display:grid;
+             grid-template-columns:1fr 1fr; gap:60px;
+             align-items:center"                             ── */
+
+.sol-checklist-split {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.sol-checklist-split p {
+    margin-bottom: 28px;
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.sol-checklist-img {
+    text-align: center;
+}
+
+.sol-checklist-img img {
+    max-width: 100%;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.10));
+}
+
+@media (max-width: 768px) {
+    .sol-checklist-split {
+        grid-template-columns: 1fr;
+        padding: 32px;
+        gap: 32px;
+    }
+
+    .sol-checklist-img {
+        display: none;
+    }
+}
+
+
+/* ── Q7. Compliance Badge Grid
+   4-column grid of small bordered badge cards.
+   Appears on institutions and healthcare compliance sections.
+   Replaces: style="display:grid;
+             grid-template-columns:repeat(4,1fr);
+             gap:20px; margin-top:40px"                      ── */
+
+.sol-badge-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.sol-badge-item {
+    padding: 24px;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    background: var(--white);
+}
+
+.sol-badge-item strong {
+    display: block;
+    margin-bottom: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.4;
+}
+
+.sol-badge-item p {
+    font-size: 13px;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .sol-badge-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .sol-badge-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ── Q8. Numbered Approach Card
+   Card with bold numbered label (01. / 02. / 03.) above H3.
+   Used on industrial and commercial approach/process sections.
+   Replaces: style="background:var(--bg-light);
+             border:none; padding:40px"
+             + style="font-family:'Montserrat'; font-weight:800;
+               color:var(--primary-blue); margin-bottom:12px"  ── */
+
+.sol-approach-card {
+    background: var(--bg-light, #EEF2F7);
+    border: none;
+    border-radius: 12px;
+    padding: 40px;
+}
+
+.sol-approach-num {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.sol-approach-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.sol-approach-card p {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Card contrast */
+.sv-section-grey .sol-approach-card {
+    background: var(--white);
+}
+
+.sv-section-white .sol-approach-card {
+    background: var(--bg-light, #EEF2F7);
+}
+
+
+/* ── Q9. Mistake / Risk List
+   Two-column list with coloured warning icon.
+   Used on industrial "common mistakes" section.
+   Replaces: style="list-style:none; padding:0"
+             + style="margin-bottom:16px; display:flex; gap:12px"
+             + style="color:#e11d48; font-weight:bold"       ── */
+
+.sol-mistake-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sol-mistake-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+.sol-mistake-icon {
+    color: #e11d48;
+    font-weight: 700;
+    font-size: 16px;
+    flex-shrink: 0;
+    line-height: 1.7;
+}
+
+
+/* ── Q10. Checklist Tick List
+   Tick list with blue ✓ marker.
+   Used on commercial and institutions checklist sections.
+   Replaces: style="list-style:none; padding:0; margin-bottom:32px"
+             + style="margin-bottom:12px; display:flex; gap:12px"
+             + style="color:var(--primary-blue)"             ── */
+
+.sol-tick-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.sol-tick-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+.sol-tick-icon {
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 15px;
+    flex-shrink: 0;
+    line-height: 1.7;
+}
+
+
+/* ── Q11. Section Intro Wrapper
+   Constrains intro paragraph to readable max-width.
+   Replaces inline max-width:760px / 800px on p or div tags.  ── */
+
+.sol-section-intro {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    max-width: 800px;
+    margin-bottom: 48px;
+}
+
+/* ── Q12. section-intro line-height fix
+   sv-solutions.css Section L defined section-intro at 1.8 —
+   standardised to 1.7 to match site-wide line-height system.  ── */
+
+.section-intro {
+    line-height: 1.7 !important;
+}
+
+
+/* ── Q13. stat-label font size fix
+   stat-label was 14px — raised to 15px per no-14px rule.     ── */
+
+.stat-label {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+
+/* ── Q14. Card contrast — approach and badge cards
+   Ensure correct contrast against section background.         ── */
+
+.sv-section-grey .sol-badge-item {
+    background: var(--white);
+}
+
+.sv-section-white .sol-badge-item {
+    background: var(--bg-light, #EEF2F7);
+    border-color: transparent;
+}
+
+
+/* ── END Section Q ──────────────────────────────────────────── */
+
+/* ── Q15. stat-bar-value colour variants
+   Replaces inline style="color:#0056b3" and style="color:#e53e3e"
+   on stat-bar-value spans in upgrade-intercom-system and similar pages. ── */
+.stat-bar-value--up {
+    color: var(--primary-blue);
+}
+
+.stat-bar-value--down {
+    color: #e53e3e;
+}
+
+/* ============================================================
+   SECTION R: Residual Hub Page Inline Style Extraction
+   Added June 2026
+
+   - .sol-emoji-icon        Emoji block above card text
+   - .sol-numbered-h3       Numbered accent heading in card
+   - .sol-lifecycle-step    Centred lifecycle step column
+   - .sol-lifecycle-emoji   Emoji in lifecycle step
+   - .sol-stat-flex         Flex row of centred stat blocks
+   - .sol-stat-item         Individual stat in flex row
+   - .sol-section-bordered  Section with top/bottom border accent
+   - .sol-constrained       Max-width constrained container block
+   - .sol-split-2col        2-col split layout (text left, content right)
+   - .sol-split-image-card  Full-bleed image+text card in split
+   - .sol-split-card-img    Image inside split card
+   - .sol-split-card-body   Body inside split card
+   - .sol-tick-badge        Blue circle tick badge (institutions/healthcare)
+   - .hero-btn-group-left   Left-aligned btn-group in hero (managed-living fix)
+   ============================================================ */
+
+
+/* ── R1. Emoji icon block
+   Replaces: style="font-size:32px; display:block; margin-bottom:16px;" ── */
+.sol-emoji-icon {
+    font-size: 32px;
+    display: block;
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
+
+/* ── R2. Numbered accent card heading
+   Replaces: h3 style="color:var(--page-accent);"
+   Colour via CSS — no inline colour needed.                  ── */
+.sol-numbered-h3 {
+    color: var(--primary-blue);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+
+/* ── R3. Lifecycle step (centred column)
+   Replaces: style="text-align:center;" on div inside solution-lifecycle ── */
+.sol-lifecycle-step {
+    text-align: center;
+}
+
+.sol-lifecycle-emoji {
+    font-size: 32px;
+    margin-bottom: 16px;
+    display: block;
+    line-height: 1;
+}
+
+/* Fix solution-lifecycle desktop grid — was only 2-col, should be 4-col ── */
+.solution-lifecycle {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 0;
+}
+
+@media (max-width: 900px) {
+    .solution-lifecycle { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+    .solution-lifecycle { grid-template-columns: 1fr; }
+}
+
+
+/* ── R4. Stat flex row (data-centres proof section)
+   Replaces: style="display:flex; justify-content:center; gap:40px;
+             flex-wrap:wrap; margin-bottom:32px;"              ── */
+.sol-stat-flex {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.sol-stat-item {
+    text-align: center;
+}
+
+
+/* ── R5. Bordered section accent
+   Replaces: section style="border-top:1px solid; border-bottom:1px solid"
+   Used on data-centres MAS TRM callout section.              ── */
+.sv-section-grey.sol-bordered {
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+}
+
+
+/* ── R6. Constrained prose block
+   Replaces: style="max-width:800px; margin:0 auto;"
+             style="max-width:860px;" (card)
+             style="max-width:900px;" (container)             ── */
+.sol-constrained {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.sol-constrained-sm {
+    max-width: 860px;
+}
+
+
+/* ── R7. Split 2-col layout (commercial proof section)
+   Replaces: style="display:grid; grid-template-columns:1fr 1fr;
+             gap:80px; align-items:center;"                   ── */
+.sol-split-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.sol-split-2col-tight {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+@media (max-width: 768px) {
+    .sol-split-2col,
+    .sol-split-2col-tight {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
+
+/* ── R8. Image+text card (commercial)
+   Replaces: style="background:#fff; padding:0; border:1px solid;
+             position:relative; overflow:hidden;"             ── */
+.sol-image-card {
+    background: var(--white);
+    padding: 0;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sol-image-card-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.sol-image-card-body {
+    padding: 40px;
+}
+
+.sol-image-card-body h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+/* Card contrast */
+.sv-section-grey .sol-image-card {
+    background: var(--white);
+}
+
+.sv-section-white .sol-image-card {
+    background: var(--bg-light, #EEF2F7);
+}
+
+
+/* ── R9. Tick badge (institutions, healthcare)
+   Replaces: style="background:var(--primary-blue); color:#fff;
+             width:28px; height:28px; border-radius:50%;
+             display:flex; align-items:center; justify-content:center;
+             flex-shrink:0;"                                   ── */
+.sol-tick-badge {
+    background: var(--primary-blue);
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* ── R10. Left-aligned hero btn-group
+   Replaces: style="justify-content:left;" on btn-group       ── */
+.btn-group.btn-group-left {
+    justify-content: flex-start;
+}
+
+
+/* ── END Section R ──────────────────────────────────────────── */
+
+/* ── R11. Guide/cover image — constrained width ── */
+.sol-guide-img { max-width: 300px; width: 100%; }

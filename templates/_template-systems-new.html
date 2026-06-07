@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══ SEO ═══════════════════════════════════════════════════════════
+       TITLE: 50–60 characters. Must include "Singapore" and system type.
+       DESCRIPTION: 120–160 characters. Lead with outcome, end with Singapore.
+       CANONICAL: Absolute URL. Must match og:url exactly.
+       OG:IMAGE: Use the hero desktop image path.
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <title>[System Name] Singapore | [Short descriptor] | Securevision</title>
+  <meta name="description" content="[120–160 chars. Lead with what the visitor gains. End with Singapore. No superlatives.]">
+  <link rel="canonical" href="https://www.securevision.com.sg/systems/[slug].html">
+  <meta property="og:title" content="[System Name] Singapore | [Short descriptor] | Securevision">
+  <meta property="og:description" content="[Same as meta description above]">
+  <meta property="og:url" content="https://www.securevision.com.sg/systems/[slug].html">
+  <meta property="og:image" content="https://www.securevision.com.sg/images/systems/[slug]-singapore.webp">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Securevision">
+
+  <!-- Google Fonts — do not modify -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS stack — load order is mandatory. Do not change. -->
+  <link rel="stylesheet" href="/sv-shared.css">
+  <link rel="stylesheet" href="/sv-systems.css">
+  <script src="/site-config.js"></script>
+
+  <!-- ═══ PAGE-SPECIFIC STYLES ══════════════════════════════════════════
+       ONLY these three rules are permitted in this block.
+       1. --page-accent CSS variable (keep #0056b3 for systems pages)
+       2. Hero desktop background-image
+       3. Hero mobile background-image @media override
+       DO NOT add any other CSS here. Everything else goes in sv-systems.css.
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <style>
+    :root { --page-accent: #0056b3; }
+    .hero-[slug] { background-image: url('/images/systems/[slug]-singapore.webp'); }
+    @media (max-width: 768px) {
+      .hero-[slug] { background-image: url('/images/systems/[slug]-singapore-mobile.webp'); }
+    }
+  </style>
+
+</head>
+<body>
+
+<!-- ═══ NAV — injected by nav-footer.js. Do not add any nav HTML here. ═══ -->
+<nav id="sv-nav"></nav>
+
+<main>
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       S1: HERO
+       hero-high-impact   — overlay and positioning (do not remove)
+       hero-standard      — 65vh height for systems pages (do not change)
+       hero-[slug]        — background image from <style> block above
+       UPDATE: eyebrow, h1, subtitle, trust note text
+       CTA: always "Book a Site Assessment" for systems pages
+  ══════════════════════════════════════════════════════════════════ -->
+  <header class="hero-high-impact hero-standard hero-[slug]">
+    <div class="container">
+      <span class="eyebrow-light">[System category — e.g. "Premises Security" or "Entry & Access"]</span>
+      <h1 class="hero-title-main">[Outcome-focused headline. What does this system do for the visitor?]</h1>
+      <p class="hero-subtitle-main">[One sentence. What this system covers and why it matters for Singapore properties.]</p>
+      <div class="btn-group btn-group-left">
+        <a href="/request-site-assessment-singapore.html?intent=[slug]-assessment" class="btn btn-primary">Book a Site Assessment</a>
+        <a href="https://wa.me/6593860466" class="btn btn-whatsapp-standard">💬 WhatsApp</a>
+      </div>
+      <p class="hero-trust-note">[Short trust line — e.g. "Designing and installing [system type] across Singapore since 2006."]</p>
+    </div>
+  </header>
+
+
+  <!-- ── TRUST BAR ─────────────────────────────────────────────────────
+       3 items only. Do not add or remove items.
+       Dynamic values injected by site-config.js — do not hardcode.
+       No BCA Registered here — it lives in the footer.
+  ──────────────────────────────────────────────────────────────────── -->
+  <div class="trust-bar">
+    <div class="container">
+      <div class="trust-bar-inner">
+        <span>Police Licensed</span>
+        <span class="trust-divider">|</span>
+        <span class="sv-bizsafe"></span>
+        <span class="trust-divider">|</span>
+        <span><strong class="sv-sites"></strong> Sites Protected</span>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ── BREADCRUMB ────────────────────────────────────────────────────
+       UPDATE: last <li> text only. First two items are fixed for systems pages.
+       Last item must NOT be a link.
+  ──────────────────────────────────────────────────────────────────── -->
+  <nav class="sv-breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/systems/">Systems</a></li>
+        <li>[Current page name — no link]</li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       S2: WHAT IT IS — Feature Cards
+       Background: sv-section-grey (first section = always grey)
+       Purpose: Explain what this system group covers. No products yet.
+       Structure: section-header + feature-card grid (2 or 3 cards)
+       Classes: grid-2 or grid-3 + feature-card
+       FULL-WIDTH CARD: Add feature-card--full + sys-integration-panel for
+       an integration point that spans the full width below the grid.
+  ══════════════════════════════════════════════════════════════════ -->
+  <section class="sv-section-grey">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">[Eyebrow — e.g. "What This System Covers"]</span>
+        <h2>[Heading — e.g. "[System Name] Is Not One Thing — It Is Two"]</h2>
+        <p class="section-intro">[1–2 sentences. What this system group contains and why each part matters.]</p>
+      </div>
+
+      <div class="grid-2 sys-grid-wide">
+
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <!-- Replace with appropriate SVG icon -->
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+          </div>
+          <h3>[Sub-system or component name]</h3>
+          <p>[2–3 sentences. What this sub-system does and why it matters.]</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-card-icon">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+          </div>
+          <h3>[Sub-system or component name]</h3>
+          <p>[2–3 sentences.]</p>
+        </div>
+
+      </div>
+
+      <!-- Optional: full-width integration callout below the grid.
+           Remove this div if not needed. -->
+      <div class="feature-card feature-card--full sys-integration-panel">
+        <div class="feature-card-icon">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="10"/>
+          </svg>
+        </div>
+        <h3>[How both sub-systems work together]</h3>
+        <p>[2–3 sentences on integration.]</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       S3: BEFORE / AFTER COMPARISON
+       Background: sv-section-white
+       Purpose: Show the old way vs the Securevision way.
+       Structure: compare-wrap + compare-card negative + compare-card positive
+       + callout-box below
+       Add more compare-wrap blocks for each system pillar if needed.
+  ══════════════════════════════════════════════════════════════════ -->
+  <section class="sv-section-white">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">[Eyebrow — e.g. "System 1 of 2 — [Sub-system name]"]</span>
+        <h2>[Before/After heading — e.g. "From [Old Way] to [New Way]"]</h2>
+        <p class="section-intro">[1–2 sentences on what changed and why it matters.]</p>
+      </div>
+
+      <div class="compare-wrap compare-wrap--inline">
+        <div class="compare-card negative">
+          <h3>[Old approach name]</h3>
+          <ul>
+            <li>[Pain point 1 — specific, not generic]</li>
+            <li>[Pain point 2]</li>
+            <li>[Pain point 3]</li>
+            <li>[Pain point 4]</li>
+            <li>[Pain point 5]</li>
+          </ul>
+        </div>
+        <div class="compare-card positive">
+          <h3>[New approach name]</h3>
+          <ul>
+            <li>[Benefit 1 — mirrors the pain point above]</li>
+            <li>[Benefit 2]</li>
+            <li>[Benefit 3]</li>
+            <li>[Benefit 4]</li>
+            <li>[Benefit 5]</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Callout box: a key insight or factual note below the comparison -->
+      <div class="callout-box">
+        <p class="callout-label">[Callout label — e.g. "The Key Difference"]</p>
+        <p>[2–3 sentences. The engineering or operational insight that makes the new way better.]</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       S4: REAL-LIFE SCENARIOS
+       Background: sv-section-grey
+       Purpose: 4 concrete use cases showing the system in action.
+       Structure: scenario-grid + scenario-card (x4)
+       Each card: icon SVG + strong (title) + p (description)
+  ══════════════════════════════════════════════════════════════════ -->
+  <section class="sv-section-grey">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Operational Reality</span>
+        <h2>[Heading — e.g. "How This System Works in Real Life"]</h2>
+        <p class="section-intro">[1 sentence. What these scenarios illustrate.]</p>
+      </div>
+
+      <div class="scenario-grid">
+
+        <div class="scenario-card">
+          <div class="scenario-icon">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+          </div>
+          <div class="scenario-content">
+            <strong>[Scenario 1 title — e.g. "Resident Returns Home — Fully Automated"]</strong>
+            <p>[3–5 sentences. Walk through exactly what happens step by step. Be specific.]</p>
+          </div>
+        </div>
+
+        <div class="scenario-card">
+          <div class="scenario-icon">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+          </div>
+          <div class="scenario-content">
+            <strong>[Scenario 2 title]</strong>
+            <p>[3–5 sentences.]</p>
+          </div>
+        </div>
+
+        <div class="scenario-card">
+          <div class="scenario-icon">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+          </div>
+          <div class="scenario-content">
+            <strong>[Scenario 3 title]</strong>
+            <p>[3–5 sentences.]</p>
+          </div>
+        </div>
+
+        <div class="scenario-card">
+          <div class="scenario-icon">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+          </div>
+          <div class="scenario-content">
+            <strong>[Scenario 4 title]</strong>
+            <p>[3–5 sentences.]</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       S5: CAPABILITIES GRID
+       Background: sv-section-white
+       Purpose: List what the system enables — specific capabilities.
+       Structure: 2-column grid of capabilities (6–12 items)
+       Classes: grid-2 or grid-3 + capabilities-grid + capabilities-card
+  ══════════════════════════════════════════════════════════════════ -->
+  <section id="capabilities" class="sv-section-white">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">What It Enables</span>
+        <h2>[Heading — e.g. "What This System Enables"]</h2>
+      </div>
+
+      <div class="capabilities-grid">
+        <div class="capabilities-card">
+          <h4>[Capability 1]</h4>
+          <p>[1–2 sentences. Specific to what this system delivers.]</p>
+        </div>
+        <div class="capabilities-card">
+          <h4>[Capability 2]</h4>
+          <p>[1–2 sentences.]</p>
+        </div>
+        <div class="capabilities-card">
+          <h4>[Capability 3]</h4>
+          <p>[1–2 sentences.]</p>
+        </div>
+        <div class="capabilities-card">
+          <h4>[Capability 4]</h4>
+          <p>[1–2 sentences.]</p>
+        </div>
+        <div class="capabilities-card">
+          <h4>[Capability 5]</h4>
+          <p>[1–2 sentences.]</p>
+        </div>
+        <div class="capabilities-card">
+          <h4>[Capability 6]</h4>
+          <p>[1–2 sentences.]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       S6: ARCHITECTURE — Part of the Wider System
+       Background: sv-section-grey
+       Purpose: Show how this system connects to the other 5 groups.
+       CRITICAL: Use arch-grid-3 with H3 tags (not H4).
+       The active card (.arch-active) = current page.
+       All other cards link to their respective system pages.
+       Do NOT change the 6 system names or links.
+  ══════════════════════════════════════════════════════════════════ -->
+  <section class="sv-section-grey">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">The Architecture</span>
+        <h2>Part of a Larger Security Architecture</h2>
+        <p class="section-intro">[1–2 sentences. How this system connects to and depends on the other groups.]</p>
+      </div>
+
+      <div class="arch-grid-3">
+        <!-- Mark the current page with arch-active. Remove the <a> wrapper from the active card. -->
+        <div class="arch-card arch-active">
+          <div class="arch-card-icon">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <circle cx="12" cy="12" r="10"/>
+            </svg>
+          </div>
+          <h3>[This System Name]</h3>
+          <p>[Short label — e.g. "The eyes and nerves of the site"]</p>
+        </div>
+        <a href="/systems/entry-access-control.html" class="arch-card arch-card-link">
+          <div class="arch-card-icon">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="11" width="18" height="11" rx="2"/>
+              <path d="M7 11V7a5 5 0 0110 0v4"/>
+            </svg>
+          </div>
+          <h3>Entry &amp; Access</h3>
+          <p>Controls who enters</p>
+        </a>
+        <a href="/systems/vehicle-lpr-management.html" class="arch-card arch-card-link">
+          <div class="arch-card-icon">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="1" y="3" width="15" height="13" rx="2"/>
+              <path d="M16 8h4l3 5v3h-7V8z"/>
+              <circle cx="5.5" cy="18.5" r="2.5"/>
+              <circle cx="18.5" cy="18.5" r="2.5"/>
+            </svg>
+          </div>
+          <h3>Vehicle Management</h3>
+          <p>Manages vehicle flow</p>
+        </a>
+        <a href="/systems/ip-phone-communications.html" class="arch-card arch-card-link">
+          <div class="arch-card-icon">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.4 10.5 19.79 19.79 0 01.36 1.94 2 2 0 012.33 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.77 7.5a16 16 0 006.73 6.73l.87-.87a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+          </div>
+          <h3>Communications</h3>
+          <p>Connects your team</p>
+        </a>
+        <a href="/systems/network-infrastructure.html" class="arch-card arch-card-link">
+          <div class="arch-card-icon">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <path d="M8 21h8M12 17v4"/>
+            </svg>
+          </div>
+          <h3>IP Network &amp; Infrastructure</h3>
+          <p>The layer everything runs on</p>
+        </a>
+        <a href="/systems/security-management-platform.html" class="arch-card arch-card-link">
+          <div class="arch-card-icon">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18M9 21V9"/>
+            </svg>
+          </div>
+          <h3>Platform &amp; Management</h3>
+          <p>Coordinates all layers</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       S7: GO DEEPER — Resources
+       Background: sv-section-white
+       Purpose: Link to guides, portfolio, and insights relevant to this system.
+       Structure: grid-3 of plain .card elements with group-icon
+  ══════════════════════════════════════════════════════════════════ -->
+  <section class="sv-section-white">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Go Deeper</span>
+        <h2>More Resources on [System Name]</h2>
+      </div>
+
+      <div class="grid-3">
+        <div class="card">
+          <div class="group-icon group-icon--[colour-variant]">
+            <!-- Use: group-icon--surveillance, --access, --vehicle, --comms, --platform, --condos, --commercial, --industrial, --homes, --institutions, --healthcare -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/>
+            </svg>
+          </div>
+          <h3>Technical Guides</h3>
+          <p>[1 sentence on what the guide covers. Written by engineers for property managers.]</p>
+          <a href="/resources/guides/[guide-slug].html" class="group-link">[Guide Name] →</a>
+        </div>
+        <a href="/portfolio/" class="card card-clickable">
+          <div class="group-icon group-icon--[colour-variant]">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <path d="M8 21h8M12 17v4"/>
+            </svg>
+          </div>
+          <h3>Real Projects</h3>
+          <p>[1 sentence on portfolio proof for this system type across Singapore.]</p>
+          <span class="group-link">View All Projects →</span>
+        </a>
+        <a href="/insights/" class="card card-clickable">
+          <div class="group-icon group-icon--[colour-variant]">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <h3>Insights &amp; Articles</h3>
+          <p>[1 sentence on insights relevant to this system type.]</p>
+          <span class="group-link">Browse All Insights →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       S8: IS THIS RIGHT FOR YOU?
+       Background: sv-section-grey
+       Purpose: Help the visitor self-qualify before contacting.
+       Structure: grid-2 with two feature-cards
+         Left card = positive (feature-card) — blue tick markers
+         Right card = neutral (feature-card feature-card--neutral) — grey dash markers
+       + callout-box below for "Not Sure?" or "Solving a Specific Problem?"
+  ══════════════════════════════════════════════════════════════════ -->
+  <section class="sv-section-grey">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Is This Right for You?</span>
+        <h2>Who [System Name] Is For — and When to Start</h2>
+        <p class="section-intro">[1 sentence. Help the visitor self-qualify before contacting.]</p>
+      </div>
+
+      <div class="grid-2 sys-grid-who">
+
+        <!-- Positive card — blue tick markers via CSS. Do NOT add feature-card--neutral here. -->
+        <div class="feature-card">
+          <h3>This Is For You If…</h3>
+          <ul>
+            <li>[Qualifying situation 1 — specific to this system]</li>
+            <li>[Qualifying situation 2]</li>
+            <li>[Qualifying situation 3]</li>
+            <li>[Qualifying situation 4]</li>
+            <li>[Qualifying situation 5]</li>
+          </ul>
+        </div>
+
+        <!-- Neutral card — MUST have feature-card--neutral class for grey dash markers -->
+        <div class="feature-card feature-card--neutral">
+          <h3>You May Not Need This Yet If…</h3>
+          <ul>
+            <li>[Disqualifying situation 1 — honest, not dismissive]</li>
+            <li>[Disqualifying situation 2]</li>
+            <li>[Disqualifying situation 3]</li>
+          </ul>
+          <!-- Optional: callout-box inside the neutral card -->
+          <div class="callout-box mt-24">
+            <p class="callout-label">Not Sure?</p>
+            <p>A site assessment costs nothing and commits you to nothing. We will tell you honestly whether your current system is adequate — and what, if anything, needs to change.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Optional: Solving a Specific Problem callout below the cards.
+           Links must NOT use class="group-link" — use plain <a> tags. -->
+      <div class="callout-box mt-24">
+        <p class="callout-label">Solving a Specific Problem?</p>
+        <p>These pages address common challenges that this system directly resolves:</p>
+        <ul>
+          <li><a href="/solutions/[problem-page].html">[Problem description] →</a></li>
+          <li><a href="/solutions/[problem-page].html">[Problem description] →</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       S9: HOW WE WORK WITH YOU
+       Background: sv-section-white
+       Purpose: 5-step process showing how Securevision engages.
+       Structure: grid-2 sys-grid-process
+         Left: ol.process-list (5 steps)
+         Right: callout-box stack (what to prepare + timeline)
+       UPDATE: Step titles and descriptions for this system type.
+       Do NOT change the number of steps or the callout structure.
+  ══════════════════════════════════════════════════════════════════ -->
+  <section class="sv-section-white">
+    <div class="container">
+      <div class="section-header">
+        <span class="eyebrow">Our Process</span>
+        <h2>How We Work With You — From Assessment to Handover</h2>
+        <p class="section-intro">[1 sentence on the disciplined sequence Securevision follows for this system.]</p>
+      </div>
+
+      <div class="grid-2 sys-grid-process">
+
+        <ol class="process-list">
+          <li>
+            <strong>Site Assessment</strong>
+            <p>[What Securevision assesses specifically for this system type. 2–3 sentences.]</p>
+          </li>
+          <li>
+            <strong>System Design &amp; Proposal</strong>
+            <p>[What the written proposal covers for this system. 2–3 sentences.]</p>
+          </li>
+          <li>
+            <strong>Installation by Our Own Team</strong>
+            <p>All installation is carried out by our own technicians — not subcontracted. We are Police Licensed (Licence No. <span class="sv-licence"></span>) and BCA Registered. [Add system-specific commissioning detail.]</p>
+          </li>
+          <li>
+            <strong>Handover &amp; Training</strong>
+            <p>[What handover covers for this system. What the client learns to operate.]</p>
+          </li>
+          <li>
+            <strong>Ongoing Support</strong>
+            <p>[What ongoing support looks like for this system. Maintenance contract details.]</p>
+          </li>
+        </ol>
+
+        <div>
+          <div class="callout-box">
+            <p class="callout-label">What to Prepare Before the Assessment</p>
+            <ul>
+              <li>[Preparation item 1 — specific to this system]</li>
+              <li>[Preparation item 2]</li>
+              <li>[Preparation item 3]</li>
+              <li>[Preparation item 4]</li>
+            </ul>
+          </div>
+          <div class="callout-box mt-24">
+            <p class="callout-label">Typical Timeline</p>
+            <p>[Timeline for a standard installation of this system type. Include a range for small vs large sites.]</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════════════════════════════════
+       S10: DEPLOYMENT — Where This System Is Used
+       Background: sv-section-grey
+       Purpose: Show which property types use this system.
+       The sv-solutions-block is injected by solutions-block.js.
+       data-cols="4" is mandatory — renders as 4-column compact grid.
+       data-solutions: list only the property types where this system is used.
+       data-desc-[key]: override the default description with context
+       specific to THIS system's use in THAT property type.
+  ══════════════════════════════════════════════════════════════════ -->
+  <section class="sv-section-grey">
+    <div class="container">
+      <div class="sv-solutions-block"
+           data-cols="4"
+           data-eyebrow="Deployment"
+           data-heading="Where These Systems Are Used"
+           data-intro="[1 sentence on how this system varies by property type.]"
+           data-solutions="residential,condominiums,commercial,industrial,institutions,healthcare,managed-living,data-centres"
+           data-desc-residential="[Custom description of how this system is used in residential properties.]"
+           data-desc-condominiums="[Custom description for condominiums.]"
+           data-desc-commercial="[Custom description for commercial.]"
+           data-desc-industrial="[Custom description for industrial.]"
+           data-desc-institutions="[Custom description for institutions.]"
+           data-desc-healthcare="[Custom description for healthcare.]"
+           data-desc-managed-living="[Custom description for managed living.]"
+           data-desc-data-centres="[Custom description for data centres.]">
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<!-- ══════════════════════════════════════════════════════════════════
+     FINAL CTA — outside <main>, full width dark section
+     CTA label: always "Book a Site Assessment" for systems pages.
+     UPDATE: heading, subtitle text only.
+     Do NOT change the class names or button label.
+══════════════════════════════════════════════════════════════════ -->
+<section class="cta-section cta-high-impact">
+  <div class="container">
+    <h2>Ready to Secure Your Property?</h2>
+    <p class="subtitle">Tell us about your site. We'll assess it and design a system that works as one.</p>
+    <div class="btn-group">
+      <a href="/request-site-assessment-singapore.html?intent=[slug]-assessment" class="btn btn-primary">Book a Site Assessment</a>
+    </div>
+    <p class="cta-trust-note">Serving Singapore Since 2006</p>
+  </div>
+</section>
+
+
+<!-- ═══ FOOTER — injected by nav-footer.js. Do not add any footer HTML here. ═══ -->
+<footer id="sv-footer"></footer>
+
+<!-- ═══ SCRIPTS — load order is mandatory. Do not move or duplicate. ═══ -->
+<script src="/solutions-block.js"></script>
+<script src="/nav-footer.js"></script>
+
+</body>
+</html>
+
+<!--
+═══════════════════════════════════════════════════════════════════════
+SYSTEMS PAGE TEMPLATE — CHECKLIST BEFORE PUBLISHING
+═══════════════════════════════════════════════════════════════════════
+
+Replace every [PLACEHOLDER] before going live. Use Ctrl+F to find them all.
+
+SEO:
+  [ ] <title> is 50–60 chars and includes "Singapore"
+  [ ] <meta description> is 120–160 chars
+  [ ] canonical href matches og:url — both absolute
+  [ ] og:image uses the actual hero image path
+
+STYLE BLOCK:
+  [ ] .hero-[slug] matches the class on the <header> element
+  [ ] Desktop and mobile image paths both exist on disk
+  [ ] No other CSS in the <style> block
+
+HERO:
+  [ ] hero-[slug] class matches the <style> block
+  [ ] H1 is outcome-focused — answers "what does this do for me?"
+  [ ] Eyebrow is a category label — not marketing copy
+  [ ] CTA label is exactly "Book a Site Assessment"
+
+TRUST BAR:
+  [ ] 3 items only: Police Licensed · bizSAFE · Sites Protected
+  [ ] sv-bizsafe and sv-sites dynamic classes used — nothing hardcoded
+
+BREADCRUMB:
+  [ ] Last item is current page text with NO link
+
+SECTION ALTERNATION:
+  [ ] Sections alternate grey/white starting with grey
+  [ ] No three consecutive sections of the same colour
+
+ARCH-GRID:
+  [ ] Active card (.arch-active) = this page — no link on it
+  [ ] All other 5 arch-cards link to correct system pages
+  [ ] All arch-card headings use H3 (not H4)
+
+IS THIS RIGHT FOR YOU:
+  [ ] Left card has class="feature-card" only
+  [ ] Right card has class="feature-card feature-card--neutral"
+  [ ] Any inline text links inside <li> do NOT use class="group-link"
+
+PROCESS LIST:
+  [ ] <ol class="process-list"> — must be ol not ul
+  [ ] sv-licence span present in Installation step
+
+DEPLOYMENT BLOCK:
+  [ ] data-cols="4" present
+  [ ] Only relevant property types listed in data-solutions
+  [ ] All data-desc-[key] overrides written — not using generic defaults
+
+SCRIPTS:
+  [ ] solutions-block.js loaded before nav-footer.js
+  [ ] nav-footer.js is last script before </body>
+  [ ] NO hardcoded WhatsApp float — injected by nav-footer.js
+
+═══════════════════════════════════════════════════════════════════════
+-->

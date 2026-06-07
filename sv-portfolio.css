@@ -1308,3 +1308,282 @@
 }
 
 /* ── END SECTION 15 ───────────────────────────────────────── */
+
+
+
+
+/* ============================================================
+   sv-portfolio.css — SECTION 16: Inline Style Extraction
+   Wave 2 CSS Fix — June 2026
+
+   PURPOSE:
+   Extracts repeating inline style patterns found across
+   portfolio/index.html and all 52 portfolio case study pages.
+   These classes replace inline style= attributes — they must
+   be added to sv-portfolio.css BEFORE the HTML is updated.
+
+   APPEND this block to the END of sv-portfolio.css,
+   after the final line of Section 15.
+
+   VERSION: Add to sv-portfolio.css as v1.3
+   ============================================================ */
+
+
+/* ============================================================
+   SECTION 16A — Portfolio Index: Filter Card Inline Patterns
+
+   Replaces these inline styles on portfolio/index.html:
+     <svg style="width:14px; height:14px; display:inline-block;
+       vertical-align:middle; margin-right:4px;">
+     <p style="font-size:0.8rem; color:#3182ce; font-weight:700;
+       margin-top:12px;">
+   These appear once per portfolio card (~52 instances each).
+   ============================================================ */
+
+/* Small icon inside portfolio filter cards and sector tags */
+.portfolio-card-icon {
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 4px;
+    flex-shrink: 0;
+}
+
+/* Sector label text below portfolio card image */
+.portfolio-card-tag {
+    font-size: 0.8rem;
+    color: var(--primary-blue);
+    font-weight: 700;
+    margin-top: 12px;
+    display: block;
+}
+
+
+/* ============================================================
+   SECTION 16B — Portfolio Index: Hero Section
+
+   Replaces inline styles on the portfolio/index.html hero:
+     <section style="padding:160px 0 100px; background:linear-gradient(...)
+       url('/images/portfolio-hero.webp'); background-size:cover;
+       background-position:center; color:#fff; text-align:left;">
+     <span style="color:#63b3ed; font-weight:700; text-transform:uppercase;
+       letter-spacing:2px; display:block; margin-bottom:20px;">
+     <h1 style="font-family:'Outfit',sans-serif; font-size:clamp(...);">
+     <p style="font-size:1.5rem; font-weight:600; margin-bottom:24px;
+       color:#cbd5e1; max-width:800px; margin-left:0;">
+     <p style="font-size:1.15rem; opacity:0.95; max-width:900px;
+       margin:0 0 48px; line-height:1.8; color:#e2e8f0;">
+     <div style="display:flex; justify-content:flex-start; gap:20px;">
+   ============================================================ */
+
+/* Portfolio index hub hero — full dark gradient with background image */
+.portfolio-hub-hero {
+    padding: 160px 0 100px;
+    background-color: #0E1A2B;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: left;
+    position: relative;
+}
+
+/* Eyebrow label inside portfolio hub hero */
+.portfolio-hub-eyebrow {
+    color: #63b3ed;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* H1 inside portfolio hub hero */
+.portfolio-hub-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 800;
+    margin-bottom: 20px;
+    max-width: 900px;
+    text-align: left;
+    color: #fff;
+    line-height: 1.1;
+}
+
+/* Subtitle line 1 — bold descriptor */
+.portfolio-hub-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #cbd5e1;
+    max-width: 800px;
+    margin-left: 0;
+    text-align: left;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Subtitle line 2 — supporting description */
+.portfolio-hub-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    opacity: 0.95;
+    max-width: 900px;
+    margin: 0 0 48px;
+    line-height: 1.8;
+    color: #e2e8f0;
+    text-align: left;
+}
+
+/* CTA button row inside portfolio hub hero */
+.portfolio-hub-cta-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+
+/* ============================================================
+   SECTION 16C — Portfolio Case Study Pages: Common Patterns
+
+   Replaces inline styles repeated across all 52 case study pages.
+   ============================================================ */
+
+/* Two-column layout: overview table left, systems deployed right.
+   Replaces: style="display:grid; grid-template-columns:1fr 1fr;
+   gap:64px; align-items:start;" */
+.portfolio-overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+}
+
+/* Systems deployed link list — vertical stack of system links.
+   Replaces: style="margin-top:24px; display:flex;
+   flex-direction:column; gap:12px;" */
+.portfolio-systems-list {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Individual system link item.
+   Replaces: style="display:flex; align-items:center; gap:12px;
+   padding:16px 20px; background:var(--bg-light); border-radius:8px;
+   text-decoration:none; color:var(--text-dark); font-weight:600;
+   font-size:14px; border:1px solid var(--border-light);
+   transition:0.2s;" */
+.portfolio-system-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: var(--bg-light);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 14px;
+    border: 1px solid var(--border-light);
+    transition: border-color 0.2s;
+}
+
+.portfolio-system-link:hover {
+    border-color: var(--primary-blue);
+    text-decoration: none;
+    color: var(--text-dark);
+}
+
+/* Result stat grid — 3 columns of measurable outcomes.
+   Replaces: style="display:grid; grid-template-columns:repeat(3,1fr);
+   gap:28px; margin:48px 0;" */
+.portfolio-result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin: 48px 0;
+}
+
+/* Result stat value — the large number.
+   Replaces: style="font-family:'Montserrat',sans-serif; font-size:48px;
+   font-weight:800; color:var(--primary-blue); margin-bottom:8px;" */
+.portfolio-result-stat {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-bottom: 8px;
+    display: block;
+    text-align: center;
+}
+
+/* Related project card — sector badge inside.
+   Replaces: style="display:block; text-decoration:none;" on <a> wrapper */
+.portfolio-related-link {
+    display: block;
+    text-decoration: none;
+    height: 100%;
+}
+
+.portfolio-related-link:hover {
+    text-decoration: none;
+}
+
+/* Read more link inside related project card.
+   Replaces: style="color:var(--primary-blue); font-weight:600;
+   font-size:13px; margin-top:16px; display:block;" */
+.portfolio-read-more {
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-size: 13px;
+    margin-top: 16px;
+    display: block;
+}
+
+
+/* ============================================================
+   SECTION 16D — Responsive overrides for new Section 16 classes
+   ============================================================ */
+
+@media (max-width: 768px) {
+    .portfolio-overview-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .portfolio-result-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .portfolio-hub-hero {
+        padding: 120px 0 80px;
+    }
+
+    .portfolio-hub-title {
+        font-size: clamp(2rem, 8vw, 2.5rem);
+    }
+
+    .portfolio-hub-subtitle {
+        font-size: 1.15rem;
+    }
+
+    .portfolio-hub-cta-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-result-stat {
+        font-size: 36px;
+    }
+}
+
+/* ── END SECTION 16 ──────────────────────────────────────── */
+
