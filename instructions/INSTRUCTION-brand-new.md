@@ -1,7 +1,7 @@
 # SECUREVISION — BRAND PAGE INSTRUCTION
 ## Page Type: Technology Partner / Brand Pages
 ## Applies to: All 20 brand pages
-## Version 2.1 — April 2026
+## Version 2.2 — June 2026
 ## This file lives at: /_instructions/INSTRUCTION-brand.md
 
 ---
@@ -157,11 +157,11 @@ Use the exact language templates from Section 1 (brand tier table) above. For Ti
 **After the 3 cards, add a SECURE™ Integration callout** — a full-width dark panel showing how this brand connects to Securevision's wider system architecture. This is what separates an integrator from a reseller. Use this HTML structure:
 
 ```html
-<div style="margin-top:40px; background:#0E1A2B; border-radius:12px; padding:32px 40px; display:flex; align-items:flex-start; gap:24px;">
-  <div style="font-size:32px; flex-shrink:0;">🔗</div>
-  <div>
-    <p style="font-family:'Montserrat',sans-serif; font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1.5px; color:rgba(255,255,255,0.5); margin-bottom:8px;">SECURE™ Integration</p>
-    <p style="font-family:'Inter',sans-serif; font-size:15px; color:rgba(255,255,255,0.85); line-height:1.7; margin:0;">
+<div class="brand-integration-callout">
+  <div class="brand-integration-icon">🔗</div>
+  <div class="brand-integration-body">
+    <p class="brand-integration-label">SECURE™ Integration</p>
+    <p class="brand-integration-text">
       [1–2 sentences — specific integration point between this brand and another system in the Securevision stack]
     </p>
   </div>
@@ -208,12 +208,14 @@ Property type tiles linking to Solution pages only.
 
 **Canonical solution page URLs (use these exactly):**
 ```
-Private Homes       → residential-security-singapore.html
-Condominiums        → condominiums-security-singapore.html
-Commercial & Retail → commercial-security-singapore.html
-Industrial          → industrial-security-singapore.html
-Institutions        → government-institution-security-singapore.html
-Healthcare          → healthcare-security-singapore.html
+Private Homes       → /solutions/residential.html
+Condominiums        → /solutions/condominiums.html
+Commercial & Retail → /solutions/commercial.html
+Industrial          → /solutions/industrial.html
+Institutions        → /solutions/institutions.html
+Healthcare          → /solutions/healthcare.html
+Managed Living      → /solutions/managed-living.html
+Data Centres        → /solutions/data-centres.html
 ```
 
 Include only property types where this brand/product is genuinely relevant:
@@ -226,51 +228,60 @@ Include only property types where this brand/product is genuinely relevant:
 
 ## 7. CTA CLASS REFERENCE
 
+The correct CTA class is category-specific. Use the class that matches the brand's system category. Do NOT use `cta-facilities` — that is not a brand page class.
+
 | Category | CTA class |
 |---|---|
-| Surveillance — Hikvision, Hanwha, Uniview, Milesight | `cta-surveillance` |
+| Surveillance — Hikvision, Hanwha, Uniview, Milesight, Dahua | `cta-surveillance` |
 | Alarms — AJAX, RISCO, Paradox, DSC, GE Caddx | `cta-alarm` |
 | Access Control — Suprema, ZKTeco, HID, EntryPass, MicroEngine | `cta-access` |
-| Intercom — Akuvox, Aiphone, Kocom | `cta-access` |
+| Intercom — Akuvox, Aiphone, Kocom, Fanvil (intercom) | `cta-access` |
 | Gates & Barriers — FAAC, MAG, Dormer | `cta-vehicle` |
+| Network — Omada, Ruijie/Reyee, HRUI | `cta-facilities` |
+| IP Telephony — Yeastar, Fanvil (IP phone), Yealink | `cta-facilities` |
+| Platform — VESTA, HikCentral, ZKBio CVSecurity, GantryGo | `cta-facilities` |
+| Locks — Ebelco, VIRO | `cta-access` |
 
 ---
 
-## 8. ANTI-GRAVITY PROMPT FORMAT
+## 8. ANTIGRAVITY PROMPT FORMAT
 
 ```
 [Paste GLOBAL-INSTRUCTION.md]
 [Paste INSTRUCTION-brand.md]
 
 --- PAGE BRIEF ---
-Template:   _templates/_template-brand.html
-File:       [brand-slug]-singapore.html
+Template:   _templates/_template-brand.html  (v1.1 — sv-brands.css v1.1)
+File:       brands/[brand-slug].html
 Brand:      [Brand Name]
-Category:   [Surveillance / Alarms / Access Control / Intercom / Gates & Barriers]
+Tier:       [1 / 2 / 3]
+Category:   [Surveillance / Alarms / Access Control / Intercom / Gates & Barriers / Network / IP Telephony / Platform / Locks]
 Scope:      [Copy the exact scope row from Section 1 above]
-CTA class:  cta-[surveillance / alarm / access / vehicle]
+CTA class:  cta-[surveillance / alarm / access / vehicle / facilities]
 
 HERO:
+  Slug class:  hero-[brand-slug]
   Stat 1: [Value] / [Label]
   Stat 2: [Value] / [Label]
 
 ABOUT THE BRAND:
   Para 1 (global background): [Key facts]
   Para 2 (Singapore/Asia presence): [Local context]
-  Scope declaration: [Use the language guide in Section 3 above]
+  Scope declaration: [Use the language guide in Section 3 above for this tier]
 
-WHY WE CARRY (3 reasons):
+WHY WE CARRY (3 reasons — engineering only, no marketing claims):
   Reason 1: [Heading] / [2–3 specific, verifiable sentences]
   Reason 2: [Heading] / [2–3 sentences]
   Reason 3: [Heading] / [2–3 sentences]
+  SECURE™ Integration: [1–2 sentences — specific trigger + outcome from this brand]
 
-WHAT WE INSTALL (3 models — within scope only):
-  Product 1: [Model] / [Use case sentence] / [Spec label:value] / [label:value] / [label:value]
-  Product 2: [Model] / [Use case sentence] / [Spec label:value] / [label:value] / [label:value]
-  Product 3: [Model] / [Use case sentence] / [Spec label:value] / [label:value] / [label:value]
+WHAT WE INSTALL (3 models from BOM only — do not source from internet):
+  Product 1: [Model] / [Use case sentence] / [Spec label:value] / [label:value] / [IP/IK/NDAA rating:value]
+  Product 2: [Model] / [Use case sentence] / [Spec label:value] / [label:value] / [IP/IK/NDAA rating:value]
+  Product 3: [Model] / [Use case sentence] / [Spec label:value] / [label:value] / [IP/IK/NDAA rating:value]
 
-WHO THIS SUITS:
-  [List property types relevant to this brand, each with its solution page URL]
+WHO THIS SUITS (omit entirely for Tier 3):
+  [List property types relevant to this brand, using canonical /solutions/ URLs]
 ```
 
 ---

@@ -53,12 +53,6 @@
                     Added Section C-EXT: brand-grid-3 base definition
                     (class was used on all brand pages but had no base
                     rule — only a responsive override in sv-shared.css)
-                    Added Section L: brand-notice-box (amber warning
-                    callout replacing inline border-color/#fffbeb pattern
-                    found on ~7 brand pages)
-                    Added Section M: mt-32, mt-40 spacing utilities
-                    (replaces lone margin-top inline styles; mt-24/48/80
-                    already exist in sv-shared.css)
    ============================================================ */
 
 
@@ -1071,69 +1065,4 @@
 }
 
 /* ── END SECTION K ──────────────────────────────────────── */
-
-
-/* ============================================================
-   SECTION L — Brand Detail Pages: Notice / Warning Callout
-   Wave 2 CSS Fix — June 2026
-
-   Replaces inline amber notice boxes found on ~7 brand pages:
-
-   <div style="margin-top: 40px; border-color: #d97706;
-     background: #fffbeb;">
-     <p style="color: #92400e;">[notice text]</p>
-   </div>
-
-   Replace with:
-
-   <div class="brand-notice-box">
-     <p>[notice text]</p>
-   </div>
-   ============================================================ */
-
-/* Amber notice / warning box — used for discontinuation notices,
-   availability caveats, or compatibility warnings */
-.brand-notice-box {
-    margin-top: 40px;
-    background: #fffbeb;
-    border: 1px solid #d97706;
-    border-left: 4px solid #d97706;
-    border-radius: 8px;
-    padding: 20px 24px;
-}
-
-.brand-notice-box p {
-    font-family: 'Inter', sans-serif;
-    font-size: 14px;
-    color: #92400e;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.brand-notice-box p + p {
-    margin-top: 8px;
-}
-
-/* ── END SECTION L ──────────────────────────────────────── */
-
-
-/* ============================================================
-   SECTION M — Brand Detail Pages: Spacing Utilities
-   Wave 2 CSS Fix — June 2026
-
-   Replaces lone margin-top inline styles used as spacing
-   nudges on plain <div> elements across brand pages.
-
-   Patterns found:
-     style="margin-top: 40px;"  →  class="mt-40"
-     style="margin-top: 32px;"  →  class="mt-32"
-
-   Note: mt-24 and mt-48 and mt-80 are already defined in
-   sv-shared.css. Only the missing values are added here.
-   ============================================================ */
-
-.mt-32 { margin-top: 32px; }
-.mt-40 { margin-top: 40px; }
-
-/* ── END SECTION M ──────────────────────────────────────── */
 
