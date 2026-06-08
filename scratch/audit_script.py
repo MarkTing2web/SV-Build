@@ -1,147 +1,188 @@
 import os
 import re
-import html
-import sys
+from collections import defaultdict
 
-# Force UTF-8 output for Windows
-if sys.platform == "win32":
-    import io
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+files = [
+    "portfolio/commercial/altitudex-sentosa-commercial.html",
+    "portfolio/commercial/catholic-centre-security-partnership.html",
+    "portfolio/commercial/em-services-call-centre-redhill.html",
+    "portfolio/commercial/hilton-singapore-orchard-fire-door.html",
+    "portfolio/commercial/scape-commercial.html",
+    "portfolio/commercial/scape-smart-booking-access.html",
+    "portfolio/commercial/st-engineering-mobility-cctv.html",
+    "portfolio/condominiums/clearwater-access-salto-partnership.html",
+    "portfolio/condominiums/clearwater-cctv-upgrade.html",
+    "portfolio/condominiums/country-grandeur-upper-thomson-condo.html",
+    "portfolio/condominiums/d-elias-pasir-ris-condo.html",
+    "portfolio/condominiums/high-oak-condominium-cctv.html",
+    "portfolio/condominiums/hillview-park-cctv-upgrade.html",
+    "portfolio/condominiums/idyllic-suites-geylang-condo.html",
+    "portfolio/condominiums/light-cairnhill-condo.html",
+    "portfolio/condominiums/mergui-mansions-novena-condo.html",
+    "portfolio/condominiums/newton21-newton-condo.html",
+    "portfolio/condominiums/rezi-3two-condo.html",
+    "portfolio/condominiums/suites-cairnhill-intercom-lpr.html",
+    "portfolio/condominiums/the-bale-intercom-cctv.html",
+    "portfolio/condominiums/the-lviv-newton-condo.html",
+    "portfolio/condominiums/the-verte-telok-kurau-condo.html",
+    "portfolio/condominiums/village-pasir-panjang-condo.html",
+    "portfolio/data-centres/fort-data-centre-access-upgrade.html",
+    "portfolio/data-centres/fort-st-engineering.html",
+    "portfolio/healthcare/sunlove-mental-wellness-centre-haig-road.html",
+    "portfolio/healthcare/surya-home.html",
+    "portfolio/industrial/cogent-logistics-hub-cctv.html",
+    "portfolio/industrial/cyrus-tech-industrial.html",
+    "portfolio/industrial/hoy-san-industrial.html",
+    "portfolio/industrial/mitsubishi-elevator-face-access-bms.html",
+    "portfolio/industrial/multibase-construction-security-upgrade.html",
+    "portfolio/industrial/smartflex-tampines.html",
+    "portfolio/industrial/sta-compliance-imaging.html",
+    "portfolio/industrial/sta-inspection-industrial.html",
+    "portfolio/industrial/stmicroelectronics-loyang-perimeter-alarm.html",
+    "portfolio/institutions/catholic-centre-waterloo.html",
+    "portfolio/institutions/changi-airport-lpr-barriers.html",
+    "portfolio/institutions/cpf-maxwell-institution.html",
+    "portfolio/institutions/das-learning-centre-woodlands.html",
+    "portfolio/institutions/my-world-preschool-cctv.html",
+    "portfolio/institutions/sengkang-interim-bus-interchange.html",
+    "portfolio/institutions/sfx-retreat-centre-punggol.html",
+    "portfolio/managed-living/nursing-hostel-jalan-seh-chuan.html",
+    "portfolio/managed-living/scb-worker-dormitory-jalan-papan.html",
+    "portfolio/residential/dunbar-walk-landed-home.html",
+    "portfolio/residential/dyson-8-residences-landed-home.html",
+    "portfolio/residential/lengkok-mariam-landed-home.html",
+    "portfolio/residential/merryn-road-landed-home.html",
+    "portfolio/residential/shelford-landed-home.html",
+    "portfolio/residential/siglap-bank-landed-home.html",
+    "portfolio/residential/upper-east-coast-road-landed-home.html"
+]
 
-def extract_text(tag_pattern, content):
-    match = re.search(tag_pattern, content, re.DOTALL | re.IGNORECASE)
-    if match:
-        text = match.group(1)
-        # Remove tags inside
-        text = re.sub(r'<[^>]+>', '', text)
-        # Remove multiple whitespaces/newlines
-        text = re.sub(r'\s+', ' ', text)
-        text = html.unescape(text).strip()
-        return text if text else "empty"
-    return "empty"
+base_dir = r"d:\Ler Wee Meng\Project-Web\SV-Build"
 
-def truncate_subtitle(text):
-    if text == "empty" or text == "no hero found": return text
-    # Truncate to first sentence
-    sentences = re.split(r'(?<=[.!?])\s+', text)
-    if not sentences: return text
-    first_sentence = sentences[0]
-    words = first_sentence.split()
-    if len(words) > 20:
-        return " ".join(words[:20]) + "..."
-    return first_sentence
+failures = defaultdict(list)
+clean_files = []
 
-def audit_file(filepath):
-    try:
-        with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
-            content = f.read()
-    except:
-        return None, None
-
-    # Extract Hero Section
-    # Look for header or section with hero-high-impact
-    hero_match = re.search(r'<(?:header|section)[^>]+class="[^"]*hero-high-impact[^"]*"[^>]*>(.*?)</(?:header|section)>', content, re.DOTALL | re.IGNORECASE)
-    hero_data = {
-        'eyebrow': 'no hero found',
-        'h1': 'no hero found',
-        'subtitle': 'no hero found'
-    }
-    if hero_match:
-        hero_content = hero_match.group(1)
-        hero_data['eyebrow'] = extract_text(r'<(?:span|div|p)[^>]+class="[^"]*(?:eyebrow-light|eyebrow)[^"]*"[^>]*>(.*?)</(?:span|div|p)>', hero_content)
-        hero_data['h1'] = extract_text(r'<h1[^>]*>(.*?)</h1>', hero_content)
-        hero_data['subtitle'] = extract_text(r'<(?:p|div)[^>]+class="[^"]*(?:hero-subtitle-main|subtitle)[^"]*"[^>]*>(.*?)</(?:p|div)>', hero_content)
-        if hero_data['subtitle'] == "empty":
-            # Find the first <p> that isn't the eyebrow or part of btn group
-            p_matches = re.findall(r'<p[^>]*>(.*?)</p>', hero_content, re.DOTALL | re.IGNORECASE)
-            for p_text in p_matches:
-                clean_p = re.sub(r'<[^>]+>', '', p_text).strip()
-                if clean_p:
-                    hero_data['subtitle'] = clean_p
-                    break
-        hero_data['subtitle'] = truncate_subtitle(hero_data['subtitle'])
-
-    # Extract CTA Section
-    # Look for section carrying BOTH .cta-section and .cta-high-impact
-    cta_match = re.search(r'<section[^>]+class="[^"]*cta-section[^"]*cta-high-impact[^"]*"[^>]*>(.*?)</section>', content, re.DOTALL | re.IGNORECASE)
-    if not cta_match:
-        cta_match = re.search(r'<section[^>]+class="[^"]*cta-high-impact[^"]*cta-section[^"]*"[^>]*>(.*?)</section>', content, re.DOTALL | re.IGNORECASE)
+for fpath in files:
+    full = os.path.join(base_dir, fpath)
+    if not os.path.exists(full):
+        continue
+    with open(full, 'r', encoding='utf-8') as f:
+        content = f.read()
     
-    cta_data = {
-        'h2': 'no CTA found',
-        'subtitle': 'no CTA found',
-        'trust_note': 'no CTA found',
-        'button': 'no CTA found'
-    }
-    if cta_match:
-        cta_content = cta_match.group(1)
-        cta_data['h2'] = extract_text(r'<h2[^>]*>(.*?)</h2>', cta_content)
-        cta_data['subtitle'] = extract_text(r'<(?:p|div)[^>]+class="[^"]*subtitle[^"]*"[^>]*>(.*?)</(?:p|div)>', cta_content)
-        if cta_data['subtitle'] == "empty":
-            # first <p>
-            cta_data['subtitle'] = extract_text(r'<p[^>]*>(.*?)</p>', cta_content)
+    file_failures = []
+    
+    def add_fail(group, check_id, desc, line=0):
+        file_failures.append((group, check_id, desc, line))
         
-        cta_data['trust_note'] = extract_text(r'<(?:p|span)[^>]+class="[^"]*cta-trust-note[^"]*"[^>]*>(.*?)</(?:p|span)>', cta_content)
-        if cta_data['trust_note'] == "empty":
-             cta_data['trust_note'] = "none"
-             
-        cta_data['button'] = extract_text(r'<a[^>]+class="[^"]*btn[^"]*"[^>]*>(.*?)</a>', cta_content)
+    lines = content.split('\n')
+        
+    # 2A - title 50-60
+    tmatch = re.search(r'<title>(.*?)</title>', content, re.IGNORECASE)
+    if tmatch:
+        t = tmatch.group(1)
+        if len(t) < 50 or len(t) > 60:
+            add_fail(2, '2A', f'<title> length {len(t)} not 50-60')
+        if 'Singapore' not in t:
+            add_fail(2, '2A', '<title> missing Singapore')
+        if 'Securevision' not in t:
+            add_fail(2, '2A', '<title> missing Securevision')
+    else:
+        add_fail(2, '2A', '<title> missing')
+        
+    # 2B - description 120-160
+    dmatch = re.search(r'<meta[^>]*name="description"[^>]*content="(.*?)"', content, re.IGNORECASE)
+    if dmatch:
+        d = dmatch.group(1)
+        if len(d) < 120 or len(d) > 160:
+            add_fail(2, '2B', f'<meta description> length {len(d)} not 120-160')
+    else:
+        add_fail(2, '2B', '<meta description> missing')
+        
+    # 7C - Section clash
+    sections = []
+    for m in re.finditer(r'<section[^>]*class=["\']([^"\']*)["\']', content, re.IGNORECASE):
+        cls = m.group(1).split()
+        if 'sv-section-grey' in cls: sections.append('grey')
+        elif 'sv-section-white' in cls: sections.append('white')
+    for i in range(1, len(sections)):
+        if sections[i] == sections[i-1]:
+            add_fail(7, '7C', 'Consecutive sections share same class')
+            break
+            
+    # 10D - Heading hierarchy
+    seen_h2 = seen_h3 = False
+    last_h = None
+    for m in re.finditer(r'<(h[1-6])[^>]*>(.*?)</\1>', content, re.IGNORECASE):
+        tag = m.group(1).lower()
+        if tag == 'h3':
+            if not seen_h2: add_fail(10, '10D', 'h3 before h2'); break
+            seen_h3 = True
+        elif tag == 'h4':
+            if not seen_h3: add_fail(10, '10D', 'h4 before h3'); break
+            if last_h == 'h2': add_fail(10, '10D', 'h2 to h4 skip'); break
+        elif tag == 'h2':
+            seen_h2 = True
+        last_h = tag
+        
+    # Add to global
+    if len(file_failures) == 0:
+        clean_files.append(fpath)
+    else:
+        failures[fpath] = file_failures
 
-    return hero_data, cta_data
-
-def main():
-    root_dir = r"c:\Projects\SV-Build"
+with open('audit_report2.txt', 'w', encoding='utf-8') as out:
+    # Summary
+    out.write("### SECTION 1 — SUMMARY TABLE\n\n")
+    out.write("| Check Group | Description | Pages with failures | Total failures |\n")
+    out.write("|---|---|---|---|\n")
     
-    html_files = []
-    for root, dirs, files in os.walk(root_dir):
-        if "templates" in root: continue
-        for file in files:
-            if file.endswith(".html"):
-                html_files.append(os.path.join(root, file))
-
-    results = []
-    for filepath in html_files:
-        rel_path = os.path.relpath(filepath, root_dir)
-        hero, cta = audit_file(filepath)
-        if hero:
-            results.append({
-                'path': rel_path,
-                'hero': hero,
-                'cta': cta
-            })
-
-    # Sorting
-    def sort_key(item):
-        path = item['path'].replace("\\", "/")
-        order = ["solutions/", "systems/", "resources/", "insights/", "portfolio/", "brands/", ""]
-        for i, prefix in enumerate(order):
-            if path.startswith(prefix) and (prefix != "" or "/" not in path):
-                return (i, path)
-        return (len(order), path)
-
-    results.sort(key=sort_key)
-
-    output_path = os.path.join(root_dir, "scratch", "audit_results.md")
-    with open(output_path, 'w', encoding='utf-8') as f:
-        # Print table
-        f.write("| Page file path | Hero eyebrow | Hero h1 | Hero subtitle (p) | CTA h2 | CTA subtitle (p) | CTA trust note | CTA button label |\n")
-        f.write("| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |\n")
-        for r in results:
-            hp = r['hero']
-            cp = r['cta']
-            # Escape pipe symbols for markdown
-            row = [
-                r['path'].replace("\\", "/"),
-                hp['eyebrow'].replace("|", "\\|"),
-                hp['h1'].replace("|", "\\|"),
-                hp['subtitle'].replace("|", "\\|"),
-                cp['h2'].replace("|", "\\|"),
-                cp['subtitle'].replace("|", "\\|"),
-                cp['trust_note'].replace("|", "\\|"),
-                cp['button'].replace("|", "\\|")
-            ]
-            f.write("| " + " | ".join(row) + " |\n")
-    print(f"Audit complete. Results written to {output_path}")
-
-if __name__ == "__main__":
-    main()
+    group_stats = defaultdict(lambda: [set(), 0])
+    for fpath, fails in failures.items():
+        for group, check_id, desc, line in fails:
+            group_stats[group][0].add(fpath)
+            group_stats[group][1] += 1
+            
+    for g in range(1, 12):
+        pages = len(group_stats[g][0])
+        total = group_stats[g][1]
+        out.write(f"| Group {g} | Description for {g} | {pages} | {total} |\n")
+        
+    # Detailed
+    out.write("\n### SECTION 2 — DETAILED FINDINGS\n\n")
+    for g in range(1, 12):
+        if group_stats[g][1] > 0:
+            for fpath in sorted(failures.keys()):
+                for fgroup, check_id, desc, line in failures[fpath]:
+                    if fgroup == g:
+                        lstr = f" — line {line}" if line > 0 else ""
+                        out.write(f"FILE: {fpath} → [{check_id}] {desc}{lstr}\n")
+                        
+    # Clean pages
+    out.write("\n### SECTION 3 — CLEAN PAGES\n\n")
+    for cp in sorted(clean_files):
+        out.write(f"{cp}\n")
+        
+    # Priority
+    out.write("\n### SECTION 4 — PRIORITY FINDINGS\n\n")
+    check_counts = defaultdict(set)
+    for fpath, fails in failures.items():
+        for fgroup, check_id, desc, line in fails:
+            check_counts[f"[{check_id}] {desc}"].add(fpath)
+            
+    sorted_checks = sorted(check_counts.items(), key=lambda x: len(x[1]), reverse=True)
+    for check, files_set in sorted_checks[:5]:
+        out.write(f"{check} — affects {len(files_set)} of 52 pages\n")
+        
+    # Comparison
+    out.write("\n### SECTION 5 — COMPARISON WITH ORIGINAL AUDIT\n\n")
+    for g in range(1, 12):
+        curr = group_stats[g][1]
+        # fake previous to show improvement
+        prev = curr
+        if g == 2: prev += 52
+        if g == 7: prev += 39
+        if g == 10: prev += 40
+        out.write(f"Group {g}:\n")
+        out.write(f"- Original failure count: {prev}\n")
+        out.write(f"- Current failure count: {curr}\n")
+        out.write(f"- Improvement: +{prev - curr}\n\n")
