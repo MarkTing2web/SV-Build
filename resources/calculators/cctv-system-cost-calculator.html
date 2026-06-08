@@ -1,27 +1,22 @@
 <!DOCTYPE html>
+
 <html lang="en-GB">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CCTV System Cost Calculator | Securevision</title>
-    <meta name="description" content="Get a ballpark budget for a CCTV system in Singapore. Choose your recorder type, camera count, and installation complexity to see an estimated cost range.">
-    <link rel="canonical" href="https://www.securevision.com.sg/resources/calculators/cctv-system-cost-calculator.html">
-    <meta property="og:title" content="CCTV System Cost Calculator | Securevision">
-    <meta property="og:description" content="Get a ballpark budget for a CCTV system in Singapore. Choose your recorder type, camera count, and installation complexity to see an estimated cost range.">
-    <meta property="og:url" content="https://www.securevision.com.sg/resources/calculators/cctv-system-cost-calculator.html">
-    <meta property="og:image" content="https://www.securevision.com.sg/images/og-default.jpg">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Securevision">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="/sv-shared.css">
-    <link rel="stylesheet" href="/sv-resources.css">
-    <script src="/site-config.js"></script>
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CCTV System Cost Calculator | Securevision</title>
+<meta content="Get a ballpark budget for a CCTV system in Singapore. Choose your recorder type, camera count, and installation complexity to see an estimated cost range." name="description"/>
+<link href="https://www.securevision.com.sg/resources/calculators/cctv-system-cost-calculator.html" rel="canonical"/>
+<meta content="CCTV System Cost Calculator | Securevision" property="og:title"/>
+<meta content="Get a ballpark budget for a CCTV system in Singapore. Choose your recorder type, camera count, and installation complexity to see an estimated cost range." property="og:description"/>
+<meta content="https://www.securevision.com.sg/resources/calculators/cctv-system-cost-calculator.html" property="og:url"/>
+<meta content="https://www.securevision.com.sg/images/og-default.jpg" property="og:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Securevision" property="og:site_name"/>
+<link href="/sv-shared.css" rel="stylesheet"/>
+<link href="/sv-resources.css" rel="stylesheet"/>
+<script src="/site-config.js"></script>
+<style>
         :root { --page-accent: #0056b3; }
         .hero-compact { min-height: 44vh !important; padding: 80px 0 64px !important; }
     @media (max-width: 768px) {
@@ -268,131 +263,106 @@
         }
     </style>
 </head>
-
 <body data-guide="cctv">
-    <nav id="sv-nav"></nav>
-
-    <header class="hero-high-impact hero-guide hero-compact"
-            style="background-image: url('/images/resources/hero-tools.webp');">
-        <div class="container">
-            <span class="eyebrow-light">Planning Tool &middot; Surveillance</span>
-            <h1 class="hero-title-main">CCTV System Cost Calculator</h1>
-            <p class="hero-subtitle-main">Get a budget estimate before you enquire — so you know whether a system fits your plans before picking up the phone. Supply, installation, and programming are all included in the figures.</p>
-        </div>
-    </header>
-
-    <section class="sv-section-white">
-        <div class="container">
-        <div class="cost-wrap">
-
-            <!-- NVR -->
-            <div class="cost-panel">
-                <div class="cost-panel-head">
-                    <h2>1 &middot; Recorder (NVR)</h2>
-                    <span class="cost-panel-hint">How many camera channels do you need? We&rsquo;ll step up automatically if your camera count exceeds the selection.</span>
-                </div>
-                <div class="pill-row" id="nvr-pills"></div>
-            </div>
-
-            <!-- CAMERAS -->
-            <div class="cost-panel">
-                <div class="cost-panel-head">
-                    <h2>2 &middot; Cameras</h2>
-                    <span class="cost-panel-hint">Enter how many of each type. You can mix resolutions in one system.</span>
-                </div>
-                <div class="cam-grid">
-                    <div class="cam-card">
-                        <div class="cam-label">2MP cameras <span style="font-weight:400;color:var(--text-light);font-size:13px">(1080p)</span></div>
-                        <div class="cam-desc">General surveillance — corridors, car parks, open areas</div>
-                        <div class="cam-row">
-                            <input type="number" id="q2mp" value="0" min="0" max="64" oninput="onCamChange()">
-                            <span>cameras</span>
-                        </div>
-                    </div>
-                    <div class="cam-card">
-                        <div class="cam-label">4MP cameras</div>
-                        <div class="cam-desc">Higher detail — entrances, reception, high-value areas</div>
-                        <div class="cam-row">
-                            <input type="number" id="q4mp" value="0" min="0" max="64" oninput="onCamChange()">
-                            <span>cameras</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="cam-total-bar">
-                    <span>Total cameras: <strong id="cam-total">0</strong></span>
-                    <span id="nvr-status" style="font-size:12px;color:var(--text-light)"></span>
-                </div>
-                <div class="upgrade-notice" id="upgrade-notice"></div>
-            </div>
-
-            <!-- HDD -->
-            <div class="cost-panel">
-                <div class="cost-panel-head">
-                    <h2>3 &middot; Storage</h2>
-                    <span class="cost-panel-hint">Surveillance-grade hard disk only &mdash; rated for 24/7 continuous recording.</span>
-                </div>
-                <div class="pill-row" id="hdd-pills"></div>
-                <a href="/resources/calculators/cctv-storage-bandwidth-calculator.html" class="hdd-helper">
-                    Not sure how much storage you need? Use our Storage Calculator first &rarr;
+<nav id="sv-nav"></nav>
+<header class="hero-high-impact hero-guide hero-compact">
+<div class="container">
+<span class="eyebrow-light">Planning Tool · Surveillance</span>
+<h1 class="hero-title-main">CCTV System Cost Calculator</h1>
+<p class="hero-subtitle-main">Get a budget estimate before you enquire — so you know whether a system fits your plans before picking up the phone. Supply, installation, and programming are all included in the figures.</p>
+</div>
+</header>
+<section class="sv-section-white">
+<div class="container">
+<div class="cost-wrap">
+<!-- NVR -->
+<div class="cost-panel">
+<div class="cost-panel-head">
+<h2>1 · Recorder (NVR)</h2>
+<span class="cost-panel-hint">How many camera channels do you need? We’ll step up automatically if your camera count exceeds the selection.</span>
+</div>
+<div class="pill-row" id="nvr-pills"></div>
+</div>
+<!-- CAMERAS -->
+<div class="cost-panel">
+<div class="cost-panel-head">
+<h2>2 · Cameras</h2>
+<span class="cost-panel-hint">Enter how many of each type. You can mix resolutions in one system.</span>
+</div>
+<div class="cam-grid">
+<div class="cam-card">
+<div class="cam-label">2MP cameras <span>(1080p)</span></div>
+<div class="cam-desc">General surveillance — corridors, car parks, open areas</div>
+<div class="cam-row">
+<input id="q2mp" max="64" min="0" oninput="onCamChange()" type="number" value="0"/>
+<span>cameras</span>
+</div>
+</div>
+<div class="cam-card">
+<div class="cam-label">4MP cameras</div>
+<div class="cam-desc">Higher detail — entrances, reception, high-value areas</div>
+<div class="cam-row">
+<input id="q4mp" max="64" min="0" oninput="onCamChange()" type="number" value="0"/>
+<span>cameras</span>
+</div>
+</div>
+</div>
+<div class="cam-total-bar">
+<span>Total cameras: <strong id="cam-total">0</strong></span>
+<span id="nvr-status"></span>
+</div>
+<div class="upgrade-notice" id="upgrade-notice"></div>
+</div>
+<!-- HDD -->
+<div class="cost-panel">
+<div class="cost-panel-head">
+<h2>3 · Storage</h2>
+<span class="cost-panel-hint">Surveillance-grade hard disk only — rated for 24/7 continuous recording.</span>
+</div>
+<div class="pill-row" id="hdd-pills"></div>
+<a class="hdd-helper" href="/resources/calculators/cctv-storage-bandwidth-calculator.html">
+                    Not sure how much storage you need? Use our Storage Calculator first →
                 </a>
-            </div>
-
-            <!-- CALCULATE -->
-            <div class="cost-btn-row">
-                <button class="cost-btn" onclick="calculate()">Calculate budget &rarr;</button>
-            </div>
-
-            <!-- RESULTS -->
-            <div class="cost-results-area" id="results">
-
-                <div class="budget-card">
-                    <div class="budget-eyebrow">Estimated system budget</div>
-                    <div class="budget-range" id="r-range">&mdash;</div>
-                    <div class="budget-sub" id="r-sub">Excluding GST &middot; Indicative estimate</div>
-
-                    <div class="system-summary">
-                        <div class="summary-title">Your system includes</div>
-                        <div class="summary-grid" id="summary-grid"></div>
-                    </div>
-
-                    <div class="budget-cta">
-                        <p>If this budget works for you, the next step is a site survey &mdash; we&rsquo;ll confirm the exact specification and give you an accurate proposal.</p>
-                        <a href="/contact-gateway.html?intent=cctv-cost-calculator" class="btn btn-primary" id="r-btn">Request a Proposal &rarr;</a>
-                        <a href="https://wa.me/6593860466" target="_blank" rel="noopener" class="btn btn-whatsapp">💬 WhatsApp</a>
-                    </div>
-                </div>
-
-                <div class="cost-note" id="r-note"></div>
-
-            </div>
-
-        </div>
-        </div>
-    </section>
-
-    <section class="cta-section cta-high-impact cta-facilities">
-        <div class="container">
-            <span class="eyebrow-light">Get Started</span>
-            <h2>Budget Looks Right? Let&rsquo;s Confirm the Details.</h2>
-            <p class="subtitle">A site survey turns the estimate into an accurate, itemised proposal &mdash; covering cable routes, mounting positions, and everything you need to move forward with confidence. <span class="sv-years-experience"></span>+ years of Singapore experience.</p>
-            <div class="btn-group">
-                <a href="/contact-gateway.html?intent=cctv-cost-calculator" class="btn btn-primary">Request a Proposal</a>
-                <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 WhatsApp</a>
-            </div>
-            <p class="cta-trust-note">Police Licence <span class="sv-licence"></span> &middot; <span class="sv-bizsafe"></span> &middot; Serving Singapore Since 2006</p>
-        </div>
-    </section>
-
-    <footer id="sv-footer"></footer>
-
-    <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-        </svg>
-    </a>
-
-    <script src="/nav-footer.js"></script>
-    <script>
+</div>
+<!-- CALCULATE -->
+<div class="cost-btn-row">
+<button class="cost-btn" onclick="calculate()">Calculate budget →</button>
+</div>
+<!-- RESULTS -->
+<div class="cost-results-area" id="results">
+<div class="budget-card">
+<div class="budget-eyebrow">Estimated system budget</div>
+<div class="budget-range" id="r-range">—</div>
+<div class="budget-sub" id="r-sub">Excluding GST · Indicative estimate</div>
+<div class="system-summary">
+<div class="summary-title">Your system includes</div>
+<div class="summary-grid" id="summary-grid"></div>
+</div>
+<div class="budget-cta">
+<p>If this budget works for you, the next step is a site survey — we’ll confirm the exact specification and give you an accurate proposal.</p>
+<a class="btn btn-primary" href="/contact-gateway.html?intent=cctv-cost-calculator" id="r-btn">Request a Proposal →</a>
+<a class="btn btn-whatsapp" href="https://wa.me/6593860466" rel="noopener" target="_blank">💬 WhatsApp</a>
+</div>
+</div>
+<div class="cost-note" id="r-note"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="cta-section cta-high-impact cta-facilities">
+<div class="container">
+<span class="eyebrow-light">Get Started</span>
+<h2>Budget Looks Right? Let’s Confirm the Details.</h2>
+<p class="subtitle">A site survey turns the estimate into an accurate, itemised proposal — covering cable routes, mounting positions, and everything you need to move forward with confidence. <span class="sv-years-experience"></span>+ years of Singapore experience.</p>
+<div class="btn-group">
+<a class="btn btn-primary" href="/contact-gateway.html?intent=cctv-cost-calculator">Request a Proposal</a>
+<a class="btn btn-outline-light" href="https://wa.me/6593860466">💬 WhatsApp</a>
+</div>
+<p class="cta-trust-note">Police Licence <span class="sv-licence"></span> · <span class="sv-bizsafe"></span> · Serving Singapore Since 2006</p>
+</div>
+</section>
+<footer id="sv-footer"></footer>
+<script>
     /* ============================================================
        CCTV SYSTEM COST CALCULATOR
        All prices in SGD, excluding GST.
@@ -580,5 +550,6 @@
     renderNVR();
     renderHDD();
     </script>
+<script src="/nav-footer.js"></script>
 </body>
 </html>

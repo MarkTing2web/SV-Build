@@ -1,394 +1,203 @@
 <!DOCTYPE html>
+
 <html lang="en-GB">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Library Singapore | Security Equipment Specifications | Securevision</title>
-  <meta name="description" content="Browse Securevision's product library — datasheets, specifications, manuals, and videos for every security brand we install in Singapore. Organised by system category.">
-  <link rel="canonical" href="https://www.securevision.com.sg/resources/library.html">
-  <meta property="og:title" content="Product Library | Securevision Singapore">
-  <meta property="og:description" content="Datasheets, specifications, and videos for every security brand Securevision installs in Singapore — organised by system category.">
-  <meta property="og:url" content="https://www.securevision.com.sg/resources/library.html">
-  <meta property="og:image" content="https://www.securevision.com.sg/images/og-default.jpg">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Securevision">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="/sv-shared.css">
-  <link rel="stylesheet" href="/sv-resources.css">
-  <script src="/site-config.js"></script>
-
-  <style>
-    /* ── Library category cards — extend .card ── */
-    .lib-cat-card {
-      display: flex;
-      flex-direction: column;
-      padding: 32px;
-      text-decoration: none;
-      color: inherit;
-      border: 1.5px solid #CBD5E0;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      border-top: 3px solid transparent;
-      background: #fff;
-    }
-    .lib-cat-card:hover {
-      border-color: var(--cat-colour, var(--primary-blue));
-      border-top-color: var(--cat-colour, var(--primary-blue));
-      box-shadow: 0 8px 28px rgba(0,0,0,0.13);
-    }
-    .lib-cat-icon {
-      font-size: 28px;
-      margin-bottom: 16px;
-      display: block;
-      line-height: 1;
-    }
-    .lib-cat-num {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--cat-colour, var(--primary-blue));
-      margin-bottom: 6px;
-      display: block;
-    }
-    .lib-cat-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 17px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin: 0 0 10px;
-      line-height: 1.3;
-    }
-    .lib-cat-brands {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      color: var(--text-light);
-      line-height: 1.7;
-      flex-grow: 1;
-      margin: 0 0 20px;
-    }
-    .lib-cat-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 16px;
-      border-top: 1px solid var(--border-light);
-      margin-top: auto;
-    }
-    .lib-cat-count {
-      font-family: 'Inter', sans-serif;
-      font-size: 12px;
-      color: var(--text-light);
-    }
-    .lib-cat-cta {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--cat-colour, var(--primary-blue));
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    /* ── How to use steps ── */
-    .lib-steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-      margin-top: 40px;
-    }
-    @media (max-width: 768px) {
-      .lib-steps { grid-template-columns: 1fr; gap: 24px; }
-    }
-    .lib-step {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-    }
-    .lib-step-num {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--primary-blue);
-      color: #fff;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .lib-step h4 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text-dark);
-      margin: 0 0 6px;
-    }
-    .lib-step p {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      color: var(--text-light);
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    /* ── Asset pills ── */
-    .asset-pill-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-    .asset-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-gray);
-      background: #fff;
-      border: 1px solid var(--border-light);
-      border-radius: 20px;
-      padding: 6px 14px;
-    }
-
-    /* ── Equal height rows + responsive ── */
-    .grid-3 { grid-auto-rows: 1fr; }
-    .lib-cat-card { height: 100%; }
-    @media (max-width: 900px) {
-      .grid-3 { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 540px) {
-      .grid-3 { grid-template-columns: 1fr; grid-auto-rows: auto; }
-    }
-  </style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Security System Product Library Singapore | Securevision</title>
+<meta content="Browse Securevision's product library — datasheets, specifications, manuals, and videos for every security brand we install in Singapore." name="description"/>
+<link href="https://www.securevision.com.sg/resources/library.html" rel="canonical"/>
+<meta content="Security System Product Library Singapore | Securevision" property="og:title"/>
+<meta content="Browse Securevision's product library — datasheets, specifications, manuals, and videos for every security brand we install in Singapore." property="og:description"/>
+<meta content="https://www.securevision.com.sg/resources/library.html" property="og:url"/>
+<meta content="https://www.securevision.com.sg/images/og-default.jpg" property="og:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Securevision" property="og:site_name"/>
+<link href="/sv-shared.css" rel="stylesheet"/>
+<link href="/sv-resources.css" rel="stylesheet"/>
+<script src="/site-config.js"></script>
 </head>
 <body>
-
 <nav id="sv-nav"></nav>
-
 <!-- ═══ HERO ═══ -->
-<section class="hero-solid">
-  <div class="container">
-    <span class="eyebrow-light">Resources · Product Library</span>
-    <h1>Product Library</h1>
-    <p class="subtitle">Datasheets, specifications, manuals, and product videos for every brand we install in Singapore — organised by system category. Use this library to research, specify, or verify products.</p>
-  </div>
-</section>
-
-<!-- ── TRUST BAR ── -->
-<div class="sv-trust-bar">
-  <div class="container">
-    <div class="trust-bar-inner">
-      <span>Police Licensed</span><span class="divider">|</span>
-      <span class="sv-bizsafe"></span><span class="divider">|</span>
-      <span>BCA Registered</span><span class="divider">|</span>
-      <span><span class="sv-sites"></span> Sites Protected</span>
-    </div>
-  </div>
+<header class="hero-high-impact hero-compact hero">
+<div class="container">
+<span class="eyebrow-light">Resources · Product Library</span>
+<h1 class="hero-title-main">Product Library</h1>
+<p class="subtitle hero-subtitle-main">Datasheets, specifications, manuals, and product videos for every brand we install in Singapore — organised by system category. Use this library to research, specify, or verify products.</p>
 </div>
-
+</header>
+<!-- ── TRUST BAR ── -->
+<div class="trust-bar">
+<div class="trust-bar-inner">
+<span>Police Licensed · <span class="sv-licence"></span></span>
+<span class="trust-divider"></span>
+<span>bizSAFE <span class="sv-bizsafe"></span></span>
+<span class="trust-divider"></span>
+<span><strong class="sv-sites"></strong> Sites Protected</span>
+</div>
+</div>
 <!-- ═══ BREADCRUMB ═══ -->
-<nav class="sv-breadcrumb" aria-label="Breadcrumb">
-  <div class="container">
-    <ul>
-      <li><a href="/">Home</a></li>
-      <li><a href="/resources/">Resources</a></li>
-      <li>Product Library</li>
-    </ul>
-  </div>
+<nav aria-label="Breadcrumb" class="sv-breadcrumb">
+<div class="container">
+<ul>
+<li><a href="/">Home</a></li>
+<li><a href="/resources/">Resources</a></li>
+<li>Product Library</li>
+</ul>
+</div>
 </nav>
-
 <main>
-
 <!-- ═══ SECTION 1 — CATEGORY GRID (grey) ═══ -->
 <section class="sv-section-grey">
-  <div class="container">
-    <span class="eyebrow">Browse by System Category</span>
-    <h2>Choose a Category</h2>
-    <p class="subtitle">Select the system type below to see all brands and products we carry — with specifications, datasheets, manuals, and product videos.</p>
-
-    <div class="asset-pill-row">
-      <span class="asset-pill">📷 Product photo</span>
-      <span class="asset-pill">📋 Key specifications</span>
-      <span class="asset-pill">📄 Datasheet</span>
-      <span class="asset-pill">📖 Installation manual</span>
-      <span class="asset-pill">🎬 Product video</span>
-    </div>
-
-    <div class="grid-3">
-
-      <a href="/resources/library/burglar-alarm.html"
-         class="card lib-cat-card"
-         style="--cat-colour: #c0392b;">
-        <span class="lib-cat-icon">🚨</span>
-        <span class="lib-cat-num">Category 01</span>
-        <h2 class="lib-cat-title">Burglar Alarm</h2>
-        <p class="lib-cat-brands">RISCO · Ajax Systems · Paradox · DSC · GE Caddx</p>
-        <div class="lib-cat-footer">
-          <span class="lib-cat-count">5 brands</span>
-          <span class="lib-cat-cta">Browse <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-      </a>
-
-      <a href="/resources/library/cctv.html"
-         class="card lib-cat-card"
-         style="--cat-colour: #2b6cb0;">
-        <span class="lib-cat-icon">📹</span>
-        <span class="lib-cat-num">Category 02</span>
-        <h2 class="lib-cat-title">CCTV &amp; Surveillance</h2>
-        <p class="lib-cat-brands">Hikvision · Milesight · Hanwha Vision · Uniview · Dahua</p>
-        <div class="lib-cat-footer">
-          <span class="lib-cat-count">5 brands</span>
-          <span class="lib-cat-cta">Browse <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-      </a>
-
-      <a href="/resources/library/access-control.html"
-         class="card lib-cat-card"
-         style="--cat-colour: #1a56a0;">
-        <span class="lib-cat-icon">🔐</span>
-        <span class="lib-cat-num">Category 03</span>
-        <h2 class="lib-cat-title">Entry &amp; Access Control</h2>
-        <p class="lib-cat-brands">ZKTeco · Suprema · HID Global · EntryPass · MicroEngine · Hikvision · Akuvox · Apollo</p>
-        <div class="lib-cat-footer">
-          <span class="lib-cat-count">8 brands</span>
-          <span class="lib-cat-cta">Browse <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-      </a>
-
-      <a href="/resources/library/intercom.html"
-         class="card lib-cat-card"
-         style="--cat-colour: #319795;">
-        <span class="lib-cat-icon">🔔</span>
-        <span class="lib-cat-num">Category 04</span>
-        <h2 class="lib-cat-title">Intercom &amp; Video Entry</h2>
-        <p class="lib-cat-brands">Akuvox · Hikvision · Aiphone · Fanvil · Kocom</p>
-        <div class="lib-cat-footer">
-          <span class="lib-cat-count">5 brands</span>
-          <span class="lib-cat-cta">Browse <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-      </a>
-
-      <a href="/resources/library/vehicle.html"
-         class="card lib-cat-card"
-         style="--cat-colour: #dd6b20;">
-        <span class="lib-cat-icon">🚗</span>
-        <span class="lib-cat-num">Category 05</span>
-        <h2 class="lib-cat-title">Vehicle Management</h2>
-        <p class="lib-cat-brands">GantryGo · FAAC · MAG · Dormer · Ebelco · VIRO</p>
-        <div class="lib-cat-footer">
-          <span class="lib-cat-count">6 brands</span>
-          <span class="lib-cat-cta">Browse <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-      </a>
-
-      <a href="/resources/library/ip-telephony.html"
-         class="card lib-cat-card"
-         style="--cat-colour: #553c9a;">
-        <span class="lib-cat-icon">📞</span>
-        <span class="lib-cat-num">Category 06</span>
-        <h2 class="lib-cat-title">IP Telephony</h2>
-        <p class="lib-cat-brands">Yeastar · Fanvil · Yealink</p>
-        <div class="lib-cat-footer">
-          <span class="lib-cat-count">3 brands</span>
-          <span class="lib-cat-cta">Browse <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-      </a>
-
-      <a href="/resources/library/network.html"
-         class="card lib-cat-card"
-         style="--cat-colour: #276749;">
-        <span class="lib-cat-icon">🌐</span>
-        <span class="lib-cat-num">Category 07</span>
-        <h2 class="lib-cat-title">Network Infrastructure</h2>
-        <p class="lib-cat-brands">Omada (TP-Link) · Ruijie / Reyee · HRUI</p>
-        <div class="lib-cat-footer">
-          <span class="lib-cat-count">3 brands</span>
-          <span class="lib-cat-cta">Browse <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-      </a>
-
-      <a href="/resources/library/platform.html"
-         class="card lib-cat-card"
-         style="--cat-colour: #0056b3;">
-        <span class="lib-cat-icon">🖥️</span>
-        <span class="lib-cat-num">Category 08</span>
-        <h2 class="lib-cat-title">Platform &amp; Management</h2>
-        <p class="lib-cat-brands">VESTA · HikCentral Professional · ZKBio CVSecurity</p>
-        <div class="lib-cat-footer">
-          <span class="lib-cat-count">3 brands</span>
-          <span class="lib-cat-cta">Browse <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-        </div>
-      </a>
-
-      <!-- 9 — Ghost card to complete 3×3 grid -->
-      <div class="card lib-cat-card" aria-hidden="true"
-           style="border: 1.5px dashed #CBD5E0; background: transparent; box-shadow: none; pointer-events: none; opacity: 0.4;">
-      </div>
-
-    </div>
-  </div>
+<div class="container">
+<span class="eyebrow">Browse by System Category</span>
+<h2>Choose a Category</h2>
+<p class="subtitle">Select the system type below to see all brands and products we carry — with specifications, datasheets, manuals, and product videos.</p>
+<div class="asset-pill-row">
+<span class="asset-pill">📷 Product photo</span>
+<span class="asset-pill">📋 Key specifications</span>
+<span class="asset-pill">📄 Datasheet</span>
+<span class="asset-pill">📖 Installation manual</span>
+<span class="asset-pill">🎬 Product video</span>
+</div>
+<div class="grid-3">
+<a class="card lib-cat-card" href="/resources/library/burglar-alarm.html">
+<span class="lib-cat-icon">🚨</span>
+<span class="lib-cat-num">Category 01</span>
+<h2 class="lib-cat-title">Burglar Alarm</h2>
+<p class="lib-cat-brands">RISCO · Ajax Systems · Paradox · DSC · GE Caddx</p>
+<div class="lib-cat-footer">
+<span class="lib-cat-count">5 brands</span>
+<span class="lib-cat-cta">Browse <svg fill="none" height="12" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="12"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<a class="card lib-cat-card" href="/resources/library/cctv.html">
+<span class="lib-cat-icon">📹</span>
+<span class="lib-cat-num">Category 02</span>
+<h2 class="lib-cat-title">CCTV &amp; Surveillance</h2>
+<p class="lib-cat-brands">Hikvision · Milesight · Hanwha Vision · Uniview · Dahua</p>
+<div class="lib-cat-footer">
+<span class="lib-cat-count">5 brands</span>
+<span class="lib-cat-cta">Browse <svg fill="none" height="12" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="12"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<a class="card lib-cat-card" href="/resources/library/access-control.html">
+<span class="lib-cat-icon">🔐</span>
+<span class="lib-cat-num">Category 03</span>
+<h2 class="lib-cat-title">Entry &amp; Access Control</h2>
+<p class="lib-cat-brands">ZKTeco · Suprema · HID Global · EntryPass · MicroEngine · Hikvision · Akuvox · Apollo</p>
+<div class="lib-cat-footer">
+<span class="lib-cat-count">8 brands</span>
+<span class="lib-cat-cta">Browse <svg fill="none" height="12" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="12"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<a class="card lib-cat-card" href="/resources/library/intercom.html">
+<span class="lib-cat-icon">🔔</span>
+<span class="lib-cat-num">Category 04</span>
+<h2 class="lib-cat-title">Intercom &amp; Video Entry</h2>
+<p class="lib-cat-brands">Akuvox · Hikvision · Aiphone · Fanvil · Kocom</p>
+<div class="lib-cat-footer">
+<span class="lib-cat-count">5 brands</span>
+<span class="lib-cat-cta">Browse <svg fill="none" height="12" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="12"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<a class="card lib-cat-card" href="/resources/library/vehicle.html">
+<span class="lib-cat-icon">🚗</span>
+<span class="lib-cat-num">Category 05</span>
+<h2 class="lib-cat-title">Vehicle Management</h2>
+<p class="lib-cat-brands">GantryGo · FAAC · MAG · Dormer · Ebelco · VIRO</p>
+<div class="lib-cat-footer">
+<span class="lib-cat-count">6 brands</span>
+<span class="lib-cat-cta">Browse <svg fill="none" height="12" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="12"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<a class="card lib-cat-card" href="/resources/library/ip-telephony.html">
+<span class="lib-cat-icon">📞</span>
+<span class="lib-cat-num">Category 06</span>
+<h2 class="lib-cat-title">IP Telephony</h2>
+<p class="lib-cat-brands">Yeastar · Fanvil · Yealink</p>
+<div class="lib-cat-footer">
+<span class="lib-cat-count">3 brands</span>
+<span class="lib-cat-cta">Browse <svg fill="none" height="12" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="12"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<a class="card lib-cat-card" href="/resources/library/network.html">
+<span class="lib-cat-icon">🌐</span>
+<span class="lib-cat-num">Category 07</span>
+<h2 class="lib-cat-title">Network Infrastructure</h2>
+<p class="lib-cat-brands">Omada (TP-Link) · Ruijie / Reyee · HRUI</p>
+<div class="lib-cat-footer">
+<span class="lib-cat-count">3 brands</span>
+<span class="lib-cat-cta">Browse <svg fill="none" height="12" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="12"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<a class="card lib-cat-card" href="/resources/library/platform.html">
+<span class="lib-cat-icon">🖥️</span>
+<span class="lib-cat-num">Category 08</span>
+<h2 class="lib-cat-title">Platform &amp; Management</h2>
+<p class="lib-cat-brands">VESTA · HikCentral Professional · ZKBio CVSecurity</p>
+<div class="lib-cat-footer">
+<span class="lib-cat-count">3 brands</span>
+<span class="lib-cat-cta">Browse <svg fill="none" height="12" stroke="currentColor" stroke-width="2.5" viewbox="0 0 24 24" width="12"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+</div>
+</a>
+<!-- 9 — Ghost card to complete 3×3 grid -->
+<div aria-hidden="true" class="card lib-cat-card">
+</div>
+</div>
+</div>
 </section>
-
 <!-- ═══ SECTION 2 — HOW TO USE (white) ═══ -->
 <section class="sv-section-white">
-  <div class="container">
-    <span class="eyebrow">How to Use This Library</span>
-    <h2>Finding What You Need</h2>
-    <div class="lib-steps">
-      <div class="lib-step">
-        <div class="lib-step-num">1</div>
-        <div>
-          <h4>Choose a category above</h4>
-          <p>Each category page lists all brands and products we install in that system type — with photos, specifications, and asset links.</p>
-        </div>
-      </div>
-      <div class="lib-step">
-        <div class="lib-step-num">2</div>
-        <div>
-          <h4>Find the product</h4>
-          <p>Products are grouped by brand. Use your browser's page search (Ctrl+F / Cmd+F) to jump to a specific model number quickly on any category page.</p>
-        </div>
-      </div>
-      <div class="lib-step">
-        <div class="lib-step-num">3</div>
-        <div>
-          <h4>Download or watch</h4>
-          <p>Datasheets and brochures download directly from this site. Installation manuals open in Google Drive. Product videos link to YouTube.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<span class="eyebrow">How to Use This Library</span>
+<h2>Finding What You Need</h2>
+<div class="lib-steps">
+<div class="lib-step">
+<div class="lib-step-num">1</div>
+<div>
+<h3>Choose a category above</h3>
+<p>Each category page lists all brands and products we install in that system type — with photos, specifications, and asset links.</p>
+</div>
+</div>
+<div class="lib-step">
+<div class="lib-step-num">2</div>
+<div>
+<h3>Find the product</h3>
+<p>Products are grouped by brand. Use your browser's page search (Ctrl+F / Cmd+F) to jump to a specific model number quickly on any category page.</p>
+</div>
+</div>
+<div class="lib-step">
+<div class="lib-step-num">3</div>
+<div>
+<h3>Download or watch</h3>
+<p>Datasheets and brochures download directly from this site. Installation manuals open in Google Drive. Product videos link to YouTube.</p>
+</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ═══ SECTION 3 — BACK LINK (grey) ═══ -->
 <section class="sv-section-grey">
-  <div class="container">
-    <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: var(--text-light); margin-bottom: 20px;">Looking for technical guides, checklists, or planning calculators?</p>
-    <a href="/resources/" class="btn btn-outline-dark">← Back to Resources Hub</a>
-  </div>
+<div class="container">
+<p>Looking for technical guides, checklists, or planning calculators?</p>
+<a class="btn btn-outline-dark" href="/resources/">← Back to Resources Hub</a>
+</div>
 </section>
-
 </main>
-
+<section class="cta-section cta-high-impact cta-property">
+<div class="container">
+<h2>Ready to Secure Your Property?</h2>
+<p class="subtitle">Tell us about your site. We'll assess it and design a system that works as one.</p>
+<div class="btn-group">
+<a class="btn btn-primary" href="/request-proposal.html">Request a Proposal</a>
+<a class="btn btn-outline-light" href="https://wa.me/6593860466">💬 WhatsApp</a>
+</div>
+<p class="cta-trust-note">Serving Singapore Since 2006</p>
+</div>
+</section>
 <footer id="sv-footer"></footer>
-
-<a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-  </svg>
-</a>
-
 <script src="/nav-footer.js"></script>
 </body>
 </html>

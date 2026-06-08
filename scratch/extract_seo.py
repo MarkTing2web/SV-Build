@@ -1,17 +1,30 @@
-import glob
 import os
+from bs4 import BeautifulSoup
+import json
 
-base_dir = "C:/Projects/SV-Build"
-out_path = os.path.join(base_dir, "_ai/brands-seo-tags.md")
-lines_out = ["```html"]
+RESOURCES_DIR = r"C:\Projects\SV-Build\resources"
 
-for f in sorted(glob.glob(os.path.join(base_dir, "brands/*.html"))):
-    with open(f, 'r', encoding='utf-8') as file:
-        for line in file:
-            if '<title>' in line or '<meta name="description"' in line:
-                lines_out.append(line.strip())
+data = []
 
-lines_out.append("```")
+for root, dirs, files in os.walk(RESOURCES_DIR):
+    for file in files:
+        if file.endswith('.html'):
+            path = os.path.join(root, file)
+            with open(path, 'r', encoding='utf-8') as f:
+                soup = BeautifulSoup(f.read(), 'html.parser')
+            
+            title = soup.title.string if soup.title else ""
+            desc_tag = soup.find("meta", attrs={"name": "description"})
+            desc = desc_tag["content"] if desc_tag else ""
+            
+            rel_path = os.path.relpath(path, RESOURCES_DIR).replace('\\', '/')
+            data.append({
+                "file": "/resources/" + rel_path if rel_path != "." else "/resources/index.html",
+                "title": title,
+                "title_len": len(title),
+                "desc": desc,
+                "desc_len": len(desc)
+            })
 
-with open(out_path, 'w', encoding='utf-8') as out_file:
-    out_file.write("\n".join(lines_out))
+with open(r"C:\Projects\SV-Build\scratch\seo_data.json", 'w') as f:
+    json.dump(data, f, indent=2)

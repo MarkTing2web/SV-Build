@@ -1,27 +1,22 @@
 <!DOCTYPE html>
+
 <html lang="en-GB">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Door Access Control Cost Calculator | Securevision</title>
-    <meta name="description" content="Get a ballpark budget for a door access control system in Singapore. Choose your door count, technology, and credentials — see an indicative estimate instantly.">
-    <link rel="canonical" href="https://www.securevision.com.sg/resources/calculators/access-control-cost-calculator.html">
-    <meta property="og:title" content="Door Access Control Cost Calculator | Securevision">
-    <meta property="og:description" content="Estimate the cost of a door access control system in Singapore. Card+PIN, face recognition, video intercom — get an indicative budget range before you enquire.">
-    <meta property="og:url" content="https://www.securevision.com.sg/resources/calculators/access-control-cost-calculator.html">
-    <meta property="og:image" content="https://www.securevision.com.sg/images/og-default.jpg">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Securevision">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="/sv-shared.css">
-    <link rel="stylesheet" href="/sv-resources.css">
-    <script src="/site-config.js"></script>
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Door Access Control Cost Calculator | Securevision</title>
+<meta content="Get a ballpark budget for a door access control system in Singapore. Choose your door count, technology, and credentials — see an indicative estimate instantly." name="description"/>
+<link href="https://www.securevision.com.sg/resources/calculators/access-control-cost-calculator.html" rel="canonical"/>
+<meta content="Door Access Control Cost Calculator | Securevision" property="og:title"/>
+<meta content="Estimate the cost of a door access control system in Singapore. Card+PIN, face recognition, video intercom — get an indicative budget range before you enquire." property="og:description"/>
+<meta content="https://www.securevision.com.sg/resources/calculators/access-control-cost-calculator.html" property="og:url"/>
+<meta content="https://www.securevision.com.sg/images/og-default.jpg" property="og:image"/>
+<meta content="website" property="og:type"/>
+<meta content="Securevision" property="og:site_name"/>
+<link href="/sv-shared.css" rel="stylesheet"/>
+<link href="/sv-resources.css" rel="stylesheet"/>
+<script src="/site-config.js"></script>
+<style>
         :root { --page-accent: #0056b3; }
         .hero-compact { min-height: 44vh !important; padding: 80px 0 64px !important; }
     @media (max-width: 768px) {
@@ -248,160 +243,124 @@
         }
     </style>
 </head>
-
 <body data-guide="access">
-    <nav id="sv-nav"></nav>
-
-    <header class="hero-high-impact hero-guide hero-compact"
-            style="background-image: url('/images/resources/hero-tools.webp');">
-        <div class="container">
-            <span class="eyebrow-light">Planning Tool &middot; Entry &amp; Access</span>
-            <h1 class="hero-title-main">Door Access Control Cost Calculator</h1>
-            <p class="hero-subtitle-main">Get a budgetary estimate for your office or commercial premises before you pick up the phone. Supply, installation, and programming included. Network switches, internet, and AC power are by others.</p>
-        </div>
-    </header>
-
-    <section class="sv-section-white">
-        <div class="container">
-        <div class="ac-wrap">
-
-            <!-- ── STEP 1: ACCESS POINTS ─────────────────── -->
-            <div class="ac-panel">
-                <h2>1 &middot; Access points</h2>
-                <p class="ac-hint">Enter how many doors you need for each technology. You can mix types in one system.</p>
-
-                <div class="tech-grid">
-
-                    <div class="tech-card">
-                        <div class="tech-name">Card + PIN</div>
-                        <div class="tech-desc">Standard credential access — suitable for most internal and secondary doors.</div>
-                        <div class="qty-row">
-                            <input type="number" class="qty-input" id="q-card" value="0" min="0" max="64" oninput="onDoorChange()">
-                            <span class="qty-label">doors</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-card">
-                        <div class="tech-name">Face recognition</div>
-                        <div class="tech-desc">Touchless biometric — for main entrances and higher-security areas.</div>
-                        <div class="qty-row">
-                            <input type="number" class="qty-input" id="q-face" value="0" min="0" max="64" oninput="onDoorChange()">
-                            <span class="qty-label">doors</span>
-                        </div>
-                    </div>
-
-                </div>
-
-                <!-- Video intercom toggle -->
-                <div class="toggle-row" style="margin-bottom:0">
-                    <span class="toggle-name">Video intercom at main entrance?</span>
-                    <div class="toggle-pills">
-                        <button class="toggle-pill" id="ic-yes" onclick="setIntercom(true)">Yes</button>
-                        <button class="toggle-pill on" id="ic-no" onclick="setIntercom(false)">No</button>
-                    </div>
-                </div>
-
-                <!-- Intercom sub-options -->
-                <div class="intercom-sub" id="intercom-sub">
-
-                    <div class="intercom-sub-title">Indoor monitors</div>
-                    <p class="intercom-sub-note">One monitor is standard for most offices. Add more if you need viewing points in additional rooms (e.g. a manager's office as well as reception).</p>
-                    <div class="qty-row">
-                        <input type="number" class="qty-input" id="q-monitors" value="1" min="1" max="10" oninput="onDoorChange()">
-                        <span class="qty-label">monitor(s)</span>
-                    </div>
-
-                    <hr>
-
-                    <div class="toggle-row">
-                        <span class="toggle-name">Also add mobile app access?</span>
-                        <div class="toggle-pills">
-                            <button class="toggle-pill on" id="app-yes" onclick="setApp(true)">Yes</button>
-                            <button class="toggle-pill" id="app-no" onclick="setApp(false)">No</button>
-                        </div>
-                    </div>
-                    <p style="font-size:12px;color:#5F6368;margin-top:6px">Answer the door from anywhere on your phone. One-time charge per system.</p>
-
-                </div>
-
-                <!-- Door total bar -->
-                <div class="total-bar" style="margin-top:16px">
-                    <span>Total access points: <strong id="door-total">0</strong></span>
-                    <em id="panel-status"></em>
-                </div>
-            </div>
-
-            <!-- ── STEP 2: ACCESS CARDS ───────────────────── -->
-            <div class="ac-panel">
-                <h2>2 &middot; Access cards</h2>
-                <p class="ac-hint">Mifare proximity cards — compatible with all major access control brands.</p>
-                <div class="qty-row" style="margin-bottom:10px">
-                    <input type="number" class="qty-input" id="q-cards" value="10" min="10" max="1000" step="5">
-                    <span class="qty-label">cards</span>
-                </div>
-                <p class="cards-note"><b>Minimum order: 10 cards.</b> Estimate based on number of regular users. Allow extra for visitor cards and spares.</p>
-            </div>
-
-            <!-- ── CALCULATE BUTTON ───────────────────────── -->
-            <div class="ac-btn-row">
-                <button class="ac-btn" id="calc-btn" onclick="calculate()">
-                    Calculate budget &rarr;
+<nav id="sv-nav"></nav>
+<header class="hero-high-impact hero-guide hero-compact">
+<div class="container">
+<span class="eyebrow-light">Planning Tool · Entry &amp; Access</span>
+<h1 class="hero-title-main">Door Access Control Cost Calculator</h1>
+<p class="hero-subtitle-main">Get a budgetary estimate for your office or commercial premises before you pick up the phone. Supply, installation, and programming included. Network switches, internet, and AC power are by others.</p>
+</div>
+</header>
+<section class="sv-section-white">
+<div class="container">
+<div class="ac-wrap">
+<!-- ── STEP 1: ACCESS POINTS ─────────────────── -->
+<div class="ac-panel">
+<h2>1 · Access points</h2>
+<p class="ac-hint">Enter how many doors you need for each technology. You can mix types in one system.</p>
+<div class="tech-grid">
+<div class="tech-card">
+<div class="tech-name">Card + PIN</div>
+<div class="tech-desc">Standard credential access — suitable for most internal and secondary doors.</div>
+<div class="qty-row">
+<input class="qty-input" id="q-card" max="64" min="0" oninput="onDoorChange()" type="number" value="0"/>
+<span class="qty-label">doors</span>
+</div>
+</div>
+<div class="tech-card">
+<div class="tech-name">Face recognition</div>
+<div class="tech-desc">Touchless biometric — for main entrances and higher-security areas.</div>
+<div class="qty-row">
+<input class="qty-input" id="q-face" max="64" min="0" oninput="onDoorChange()" type="number" value="0"/>
+<span class="qty-label">doors</span>
+</div>
+</div>
+</div>
+<!-- Video intercom toggle -->
+<div class="toggle-row">
+<span class="toggle-name">Video intercom at main entrance?</span>
+<div class="toggle-pills">
+<button class="toggle-pill" id="ic-yes" onclick="setIntercom(true)">Yes</button>
+<button class="toggle-pill on" id="ic-no" onclick="setIntercom(false)">No</button>
+</div>
+</div>
+<!-- Intercom sub-options -->
+<div class="intercom-sub" id="intercom-sub">
+<div class="intercom-sub-title">Indoor monitors</div>
+<p class="intercom-sub-note">One monitor is standard for most offices. Add more if you need viewing points in additional rooms (e.g. a manager's office as well as reception).</p>
+<div class="qty-row">
+<input class="qty-input" id="q-monitors" max="10" min="1" oninput="onDoorChange()" type="number" value="1"/>
+<span class="qty-label">monitor(s)</span>
+</div>
+<hr/>
+<div class="toggle-row">
+<span class="toggle-name">Also add mobile app access?</span>
+<div class="toggle-pills">
+<button class="toggle-pill on" id="app-yes" onclick="setApp(true)">Yes</button>
+<button class="toggle-pill" id="app-no" onclick="setApp(false)">No</button>
+</div>
+</div>
+<p>Answer the door from anywhere on your phone. One-time charge per system.</p>
+</div>
+<!-- Door total bar -->
+<div class="total-bar">
+<span>Total access points: <strong id="door-total">0</strong></span>
+<em id="panel-status"></em>
+</div>
+</div>
+<!-- ── STEP 2: ACCESS CARDS ───────────────────── -->
+<div class="ac-panel">
+<h2>2 · Access cards</h2>
+<p class="ac-hint">Mifare proximity cards — compatible with all major access control brands.</p>
+<div class="qty-row">
+<input class="qty-input" id="q-cards" max="1000" min="10" step="5" type="number" value="10"/>
+<span class="qty-label">cards</span>
+</div>
+<p class="cards-note"><b>Minimum order: 10 cards.</b> Estimate based on number of regular users. Allow extra for visitor cards and spares.</p>
+</div>
+<!-- ── CALCULATE BUTTON ───────────────────────── -->
+<div class="ac-btn-row">
+<button class="ac-btn" id="calc-btn" onclick="calculate()">
+                    Calculate budget →
                 </button>
-            </div>
-
-            <!-- ── RESULTS ────────────────────────────────── -->
-            <div class="ac-results" id="results">
-
-                <div class="budget-card">
-                    <div class="bud-eyebrow">Budgetary system estimate</div>
-                    <div class="bud-range" id="r-range">&mdash;</div>
-                    <div class="bud-sub" id="r-sub"></div>
-
-                    <div class="bud-summary">
-                        <div class="bud-summary-title">What&rsquo;s included</div>
-                        <div class="bud-grid" id="bud-grid"></div>
-                    </div>
-
-                    <div class="bud-excl" id="bud-excl"></div>
-
-                    <div class="bud-cta">
-                        <p>If this budget works for you, a site visit confirms the door specs, cable routing, and hardware — and turns this estimate into an accurate proposal.</p>
-                        <a href="/contact-gateway.html?intent=access-control-calculator" class="btn btn-primary" id="r-btn">Request a Proposal &rarr;</a>
-                        <a href="https://wa.me/6593860466" target="_blank" rel="noopener" class="btn btn-whatsapp">💬 WhatsApp</a>
-                    </div>
-                </div>
-
-                <div class="ac-note" id="r-note"></div>
-
-            </div>
-
-        </div><!-- /.ac-wrap -->
-        </div>
-    </section>
-
-    <section class="cta-section cta-high-impact cta-facilities">
-        <div class="container">
-            <span class="eyebrow-light">Get Started</span>
-            <h2>Budget Looks Right? Let&rsquo;s Confirm the Details.</h2>
-            <p class="subtitle">A site survey turns this estimate into a door-by-door proposal — bracket types, cable routes, hardware spec, and a price you can hold us to. <span class="sv-years-experience"></span>+ years of Singapore experience.</p>
-            <div class="btn-group">
-                <a href="/contact-gateway.html?intent=access-control-calculator" class="btn btn-primary">Request a Proposal</a>
-                <a href="https://wa.me/6593860466" class="btn btn-outline-light">💬 WhatsApp</a>
-            </div>
-            <p class="cta-trust-note">Police Licence <span class="sv-licence"></span> &middot; <span class="sv-bizsafe"></span> &middot; Serving Singapore Since 2006</p>
-        </div>
-    </section>
-
-    <footer id="sv-footer"></footer>
-
-    <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
-            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-        </svg>
-    </a>
-
-    <script src="/nav-footer.js"></script>
-    <script>
+</div>
+<!-- ── RESULTS ────────────────────────────────── -->
+<div class="ac-results" id="results">
+<div class="budget-card">
+<div class="bud-eyebrow">Budgetary system estimate</div>
+<div class="bud-range" id="r-range">—</div>
+<div class="bud-sub" id="r-sub"></div>
+<div class="bud-summary">
+<div class="bud-summary-title">What’s included</div>
+<div class="bud-grid" id="bud-grid"></div>
+</div>
+<div class="bud-excl" id="bud-excl"></div>
+<div class="bud-cta">
+<p>If this budget works for you, a site visit confirms the door specs, cable routing, and hardware — and turns this estimate into an accurate proposal.</p>
+<a class="btn btn-primary" href="/contact-gateway.html?intent=access-control-calculator" id="r-btn">Request a Proposal →</a>
+<a class="btn btn-whatsapp" href="https://wa.me/6593860466" rel="noopener" target="_blank">💬 WhatsApp</a>
+</div>
+</div>
+<div class="ac-note" id="r-note"></div>
+</div>
+</div><!-- /.ac-wrap -->
+</div>
+</section>
+<section class="cta-section cta-high-impact cta-facilities">
+<div class="container">
+<span class="eyebrow-light">Get Started</span>
+<h2>Budget Looks Right? Let’s Confirm the Details.</h2>
+<p class="subtitle">A site survey turns this estimate into a door-by-door proposal — bracket types, cable routes, hardware spec, and a price you can hold us to. <span class="sv-years-experience"></span>+ years of Singapore experience.</p>
+<div class="btn-group">
+<a class="btn btn-primary" href="/contact-gateway.html?intent=access-control-calculator">Request a Proposal</a>
+<a class="btn btn-outline-light" href="https://wa.me/6593860466">💬 WhatsApp</a>
+</div>
+<p class="cta-trust-note">Police Licence <span class="sv-licence"></span> · <span class="sv-bizsafe"></span> · Serving Singapore Since 2006</p>
+</div>
+</section>
+<footer id="sv-footer"></footer>
+<script>
     /* ============================================================
        DOOR ACCESS CONTROL COST CALCULATOR
        All prices in SGD, excluding GST.
@@ -635,5 +594,6 @@
     /* ── Init ──────────────────────────────────────────────── */
     onDoorChange();
     </script>
+<script src="/nav-footer.js"></script>
 </body>
 </html>
