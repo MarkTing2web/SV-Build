@@ -1,6 +1,6 @@
 # Securevision Site Structure
 
-Last updated: 2026-06-06
+Last updated: 2026-06-09
 
 - [/](https://www.securevision.com.sg/)
 - [/about.html](https://www.securevision.com.sg/about.html)
@@ -193,6 +193,7 @@ Last updated: 2026-06-06
 - [/solutions/condominiums/security-contractors.html](https://www.securevision.com.sg/solutions/condominiums/security-contractors.html)
 - [/solutions/data-centres.html](https://www.securevision.com.sg/solutions/data-centres.html)
 - [/solutions/data-centres/data-centre-security-systems.html](https://www.securevision.com.sg/solutions/data-centres/data-centre-security-systems.html)
+- [/solutions/dormitories.html](https://www.securevision.com.sg/solutions/dormitories.html)
 - [/solutions/healthcare.html](https://www.securevision.com.sg/solutions/healthcare.html)
 - [/solutions/healthcare/aged-care.html](https://www.securevision.com.sg/solutions/healthcare/aged-care.html)
 - [/solutions/healthcare/day-care.html](https://www.securevision.com.sg/solutions/healthcare/day-care.html)
@@ -211,7 +212,6 @@ Last updated: 2026-06-06
 - [/solutions/institutions/schools.html](https://www.securevision.com.sg/solutions/institutions/schools.html)
 - [/solutions/managed-living.html](https://www.securevision.com.sg/solutions/managed-living.html)
 - [/solutions/managed-living/co-living.html](https://www.securevision.com.sg/solutions/managed-living/co-living.html)
-- [/solutions/managed-living/dormitories.html](https://www.securevision.com.sg/solutions/managed-living/dormitories.html)
 - [/solutions/managed-living/hostels.html](https://www.securevision.com.sg/solutions/managed-living/hostels.html)
 - [/solutions/managed-living/managed-living-security-systems.html](https://www.securevision.com.sg/solutions/managed-living/managed-living-security-systems.html)
 - [/solutions/reduce-guard-manpower.html](https://www.securevision.com.sg/solutions/reduce-guard-manpower.html)
