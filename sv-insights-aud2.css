@@ -640,12 +640,7 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: linear-gradient(
-    105deg,
-    #0E1A2B 0%,
-    #0f2440 55%,
-    #0E1A2B 100%
-  );
+  background-color: #0E1A2B;
 }
 
 /* Dot pattern overlay — category colour applied via modifier */
@@ -655,7 +650,7 @@
   inset: 0;
   background-image: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.06) 1px,
+    var(--ih-dot-colour, rgba(255,255,255,0.12)) 1px,
     transparent 1px
   );
   background-size: 24px 24px;
@@ -695,10 +690,10 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   padding: 4px 12px;
-  border-radius: 4px;
+  border-radius: 20px;
   margin-bottom: 14px;
-  background: var(--ih-pill-bg, rgba(255,255,255,0.15));
-  color: var(--ih-pill-text, #ffffff);
+  background: var(--ih-pill-bg, rgba(255,255,255,0.12));
+  color: var(--ih-pill-text, rgba(255,255,255,0.85));
   width: fit-content;
 }
 
@@ -756,31 +751,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-}
-
-/* Soft radial glow — lifts the illustration off the dark background */
-.insights-header-illus::before {
-  content: '';
-  position: absolute;
-  width: 200px;
-  height: 160px;
-  border-radius: 50%;
-  background: radial-gradient(
-    ellipse at center,
-    var(--ih-pill-bg, rgba(255,255,255,0.08)) 0%,
-    transparent 70%
-  );
-  pointer-events: none;
-  z-index: 0;
+  opacity: 0.85;
 }
 
 .insights-header-illus svg {
   width: 180px;
   height: 140px;
   overflow: visible;
-  position: relative;
-  z-index: 1;
 }
 
 /* ── 2f. Category modifier classes ──
@@ -792,46 +769,58 @@
    SVG stroke colours are set inline in the HTML per article.
    ─────────────────────────────────────────────────────────── */
 
-/* CCTV & Surveillance — blue accent */
+/* CCTV & Surveillance — navy blue */
 .insights-cat-cctv {
-  --ih-pill-bg:     rgba(55, 138, 221, 0.9);
-  --ih-pill-text:   #ffffff;
-  background: linear-gradient(105deg, #0E1A2B 0%, #0f2a45 55%, #0E1A2B 100%);
+  --ih-bg:          #091525;
+  --ih-dot-colour:  rgba(55, 138, 221, 0.18);
+  --ih-pill-bg:     rgba(55, 138, 221, 0.2);
+  --ih-pill-text:   #7eb8ff;
+  background-color: var(--ih-bg);
 }
 
-/* Alarm & Intrusion — red accent */
+/* Alarm & Intrusion — crimson */
 .insights-cat-alarm {
-  --ih-pill-bg:     rgba(194, 60, 60, 0.9);
-  --ih-pill-text:   #ffffff;
-  background: linear-gradient(105deg, #0E1A2B 0%, #1f1520 55%, #0E1A2B 100%);
+  --ih-bg:          #150608;
+  --ih-dot-colour:  rgba(194, 60, 60, 0.18);
+  --ih-pill-bg:     rgba(194, 60, 60, 0.2);
+  --ih-pill-text:   #f09595;
+  background-color: var(--ih-bg);
 }
 
-/* Access & Intercom — teal accent */
+/* Access & Intercom — teal */
 .insights-cat-access {
-  --ih-pill-bg:     rgba(29, 158, 117, 0.9);
-  --ih-pill-text:   #ffffff;
-  background: linear-gradient(105deg, #0E1A2B 0%, #0f2530 55%, #0E1A2B 100%);
+  --ih-bg:          #061614;
+  --ih-dot-colour:  rgba(29, 158, 117, 0.18);
+  --ih-pill-bg:     rgba(29, 158, 117, 0.2);
+  --ih-pill-text:   #5dcaa5;
+  background-color: var(--ih-bg);
 }
 
-/* Vehicle & Gates — amber accent */
+/* Vehicle & Gates — amber */
 .insights-cat-vehicle {
-  --ih-pill-bg:     rgba(186, 117, 23, 0.9);
-  --ih-pill-text:   #ffffff;
-  background: linear-gradient(105deg, #0E1A2B 0%, #1e1e18 55%, #0E1A2B 100%);
+  --ih-bg:          #150e04;
+  --ih-dot-colour:  rgba(186, 117, 23, 0.18);
+  --ih-pill-bg:     rgba(186, 117, 23, 0.2);
+  --ih-pill-text:   #fac775;
+  background-color: var(--ih-bg);
 }
 
-/* Platform & Integration — purple accent */
+/* Platform & Integration — purple */
 .insights-cat-platform {
-  --ih-pill-bg:     rgba(127, 119, 221, 0.9);
-  --ih-pill-text:   #ffffff;
-  background: linear-gradient(105deg, #0E1A2B 0%, #161530 55%, #0E1A2B 100%);
+  --ih-bg:          #100d1e;
+  --ih-dot-colour:  rgba(127, 119, 221, 0.18);
+  --ih-pill-bg:     rgba(127, 119, 221, 0.2);
+  --ih-pill-text:   #afa9ec;
+  background-color: var(--ih-bg);
 }
 
-/* Security Planning — slate accent */
+/* Security Planning — slate */
 .insights-cat-planning {
-  --ih-pill-bg:     rgba(100, 116, 139, 0.9);
-  --ih-pill-text:   #ffffff;
-  background: linear-gradient(105deg, #0E1A2B 0%, #131c2a 55%, #0E1A2B 100%);
+  --ih-bg:          #0d1117;
+  --ih-dot-colour:  rgba(148, 163, 184, 0.18);
+  --ih-pill-bg:     rgba(148, 163, 184, 0.15);
+  --ih-pill-text:   #cbd5e1;
+  background-color: var(--ih-bg);
 }
 
 /* ── 2g. Mobile — stack columns, hide illustration ── */
@@ -862,7 +851,7 @@
    ============================================================ */
 
 .article-body {
-  padding: 48px 0 80px;
+  padding: 80px 0;
   background: #fff;
 }
 
@@ -942,35 +931,25 @@
 
 .article-body .layout-with-sidebar aside {
   grid-area: sidebar;
+  align-self: start;
+  position: sticky;
+  top: 100px;
 }
 
 .article-body .layout-with-sidebar main {
   grid-area: content;
 }
 
-/* ── 4b. Single sidebar container ── */
+/* ── 4b. TOC container ── */
 
-.sidebar-container {
+.article-body .sticky-toc {
   background: var(--white);
   border-radius: 12px;
   border: 1px solid var(--border-light);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-  overflow: hidden;
-}
-
-/* Each section separated by a divider */
-.sidebar-section {
-  padding: 20px;
-  border-bottom: 1px solid var(--border-light);
-}
-
-.sidebar-section:last-child {
-  border-bottom: none;
-}
-
-/* CTA section tinted background */
-.sidebar-section--cta {
-  background: #eef4fc;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  margin-bottom: 20px;
 }
 
 /* ── 4c. TOC heading ── */
@@ -981,16 +960,16 @@
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: var(--text-light);
-  display: block;
-  margin-bottom: 14px;
-  padding-bottom: 12px;
+  padding: 20px 20px 14px;
   border-bottom: 1px solid var(--border-light);
+  display: block;
+  cursor: default;
 }
 
 /* ── 4d. Reading progress bar ── */
 
 .toc-progress-wrap {
-  padding: 0 0 10px;
+  padding: 10px 20px 0;
 }
 
 .toc-progress-track {
@@ -1012,7 +991,7 @@
 
 .article-body .toc-list {
   list-style: none;
-  padding: 0;
+  padding: 12px 0 16px;
   margin: 0;
 }
 
@@ -1027,7 +1006,7 @@
   font-weight: 500;
   line-height: 1.4;
   display: block;
-  padding: 5px 0 5px 10px;
+  padding: 5px 20px 5px 18px;
   border-left: 2px solid transparent;
   transition: color 0.2s, border-color 0.2s;
 }
@@ -1043,9 +1022,21 @@
   font-weight: 600;
 }
 
-/* ── 4f. CTA inside container ── */
+/* ── 4f. Contextual CTA block ──
+   Background tint matches the article's category colour.
+   Set --sidebar-cta-bg and --sidebar-cta-text in the
+   article HTML via a <style> block, or use the default blue.
+   ─────────────────────────────────────────────────────────── */
 
-.sidebar-section--cta .sidebar-cta-label {
+.sidebar-cta {
+  background: #eef4fc;
+  border: 1px solid #c3d9f5;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.sidebar-cta-label {
   font-family: 'Montserrat', sans-serif;
   font-size: 10px;
   font-weight: 700;
@@ -1056,7 +1047,7 @@
   display: block;
 }
 
-.sidebar-section--cta .sidebar-cta-title {
+.sidebar-cta-title {
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
   font-weight: 700;
@@ -1065,7 +1056,7 @@
   margin-bottom: 8px;
 }
 
-.sidebar-section--cta .sidebar-cta-desc {
+.sidebar-cta-desc {
   font-family: 'Inter', sans-serif;
   font-size: 13px;
   color: var(--text-light);
@@ -1084,10 +1075,6 @@
   text-decoration: none;
   margin-bottom: 8px;
   transition: 0.2s;
-}
-
-.sidebar-cta-btn:last-child {
-  margin-bottom: 0;
 }
 
 .sidebar-cta-btn-primary {
@@ -1110,23 +1097,29 @@
   background: #dcfce7;
 }
 
-/* ── 4g. Form inside container ── */
+/* ── 4g. Assessment form ── */
 
-.sidebar-section .sidebar-form-head {
+.sidebar-form {
+  background: #fff;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.sidebar-form-head {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   color: var(--text-light);
-  display: block;
-  margin-bottom: 14px;
-  padding-bottom: 12px;
+  padding: 14px 20px;
   border-bottom: 1px solid var(--border-light);
+  display: block;
 }
 
 .sidebar-form-body {
-  padding: 0;
+  padding: 16px 20px 20px;
 }
 
 .sf-field {
@@ -1450,7 +1443,7 @@
   }
 }
 
-/* ── Sidebar hidden below 991px — CTA handled by final section ── */
+/* ── Sidebar collapses below 991px ── */
 
 @media (max-width: 991px) {
   .article-body .layout-with-sidebar {
@@ -1458,6 +1451,75 @@
   }
 
   .article-body .layout-with-sidebar aside {
+    position: sticky;
+    top: 68px;
+    z-index: 900;
+    width: 100%;
+    background: var(--white);
+  }
+
+  .article-body .sticky-toc {
+    position: relative;
+    top: 0;
+    width: 100vw;
+    margin-left: -24px;
+    margin-right: -24px;
+    padding: 0;
+    background: var(--white);
+    border: none;
+    border-bottom: 2px solid var(--border-light);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 0;
+    max-height: none;
+    margin-bottom: 0;
+  }
+
+  .toc-progress-wrap {
+    display: none;
+  }
+
+  .article-body .toc-title {
+    margin: 0;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--primary-blue);
+    border-bottom: none;
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .article-body .toc-title::after {
+    content: '▼';
+    font-size: 10px;
+    opacity: 0.6;
+    transition: transform 0.3s;
+  }
+
+  .article-body .toc-title.active::after {
+    transform: rotate(180deg);
+  }
+
+  .article-body .toc-list {
+    display: none;
+    max-height: 50vh;
+    overflow-y: auto;
+    padding: 12px 0 16px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .article-body .toc-list.active {
+    display: block;
+  }
+
+  .article-body .toc-list a {
+    padding-left: 24px;
+    border-left: none;
+  }
+
+  .sidebar-cta,
+  .sidebar-form {
     display: none;
   }
 }
