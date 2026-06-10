@@ -784,6 +784,11 @@ h4 {
     position: relative;
 }
 
+/* ── Mobile CTA in row 2 — hidden on desktop ── */
+.nav-mobile-cta {
+    display: none;
+}
+
 /* ── Mobile-only elements — hidden on desktop ── */
 
 .nav-mobile-brand {
@@ -799,9 +804,10 @@ h4 {
 .nav-scroll-home {
     display: none;
     align-items: center;
+    gap: 10px;
     text-decoration: none;
     flex-shrink: 0;
-    margin-right: 8px;
+    margin-right: 12px;
 }
 
 .nav-scroll-logo {
@@ -810,10 +816,22 @@ h4 {
     display: block;
     opacity: 0.85;
     transition: opacity 0.2s;
+    flex-shrink: 0;
 }
 
-.nav-scroll-home:hover .nav-scroll-logo {
+.nav-scroll-wordmark {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.nav-scroll-home:hover .nav-scroll-logo,
+.nav-scroll-home:hover .nav-scroll-wordmark {
     opacity: 1;
+    color: #ffffff;
 }
 
 /* Show only on desktop when scrolled */
@@ -1056,7 +1074,7 @@ h4 {
 }
 
 .mobile-menu-cta {
-    display: block;
+    display: none; /* Hidden by default — shown only on ≤480px where nav bar CTA is hidden */
     padding: 14px 0;
     color: #fff;
     font-weight: 700;
@@ -1065,6 +1083,12 @@ h4 {
     text-decoration: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     margin-bottom: 4px;
+}
+
+@media (max-width: 480px) {
+    .mobile-menu-cta {
+        display: block;
+    }
 }
 
 .mobile-menu-item {
@@ -1135,8 +1159,24 @@ h4 {
     .nav-mobile-brand {
         display: flex;
         align-items: center;
-        flex: 1;
-        min-width: 0;
+        flex-shrink: 0;
+    }
+
+    /* Mobile CTA pill */
+    .nav-mobile-cta {
+        display: inline-flex;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 11px;
+        font-weight: 700;
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        padding: 5px 12px;
+        border-radius: 4px;
+        text-decoration: none;
+        white-space: nowrap;
+        flex-shrink: 0;
+        margin: 0 8px;
     }
 
     .nav-mobile-brand .nav-logo-link {
@@ -1187,20 +1227,24 @@ h4 {
     }
 
     .nav-mobile-brand .wordmark {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .nav-mobile-brand .nav-logo-img {
-        height: 22px;
+        height: 20px;
+    }
+
+    /* Too small to show CTA — menu handles it */
+    .nav-mobile-cta {
+        display: none;
     }
 }
 
 
 
-
 /* BREADCRUMBS */
 .sv-breadcrumb {
-    background: var(--bg-light);
+    background: #ffffff;
     padding: 12px 0;
     border-bottom: 1px solid var(--border-light);
 }
