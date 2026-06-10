@@ -695,11 +695,6 @@ h4 {
     display: none;
 }
 
-/* Mobile buttons wrapper — hidden on desktop */
-.nav-mobile-buttons {
-    display: none;
-}
-
 .nav-row1-inner {
     width: 100%;
     max-width: 1280px;
@@ -777,15 +772,12 @@ h4 {
     align-items: center;
     text-decoration: none;
     gap: 12px;
-    flex-shrink: 0;
-    min-width: 0;
 }
 
 .nav-logo-img {
     height: 32px;
     width: auto;
     display: block;
-    flex-shrink: 0;
 }
 
 .main-nav.scrolled .nav-logo-img {
@@ -917,8 +909,7 @@ h4 {
     height: 8px;
 }
 
-.nav-item:hover .simple-dropdown,
-.nav-item.dropdown-open .simple-dropdown {
+.nav-item:hover .simple-dropdown {
     display: block;
 }
 
@@ -3085,6 +3076,37 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     }
 }
 
+/* ── MOBILE BREAKPOINTS ── */
+
+/* ≤992px: switch to hamburger; hide desktop nav + desktop search */
+@media (max-width: 992px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .nav-right {
+        display: none;
+    }
+
+    .mobile-toggle {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1001;
+    }
+
+    .mobile-search-btn {
+        display: flex;
+    }
+
+    .nav-logo-link {
+        max-width: calc(50% - 52px);
+        overflow: hidden;
+    }
+}
+
 /* -- 13. HUB PAGES & GRIDS (Pathfinder, Property Types, etc.) -- */
 .pathfinder,
 .property-types,
@@ -4153,7 +4175,7 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     border-color: var(--primary-blue);
 }
 
-@media (max-width: 991px) {
+@media (max-width: 768px) {
     .nav-row1-inner,
     .nav-row2-inner {
         padding: 0 16px;
@@ -4178,23 +4200,10 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     .nav-mobile-brand {
         display: flex;
         align-items: center;
-        flex: 1;
-        min-width: 0;
-    }
-
-    /* Mobile buttons group — search + hamburger together on right */
-    .nav-mobile-buttons {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        flex-shrink: 0;
     }
 
     .nav-logo-link span {
         font-size: 16px !important;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
     }
 
     .nav-logo-img {
@@ -4342,11 +4351,7 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     }
 
     .nav-logo-img {
-        height: 22px !important;
-    }
-
-    .nav-wordmark {
-        font-size: 14px !important;
+        height: 24px !important;
     }
 
     .nav-logo-link span {
