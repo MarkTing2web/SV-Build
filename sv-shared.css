@@ -655,6 +655,22 @@ h4 {
    Body padding-top: 96px (set on body rule above)
    ============================================================ */
 
+/* ============================================================
+   NAVIGATION — Two-row fixed nav
+   ─────────────────────────────────────────────────────────────
+   Desktop (≥992px):
+     Row 1 (52px): logo + wordmark | tagline | CTA button
+     Row 2 (44px): nav links + search
+     Total height: 96px
+
+   Mobile (≤991px):
+     Row 1: hidden
+     Row 2 (52px): mobile-brand (logo) | search + hamburger
+     Total height: 52px
+   ============================================================ */
+
+/* ── Wordmark ── */
+
 .wordmark {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -666,7 +682,7 @@ h4 {
     font-size: 22px;
 }
 
-/* ── Main nav container ── */
+/* ── Main nav wrapper ── */
 
 .main-nav {
     background: #0A0F18;
@@ -690,16 +706,6 @@ h4 {
     overflow: hidden;
 }
 
-/* Mobile brand in row 2 — hidden on desktop */
-.nav-mobile-brand {
-    display: none;
-}
-
-/* Mobile buttons wrapper — hidden on desktop */
-.nav-mobile-buttons {
-    display: none;
-}
-
 .nav-row1-inner {
     width: 100%;
     max-width: 1280px;
@@ -716,6 +722,7 @@ h4 {
     display: flex;
     align-items: center;
     gap: 20px;
+    flex-shrink: 0;
 }
 
 .nav-tagline {
@@ -770,15 +777,53 @@ h4 {
     position: relative;
 }
 
+/* ── Mobile-only elements — hidden on desktop ── */
+
+.nav-mobile-brand {
+    display: none;
+}
+
+.nav-mobile-buttons {
+    display: none;
+}
+
+/* ── Scroll-home logo — hidden until row 1 slides away ── */
+
+.nav-scroll-home {
+    display: none;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+    margin-right: 8px;
+}
+
+.nav-scroll-logo {
+    height: 26px;
+    width: auto;
+    display: block;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.nav-scroll-home:hover .nav-scroll-logo {
+    opacity: 1;
+}
+
+/* Show only on desktop when scrolled */
+@media (min-width: 992px) {
+    .main-nav.scrolled .nav-scroll-home {
+        display: flex;
+    }
+}
+
 /* ── Logo ── */
 
 .nav-logo-link {
     display: flex;
     align-items: center;
     text-decoration: none;
-    gap: 12px;
+    gap: 10px;
     flex-shrink: 0;
-    min-width: 0;
 }
 
 .nav-logo-img {
@@ -792,7 +837,7 @@ h4 {
     filter: none;
 }
 
-/* ── Nav menu list ── */
+/* ── Desktop nav menu ── */
 
 .nav-menu {
     display: flex;
@@ -827,10 +872,6 @@ h4 {
     white-space: nowrap;
 }
 
-.main-nav.scrolled .nav-link {
-    color: rgba(255, 255, 255, 0.7);
-}
-
 .nav-link:hover {
     color: #ffffff;
     background: rgba(255, 255, 255, 0.1);
@@ -841,28 +882,19 @@ h4 {
     background: rgba(255, 255, 255, 0.15);
 }
 
-.main-nav.scrolled .nav-link:hover {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.main-nav.scrolled .nav-link.active {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.15);
-}
-
 .nav-link.has-dropdown::after {
     content: ' \25be';
     font-size: 10px;
     opacity: 0.6;
 }
 
-/* ── Right side — search ── */
+/* ── Desktop search ── */
 
 .nav-right {
     display: flex;
     align-items: center;
     gap: 12px;
+    flex-shrink: 0;
 }
 
 .nav-search-btn {
@@ -877,16 +909,7 @@ h4 {
     border-radius: 6px;
 }
 
-.main-nav.scrolled .nav-search-btn {
-    color: rgba(255, 255, 255, 0.7);
-}
-
 .nav-search-btn:hover {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.08);
-}
-
-.main-nav.scrolled .nav-search-btn:hover {
     color: #ffffff;
     background: rgba(255, 255, 255, 0.08);
 }
@@ -907,7 +930,6 @@ h4 {
     z-index: 1100;
 }
 
-/* Invisible bridge — fills gap between nav link and dropdown */
 .simple-dropdown::before {
     content: '';
     position: absolute;
@@ -936,14 +958,11 @@ h4 {
 .simple-dropdown a:hover {
     background: #0A0F18;
     color: #ffffff;
-    border-radius: 5px;
 }
 
-/* Current page item in dropdown — grey, distinct from hover black */
 .simple-dropdown a.active {
     background: #d0d0d0;
     color: #1a1a1a;
-    border-radius: 5px;
     font-weight: 600;
 }
 
@@ -964,10 +983,6 @@ h4 {
     right: 0;
 }
 
-.wide-dropdown a {
-    font-size: 13px;
-}
-
 .wide-dropdown a strong {
     color: var(--text-dark);
 }
@@ -976,7 +991,7 @@ h4 {
     color: #ffffff;
 }
 
-/* ── Mobile nav buttons ── */
+/* ── Mobile toggle buttons — hidden on desktop ── */
 
 .mobile-toggle {
     display: none;
@@ -989,10 +1004,6 @@ h4 {
     justify-content: center;
     border-radius: 6px;
     transition: background 0.2s;
-}
-
-.main-nav.scrolled .mobile-toggle {
-    color: rgba(255, 255, 255, 0.85);
 }
 
 .mobile-toggle:hover {
@@ -1012,10 +1023,6 @@ h4 {
     transition: background 0.2s;
 }
 
-.main-nav.scrolled .mobile-search-btn {
-    color: rgba(255, 255, 255, 0.7);
-}
-
 .mobile-search-btn:hover {
     background: rgba(255, 255, 255, 0.08);
     color: #fff;
@@ -1026,14 +1033,14 @@ h4 {
 .mobile-menu {
     display: none;
     position: fixed;
-    top: 44px;
+    top: 52px;
     left: 0;
     right: 0;
     background: #0A0F18;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 12px 24px 24px;
     z-index: 999;
-    max-height: calc(100vh - 44px);
+    max-height: calc(100vh - 52px);
     overflow-y: auto;
 }
 
@@ -1094,6 +1101,94 @@ h4 {
 .mobile-submenu a strong {
     color: rgba(255, 255, 255, 0.85);
 }
+
+/* ── Mobile breakpoint ≤991px ── */
+
+@media (max-width: 991px) {
+
+    /* Row 1 hidden — row 2 becomes the only bar */
+    .nav-row1 {
+        display: none;
+    }
+
+    .nav-row2 {
+        height: 52px;
+    }
+
+    .nav-row2-inner {
+        padding: 0 16px;
+    }
+
+    /* Body offset for single-row mobile nav */
+    body {
+        padding-top: 52px;
+    }
+
+    /* Show mobile brand */
+    .nav-mobile-brand {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        min-width: 0;
+    }
+
+    .nav-mobile-brand .nav-logo-link {
+        min-width: 0;
+    }
+
+    .nav-mobile-brand .wordmark {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 18px;
+    }
+
+    .nav-mobile-brand .nav-logo-img {
+        height: 28px;
+    }
+
+    /* Show mobile buttons */
+    .nav-mobile-buttons {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        flex-shrink: 0;
+    }
+
+    .mobile-search-btn {
+        display: flex;
+    }
+
+    .mobile-toggle {
+        display: flex;
+    }
+
+    /* Hide desktop-only elements */
+    .nav-menu,
+    .nav-right,
+    .nav-tagline {
+        display: none;
+    }
+
+}
+
+/* ── Small phone ≤480px ── */
+
+@media (max-width: 480px) {
+    .nav-row2-inner {
+        padding: 0 12px;
+    }
+
+    .nav-mobile-brand .wordmark {
+        font-size: 14px;
+    }
+
+    .nav-mobile-brand .nav-logo-img {
+        height: 22px;
+    }
+}
+
+
 
 
 /* BREADCRUMBS */
@@ -4154,71 +4249,6 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
 }
 
 @media (max-width: 991px) {
-    .nav-row1-inner,
-    .nav-row2-inner {
-        padding: 0 16px;
-    }
-
-    /* Hide entire brand strip on mobile — row 2 handles everything */
-    .nav-row1 {
-        display: none;
-    }
-
-    /* Reduce body padding — only row 2 (52px) shows on mobile */
-    body {
-        padding-top: 52px;
-    }
-
-    /* Row 2 becomes the only nav bar on mobile */
-    .nav-row2 {
-        height: 52px;
-    }
-
-    /* Show mobile brand (logo) in row 2 */
-    .nav-mobile-brand {
-        display: flex;
-        align-items: center;
-        flex: 1;
-        min-width: 0;
-    }
-
-    /* Mobile buttons group — search + hamburger together on right */
-    .nav-mobile-buttons {
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        flex-shrink: 0;
-    }
-
-    .nav-logo-link span {
-        font-size: 16px !important;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .nav-logo-img {
-        height: 28px !important;
-    }
-
-    /* Hide desktop search button on mobile — mobile-search-btn handles it */
-    .nav-right {
-        display: none;
-    }
-
-    /* Show mobile nav buttons — search left of hamburger */
-    .mobile-toggle {
-        display: flex;
-    }
-
-    .mobile-search-btn {
-        display: flex;
-    }
-
-    .nav-menu,
-    .nav-right {
-        display: none;
-    }
 
     section {
         padding: 64px 0;
@@ -4331,32 +4361,6 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
 
 /* ≤480px: tighten up */
 @media (max-width: 480px) {
-    .nav-row1-inner,
-    .nav-row2-inner {
-        padding: 0 12px;
-    }
-
-    .nav-cta-btn {
-        font-size: 11px;
-        padding: 5px 12px;
-    }
-
-    .nav-logo-img {
-        height: 22px !important;
-    }
-
-    .nav-wordmark {
-        font-size: 14px !important;
-    }
-
-    .nav-logo-link span {
-        font-size: 12px !important;
-    }
-
-    .nav-logo-link {
-        gap: 5px !important;
-    }
-
     .subsystem-grid,
     .factors-grid,
     .factors-4,
@@ -4370,26 +4374,7 @@ background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 
     }
 }
 
-/* ≤430px: further shrink wordmark so it never gets clipped at ~420px */
-@media (max-width: 430px) {
-    .nav-row1-inner,
-    .nav-row2-inner {
-        padding: 0 10px;
-    }
 
-    .nav-logo-img {
-        height: 22px !important;
-    }
-
-    .nav-logo-link span {
-        font-size: 11px !important;
-        letter-spacing: 0.3px !important;
-    }
-
-    .nav-logo-link {
-        gap: 4px !important;
-    }
-}
 
 /* Floating WhatsApp */
 .sv-wa-float {
