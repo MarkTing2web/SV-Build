@@ -868,20 +868,20 @@
 
 .prose h2 {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-size: clamp(1.35rem, 2vw, 1.75rem);
   font-weight: 700;
   color: var(--text-dark);
-  margin: 60px 0 24px;
+  margin: 56px 0 20px;
   scroll-margin-top: 100px;
   line-height: 1.25;
 }
 
 .prose h3 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--text-mid, #334155);
-  margin: 32px 0 16px;
+  margin: 28px 0 14px;
 }
 
 .prose p {
@@ -942,13 +942,38 @@
 
 .article-body .layout-with-sidebar aside {
   grid-area: sidebar;
+  position: sticky;
+  top: 100px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+  align-self: start;
+  /* Hide scrollbar by default, show on hover */
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.article-body .layout-with-sidebar aside:hover {
+  scrollbar-color: var(--border-light) transparent;
+}
+
+.article-body .layout-with-sidebar aside::-webkit-scrollbar {
+  width: 4px;
+}
+
+.article-body .layout-with-sidebar aside::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 2px;
+}
+
+.article-body .layout-with-sidebar aside:hover::-webkit-scrollbar-thumb {
+  background: var(--border-light);
 }
 
 .article-body .layout-with-sidebar main {
   grid-area: content;
 }
 
-/* ── 4b. Single sidebar container ── */
+/* ── 4b. Single sidebar container — visual wrapper only ── */
 
 .sidebar-container {
   background: var(--white);
@@ -1195,8 +1220,114 @@
 
 /* ============================================================
    SECTION 5 — INLINE ARTICLE COMPONENTS
-   Callout box, verdict box, article image box.
+   Takeaways block, callout box, verdict box, article image box.
    ============================================================ */
+
+/* ── Article takeaways block ── */
+
+.article-takeaways {
+  background: #f0f7ff;
+  border-left: 4px solid var(--primary-blue);
+  border-radius: 0 12px 12px 0;
+  padding: 24px 28px;
+  margin: 0 0 40px;
+}
+
+.article-takeaways-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--primary-blue);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.article-takeaways ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.article-takeaways li {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.article-takeaways li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary-blue);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.article-takeaways li:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Floating action buttons — insights articles only ── */
+
+.insights-float-actions {
+  position: fixed;
+  bottom: 28px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.insights-float-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+}
+
+.insights-float-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.insights-float-btn-wa {
+  background: #25d366;
+  color: #fff;
+}
+
+.insights-float-btn-assess {
+  background: var(--primary-blue);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .insights-float-actions {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .insights-float-btn {
+    font-size: 12px;
+    padding: 9px 14px;
+  }
+}
+
+/* ── Callout box ── */
 
 .callout-box {
   background: #f0f7ff;
@@ -1458,6 +1589,9 @@
   }
 
   .article-body .layout-with-sidebar aside {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
     display: none;
   }
 }

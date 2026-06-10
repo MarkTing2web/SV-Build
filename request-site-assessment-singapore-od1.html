@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Book a Site Assessment in Singapore | Securevision</title>
+<meta content="Book a comprehensive security site assessment with Securevision Singapore. Our experts will evaluate your property and recommend the best security solutions." name="description"/>
+<link href="https://www.securevision.com.sg/request-site-assessment-singapore.html" rel="canonical"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="/sv-shared.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<script src="/site-config.js"></script>
+<link href="/sv-forms.css" rel="stylesheet"/>
+<!-- Supabase JS SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<meta content="Book a Site Assessment in Singapore | Securevision" property="og:title"/>
+<meta content="Book a comprehensive security site assessment with Securevision Singapore. Our experts will evaluate your property and recommend the best security solutions." property="og:description"/>
+<meta content="https://www.securevision.com.sg/images/hero-security-solutions-singapore.webp" property="og:image"/>
+<meta content="https://www.securevision.com.sg/request-site-assessment-singapore.html" property="og:url"/>
+</head>
+<body class="pt-68">
+<nav id="sv-nav"></nav>
+<!-- ── BREADCRUMB ── -->
+<nav aria-label="Breadcrumb" class="sv-breadcrumb">
+<div class="container">
+<ul>
+<li><a href="/">Home</a></li>
+<li>Book a Site Assessment</li>
+</ul>
+</div>
+</nav>
+<main class="booking-page">
+<div class="container">
+<div class="section-header text-center mb-64">
+<span class="eyebrow">Appointment Request</span>
+<h1 id="bookingPageTitle">Book a Site Assessment</h1>
+<p class="subtitle">Let's discuss your security needs. Select your preferred way to connect and suggest up to 3 time slots below.</p>
+</div>
+<div class="booking-form-card">
+<form id="bookingForm" onsubmit="handleBookingSubmit(event)">
+<!-- Honeypot -->
+<input name="sv_human_verify" type="text"/>
+<!-- Hidden tracking fields -->
+<input id="hidden_intent" name="intent" type="hidden" value=""/>
+<input id="hidden_referrer" name="referrer" type="hidden" value=""/>
+<input id="hidden_source_page" name="source_page" type="hidden" value=""/>
+<input id="hidden_utm_source" name="utm_source" type="hidden" value=""/>
+<input id="hidden_utm_medium" name="utm_medium" type="hidden" value=""/>
+<input id="hidden_utm_campaign" name="utm_campaign" type="hidden" value=""/>
+<!-- 1. Interaction Type -->
+<div class="form-section">
+<div class="form-section-title-wrap">
+<h2>1. How should we connect?</h2>
+</div>
+<div class="form-group">
+<div class="interaction-toggle">
+<label class="toggle-option">
+<input checked="" name="interaction_type" required="" type="radio" value="Voice Call"/>
+<span class="toggle-label">
+<svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                    Voice Call
+                                </span>
+</label>
+<label class="toggle-option">
+<input name="interaction_type" type="radio" value="On-Site Assessment"/>
+<span class="toggle-label">
+<svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                    On-Site Assessment
+                                </span>
+</label>
+</div>
+</div>
+</div>
+<!-- 2. Personal Details -->
+<div class="form-section">
+<div class="form-section-title-wrap">
+<h3>2. Personal Details</h3>
+</div>
+<div class="proposal-form">
+<div class="form-group full-width">
+<label for="name">Full Name</label>
+<input id="name" name="name" placeholder="Full Name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="email">Email Address</label>
+<input id="email" name="email" placeholder="name@email.com" required="" type="email"/>
+</div>
+<div class="form-group">
+<label for="phone">Phone / WhatsApp</label>
+<input id="phone" name="phone" placeholder="+65 .... ...." required="" type="tel"/>
+</div>
+</div>
+</div>
+<!-- 3. Project Details -->
+<div class="form-section">
+<div class="form-section-title-wrap">
+<h3>3. Project Details</h3>
+</div>
+<div class="proposal-form">
+<div class="form-group">
+<label for="prop_type">Property Type</label>
+<select id="prop_type" name="prop_type" required="">
+<option disabled="" selected="" value="">Select property type...</option>
+<option value="Private Home">Private Home</option>
+<option value="Condominium">Condominium</option>
+<option value="Commercial/Retail">Commercial / Retail</option>
+<option value="Industrial">Industrial</option>
+<option value="Institutions">Institutions</option>
+</select>
+</div>
+<div class="form-group">
+<label for="postal_code">Postal Code</label>
+<input id="postal_code" maxlength="6" name="postal_code" pattern="[0-9]{6}" placeholder="e.g. 123456" required="" title="6-digit Singapore postal code" type="text"/>
+</div>
+<div class="form-group full-width">
+<label>Systems Interested In</label>
+<div class="checkbox-group">
+<label class="checkbox-item"><input name="interests" type="checkbox" value="CCTV"/> CCTV</label>
+<label class="checkbox-item"><input name="interests" type="checkbox" value="Access"/> Access Control</label>
+<label class="checkbox-item"><input name="interests" type="checkbox" value="Alarms"/> Alarms</label>
+<label class="checkbox-item"><input name="interests" type="checkbox" value="Intercom"/> Intercom</label>
+<label class="checkbox-item"><input name="interests" type="checkbox" value="Autogate"/> Autogate</label>
+<label class="checkbox-item"><input name="interests" type="checkbox" value="IP Phone"/> IP Phone</label>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Smart Scheduling -->
+<div class="form-section">
+<div class="form-section-title-wrap">
+<h3>4. Smart Scheduling</h3>
+</div>
+<p class="mb-24">Please select up to 3 preferred slots. We operate Monday to Friday.</p>
+<div class="slots-container">
+<!-- Row 1 -->
+<div class="slot-row">
+<div class="form-group">
+<span class="slot-index">Preferred Slot 1</span>
+<input class="date-picker" name="slot_date_1" required="" type="date"/>
+</div>
+<div class="form-group">
+<span class="slot-index">Time Window</span>
+<select name="slot_time_1" required="">
+<option disabled="" selected="" value="">Select time...</option>
+<option value="10:00 - 12:00">10:00 - 12:00</option>
+<option value="14:00 - 16:00">14:00 - 16:00</option>
+<option value="16:00 - 18:00">16:00 - 18:00</option>
+</select>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="slot-row">
+<div class="form-group">
+<span class="slot-index">Preferred Slot 2</span>
+<input class="date-picker" name="slot_date_2" type="date"/>
+</div>
+<div class="form-group">
+<span class="slot-index">Time Window</span>
+<select name="slot_time_2">
+<option selected="" value="">Select time...</option>
+<option value="10:00 - 12:00">10:00 - 12:00</option>
+<option value="14:00 - 16:00">14:00 - 16:00</option>
+<option value="16:00 - 18:00">16:00 - 18:00</option>
+</select>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="slot-row">
+<div class="form-group">
+<span class="slot-index">Preferred Slot 3</span>
+<input class="date-picker" name="slot_date_3" type="date"/>
+</div>
+<div class="form-group">
+<span class="slot-index">Time Window</span>
+<select name="slot_time_3">
+<option selected="" value="">Select time...</option>
+<option value="10:00 - 12:00">10:00 - 12:00</option>
+<option value="14:00 - 16:00">14:00 - 16:00</option>
+<option value="16:00 - 18:00">16:00 - 18:00</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<div class="submit-wrap">
+<button class="btn btn-primary btn-submit" id="submitBtn" type="submit">
+<span>Send Booking Request</span>
+<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><line x1="5" x2="19" y1="12" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+</button>
+</div>
+</form>
+</div>
+</div>
+</main>
+<!-- FINAL CTA -->
+<section class="cta-section cta-high-impact cta-facilities">
+<div class="container">
+<span class="eyebrow-light">Get Started</span>
+<h2>Need Expert Security Advice?</h2>
+<p>From technical planning to professional deployment. Let our 37 years of Singapore expertise turn your security goals into reality. No guesswork, just performance.</p>
+<div class="btn-group">
+<a class="btn btn-primary" href="/contact-gateway.html">Book Site Assessment</a>
+<a class="btn btn-wa" href="https://wa.me/6593860466">💬 WhatsApp an Engineer</a>
+</div>
+<p class="cta-trust">Police Licence <span class="sv-licence"></span> · <span class="sv-bizsafe"></span> · Serving Singapore Since 2006</p>
+</div>
+</section>
+<footer id="sv-footer"></footer>
+<!-- Floating WhatsApp -->
+<script>
+/**
+ * SOURCE TRACKING — populates hidden fields from URL params and document.referrer
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById('hidden_intent').value       = params.get('intent')       || '';
+    document.getElementById('hidden_referrer').value     = document.referrer          || '';
+    document.getElementById('hidden_source_page').value  = window.location.pathname;
+    document.getElementById('hidden_utm_source').value   = params.get('utm_source')   || '';
+    document.getElementById('hidden_utm_medium').value   = params.get('utm_medium')   || '';
+    document.getElementById('hidden_utm_campaign').value = params.get('utm_campaign') || '';
+});
+
+/**
+ * INTENT HANDLER — pre-fills form fields and updates page title based on ?intent= param
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const params    = new URLSearchParams(window.location.search);
+    const intent    = params.get('intent');
+    if (!intent) return;
+
+    const pageTitle      = document.getElementById('bookingPageTitle');
+    const propertySelect = document.getElementById('prop_type');
+
+    const checkInterests = (values) => {
+        values.forEach(val => {
+            const cb = document.querySelector(`input[name="interests"][value="${val}"]`);
+            if (cb) cb.checked = true;
+        });
+    };
+
+    switch (intent) {
+        case 'condo-assessment':
+            if (pageTitle) pageTitle.textContent = 'Estate Advisory Booking';
+            if (propertySelect) propertySelect.value = 'Condominium';
+            checkInterests(['CCTV', 'Access', 'Intercom']);
+            break;
+            
+        case 'residential-assessment':
+            if (pageTitle) pageTitle.textContent = 'Home Security Audit';
+            if (propertySelect) propertySelect.value = 'Private Home';
+            checkInterests(['CCTV', 'Alarms', 'Intercom']);
+            break;
+            
+        case 'commercial-assessment':
+            if (pageTitle) pageTitle.textContent = 'Business Security Assessment';
+            if (propertySelect) propertySelect.value = 'Commercial/Retail';
+            checkInterests(['CCTV', 'Access']);
+            break;
+            
+        case 'industrial-assessment':
+            if (pageTitle) pageTitle.textContent = 'Industrial Facility Audit';
+            if (propertySelect) propertySelect.value = 'Industrial';
+            checkInterests(['CCTV', 'Access', 'Autogate']);
+            break;
+            
+        case 'gov-assessment':
+            if (pageTitle) pageTitle.textContent = 'Institutional Safety Audit';
+            if (propertySelect) propertySelect.value = 'Institutions';
+            checkInterests(['CCTV', 'Access']);
+            break;
+
+        case 'healthcare-assessment':
+            if (pageTitle) pageTitle.textContent = 'Healthcare Facility Survey';
+            if (propertySelect) propertySelect.value = 'Institutions';
+            checkInterests(['CCTV', 'Access', 'Intercom']);
+            break;
+
+        case 'cctv-assessment':
+        case 'surveillance-assessment':
+        case 'thermal-assessment':
+        case 'ai-assessment':
+            if (pageTitle) pageTitle.textContent = 'Surveillance System Survey';
+            checkInterests(['CCTV']);
+            break;
+
+        case 'access-assessment':
+            if (pageTitle) pageTitle.textContent = 'Access Control Audit';
+            checkInterests(['Access']);
+            break;
+
+        case 'vehicle-assessment':
+            if (pageTitle) pageTitle.textContent = 'Vehicle Access Survey';
+            checkInterests(['Autogate']);
+            break;
+
+        case 'alarm-assessment':
+            if (pageTitle) pageTitle.textContent = 'Intrusion Alarm Survey';
+            checkInterests(['Alarms']);
+            break;
+            
+        case 'perimeter-assessment':
+            if (pageTitle) pageTitle.textContent = 'Perimeter Security Survey';
+            checkInterests(['CCTV', 'Alarms']);
+            break;
+            
+        case 'platform-assessment':
+            if (pageTitle) pageTitle.textContent = 'System Integration Preview';
+            checkInterests(['CCTV', 'Access']);
+            break;
+            
+        case 'homepage-assessment':
+            if (pageTitle) pageTitle.textContent = 'Book a Site Assessment';
+            break;
+    }
+});
+
+// ── SUPABASE CLIENT ──
+// Replace the two values below with your actual credentials from Supabase → Project Settings → API
+const SUPABASE_URL  = 'https://bppajrzwqeysrnrucwka.supabase.co';
+const SUPABASE_ANON = 'sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT';
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+
+// ── BOOKING FORM SUBMISSION ──
+async function handleBookingSubmit(event) {
+    event.preventDefault();
+
+    // Honeypot check
+    const honeypot = document.querySelector('input[name="sv_human_verify"]');
+    if (honeypot && honeypot.value !== '') return false;
+
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText   = submitBtn.querySelector('span');
+
+    // Collect checkbox values
+    const interests = [...document.querySelectorAll('input[name="interests"]:checked')]
+        .map(cb => cb.value).join(', ');
+
+    // Collect interaction type
+    const interactionType = document.querySelector('input[name="interaction_type"]:checked')?.value || '';
+
+    // Validate slot 1 is filled (required)
+    const slot1Date = document.querySelector('input[name="slot_date_1"]').value;
+    const slot1Time = document.querySelector('select[name="slot_time_1"]').value;
+    if (!slot1Date || !slot1Time) {
+        alert('Please select at least one preferred slot (date and time).');
+        return false;
+    }
+
+    // Disable button
+    submitBtn.disabled = true;
+    btnText.textContent = 'Sending...';
+
+    const payload = {
+        name:             document.getElementById('name').value.trim(),
+        email:            document.getElementById('email').value.trim(),
+        phone:            document.getElementById('phone').value.trim(),
+        interaction_type: interactionType,
+        prop_type:        document.getElementById('prop_type').value,
+        postal_code:      document.getElementById('postal_code').value.trim(),
+        interests:        interests,
+        slot_date_1:      slot1Date,
+        slot_time_1:      slot1Time,
+        slot_date_2:      document.querySelector('input[name="slot_date_2"]').value   || null,
+        slot_time_2:      document.querySelector('select[name="slot_time_2"]').value  || null,
+        slot_date_3:      document.querySelector('input[name="slot_date_3"]').value   || null,
+        slot_time_3:      document.querySelector('select[name="slot_time_3"]').value  || null,
+        intent:           document.getElementById('hidden_intent').value,
+        referrer:         document.getElementById('hidden_referrer').value,
+        source_page:      document.getElementById('hidden_source_page').value,
+        utm_source:       document.getElementById('hidden_utm_source').value,
+        utm_medium:       document.getElementById('hidden_utm_medium').value,
+        utm_campaign:     document.getElementById('hidden_utm_campaign').value,
+    };
+
+    const { error } = await supabaseClient
+        .from('booking_submissions')
+        .insert([payload]);
+
+    if (error) {
+        console.error('Supabase error:', error);
+        btnText.textContent = 'Something went wrong — please try again.';
+        submitBtn.disabled = false;
+        return false;
+    }
+
+    // Success — redirect to thank-you page
+    window.location.href = '/booking-success.html';
+    return false;
+}
+</script>
+<script src="/nav-footer.js"></script>
+</body>
+</html>

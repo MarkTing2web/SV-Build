@@ -58,11 +58,7 @@
     var dropLinks = document.querySelectorAll(".simple-dropdown a");
     for (var j = 0; j < dropLinks.length; j++) {
       var href = dropLinks[j].getAttribute("href");
-      if (!href) continue;
-      /* Normalise both sides — strip trailing slash and .html for comparison */
-      var normHref = href.replace(/\.html$/, "").replace(/\/$/, "");
-      var normPath = path.replace(/\.html$/, "").replace(/\/$/, "");
-      if (normHref === normPath || href === path) {
+      if (href && (href === path || href === path + "index.html")) {
         dropLinks[j].classList.add("active");
       }
     }

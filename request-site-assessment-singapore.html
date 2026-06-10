@@ -1,27 +1,536 @@
 <!DOCTYPE html>
-
 <html lang="en-GB">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Book a Site Assessment in Singapore | Securevision</title>
-<meta content="Book a comprehensive security site assessment with Securevision Singapore. Our experts will evaluate your property and recommend the best security solutions." name="description"/>
+<meta content="Book a comprehensive security site assessment with Securevision Singapore. Our engineers will evaluate your property and recommend the right security systems." name="description"/>
 <link href="https://www.securevision.com.sg/request-site-assessment-singapore.html" rel="canonical"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="/sv-shared.css" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<script src="/site-config.js"></script>
+<link href="/sv-shared.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link href="/sv-forms.css" rel="stylesheet"/>
-<!-- Supabase JS SDK -->
+<script src="/site-config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <meta content="Book a Site Assessment in Singapore | Securevision" property="og:title"/>
-<meta content="Book a comprehensive security site assessment with Securevision Singapore. Our experts will evaluate your property and recommend the best security solutions." property="og:description"/>
+<meta content="Book a comprehensive security site assessment with Securevision Singapore." property="og:description"/>
 <meta content="https://www.securevision.com.sg/images/hero-security-solutions-singapore.webp" property="og:image"/>
 <meta content="https://www.securevision.com.sg/request-site-assessment-singapore.html" property="og:url"/>
+<style>
+/* ── Page layout ── */
+.booking-page {
+  padding: 56px 0 80px;
+  background: #f8f9fa;
+  min-height: 60vh;
+}
+
+.booking-inner {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Page header ── */
+.booking-page-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.booking-page-header .eyebrow {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--primary-blue);
+  margin-bottom: 12px;
+}
+
+.booking-page-header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.booking-page-header p {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: var(--text-light);
+  line-height: 1.7;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ── Progress indicator ── */
+.booking-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 36px;
+}
+
+.progress-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-step-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  background: #e5e7eb;
+  color: #9ca3af;
+  transition: background 0.3s, color 0.3s;
+  flex-shrink: 0;
+}
+
+.progress-step-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #9ca3af;
+  transition: color 0.3s;
+  white-space: nowrap;
+}
+
+.progress-step.active .progress-step-num {
+  background: var(--primary-blue);
+  color: #fff;
+}
+
+.progress-step.active .progress-step-label {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.progress-step.done .progress-step-num {
+  background: #10b981;
+  color: #fff;
+}
+
+.progress-step.done .progress-step-label {
+  color: #6b7280;
+}
+
+.progress-connector {
+  width: 48px;
+  height: 2px;
+  background: #e5e7eb;
+  margin: 0 8px;
+  transition: background 0.3s;
+  flex-shrink: 0;
+}
+
+.progress-connector.done {
+  background: #10b981;
+}
+
+/* ── Form card ── */
+.booking-form-card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+
+/* ── Step panels ── */
+.booking-step {
+  display: none;
+  padding: 40px 48px;
+}
+
+.booking-step.active {
+  display: block;
+}
+
+.booking-step-header {
+  margin-bottom: 32px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.booking-step-header h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin: 0 0 4px;
+}
+
+.booking-step-header p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--text-light);
+  margin: 0;
+}
+
+/* ── Connection type toggle ── */
+.connection-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 28px;
+}
+
+.connection-option {
+  cursor: pointer;
+  position: relative;
+}
+
+.connection-option input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.connection-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 16px;
+  background: #f9fafb;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #6b7280;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.connection-label svg {
+  color: #9ca3af;
+  transition: color 0.2s;
+}
+
+.connection-option input:checked + .connection-label {
+  background: rgba(0, 86, 179, 0.04);
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+}
+
+.connection-option input:checked + .connection-label svg {
+  color: var(--primary-blue);
+}
+
+/* ── Form fields ── */
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.field-row.single {
+  grid-template-columns: 1fr;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.field-group label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #374151;
+}
+
+.field-group input,
+.field-group select {
+  font-family: 'Inter', sans-serif;
+  padding: 11px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #fff;
+  color: var(--text-dark);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.field-group input:focus,
+.field-group select:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+}
+
+/* ── Systems checkboxes ── */
+.systems-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.system-check {
+  cursor: pointer;
+  position: relative;
+}
+
+.system-check input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.system-check-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  transition: all 0.15s;
+}
+
+.system-check-label::before {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: all 0.15s;
+  background: #fff;
+}
+
+.system-check input:checked + .system-check-label {
+  background: rgba(0, 86, 179, 0.05);
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+}
+
+.system-check input:checked + .system-check-label::before {
+  background: var(--primary-blue);
+  border-color: var(--primary-blue);
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L3.5 6.5L9 1' stroke='white' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* ── Scheduling slots ── */
+.slot-block {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 12px;
+}
+
+.slot-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.slot-block-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--primary-blue);
+}
+
+.slot-remove {
+  background: none;
+  border: none;
+  font-size: 12px;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: color 0.2s, background 0.2s;
+}
+
+.slot-remove:hover {
+  color: #ef4444;
+  background: #fef2f2;
+}
+
+.add-slot-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: 1px dashed #d1d5db;
+  border-radius: 8px;
+  padding: 11px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  width: 100%;
+  justify-content: center;
+  transition: border-color 0.2s, color 0.2s;
+  margin-top: 4px;
+}
+
+.add-slot-btn:hover {
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+}
+
+.add-slot-btn svg {
+  flex-shrink: 0;
+}
+
+/* ── Notes textarea ── */
+.field-group textarea {
+  font-family: 'Inter', sans-serif;
+  padding: 11px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  background: #fff;
+  color: var(--text-dark);
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+  min-height: 90px;
+}
+
+.field-group textarea:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.1);
+}
+
+/* ── Step navigation ── */
+.step-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 48px;
+  background: #f9fafb;
+  border-top: 1px solid #f0f0f0;
+}
+
+.step-nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.btn-back {
+  background: none;
+  border: 1px solid #d1d5db;
+  color: #6b7280;
+  padding: 11px 24px;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-back:hover {
+  border-color: #374151;
+  color: #374151;
+}
+
+.btn-next,
+.btn-submit {
+  background: var(--primary-blue);
+  color: #fff;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-next:hover,
+.btn-submit:hover {
+  background: var(--dark-blue);
+}
+
+.btn-submit:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* ── Trust note ── */
+.booking-trust {
+  text-align: center;
+  padding: 16px 48px;
+  border-top: 1px solid #f0f0f0;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #9ca3af;
+  background: #fff;
+}
+
+/* ── Section label ── */
+.field-section-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #9ca3af;
+  margin-bottom: 14px;
+  margin-top: 8px;
+  display: block;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .booking-step { padding: 28px 20px; }
+  .step-nav { padding: 20px; }
+  .field-row { grid-template-columns: 1fr; }
+  .connection-toggle { grid-template-columns: 1fr 1fr; }
+  .systems-grid { grid-template-columns: 1fr 1fr; }
+  .booking-trust { padding: 16px 20px; }
+}
+</style>
 </head>
-<body class="pt-68">
+<body>
 <nav id="sv-nav"></nav>
-<!-- ── BREADCRUMB ── -->
+
 <nav aria-label="Breadcrumb" class="sv-breadcrumb">
 <div class="container">
 <ul>
@@ -30,365 +539,434 @@
 </ul>
 </div>
 </nav>
+
 <main class="booking-page">
-<div class="container">
-<div class="section-header text-center mb-64">
-<span class="eyebrow">Appointment Request</span>
-<h1 id="bookingPageTitle">Book a Site Assessment</h1>
-<p class="subtitle">Let's discuss your security needs. Select your preferred way to connect and suggest up to 3 time slots below.</p>
-</div>
-<div class="booking-form-card">
-<form id="bookingForm" onsubmit="handleBookingSubmit(event)">
-<!-- Honeypot -->
-<input name="sv_human_verify" type="text"/>
-<!-- Hidden tracking fields -->
-<input id="hidden_intent" name="intent" type="hidden" value=""/>
-<input id="hidden_referrer" name="referrer" type="hidden" value=""/>
-<input id="hidden_source_page" name="source_page" type="hidden" value=""/>
-<input id="hidden_utm_source" name="utm_source" type="hidden" value=""/>
-<input id="hidden_utm_medium" name="utm_medium" type="hidden" value=""/>
-<input id="hidden_utm_campaign" name="utm_campaign" type="hidden" value=""/>
-<!-- 1. Interaction Type -->
-<div class="form-section">
-<div class="form-section-title-wrap">
-<h2>1. How should we connect?</h2>
-</div>
-<div class="form-group">
-<div class="interaction-toggle">
-<label class="toggle-option">
-<input checked="" name="interaction_type" required="" type="radio" value="Voice Call"/>
-<span class="toggle-label">
-<svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-                                    Voice Call
-                                </span>
-</label>
-<label class="toggle-option">
-<input name="interaction_type" type="radio" value="On-Site Assessment"/>
-<span class="toggle-label">
-<svg fill="none" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                                    On-Site Assessment
-                                </span>
-</label>
-</div>
-</div>
-</div>
-<!-- 2. Personal Details -->
-<div class="form-section">
-<div class="form-section-title-wrap">
-<h3>2. Personal Details</h3>
-</div>
-<div class="proposal-form">
-<div class="form-group full-width">
-<label for="name">Full Name</label>
-<input id="name" name="name" placeholder="Full Name" required="" type="text"/>
-</div>
-<div class="form-group">
-<label for="email">Email Address</label>
-<input id="email" name="email" placeholder="name@email.com" required="" type="email"/>
-</div>
-<div class="form-group">
-<label for="phone">Phone / WhatsApp</label>
-<input id="phone" name="phone" placeholder="+65 .... ...." required="" type="tel"/>
-</div>
-</div>
-</div>
-<!-- 3. Project Details -->
-<div class="form-section">
-<div class="form-section-title-wrap">
-<h3>3. Project Details</h3>
-</div>
-<div class="proposal-form">
-<div class="form-group">
-<label for="prop_type">Property Type</label>
-<select id="prop_type" name="prop_type" required="">
-<option disabled="" selected="" value="">Select property type...</option>
-<option value="Private Home">Private Home</option>
-<option value="Condominium">Condominium</option>
-<option value="Commercial/Retail">Commercial / Retail</option>
-<option value="Industrial">Industrial</option>
-<option value="Institutions">Institutions</option>
-</select>
-</div>
-<div class="form-group">
-<label for="postal_code">Postal Code</label>
-<input id="postal_code" maxlength="6" name="postal_code" pattern="[0-9]{6}" placeholder="e.g. 123456" required="" title="6-digit Singapore postal code" type="text"/>
-</div>
-<div class="form-group full-width">
-<label>Systems Interested In</label>
-<div class="checkbox-group">
-<label class="checkbox-item"><input name="interests" type="checkbox" value="CCTV"/> CCTV</label>
-<label class="checkbox-item"><input name="interests" type="checkbox" value="Access"/> Access Control</label>
-<label class="checkbox-item"><input name="interests" type="checkbox" value="Alarms"/> Alarms</label>
-<label class="checkbox-item"><input name="interests" type="checkbox" value="Intercom"/> Intercom</label>
-<label class="checkbox-item"><input name="interests" type="checkbox" value="Autogate"/> Autogate</label>
-<label class="checkbox-item"><input name="interests" type="checkbox" value="IP Phone"/> IP Phone</label>
-</div>
-</div>
-</div>
-</div>
-<!-- 4. Smart Scheduling -->
-<div class="form-section">
-<div class="form-section-title-wrap">
-<h3>4. Smart Scheduling</h3>
-</div>
-<p class="mb-24">Please select up to 3 preferred slots. We operate Monday to Friday.</p>
-<div class="slots-container">
-<!-- Row 1 -->
-<div class="slot-row">
-<div class="form-group">
-<span class="slot-index">Preferred Slot 1</span>
-<input class="date-picker" name="slot_date_1" required="" type="date"/>
-</div>
-<div class="form-group">
-<span class="slot-index">Time Window</span>
-<select name="slot_time_1" required="">
-<option disabled="" selected="" value="">Select time...</option>
-<option value="10:00 - 12:00">10:00 - 12:00</option>
-<option value="14:00 - 16:00">14:00 - 16:00</option>
-<option value="16:00 - 18:00">16:00 - 18:00</option>
-</select>
-</div>
-</div>
-<!-- Row 2 -->
-<div class="slot-row">
-<div class="form-group">
-<span class="slot-index">Preferred Slot 2</span>
-<input class="date-picker" name="slot_date_2" type="date"/>
-</div>
-<div class="form-group">
-<span class="slot-index">Time Window</span>
-<select name="slot_time_2">
-<option selected="" value="">Select time...</option>
-<option value="10:00 - 12:00">10:00 - 12:00</option>
-<option value="14:00 - 16:00">14:00 - 16:00</option>
-<option value="16:00 - 18:00">16:00 - 18:00</option>
-</select>
-</div>
-</div>
-<!-- Row 3 -->
-<div class="slot-row">
-<div class="form-group">
-<span class="slot-index">Preferred Slot 3</span>
-<input class="date-picker" name="slot_date_3" type="date"/>
-</div>
-<div class="form-group">
-<span class="slot-index">Time Window</span>
-<select name="slot_time_3">
-<option selected="" value="">Select time...</option>
-<option value="10:00 - 12:00">10:00 - 12:00</option>
-<option value="14:00 - 16:00">14:00 - 16:00</option>
-<option value="16:00 - 18:00">16:00 - 18:00</option>
-</select>
-</div>
-</div>
-</div>
-</div>
-<div class="submit-wrap">
-<button class="btn btn-primary btn-submit" id="submitBtn" type="submit">
-<span>Send Booking Request</span>
-<svg fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><line x1="5" x2="19" y1="12" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-</button>
-</div>
-</form>
-</div>
-</div>
+<div class="booking-inner">
+
+  <!-- Page header -->
+  <div class="booking-page-header">
+    <span class="eyebrow">Free · No Obligation</span>
+    <h1 id="bookingPageTitle">Book a Site Assessment</h1>
+    <p>Tell us about your property and when to visit. We'll send the right engineer — no call centres, no guesswork.</p>
+  </div>
+
+  <!-- Progress indicator -->
+  <div class="booking-progress">
+    <div class="progress-step active" id="prog-step-1">
+      <div class="progress-step-num" id="prog-num-1">1</div>
+      <div class="progress-step-label">Your Details</div>
+    </div>
+    <div class="progress-connector" id="prog-conn-1"></div>
+    <div class="progress-step" id="prog-step-2">
+      <div class="progress-step-num" id="prog-num-2">2</div>
+      <div class="progress-step-label">Systems &amp; Scheduling</div>
+    </div>
+  </div>
+
+  <!-- Form card -->
+  <div class="booking-form-card">
+
+    <!-- ═══ STEP 1 ═══ -->
+    <div class="booking-step active" id="step-1">
+      <div class="booking-step-header">
+        <h2>How should we connect?</h2>
+        <p>Choose a voice call for a quick conversation, or an on-site visit for a full assessment.</p>
+      </div>
+
+      <!-- Connection type -->
+      <div class="connection-toggle">
+        <label class="connection-option">
+          <input checked="" name="interaction_type" type="radio" value="Voice Call"/>
+          <span class="connection-label">
+            <svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="22"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            Voice Call
+          </span>
+        </label>
+        <label class="connection-option">
+          <input name="interaction_type" type="radio" value="On-Site Assessment"/>
+          <span class="connection-label">
+            <svg fill="none" height="22" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="22"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            On-Site Assessment
+          </span>
+        </label>
+      </div>
+
+      <!-- Personal details -->
+      <span class="field-section-label">Your details</span>
+      <div class="field-row single">
+        <div class="field-group">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" placeholder="Your full name" required="" type="text"/>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label for="email">Email Address</label>
+          <input id="email" name="email" placeholder="name@email.com" required="" type="email"/>
+        </div>
+        <div class="field-group">
+          <label for="phone">Phone / WhatsApp</label>
+          <input id="phone" name="phone" placeholder="+65 .... ...." required="" type="tel"/>
+        </div>
+      </div>
+
+      <!-- Property details -->
+      <span class="field-section-label">Property</span>
+      <div class="field-row">
+        <div class="field-group">
+          <label for="prop_type">Property Type</label>
+          <select id="prop_type" name="prop_type" required="">
+            <option disabled="" selected="" value="">Select type...</option>
+            <option value="Private Home">Private Home</option>
+            <option value="Condominium">Condominium / MCST</option>
+            <option value="Commercial/Retail">Commercial / Retail</option>
+            <option value="Industrial">Industrial</option>
+            <option value="Institutions">Institution / Government</option>
+            <option value="Healthcare">Healthcare</option>
+          </select>
+        </div>
+        <div class="field-group">
+          <label for="postal_code">Postal Code</label>
+          <input id="postal_code" maxlength="6" name="postal_code" pattern="[0-9]{6}" placeholder="e.g. 123456" required="" title="6-digit Singapore postal code" type="text"/>
+        </div>
+      </div>
+    </div>
+    <!-- ═══ END STEP 1 ═══ -->
+
+    <!-- ═══ STEP 2 ═══ -->
+    <div class="booking-step" id="step-2">
+      <div class="booking-step-header">
+        <h2>Systems &amp; Scheduling</h2>
+        <p>Tell us what you need and suggest when to meet. We will confirm within 1 business day.</p>
+      </div>
+
+      <!-- Systems of interest -->
+      <span class="field-section-label">Systems of interest</span>
+      <div class="systems-grid">
+        <label class="system-check"><input name="interests" type="checkbox" value="CCTV"/><span class="system-check-label">CCTV</span></label>
+        <label class="system-check"><input name="interests" type="checkbox" value="Access"/><span class="system-check-label">Access Control</span></label>
+        <label class="system-check"><input name="interests" type="checkbox" value="Alarms"/><span class="system-check-label">Alarm &amp; Intrusion</span></label>
+        <label class="system-check"><input name="interests" type="checkbox" value="Intercom"/><span class="system-check-label">Intercom</span></label>
+        <label class="system-check"><input name="interests" type="checkbox" value="Autogate"/><span class="system-check-label">Autogate / LPR</span></label>
+        <label class="system-check"><input name="interests" type="checkbox" value="IP Phone"/><span class="system-check-label">IP Telephony</span></label>
+      </div>
+
+      <!-- Scheduling -->
+      <span class="field-section-label">Preferred time slots</span>
+      <p style="font-family:'Inter',sans-serif;font-size:14px;color:#6b7280;margin-bottom:16px;margin-top:-8px;">We operate Monday to Friday. Suggest at least one slot — more options help us confirm faster.</p>
+
+      <!-- Slot 1 — always visible -->
+      <div class="slot-block" id="slot-1">
+        <div class="slot-block-header">
+          <span class="slot-block-label">Slot 1</span>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label>Date</label>
+            <input class="date-picker" name="slot_date_1" required="" type="date"/>
+          </div>
+          <div class="field-group">
+            <label>Time Window</label>
+            <select name="slot_time_1" required="">
+              <option disabled="" selected="" value="">Select time...</option>
+              <option value="10:00 - 12:00">10:00 – 12:00</option>
+              <option value="14:00 - 16:00">14:00 – 16:00</option>
+              <option value="16:00 - 18:00">16:00 – 18:00</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slot 2 — hidden by default -->
+      <div class="slot-block" id="slot-2" style="display:none;">
+        <div class="slot-block-header">
+          <span class="slot-block-label">Slot 2</span>
+          <button class="slot-remove" onclick="removeSlot(2)" type="button">✕ Remove</button>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label>Date</label>
+            <input class="date-picker" name="slot_date_2" type="date"/>
+          </div>
+          <div class="field-group">
+            <label>Time Window</label>
+            <select name="slot_time_2">
+              <option selected="" value="">Select time...</option>
+              <option value="10:00 - 12:00">10:00 – 12:00</option>
+              <option value="14:00 - 16:00">14:00 – 16:00</option>
+              <option value="16:00 - 18:00">16:00 – 18:00</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slot 3 — hidden by default -->
+      <div class="slot-block" id="slot-3" style="display:none;">
+        <div class="slot-block-header">
+          <span class="slot-block-label">Slot 3</span>
+          <button class="slot-remove" onclick="removeSlot(3)" type="button">✕ Remove</button>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label>Date</label>
+            <input class="date-picker" name="slot_date_3" type="date"/>
+          </div>
+          <div class="field-group">
+            <label>Time Window</label>
+            <select name="slot_time_3">
+              <option selected="" value="">Select time...</option>
+              <option value="10:00 - 12:00">10:00 – 12:00</option>
+              <option value="14:00 - 16:00">14:00 – 16:00</option>
+              <option value="16:00 - 18:00">16:00 – 18:00</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add slot button -->
+      <button class="add-slot-btn" id="addSlotBtn" onclick="addSlot()" type="button">
+        <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><line x1="12" x2="12" y1="5" y2="19"></line><line x1="5" x2="19" y1="12" y2="12"></line></svg>
+        Add another time slot
+      </button>
+
+      <!-- Notes -->
+      <div class="field-row single" style="margin-top:24px;">
+        <div class="field-group">
+          <label for="notes">Anything else we should know? <span style="font-weight:400;text-transform:none;letter-spacing:0;color:#9ca3af;">(optional)</span></label>
+          <textarea id="notes" name="notes" placeholder="e.g. it's a 12-storey condo, main entrance is at Jalan Bukit Ho Swee..."></textarea>
+        </div>
+      </div>
+    </div>
+    <!-- ═══ END STEP 2 ═══ -->
+
+    <!-- Step navigation -->
+    <div class="step-nav">
+      <div class="step-nav-left" id="back-wrap" style="visibility:hidden;">
+        <button class="btn-back" id="btnBack" onclick="goBack()" type="button">
+          <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          Back
+        </button>
+      </div>
+      <button class="btn-next" id="btnNext" onclick="goNext()" type="button">
+        Continue
+        <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><line x1="5" x2="19" y1="12" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
+      <button class="btn-submit" id="btnSubmit" onclick="handleSubmit()" style="display:none;" type="button">
+        <span id="submitLabel">Send Booking Request</span>
+        <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><line x1="5" x2="19" y1="12" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </button>
+    </div>
+
+    <!-- Trust note -->
+    <div class="booking-trust">
+      Police Licenced · bizSAFE Level 3 · Serving Singapore Since 2006 · No obligation, no spam.
+    </div>
+
+  </div><!-- end booking-form-card -->
+
+</div><!-- end booking-inner -->
 </main>
-<!-- FINAL CTA -->
-<section class="cta-section cta-high-impact cta-facilities">
-<div class="container">
-<span class="eyebrow-light">Get Started</span>
-<h2>Need Expert Security Advice?</h2>
-<p>From technical planning to professional deployment. Let our 37 years of Singapore expertise turn your security goals into reality. No guesswork, just performance.</p>
-<div class="btn-group">
-<a class="btn btn-primary" href="/contact-gateway.html">Book Site Assessment</a>
-<a class="btn btn-wa" href="https://wa.me/6593860466">💬 WhatsApp an Engineer</a>
-</div>
-<p class="cta-trust">Police Licence <span class="sv-licence"></span> · <span class="sv-bizsafe"></span> · Serving Singapore Since 2006</p>
-</div>
-</section>
+
 <footer id="sv-footer"></footer>
-<!-- Floating WhatsApp -->
+
+<!-- Hidden tracking fields -->
+<input id="hidden_intent" type="hidden" value=""/>
+<input id="hidden_referrer" type="hidden" value=""/>
+<input id="hidden_source_page" type="hidden" value=""/>
+<input id="hidden_utm_source" type="hidden" value=""/>
+<input id="hidden_utm_medium" type="hidden" value=""/>
+<input id="hidden_utm_campaign" type="hidden" value=""/>
+<!-- Honeypot -->
+<input name="sv_human_verify" style="display:none;" type="text"/>
+
 <script>
-/**
- * SOURCE TRACKING — populates hidden fields from URL params and document.referrer
- */
-document.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
+(function () {
+
+  /* ── Slot counter ── */
+  var slotsShown = 1;
+
+  window.addSlot = function () {
+    if (slotsShown >= 3) return;
+    slotsShown++;
+    document.getElementById('slot-' + slotsShown).style.display = 'block';
+    if (slotsShown >= 3) {
+      document.getElementById('addSlotBtn').style.display = 'none';
+    }
+  };
+
+  window.removeSlot = function (n) {
+    document.getElementById('slot-' + n).style.display = 'none';
+    var el = document.getElementById('slot-' + n);
+    el.querySelector('input[type="date"]').value = '';
+    el.querySelector('select').value = '';
+    slotsShown = Math.max(1, slotsShown - 1);
+    document.getElementById('addSlotBtn').style.display = 'flex';
+  };
+
+  /* ── Step navigation ── */
+  var currentStep = 1;
+
+  function validateStep1 () {
+    var name  = document.getElementById('name').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var prop  = document.getElementById('prop_type').value;
+    var post  = document.getElementById('postal_code').value.trim();
+    if (!name)  { document.getElementById('name').focus();  return false; }
+    if (!email) { document.getElementById('email').focus(); return false; }
+    if (!phone) { document.getElementById('phone').focus(); return false; }
+    if (!prop)  { document.getElementById('prop_type').focus(); return false; }
+    if (!post || !/^\d{6}$/.test(post)) { document.getElementById('postal_code').focus(); return false; }
+    return true;
+  }
+
+  window.goNext = function () {
+    if (currentStep === 1) {
+      if (!validateStep1()) return;
+      document.getElementById('step-1').classList.remove('active');
+      document.getElementById('step-2').classList.add('active');
+      document.getElementById('prog-step-1').classList.remove('active');
+      document.getElementById('prog-step-1').classList.add('done');
+      document.getElementById('prog-num-1').innerHTML = '✓';
+      document.getElementById('prog-conn-1').classList.add('done');
+      document.getElementById('prog-step-2').classList.add('active');
+      document.getElementById('back-wrap').style.visibility = 'visible';
+      document.getElementById('btnNext').style.display = 'none';
+      document.getElementById('btnSubmit').style.display = 'flex';
+      currentStep = 2;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  window.goBack = function () {
+    if (currentStep === 2) {
+      document.getElementById('step-2').classList.remove('active');
+      document.getElementById('step-1').classList.add('active');
+      document.getElementById('prog-step-1').classList.remove('done');
+      document.getElementById('prog-step-1').classList.add('active');
+      document.getElementById('prog-num-1').innerHTML = '1';
+      document.getElementById('prog-conn-1').classList.remove('done');
+      document.getElementById('prog-step-2').classList.remove('active');
+      document.getElementById('back-wrap').style.visibility = 'hidden';
+      document.getElementById('btnNext').style.display = 'flex';
+      document.getElementById('btnSubmit').style.display = 'none';
+      currentStep = 1;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  /* ── Source tracking ── */
+  document.addEventListener('DOMContentLoaded', function () {
+    var params = new URLSearchParams(window.location.search);
     document.getElementById('hidden_intent').value       = params.get('intent')       || '';
     document.getElementById('hidden_referrer').value     = document.referrer          || '';
     document.getElementById('hidden_source_page').value  = window.location.pathname;
     document.getElementById('hidden_utm_source').value   = params.get('utm_source')   || '';
     document.getElementById('hidden_utm_medium').value   = params.get('utm_medium')   || '';
     document.getElementById('hidden_utm_campaign').value = params.get('utm_campaign') || '';
-});
+  });
 
-/**
- * INTENT HANDLER — pre-fills form fields and updates page title based on ?intent= param
- */
-document.addEventListener('DOMContentLoaded', () => {
-    const params    = new URLSearchParams(window.location.search);
-    const intent    = params.get('intent');
+  /* ── Intent pre-fill ── */
+  document.addEventListener('DOMContentLoaded', function () {
+    var params  = new URLSearchParams(window.location.search);
+    var intent  = params.get('intent');
     if (!intent) return;
 
-    const pageTitle      = document.getElementById('bookingPageTitle');
-    const propertySelect = document.getElementById('prop_type');
+    var pageTitle = document.getElementById('bookingPageTitle');
+    var propSel   = document.getElementById('prop_type');
 
-    const checkInterests = (values) => {
-        values.forEach(val => {
-            const cb = document.querySelector(`input[name="interests"][value="${val}"]`);
-            if (cb) cb.checked = true;
-        });
+    var checkInterests = function (vals) {
+      vals.forEach(function (v) {
+        var cb = document.querySelector('input[name="interests"][value="' + v + '"]');
+        if (cb) cb.checked = true;
+      });
     };
 
-    switch (intent) {
-        case 'condo-assessment':
-            if (pageTitle) pageTitle.textContent = 'Estate Advisory Booking';
-            if (propertySelect) propertySelect.value = 'Condominium';
-            checkInterests(['CCTV', 'Access', 'Intercom']);
-            break;
-            
-        case 'residential-assessment':
-            if (pageTitle) pageTitle.textContent = 'Home Security Audit';
-            if (propertySelect) propertySelect.value = 'Private Home';
-            checkInterests(['CCTV', 'Alarms', 'Intercom']);
-            break;
-            
-        case 'commercial-assessment':
-            if (pageTitle) pageTitle.textContent = 'Business Security Assessment';
-            if (propertySelect) propertySelect.value = 'Commercial/Retail';
-            checkInterests(['CCTV', 'Access']);
-            break;
-            
-        case 'industrial-assessment':
-            if (pageTitle) pageTitle.textContent = 'Industrial Facility Audit';
-            if (propertySelect) propertySelect.value = 'Industrial';
-            checkInterests(['CCTV', 'Access', 'Autogate']);
-            break;
-            
-        case 'gov-assessment':
-            if (pageTitle) pageTitle.textContent = 'Institutional Safety Audit';
-            if (propertySelect) propertySelect.value = 'Institutions';
-            checkInterests(['CCTV', 'Access']);
-            break;
+    var map = {
+      'condo-assessment':       { title: 'Estate Advisory Booking',       prop: 'Condominium',      interests: ['CCTV','Access','Intercom'] },
+      'residential-assessment': { title: 'Home Security Audit',           prop: 'Private Home',     interests: ['CCTV','Alarms','Intercom'] },
+      'commercial-assessment':  { title: 'Business Security Assessment',  prop: 'Commercial/Retail',interests: ['CCTV','Access'] },
+      'industrial-assessment':  { title: 'Industrial Facility Audit',     prop: 'Industrial',       interests: ['CCTV','Access','Autogate'] },
+      'gov-assessment':         { title: 'Institutional Safety Audit',    prop: 'Institutions',     interests: ['CCTV','Access'] },
+      'healthcare-assessment':  { title: 'Healthcare Facility Survey',    prop: 'Healthcare',       interests: ['CCTV','Access','Intercom'] },
+      'cctv-assessment':        { title: 'Surveillance System Survey',    prop: '',                 interests: ['CCTV'] },
+      'access-assessment':      { title: 'Access Control Audit',          prop: '',                 interests: ['Access'] },
+      'vehicle-assessment':     { title: 'Vehicle Access Survey',         prop: '',                 interests: ['Autogate'] },
+      'alarm-assessment':       { title: 'Intrusion Alarm Survey',        prop: '',                 interests: ['Alarms'] },
+      'alarm-design-review':    { title: 'Alarm Zone Design Review',      prop: '',                 interests: ['Alarms'] },
+      'perimeter-assessment':   { title: 'Perimeter Security Survey',     prop: '',                 interests: ['CCTV','Alarms'] },
+      'platform-assessment':    { title: 'System Integration Preview',    prop: '',                 interests: ['CCTV','Access'] }
+    };
 
-        case 'healthcare-assessment':
-            if (pageTitle) pageTitle.textContent = 'Healthcare Facility Survey';
-            if (propertySelect) propertySelect.value = 'Institutions';
-            checkInterests(['CCTV', 'Access', 'Intercom']);
-            break;
-
-        case 'cctv-assessment':
-        case 'surveillance-assessment':
-        case 'thermal-assessment':
-        case 'ai-assessment':
-            if (pageTitle) pageTitle.textContent = 'Surveillance System Survey';
-            checkInterests(['CCTV']);
-            break;
-
-        case 'access-assessment':
-            if (pageTitle) pageTitle.textContent = 'Access Control Audit';
-            checkInterests(['Access']);
-            break;
-
-        case 'vehicle-assessment':
-            if (pageTitle) pageTitle.textContent = 'Vehicle Access Survey';
-            checkInterests(['Autogate']);
-            break;
-
-        case 'alarm-assessment':
-            if (pageTitle) pageTitle.textContent = 'Intrusion Alarm Survey';
-            checkInterests(['Alarms']);
-            break;
-            
-        case 'perimeter-assessment':
-            if (pageTitle) pageTitle.textContent = 'Perimeter Security Survey';
-            checkInterests(['CCTV', 'Alarms']);
-            break;
-            
-        case 'platform-assessment':
-            if (pageTitle) pageTitle.textContent = 'System Integration Preview';
-            checkInterests(['CCTV', 'Access']);
-            break;
-            
-        case 'homepage-assessment':
-            if (pageTitle) pageTitle.textContent = 'Book a Site Assessment';
-            break;
+    var cfg = map[intent];
+    if (cfg) {
+      if (pageTitle && cfg.title) pageTitle.textContent = cfg.title;
+      if (propSel && cfg.prop)    propSel.value = cfg.prop;
+      if (cfg.interests.length)   checkInterests(cfg.interests);
     }
-});
+  });
 
-// ── SUPABASE CLIENT ──
-// Replace the two values below with your actual credentials from Supabase → Project Settings → API
-const SUPABASE_URL  = 'https://bppajrzwqeysrnrucwka.supabase.co';
-const SUPABASE_ANON = 'sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT';
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
+  /* ── Supabase submit ── */
+  var SUPABASE_URL  = 'https://bppajrzwqeysrnrucwka.supabase.co';
+  var SUPABASE_ANON = 'sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT';
+  var db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
-// ── BOOKING FORM SUBMISSION ──
-async function handleBookingSubmit(event) {
-    event.preventDefault();
+  window.handleSubmit = async function () {
+    /* Honeypot */
+    if (document.querySelector('input[name="sv_human_verify"]').value !== '') return;
 
-    // Honeypot check
-    const honeypot = document.querySelector('input[name="sv_human_verify"]');
-    if (honeypot && honeypot.value !== '') return false;
-
-    const submitBtn = document.getElementById('submitBtn');
-    const btnText   = submitBtn.querySelector('span');
-
-    // Collect checkbox values
-    const interests = [...document.querySelectorAll('input[name="interests"]:checked')]
-        .map(cb => cb.value).join(', ');
-
-    // Collect interaction type
-    const interactionType = document.querySelector('input[name="interaction_type"]:checked')?.value || '';
-
-    // Validate slot 1 is filled (required)
-    const slot1Date = document.querySelector('input[name="slot_date_1"]').value;
-    const slot1Time = document.querySelector('select[name="slot_time_1"]').value;
+    /* Validate slot 1 */
+    var slot1Date = document.querySelector('input[name="slot_date_1"]').value;
+    var slot1Time = document.querySelector('select[name="slot_time_1"]').value;
     if (!slot1Date || !slot1Time) {
-        alert('Please select at least one preferred slot (date and time).');
-        return false;
+      alert('Please select at least one preferred date and time slot.');
+      return;
     }
 
-    // Disable button
-    submitBtn.disabled = true;
-    btnText.textContent = 'Sending...';
+    var btn   = document.getElementById('btnSubmit');
+    var label = document.getElementById('submitLabel');
+    btn.disabled = true;
+    label.textContent = 'Sending...';
 
-    const payload = {
-        name:             document.getElementById('name').value.trim(),
-        email:            document.getElementById('email').value.trim(),
-        phone:            document.getElementById('phone').value.trim(),
-        interaction_type: interactionType,
-        prop_type:        document.getElementById('prop_type').value,
-        postal_code:      document.getElementById('postal_code').value.trim(),
-        interests:        interests,
-        slot_date_1:      slot1Date,
-        slot_time_1:      slot1Time,
-        slot_date_2:      document.querySelector('input[name="slot_date_2"]').value   || null,
-        slot_time_2:      document.querySelector('select[name="slot_time_2"]').value  || null,
-        slot_date_3:      document.querySelector('input[name="slot_date_3"]').value   || null,
-        slot_time_3:      document.querySelector('select[name="slot_time_3"]').value  || null,
-        intent:           document.getElementById('hidden_intent').value,
-        referrer:         document.getElementById('hidden_referrer').value,
-        source_page:      document.getElementById('hidden_source_page').value,
-        utm_source:       document.getElementById('hidden_utm_source').value,
-        utm_medium:       document.getElementById('hidden_utm_medium').value,
-        utm_campaign:     document.getElementById('hidden_utm_campaign').value,
+    var interests = Array.from(document.querySelectorAll('input[name="interests"]:checked'))
+      .map(function (c) { return c.value; }).join(', ');
+
+    var payload = {
+      name:             document.getElementById('name').value.trim(),
+      email:            document.getElementById('email').value.trim(),
+      phone:            document.getElementById('phone').value.trim(),
+      interaction_type: document.querySelector('input[name="interaction_type"]:checked').value,
+      prop_type:        document.getElementById('prop_type').value,
+      postal_code:      document.getElementById('postal_code').value.trim(),
+      interests:        interests,
+      notes:            document.getElementById('notes').value.trim(),
+      slot_date_1:      slot1Date,
+      slot_time_1:      slot1Time,
+      slot_date_2:      document.querySelector('input[name="slot_date_2"]').value   || null,
+      slot_time_2:      document.querySelector('select[name="slot_time_2"]').value  || null,
+      slot_date_3:      document.querySelector('input[name="slot_date_3"]').value   || null,
+      slot_time_3:      document.querySelector('select[name="slot_time_3"]').value  || null,
+      intent:           document.getElementById('hidden_intent').value,
+      referrer:         document.getElementById('hidden_referrer').value,
+      source_page:      document.getElementById('hidden_source_page').value,
+      utm_source:       document.getElementById('hidden_utm_source').value,
+      utm_medium:       document.getElementById('hidden_utm_medium').value,
+      utm_campaign:     document.getElementById('hidden_utm_campaign').value
     };
 
-    const { error } = await supabaseClient
-        .from('booking_submissions')
-        .insert([payload]);
+    var result = await db.from('booking_submissions').insert([payload]);
 
-    if (error) {
-        console.error('Supabase error:', error);
-        btnText.textContent = 'Something went wrong — please try again.';
-        submitBtn.disabled = false;
-        return false;
+    if (result.error) {
+      console.error(result.error);
+      label.textContent = 'Something went wrong — please try again.';
+      btn.disabled = false;
+      return;
     }
 
-    // Success — redirect to thank-you page
     window.location.href = '/booking-success.html';
-    return false;
-}
+  };
+
+})();
 </script>
 <script src="/nav-footer.js"></script>
 </body>

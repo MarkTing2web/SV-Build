@@ -101,6 +101,19 @@
 <!-- ── MAIN ARTICLE CONTENT ── -->
 <main class="prose">
 
+<!-- Key takeaways — GEO/AI snippet optimised -->
+<div class="article-takeaways">
+  <span class="article-takeaways-label">Key Takeaways</span>
+  <ul>
+    <li>System design — zones, scope, and response priorities — must be done before any equipment is specified.</li>
+    <li>A poorly zoned alarm system generates false alarms, gets ignored, and protects nothing.</li>
+    <li>Three zone types: perimeter (always active), interior (full-arm only), and emergency (always active, cannot be bypassed).</li>
+    <li>Match the detector to the environment — dual-tech PIR in high-temperature or sun-exposed areas, magnetic contacts on all accessible doors and windows.</li>
+    <li>For Singapore apartments and condominiums, wireless AJAX systems are the practical default due to concrete construction.</li>
+    <li>Walk-test every zone with the installer before signing off — confirm each zone label matches its physical location on the keypad.</li>
+  </ul>
+</div>
+
 <section id="section1">
 <p>Most alarm systems are zoned wrong from day one. Here is how we think about scope, zones, and response priorities before a single detector goes on the wall.</p>
 <h2>1. Why system design matters before any equipment decision</h2>
@@ -271,40 +284,12 @@ BEng (NUS) · LLB (University of London) · <span class="sv-years-experience"></
     </ul>
   </div>
 
-  <!-- Contextual CTA -->
+  <!-- Single contextual CTA -->
   <div class="sidebar-section sidebar-section--cta">
     <span class="sidebar-cta-label">Alarm &amp; Intrusion</span>
     <p class="sidebar-cta-title">Get a zone design review for your site</p>
     <p class="sidebar-cta-desc">We assess your floor plan and flag coverage gaps before a single detector goes on the wall.</p>
     <a class="sidebar-cta-btn sidebar-cta-btn-primary" href="/request-proposal.html?intent=alarm-design-review">Request a Proposal</a>
-    <a class="sidebar-cta-btn sidebar-cta-btn-wa" href="https://wa.me/6593860466">💬 WhatsApp an Engineer</a>
-  </div>
-
-  <!-- Assessment form -->
-  <div class="sidebar-section" id="sf-assessment">
-    <span class="sidebar-form-head">Free site assessment</span>
-    <div class="sidebar-form-body">
-      <div class="sf-field">
-        <label class="sf-label" for="sf-name">Your name</label>
-        <input class="sf-input" id="sf-name" placeholder="Name" type="text"/>
-      </div>
-      <div class="sf-field">
-        <label class="sf-label" for="sf-property">Property type</label>
-        <select class="sf-select" id="sf-property">
-          <option value="">Select one...</option>
-          <option value="landed">Landed residential</option>
-          <option value="condo">Condominium / MCST</option>
-          <option value="commercial">Commercial</option>
-          <option value="industrial">Industrial</option>
-        </select>
-      </div>
-      <div class="sf-field">
-        <label class="sf-label" for="sf-phone">Phone / WhatsApp</label>
-        <input class="sf-input" id="sf-phone" placeholder="+65" type="tel"/>
-      </div>
-      <button class="sf-submit" id="sfSubmit" type="button">Book Assessment</button>
-      <p class="sf-note">No obligation. We respond within 1 business day.</p>
-    </div>
   </div>
 
 </div>
@@ -343,6 +328,13 @@ BEng (NUS) · LLB (University of London) · <span class="sv-years-experience"></
 <!-- FOOTER — injected by nav-footer.js -->
 <footer id="sv-footer"></footer>
 
+<!-- ═══ FLOATING ACTION BUTTONS ═══ -->
+<div class="insights-float-actions">
+  <a class="insights-float-btn insights-float-btn-assess" href="/request-site-assessment-singapore.html">📋 Book Assessment</a>
+  <a class="insights-float-btn insights-float-btn-wa" href="https://wa.me/6593860466">💬 WhatsApp</a>
+</div>
+<!-- ═══ END FLOATING ACTION BUTTONS ═══ -->
+
 <!-- SCRIPTS -->
 <script>
 (function () {
@@ -360,8 +352,6 @@ BEng (NUS) · LLB (University of London) · <span class="sv-years-experience"></
 
   function onScroll() {
     var scrollY = window.scrollY + 120;
-
-    /* Active section highlight */
     var active = null;
     sections.forEach(function (s) {
       if (s.el.offsetTop <= scrollY) active = s;
@@ -369,7 +359,6 @@ BEng (NUS) · LLB (University of London) · <span class="sv-years-experience"></
     tocLinks.forEach(function (l) { l.classList.remove('active'); });
     if (active) active.link.classList.add('active');
 
-    /* Reading progress bar */
     if (progressFill) {
       var docH = document.documentElement.scrollHeight - window.innerHeight;
       var pct = docH > 0 ? Math.min(100, Math.round((window.scrollY / docH) * 100)) : 0;
@@ -379,56 +368,6 @@ BEng (NUS) · LLB (University of London) · <span class="sv-years-experience"></
 
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-
-  /* ── Sidebar assessment form → Supabase ── */
-  var sfSubmit = document.getElementById('sfSubmit');
-  if (sfSubmit) {
-    sfSubmit.addEventListener('click', function () {
-      var name     = document.getElementById('sf-name').value.trim();
-      var property = document.getElementById('sf-property').value;
-      var phone    = document.getElementById('sf-phone').value.trim();
-
-      if (!name || !property || !phone) {
-        sfSubmit.textContent = 'Please fill all fields';
-        setTimeout(function () { sfSubmit.textContent = 'Book Assessment'; }, 2000);
-        return;
-      }
-
-      sfSubmit.textContent = 'Sending...';
-      sfSubmit.disabled = true;
-
-      fetch('https://fkpiqxnqxpnfnqqbznqb.supabase.co/rest/v1/proposal_submissions', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'apikey': SECUREVISION.supabaseKey,
-          'Authorization': 'Bearer ' + SECUREVISION.supabaseKey,
-          'Prefer': 'return=minimal'
-        },
-        body: JSON.stringify({
-          name:          name,
-          property_type: property,
-          phone:         phone,
-          source:        'sidebar_assessment',
-          article:       'burglar-alarm-design'
-        })
-      })
-      .then(function (res) {
-        if (res.ok) {
-          sfSubmit.textContent = 'Sent — we\'ll be in touch';
-          document.getElementById('sf-name').value    = '';
-          document.getElementById('sf-property').value = '';
-          document.getElementById('sf-phone').value   = '';
-        } else {
-          throw new Error('Submit failed');
-        }
-      })
-      .catch(function () {
-        sfSubmit.textContent = 'Error — please WhatsApp us';
-        sfSubmit.disabled = false;
-      });
-    });
-  }
 
 })();
 </script>
