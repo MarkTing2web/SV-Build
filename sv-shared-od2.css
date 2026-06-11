@@ -892,41 +892,10 @@ h4 {
     display: flex;
     align-items: center;
     list-style: none;
-    margin: 0 0 0 8px;
+    margin: 0 0 0 12px;
     padding: 0;
     height: 44px;
-    gap: 8px;
-}
-
-.nav-item {
-    position: relative;
-    height: 44px;
-    display: flex;
-    align-items: center;
-}
-
-.nav-link {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    font-weight: 500;
-    padding: 0 16px;
-    height: 34px;
-    display: flex;
-    align-items: center;
     gap: 4px;
-    transition: color 0.2s, background 0.2s;
-    font-size: 14px;
-    letter-spacing: 0.3px;
-    border-radius: 6px;
-    white-space: nowrap;
-}
-
-.nav-link.has-dropdown::after {
-    content: '\25be';
-    font-size: 9px;
-    opacity: 0.55;
-    flex-shrink: 0;
-    line-height: 1;
 }
 
 .nav-item {
@@ -959,6 +928,12 @@ h4 {
 .nav-link.active {
     color: #ffffff;
     background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-link.has-dropdown::after {
+    content: ' \25be';
+    font-size: 10px;
+    opacity: 0.6;
 }
 
 /* ── Desktop search ── */
@@ -1207,8 +1182,7 @@ h4 {
     .nav-mobile-brand {
         display: flex;
         align-items: center;
-        flex: 1;
-        min-width: 0;
+        flex-shrink: 0;
     }
 
     /* Mobile CTA pill */
@@ -1296,7 +1270,6 @@ h4 {
     background: #ffffff;
     padding: 12px 0;
     border-bottom: 1px solid var(--border-light);
-    overflow: hidden;
 }
 
 .sv-breadcrumb ul {
@@ -1306,27 +1279,12 @@ h4 {
     font-size: 12px;
     color: #888888;
     align-items: center;
-    flex-wrap: nowrap;
-    overflow: hidden;
 }
 
 .sv-breadcrumb li {
     display: flex;
     align-items: center;
     gap: 8px;
-    white-space: nowrap;
-    flex-shrink: 0;
-}
-
-/* Last item — current page — allowed to shrink and truncate */
-.sv-breadcrumb li:last-child {
-    flex-shrink: 1;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    color: #111111;
-    font-weight: 600;
 }
 
 .sv-breadcrumb a {
@@ -1334,60 +1292,30 @@ h4 {
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s;
-    white-space: nowrap;
 }
 
 .sv-breadcrumb a:hover {
     color: #111111;
 }
 
+/* Current page — darkest, no link */
+.sv-breadcrumb li:last-child {
+    color: #111111;
+    font-weight: 600;
+}
+
 .sv-breadcrumb li:not(:last-child)::after {
     content: '\203A';
+    /* Single right-pointing angle quotation mark */
     font-size: 16px;
     color: #ccc;
     font-weight: 400;
 }
 
-/* On small phones — hide current page breadcrumb, shrink font */
-@media (max-width: 480px) {
-    .sv-breadcrumb {
-        padding: 8px 0;
-    }
-
-    .sv-breadcrumb ul {
-        font-size: 11px;
-        gap: 4px;
-    }
-
-    /* Hide article title on small phones */
-    .sv-breadcrumb li:last-child {
-        display: none;
-    }
-
-    /* Remove separator after category (now last visible) */
-    .sv-breadcrumb li:nth-last-child(2)::after {
-        display: none;
-    }
-
-    /* All items can shrink */
-    .sv-breadcrumb li {
-        flex-shrink: 1;
-        min-width: 0;
-    }
-
-    /* Home and Insights — short enough to never need truncating */
-    .sv-breadcrumb li:first-child,
-    .sv-breadcrumb li:nth-child(2) {
-        flex-shrink: 0;
-    }
-
-    /* Category — last visible item, truncate if needed */
-    .sv-breadcrumb li:nth-last-child(2) {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        display: block;
-    }
+.sv-breadcrumb li:last-child {
+    color: var(--text-dark);
+    font-weight: 600;
+    pointer-events: none;
 }
 
 /* -- GLOBAL CARD UTILITY -- */

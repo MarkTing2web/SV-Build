@@ -1,6 +1,6 @@
 # SECUREVISION WEBSITE — GLOBAL DESIGN INSTRUCTION
 ## For use with Anti-Gravity AI Web Builder
-## Version 3.6 — June 2026
+## Version 3.4 — June 2026
 ## This file lives at: /_instructions/GLOBAL-INSTRUCTION.md
 
 ---
@@ -112,73 +112,7 @@ ALL Securevision staff appearing in any generated or inserted image must wear:
 
 This rule applies to every image brief, every page type, every AI generation task.
 
-### Breakpoint Constants — NEVER change these values
-
-| Name | Value | Used for |
-|---|---|---|
-| Nav mobile | `991px` | Nav collapses to hamburger — single row |
-| Small phone | `480px` | Logo/wordmark size reduction, tighter nav padding |
-
-### Content Breakpoints — standardised four-tier system
-
-These apply to grids, cards, sections and layout — NOT to the nav.
-
-| Breakpoint | Value | Use |
-|---|---|---|
-| Small phone | `480px` | Single column, tight padding |
-| Tablet portrait | `768px` | Two-column grids stack, font reduction |
-| Tablet landscape / small laptop | `1024px` | Three-column grids reduce to two |
-| Desktop | `1280px` | Max content width cap |
-
-**Rules:**
-- All content breakpoints use `max-width` (mobile-first override pattern)
-- Never use `910px`, `992px`, `600px` or any other ad-hoc value for content breakpoints
-- The nav breakpoint (`991px`) is a special case — it is NOT a content breakpoint
-- Use `clamp()` for fluid typography — no hard font-size jumps between breakpoints
-- Use CSS Grid and Flexbox for fluid layouts — avoid fixed pixel widths on content columns
-- Container queries are acceptable for complex isolated components (portfolio grid, systems cards)
-
-**Standard breakpoint template:**
-```css
-/* Mobile first — base styles apply to all sizes */
-
-@media (max-width: 480px)  { /* small phone  */ }
-@media (max-width: 768px)  { /* tablet portrait */ }
-@media (max-width: 1024px) { /* tablet landscape / small laptop */ }
-@media (max-width: 1280px) { /* desktop cap */ }
-```
-
-### Inline float image rule — insights articles
-
-```css
-/* Desktop: float right, text wraps left */
-.article-img-float-right {
-  float: right;
-  width: 280px;
-  max-width: 40%;
-  margin: 4px 0 20px 28px;
-  border-radius: 8px;
-  border: 1px solid var(--border-light);
-  display: block;
-  height: auto;
-}
-
-/* Mobile: full width, stacks above text */
-@media (max-width: 991px) {
-  .article-img-float-right {
-    float: none !important;
-    display: block;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 0 20px 0 !important;
-    clear: both;
-  }
-}
-```
-
-This class is defined in `sv-insights.css`. Do not redefine it inline or in any other CSS file.
-
-
+### Inline Style Rule
 ```
 ZERO inline <style> blocks are permitted in any HTML page.
 ZERO style="" attributes are permitted except for background-image on hero sections.
@@ -862,6 +796,7 @@ DO NOT TOUCH: nav, footer, hero, author bio strip, sidebar, CTA section, any oth
 
 ---
 
-*Securevision Global Design Instruction v3.6 — June 2026*
-*Changes from v3.5: Breakpoint Constants expanded — nav breakpoint (991px) separated from content breakpoints. Four-tier content breakpoint system added (480/768/1024/1280px) with explicit rules against ad-hoc values. Fluid typography and grid requirements documented.*
+*Securevision Global Design Instruction v3.4 — June 2026*
+*Changes from v3.3: Critical Rules 9 and 10 added — image format (.webp) and staff uniform requirements. Section 2 Image Storage Rules added — folder map per page type, standard image sizes, staff image rule.*
+*Changes from v3.2 documented in Section 23 above.*
 *Do not modify without updating version number and date*

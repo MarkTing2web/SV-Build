@@ -1348,45 +1348,13 @@ h4 {
     font-weight: 400;
 }
 
-/* On small phones — hide current page breadcrumb, shrink font */
+/* On small phones — hide current page breadcrumb entirely, it's redundant */
 @media (max-width: 480px) {
-    .sv-breadcrumb {
-        padding: 8px 0;
-    }
-
-    .sv-breadcrumb ul {
-        font-size: 11px;
-        gap: 4px;
-    }
-
-    /* Hide article title on small phones */
     .sv-breadcrumb li:last-child {
         display: none;
     }
-
-    /* Remove separator after category (now last visible) */
     .sv-breadcrumb li:nth-last-child(2)::after {
         display: none;
-    }
-
-    /* All items can shrink */
-    .sv-breadcrumb li {
-        flex-shrink: 1;
-        min-width: 0;
-    }
-
-    /* Home and Insights — short enough to never need truncating */
-    .sv-breadcrumb li:first-child,
-    .sv-breadcrumb li:nth-child(2) {
-        flex-shrink: 0;
-    }
-
-    /* Category — last visible item, truncate if needed */
-    .sv-breadcrumb li:nth-last-child(2) {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        display: block;
     }
 }
 

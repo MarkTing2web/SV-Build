@@ -1457,6 +1457,117 @@
 
 /* ── 6b. Tag pills ── */
 
+/* ── Article inline images with text wrap ── */
+
+.article-img-float-right {
+  float: right;
+  width: 280px;
+  max-width: 40%;
+  margin: 4px 0 20px 28px;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+  display: block;
+  height: auto;
+}
+
+/* Clearfix — prevents float overflowing into next section */
+.prose section::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 991px) {
+  .article-img-float-right {
+    float: none !important;
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 0 20px 0 !important;
+    clear: both;
+  }
+}
+
+/* ── Article share strip ── */
+
+.article-share {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0;
+  margin-bottom: 32px;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  flex-wrap: wrap;
+}
+
+.article-share-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-light);
+  flex-shrink: 0;
+  margin-right: 4px;
+}
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.2s;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+}
+
+.share-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.share-btn-linkedin {
+  background: #0a66c2;
+  color: #fff;
+}
+
+.share-btn-whatsapp {
+  background: #25d366;
+  color: #fff;
+}
+
+.share-btn-copy {
+  background: #f1f5f9;
+  color: var(--text-dark);
+  border: 1px solid var(--border-light);
+}
+
+.share-btn-copy.copied {
+  background: #f0fdf4;
+  color: #166534;
+  border-color: #bbf7d0;
+}
+
+@media (max-width: 600px) {
+  .article-share {
+    gap: 8px;
+  }
+
+  .share-btn {
+    font-size: 11px;
+    padding: 7px 12px;
+  }
+}
+
+/* ── Article tags ── */
+
 .article-tags {
   margin-bottom: 60px;
   display: flex;
@@ -1497,11 +1608,33 @@
   background: #fff;
   border: 1px solid var(--border-light);
   border-radius: 12px;
-  padding: 24px;
   text-decoration: none;
   color: inherit;
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-  gap: 10px;
+  overflow: hidden;
+}
+
+.related-card-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+  border-radius: 12px 12px 0 0;
+}
+
+.related-card-img-placeholder {
+  width: 100%;
+  height: 160px;
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #0f172a 100%);
+  border-radius: 12px 12px 0 0;
+}
+
+.related-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
 }
 
 .related-article-card:hover {
@@ -1650,34 +1783,6 @@
   .insights-related-grid {
     grid-template-columns: 1fr;
   }
-}
-
-/* ── Article inline images with text wrap ── */
-
-.article-img-float-right {
-  float: right;
-  width: 320px;
-  max-width: 45%;
-  margin: 0 0 16px 24px;
-  border-radius: 8px;
-  border: 1px solid var(--border-light);
-  display: block;
-}
-
-@media (max-width: 640px) {
-  .article-img-float-right {
-    float: none;
-    width: 100%;
-    max-width: 100%;
-    margin: 0 0 20px 0;
-  }
-}
-
-/* Clearfix — prevents float from overflowing section */
-.prose section::after {
-  content: '';
-  display: table;
-  clear: both;
 }
 
 /* ── END sv-insights.css ── */
