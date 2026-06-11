@@ -175,16 +175,10 @@
       var picks = shuffle(pool).sort(function (a, b) { return score(b) - score(a); }).slice(0, 3);
 
       grid.innerHTML = picks.map(function (a) {
-        var img = a.image
-          ? "<img src=\"/images/insights/" + a.image + "\" alt=\"" + a.title + "\" class=\"related-card-img\"/>"
-          : "<div class=\"related-card-img-placeholder\"></div>";
         return "<a href=\"/insights/" + a.slug + ".html\" class=\"related-article-card\">" +
-          img +
-          "<div class=\"related-card-body\">" +
           "<div class=\"related-card-cat\">" + a.category + "</div>" +
           "<p class=\"related-card-title\">" + a.title + "</p>" +
           "<span class=\"related-card-cta\">Read article &rarr;</span>" +
-          "</div>" +
           "</a>";
       }).join("");
     })();
