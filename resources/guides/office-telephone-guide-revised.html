@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Business Phone Systems Singapore | IP PBX & SIP Trunk Guide | Securevision</title>
+<meta content="Complete guide to business phone systems in Singapore — PABX replacement, IP PBX, SIP trunks, softphones, Microsoft Teams, and what Singapore SMEs need to know before upgrading." name="description"/>
+<link href="https://www.securevision.com.sg/resources/guides/office-telephone-guide.html" rel="canonical"/>
+<meta content="Business Phone Systems Singapore | IP PBX & SIP Trunk Guide | Securevision" property="og:title"/>
+<meta content="Complete guide to business phone systems in Singapore — PABX replacement, IP PBX, SIP trunks, softphones, Microsoft Teams, and what Singapore SMEs need to know before upgrading." property="og:description"/>
+<meta content="https://www.securevision.com.sg/resources/guides/office-telephone-guide.html" property="og:url"/>
+<meta content="https://www.securevision.com.sg/images/resources/guides/telephony/hero-office-telephone.webp" property="og:image"/>
+<meta content="article" property="og:type"/>
+<meta content="Securevision" property="og:site_name"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="/sv-shared.css" rel="stylesheet"/>
+<link href="/sv-resources.css" rel="stylesheet"/>
+<script src="/site-config.js"></script>
+<style>
+  :root { --page-accent: #0056b3; }
+</style>
+<!-- Structured data — TechArticle + FAQPage + HowTo -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Business Phone Systems Singapore — Complete Guide to IP PBX, SIP Trunks & PABX Replacement",
+  "description": "Complete guide to business phone systems in Singapore — PABX replacement, IP PBX, SIP trunks, softphones, Microsoft Teams, and what Singapore SMEs need to know before upgrading.",
+  "author": {
+    "@type": "Person",
+    "name": "Ler Wee Meng",
+    "jobTitle": "Founder & Director, Securevision Pte Ltd"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Securevision Pte Ltd",
+    "url": "https://www.securevision.com.sg"
+  },
+  "datePublished": "2025-01-01",
+  "dateModified": "2026-06-01",
+  "url": "https://www.securevision.com.sg/resources/guides/office-telephone-guide.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is a SIP trunk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A SIP trunk is a service that uses SIP — Session Initiation Protocol — to deliver telephone calls to and from a business over an internet connection. It replaces traditional telephone lines, ISDN services, and PRI circuits. Businesses pay for the number of simultaneous call channels they need rather than for a fixed number of physical lines."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a softphone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A softphone is an application that allows a smartphone, tablet, or computer to function as a business phone extension on the company's IP PBX. It registers with the system using SIP and can make calls, receive calls, transfer calls, and access voicemail. Outgoing calls display the company number rather than the user's personal mobile number."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is toll fraud and how do I prevent it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Toll fraud is when unauthorised parties use a poorly secured SIP phone system to make international calls at the owner's expense. Prevention requires changing all default credentials during commissioning, restricting international call permissions to users who genuinely need them, implementing call spending limits, and keeping firmware updated."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How many SIP channels do I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Only simultaneous calls consume channels. A business with twenty staff may only need six channels if no more than six calls typically occur at the same time. Most SMEs need significantly fewer channels than they expect. A proper assessment of typical calling patterns determines the right number more accurately than headcount alone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if the internet goes down?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The IP PBX continues handling internal calls between extensions normally. External calls can be automatically redirected to mobile phones or backup numbers. Employees using softphones on mobile data can continue receiving calls even if the office internet connection is unavailable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is VoIP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "VoIP — Voice over Internet Protocol — is the technology that carries voice calls across a data network rather than traditional telephone lines. Modern IP phone systems use VoIP to deliver calls internally between extensions and externally through a SIP trunk connected to the telephone network."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I keep my existing phone number when upgrading?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In most cases, yes. Existing Singapore business numbers can usually be ported to a SIP provider. Number porting typically takes five to ten business days and requires coordination between the current and new providers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Teams and an IP PBX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Microsoft Teams is primarily a collaboration platform that can be extended to include telephony through Teams Phone and Direct Routing. An IP PBX is a dedicated business telephony platform designed for call management, with native support for physical desk phones, door phones, call queues, and complex call routing. The two can work together."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "Phone System Upgrade Checklist for Singapore Businesses",
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Assess business requirements",
+      "text": "Determine how many users need extensions, whether remote workers are involved, whether multiple offices need to be connected, and whether call queues, recording, or supervisor monitoring are required."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Assess existing infrastructure",
+      "text": "Confirm whether the existing network supports IP phones with sufficient PoE switch ports, whether internet connectivity is reliable, and whether the network has been assessed for QoS configuration."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Plan for future growth",
+      "text": "Consider whether the business will expand in staff or locations, and whether integration with other systems is anticipated."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Define user experience requirements",
+      "text": "Determine whether staff need mobile app access, whether call recording is needed, and whether there are staff who require physical desk phones."
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Establish budget and cost structure",
+      "text": "Determine the planned budget including hardware, installation, SIP service provisioning, and ongoing monthly costs. Decide between capital expenditure on on-premise hardware and operating expenditure on a cloud subscription."
+    }
+  ]
+}
+</script>
+</head>
+<body class="guide-page" data-guide="office-telephone-guide">
+<nav id="sv-nav"></nav>
+
+<!-- ═══ HERO ═══ -->
+<header class="hero-high-impact hero-compact hero-guide hero-telephony" style="background-image: url('/images/resources/guides/telephony/hero-office-telephone.webp');">
+<div class="container">
+  <a class="no-underline" href="/resources/guides/">
+    <span class="eyebrow-light">Office Technology Guide</span>
+  </a>
+  <h1 class="hero-title-main">Business Phone Systems Singapore —<br/>
+    <span class="hero-highlight">Complete Guide to IP PBX, SIP Trunks & PABX Replacement</span>
+  </h1>
+  <p class="hero-subtitle-main">From ageing Panasonic PABX to modern IP telephony — understand SIP trunks, softphones, cloud PBX, and what Singapore SMEs need to know before upgrading their phone system.</p>
+  <div class="rg-hero-author">
+    <img alt="Ler Wee Meng" class="rg-hero-author-photo" src="/images/ler-wee-meng-bio.webp"/>
+    <div>
+      <span class="rg-hero-author-name sv-author-name">Ler Wee Meng</span>
+      <span class="rg-hero-author-credentials">Founder & Director, Securevision · <span class="sv-years-experience"></span>+ Years Experience</span>
+    </div>
+  </div>
+</div>
+</header>
+
+<!-- ═══ TRUST BAR ═══ -->
+<div class="trust-bar">
+<div class="trust-bar-inner">
+  <span>Police Licensed · <span class="sv-licence"></span></span>
+  <span class="trust-divider"></span>
+  <span>bizSAFE <span class="sv-bizsafe"></span></span>
+  <span class="trust-divider"></span>
+  <span><strong class="sv-sites"></strong> Sites Protected</span>
+  <span class="trust-divider"></span>
+  <span>Last reviewed: June 2026</span>
+</div>
+</div>
+
+<!-- ═══ BREADCRUMB ═══ -->
+<nav aria-label="Breadcrumb" class="sv-breadcrumb">
+<div class="container">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/resources/">Resources</a></li>
+    <li><a href="/resources/guides/">Technical Guides</a></li>
+    <li>Business Phone Systems Guide</li>
+  </ul>
+</div>
+</nav>
+
+<!-- ═══ MAIN LAYOUT ═══ -->
+<div class="container">
+<div class="rg-layout">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="rg-sidebar">
+    <div class="rg-toc">
+      <h3 class="rg-toc-title">Guide Navigator</h3>
+      <ul class="rg-toc-list">
+        <li><a href="#section1">1. Do You Still Need a Phone System?</a></li>
+        <li><a href="#section2">2. Desk Phones vs Softphones</a></li>
+        <li><a href="#section3">3. Understanding PABX Systems</a></li>
+        <li><a href="#section4">4. Signs You Need to Upgrade</a></li>
+        <li><a href="#section5">5. Why Businesses Move to IP</a></li>
+        <li><a href="#section6">6. Typical Upgrade Scenarios</a></li>
+        <li><a href="#section7">7. Understanding SIP Trunks</a></li>
+        <li><a href="#section8">8. If the Internet Goes Down</a></li>
+        <li><a href="#section9">9. Softphones & Hybrid Work</a></li>
+        <li><a href="#section10">10. Microsoft Teams & IP PBX</a></li>
+        <li><a href="#section11">11. Office Door Phones</a></li>
+        <li><a href="#section12">12. Network Requirements</a></li>
+        <li><a href="#section13">13. Security & Toll Fraud</a></li>
+        <li><a href="#section14">14. SIP Providers in Singapore</a></li>
+        <li><a href="#section15">15. What Securevision Installs</a></li>
+        <li><a href="#section16">16. Upgrade Checklist</a></li>
+        <li><a href="#section-faq">FAQ</a></li>
+      </ul>
+      <div class="founder-card">
+        <div class="fc-head">
+          <img alt="Ler Wee Meng" src="/images/ler-wee-meng-bio.webp"/>
+          <div>
+            <strong>Ler Wee Meng</strong>
+            <span>Founder & Director · <span class="sv-years-experience"></span>+ Years</span>
+          </div>
+        </div>
+        <p>Planning a phone system upgrade? Talk to our team about Yeastar, SIP trunks, and what your office actually needs.</p>
+        <a class="fc-wa-link" href="https://wa.me/6593860466">💬 WhatsApp an Engineer</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ── MAIN CONTENT ── -->
+  <main class="rg-content">
+
+    <!-- ══ INTRODUCTION ══ -->
+    <section id="intro">
+      <p class="lead">A customer finds your business online. They read your website. They receive a recommendation from someone they trust. And when they are ready to commit — when the decision has been made and they want to speak to a person — they pick up the phone. What happens next is the first real test of how professionally the business manages its communications.</p>
+      <p>For many Singapore SMEs — small and medium-sized enterprises — that test is being failed quietly. The phone rings but reaches the wrong person. The call cannot be transferred without hanging up and calling back. A voicemail box nobody checks accumulates messages from customers who eventually called a competitor instead. The system is technically working. The business has simply adapted around its limitations rather than addressing them.</p>
+      <p>This guide explains how modern business phone systems work, when it makes sense to upgrade, and what options are available for Singapore businesses today. Securevision has been installing business communication systems alongside CCTV, access control, and security infrastructure across Singapore offices, factories, and commercial properties since 2006. The observations in this guide are drawn from that practical experience.</p>
+
+      <div class="rg-callout">
+        <span class="rg-callout-label">Key Takeaways</span>
+        <ul>
+          <li>A business phone system is not simply about making calls — it manages communication professionally across the whole organisation, providing shared numbers, call transfers, reporting, and business continuity that mobile phones alone cannot deliver.</li>
+          <li>VoIP — Voice over Internet Protocol — carries voice calls across a data network rather than traditional telephone lines. SIP — Session Initiation Protocol — is the communications standard that makes this possible. Understanding both terms helps when evaluating modern phone system options.</li>
+          <li>SIP trunks replace traditional telephone lines. Only simultaneous calls consume channels — most SMEs need significantly fewer channels than they expect.</li>
+          <li>A softphone is an application that turns a smartphone, tablet, or computer into a business extension. To the caller, the employee appears to be calling from the office regardless of where they actually are.</li>
+          <li>If your office phone system relies on ISDN lines, SingTel has been progressively phasing out ISDN services in Singapore. Migration to SIP should be planned proactively, not reactively.</li>
+          <li>IP phone systems continue to operate during internet outages — calls can automatically redirect to mobile phones or backup numbers. The internet connection affects remote management and cloud sync, not local call handling.</li>
+          <li>QoS — Quality of Service — configuration on the network is essential for reliable voice quality. Without it, voice quality degrades during periods of heavy network use.</li>
+          <li>Toll fraud is the most significant cybersecurity risk specific to SIP phone systems — automated bots target poorly secured systems to make international calls at the owner's expense. Restricting international call permissions and implementing call limits are standard protective measures.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 1 ══ -->
+    <section id="section1">
+      <span class="eyebrow">The Case for a Business Phone System</span>
+      <h2>1. Do Businesses Still Need Phone Systems?</h2>
+      <figure class="rg-figure--float">
+        <div class="rg-img-wrap rg-img-wrap--float">
+          <img alt="Singapore office receptionist answering calls on a modern IP desk phone at a professional reception counter" loading="lazy" src="/images/resources/guides/telephony/reception-ip-phone.webp"/>
+        </div>
+        <p class="rg-img-caption visually-hidden">A reception desk with a dedicated IP phone — for call-heavy roles, a desk phone remains the most practical and reliable tool.</p>
+      </figure>
+      <p>This is probably the most common question business owners ask today. After all, everyone already has a mobile phone. If every employee has a mobile phone, why invest in a business phone system? The answer depends on how the business actually operates — and for most Singapore SMEs, the answer is still yes.</p>
+
+      <div class="subsection">
+        <h3>Why Businesses Still Use Phone Systems</h3>
+        <p>A business phone system is not simply about making phone calls. It is about managing communication professionally and efficiently across the whole organisation. Consider the situations that become difficult when everyone relies solely on individual mobile phones — a customer who needs to reach a specific department, a receptionist who needs to transfer a call, multiple employees sharing a company number, management wanting visibility into missed calls, staff working from different locations who need to appear as one organisation. These are not edge cases. They are the everyday reality of any business with more than a handful of staff. A properly designed phone system allows the business to function as a single organisation rather than a collection of individual phone numbers.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Can We Just Use Mobile Phones?</h3>
+        <p>For some businesses, the answer may be yes. A sole proprietor or very small startup may operate effectively using mobile phones alone. However, challenges appear as the business grows. Customers call individual staff members rather than the company. Calls cannot be easily transferred. Important calls are missed when staff are unavailable. There is no call reporting or recording. Staff who leave may take customer contacts with them. Mobile phones are convenient — but they do not provide the structure a growing organisation needs.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>The Advantages of a Business Phone System</h3>
+        <p><strong>Shared company numbers.</strong> Customers call a company rather than an individual employee. This creates continuity even when staff change.</p>
+        <p><strong>Call transfers.</strong> Calls are routed quickly to the appropriate person or department, improving customer experience and reducing frustration.</p>
+        <p><strong>Professional image.</strong> Features such as auto attendants and business greetings create a more professional first impression. Even a small business can present itself as a well-organised operation with a clearly structured call flow.</p>
+        <p><strong>Call recording.</strong> Many organisations use call recording for quality assurance, staff training, dispute resolution, and compliance purposes. For businesses in regulated industries, call recording is often a requirement rather than a preference.</p>
+        <p><strong>Reporting and visibility.</strong> Management can monitor missed calls, call volumes, response times, and peak calling periods. This information supports better staffing decisions and improves customer service over time.</p>
+        <p><strong>Business continuity.</strong> Calls can be redirected during staff absence, office relocation, network disruptions, or unexpected events. A properly designed system ensures that important calls are not lost because of circumstances outside the business's control.</p>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 2 ══ -->
+    <section class="rg-section--grey" id="section2">
+      <span class="eyebrow">Choosing the Right Device for the Role</span>
+      <h2>2. Desk Phones vs Mobile Phones vs Softphones</h2>
+      <p>Modern business communications no longer revolve around a desk phone sitting on a reception counter. Businesses today have several options, and the right approach is almost always a combination rather than a single choice.</p>
+
+      <div class="subsection">
+        <h3>Traditional Desk Phones</h3>
+        <p>Desk phones remain the preferred solution for reception counters, customer service departments, administrative offices, and any role where call handling is a primary daily activity. They provide consistent call quality, dedicated controls, and reliable operation. For staff whose work centres on telephone communication, a desk phone remains the most effective tool.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Mobile Phones</h3>
+        <p>Mobile phones are essential for business owners, sales personnel, and anyone regularly working away from a fixed desk. The limitation is that relying solely on mobile phones creates a communication structure built around individuals rather than the organisation. A customer's experience becomes dependent on the availability of a specific person — and when that person leaves, the relationship may leave with them.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>What Is a Softphone?</h3>
+        <p>A softphone is an application that allows a smartphone, tablet, or computer to function as a business extension on the company's IP phone system. The softphone registers with the IP PBX using SIP — the same protocol used by a physical desk phone — meaning the system treats it as a standard extension. To the customer, nothing changes. They dial the company number. The call can be answered by an employee in the office, at home, on-site with a customer, or overseas. Outgoing calls display the company number rather than the employee's personal mobile number, protecting staff privacy and maintaining brand consistency.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Why Most Businesses Use a Combination</h3>
+        <p>Rather than choosing one approach, most businesses combine all three. Reception and administration staff use desk phones. Sales and field staff use softphones on their mobile devices. Management uses both — a desk phone at the office and a softphone when away. This approach provides flexibility without sacrificing the professional communication structure that the business needs.</p>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 3 ══ -->
+    <section id="section3">
+      <span class="eyebrow">What Many Singapore Businesses Still Use Today</span>
+      <h2>3. Understanding Traditional PABX Systems</h2>
+      <p>Before discussing modern IP phone systems, it helps to understand the technology that many Singapore businesses still use today.</p>
+
+      <div class="subsection">
+        <h3>What Is a PABX?</h3>
+        <p>PABX stands for Private Automatic Branch Exchange — the equipment that allows multiple office phones to share a smaller number of telephone lines. For many years, PABX systems formed the backbone of business communications in Singapore. They were practical, reliable within their design parameters, and widely supported.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Analogue vs Digital Phone Systems</h3>
+        <p>Older systems generally fall into two categories. Analogue systems use traditional telephone lines and analogue handsets. Digital systems use proprietary digital handsets connected to a central PABX. Both were widely used across Singapore for many years and many remain in service today.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Why Panasonic Became So Popular</h3>
+        <p>For decades, Panasonic was one of the most widely installed business phone systems in Singapore. Many offices, factories, and commercial buildings still run Panasonic systems today. The reasons were straightforward — reliable hardware, good local distributor support, a wide installer network, and competitive pricing. Panasonic became the default choice for Singapore SMEs in much the same way that certain brands became default choices in other technology categories.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Common Legacy Systems Still Found in Singapore</h3>
+        <p>Businesses today frequently operate systems including the Panasonic KX Series, Panasonic NS Series, NEC systems, and Samsung OfficeServ. Many continue to function. A note on NEC — NEC sold its enterprise telephony division, and businesses operating NEC systems should confirm that local support and spare parts remain available for their specific model. Regardless of brand, businesses should understand that support availability and future expansion options become increasingly limited as these platforms age.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>The Challenge Facing Legacy Systems</h3>
+        <p>The issue is not necessarily that these systems stop working. The challenge is that the business has grown around the system's limitations rather than the system serving the business's actual needs. This distinction becomes clear the moment someone asks a simple question that the phone system cannot answer — can I transfer this call to someone at your other office? Can your staff answer calls from home? Can I see who called while I was out?</p>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 4 ══ -->
+    <section class="rg-section--grey" id="section4">
+      <span class="eyebrow">When to Consider a Replacement</span>
+      <h2>4. Signs Your Phone System Needs Replacing</h2>
+      <p>Many businesses continue using an ageing phone system because it still appears to work. But there is a meaningful difference between a system that works and a system that serves the business.</p>
+
+      <div class="subsection">
+        <h3>What We See When We Visit</h3>
+
+        <!-- SITE EXPERIENCE CALLOUT -->
+        <div class="rg-callout">
+          <span class="rg-callout-label">Site Experience</span>
+          <p>The most common sign that a phone system has been left behind is not a total failure — it is a gradual accumulation of workarounds. A few handsets that stopped working and were never replaced because the parts were no longer available. An extension that rings but goes unanswered because the person who used it left the company years ago. An admin password that nobody in the business knows because the original installer never handed it over at completion. The system appears functional. In practice, the business has adapted around its limitations rather than addressing them. When we ask how many extensions are actually working versus how many are installed, the answer is usually revealing.</p>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>ISDN Lines Being Phased Out</h3>
+        <p>If your PABX connects to the telephone network via ISDN lines, this is the most urgent reason to plan an upgrade. SingTel has been progressively phasing out ISDN services in Singapore as part of the industry-wide migration to IP-based telephony. Businesses still on ISDN should be planning migration proactively rather than waiting until service becomes unreliable or is terminated. A reactive upgrade under time pressure is almost always more expensive and more disruptive than a planned one.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Frequent Breakdowns</h3>
+        <p>As systems age, failures become more common — faulty extensions, failed cards, system lockups, intermittent faults. Repairs become increasingly difficult as replacement parts become scarce and the technicians familiar with the platform become fewer.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Spare Parts Are No Longer Available</h3>
+        <p>Many older phone systems have reached end-of-life status. Manufacturers may no longer provide replacement parts, software updates, or technical support. At that point, even minor failures can become expensive and time-consuming problems.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Unable to Support Remote Work</h3>
+        <p>Many legacy phone systems were designed for a time when everyone worked in the office. Modern businesses require mobile access, home working, and multi-location support. Older systems may be unable to provide these capabilities without significant workarounds.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Expensive Maintenance</h3>
+        <p>When annual maintenance costs are approaching 20 to 30 percent of the replacement cost of the system, replacement is usually worth evaluating. Continuing to repair an ageing system beyond this threshold often costs more over three to five years than a correctly specified replacement would have.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Business Growth Has Outgrown the System</h3>
+        <p>A phone system that was suitable for five staff may no longer be appropriate for fifty. Growth reveals limitations that were not apparent when the system was first installed — not enough extensions, no call groups, no mobile access, no reporting.</p>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 5 ══ -->
+    <section id="section5">
+      <span class="eyebrow">The Case for IP Telephony</span>
+      <h2>5. Why Many Businesses Are Moving to IP Phone Systems</h2>
+      <p>For many years, upgrading a phone system meant replacing one PABX with another. Today, the conversation is different. Businesses are no longer asking "which PABX should I buy?" — they are asking how to support remote workers, whether staff can answer calls on their mobile phones, how to connect multiple offices, and whether telecom costs can be reduced. Modern IP phone systems were developed to address these requirements.</p>
+
+      <div class="subsection">
+        <h3>What Is an IP PBX?</h3>
+        <p>An IP PBX is a business phone system that uses a computer network rather than traditional telephone cabling to manage calls. VoIP — Voice over Internet Protocol — is the technology that carries voice calls across a data network. SIP — Session Initiation Protocol — is the communications standard that modern business phone systems use to make and receive calls over IP networks. Together, these technologies allow voice communications to be treated much like email, internet traffic, and other business applications — managed centrally, scalable without physical infrastructure changes, and accessible from any location with a network connection.</p>
+        <p>The user experience remains familiar. Employees still make calls, receive calls, transfer calls, and place callers on hold. The difference lies in the flexibility available behind the scenes.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Benefits of IP Phone Systems</h3>
+        <p><strong>Scalability.</strong> Adding new users is often much simpler than with traditional systems. New extensions can usually be added without major hardware changes as the business grows.</p>
+        <p><strong>Lower operating costs.</strong> Many organisations find that IP telephony reduces telephone line costs, long-distance charges, and inter-office communication costs — particularly when multiple sites are involved.</p>
+        <p><strong>Mobile integration.</strong> Staff can answer office calls from smartphones, tablets, and laptops without revealing their personal mobile numbers.</p>
+        <p><strong>Multi-location support.</strong> A business with offices in Singapore and Johor Bahru can operate under a single communication platform. To callers, it appears as though everyone is working from the same office — no international dialling required for internal calls.</p>
+        <p><strong>Easier management.</strong> Modern systems provide web-based administration, call reporting, voicemail management, and user administration, making ongoing management significantly simpler than traditional PABX platforms.</p>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 6 ══ -->
+    <section class="rg-section--grey" id="section6">
+      <span class="eyebrow">Finding the Right Fit</span>
+      <h2>6. Typical Upgrade Scenarios</h2>
+      <p>Every business is different. However, most phone system upgrades fall into several common categories that help identify which type of solution is most suitable.</p>
+
+      <div class="subsection">
+        <h3>Small Office (5–10 Staff)</h3>
+        <p>A small office — a professional services firm, a clinic, a trading company — typically requires a shared company number, reception functionality, call transfers, and voicemail. A compact IP PBX with SIP services is usually sufficient. The priority at this scale is simplicity and reliability rather than advanced features.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Growing SME (20–50 Staff)</h3>
+        <p>As businesses grow, communication becomes more structured. Requirements typically include department extensions, call groups, auto attendants, call reporting, and mobile application access. A Singapore manufacturing company or logistics firm with office and warehouse staff, for example, may need separate call groups for sales, operations, and accounts, with softphone access for managers who move between locations. This is where modern IP phone systems demonstrate significant advantages over traditional PABX platforms.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Multi-Branch Businesses</h3>
+        <figure class="rg-figure--float">
+          <div class="rg-img-wrap rg-img-wrap--float">
+            <img alt="Map of Singapore and Johor Bahru showing connected office locations on a single IP phone network" loading="lazy" src="/images/resources/guides/telephony/multi-branch-connectivity.webp"/>
+          </div>
+          <p class="rg-img-caption visually-hidden">A Singapore head office and Johor Bahru warehouse on a single IP PBX — internal calls are free, transfers are seamless, and customers reach a single company number.</p>
+        </figure>
+        <p>Businesses operating across multiple locations benefit significantly from IP telephony. Staff communicate internally across locations without international call charges. Customers call a single Singapore number regardless of which location handles the call. A Singapore head office with a Johor Bahru warehouse, for example, can operate as a single communication environment — internal calls are free, transfers are seamless, and the customer never knows which location they reached.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Warehouses and Factories</h3>
+        <p>Industrial facilities require more than standard office phones. Warehouse offices, loading bays, security posts, and production areas all have different communication requirements. These environments often benefit from integration with door phones for loading bay communication, paging systems for factory floor announcements, and access control systems for security post management.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Customer Service Environments</h3>
+        <p>Businesses that rely heavily on incoming calls — property agencies, insurance firms, service centres — typically require call queues, reporting, call recording, and supervisor monitoring. Modern IP systems provide these capabilities far more effectively than most legacy PABX platforms. A properly configured call queue that manages waiting time and provides supervisor visibility is a meaningful operational improvement for any customer-facing business.</p>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 7 ══ -->
+    <section id="section7">
+      <span class="eyebrow">Replacing Your Telephone Lines</span>
+      <h2>7. Understanding SIP Trunks</h2>
+      <p>One of the biggest changes in business telephony over the last decade has been the move from traditional telephone lines to SIP services. The term is widely used and frequently misunderstood.</p>
+
+      <div class="subsection">
+        <h3>What Is a SIP Trunk?</h3>
+        <p>SIP — Session Initiation Protocol — is the communications standard used by modern IP phone systems to establish, manage, and terminate calls. A SIP trunk is a service that uses SIP to deliver telephone calls to and from a business over an internet connection, replacing the physical telephone lines, ISDN services, or PRI circuits that traditional PABX systems relied upon. Think of it as the modern equivalent of a telephone line — delivered digitally, scalable on demand, and managed through software rather than physical infrastructure.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Why SIP Trunks Are Replacing Traditional Lines</h3>
+        <p>Telecommunication providers are moving away from legacy telephone infrastructure globally. In Singapore, SingTel and the other major providers offer SIP trunk services as the primary connectivity method for new business telephony deployments. SIP services provide greater flexibility, lower operating costs, easier scalability, and better support for remote and multi-location working than the legacy infrastructure they replace.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>DID Numbers — Direct Dialling for Individual Staff</h3>
+        <p>DID — Direct Inward Dialling — is a service that allows individual staff members to have their own direct phone number without requiring a separate physical line for each. When a SIP trunk is provisioned with DID numbers, callers can reach a specific employee by dialling their direct number rather than going through a main number and extension. For businesses moving from a traditional PABX where only a main number existed, DID is often one of the first features they value after migration.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>How Many SIP Channels Do I Need?</h3>
+        <p>A common misconception is that every employee requires a dedicated SIP channel. In reality, only simultaneous calls consume channels.</p>
+        <div class="rg-table-wrap">
+          <table class="rg-table">
+            <thead>
+              <tr>
+                <th>Number of Users</th>
+                <th>Typical Channels Required</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>5 staff</td><td>2 channels</td></tr>
+              <tr><td>10 staff</td><td>3 to 4 channels</td></tr>
+              <tr><td>20 staff</td><td>6 channels</td></tr>
+              <tr><td>50 staff</td><td>10 to 15 channels</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- SITE EXPERIENCE CALLOUT -->
+        <div class="rg-callout">
+          <span class="rg-callout-label">Site Experience</span>
+          <p>What we consistently see in the field is that businesses over-specify their SIP channel requirements. The reasoning is understandable — they have been accustomed to traditional telephone lines where each line supported one call, so they assume a one-to-one relationship between staff and channels. In practice, a twenty-person office rarely has more than five or six simultaneous external calls at any given time. Ordering twenty channels for twenty staff is unnecessary and adds ongoing cost. The more useful question is not how many staff you have but how many simultaneous external calls your business actually makes at peak times — and that is something a site assessment and a conversation about call patterns can determine accurately.</p>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Can I Keep My Existing Phone Number?</h3>
+        <p>In most situations, existing Singapore business numbers can be ported to a SIP service provider. Number porting typically takes approximately five to ten business days and requires coordination between the current and new providers. Planning for this timeline avoids unexpected gaps in service during the migration period.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Can I Still Use Fax?</h3>
+        <p>Many SIP providers support fax services, though businesses should evaluate whether traditional faxing remains operationally necessary. Increasingly, organisations are replacing fax workflows with email, PDF documents, and digital approvals. If faxing remains a regulatory or operational requirement, confirm compatibility with the chosen SIP provider before migrating.</p>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 8 ══ -->
+    <section class="rg-section--grey" id="section8">
+      <span class="eyebrow">Resilience and Business Continuity</span>
+      <h2>8. What Happens If the Internet Goes Down?</h2>
+      <p>This is perhaps the most common concern raised when businesses consider moving to IP telephony. If the phone system uses the internet, what happens when the internet fails? Modern systems provide several options that maintain communication continuity even when connectivity is disrupted.</p>
+
+      <div class="subsection">
+        <h3>Automatic Call Forwarding</h3>
+        <p>Calls can automatically be redirected to mobile phones, alternate offices, or backup numbers when the primary internet connection is unavailable. The redirection rules are configured in advance and activate automatically — no manual intervention is required.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Mobile App Fallback</h3>
+        <p>Employees using softphones can continue receiving calls on mobile data networks even if the office internet connection is unavailable. Because the softphone connects through the mobile network rather than the office internet connection, calls continue flowing to staff regardless of the office connectivity status.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Dual Internet Connections</h3>
+        <p>Many businesses implement a primary internet connection and a secondary backup connection from a different provider. If one service fails, the other takes over automatically. For businesses where communication continuity is operationally critical, a secondary connection or a 4G cellular backup provides meaningful protection.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>UPS for Telephony Infrastructure</h3>
+        <p>An often-overlooked aspect of IP telephony resilience is power. The IP PBX, PoE switch, and internet router all require continuous power. A power failure takes down an IP phone system just as effectively as an internet failure. A UPS — Uninterruptible Power Supply — for the core telephony and networking infrastructure ensures the system continues operating during short power outages and shuts down safely during extended ones. For any business where phone availability is operationally important, a UPS on the telephony infrastructure is a standard and worthwhile provision.</p>
+      </div>
+
+      <div class="rg-recommendation">
+        <span class="rg-recommendation-label">Securevision's Recommendation</span>
+        <p>When evaluating an IP phone system, do not focus solely on features and call quality under normal conditions. The more important questions are what happens when something goes wrong — when the internet is down, when power fails, when a staff member is unavailable. A system designed with business continuity in mind from the start costs little more than one that is not, and it performs significantly better when it is needed most. The businesses that regret their phone system investment are rarely those who over-planned for resilience.</p>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 9 ══ -->
+    <section id="section9">
+      <span class="eyebrow">Working from Anywhere</span>
+      <h2>9. Softphones and Hybrid Work</h2>
+      <p>One of the biggest changes in business communications has been the rise of hybrid work. Many employees are no longer tied to a desk — they may be working from home, visiting customers, or moving between offices. Traditional phone systems were not designed for this. Modern IP phone systems are.</p>
+
+      <div class="subsection">
+        <h3>Turning Your Mobile Into an Office Extension</h3>
+        <p>A softphone application allows a smartphone, tablet, or computer to function as a full business extension — making calls, receiving calls, transferring calls, and accessing voicemail, exactly as a desk phone would. To the customer, nothing changes. They dial the company number. The call is answered by an employee wherever they happen to be working. Outgoing calls display the company number rather than the employee's personal mobile number.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Benefits of Softphones</h3>
+        <p>Employees remain reachable wherever they are working. Outgoing calls display the company number rather than a personal mobile number, protecting staff privacy and maintaining brand consistency. There is often less need for additional physical handsets, reducing hardware cost. And calls continue flowing even when staff are away from the office, improving both customer experience and business continuity.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Working from Home</h3>
+        <p>Modern IP systems allow staff to answer calls remotely, transfer calls, access voicemail, and participate in call groups without being physically present in the office. For businesses that found their communication systems were inadequate for remote work, upgrading to an IP system with softphone capability addresses this gap permanently.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Sales Teams and Mobile Workers</h3>
+        <p>Sales personnel often spend more time outside the office than inside. Softphones allow them to remain connected to the business communication system while presenting a professional company identity to customers — calls appear to originate from the office number, and customers reach them through the same company number they have always used.</p>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 10 ══ -->
+    <section class="rg-section--grey" id="section10">
+      <span class="eyebrow">When Teams Is Enough — and When It Isn't</span>
+      <h2>10. Microsoft Teams and Modern Business Communications</h2>
+      <p>Many businesses exploring a phone system upgrade also consider Microsoft Teams. A common question is whether a dedicated phone system is still needed if the business already uses Teams. The answer depends on how the business actually communicates.</p>
+
+      <div class="subsection">
+        <h3>What Is Microsoft Teams Phone?</h3>
+        <p>Microsoft Teams Phone adds business calling functionality to the Teams platform, allowing users to make calls, receive calls, transfer calls, and access voicemail through the Teams application. Teams Phone on its own handles only internal calls between Teams users. To make and receive calls from external phone numbers, businesses need either Microsoft Teams Direct Routing — a certified SIP trunk service connecting Teams to the public telephone network — or Microsoft's own Calling Plan service. SingTel and other certified providers in Singapore offer Direct Routing services. Without one of these, Teams functions only as an internal collaboration tool, not as a replacement for a business phone system.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>When Teams May Be Sufficient</h3>
+        <p>For organisations heavily invested in Microsoft 365 — professional services firms, consulting businesses, and technology companies where staff work primarily from laptops — Teams Phone with Direct Routing may be a complete and practical solution.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>When a Dedicated Phone System Still Makes Sense</h3>
+        <p>A dedicated IP PBX often remains the better choice when reception functionality is important, call queues are required, customer service operations exist, door phones need to be integrated, warehouses or factories are involved, or the business has staff who are not regular computer users. In these environments, an IP PBX provides more reliable call handling for non-computer-based workers and easier integration with the physical infrastructure of the building.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Can Teams and an IP PBX Work Together?</h3>
+        <p>Yes. Many modern IP PBX platforms integrate with Microsoft Teams, allowing organisations to benefit from both. Staff who work primarily on computers use Teams for collaboration and calling. Reception staff, warehouse workers, and others use desk phones or door phones connected to the IP PBX. The two systems share a common SIP trunk and can transfer calls between each other.</p>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 11 ══ -->
+    <section id="section11">
+      <span class="eyebrow">Visitor Communication at the Entrance</span>
+      <h2>11. Office Door Phones and Visitor Communication</h2>
+      <figure class="rg-figure--float">
+        <div class="rg-img-wrap rg-img-wrap--float">
+          <img alt="Fanvil SIP video door phone mounted at a Singapore office entrance showing visitor call button and camera" loading="lazy" src="/images/resources/guides/telephony/sip-door-phone-entrance.webp"/>
+        </div>
+        <p class="rg-img-caption visually-hidden">A SIP video door phone at a Singapore office entrance — when a visitor presses the button, the call rings at the receptionist's desk phone and the door can be released remotely.</p>
+      </figure>
+      <p>Many businesses also require communication at building entrances — reception areas, loading bays, warehouse entrances, service entrances, and unmanned offices. This is where SIP door phones become a natural extension of the IP phone system.</p>
+
+      <div class="subsection">
+        <h3>What Is a SIP Door Phone?</h3>
+        <p>A SIP door phone is a device that communicates through the IP phone system rather than a standalone intercom network. When a visitor presses the call button at the entrance, a call is placed to a designated desk phone, softphone, or group of phones. The staff member speaks with the visitor and releases the door lock remotely through the same interface. Modern SIP door phones are video devices as standard — the staff member can see the visitor before deciding whether to grant access. Audio-only door phones are available for specific applications where a camera is not practical, but video is the appropriate specification for most commercial installations. Some systems also support mobile notifications, allowing a staff member to respond to a visitor call from their smartphone even when away from the desk.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Why Businesses Use SIP Door Phones</h3>
+        <p>SIP door phones reduce staffing requirements at unmanned entrances, improve visitor management, and integrate naturally with the existing IP phone system without requiring separate intercom infrastructure. This is particularly useful for warehouses, factories, and businesses operating outside normal office hours. For a full explanation of intercom and visitor management systems, see our <a href="/resources/guides/intercom-guide.html">Complete Guide to Intercom Systems</a>.</p>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 12 ══ -->
+    <section class="rg-section--grey" id="section12">
+      <span class="eyebrow">Making Sure the Network Is Ready</span>
+      <h2>12. Can Your Existing Network Support IP Phones?</h2>
+      <p>Unlike traditional phone systems, IP telephony relies on the computer network. The quality of the network directly affects the quality of phone calls.</p>
+
+      <div class="subsection">
+        <h3>Network Requirements</h3>
+        <p>Most modern business networks can support IP phones without difficulty. However, switch capacity, internet reliability, Wi-Fi coverage, and network design should all be assessed before deployment. A network that performs well for general data traffic may still require configuration changes to perform reliably for voice traffic.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>PoE Switches</h3>
+        <p>Many IP phones receive power through the network cable using PoE — Power over Ethernet — eliminating the need for a separate power adapter at each phone location. When planning a deployment, confirm that the existing network switches support PoE on a sufficient number of ports for the planned number of IP phones.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>QoS — Voice Quality Configuration</h3>
+        <p>QoS — Quality of Service — is a network configuration that prioritises voice traffic over other types of data traffic. Without QoS, voice packets compete equally with all other network traffic. During periods of heavy network usage — large file transfers, video streaming, backup operations — call quality degrades noticeably if voice traffic is not prioritised. Configuring QoS on the network switches and router is a standard step in any professional IP telephony deployment. A system installed without QoS configured may perform well in testing but develop call quality problems as normal network usage increases.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>VLAN for Voice Traffic</h3>
+        <p>Many professional IP telephony deployments place voice traffic on a separate VLAN — Virtual Local Area Network — from general data traffic. A voice VLAN improves call quality, simplifies QoS configuration, and provides an additional layer of security by separating the phone system from the general office network. For any deployment where call quality and security are priorities, a voice VLAN is the correct configuration.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Voice Quality Considerations</h3>
+        <p>Voice traffic is sensitive to network congestion, poor Wi-Fi coverage, and internet instability. A properly designed and configured network — with QoS enabled, voice VLAN in place, and adequate switch capacity — ensures clear and reliable communication. A network that has never been assessed for voice traffic should be reviewed before an IP phone system is deployed. For a deeper discussion of network infrastructure, see our <a href="/resources/guides/wifi-network-guide.html">Complete Guide to Business Networks and Wi-Fi Systems</a>.</p>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 13 ══ -->
+    <section id="section13">
+      <span class="eyebrow">Protecting Your System</span>
+      <h2>13. Are IP Phone Systems Vulnerable to Hacking?</h2>
+      <p>As phone systems become connected to the internet, cybersecurity becomes an important consideration. Modern systems can be highly secure when properly configured. The risk comes not from the technology itself but from poor implementation.</p>
+
+      <div class="subsection">
+        <h3>Toll Fraud — The Most Significant Risk</h3>
+        <p>The most practically significant cybersecurity risk specific to SIP phone systems is toll fraud. Automated bots continuously scan the internet for poorly secured SIP systems — systems with unchanged default credentials, weak passwords, or unnecessary services exposed externally. When they find one, they use it to make international calls at the system owner's expense. The calls may run for hours or days before the owner notices, generating significant charges.</p>
+
+        <!-- SITE EXPERIENCE CALLOUT -->
+        <div class="rg-callout">
+          <span class="rg-callout-label">Site Experience</span>
+          <p>We treat toll fraud prevention as a standard commissioning requirement, not an optional extra. Every system we deploy has default credentials changed before it goes live, international call permissions restricted to the users and time windows that genuinely require them, and call spending limits configured to generate an alert if unusual call volumes are detected. These measures cost nothing beyond the commissioning time and eliminate the most common attack vector. A system that leaves the installer's hands with default credentials unchanged is not a finished installation.</p>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <h3>Other Common Risks</h3>
+        <p>Beyond toll fraud, potential risks include weak administrative passwords, outdated firmware with known vulnerabilities, and unnecessary management interfaces exposed to the internet. Recommended practices include strong unique passwords for all accounts, regular firmware updates, restricted administrative access, and multi-factor authentication where available.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Choosing a Reputable Installer</h3>
+        <p>Many security issues in IP telephony arise from poor implementation rather than weaknesses in the technology. An experienced installer configures the system correctly from the start — changing default credentials, disabling unnecessary services, implementing call restrictions, and establishing firmware update procedures. The cybersecurity questions to ask a phone system installer are the same questions to ask a security system installer — how are default passwords handled, how is firmware kept current, and what access restrictions are applied at commissioning.</p>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 14 ══ -->
+    <section class="rg-section--grey" id="section14">
+      <span class="eyebrow">Connecting to the Telephone Network</span>
+      <h2>14. SIP Providers in Singapore</h2>
+      <p>Businesses frequently ask which telecom provider to use for SIP services. SingTel is the largest and most widely used SIP trunk provider for businesses in Singapore, with broad coverage, a mature business telephony product portfolio, and established number porting procedures. StarHub and M1 also offer SIP trunk services suitable for most business applications. Beyond the three major telcos, specialist SIP trunk providers and virtual number providers operate in Singapore and may offer competitive pricing or features suited to specific requirements — particularly for businesses with cross-border communication needs or specific DID number requirements.</p>
+      <p>The more important questions when evaluating any provider are service reliability, pricing structure, technical support quality, and number portability capability. Provider selection matters less than getting these fundamentals right.</p>
+
+      <div class="subsection">
+        <h3>Can I Keep My Existing Number?</h3>
+        <p>In most cases, yes. Existing Singapore business numbers can typically be ported to a SIP provider. Number porting typically takes five to ten business days and requires coordination between the current and new providers. Confirm porting capability and timeline with the chosen provider before committing to a migration schedule.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Broadband Reliability</h3>
+        <p>Regardless of provider, internet reliability remains an important consideration. For organisations where communication continuity is critical, a backup internet connection from a second provider provides meaningful protection against service disruption.</p>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 15 ══ -->
+    <section id="section15">
+      <span class="eyebrow">Our Recommended Platforms</span>
+      <h2>15. What Securevision Installs</h2>
+      <p>Securevision primarily deploys solutions that offer reliability, scalability, and long-term manufacturer support. For business telephony, this means the Yeastar IP PBX range and Fanvil IP phones and door phones.</p>
+
+      <div class="subsection">
+        <h3>Yeastar IP PBX Systems</h3>
+        <figure class="rg-figure--float">
+          <div class="rg-img-wrap rg-img-wrap--float">
+            <img alt="Yeastar P-Series IP PBX appliance and Fanvil IP desk phones on an office desk in Singapore" loading="lazy" src="/images/resources/guides/telephony/yeastar-fanvil-system.webp"/>
+          </div>
+          <p class="rg-img-caption visually-hidden">Yeastar IP PBX with Fanvil desk phones — the platform combination Securevision deploys across Singapore offices, factories, and commercial properties.</p>
+        </figure>
+        <p>Securevision deploys all three Yeastar product lines, selecting the appropriate platform based on the specific requirements of each deployment.</p>
+        <p><strong>Yeastar S-Series</strong> is a hardware appliance designed for on-premise deployment. The S-Series provides a self-contained IP PBX unit that manages all call routing, voicemail, call recording, and user administration locally without cloud dependency. It is well suited to businesses that prefer on-premise infrastructure, have a reliable local network, and want a system that operates fully independently of internet connectivity. For businesses that have traditionally used a hardware PABX and want a direct upgrade path to a modern IP platform, the S-Series is the natural starting point.</p>
+        <p><strong>Yeastar P-Series</strong> is a more advanced unified communications platform available in both on-premise hardware and cloud-hosted variants. The P-Series extends beyond basic telephony to include video calling, team messaging, CRM integration, and a web-based operator panel for reception management. For businesses that want a more comprehensive communications platform rather than simply a phone system replacement, the P-Series provides a meaningful step up in capability while remaining practical for Singapore SMEs.</p>
+        <p><strong>Yeastar Cloud PBX</strong> is a fully hosted service where the PBX infrastructure is managed in the cloud rather than on the customer's premises. No on-site server or appliance is required beyond the IP phones themselves. Monthly subscription pricing replaces upfront hardware investment. Cloud PBX is particularly well suited to businesses opening new offices, organisations with no IT infrastructure on site, and businesses that prefer predictable monthly operating costs over capital expenditure.</p>
+        <p>The choice between the three product lines depends on the business's existing infrastructure, IT capabilities, budget structure, and feature requirements. A site assessment and requirements discussion is the appropriate starting point for any business evaluating these options.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Fanvil IP Phones</h3>
+        <p>Fanvil phones are widely deployed across offices, reception areas, and customer service environments. They offer a practical balance between functionality, call quality, and affordability, and integrate directly with Yeastar IP PBX systems. Fanvil's range covers basic single-line handsets, multi-line executive phones with large colour displays, and conference phones for meeting rooms.</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Fanvil SIP Door Phones</h3>
+        <p>Fanvil also manufactures SIP door phones suitable for office entrances, warehouses, factories, and commercial buildings. These are video devices that integrate directly with the Yeastar IP PBX — when a visitor presses the call button, the call rings at a designated desk phone or softphone, the staff member can see the visitor on screen, and the door lock can be released remotely without any additional hardware beyond what the IP phone system already uses.</p>
+      </div>
+    </section>
+
+    <!-- ══ SECTION 16 ══ -->
+    <section class="rg-section--grey" id="section16">
+      <span class="eyebrow">Before You Commit</span>
+      <h2>16. Phone System Upgrade Checklist</h2>
+      <p>Before replacing an existing phone system, work through the following questions. The answers help determine the most appropriate solution and avoid scope gaps that create problems after installation.</p>
+
+      <div class="subsection">
+        <h3>Business Requirements</h3>
+        <p>How many users require extensions? Are remote workers involved and do they need softphone access? Do multiple offices need to be connected? Are call queues, call recording, or supervisor monitoring required? Is visitor communication at building entrances needed? Is integration with door phones, access control, or paging systems required?</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Existing Infrastructure</h3>
+        <p>Can the existing network support IP phones — are there sufficient PoE switch ports? Is internet connectivity reliable and does a backup connection exist? Has the network been assessed for QoS configuration? Can existing phone numbers be retained and what is the porting timeline with the chosen provider?</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Future Growth</h3>
+        <p>Will the business expand in staff numbers or locations? Are additional offices planned? Is integration with other systems anticipated as the business grows?</p>
+      </div>
+
+      <div class="subsection">
+        <h3>User Experience</h3>
+        <p>Do staff require mobile app access for remote and hybrid working? Is call recording needed for compliance, training, or quality assurance? Is a professional auto attendant required? Are there staff who are not computer users and will require physical desk phones?</p>
+      </div>
+
+      <div class="subsection">
+        <h3>Budget</h3>
+        <p>What is the planned budget for the upgrade, including hardware, installation, SIP service provisioning, and ongoing monthly SIP trunk costs? Is there a preference for capital expenditure on on-premise hardware versus operating expenditure on a cloud subscription? Is there an existing maintenance contract that needs to be factored into the timing of the upgrade?</p>
+      </div>
+    </section>
+
+    <!-- ══ VERDICT ══ -->
+    <section id="section-verdict">
+      <div class="rg-verdict">
+        <span class="rg-verdict-label">Securevision Verdict</span>
+        <p>The modern business phone system is no longer simply a replacement for a traditional PABX. It is part of a broader communication strategy that determines how professionally and how reliably a business communicates with its customers, its staff, and its partners. The businesses that get the most from a phone system upgrade are not necessarily those who install the most advanced platform. They are the ones who were clear about what they needed before they started — how staff actually work, where calls come from, what happens during an outage, and how the system will need to grow. A system chosen to solve the right problems, installed correctly, and supported properly will serve a business well for many years. A system chosen primarily on price, installed without proper network assessment, and handed over without adequate training will create the same frustrations as the one it replaced — just with newer hardware. The right phone system is the one that supports the way your business operates today while remaining flexible enough to adapt to where it will be tomorrow.</p>
+      </div>
+    </section>
+
+    <!-- ══ FAQ ══ -->
+    <section class="rg-section--grey" id="section-faq">
+      <span class="eyebrow">Common Questions</span>
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="subsection">
+        <h3>What is a PABX?</h3>
+        <p>PABX stands for Private Automatic Branch Exchange — the equipment that allows multiple office phones to share a smaller number of telephone lines. For many years, PABX systems formed the backbone of business communications in Singapore. Many businesses still operate Panasonic, NEC, and Samsung PABX systems. The term is sometimes used interchangeably with PBX.</p>
+      </div>
+      <div class="subsection">
+        <h3>What is VoIP?</h3>
+        <p>VoIP — Voice over Internet Protocol — is the technology that carries voice calls across a data network rather than traditional telephone lines. Modern IP phone systems use VoIP to deliver calls internally between extensions and externally through a SIP trunk connected to the telephone network.</p>
+      </div>
+      <div class="subsection">
+        <h3>What is a SIP trunk?</h3>
+        <p>A SIP trunk is a service that uses SIP — Session Initiation Protocol — to deliver telephone calls to and from a business over an internet connection. It replaces traditional telephone lines, ISDN services, and PRI circuits. Businesses pay for the number of simultaneous call channels they need rather than for a fixed number of physical lines.</p>
+      </div>
+      <div class="subsection">
+        <h3>What is a softphone?</h3>
+        <p>A softphone is an application that allows a smartphone, tablet, or computer to function as a business phone extension on the company's IP PBX. It registers with the system using SIP — the same way a physical desk phone would — and can make calls, receive calls, transfer calls, and access voicemail. Outgoing calls display the company number rather than the user's personal mobile number.</p>
+      </div>
+      <div class="subsection">
+        <h3>Can I keep my existing phone number when upgrading?</h3>
+        <p>In most cases, yes. Existing Singapore business numbers can usually be ported to a SIP provider. Number porting typically takes five to ten business days and requires coordination between the current and new providers. Plan the migration timeline accordingly.</p>
+      </div>
+      <div class="subsection">
+        <h3>How many SIP channels do I need?</h3>
+        <p>Only simultaneous calls consume channels. A business with twenty staff may only need six channels if no more than six calls typically occur at the same time. Most SMEs need significantly fewer channels than they expect. A proper assessment of typical calling patterns determines the right number more accurately than headcount alone.</p>
+      </div>
+      <div class="subsection">
+        <h3>What is DID?</h3>
+        <p>DID — Direct Inward Dialling — allows individual staff to have their own direct phone number without a separate physical line for each. Callers reach a specific employee directly without going through a main number and extension. DID numbers are provisioned as part of the SIP trunk service.</p>
+      </div>
+      <div class="subsection">
+        <h3>What is toll fraud and how do I prevent it?</h3>
+        <p>Toll fraud is when unauthorised parties use a poorly secured SIP phone system to make international calls at the owner's expense. Prevention requires changing all default credentials during commissioning, restricting international call permissions to users who genuinely need them, implementing call spending limits, and keeping firmware updated. These measures should be standard commissioning practice, not optional extras.</p>
+      </div>
+      <div class="subsection">
+        <h3>What happens if the internet goes down?</h3>
+        <p>The IP PBX continues handling internal calls between extensions normally. External calls can be automatically redirected to mobile phones or backup numbers. Employees using softphones on mobile data can continue receiving calls even if the office internet connection is unavailable. A secondary backup internet connection provides additional protection for businesses where phone continuity is critical.</p>
+      </div>
+      <div class="subsection">
+        <h3>Do I still need desk phones?</h3>
+        <p>Not always. Many organisations use softphones and mobile applications effectively. However, desk phones remain the better choice for reception counters, high-call-volume environments, and staff who prefer a dedicated device for call handling. Most businesses use a combination — desk phones for reception and administration, softphones for mobile and remote workers.</p>
+      </div>
+      <div class="subsection">
+        <h3>Can I use my mobile phone as an extension?</h3>
+        <p>Yes. Most modern IP phone systems support softphone applications for iOS and Android. Staff can answer, make, and transfer calls from their mobile device using the company number.</p>
+      </div>
+      <div class="subsection">
+        <h3>Can I record calls?</h3>
+        <p>Yes. Most IP PBX systems support call recording. Recording can be configured for all calls, specific extensions, or on-demand. Confirm that any call recording deployment complies with Singapore's personal data protection and telecommunications regulations.</p>
+      </div>
+      <div class="subsection">
+        <h3>What is the difference between Teams and an IP PBX?</h3>
+        <p>Microsoft Teams is primarily a collaboration platform — messaging, meetings, and file sharing — that can be extended to include telephony through Teams Phone and Direct Routing. An IP PBX is a dedicated business telephony platform designed specifically for call management, with native support for physical desk phones, door phones, call queues, and complex call routing. The two can work together, with Teams handling collaboration and the IP PBX handling the physical telephony infrastructure.</p>
+      </div>
+      <div class="subsection">
+        <h3>Can I connect multiple offices together?</h3>
+        <p>Yes. Modern IP phone systems are well suited to multi-location businesses. Staff at different offices can call each other as internal extensions, transfer calls between locations, and share a single company number. The cost of inter-office calls over IP is typically negligible.</p>
+      </div>
+      <div class="subsection">
+        <h3>Can I integrate a door phone with my IP PBX?</h3>
+        <p>Yes. SIP door phones connect to the IP PBX as standard extensions. When a visitor presses the call button, the call rings at a designated desk phone or softphone. The staff member can see the visitor on the phone's screen and release the door lock remotely. No separate intercom infrastructure is required.</p>
+      </div>
+      <div class="subsection">
+        <h3>What is Teams Direct Routing?</h3>
+        <p>Microsoft Teams Direct Routing is the service that connects Microsoft Teams Phone to the public telephone network. It requires a certified SIP trunk provider to deliver calls to and from external phone numbers through the Teams platform. Without Direct Routing or Microsoft's own Calling Plan service, Teams can only make calls between Teams users internally.</p>
+      </div>
+      <div class="subsection">
+        <h3>Should I choose on-premise or cloud?</h3>
+        <p>On-premise systems operate independently of internet connectivity, provide full local control, and have no ongoing software subscription cost. Cloud-hosted systems require no on-site server hardware, have lower upfront cost, and are managed by the provider. The right choice depends on the business's existing infrastructure, IT capabilities, preferred cost structure, and resilience requirements. Both deliver good results when correctly specified and installed.</p>
+      </div>
+      <div class="subsection">
+        <h3>Can IP phones be hacked?</h3>
+        <p>Like any connected device, IP phones and SIP systems can be vulnerable if poorly configured. The most significant risk is toll fraud — see the dedicated FAQ entry above. Proper configuration by an experienced installer, including default credential changes, firmware updates, and call restrictions, significantly reduces this risk.</p>
+      </div>
+    </section>
+
+  </main>
+</div><!-- end rg-layout -->
+</div><!-- end container -->
+
+<!-- ═══ RELATED GUIDES ═══ -->
+<section class="sv-section-grey section-spacing">
+<div class="container">
+  <h2>Related Technical Guides</h2>
+  <div class="guides-related-grid" id="related-guides-grid"></div>
+</div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="cta-section cta-high-impact cta-telephony">
+<div class="container">
+  <h2>Ready to Upgrade Your Business Phone System?</h2>
+  <p class="subtitle">Tell us about your current setup and how your team works. We will assess your requirements and recommend the right Yeastar platform, SIP trunk configuration, and network setup for your business.</p>
+  <div class="btn-group">
+    <a class="btn btn-primary" href="/contact-gateway.html?intent=telephony-assessment">Request a Proposal</a>
+    <a class="btn btn-outline-light" href="https://wa.me/6593860466">💬 WhatsApp an Engineer</a>
+  </div>
+  <p class="cta-trust-note">Serving Singapore Since 2006 · PLRD Licensed · BCA Registered</p>
+</div>
+</section>
+
+<footer id="sv-footer"></footer>
+
+<script>
+/* ── TOC accordion (mobile only) ── */
+(function () {
+  var title = document.querySelector('.rg-toc-title');
+  var list  = document.querySelector('.rg-toc-list');
+  if (!title || !list) return;
+
+  title.addEventListener('click', function () {
+    var open = list.classList.toggle('rg-toc-open');
+    title.classList.toggle('rg-toc-open', open);
+  });
+
+  list.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      list.classList.remove('rg-toc-open');
+      title.classList.remove('rg-toc-open');
+    });
+  });
+})();
+
+/* ── TOC active section highlight on scroll ── */
+(function () {
+  var links    = document.querySelectorAll('.rg-toc-list a');
+  var sections = [];
+  links.forEach(function (link) {
+    var id = link.getAttribute('href').replace('#', '');
+    var el = document.getElementById(id);
+    if (el) sections.push({ link: link, el: el });
+  });
+
+  function onScroll() {
+    var scrollY = window.scrollY + 140;
+    var current = null;
+    sections.forEach(function (s) {
+      if (s.el.offsetTop <= scrollY) current = s;
+    });
+    links.forEach(function (l) { l.classList.remove('active'); });
+    if (current) current.link.classList.add('active');
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+<script src="/nav-footer.js"></script>
+</body>
+</html>

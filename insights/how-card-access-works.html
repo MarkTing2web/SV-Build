@@ -1,249 +1,477 @@
 <!DOCTYPE html>
 
 <html lang="en-GB">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<!-- ═══ SEO — UPDATE ALL FIELDS PER ARTICLE ═══ -->
-<title>How Card Access Control Works in Singapore Properties</title>
-<meta content="Most people swipe without thinking. Learn how a card access system actually works — reader, controller, lock, and software — explained clearly." name="description"/>
-<link href="https://www.securevision.com.sg/insights/how-card-access-works.html" rel="canonical"/>
-<meta content="How Card Access Control Works in Singapore Properties" property="og:title"/>
-<meta content="Most people swipe without thinking. Learn how a card access system actually works — reader, controller, lock, and software — explained clearly." property="og:description"/>
-<meta content="https://www.securevision.com.sg/images/insights/securevision-insights.webp" property="og:image"/>
-<meta content="https://www.securevision.com.sg/insights/how-card-access-works.html" property="og:url"/>
-<meta content="article" property="og:type"/>
-<meta content="Securevision" property="og:site_name"/>
-<meta content="Ler Wee Meng" property="article:author"/>
-<meta content="2026-04-01" property="article:published_time"/>
-<!-- ════════════════════════════════════════════ -->
-<!-- Both CSS files required on all insights pages -->
-<link href="/sv-shared.css" rel="stylesheet"/>
-<link href="/sv-insights.css" rel="stylesheet"/>
-<script src="/site-config.js"></script>
-<!-- NO <style> BLOCK. All classes are in sv-shared.css and sv-guides.css. -->
-</head>
-<body data-article="how-card-access-works">
-<!-- NAV — injected by nav-footer.js -->
-<nav id="sv-nav"></nav>
-<!-- ═══════════════════════════════════════════════════════════
-     ARTICLE HEADER
-     Dark gradient — no background image (image is for cover only).
-     Per INSTRUCTION-insights.md Section 5.
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
 
-     BADGE CATEGORY — use exactly one of:
-       Security Planning | Technology | Case Studies | Singapore Industry
+  <!-- ═══ SEO — UPDATE ALL FIELDS PER ARTICLE ═══ -->
+  <title>What Actually Happens When You Tap Your Access Card? | Securevision Insights</title>
+  <meta
+    content="When you tap an access card, the card does not decide whether the door opens — the controller does. Learn how the four components work together and what this means for managing your system."
+    name="description" />
+  <link href="https://www.securevision.com.sg/insights/how-card-access-works.html" rel="canonical" />
 
-     BYLINE — exactly two lines:
-       Line 1: Ler Wee Meng
-       Line 2: Founder & CEO · Securevision · 37+ Years Experience · 37+ Years Experience
-     ═══════════════════════════════════════════════════════════ -->
-<header class="insights-header">
-<div class="container">
-<span class="badge badge-primary">Technology &amp; AI</span>
-<h1 class="insights-header-title">How Card Access Control Actually Works</h1>
-<p class="insights-header-intro">Most people swipe their access card without thinking about what happens in the half-second between the swipe and the click. Understanding the mechanics helps you specify a system that actually does what you need.</p>
-<div class="hero-byline">
-<img alt="Ler Wee Meng" class="hero-byline-img" src="/images/ler-wee-meng-bio.webp"/>
-<div class="hero-byline-text">
-<strong>Ler Wee Meng</strong>
-<p class="hero-byline-role">Founder &amp; CEO · Securevision · 37+ Years Experience · 37+ Years Experience</p>
-</div>
-</div>
-</div>
-</header>
-<!-- ═══ END ARTICLE HEADER ═══ -->
-<!-- ═══ BREADCRUMB ═══ -->
-<!-- 4 crumbs: Home → Insights → [Category] → How Card Access Control Actually Works -->
-<div class="trust-bar">
-<div class="trust-bar-inner">
-<span>Police Licensed · <span class="sv-licence"></span></span>
-<span class="trust-divider"></span>
-<span>bizSAFE <span class="sv-bizsafe"></span></span>
-<span class="trust-divider"></span>
-<span><strong class="sv-sites"></strong> Sites Protected</span>
-</div>
-</div>
-<nav aria-label="Breadcrumb" class="sv-breadcrumb">
-<div class="container">
-<ul>
-<li><a href="/">Home</a></li>
-<li><a href="/insights/">Insights</a></li>
-<li><a href="/insights/?category=technology-&amp;-ai">Technology &amp; AI</a></li>
-<li>How Card Access Control Actually Works</li>
-</ul>
-</div>
-</nav>
-<!-- ═══ END BREADCRUMB ═══ -->
-<!-- ═══ ARTICLE BODY + SIDEBAR ═══ -->
-<div class="article-body">
-<div class="container">
-<div class="layout-with-sidebar">
-<!-- ── MAIN ARTICLE CONTENT ── -->
-<main class="prose">
-<section id="section1">
-<h2>1. The components that make up a door access system</h2>
-<p>A card access system has four physical components working together. Understanding each one is what lets you ask the right questions when you are specifying or reviewing a system.</p>
-<p><strong>The card or credential.</strong> The most common type in Singapore commercial premises is a 13.56 MHz MIFARE card — the white or branded proximity card most office workers carry. The card contains a unique ID that it broadcasts when brought close to a reader. The card itself does not store access permissions — it only stores an ID number. The decision about whether that ID is allowed through the door is made elsewhere.</p>
-<p><strong>The reader.</strong> The device mounted on the wall beside the door. It reads the card's ID and passes it to the controller. Readers vary in read range (typically 3 to 10cm), in what they can read (card only, biometrics), and in how they communicate (Wiegand vs OSDP).</p>
-<p><strong>The controller.</strong> The brain of the system. It receives the card ID from the reader, looks it up against an access database, checks time restrictions, and sends a signal to the lock. The controller is typically installed in a secured location like a server room or electrical riser.</p>
-<p><strong>The lock.</strong> The physical mechanism that secures the door. Common types in Singapore include electromagnetic locks (EM locks), which release when power is cut, and electric strikes. The choice between fail-secure and fail-safe is critical.</p>
-<div class="callout-box">
-<p class="callout-label">KEY POINT</p>
-<p>The card does not grant access. The controller grants access based on the card ID. This distinction matters when diagnosing problems — a card that stops working is usually a database or permission issue, not a card hardware failure.</p>
-</div>
-</section>
-<section id="section2">
-<h2>2. The Wiegand protocol and why it matters</h2>
-<p>Most card access readers in Singapore still use Wiegand to communicate with controllers. Wiegand is a simple, reliable, decades-old protocol that sends the card ID as a stream of pulses down a cable. Its main limitation is that it transmits data unencrypted and in one direction only.</p>
-<p>This creates two practical issues. First, the card ID can be intercepted and cloned by someone with the right equipment. Second, Wiegand gives the controller no way to confirm the reader is legitimate. OSDP (Open Supervised Device Protocol) is the modern replacement—it is encrypted, bidirectional, and allows the controller to supervise the reader.</p>
-<p>For most Singapore office premises, Wiegand remains the practical standard, but for government or data centres, OSDP is essential.</p>
-</section>
-<section id="section3">
-<h2>3. Fail-safe vs fail-secure — the decision that matters most</h2>
-<p>This is the most important design decision in a door access system and the one most often made without proper consideration.</p>
-<p><strong>Fail-safe</strong> means the lock releases when power is cut. The door opens. This is required by fire safety regulations for emergency exit doors. EM locks are inherently fail-safe.</p>
-<p><strong>Fail-secure</strong> means the lock remains locked when power is cut. The door stays closed. This is appropriate for server rooms or high-security areas where preserving the perimeter is the priority.</p>
-<div class="callout-box">
-<p class="callout-label">DESIGN RULE</p>
-<p>Every door in your system needs a conscious fail-state decision. The wrong choice can mean a security breach during a power failure or, more critically, a fire safety violation. The Singapore Fire Code has specific requirements about egress doors that must be fail-safe.</p>
-</div>
-<div class="article-image-box">
-<img alt="Electric magnetic lock installed on glass door in Singapore commercial office with exit button" src="/images/insights/card-access-failsafe-door.webp"/>
-<p class="image-caption">Fail-safe means the lock releases when power is cut — doors open in a fire evacuation. Fail-secure means the lock holds — used on high-security doors where access must be maintained even during a power event.</p>
-</div></section>
-<section id="section4">
-<h2>4. Standalone vs networked systems</h2>
-<p>Standalone systems have the controller built into the reader. Each door is independent. Adding a card means programming it at each door. Networked systems connect all controllers back to a central server. All cards are managed from a single interface, and access logs are centralised.</p>
-<p>For any installation of more than five doors, a networked system is the correct specification. The additional cost is recovered immediately in administration time.</p>
-<div class="article-image-box"><img alt="Access control controller panel in a neatly managed electrical riser" src="/images/insights/card-access-failsafe-door.webp"/><p class="image-caption">Securevision Verdict</p></div>
-<div class="article-image-box">
-<img alt="Networked access control panel in Singapore commercial building comms room" src="/images/insights/card-access-networked-system.webp"/>
-<p class="image-caption">Networked systems connect all door controllers back to a central server. Adding a card, changing permissions, or pulling an access log happens from one interface for all doors.</p>
-</div></section>
-<!-- PREV/NEXT NAV -->
-<!-- ═══ ARTICLE FOOTER ELEMENTS — order is fixed ═══ -->
-<!-- 1. Divider -->
-<hr/>
-<!-- 2. Author bio — mandatory, 150–200 words -->
-<!-- 3. Tags — mandatory, 4–5 tags, use <a> not <span> -->
-<!-- 4. Prev/Next navigation — mandatory -->
-<!-- ═══ ARTICLE FOOTER ELEMENTS — order is fixed ═══ -->
-<!-- 1. Divider -->
-<hr/>
-<!-- 2. Author bio — mandatory, 150–200 words -->
-<section class="author-bio-footer" id="author">
-<div class="abf-flex">
-<img alt="Ler Wee Meng" class="abf-img" src="/images/ler-wee-meng-bio.webp"/>
-<div class="abf-content">
-<h3>About the Author</h3>
-<p>Ler Wee Meng is the Founder and CEO of Securevision Pte Ltd, Singapore's integrated security systems specialist since 2006. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London, and brings over 37 years of hands-on experience spanning R&amp;D, engineering, project management, and systems integration.</p>
-<p>Securevision has protected over 2,000 sites across Singapore — from Good Class Bungalows and MCST-managed condominiums to government institutions and industrial facilities. Ler is the architect of the Securevision SECURE™ Framework and the VESTA™ unified security management platform.</p>
-</div>
-</div>
-</section>
-<!-- 3. Tags — mandatory, 4–5 tags, use <a> not <span> -->
-<div class="article-tags">
-<a class="tag-pill" href="/insights/?category=technology-&amp;-ai">[Category]</a>
-<a class="tag-pill" href="/insights/?tag=card-access-control">Card Access Control</a>
-<a class="tag-pill" href="/insights/?tag=wiegand-vs-osdp">Wiegand vs OSDP</a>
-<a class="tag-pill" href="/insights/?tag=security-planning">Security Planning</a>
-<a class="tag-pill" href="/insights/?tag=commercial-security">Commercial Security</a>
-<a class="tag-pill" href="/insights/?tag=card-access-control">Card Access Control</a>
-<a class="tag-pill" href="/insights/?tag=wiegand-vs-osdp">Wiegand vs OSDP</a>
-<a class="tag-pill" href="/insights/?tag=security-planning">Security Planning</a>
-<a class="tag-pill" href="/insights/?tag=commercial-security">Commercial Security</a>
-<!-- Add 4th/5th tag if relevant -->
-</div>
-<!-- 4. Prev/Next navigation — mandatory -->
-</main>
-<!-- ── END MAIN ARTICLE CONTENT ── -->
-<!-- ── SIDEBAR ── -->
-<aside>
-<div class="sticky-toc">
-<!-- Table of contents — one entry per H2 section -->
-<h3 class="toc-title">In this article</h3>
-<ul class="toc-list" id="tocList">
-<li><a href="#section1">1. System components</a></li>
-<li><a href="#section2">2. Wiegand vs OSDP</a></li>
-<li><a href="#section3">3. Fail-safe vs Fail-secure</a></li>
-<li><a href="#section4">4. Standalone vs Networked</a></li>
-<li><a href="#section5">5. Biometric options</a></li>
-<li><a href="#section6">6. Good spec checklist</a></li>
-<!-- One per H2 section — do NOT include author bio or tags -->
-<li><a href="#author">Meet the Author</a></li>
-</ul>
-<!-- Founder card — do NOT add inline styles, sv-shared handles styling -->
-<div class="founder-card">
-<div class="fc-head">
-<img alt="Ler Wee Meng" src="/images/ler-wee-meng-bio.webp"/>
-<div>
-<strong>Ler Wee Meng</strong>
-<p class="hero-byline-role">Founder &amp; CEO · <span class="sv-years-experience"></span> Years</p>
-</div>
-</div>
-<p>Need expert advice? Discuss your site requirements with our engineering team.</p>
-<a class="fc-wa-link" href="https://wa.me/6593860466">💬 WhatsApp an Engineer</a>
-</div>
-</div>
-</aside>
-<!-- ── END SIDEBAR ── -->
-</div><!-- end layout-with-sidebar -->
-</div><!-- end container -->
-</div><!-- end article-body -->
-<!-- ═══ END ARTICLE BODY + SIDEBAR ═══ -->
-<!-- ═══ RELATED INSIGHTS ═══ -->
-<!-- Outside layout wrapper, full width, sv-section-grey background -->
-<!-- ALWAYS exactly 3 nav-card links — no more, no fewer.
-     Uses .insights-related-grid (NOT .related-grid) — this class is
-     scoped to insights pages only and hard-caps at 3 columns.
-     .related-grid uses auto-fit and could expand to 4+ columns.
-     See sv-shared.css Section 38c for the definition and rationale. -->
-<section class="sv-section-grey section-spacing">
-<div class="container">
-<h2>Related Security Insights</h2>
-<div class="insights-related-grid" id="related-insights-grid"></div>
-</div>
-</section>
-<section class="cta-section cta-high-impact cta-property">
-<div class="container">
-<h2>Ready to Secure Your Property?</h2>
-<p class="subtitle">Tell us about your site. We'll assess it and design a system that works as one.</p>
-<div class="btn-group">
-<a class="btn btn-primary" href="/request-proposal.html">Request a Proposal</a>
-<a class="btn btn-outline-light" href="https://wa.me/6593860466">💬 WhatsApp</a>
-</div>
-<p class="cta-trust-note">Serving Singapore Since 2006</p>
-</div>
-</section>
-<!-- ═══ END FINAL CTA ═══ -->
-<!-- FOOTER — injected by nav-footer.js -->
-<footer id="sv-footer"></footer>
-<!-- WHATSAPP FLOAT — mandatory on all pages -->
-<!-- SCRIPTS -->
-<!-- TOC scroll-spy — highlights active section in sidebar TOC -->
-<script>
-(function() {
-  var tocLinks = document.querySelectorAll('.toc-list a');
-  var sections = [];
-  tocLinks.forEach(function(link) {
-    var id = link.getAttribute('href').replace('#', '');
-    var el = document.getElementById(id);
-    if (el) sections.push({ link: link, el: el });
-  });
-  function onScroll() {
-    var scrollY = window.scrollY + 120;
-    var active = null;
-    sections.forEach(function(s) {
-      if (s.el.offsetTop <= scrollY) active = s;
-    });
-    tocLinks.forEach(function(l) { l.classList.remove('active'); });
-    if (active) active.link.classList.add('active');
+  <!-- Open Graph -->
+  <meta content="article" property="og:type" />
+  <meta content="Securevision" property="og:site_name" />
+  <meta content="What Actually Happens When You Tap Your Access Card? | Securevision Insights" property="og:title" />
+  <meta
+    content="When you tap an access card, the card does not decide whether the door opens — the controller does. Learn how the four components work together and what this means for managing your system."
+    property="og:description" />
+  <meta content="https://www.securevision.com.sg/insights/how-card-access-works.html" property="og:url" />
+  <meta content="https://www.securevision.com.sg/images/insights/how-card-access-works-feature.webp"
+    property="og:image" />
+  <meta content="1200" property="og:image:width" />
+  <meta content="630" property="og:image:height" />
+
+  <!-- Article metadata -->
+  <meta content="Ler Wee Meng" property="article:author" />
+  <meta content="2026-04-01" property="article:published_time" />
+  <meta content="Security Planning" property="article:section" />
+  <meta content="Access Control" property="article:tag" />
+  <meta content="Security Planning" property="article:tag" />
+  <meta content="Singapore" property="article:tag" />
+
+  <!-- Twitter/X Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="What Actually Happens When You Tap Your Access Card?" />
+  <meta name="twitter:description"
+    content="When you tap an access card, the card does not decide whether the door opens — the controller does. Learn how the four components work together and what this means for managing your system." />
+  <meta name="twitter:image"
+    content="https://www.securevision.com.sg/images/insights/how-card-access-works-feature.webp" />
+  <!-- ════════════════════════════════════════════ -->
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "What Actually Happens When You Tap Your Access Card?",
+    "description": "When you tap an access card, the card does not decide whether the door opens — the controller does. Learn how the four components work together and what this means for managing your system.",
+    "image": "https://www.securevision.com.sg/images/insights/how-card-access-works-feature.webp",
+    "author": {
+      "@type": "Person",
+      "name": "Ler Wee Meng",
+      "url": "https://www.linkedin.com/in/lerwm"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Securevision",
+      "url": "https://www.securevision.com.sg"
+    },
+    "datePublished": "2026-04-01",
+    "mainEntityOfPage": "https://www.securevision.com.sg/insights/how-card-access-works.html"
   }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-})();
-</script>
-<script src="/nav-footer.js"></script>
+  </script>
+
+  <link href="/sv-shared.css" rel="stylesheet" />
+  <link href="/sv-insights.css" rel="stylesheet" />
+  <script src="/site-config.js"></script>
+</head>
+
+<body data-article="how-card-access-works">
+  <nav id="sv-nav"></nav>
+
+  <!-- ═══ ARTICLE HEADER ═══ -->
+  <header class="insights-header insights-cat-planning">
+    <div class="container">
+      <div class="insights-header-inner">
+
+        <div class="insights-header-left">
+          <div class="insights-header-title-group">
+            <span class="insights-cat-label">Security Planning</span>
+            <h1 class="insights-header-title">What Actually Happens When You Tap Your Access Card?</h1>
+            <p class="insights-header-subtitle">Most people tap the card and walk through the door without thinking about what happened in between. Understanding how the system works helps you ask better questions — and make better decisions.</p>
+          </div>
+          <div class="hero-byline">
+            <img alt="Ler Wee Meng" class="hero-byline-img" src="/images/ler-wee-meng-bio.webp" />
+            <div class="hero-byline-text">
+              <strong>Ler Wee Meng</strong>
+              <p class="hero-byline-role">Founder &amp; Director · Securevision · <span
+                  class="sv-years-experience"></span> Years Experience · 1 Apr 2026 · 8 min read</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="insights-header-illus">
+          <svg viewBox="0 0 180 140" xmlns="http://www.w3.org/2000/svg">
+            <!-- Card -->
+            <rect x="18" y="48" width="38" height="26" rx="3" fill="rgba(60,100,194,0.2)" stroke="rgba(80,130,240,0.7)" stroke-width="1.5"/>
+            <rect x="22" y="54" width="14" height="10" rx="1" fill="rgba(80,130,240,0.4)"/>
+            <text x="37" y="68" font-size="6" fill="rgba(80,130,240,0.7)" font-family="sans-serif">CARD</text>
+            <!-- Arrow 1 -->
+            <line x1="58" y1="61" x2="72" y2="61" stroke="rgba(80,130,240,0.5)" stroke-width="1.5" stroke-dasharray="3,2"/>
+            <polygon points="72,58 78,61 72,64" fill="rgba(80,130,240,0.5)"/>
+            <!-- Reader -->
+            <rect x="78" y="48" width="28" height="26" rx="3" fill="rgba(60,100,194,0.15)" stroke="rgba(80,130,240,0.6)" stroke-width="1.5"/>
+            <circle cx="92" cy="61" r="7" fill="none" stroke="rgba(80,130,240,0.5)" stroke-width="1"/>
+            <circle cx="92" cy="61" r="3" fill="rgba(80,130,240,0.35)"/>
+            <text x="92" y="82" text-anchor="middle" font-size="6" fill="rgba(80,130,240,0.7)" font-family="sans-serif">READER</text>
+            <!-- Arrow 2 -->
+            <line x1="108" y1="61" x2="122" y2="61" stroke="rgba(80,130,240,0.5)" stroke-width="1.5" stroke-dasharray="3,2"/>
+            <polygon points="122,58 128,61 122,64" fill="rgba(80,130,240,0.5)"/>
+            <!-- Controller -->
+            <rect x="128" y="44" width="34" height="34" rx="3" fill="rgba(60,100,194,0.18)" stroke="rgba(80,130,240,0.65)" stroke-width="1.5"/>
+            <rect x="132" y="50" width="26" height="4" rx="1" fill="rgba(80,130,240,0.3)"/>
+            <rect x="132" y="57" width="26" height="4" rx="1" fill="rgba(80,130,240,0.3)"/>
+            <rect x="132" y="64" width="18" height="4" rx="1" fill="rgba(80,180,120,0.5)"/>
+            <text x="145" y="86" text-anchor="middle" font-size="6" fill="rgba(80,130,240,0.7)" font-family="sans-serif">CONTROLLER</text>
+            <!-- Down arrow to lock -->
+            <line x1="145" y1="78" x2="145" y2="95" stroke="rgba(80,130,240,0.5)" stroke-width="1.5" stroke-dasharray="3,2"/>
+            <polygon points="142,95 145,101 148,95" fill="rgba(80,130,240,0.5)"/>
+            <!-- Lock -->
+            <rect x="131" y="101" width="28" height="18" rx="2" fill="rgba(80,180,120,0.2)" stroke="rgba(80,180,120,0.6)" stroke-width="1.5"/>
+            <rect x="139" y="96" width="12" height="8" rx="6" fill="none" stroke="rgba(80,180,120,0.6)" stroke-width="1.5"/>
+            <text x="145" y="114" text-anchor="middle" font-size="6" fill="rgba(60,140,80,0.8)" font-family="sans-serif">LOCK</text>
+          </svg>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ BREADCRUMB ═══ -->
+  <nav aria-label="Breadcrumb" class="sv-breadcrumb">
+    <div class="container">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/insights/">Insights</a></li>
+        <li><a href="/insights/?category=security-planning">Security Planning</a></li>
+        <li>What Actually Happens When You Tap Your Access Card?</li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══ ARTICLE BODY + SIDEBAR ═══ -->
+  <div class="article-body">
+    <div class="container">
+      <div class="layout-with-sidebar">
+
+        <main class="prose">
+
+          <!-- Key Takeaways — GEO/AI snippet optimised -->
+          <div class="article-takeaways">
+            <span class="article-takeaways-label">Key Takeaways</span>
+            <ul>
+              <li>When you tap an access card, the card does not decide whether the door opens — it only identifies itself. The decision is made by the controller, which checks permissions and sends the unlock signal.</li>
+              <li>Fail-safe locks (unlocks when power is lost) are required for fire exit doors under Singapore's Fire Code. Fail-secure locks (stays locked when power is lost) are used for server rooms and high-security areas.</li>
+              <li>Most Singapore access systems use Wiegand — a decades-old protocol that sends card data without encryption. OSDP is the modern encrypted alternative increasingly specified for commercial and government installations.</li>
+              <li>Anti-passback prevents a card from being used to enter the same area twice without first exiting — it stops cardholders from passing their card back through a door to let an unauthorised person in.</li>
+              <li>Networked access control systems log every entry by individual, door, and timestamp — this audit trail is increasingly relevant for WSHA compliance and cybersecurity requirements.</li>
+              <li>Access control logs are personal data under Singapore's PDPA — organisations need a defined retention policy and restricted access to those records.</li>
+            </ul>
+          </div>
+
+          <section id="section1">
+            <h2>1. The Four Components That Make Up a Door Access System</h2>
+            <img src="/images/insights/how-card-access-works-feature.webp"
+              alt="Singapore office worker tapping access card on reader beside glass door — illustrating the card, reader, controller and lock sequence"
+              class="article-img-float-right" />
+            <p>Most people tap their access card without thinking about what happens in the fraction of a second between the tap and the click. Yet in that brief moment, four separate components are working together. Understanding each one is what lets you ask the right questions when specifying, reviewing, or troubleshooting a system.</p>
+            <p>The card or credential contains a unique identity number. The most common type in Singapore commercial premises is a 13.56 MHz MIFARE card — the white or branded card most office workers carry. What surprises many people is that the card does not store access permissions. It only stores an identity number. The decision about whether that identity is allowed through the door is made somewhere else entirely.</p>
+            <p>The reader is the device mounted on the wall beside the door. Its job is to read the card's identity and pass that information to the controller. Readers vary in what they can read — card only, PIN, biometrics, mobile credentials — and in how they communicate with the controller. The reader makes no access decision of its own.</p>
+            <p>The controller is the real decision-maker. It receives the card identity from the reader, looks it up in the access database, checks whether the cardholder has permission for that door at that time of day, and sends a signal to the lock. The controller is typically installed in a secured location such as a server room or electrical riser — away from the door it manages. One controller can manage multiple doors.</p>
+            <p>The lock is the physical device that actually secures the door. The controller does not open the door itself — it simply tells the lock what to do. The two most common types in Singapore are electromagnetic locks (EM locks) and electric strikes. The choice between them, and the critical question of how they behave during a power failure, is discussed in Section 2.</p>
+            <div class="callout-box">
+              <p class="callout-label">KEY POINT</p>
+              <p>The card does not grant access — the controller does, based on the card's identity. This distinction matters when diagnosing problems. When a card stops working, the fault is almost always in the database, the permissions, or the controller configuration — not in the card itself. We have attended sites where multiple users suddenly found their cards were rejected. The cards were working perfectly. The issue was a software configuration change that had reset permissions for an entire user group.</p>
+            </div>
+          </section>
+
+          <section id="section2">
+            <h2>2. Fail-Safe vs Fail-Secure — The Most Important Design Decision</h2>
+            <img src="/images/insights/card-access-failsafe-door.webp"
+              alt="Electromagnetic lock installed on glass door in Singapore commercial office — fail-safe design releases when power is lost"
+              class="article-img-float-right" />
+            <p>This is the most important design decision in any door access system — and the one most often made without proper consideration. When power fails, what should the door do? The answer determines both the security of the installation and its compliance with Singapore's fire safety requirements. The two options are fail-safe and fail-secure, and they are exact opposites.</p>
+            <p>Fail-safe (unlocks when power is lost) means the lock releases and the door opens when power is cut. Electromagnetic locks are inherently fail-safe — they hold the door shut by magnetic force, and that force disappears when power disappears. Fail-safe is the correct and legally required behaviour for any door that forms part of a fire exit or emergency escape route under Singapore's Fire Code. In a fire evacuation, every door on an escape route must open freely without requiring any action from the person trying to leave.</p>
+            <p>Fail-secure (stays locked when power is lost) means the lock remains locked when power is cut. Electric strikes and motorised bolts can be configured as fail-secure. This is appropriate for server rooms, high-security areas, or locations where maintaining the security perimeter during a power event is the priority — and where there is no fire exit requirement.</p>
+            <p>Every door in a system needs a conscious decision about its fail state. The wrong choice creates either a security gap during power failures or, more critically, a fire safety violation that could endanger lives. For any door on a fire escape route, fail-safe is not optional. For high-security internal doors with no egress function, fail-secure may be appropriate. Confirm this with your installer and, where required, with the Singapore Civil Defence Force (SCDF) before installation.</p>
+            <div class="callout-box">
+              <p class="callout-label">DESIGN RULE</p>
+              <p>Every door in your system needs a fail-state decision made before equipment is specified. The Singapore Fire Code has specific requirements for egress doors — getting this wrong after installation is expensive to correct and may require SCDF approval before the building can be occupied or recertified.</p>
+            </div>
+          </section>
+
+          <section id="section3">
+            <h2>3. How the Card Talks to the Controller — Wiegand and OSDP</h2>
+            <p>Once a reader has identified a card, it needs to send that identity to the controller. The protocol used for this communication has significant implications for the security of the system — and most people never think about it at all.</p>
+            <p>Wiegand has been the industry standard in access control for decades. It is simple, reliable, and compatible with virtually every access control panel on the market. It sends the card identity as a stream of electrical pulses down a cable. Its main limitations are that it transmits data without encryption and in one direction only — the reader sends to the controller, but the controller has no way to confirm the reader is legitimate or detect if it has been tampered with.</p>
+            <p>These limitations create two practical security issues. First, the card identity being transmitted can be intercepted by someone with access to the reader wiring. Second, a device that mimics a card reader can inject false card identities into the system without using any card at all. Neither attack is particularly sophisticated, and both require only brief access to the reader wiring — which in many buildings is accessible in common areas, lift lobbies, or car parks.</p>
+            <p>OSDP — the Open Supervised Device Protocol — was developed to address these limitations. It encrypts communication between reader and controller, operates bidirectionally so the controller can verify the reader is genuine, and detects tampering or disconnection. OSDP is increasingly specified for new commercial and government installations in Singapore where security is a genuine concern. For most standard office premises, Wiegand remains in use — but for government buildings, data centres, financial institutions, and any environment with heightened security requirements, OSDP is the correct specification.</p>
+            <div class="verdict-box">
+              <p class="verdict-label">Securevision's View</p>
+              <p>We have visited sites where the access control system was performing without fault — correct doors opening, accurate reports, no user complaints — while the underlying communication protocol left the system vulnerable to attacks that require no specialist knowledge. Functionality and security are not the same thing. If your system uses Wiegand-connected readers and the areas being protected are sensitive, it is worth asking your contractor whether the readers support OSDP and whether the existing controller can accept an OSDP connection.</p>
+            </div>
+          </section>
+
+          <section id="section4">
+            <h2>4. Standalone vs Networked Systems</h2>
+            <p>Not all access control systems are managed in the same way, and the difference between standalone and networked systems is more significant than it might appear — particularly as an installation grows beyond a handful of doors.</p>
+            <p>In a standalone system, each door operates independently. The controller is built into the reader at each door, and cards are programmed directly at each unit. These systems are simple and cost-effective for very small installations — a single door or two. The limitation becomes apparent quickly: adding a new card, removing a terminated employee, or changing access permissions means physically visiting and programming every reader separately. For three doors, this is manageable. For twenty, it is not.</p>
+            <img src="/images/insights/card-access-networked-system.webp"
+              alt="Networked access control panel in Singapore commercial building communications room — centralised management of multiple doors"
+              class="article-img-float-right" />
+            <p>In a networked system, all door controllers connect back to a central platform — either a server on the premises or a cloud-based management system. All cards, permissions, and access schedules are managed from a single interface. Adding a new card or removing access for a terminated employee takes seconds and applies across all doors simultaneously. For any installation of more than five doors, a networked system is almost always the right specification — the additional upfront cost is recovered quickly in administration time alone.</p>
+
+            <h3>Anti-Passback</h3>
+            <p>Networked systems support a feature called anti-passback (a rule that prevents a card from being used to enter the same area twice without first exiting). Without anti-passback, a cardholder can tap into an area and then pass their card back through the door to allow another person to enter without credentials. Anti-passback prevents this by requiring that the system records an exit before it will accept another entry from the same card. It also produces a more accurate occupancy record — which is relevant for emergency evacuation and for WSHA compliance in workplaces where zone-level occupancy matters.</p>
+
+            <h3>Integration With Other Systems</h3>
+            <p>Networked access control systems can be integrated with CCTV, intercoms, building management systems, and visitor management platforms. The most common and immediately useful integration is with CCTV — so that every access event triggers a camera image capture at that door. This means the system records not just which card was used, but what the person using it actually looked like at that moment. For incident investigation and for demonstrating due diligence, this combination is significantly more valuable than either system operating independently.</p>
+
+            <h3>Access Logs and PDPA</h3>
+            <p>Every entry and exit recorded by a networked access control system — the card identity, the door, the timestamp — is personal data under Singapore's Personal Data Protection Act (PDPA). Most organisations have PDPA policies for HR records and customer data, but fewer have addressed access control logs explicitly. The PDPA requires a defined retention period, restricted access to the logs, and that employees be informed their access data is being collected. Retaining logs indefinitely with no retention policy and no access restriction is not a compliant position. A reasonable approach for most commercial organisations is 90 days as a minimum, one year for areas subject to WSHA or compliance requirements.</p>
+            <div class="verdict-box">
+              <p class="verdict-label">Securevision's View</p>
+              <p>We occasionally visit sites where staff spend significant time managing cards manually at individual doors. The system works — but it no longer scales with the organisation. What was practical for three doors becomes genuinely burdensome at fifteen. The decision to move to a networked system is almost always made later than it should be, and always after some incident — a termination that took too long to propagate across all doors, a lost card that remained active longer than anyone realised, or an access log request that could not be fulfilled because the records were incomplete. A networked system removes all of these problems and costs less to run over five years than the equivalent administration time for a standalone system.</p>
+            </div>
+          </section>
+
+          <section id="section5">
+            <h2>5. Beyond Cards — Mobile Credentials, Face Recognition and QR Codes</h2>
+            <p>Access cards have been the default credential in commercial buildings for decades, and they remain effective and widely used. But they are no longer the only option, and many organisations are now deploying alternative credentials alongside or instead of physical cards.</p>
+            <img src="/images/insights/how-card-access-works-credentials.webp"
+              alt="Modern access control reader supporting face recognition and mobile credentials at Singapore commercial office door"
+              class="article-img-float-right" />
+            <p>Mobile credentials use a smartphone — via Bluetooth Low Energy or NFC — as the credential. The phone broadcasts the same identity information as a card would, but with the credential stored securely in the phone's encrypted storage rather than on a plastic card. Mobile credentials eliminate the cost and administration of issuing physical cards, and they are harder to clone than most physical card technologies. The main limitation is that they require users to have a smartphone and to have the app active — which is not appropriate for all environments or user populations.</p>
+            <p>Face recognition readers use a camera and processing software to verify the identity of the person presenting themselves at a door. No card or phone is required — the person's face is the credential. Face recognition access control is increasingly deployed in Singapore commercial buildings for staff entrances, and in condominiums for resident access. Under Singapore's PDPA, biometric data — including face recognition templates — is treated with heightened sensitivity, and organisations deploying face recognition must obtain appropriate consent and store the biometric data with adequate protection.</p>
+            <p>QR code access is increasingly used for visitor management — a visitor pre-registers, receives a QR code on their phone, and presents it at the reader to gain temporary access. This eliminates the need to issue temporary cards, creates an automatic access record, and allows time-limited access to be granted remotely without any manual intervention at the door. Many modern access control platforms combine all three credential types at the same reader, allowing the building to use different credentials for different user populations — cards for permanent staff, face recognition for frequent visitors, and QR codes for one-time contractors.</p>
+            <div class="callout-box">
+              <p class="callout-label">KEY POINT</p>
+              <p>The important question is not whether you use a card, a phone, or a face. It is whether the credential technology provides an appropriate level of security for the areas being protected, and whether the system can support the operational needs of the people using it. A senior care facility and a data centre have very different requirements, even if both are deploying access control at the same door type.</p>
+            </div>
+          </section>
+
+          <section id="section6">
+            <h2>6. Is Your Current System Still Good Enough?</h2>
+            <p>For many organisations, an access control system that is still working is considered a system that does not need attention. Doors open, reports are generated, users are not complaining. That view is increasingly difficult to maintain — and three pressures in particular are prompting organisations across Singapore to review systems they had previously assumed were adequate.</p>
+            <p>The first is technology. Card credential technologies used in many older Singapore systems — proximity cards and Mifare Classic smart cards — have documented vulnerabilities that allow them to be cloned with equipment now readily available and inexpensive. Wiegand communication, used between most older readers and their controllers, transmits data without encryption. Systems that function perfectly may be providing a level of physical security that is materially lower than the organisation believes.</p>
+            <p>The second is regulation. Singapore's Workplace Safety and Health Act (WSHA), most recently amended in 2024, creates explicit obligations for workplace occupiers to be able to demonstrate who was on site and which areas they accessed — particularly for restricted or hazardous zones. The June 2024 mandate for video surveillance at construction worksites signals the regulatory direction clearly. Access control systems with zone-level logging that produces reliable audit trails are increasingly a compliance asset, not just a security tool.</p>
+            <p>The third is cybersecurity. Singapore's Cybersecurity Act, amended in 2024 with provisions in force from October 2025, means that physical access to server rooms, network equipment, and sensitive systems is now part of the cybersecurity compliance picture. An organisation that cannot produce an audit trail of who physically accessed its sensitive systems is exposed in ways that its cybersecurity policy may not yet have addressed.</p>
+            <p>A full treatment of these three drivers, with the specific regulatory requirements and practical implications for each, is in the companion article: <a href="/insights/access-control-upgrade-drivers-singapore.html">Three Reasons Singapore Organisations Should Review Their Access Control System Now</a>.</p>
+            <div class="verdict-box">
+              <p class="verdict-label">Securevision's View</p>
+              <p>Most people only think about access control when a card stops working. In reality, a card access system is doing far more than opening a door — it is managing identity, permissions, security, and increasingly, regulatory compliance. Understanding the basics helps building owners, facility managers, managing agents, and MCST councils ask better questions and make better decisions. And when it comes to security systems, asking the right questions is often more valuable than knowing every technical detail.</p>
+            </div>
+          </section>
+
+          <section id="section7">
+            <h2>7. Frequently Asked Questions</h2>
+
+            <h3>When I tap my card and it does not work, what has gone wrong?</h3>
+            <p>In most cases, the card itself is functioning correctly. The most common causes of a rejected card are that the card's identity has been removed or suspended in the access control database, that the access schedule for that card has expired or restricts access at that time of day, or that the door's permission group has been changed and the card is no longer included. A card that is physically damaged — cracked, demagnetised, or with a failed chip — is much less common than a database or configuration issue. The first step in troubleshooting is always to check the software, not the card.</p>
+
+            <h3>What is anti-passback and why does it matter?</h3>
+            <p>Anti-passback is a feature that prevents a card from being used to enter the same area twice without first recording an exit. Without it, a cardholder can tap into a building and then pass their card back through the door to allow a second person to enter without credentials. Anti-passback prevents this by requiring an exit event before the system will accept another entry from the same card. It also maintains a more accurate occupancy record — which is useful for emergency evacuation management and increasingly relevant for WSHA workplace safety compliance.</p>
+
+            <h3>What is the difference between fail-safe and fail-secure?</h3>
+            <p>Fail-safe means the lock unlocks when power is lost — the door opens. This is required for all doors on fire escape routes under Singapore's Fire Code. Fail-secure means the lock stays locked when power is lost. This is appropriate for server rooms or high-security areas with no egress function. Every door in a system needs a deliberate decision about which mode is correct — getting it wrong creates either a security gap or a fire safety violation.</p>
+
+            <h3>What is the difference between Wiegand and OSDP?</h3>
+            <p>Wiegand is the protocol used by most older card readers to send card data to the access control panel. It is simple and reliable but transmits data without encryption, meaning the data can be intercepted. OSDP is the modern alternative — it encrypts the communication, operates in both directions, and allows the controller to verify the reader is genuine and detect tampering. Most new installations in environments with meaningful security requirements now specify OSDP.</p>
+
+            <h3>What is the difference between standalone and networked access control?</h3>
+            <p>In a standalone system, each door controller operates independently and cards must be programmed at each door separately. In a networked system, all doors are connected to a central platform and managed from a single interface — adding a card, removing access, or pulling an audit log applies to all doors simultaneously. For any installation of more than five doors, a networked system is almost always the right specification. The administration time savings alone typically justify the additional cost within the first year.</p>
+
+            <h3>Can I use my phone instead of an access card?</h3>
+            <p>Yes — mobile credentials are increasingly available on modern access control readers. The phone communicates with the reader via Bluetooth Low Energy or NFC and presents the same identity information as a card would, but stored securely in the phone's encrypted storage. Mobile credentials are harder to clone than most physical cards and eliminate the cost and administration of issuing physical cards. They require users to have a compatible smartphone and the relevant app installed and active.</p>
+
+            <h3>Are access control logs personal data under Singapore's PDPA?</h3>
+            <p>Yes. Every access log entry records an individual's identity, the door they accessed, and the time — all of which constitute personal data. Organisations must have a defined retention period for these logs, must restrict access to authorised personnel, and must inform employees that their access data is being collected. Most organisations have not formally addressed access control logs in their PDPA framework. A reasonable minimum retention period is 90 days; areas subject to WSHA or compliance requirements may justify longer retention.</p>
+
+            <h3>How long does an access control system last?</h3>
+            <p>The hardware — readers, controllers, and locks — typically provides eight to twelve years of reliable operation when properly maintained. The software platform may need updating every five to seven years to remain supported and to maintain compatibility with current operating systems and integration platforms. The credential technology — the cards themselves — may become a security concern before the hardware fails. Mifare Classic cards, still widely used in Singapore, have known vulnerabilities that were publicly documented over a decade ago. Hardware longevity and security adequacy are different questions and should be assessed separately.</p>
+
+            <h3>Can I upgrade part of the system without replacing everything?</h3>
+            <p>In many cases, yes. The most common partial upgrade is replacing the card readers with OSDP-capable readers that support modern encrypted credentials, while retaining the existing access control panels and software. This addresses both the credential vulnerability and the Wiegand communication protocol issue without a full system replacement. Whether this is viable depends on the age and capability of the existing panels. A site assessment will confirm which upgrade path is most cost-effective for your specific installation.</p>
+
+            <h3>Why is the card access system connected to cybersecurity compliance?</h3>
+            <p>Physical access to servers, network equipment, and sensitive systems is increasingly considered part of the cybersecurity compliance picture, not just physical security. Under Singapore's Cybersecurity Act — amended in 2024 with provisions in force from October 2025 — organisations handling sensitive systems face increasing requirements to demonstrate that access is controlled and auditable. An access control system with zone-level logging for the server room, network cabinet, and data storage areas produces exactly the audit trail that cybersecurity assessments and the Cyber Trust Mark framework require. See our companion article for a full discussion: <a href="/insights/access-control-upgrade-drivers-singapore.html">Three Reasons Singapore Organisations Should Review Their Access Control System Now</a>.</p>
+          </section>
+
+          <div class="verdict-box">
+            <p class="verdict-label">In Short</p>
+            <p>When you tap an access card, the card identifies itself — the controller decides whether the door opens. A card access system has four components working together: the credential, the reader, the controller, and the lock. The most important design decisions are how the lock behaves during a power failure, how the reader communicates with the controller, and whether the system logs access at a level of detail that supports both security management and compliance requirements. Understanding these basics is what separates an organisation that manages its access control system well from one that discovers its limitations at the worst possible moment.</p>
+          </div>
+
+          <hr />
+
+          <!-- Share strip -->
+          <div class="article-share">
+            <span class="article-share-label">Share</span>
+            <a class="share-btn share-btn-linkedin" id="shareLinkedIn" href="#" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+              LinkedIn
+            </a>
+            <a class="share-btn share-btn-whatsapp" id="shareWhatsApp" href="#" target="_blank" rel="noopener">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
+              </svg>
+              WhatsApp
+            </a>
+            <button class="share-btn share-btn-copy" id="shareCopy" type="button">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+              </svg>
+              <span id="copyLabel">Copy Link</span>
+            </button>
+            <a class="share-btn share-btn-preferred"
+              href="https://google.com/preferences/source?q=securevision.com.sg" target="_blank" rel="noopener"
+              title="Add Securevision as a preferred source in Google">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="16" />
+                <line x1="8" y1="12" x2="16" y2="12" />
+              </svg>
+              Add to Google
+            </a>
+          </div>
+
+          <!-- Compact author attribution -->
+          <div class="author-attribution">
+            <img alt="Ler Wee Meng" class="author-attribution-img" src="/images/ler-wee-meng-bio.webp" />
+            <div class="author-attribution-text">
+              <strong>Ler Wee Meng</strong> — Founder &amp; Director, Securevision Pte Ltd.
+              BEng (NUS) · LLB (University of London) · <span class="sv-years-experience"></span> years in security
+              systems integration.
+              <div class="author-attribution-links">
+                <a href="https://www.linkedin.com/in/lerwm" rel="author" target="_blank">LinkedIn ↗</a>
+                <a href="/about.html">About Securevision ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="article-tags">
+            <a class="tag-pill" href="/insights/?category=security-planning">Security Planning</a>
+            <a class="tag-pill" href="/insights/?tag=access-control">Access Control</a>
+            <a class="tag-pill" href="/insights/?tag=singapore">Singapore</a>
+            <a class="tag-pill" href="/insights/?tag=commercial-security">Commercial Security</a>
+            <a class="tag-pill" href="/insights/?tag=homeowner">Homeowner</a>
+          </div>
+
+        </main>
+
+        <!-- ── SIDEBAR ── -->
+        <aside>
+          <div class="sidebar-container">
+
+            <div class="sidebar-section">
+              <span class="toc-title">In this article</span>
+              <div class="toc-progress-wrap">
+                <div class="toc-progress-track">
+                  <div class="toc-progress-fill" id="tocProgress"></div>
+                </div>
+              </div>
+              <ul class="toc-list" id="tocList">
+                <li><a href="#section1">1. The Four Components</a></li>
+                <li><a href="#section2">2. Fail-Safe vs Fail-Secure</a></li>
+                <li><a href="#section3">3. Wiegand vs OSDP</a></li>
+                <li><a href="#section4">4. Standalone vs Networked</a></li>
+                <li><a href="#section5">5. Beyond Cards</a></li>
+                <li><a href="#section6">6. Is Your System Still Good Enough?</a></li>
+                <li><a href="#section7">7. Frequently Asked Questions</a></li>
+              </ul>
+            </div>
+
+            <div class="sidebar-section sidebar-section--cta">
+              <span class="sidebar-cta-label">For Building Managers</span>
+              <p class="sidebar-cta-title">Not sure if your access control system is still adequate?</p>
+              <p class="sidebar-cta-desc">We assess credential technology, communication protocols, log capability, and zone coverage — and give you a clear written report on where your system stands.</p>
+              <a class="sidebar-cta-btn sidebar-cta-btn-primary"
+                href="/request-site-assessment-singapore.html?intent=access-control-review">Request an Assessment</a>
+            </div>
+
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ RELATED INSIGHTS ═══ -->
+  <section class="sv-section-grey section-spacing">
+    <div class="container">
+      <h2>Related Security Insights</h2>
+      <div class="insights-related-grid" id="related-insights-grid"></div>
+    </div>
+  </section>
+
+  <!-- ═══ FINAL CTA ═══ -->
+  <section class="cta-section cta-high-impact cta-property">
+    <div class="container">
+      <h2>Understanding Your Access Control System</h2>
+      <p class="subtitle">Whether you are specifying a new system, reviewing an existing one, or troubleshooting a problem — we can help you understand what you have and what you need.</p>
+      <div class="btn-group">
+        <a class="btn btn-primary" href="/request-site-assessment-singapore.html">Book a Site Assessment</a>
+        <a class="btn btn-outline-light" href="/request-proposal.html">Request a Proposal</a>
+        <a class="btn btn-outline-light" href="https://wa.me/6593860466">💬 WhatsApp</a>
+      </div>
+      <p class="cta-trust-note">Serving Singapore Since 2006 · Police Licensed · bizSAFE Level 3</p>
+    </div>
+  </section>
+
+  <footer id="sv-footer"></footer>
+
+  <script>
+    (function () {
+      (function () {
+        var url = encodeURIComponent(window.location.href);
+        var text = encodeURIComponent(document.title + ' — ' + window.location.href);
+        var li = document.getElementById('shareLinkedIn');
+        var wa = document.getElementById('shareWhatsApp');
+        var cp = document.getElementById('shareCopy');
+        if (li) li.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + url;
+        if (wa) wa.href = 'https://wa.me/?text=' + text;
+        if (cp) cp.addEventListener('click', function () {
+          navigator.clipboard.writeText(window.location.href).then(function () {
+            var label = document.getElementById('copyLabel');
+            if (label) {
+              label.textContent = 'Copied!';
+              cp.classList.add('copied');
+              setTimeout(function () {
+                label.textContent = 'Copy Link';
+                cp.classList.remove('copied');
+              }, 2500);
+            }
+          });
+        });
+      })();
+
+      var tocLinks = document.querySelectorAll('.toc-list a');
+      var progressFill = document.getElementById('tocProgress');
+      var sections = [];
+      tocLinks.forEach(function (link) {
+        var id = link.getAttribute('href').replace('#', '');
+        var el = document.getElementById(id);
+        if (el) sections.push({ link: link, el: el });
+      });
+      function onScroll() {
+        var scrollY = window.scrollY + 120;
+        var active = null;
+        sections.forEach(function (s) { if (s.el.offsetTop <= scrollY) active = s; });
+        tocLinks.forEach(function (l) { l.classList.remove('active'); });
+        if (active) active.link.classList.add('active');
+        if (progressFill) {
+          var docH = document.documentElement.scrollHeight - window.innerHeight;
+          var pct = docH > 0 ? Math.min(100, Math.round((window.scrollY / docH) * 100)) : 0;
+          progressFill.style.width = pct + '%';
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+  <script src="/nav-footer.js"></script>
 </body>
+
 </html>
