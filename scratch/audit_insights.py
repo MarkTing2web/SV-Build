@@ -1,67 +1,59 @@
 import os
-import glob
 import re
 
-workspace = r"c:\Projects\SV-Build"
-insights_files = glob.glob(os.path.join(workspace, "insights", "*.html"))
+site_config_path = r"d:\Ler Wee Meng\Project-Web\SV-Build\site-config.js"
+insights_dir = r"d:\Ler Wee Meng\Project-Web\SV-Build\insights"
 
-built = []
-stub = []
+# Read site-config.js
+with open(site_config_path, 'r', encoding='utf-8') as f:
+    content = f.read()
 
-def get_text(html):
-    # Try to find <main> or <article> or just the body
-    m = re.search(r'<main[^>]*>(.*?)</main>', html, re.DOTALL | re.IGNORECASE)
-    if not m:
-        m = re.search(r'<article[^>]*>(.*?)</article>', html, re.DOTALL | re.IGNORECASE)
-    if not m:
-        m = re.search(r'<body[^>]*>(.*?)</body>', html, re.DOTALL | re.IGNORECASE)
-    
-    if m:
-        content = m.group(1)
+# Extract slugs from SECUREVISION.insights
+# Example format: { slug: "burglar-alarm-design", ... }
+# Or { slug: 'burglar-alarm-design', ... }
+slug_matches = re.findall(r'slug:\s*["\']([^"\']+)["\']', content)
+
+# Keep only those under SECUREVISION.insights (or all of them, but let's be careful. The registry list starts at SECUREVISION.insights = [ ... ])
+# Let's find the section for SECUREVISION.insights
+insights_section_match = re.search(r'SECUREVISION\.insights\s*=\s*\[(.*?)\];', content, re.DOTALL)
+if insights_section_match:
+    insights_section = insights_section_match.group(1)
+    slugs = re.findall(r'slug:\s*["\']([^"\']+)["\']', insights_section)
+else:
+    print("Could not find SECUREVISION.insights section!")
+    slugs = []
+
+# List html files in insights/ folder
+html_files = [f for f in os.listdir(insights_dir) if f.endswith('.html')]
+html_slugs = [f[:-5] for f in html_files]
+
+print(f"Total slugs in config: {len(slugs)}")
+print(f"Total html files in folder: {len(html_files)}")
+
+matching = []
+missing_html = []
+for slug in slugs:
+    if slug in html_slugs:
+        matching.append(slug)
     else:
-        content = html
-        
-    # Remove script and style tags
-    content = re.sub(r'<script[^>]*>.*?</script>', ' ', content, flags=re.DOTALL | re.IGNORECASE)
-    content = re.sub(r'<style[^>]*>.*?</style>', ' ', content, flags=re.DOTALL | re.IGNORECASE)
-    
-    # Remove HTML tags
-    text = re.sub(r'<[^>]+>', ' ', content)
-    # Remove extra whitespace
-    text = re.sub(r'\s+', ' ', text).strip()
-    return text
+        missing_html.append(slug)
 
-for full_path in insights_files:
-    filename = os.path.basename(full_path)
-    if filename == "index.html":
+unregistered = []
+for h_slug in html_slugs:
+    # exclude index.html
+    if h_slug == 'index':
         continue
-        
-    with open(full_path, 'r', encoding='utf-8') as f:
-        html = f.read()
-        
-    text = get_text(html)
-    word_count = len(text.split())
-    
-    lower_text = text.lower()
-    if word_count < 200 or "coming soon" in lower_text or "article coming" in lower_text or "placeholder" in lower_text:
-        stub.append(filename)
-    else:
-        built.append(filename)
+    if h_slug not in slugs:
+        unregistered.append(h_slug + ".html")
 
-print("### Built — has real content (200+ words)")
-for f in built:
-    print(f"- {f}")
-if not built: print("None")
-print()
+print("\n--- MATCHING ---")
+for m in sorted(matching):
+    print(f"- {m}")
 
-print("### Stub or missing — needs content")
-for f in stub:
-    print(f"- {f}")
-if not stub: print("None")
-print()
+print("\n--- MISSING HTML ---")
+for m in sorted(missing_html):
+    print(f"- {m}")
 
-print("### Summary")
-print(f"- Total insights files found: {len(built) + len(stub)}")
-print(f"- Built with content: {len(built)}")
-print(f"- Stubs or empty: {len(stub)}")
-
+print("\n--- UNREGISTERED ---")
+for u in sorted(unregistered):
+    print(f"- {u}")

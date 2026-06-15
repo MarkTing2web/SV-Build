@@ -1,48 +1,57 @@
+import urllib.request
+import urllib.error
 import os
+import re
 
-repo_root = r"d:\Ler Wee Meng\Project-Web\SV-Build"
-images_dir = os.path.join(repo_root, "images")
+files = [
+    r"d:\Ler Wee Meng\Project-Web\SV-Build\insights\rackmount-nvr.html",
+    r"d:\Ler Wee Meng\Project-Web\SV-Build\insights\security-upgrade-condo-agm.html",
+    r"d:\Ler Wee Meng\Project-Web\SV-Build\insights\mcst-legal-obligations-security.html",
+    r"d:\Ler Wee Meng\Project-Web\SV-Build\insights\standalone-door-access.html",
+    r"d:\Ler Wee Meng\Project-Web\SV-Build\insights\reduce-false-alarms.html"
+]
 
-files_to_check = {
-    "FILE 1: /resources/guides/cctv-guide.html": [
-        "/images/resources/guides/cctv/cctv-legacy-analogue.webp",
-        "/images/resources/guides/cctv/comp-integration-v3.webp",
-        "/images/resources/guides/cctv/industrial-perimeter.webp",
-        "/images/resources/guides/cctv/industrial-workforce.webp",
-        "/images/resources/guides/cctv/project-factory.webp"
-    ],
-    "FILE 2: /resources/guides/auto-gate-guide.html": [
-        "/images/resources/guides/autogate/homeowner-gate-app.webp",
-        "/images/resources/guides/autogate/nice-barrier-condo.webp",
-        "/images/resources/guides/autogate/photocell-safety-beam.webp",
-        "/images/resources/guides/autogate/sliding-gate-track.webp",
-        "/images/resources/guides/autogate/technician-greasing-rack.webp",
-        "/images/resources/guides/autogate/technician-site-assessment.webp"
-    ],
-    "FILE 3: /solutions/healthcare.html": [
-        "/images/solutions/solution-healthcare-cta.webp"
-    ]
-}
+base_dir = r"d:\Ler Wee Meng\Project-Web\SV-Build"
+base_url = "http://localhost:3000"
 
-filename_map = {}
-for root, dirs, files in os.walk(images_dir):
-    for f in files:
-        if f not in filename_map:
-            filename_map[f] = []
-        rel_path = '/' + os.path.relpath(os.path.join(root, f), repo_root).replace('\\', '/')
-        filename_map[f].append(rel_path)
+for filepath in files:
+    slug = os.path.basename(filepath).replace(".html", "")
+    print(f"--- Article: {slug} ---")
+    
+    if not os.path.exists(filepath):
+        print("File not found")
+        continue
+        
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Find all image tags
+    img_tags = re.findall(r'<img[^>]+src=["\']([^"\']+)["\']', content)
+    
+    for src in img_tags:
+        filename = os.path.basename(src)
+        
+        # 1. Check localhost
+        url = base_url + src
+        status = "Unknown"
+        try:
+            req = urllib.request.Request(url, method="HEAD")
+            with urllib.request.urlopen(req) as response:
+                status = str(response.status)
+        except urllib.error.HTTPError as e:
+            status = str(e.code)
+        except urllib.error.URLError as e:
+            status = "Connection Failed"
 
-for file_section, images in files_to_check.items():
-    print(file_section)
-    for img_path in images:
-        full_path = os.path.join(repo_root, img_path.lstrip('/\\').replace('/', os.sep))
-        if os.path.exists(full_path):
-            print(f"- {img_path} : FOUND")
-        else:
-            filename = os.path.basename(img_path)
-            found_elsewhere = filename_map.get(filename, [])
-            if found_elsewhere:
-                print(f"- {img_path} : MISSING (Found instead at: {', '.join(found_elsewhere)})")
-            else:
-                print(f"- {img_path} : MISSING (File not found anywhere in /images/)")
-    print()
+        # 2. Check disk
+        local_path = os.path.join(base_dir, src.lstrip('/\\').replace('/', '\\'))
+        disk_status = "EXISTS" if os.path.exists(local_path) else "MISSING"
+        size_info = ""
+        if disk_status == "EXISTS":
+            size_info = f" ({os.path.getsize(local_path)} bytes)"
+            
+        if status != "200" or disk_status == "MISSING" or (disk_status == "EXISTS" and os.path.getsize(local_path) == 0):
+            print(f"- {filename} [Status: {status}] [Disk: {disk_status}{size_info}]")
+    
+    print("")
+
