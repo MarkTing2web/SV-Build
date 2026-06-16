@@ -127,15 +127,10 @@ BEng (NUS) · LLB (University of London) · <span class="sv-years-experience"></
 <script>
 (function () {
 
-  /* ── Category slug map
-     Maps every category string used in site-config.js to a filter slug.
-     'CCTV' (short form used in site-config) must map to 'cctv-surveillance'
-     so those articles appear correctly under the CCTV filter.           */
   var CAT_SLUG = {
     'Alarm & Intrusion':      'alarm-intrusion',
     'Intrusion':              'alarm-intrusion',
     'CCTV & Surveillance':    'cctv-surveillance',
-    'CCTV':                   'cctv-surveillance',
     'Surveillance':           'cctv-surveillance',
     'Access & Intercom':      'access-intercom',
     'Access Control':         'access-intercom',
@@ -237,26 +232,19 @@ BEng (NUS) · LLB (University of London) · <span class="sv-years-experience"></
         return;
       }
 
-      /* Featured — random pick from first 8 articles in current filtered set.
-         Remaining PAGE_SIZE-1 articles fill the grid below, excluding the
-         featured pick so it never appears twice.                             */
-      var featPool = articles.slice(0, Math.min(8, articles.length));
-      var featIdx  = Math.floor(Math.random() * featPool.length);
-      var featArt  = featPool[featIdx];
-      var rest     = articles.slice(0, PAGE_SIZE).filter(function(a) { return a !== featArt; });
+      /* Featured — first article */
+      wrap.innerHTML = featuredCardHtml(batch[0]);
 
-      wrap.innerHTML = featuredCardHtml(featArt);
-
-      /* Grid — rest of first page, featured article excluded */
-      if (rest.length > 0) {
+      /* Grid — rest of batch */
+      if (batch.length > 1) {
         var grid = document.createElement('div');
         grid.className = 'articles-grid';
-        grid.innerHTML = rest.map(regularCardHtml).join('');
+        grid.innerHTML = batch.slice(1).map(regularCardHtml).join('');
         wrap.appendChild(grid);
       }
 
     } else {
-      /* Append to existing grid on Load More */
+      /* Append to existing grid */
       var grid = wrap.querySelector('.articles-grid');
       if (!grid) {
         grid = document.createElement('div');
@@ -295,35 +283,36 @@ BEng (NUS) · LLB (University of London) · <span class="sv-years-experience"></
     });
   });
 
+  /* On load — check URL for ?category= param */
+  (function init() {
+    var urlCat = new URLSearchParams(window.location.search).get('category') || 'all';
+    filterBtns.forEach(function(btn) {
+      btn.classList.toggle('active', btn.dataset.category === urlCat);
+    });
+    if (!document.querySelector('.filter-btn.active')) {
+      document.querySelector('.filter-btn[data-category="all"]').classList.add('active');
+    }
   /* Swap to short labels on mobile */
   function applyShortLabels() {
     var isMobile = window.innerWidth <= 768;
     filterBtns.forEach(function(btn) {
       var short = btn.getAttribute('data-short');
-      if (!btn.getAttribute('data-full')) {
+      var full  = btn.getAttribute('data-full');
+      if (!full) {
         btn.setAttribute('data-full', btn.textContent.trim());
       }
-      btn.textContent = (isMobile && short) ? short : btn.getAttribute('data-full');
+      if (isMobile && short) {
+        btn.textContent = short;
+      } else {
+        btn.textContent = btn.getAttribute('data-full') || btn.textContent;
+      }
     });
   }
 
   applyShortLabels();
   window.addEventListener('resize', applyShortLabels);
 
-  /* On load — check URL for ?category= param, then render */
-  (function init() {
-    var urlCat = new URLSearchParams(window.location.search).get('category') || 'all';
-    var matched = false;
-    filterBtns.forEach(function(btn) {
-      var isMatch = btn.dataset.category === urlCat;
-      btn.classList.toggle('active', isMatch);
-      if (isMatch) matched = true;
-    });
-    if (!matched) {
-      document.querySelector('.filter-btn[data-category="all"]').classList.add('active');
-      urlCat = 'all';
-    }
-    applyFilter(urlCat);
+  applyFilter(urlCat);
   })();
 
 })();
