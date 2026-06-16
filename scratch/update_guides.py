@@ -1,54 +1,32 @@
 import os
-import re
 
-insights_dir = r"C:\Projects\SV-Build\insights"
+guides_dir = r"C:\Projects\SV-Build\resources\guides"
 changed_files = []
 skipped_files = []
 no_match_files = []
 
-# ── TEST MODE — set to True to process all files ──
-PROCESS_ALL = True
-TEST_FILE   = "video-verification.html"
-
-# All string variants that may appear in the HTML files
-# (HTML entities, plain text, with and without comma suffix)
 replacements = [
-    # Most common — plain ampersand variants
     ("Founder & Director, Securevision Pte Ltd",  "Founder & CEO, Securevision Pte Ltd"),
     ("Founder & Director, Securevision",           "Founder & CEO, Securevision"),
     ("Founder & Director · Securevision",          "Founder & CEO · Securevision"),
     ("Founder & Director",                         "Founder & CEO"),
 
-    # HTML entity variants (&amp;)
     ("Founder &amp; Director, Securevision Pte Ltd", "Founder &amp; CEO, Securevision Pte Ltd"),
     ("Founder &amp; Director, Securevision",          "Founder &amp; CEO, Securevision"),
     ("Founder &amp; Director · Securevision",         "Founder &amp; CEO · Securevision"),
     ("Founder &amp; Director",                        "Founder &amp; CEO"),
 ]
 
-all_files = sorted(os.listdir(insights_dir))
+all_files = sorted(os.listdir(guides_dir))
 
-# If test file doesn't exist, fall back to first html file
-if not PROCESS_ALL:
-    if TEST_FILE in all_files:
-        files_to_process = [TEST_FILE]
-    else:
-        files_to_process = [f for f in all_files
-                            if f.endswith(".html") and f != "index.html"][:1]
-    print(f"TEST MODE — processing 1 file only: {files_to_process[0]}")
-    print(f"To run all files, set PROCESS_ALL = True\n")
-else:
-    files_to_process = all_files
-    print(f"FULL MODE — processing all files in {insights_dir}\n")
-
-for fname in files_to_process:
+for fname in all_files:
     if not fname.endswith(".html"):
         continue
     if fname == "index.html":
         skipped_files.append(fname)
         continue
 
-    fpath = os.path.join(insights_dir, fname)
+    fpath = os.path.join(guides_dir, fname)
 
     try:
         with open(fpath, encoding="utf-8") as f:
@@ -59,7 +37,6 @@ for fname in files_to_process:
 
     updated = original
 
-    # Apply replacements in order — longest/most specific first
     for old, new in replacements:
         updated = updated.replace(old, new)
 
@@ -73,11 +50,8 @@ for fname in files_to_process:
     else:
         no_match_files.append(fname)
 
-# Report
-print(f"\n{'='*60}")
-print(f"FOUNDER TITLE UPDATE — RESULTS")
-print(f"{'='*60}")
-print(f"\nFiles updated ({len(changed_files)}):")
+print(f"\n============================================================\nGUIDES FOUNDER TITLE UPDATE — RESULTS\n============================================================\n")
+print(f"Files updated ({len(changed_files)}):")
 for f in changed_files:
     print(f"  [OK] {f}")
 
@@ -90,4 +64,4 @@ for f in skipped_files:
     print(f"  [SKIP] {f}")
 
 print(f"\nSUMMARY: {len(changed_files)} updated, {len(no_match_files)} no match, {len(skipped_files)} skipped")
-print(f"{'='*60}\n")
+print(f"============================================================\n")

@@ -20,7 +20,7 @@ const SECUREVISION = {
 
   // ── AUTHOR ─────────────────────────────────────────────────────────
   authorName: 'Ler Wee Meng',
-  authorTitle: 'Founder & Director, Securevision Pte Ltd',
+  authorTitle: 'Founder & CEO, Securevision Pte Ltd',
   authorQuals: 'BEng (NUS) · LLB (UoL)',
   get authorDescription() {
     return `Ler Wee Meng has over ${this.yearsExperience} years of experience in security systems engineering and integration. He holds a Bachelor of Engineering from the National University of Singapore and a Bachelor of Laws from the University of London.`;
