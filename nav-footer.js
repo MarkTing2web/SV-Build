@@ -29,7 +29,73 @@
     setActiveNav();
   }
 
-  if (document.readyState === "loading") {
+
+    // ── Related Guides auto-renderer ────────────────────────────────
+    // Fires on any page with id="related-guides-grid" and
+    // <body data-guide="[slug]">. Renders 3 guide cards using the
+    // standard .guide-card structure from sv-resources.css.
+    (function () {
+      var grid = document.getElementById("related-guides-grid");
+      if (!grid) return;
+      if (!Array.isArray(SECUREVISION.guides)) return;
+
+      // Apply grid layout class
+      grid.className = "guides-grid";
+
+      var currentSlug = document.body.getAttribute("data-guide") || "";
+      var currentGuide = SECUREVISION.guides.find(function (g) { return g.slug === currentSlug; });
+      var currentTags = currentGuide ? currentGuide.tags : [];
+
+      var pool = SECUREVISION.guides.filter(function (g) { return g.slug !== currentSlug; });
+
+      function shuffle(arr) {
+        var a = arr.slice();
+        for (var i = a.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+        }
+        return a;
+      }
+
+      function score(g) {
+        var s = 0;
+        currentTags.forEach(function (tag) {
+          if (g.tags.indexOf(tag) !== -1) s += 2;
+        });
+        return s;
+      }
+
+      var picks = shuffle(pool).sort(function (a, b) { return score(b) - score(a); }).slice(0, 3);
+
+      var imgMap = {
+        "burglar-alarm-guide":                 "/images/insights/alarm-internet-cut-siren.webp",
+        "cctv-guide":                          "/images/resources/guides/cctv/hero-cctv.webp",
+        "door-access-guide":                   "/images/insights/how-card-access-works-feature.webp",
+        "intercom-guide":                      "/images/solutions/condominiums/akuvox-visitor-call-panel-condominium-lobby.webp",
+        "auto-gate-guide":                     "/images/resources/guides/autogate/hero-auto-gate.webp",
+        "wifi-network-guide":                  "/images/resources/guides/network/hero-wifi-network.webp",
+        "office-telephone-guide":              "/images/resources/guides/telephony/fanvil-x6u-desk-phone.webp",
+        "security-renovation-guide":           "/images/resources/guides/renovation/hero-security-renovation.webp",
+        "how-to-evaluate-security-contractor": "/images/insights/break-in-nearby-security-review-feature.webp"
+      };
+
+      grid.innerHTML = picks.map(function (g) {
+        var img = imgMap[g.slug] || "";
+        return "<a href=\"/resources/guides/" + g.slug + ".html\" class=\"guide-card\">" +
+          "<div class=\"guide-card-img-wrap\">" +
+          (img ? "<img src=\"" + img + "\" alt=\"" + g.title + "\" loading=\"lazy\"/>" : "") +
+          "<span class=\"guide-badge\">" + g.category + "</span>" +
+          "</div>" +
+          "<div class=\"guide-card-body\">" +
+          "<h3>" + g.title + "</h3>" +
+          "<hr/>" +
+          "<div class=\"guide-meta\"><span>Read Guide &rarr;</span></div>" +
+          "</div>" +
+          "</a>";
+      }).join("");
+    })();
+
+    if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", injectNavFooter);
   } else {
     injectNavFooter();
@@ -190,7 +256,73 @@
     })();
   }
 
-  if (document.readyState === "loading") {
+
+    // ── Related Guides auto-renderer ────────────────────────────────
+    // Fires on any page with id="related-guides-grid" and
+    // <body data-guide="[slug]">. Renders 3 guide cards using the
+    // standard .guide-card structure from sv-resources.css.
+    (function () {
+      var grid = document.getElementById("related-guides-grid");
+      if (!grid) return;
+      if (!Array.isArray(SECUREVISION.guides)) return;
+
+      // Apply grid layout class
+      grid.className = "guides-grid";
+
+      var currentSlug = document.body.getAttribute("data-guide") || "";
+      var currentGuide = SECUREVISION.guides.find(function (g) { return g.slug === currentSlug; });
+      var currentTags = currentGuide ? currentGuide.tags : [];
+
+      var pool = SECUREVISION.guides.filter(function (g) { return g.slug !== currentSlug; });
+
+      function shuffle(arr) {
+        var a = arr.slice();
+        for (var i = a.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+        }
+        return a;
+      }
+
+      function score(g) {
+        var s = 0;
+        currentTags.forEach(function (tag) {
+          if (g.tags.indexOf(tag) !== -1) s += 2;
+        });
+        return s;
+      }
+
+      var picks = shuffle(pool).sort(function (a, b) { return score(b) - score(a); }).slice(0, 3);
+
+      var imgMap = {
+        "burglar-alarm-guide":                 "/images/insights/alarm-internet-cut-siren.webp",
+        "cctv-guide":                          "/images/resources/guides/cctv/hero-cctv.webp",
+        "door-access-guide":                   "/images/insights/how-card-access-works-feature.webp",
+        "intercom-guide":                      "/images/solutions/condominiums/akuvox-visitor-call-panel-condominium-lobby.webp",
+        "auto-gate-guide":                     "/images/resources/guides/autogate/hero-auto-gate.webp",
+        "wifi-network-guide":                  "/images/resources/guides/network/hero-wifi-network.webp",
+        "office-telephone-guide":              "/images/resources/guides/telephony/fanvil-x6u-desk-phone.webp",
+        "security-renovation-guide":           "/images/resources/guides/renovation/hero-security-renovation.webp",
+        "how-to-evaluate-security-contractor": "/images/insights/break-in-nearby-security-review-feature.webp"
+      };
+
+      grid.innerHTML = picks.map(function (g) {
+        var img = imgMap[g.slug] || "";
+        return "<a href=\"/resources/guides/" + g.slug + ".html\" class=\"guide-card\">" +
+          "<div class=\"guide-card-img-wrap\">" +
+          (img ? "<img src=\"" + img + "\" alt=\"" + g.title + "\" loading=\"lazy\"/>" : "") +
+          "<span class=\"guide-badge\">" + g.category + "</span>" +
+          "</div>" +
+          "<div class=\"guide-card-body\">" +
+          "<h3>" + g.title + "</h3>" +
+          "<hr/>" +
+          "<div class=\"guide-meta\"><span>Read Guide &rarr;</span></div>" +
+          "</div>" +
+          "</a>";
+      }).join("");
+    })();
+
+    if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", runHydration);
   } else {
     runHydration();
