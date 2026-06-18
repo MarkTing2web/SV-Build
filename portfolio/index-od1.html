@@ -1863,10 +1863,10 @@
         // Placed AFTER filterP() and sortP() so both are defined when called.
         (function applyURLFilter() {
             var params = new URLSearchParams(window.location.search);
-
-            // ── ?sector= — property type filter (nav dropdown links) ──
             var sector = params.get('sector');
-            var sectorMap = {
+            if (!sector) return;
+
+            var map = {
                 'residential':   'Residential',
                 'condominiums':  'Condominiums',
                 'commercial':    'Commercial',
@@ -1876,32 +1876,15 @@
                 'managed-living':'Managed Living',
                 'data-centres':  'Data Centres'
             };
-            if (sector) {
-                var propValue = sectorMap[sector.toLowerCase()];
-                if (propValue) {
-                    var sel = document.getElementById('fProp');
-                    if (sel) { sel.value = propValue; filterP(); }
-                }
-            }
 
-            // ── ?sys= — system type filter (Systems page "Continue Exploring" links) ──
-            var sys = params.get('sys');
-            var sysMap = {
-                'premises-security':   'Premises Security',
-                'entry-access':        'Entry & Access',
-                'vehicle-management':  'Vehicle Management',
-                'platform-management': 'Platform & Management'
-            };
-            if (sys) {
-                var sysValue = sysMap[sys.toLowerCase()];
-                if (sysValue) {
-                    var sySel = document.getElementById('fSys');
-                    if (sySel) { sySel.value = sysValue; filterP(); }
-                }
-            }
+            var propValue = map[sector.toLowerCase()];
+            if (!propValue) return;
 
-            // Scroll to filter bar if either param was applied
-            if (sector || sys) {
+            // Script is at page bottom — DOM is already ready
+            var sel = document.getElementById('fProp');
+            if (sel) {
+                sel.value = propValue;
+                filterP();
                 setTimeout(function () {
                     var bar = document.querySelector('.filter-section');
                     if (bar) bar.scrollIntoView({ behavior: 'smooth', block: 'start' });
