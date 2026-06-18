@@ -1,0 +1,335 @@
+/* ═══════════════════════════════════════════════════════════════════
+   sv-contact.css  —  Contact page component styles
+   Scoped to contact page only. Load after sv-shared.css.
+═══════════════════════════════════════════════════════════════════ */
+
+/* ── 1. CONTACT CHANNELS GRID ─────────────────────────────────────
+   3 cards: WhatsApp (featured/wider), Form, Callback
+────────────────────────────────────────────────────────────────── */
+.channels-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+    .channels-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+    .channels-grid { grid-template-columns: 1fr; }
+}
+
+.channel-card {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.channel-card.featured {
+    border-color: #25D366;
+    border-width: 2px;
+    background: linear-gradient(135deg, #f0fff4 0%, #fff 60%);
+}
+
+.channel-card h2,
+.channel-card h3 {
+    margin: 0;
+    font-size: 18px;
+    color: var(--text-dark);
+}
+
+.channel-card p {
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.channel-icon {
+    font-size: 28px;
+    line-height: 1;
+}
+
+.channel-wa-icon {
+    width: 32px;
+    height: 32px;
+    stroke: #25D366;
+}
+
+.channel-response {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.channel-card.featured .channel-response {
+    color: #25D366;
+}
+
+/* ── 2. WHAT HAPPENS NEXT — PROCESS STEPS ────────────────────────
+   Uses .process-card / .process-num from sv-shared if available,
+   fallback styles here.
+────────────────────────────────────────────────────────────────── */
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    .process-grid { grid-template-columns: 1fr; }
+}
+
+.process-step {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-top: 3px solid var(--primary-blue);
+    border-radius: 12px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.process-step-num {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--primary-blue);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.process-icon {
+    font-size: 28px;
+    line-height: 1;
+    margin: 4px 0;
+}
+
+.process-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: var(--primary-blue);
+}
+
+.process-step h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.process-step p {
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ── 3. CONTACT INFO + FORM GRID ─────────────────────────────────
+   Left: address/contact details. Right: form cards.
+────────────────────────────────────────────────────────────────── */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 64px;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+.info-col h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+}
+
+.info-col > p {
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin-bottom: 28px;
+}
+
+/* Info blocks — icon + content rows */
+.info-block {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.info-block:last-child {
+    border-bottom: none;
+}
+
+.ib-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    width: 24px;
+    text-align: center;
+    margin-top: 2px;
+}
+
+.ib-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--primary-blue);
+    display: block;
+}
+
+.ib-content h3,
+.ib-content h4 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-dark);
+    margin: 0 0 4px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ib-content p {
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.ib-content a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.ib-content a:hover {
+    text-decoration: underline;
+}
+
+.hours-text {
+    line-height: 1.8 !important;
+}
+
+/* ── 4. FORM CARDS ───────────────────────────────────────────────
+   White card wrapping each form.
+────────────────────────────────────────────────────────────────── */
+.form-card {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    margin-bottom: 24px;
+}
+
+.form-card-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.form-card-sub {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 24px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+}
+
+/* callback-form-grid removed — form now uses standard .form-row layout */
+
+/* ── 5. CONTACT FAQ ──────────────────────────────────────────────
+   Simple 2-col Q&A grid — not the full accordion FAQ.
+────────────────────────────────────────────────────────────────── */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+
+@media (max-width: 768px) {
+    .faq-grid { grid-template-columns: 1fr; }
+}
+
+.faq-item {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.faq-q {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.faq-a {
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* ── 6. LOCATION SECTION ─────────────────────────────────────────
+────────────────────────────────────────────────────────────────── */
+.contact-map {
+    width: 100%;
+    height: 380px;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+}
+
+.location-info-block {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin: 20px 0 24px;
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.7;
+}
+
+.loc-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+/* ── 7. RESPONSIVE ───────────────────────────────────────────────
+────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .form-card { padding: 24px; }
+    .channel-card { padding: 24px; }
+}

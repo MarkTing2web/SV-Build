@@ -1,0 +1,447 @@
+/* ═══════════════════════════════════════════════════════════════════
+   sv-about.css  —  About page component styles
+   Scoped to about page only. Does NOT affect any other page.
+   Load after sv-shared.css.
+═══════════════════════════════════════════════════════════════════ */
+
+/* ── 1. FOUNDER STORY LAYOUT ──────────────────────────────────────
+   Two-column: story text left, photo + stats right.
+   Collapses to single column on tablet/mobile.
+────────────────────────────────────────────────────────────────── */
+.ab-story-grid {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 64px;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .ab-story-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+}
+
+/* Story text column */
+.ab-story-text .story-lead {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--text-dark);
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.ab-story-text p {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+/* Right column — photo + callout + stats */
+.ab-story-right {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+/* Founder photo */
+.ab-founder-photo-wrap {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+.ab-founder-photo-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.ab-founder-photo-caption {
+    font-size: 12px;
+    color: var(--text-light);
+    text-align: center;
+    margin-top: 8px;
+    font-style: italic;
+}
+
+/* Story callout / pull quote */
+.ab-story-callout {
+    background: var(--bg-light);
+    border-left: 3px solid var(--primary-blue);
+    border-radius: 0 8px 8px 0;
+    padding: 20px 24px;
+}
+
+.ab-sc-quote {
+    font-size: 40px;
+    line-height: 1;
+    color: var(--primary-blue);
+    margin-bottom: 8px;
+    font-family: Georgia, serif;
+}
+
+.ab-sc-text {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--text-dark);
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.ab-sc-attr strong {
+    font-size: 13px;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.ab-sc-attr p {
+    font-size: 12px;
+    color: var(--text-light);
+    margin: 2px 0 0;
+}
+
+/* Stats grid — 2x2 under photo */
+.ab-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.ab-stat-card {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 16px 12px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.ab-stat-number {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary-blue);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.1;
+}
+
+.ab-stat-label {
+    font-size: 11px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* ── 2. CREDENTIALS — small icon top-left of card ─────────────────
+   Uses existing .card from sv-shared. Adds icon badge.
+────────────────────────────────────────────────────────────────── */
+.ab-cred-card {
+    position: relative;
+    padding: 28px;
+}
+
+.ab-cred-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--primary-blue);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+}
+
+.ab-cred-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: #fff;
+    fill: none;
+}
+
+.ab-cred-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.ab-cred-card p {
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin: 0;
+}
+
+
+/* ── 3. TECHNOLOGY PARTNERS — brand category cards ────────────────
+   grid-3 of cards. Image top, category badge, name, brand list.
+────────────────────────────────────────────────────────────────── */
+.ab-brand-card {
+    padding: 0;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.ab-brand-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    border-color: var(--primary-blue);
+}
+
+.ab-brand-img {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: var(--bg-light);
+    flex-shrink: 0;
+}
+
+.ab-brand-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.ab-brand-card:hover .ab-brand-img img {
+    transform: scale(1.04);
+}
+
+.ab-brand-body {
+    padding: 20px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.ab-brand-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary-blue);
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 8px;
+}
+
+.ab-brand-body h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.ab-brand-brands {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0 0 12px;
+    flex-grow: 1;
+}
+
+.ab-brand-link {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* ── 4. ARCHITECT CARDS ───────────────────────────────────────────
+   Keep existing layout; just ensure badge and ext-link render.
+────────────────────────────────────────────────────────────────── */
+.arch-card {
+    padding: 28px;
+}
+
+.arch-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.arch-badge {
+    background: var(--primary-blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.arch-badge + div h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 2px;
+}
+
+.arch-type {
+    font-size: 12px;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.arch-card > p {
+    font-size: 14px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.arch-card-footer {
+    border-top: 1px solid var(--border-light);
+    padding-top: 16px;
+    margin-top: auto;
+}
+
+.arch-projects-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.arch-project-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+    font-size: 13px;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+.arch-project-list a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.arch-project-list a:hover {
+    text-decoration: underline;
+}
+
+.arch-ext-link {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+/* ── 5. HOW WE ENGAGE (architect process steps) ───────────────────
+   Uses existing .card + .grid-3. Just eyebrow inside card.
+────────────────────────────────────────────────────────────────── */
+.ab-step-card .eyebrow {
+    display: block;
+    margin-bottom: 8px;
+}
+
+
+/* ── 6. RESPONSIVE ────────────────────────────────────────────────
+────────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .ab-brand-body h3 { font-size: 15px; }
+    .ab-cred-card { padding: 20px; }
+    .arch-card { padding: 20px; }
+}
+
+
+/* ── 7. SV-SYSTEMS-BLOCK — grid-3 card styles ────────────────────
+   Styles for cards injected by systems-block.js when data-cols="3"
+   is set. Scoped to about page use only.
+────────────────────────────────────────────────────────────────── */
+.sv-sys-card {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.sv-sys-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    border-color: var(--primary-blue);
+}
+
+.sv-sys-img {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: var(--bg-light);
+    flex-shrink: 0;
+}
+
+.sv-sys-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.sv-sys-card:hover .sv-sys-img img {
+    transform: scale(1.04);
+}
+
+.sv-sys-badge {
+    display: inline-block;
+    margin: 16px 20px 0;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary-blue);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.sv-sys-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 8px 20px 6px;
+    line-height: 1.35;
+}
+
+.sv-sys-card p {
+    font-size: 13px;
+    color: var(--text-gray);
+    line-height: 1.65;
+    margin: 0 20px;
+    flex-grow: 1;
+}
+
+.sv-sys-link {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    font-family: 'Montserrat', sans-serif;
+    margin: 14px 20px 18px;
+}
+
+/* Platform variant — thin top accent */
+.sv-sys-card--platform {
+    border-top: 3px solid var(--primary-blue);
+}
