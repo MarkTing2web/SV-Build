@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en-GB">
 <head>
 <meta charset="utf-8"/>
@@ -14,40 +13,135 @@
 <meta content="https://www.securevision.com.sg/images/solutions/hero-solutions/managed-living-security-systems-hero.webp" property="og:image"/>
 <meta content="website" property="og:type"/>
 <meta content="Securevision" property="og:site_name"/>
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-
-
-
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link href="/sv-shared.css" rel="stylesheet"/>
-  <link href="/sv-solutions.css" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-  <script src="/site-config.js"></script>
+<link href="/sv-solutions.css" rel="stylesheet"/>
+<script src="/site-config.js"></script>
 <style>
-    :root { --page-accent: #0056b3; }
-    .hero-managed-living-systems { background-image: url('/images/solutions/managed-living/managed-living-security-systems-hero.webp'); }
-    @media (max-width: 768px) {
-      .hero-managed-living-systems { background-image: url('/images/solutions/hero-solutions/managed-living-security-systems-hero-mobile.webp'); }
+  :root { --page-accent: #0056b3; }
+  /* Tier 4 subpage hero — 45vh */
+  .hero-high-impact.hero-managed-living-systems {
+    min-height: 45vh !important;
+    padding: 72px 0 56px !important;
+  }
+  .hero-managed-living-systems .hero-title-main {
+    font-size: clamp(26px, 3.5vw, 42px) !important;
+    margin-bottom: 16px !important;
+  }
+  .hero-managed-living-systems .hero-subtitle-main {
+    font-size: clamp(14px, 1.1vw, 17px) !important;
+    margin-bottom: 28px !important;
+  }
+</style>
+<!-- ═══ SCHEMA ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Managed Living Security Systems — Singapore",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Securevision Pte Ltd",
+    "url": "https://www.securevision.com.sg"
+  },
+  "areaServed": "Singapore",
+  "description": "Design and installation of security systems for Singapore managed living properties — worker dormitories, co-living apartments, and managed hostels. Facial recognition entry, mobile credential management, IP video intercom, visitor management, CCTV, and MOM compliance reporting.",
+  "serviceType": "Security System Integration",
+  "url": "https://www.securevision.com.sg/solutions/managed-living/managed-living-security-systems.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What security systems does a managed living property typically need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most managed living properties require four integrated components: access control managing who can enter the building, individual units, and shared facilities; visitor management allowing residents or operators to verify and admit visitors without a staffed reception; CCTV covering building entry and exit points, shared facility corridors, and common areas; and a centralised management platform giving the operator a real-time view of access events, visitor logs, and camera feeds from any location. The specific configuration depends on the property type — a worker dormitory, co-living apartment, and managed hostel each have distinct requirements in terms of scale, turnover frequency, and regulatory obligations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can the system operate without on-site staff?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — this is the core operational requirement for co-living and smaller managed hostel properties. The IP video intercom at the building entrance calls the host resident's smartphone directly when a visitor arrives. The resident sees the visitor on a live video stream and releases the door from their phone, from anywhere. Credential management is handled remotely by the property manager from the VESTA dashboard. CCTV footage is accessible remotely without dispatching a staff member to the property. The entire property is manageable from a browser or mobile app."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How are resident credentials managed when someone checks out?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "When a resident checks out, their credential is revoked from the VESTA dashboard with a single action — no physical key to recover, no lock to change, no visit to the property required. For properties integrated with a booking or property management platform, credential revocation can be automated: when a check-out is recorded in the booking system, the credential expires automatically without any action by the operator. The access log retains the full access history for the tenancy period for operational and compliance purposes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What MOM compliance reporting can the system produce for worker dormitories?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The VESTA platform generates real-time and near-real-time occupancy records and visitor logs directly from the access control and facial recognition data — in the formats MOM specifies for large dormitory reporting. There is no separate manual log to maintain and no data entry by the guard team beyond the initial enrolment of each resident's biometric profile at check-in. Emergency mustering reports — listing everyone confirmed on-site from the access log at any given moment — are available from the VESTA dashboard without a manual roll-call across multiple residential blocks."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can facial recognition process the volume of workers during a shift change at a large dormitory?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — sub-second facial recognition at the entry gantry is the reason facial recognition is specified for high-volume dormitory environments rather than card or PIN access. A registered worker approaches the gantry, their face is matched against the enrolled database in under a second, the barrier opens, and the entry event is logged with the individual's identity, unit, employer, and timestamp. No card to present, no reader to touch, no guard to check against a list. During peak shift-change windows, this throughput is the difference between a smooth entry flow and a queue that backs up onto the public road."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can existing cameras and cabling be reused in a managed living security upgrade?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Often yes. Existing cameras in adequate condition and compatible with the new NVR may be retained. Existing cabling that passes a continuity check can typically be reused. For co-living and hostel properties with existing intercom wiring, IP video call panels can often replace legacy handset units without full rewiring. We assess existing infrastructure reuse potential during the site survey before agreeing any scope — and for managed living operators with multiple properties, this assessment often identifies consistent reuse opportunities across the portfolio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does visitor management work without a staffed reception?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An IP video call panel at the building entrance calls the host resident's smartphone directly when a visitor presses the call button. The resident sees the visitor on a live video stream, speaks to them, and releases the building door from their phone — from anywhere. The visit is logged with the timestamp of the call and the gate release. For expected visitors, the resident can generate a pre-registered QR code through the property app — the visitor scans the code at the entrance panel and is admitted during the approved time window without needing to call the resident at all."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can multiple properties be managed from one platform?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The VESTA platform supports multi-property management — an operator with several co-living buildings, hostel properties, or dormitories can manage credentials, access events, visitor logs, and camera feeds across all properties from a single dashboard. Resident credential management for all properties is centralised, so a resident who moves between properties in the same operator's portfolio does not require separate enrolment. Access event reports and occupancy records covering all properties are exportable centrally for portfolio-level compliance management."
+      }
     }
-  </style>
+  ]
+}
+</script>
 </head>
 <body>
-<!-- ═══ NAV ═══ -->
 <nav id="sv-nav"></nav>
 <main>
+
 <!-- ── HERO ── -->
-<header class="hero-high-impact hero-managed-living-systems hero-compact">
+<header class="hero-high-impact hero-managed-living-systems" style="background: linear-gradient(to right, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.50) 55%, rgba(0,0,0,0.15) 100%), url('/images/solutions/hero-solutions/managed-living-security-systems-hero.webp') center/cover no-repeat;">
 <div class="container">
 <span class="eyebrow-light">Security Systems for Managed Living Properties</span>
 <h1 class="hero-title-main">Managed Living Security Has One Core Brief: Know Who Is In Your Property at All Times.</h1>
-<p class="hero-subtitle-main">Whether you are managing a worker dormitory, a co-living apartment, or a managed hostel — the security system must track who enters, who leaves, who is visiting, and who has access to which spaces. The way you achieve this changes significantly by environment.</p>
+<p class="hero-subtitle-main">Dormitory, co-living, or managed hostel — the brief is the same: know who is in your property at all times and prove it with compliance records.</p>
 <div class="btn-group btn-group-left">
 <a class="btn btn-primary" href="/request-site-assessment-singapore.html?intent=managed-living-systems">Book a Site Assessment</a>
 </div>
-<p class="hero-trust-note">Securing Singapore Managed Living Properties Since 2006</p>
+<p class="hero-trust-note">Securing Singapore managed living properties since <span class="sv-founded"></span>.</p>
 </div>
 </header>
+
 <!-- ── TRUST BAR ── -->
 <div class="trust-bar">
 <div class="container">
@@ -60,6 +154,7 @@
 </div>
 </div>
 </div>
+
 <!-- ── BREADCRUMB ── -->
 <nav aria-label="Breadcrumb" class="sv-breadcrumb">
 <div class="container">
@@ -71,6 +166,19 @@
 </ul>
 </div>
 </nav>
+
+<!-- ═══ IN SHORT ═══ -->
+<section class="sv-section-white">
+<div class="container">
+<div class="callout-box">
+<p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--primary-blue);margin-bottom:10px;">In Short</p>
+<h2 style="font-size:22px;margin-bottom:16px;">Every Person in the Property Accounted For — Without a Permanent Staff Presence</h2>
+<p>Managed living properties face a challenge that residential buildings and commercial offices do not: high resident turnover, frequent and unscheduled visitors, and the need to maintain accountability across the property without permanent on-site staff. Access control, visitor management, CCTV, and intercom systems work together to ensure authorised access, maintain accurate records, and provide operators with visibility across the property from any location.</p>
+<p>The security system in a managed living property is not a support function — it is the operational infrastructure that makes the property manageable at all. A property manager overseeing a co-living building of 40 rooms from a central office cannot visit every time a resident checks in, checks out, or has a visitor. The system manages the routine operational tasks automatically, leaving the manager to handle the exceptions — not the rule.</p>
+</div>
+</div>
+</section>
+
 <!-- ── INTRO ── -->
 <section class="sv-section-grey">
 <div class="container">
@@ -79,7 +187,7 @@
 <span class="eyebrow">The Managed Living Brief</span>
 <h2>Residents, Visitors, and Access — Across a High-Turnover Population.</h2>
 <p class="section-intro">Managed living properties share a security brief that commercial and residential buildings do not face in the same way: the resident population turns over frequently, the visitor population is high and unscheduled, and the operator often needs to manage credentials, monitor movement, and respond to incidents without permanent on-site staff. The security system is not a support function — it is the operational infrastructure that makes the property manageable at all.</p>
-<p class="section-intro">The three environments covered in this guide — worker dormitories, co-living apartments, and managed hostels — each solve the same fundamental problem in different ways, at different scales, and under different regulatory obligations. A worker dormitory handles thousands of daily movements with MOM compliance requirements and a professional guard team. A co-living property handles weekly resident turnover with a remote operator and no front desk. A managed hostel handles mixed short-stay and long-stay residents sharing common facilities. The systems that serve each one are different — but the principle is the same: every person in or entering your property should be accounted for, and every access event should be on record.</p>
+<p class="section-intro">The three environments covered in this guide — worker dormitories, co-living apartments, and managed hostels — each solve the same fundamental problem in different ways, at different scales, and under different regulatory obligations. A worker dormitory handles thousands of daily movements with MOM compliance requirements and a professional guard team. A co-living property handles weekly resident turnover with a remote operator and no front desk. A managed hostel handles mixed short-stay and long-stay residents sharing common facilities. The systems that serve each one are different — but the principle is the same: every person in or entering the property should be accounted for, and every access event should be on record.</p>
 </div>
 <div class="hide-mobile">
 <img alt="Managed living security systems overview Singapore" class="img-fluid img-rounded" src="/images/solutions/managed-living/managed-living-security-overview-singapore.webp"/>
@@ -87,10 +195,42 @@
 </div>
 </div>
 </section>
+
+<!-- ═══ COMMON MISTAKES ═══ -->
+<section class="sv-section-white">
+<div class="container">
+<span class="eyebrow">Field Observations</span>
+<h2>Common Mistakes We See in Managed Living Security Projects</h2>
+<p class="subtitle">After reviewing worker dormitories, co-living properties, and managed hostels across Singapore, several operational and design mistakes appear repeatedly.</p>
+<div class="grid-2 mt-48">
+<div class="card">
+<h3>Treating Managed Living Like Traditional Residential</h3>
+<p>A traditional residential building has a stable resident population, low visitor turnover, and a long-term relationship between residents and the property. Managed living has none of these. A co-living property with weekly check-ins and check-outs, a worker dormitory with thousands of resident movements daily, and a managed hostel with a mix of short-stay and long-stay residents all require a completely different security architecture from a private condominium or an HDB block. The most common failure is applying a traditional residential access control model — a physical key, a single building entry card — to a managed property environment where that model breaks down within weeks.</p>
+</div>
+<div class="card">
+<h3>Relying on Physical Keys</h3>
+<p>Physical keys create two operational problems in managed living environments: the administrative burden of tracking, distributing, and recovering them across a high-turnover population; and the security gap created every time a key is not returned. A co-living resident who does not return their key at check-out has, in effect, retained indefinite access to the building until the lock is changed — which is a cost and a delay. Digital credentials — card, PIN, or mobile — can be revoked instantly when a tenancy ends, with no physical recovery required and no lock change needed. The operational and security case for digital credentials in any managed living environment is overwhelming.</p>
+</div>
+<div class="card">
+<h3>No Structured Visitor Accountability</h3>
+<p>Visitors at managed living properties are inevitable and welcome — but they need to be logged. The most common visitor management failure is a combination of a paper sign-in book at the entrance and a buzzer intercom that admits anyone a resident chooses to buzz in, without any log of who was admitted, by whom, or for how long. This leaves the operator with no record of who has been in the building beyond the resident population — a gap that becomes significant in any incident investigation and a compliance failure for dormitory operators with MOM visitor logging obligations.</p>
+</div>
+<div class="card">
+<h3>Running Multiple Standalone Systems with No Unified View</h3>
+<p>A managed living property that has its access control, intercom, and CCTV from three different vendors, on three different platforms, with three different apps, gives the operator three partial pictures of what is happening in the property rather than one complete one. The operational cost of managing separate systems is significant — and the gap between them is where accountability failures occur. When an incident needs investigation, the operator has to cross-reference access logs, footage, and visitor records from three sources. A unified platform that combines all three gives the operator a single searchable record and a single dashboard view.</p>
+</div>
+</div>
+<div class="callout-box" style="margin-top:40px;">
+<p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--primary-blue);margin-bottom:10px;">A Practitioner Observation</p>
+<p>The most consistent finding in managed living security assessments is that the operator's existing system was designed for a smaller, simpler, or more stable environment than the one it is currently managing. A system that was adequate when the property had 20 rooms and a permanent front desk is often not adequate when it has 80 rooms and is managed remotely. The assessment we conduct at the start of every project is not primarily about whether the hardware is current — it is about whether the system design still matches the operational model.</p>
+</div>
+</div>
+</section>
+
 <!-- ════════════════════════════════════════
-         SECTOR 1: WORKER DORMITORIES
-    ════════════════════════════════════════ -->
-<section class="sv-section-white" id="dormitories">
+     SECTOR 1: WORKER DORMITORIES
+════════════════════════════════════════ -->
+<section class="sv-section-grey" id="dormitories">
 <div class="container">
 <span class="eyebrow">Sector 1 of 3</span>
 <h2>Worker Dormitories &amp; Managed Worker Housing</h2>
@@ -108,10 +248,11 @@
 </div>
 </div>
 </section>
+
 <!-- ════════════════════════════════════════
-         SECTOR 2: CO-LIVING
-    ════════════════════════════════════════ -->
-<section class="sv-section-grey" id="co-living">
+     SECTOR 2: CO-LIVING
+════════════════════════════════════════ -->
+<section class="sv-section-white" id="co-living">
 <div class="container">
 <span class="eyebrow">Sector 2 of 3</span>
 <h2>Co-living Apartments &amp; Managed Residences</h2>
@@ -119,7 +260,7 @@
 <img alt="Co-living mobile keyless access and visitor intercom Singapore" class="img-float-right" src="/images/solutions/managed-living/co-living-mobile-keyless-access-visitor-intercom.webp"/>
 <p>A co-living property is a residential building managed like a hotel but without a hotel's staffing budget. Residents may stay for a few weeks or several months — each arrival requires a new set of access credentials, each departure requires those credentials to be revoked, and the operator typically manages this from a central office without a permanent member of staff at the property. The security system is not augmenting a physical access process — it is the access process.</p>
 <p>Mobile-first credential architecture is the foundation of a co-living security system. Residents receive a credential profile on move-in — a smartphone credential via the property's app or a PIN code — that gives them access to the building entrance, their unit, and any shared amenities they are entitled to use. The credential is issued remotely by the property manager without a key handover. When the tenancy ends, the credential is revoked from the management dashboard with a single action — no physical key to recover, no lock to change, no visit to the property required. The access log records every entry event by resident, zone, and timestamp for the full duration of their tenancy. Shared amenity access — gym, laundry, function room, rooftop — is managed through the same credential system, with access permitted only during authorised hours or booked sessions. A resident who books the function room through the property app automatically has their credential updated to permit entry during the booking window; when the booking expires, the access reverts.</p>
-<p>Visitor management at a co-living property without a staffed reception needs to be resident-driven rather than operator-driven. The IP video intercom at the building entrance — an Akuvox panel — calls the host resident's smartphone directly when a visitor presses the call button. The resident sees the visitor on a live video stream, speaks to them, and releases the building door from their phone — from anywhere. The visit is logged with the timestamp of the call and the gate release. For expected visitors, the resident can generate a pre-registered visitor QR code through the property app — the visitor scans the code at the entrance panel and is admitted during the approved time window without needing to call the resident at all. CCTV covers building entry and exit points, corridors, and shared facility areas — footage is accessible remotely by the property manager from the VESTA dashboard, without dispatching a staff member to the site. The operator's complete view of the property — who is in, who has visited, which facilities are in use, and any access anomalies — is available from any browser.</p>
+<p>Visitor management at a co-living property without a staffed reception needs to be resident-driven rather than operator-driven. An IP video call panel at the building entrance calls the host resident's smartphone directly when a visitor presses the call button. The resident sees the visitor on a live video stream, speaks to them, and releases the building door from their phone — from anywhere. The visit is logged with the timestamp of the call and the gate release. For expected visitors, the resident can generate a pre-registered visitor QR code through the property app — the visitor scans the code at the entrance panel and is admitted during the approved time window without needing to call the resident at all. CCTV covers building entry and exit points, corridors, and shared facility areas — footage is accessible remotely by the property manager from the VESTA dashboard, without dispatching a staff member to the site. The operator's complete view of the property — who is in, who has visited, which facilities are in use, and any access anomalies — is available from any browser.</p>
 <div class="callout-box mt-32">
 <p><strong>Credential Lifecycle as Operations:</strong> In a co-living property with 40 rooms and weekly turnover, the credential lifecycle — issuing, adjusting, and revoking access for each resident — is one of the most time-consuming operational tasks if done manually. A system integrated with the property management or booking platform handles this automatically: when a booking is confirmed, credentials are issued; when check-out is recorded, credentials expire. The property manager handles exceptions, not routine credential administration.</p>
 </div>
@@ -129,17 +270,18 @@
 </div>
 </div>
 </section>
+
 <!-- ════════════════════════════════════════
-         SECTOR 3: HOSTELS & MANAGED HOUSING
-    ════════════════════════════════════════ -->
-<section class="sv-section-white" id="hostels">
+     SECTOR 3: HOSTELS & MANAGED HOUSING
+════════════════════════════════════════ -->
+<section class="sv-section-grey" id="hostels">
 <div class="container">
 <span class="eyebrow">Sector 3 of 3</span>
 <h2>Hostels &amp; Managed Shared Housing</h2>
 <div class="clearfix">
 <img alt="Hostel shared living access control CCTV and intercom Singapore" class="img-float-right" src="/images/solutions/managed-living/hostel-shared-living-access-cctv-intercom.webp"/>
 <p>A managed hostel or shared housing facility sits between a co-living apartment and a worker dormitory in scale and complexity — typically serving a mix of short-stay and long-stay residents, with a moderate visitor flow, shared facilities that need to be controlled, and an operator who needs accountability across the property without maintaining a continuous staff presence. The brief is practical: know who is in the building, make sure only residents and authorised visitors can access the shared spaces, and maintain a record of movement that covers both day-to-day operations and the occasional incident that requires investigation.</p>
-<p>The building entrance uses an IP video intercom panel — the Akuvox panel at the main door calls the host resident's smartphone when a visitor arrives, allowing the resident to see and speak to the visitor and release the door from their phone without staff involvement. Registered residents enter using a card or PIN credential; the entry event is logged with time and identity. Shared facility areas — laundry, common kitchen, TV lounge, study room — use card or PIN readers at the door, so only current residents can access them. A resident who checks out has their credential revoked immediately; they cannot return and access shared areas using a credential that should no longer be valid. For short-stay residents, credentials are issued for the exact duration of the booking and expire automatically at check-out time without any administrative action by the operator.</p>
+<p>The building entrance uses an IP video call panel at the main door that calls the host resident's smartphone when a visitor arrives, allowing the resident to see and speak to the visitor and release the door from their phone without staff involvement. Registered residents enter using a card or PIN credential; the entry event is logged with time and identity. Shared facility areas — laundry, common kitchen, TV lounge, study room — use card or PIN readers at the door, so only current residents can access them. A resident who checks out has their credential revoked immediately; they cannot return and access shared areas using a credential that should no longer be valid. For short-stay residents, credentials are issued for the exact duration of the booking and expire automatically at check-out time without any administrative action by the operator.</p>
 <p>CCTV covers the main building entrance, shared facility corridors, and the car park or bicycle storage area — providing the operator with a visual record of movement through the property that supplements the access control log. Cameras are positioned at common area access points and the building perimeter, not in private residential areas. When an incident occurs in a shared space — a noise complaint, a missing item, a dispute between residents — the operator can retrieve the relevant camera footage and access log from the VESTA dashboard remotely, without visiting the site or relying on a guard's account of events. For larger hostels with multiple floors or wings, PoE-managed switches at each floor distribution point carry the camera and access network without surface-run cabling that is vulnerable to tampering or accidental damage.</p>
 <div class="callout-box mt-32">
 <p><strong>Shared Facilities Without a Guard at the Door:</strong> The most common operational complaint at managed hostels is that shared facilities — the laundry, the kitchen, the common room — are used by people who are no longer residents, or accessed at hours when they should be closed. Card access at each shared facility door solves both problems: only current residents can enter, and access is automatically restricted to the permitted hours configured for each room. The access log shows exactly who used which facility and when — useful for both operations management and for resolving the inevitable resident disputes about shared space usage.</p>
@@ -150,8 +292,9 @@
 </div>
 </div>
 </section>
+
 <!-- ── THE COMMON THREAD ── -->
-<section class="sv-section-grey">
+<section class="sv-section-white">
 <div class="container">
 <span class="eyebrow">The Managed Living Principle</span>
 <h2>Every Person in Your Property Should Be Accountable. Every Access Event on Record.</h2>
@@ -160,6 +303,50 @@
 <p class="section-intro">Securevision has installed access control, intercom, and CCTV systems across worker dormitories, co-living developments, and managed hostels in Singapore since 2006. Every managed living project starts with the operator's specific requirements — resident population, turnover frequency, operator staffing model, and regulatory obligations — before any system is specified.</p>
 </div>
 </section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="sv-section-grey" id="faq">
+<div class="container">
+<span class="eyebrow">Common Questions</span>
+<h2>Frequently Asked Questions</h2>
+<p class="subtitle">Questions we hear from dormitory operators, co-living property managers, and hostel owners evaluating a security system upgrade.</p>
+<div class="faq-grid faq-grid--single">
+<div class="faq-item">
+<h3 class="faq-question">What security systems does a managed living property typically need?</h3>
+<p class="faq-answer">Most managed living properties require four integrated components: access control managing who can enter the building, individual units, and shared facilities; visitor management allowing residents or operators to verify and admit visitors without a staffed reception; CCTV covering building entry and exit points, shared facility corridors, and common areas; and a centralised management platform giving the operator a real-time view of access events, visitor logs, and camera feeds from any location. The specific configuration depends on the property type — a worker dormitory, co-living apartment, and managed hostel each have distinct requirements in terms of scale, turnover frequency, and regulatory obligations.</p>
+</div>
+<div class="faq-item">
+<h3 class="faq-question">Can the system operate without on-site staff?</h3>
+<p class="faq-answer">Yes — this is the core operational requirement for co-living and smaller managed hostel properties. An IP video call panel at the building entrance calls the host resident's smartphone directly when a visitor arrives. The resident sees the visitor on a live video stream and releases the door from their phone, from anywhere. Credential management is handled remotely by the property manager from the VESTA dashboard. CCTV footage is accessible remotely without dispatching a staff member to the property. The entire property is manageable from a browser or mobile app.</p>
+</div>
+<div class="faq-item">
+<h3 class="faq-question">How are resident credentials managed when someone checks out?</h3>
+<p class="faq-answer">When a resident checks out, their credential is revoked from the VESTA dashboard with a single action — no physical key to recover, no lock to change, no visit to the property required. For properties integrated with a booking or property management platform, credential revocation can be automated: when a check-out is recorded in the booking system, the credential expires automatically without any action by the operator. The access log retains the full access history for the tenancy period for operational and compliance purposes.</p>
+</div>
+<div class="faq-item">
+<h3 class="faq-question">What MOM compliance reporting can the system produce for worker dormitories?</h3>
+<p class="faq-answer">The VESTA platform generates real-time and near-real-time occupancy records and visitor logs directly from the access control and facial recognition data — in the formats MOM specifies for large dormitory reporting. There is no separate manual log to maintain and no data entry by the guard team beyond the initial enrolment of each resident's biometric profile at check-in. Emergency mustering reports are available from the VESTA dashboard without a manual roll-call across multiple residential blocks.</p>
+</div>
+<div class="faq-item">
+<h3 class="faq-question">Can facial recognition process the volume of workers during a shift change at a large dormitory?</h3>
+<p class="faq-answer">Yes — sub-second facial recognition at the entry gantry is the reason facial recognition is specified for high-volume dormitory environments rather than card or PIN access. A registered worker approaches the gantry, their face is matched against the enrolled database in under a second, the barrier opens, and the entry event is logged with the individual's identity, unit, employer, and timestamp. No card to present, no reader to touch, no guard to check against a list. During peak shift-change windows, this throughput is the difference between a smooth entry flow and a queue that backs up onto the public road.</p>
+</div>
+<div class="faq-item">
+<h3 class="faq-question">Can existing cameras and cabling be reused in a managed living security upgrade?</h3>
+<p class="faq-answer">Often yes. Existing cameras in adequate condition and compatible with the new NVR may be retained. Existing cabling that passes a continuity check can typically be reused. For co-living and hostel properties with existing intercom wiring, IP video call panels can often replace legacy handset units without full rewiring. We assess existing infrastructure reuse potential during the site survey before agreeing any scope.</p>
+</div>
+<div class="faq-item">
+<h3 class="faq-question">How does visitor management work without a staffed reception?</h3>
+<p class="faq-answer">An IP video call panel at the building entrance calls the host resident's smartphone directly when a visitor presses the call button. The resident sees the visitor on a live video stream, speaks to them, and releases the building door from their phone — from anywhere. The visit is logged with the timestamp of the call and the gate release. For expected visitors, the resident can generate a pre-registered QR code through the property app — the visitor scans the code at the entrance panel and is admitted during the approved time window without needing to call the resident at all.</p>
+</div>
+<div class="faq-item">
+<h3 class="faq-question">Can multiple properties be managed from one platform?</h3>
+<p class="faq-answer">Yes. The VESTA platform supports multi-property management — an operator with several co-living buildings, hostel properties, or dormitories can manage credentials, access events, visitor logs, and camera feeds across all properties from a single dashboard. Resident credential management for all properties is centralised, so a resident who moves between properties in the same operator's portfolio does not require separate enrolment. Access event reports and occupancy records covering all properties are exportable centrally for portfolio-level compliance management.</p>
+</div>
+</div>
+</div>
+</section>
+
 <!-- ── BRANDS ── -->
 <section class="sv-section-white">
 <div class="container">
@@ -169,75 +356,88 @@
 </div>
 <div class="grid-3 mt-48">
 <a class="card card-clickable" href="/brands/hikvision-cctv.html">
+<div class="card-body">
 <div class="group-icon group-icon--surveillance">
-<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
-<path d="M15 10l4.553-2.069A1 1 0 0121 8.845v6.31a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"></path>
+<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+<path d="M15 10l4.553-2.069A1 1 0 0121 8.845v6.31a1 1 0 01-1.447.894L15 14M3 8a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V8z"/>
 </svg>
 </div>
 <h3>Hikvision</h3>
 <p>IP cameras and facial recognition terminals for managed living properties — AI-analytics models for dormitory perimeter and common areas, standard IP cameras for co-living and hostel corridors and shared spaces.</p>
 <span class="group-link">View Specification →</span>
+</div>
 </a>
 <a class="card card-clickable" href="/brands/akuvox-intercom.html">
+<div class="card-body">
 <div class="group-icon group-icon--access">
-<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
-<rect height="11" rx="2" width="18" x="3" y="11"></rect>
-<path d="M7 11V7a5 5 0 0110 0v4"></path>
+<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+<rect height="11" rx="2" width="18" x="3" y="11"/>
+<path d="M7 11V7a5 5 0 0110 0v4"/>
 </svg>
 </div>
 <h3>Akuvox</h3>
 <p>IP video intercom panels at building entrances — calls the resident's smartphone directly, live video stream of the visitor, remote gate release from the resident's phone, and QR code visitor access for pre-registered guests.</p>
 <span class="group-link">View Specification →</span>
+</div>
 </a>
 <a class="card card-clickable" href="/systems/entry-access-control.html">
+<div class="card-body">
 <div class="group-icon group-icon--access">
-<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
-<rect height="11" rx="2" width="18" x="3" y="11"></rect>
-<path d="M7 11V7a5 5 0 0110 0v4"></path>
+<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+<rect height="11" rx="2" width="18" x="3" y="11"/>
+<path d="M7 11V7a5 5 0 0110 0v4"/>
 </svg>
 </div>
 <h3>Access Control</h3>
 <p>Card, PIN, and mobile credential readers for building entry, unit doors, and shared facility access — remotely managed credential issuance and revocation for high-turnover resident populations.</p>
 <span class="group-link">Explore Access Systems →</span>
+</div>
 </a>
 <a class="card card-clickable" href="/brands/hikvision-cctv.html">
+<div class="card-body">
 <div class="group-icon group-icon--vehicle">
-<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
-<rect height="13" rx="2" width="15" x="1" y="3"></rect>
-<path d="M16 8h4l3 5v3h-7V8z"></path>
-<circle cx="5.5" cy="18.5" r="2.5"></circle>
-<circle cx="18.5" cy="18.5" r="2.5"></circle>
+<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+<rect height="13" rx="2" width="15" x="1" y="3"/>
+<path d="M16 8h4l3 5v3h-7V8z"/>
+<circle cx="5.5" cy="18.5" r="2.5"/>
+<circle cx="18.5" cy="18.5" r="2.5"/>
 </svg>
 </div>
 <h3>Hikvision LPR &amp; Facial Recognition</h3>
 <p>Facial recognition terminals and LPR cameras for high-volume dormitory entry — sub-second resident identification at shift-change throughput, with automatic entry logging and MOM compliance reporting.</p>
 <span class="group-link">View LPR Systems →</span>
+</div>
 </a>
 <a class="card card-clickable" href="/systems/security-management-platform.html">
+<div class="card-body">
 <div class="group-icon group-icon--platform">
-<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
-<rect height="18" rx="2" width="18" x="3" y="3"></rect>
-<path d="M3 9h18M9 21V9"></path>
+<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+<rect height="18" rx="2" width="18" x="3" y="3"/>
+<path d="M3 9h18M9 21V9"/>
 </svg>
 </div>
 <h3>VESTA Platform</h3>
 <p>Centralised management platform for all managed living property types — resident credential management, visitor logs, access event history, CCTV access, and compliance reporting from a single dashboard, accessible remotely.</p>
 <span class="group-link">Explore VESTA →</span>
+</div>
 </a>
 <a class="card card-clickable" href="/brands/omada.html">
+<div class="card-body">
 <div class="group-icon group-icon--platform">
-<svg fill="none" stroke="currentColor" stroke-width="1.5" viewbox="0 0 24 24">
-<rect height="14" rx="2" width="20" x="2" y="3"></rect>
-<path d="M8 21h8M12 17v4"></path>
+<svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+<rect height="14" rx="2" width="20" x="2" y="3"/>
+<path d="M8 21h8M12 17v4"/>
 </svg>
 </div>
 <h3>Omada &amp; Ruijie</h3>
 <p>Managed PoE switches and WiFi access points — network infrastructure for CCTV, access readers, and intercom panels throughout the property, with separate VLANs for security and resident WiFi networks.</p>
 <span class="group-link">View Specification →</span>
+</div>
 </a>
 </div>
 </div>
 </section>
+
 <!-- ── SECTOR LINKS ── -->
 <section class="sv-section-grey">
 <div class="container">
@@ -263,21 +463,22 @@
 </div>
 </div>
 </section>
+
 <!-- ── FINAL CTA ── -->
 <section class="cta-section cta-high-impact cta-compliance">
 <div class="container">
 <h2>Ready to Take Control of Who Is In Your Property?</h2>
 <p class="subtitle">Tell us about your property and your resident population. We will design a system that gives you the access control, visitor management, and movement accountability your operation requires.</p>
 <div class="btn-group">
-<a class="btn btn-primary" href="/request-site-assessment-singapore.html?intent=managed-living-systems">Request a Proposal</a>
+<a class="btn btn-primary" href="/request-site-assessment-singapore.html?intent=managed-living-systems">Book a Site Assessment</a>
+<a class="btn btn-outline-light" href="https://wa.me/6593860466" rel="noopener" target="_blank">💬 WhatsApp Us</a>
 </div>
-<p class="cta-trust-note">Serving Singapore Since 2006</p>
+<p class="cta-trust-note">Licensed by the Police Force — Licence <span class="sv-licence"></span> · Serving Singapore since 2006</p>
 </div>
 </section>
+
 </main>
-<!-- ═══ FOOTER ═══ -->
 <footer id="sv-footer"></footer>
-<!-- ═══ WHATSAPP FLOAT ═══ -->
 <script src="/nav-footer.js"></script>
 </body>
 </html>
