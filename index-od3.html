@@ -62,28 +62,9 @@
 .learned-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
 .learned-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 32px; position: relative; transition: box-shadow 0.2s, transform 0.2s; }
 .learned-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.07); }
-.learned-num { font-family: 'Montserrat', sans-serif; font-size: 36px; font-weight: 800; color: #0056b3; line-height: 1; margin-bottom: 16px; }
+.learned-num { font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 800; color: rgba(0,86,179,0.1); line-height: 1; margin-bottom: 16px; }
 .learned-card p { font-size: 15px; color: #475569; line-height: 1.7; margin: 0; }
 @media (max-width: 860px) { .learned-grid { grid-template-columns: 1fr; } }
-
-/* sv-sys-card — from sv-systems.css, duplicated for homepage */
-.sv-sys-card { background: var(--bg-light, #f8fafc); border: 1px solid var(--border-light, #e2e8f0); border-radius: 10px; border-top: 3px solid var(--primary-blue, #0056b3); padding: 0; text-decoration: none; color: var(--text-dark, #0f172a); display: flex; flex-direction: column; transition: 0.3s; overflow: hidden; }
-.sv-sys-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.10); transform: translateY(-4px); background: #fff; }
-.sv-sys-img { width: 100%; aspect-ratio: 4/3; overflow: hidden; }
-.sv-sys-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.sv-sys-card h3 { font-size: 15px; font-family: 'Montserrat', sans-serif; font-weight: 700; margin: 16px 20px 8px; color: var(--text-dark, #0f172a); }
-.sv-sys-card p  { font-size: 15px; color: var(--text-light, #94a3b8); line-height: 1.7; flex: 1; margin: 0 20px 16px; }
-.sv-sys-link    { font-size: 12px; font-weight: 700; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary-blue, #0056b3); padding: 0 20px 20px; }
-.sys-card-icon  { font-size: 32px; margin-bottom: 16px; line-height: 1; display: block; }
-
-/* hero-full — video homepage hero */
-.hero.hero-full { min-height: 80vh; }
-
-@media (max-width: 768px) {
-  .hero.hero-full {
-    background-image: url('/images/hero-securevision-smart-systems-mobile.webp') !important;
-  }
-}
 </style>
 <script type="application/ld+json">
 {
@@ -149,10 +130,10 @@
 <body>
 <!-- ═══ NAV — injected by nav-footer.js ═══ -->
 <nav id="sv-nav"></nav>
-<header class="hero hero-high-impact hero-full" style="background-image:url('/images/hero-securevision-smart-systems.webp');background-size:cover;background-position:center;">
-<picture>
-  <source media="(max-width:768px)" srcset="/images/hero-securevision-smart-systems-mobile.webp"/>
-</picture>
+<header class="hero hero-high-impact hero-full">
+<video aria-hidden="true" autoplay="" class="hero-video" loop="" muted="" playsinline="" preload="auto">
+<source src="/images/drone-montage-vesta.mp4" type="video/mp4"/>
+</video>
 <div class="hero-overlay"></div>
 <div class="container z-2 pos-relative">
 <span class="eyebrow-light">Singapore’s Smart Security &amp; Operations Partner</span>
@@ -198,37 +179,37 @@
 <a href="/solutions/residential.html" style="display:block;padding:28px;background:#fff;border-radius:14px;border:1px solid #e2e8f0;text-decoration:none;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='var(--primary-blue)';this.style.boxShadow='0 8px 24px rgba(0,86,179,0.08)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'">
 <p style="font-size:24px;margin-bottom:10px;">🏠</p>
 <p style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#1e293b;margin:0 0 8px;">I own a landed home</p>
-<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.6;">CCTV cameras at the gate, driveway, and key exterior positions. Burglar alarm with door contacts and motion sensors. Video intercom so you can see and speak to visitors from anywhere. Auto gate integration. Systems designed to work together — not as separate installations.</p>
+<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.5;">Protect family, visitors, and property with CCTV, alarm, intercom, and auto gate.</p>
 <span style="font-size:13px;font-weight:700;color:var(--primary-blue);">Residential Solutions →</span>
 </a>
 <a href="/solutions/condominiums.html" style="display:block;padding:28px;background:#fff;border-radius:14px;border:1px solid #e2e8f0;text-decoration:none;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='var(--primary-blue)';this.style.boxShadow='0 8px 24px rgba(0,86,179,0.08)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'">
 <p style="font-size:24px;margin-bottom:10px;">🏢</p>
 <p style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#1e293b;margin:0 0 8px;">I manage a condominium</p>
-<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.6;">Video intercom upgrades, LPR vehicle management, estate-wide CCTV, and access control for common areas. Whether you are planning an AGM proposal, responding to a failing system, or managing a full estate upgrade — we have supported over 2,000 Singapore installations including condominiums of every size.</p>
+<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.5;">Improve resident experience and estate security — intercom, LPR, access, and CCTV.</p>
 <span style="font-size:13px;font-weight:700;color:var(--primary-blue);">Condominium Solutions →</span>
 </a>
 <a href="/solutions/commercial.html" style="display:block;padding:28px;background:#fff;border-radius:14px;border:1px solid #e2e8f0;text-decoration:none;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='var(--primary-blue)';this.style.boxShadow='0 8px 24px rgba(0,86,179,0.08)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'">
 <p style="font-size:24px;margin-bottom:10px;">🏬</p>
 <p style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#1e293b;margin:0 0 8px;">I run a business or office</p>
-<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.6;">Card access and biometric door control, IP surveillance, IP telephony, and visitor management — all connected through a single management platform. Whether your priority is staff safety, compliance, or reducing the time spent on access administration, the system is designed around your operational workflow.</p>
+<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.5;">Protect staff, assets, and operations with integrated access control and surveillance.</p>
 <span style="font-size:13px;font-weight:700;color:var(--primary-blue);">Commercial Solutions →</span>
 </a>
 <a href="/solutions/industrial.html" style="display:block;padding:28px;background:#fff;border-radius:14px;border:1px solid #e2e8f0;text-decoration:none;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='var(--primary-blue)';this.style.boxShadow='0 8px 24px rgba(0,86,179,0.08)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'">
 <p style="font-size:24px;margin-bottom:10px;">🏭</p>
 <p style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#1e293b;margin:0 0 8px;">I manage a factory or warehouse</p>
-<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.6;">Wide-area CCTV across loading bays, perimeters, and internal zones. LPR vehicle barriers for fast lorry clearance without a guardhouse queue. Access control across personnel entry points. Alarm systems for unmanned overnight periods. Designed for large-footprint sites where coverage and reliability are the priority.</p>
+<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.5;">Improve visibility, compliance, and vehicle access across large industrial sites.</p>
 <span style="font-size:13px;font-weight:700;color:var(--primary-blue);">Industrial Solutions →</span>
 </a>
 <a href="/resources/guides.html" style="display:block;padding:28px;background:#fff;border-radius:14px;border:1px solid #e2e8f0;text-decoration:none;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='var(--primary-blue)';this.style.boxShadow='0 8px 24px rgba(0,86,179,0.08)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'">
 <p style="font-size:24px;margin-bottom:10px;">📚</p>
 <p style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#1e293b;margin:0 0 8px;">I need to understand security first</p>
-<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.6;">Nine technical guides covering CCTV, burglar alarms, access control, video intercoms, auto gates, network infrastructure, IP telephony, security renovation planning, and how to evaluate a contractor. Written for non-technical readers from direct Singapore installation experience. Free, no registration required.</p>
+<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.5;">Technical guides on CCTV, alarms, access control, intercoms, and renovation planning.</p>
 <span style="font-size:13px;font-weight:700;color:var(--primary-blue);">Technical Guides →</span>
 </a>
 <a href="/portfolio/" style="display:block;padding:28px;background:#fff;border-radius:14px;border:1px solid #e2e8f0;text-decoration:none;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='var(--primary-blue)';this.style.boxShadow='0 8px 24px rgba(0,86,179,0.08)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'">
 <p style="font-size:24px;margin-bottom:10px;">🗂️</p>
 <p style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#1e293b;margin:0 0 8px;">I want to see real projects first</p>
-<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.6;">Completed installations across landed homes, condominiums, offices, factories, institutions, healthcare facilities, and data centres across Singapore. Each project shows the challenge that was solved — not just the equipment that was installed. Filter by property type or system to find the closest match to your situation.</p>
+<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.5;">Completed installations across condominiums, offices, factories, and institutions in Singapore.</p>
 <span style="font-size:13px;font-weight:700;color:var(--primary-blue);">View Portfolio →</span>
 </a>
 </div>
@@ -239,10 +220,9 @@
 <section class="sv-section-white loop-section">
 <div class="container text-center">
 <div class="section-header-center">
-<span class="eyebrow">How Effective Security Works</span>
-<h2>What Happens When Something Goes Wrong?</h2>
-<p class="max-800 center">A visitor arrives. A vehicle enters. An alarm activates. A door opens unexpectedly. A crowd forms at the entrance. Someone needs to decide what happens next — and decide quickly.</p>
-<p class="max-800 center" style="margin-top:16px;">The most effective security systems do not simply record events after the fact. They help people see clearly, verify quickly, decide confidently, and act without delay. That is what the Securevision Response Loop is designed to achieve — a connected cycle where every system informs the next.</p>
+<span class="eyebrow">Signature Strategy</span>
+<h2>The Securevision Response Loop</h2>
+<p class="max-800 center">Security is not a one-time event. It is a continuous cycle of detection, verification, decision, and action — powered by a connected system.</p>
 </div>
 <div class="loop-wrap">
 <!-- SVG Connecting Cycle -->
@@ -259,7 +239,7 @@
 <svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
 </div>
 <div class="node-title">Detection</div>
-<div class="node-desc">Camera, sensor, or reader identifies a presence or event</div>
+<div class="node-desc">System detects presence</div>
 </div>
 <!-- Node 2 -->
 <div class="loop-node node-2">
@@ -267,7 +247,7 @@
 <svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" x2="20" y1="8" y2="14"></line><line x1="23" x2="17" y1="11" y2="11"></line></svg>
 </div>
 <div class="node-title">Verification</div>
-<div class="node-desc">Credential, face, plate, or intercom call confirms identity</div>
+<div class="node-desc">Identity is confirmed</div>
 </div>
 <!-- Node 3 -->
 <div class="loop-node node-3">
@@ -275,7 +255,7 @@
 <svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20"><path d="M12 2v20M2 12h20M5.07 5.07l13.86 13.86M5.07 18.93L18.93 5.07"></path></svg>
 </div>
 <div class="node-title">Decision</div>
-<div class="node-desc">Platform evaluates rules — grant access, trigger alert, or escalate</div>
+<div class="node-desc">Rules evaluated</div>
 </div>
 <!-- Node 4 -->
 <div class="loop-node node-4">
@@ -283,7 +263,7 @@
 <svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20"><rect height="11" rx="2" ry="2" width="18" x="3" y="11"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
 </div>
 <div class="node-title">Action</div>
-<div class="node-desc">Door opens, barrier lifts, alarm sounds, or notification is sent</div>
+<div class="node-desc">Access granted or alert</div>
 </div>
 <!-- Node 5 -->
 <div class="loop-node node-5">
@@ -291,7 +271,7 @@
 <svg fill="none" height="20" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" width="20"><rect height="14" rx="2" ry="2" width="20" x="2" y="3"></rect><line x1="8" x2="16" y1="21" y2="21"></line><line x1="12" x2="12" y1="17" y2="21"></line></svg>
 </div>
 <div class="node-title">Visibility</div>
-<div class="node-desc">Every event logged, searchable, and monitored in real-time</div>
+<div class="node-desc">Monitored in real-time</div>
 </div>
 </div>
 <div class="max-700 center text-center mt-32">
@@ -305,42 +285,13 @@
 <section class="sv-section-grey">
 <div class="container">
 <div class="section-header">
-<span class="eyebrow">The Operational Reality</span>
-<h2>Does Any of This Sound Familiar?</h2>
+<span class="eyebrow">The Operational Challenge</span>
+<h2>Most Security Systems React — They Don’t Guide Action</h2>
 </div>
-<div class="grid-2" style="gap:20px;margin-top:40px;max-width:900px;">
-<div style="display:flex;gap:14px;align-items:flex-start;background:#fff;padding:20px 24px;border-radius:10px;border:1px solid #e2e8f0;">
-<span style="font-size:18px;flex-shrink:0;margin-top:2px;">⚠️</span>
-<p style="margin:0;font-size:15px;color:#475569;line-height:1.6;">Residents complain the intercom app is unreliable — calls drop, doors do not release, nobody knows who to call.</p>
-</div>
-<div style="display:flex;gap:14px;align-items:flex-start;background:#fff;padding:20px 24px;border-radius:10px;border:1px solid #e2e8f0;">
-<span style="font-size:18px;flex-shrink:0;margin-top:2px;">⚠️</span>
-<p style="margin:0;font-size:15px;color:#475569;line-height:1.6;">Visitors wait at the gate because no one can verify access quickly — queues form, frustration builds, guards are overwhelmed.</p>
-</div>
-<div style="display:flex;gap:14px;align-items:flex-start;background:#fff;padding:20px 24px;border-radius:10px;border:1px solid #e2e8f0;">
-<span style="font-size:18px;flex-shrink:0;margin-top:2px;">⚠️</span>
-<p style="margin:0;font-size:15px;color:#475569;line-height:1.6;">CCTV footage exists but finding the right clip takes too long. By the time it is found, the moment has passed.</p>
-</div>
-<div style="display:flex;gap:14px;align-items:flex-start;background:#fff;padding:20px 24px;border-radius:10px;border:1px solid #e2e8f0;">
-<span style="font-size:18px;flex-shrink:0;margin-top:2px;">⚠️</span>
-<p style="margin:0;font-size:15px;color:#475569;line-height:1.6;">Guards spend most of their time on routine tasks — answering intercoms, logging visitors, monitoring screens — instead of actual security.</p>
-</div>
-<div style="display:flex;gap:14px;align-items:flex-start;background:#fff;padding:20px 24px;border-radius:10px;border:1px solid #e2e8f0;">
-<span style="font-size:18px;flex-shrink:0;margin-top:2px;">⚠️</span>
-<p style="margin:0;font-size:15px;color:#475569;line-height:1.6;">Different systems — CCTV, access control, intercom, alarm — do not share information. Each operates in isolation with no common view.</p>
-</div>
-<div style="display:flex;gap:14px;align-items:flex-start;background:#fff;padding:20px 24px;border-radius:10px;border:1px solid #e2e8f0;">
-<span style="font-size:18px;flex-shrink:0;margin-top:2px;">⚠️</span>
-<p style="margin:0;font-size:15px;color:#475569;line-height:1.6;">Upgrades are becoming harder because everything was installed at different times by different contractors with no integration in mind.</p>
-</div>
-</div>
-<div style="margin-top:32px;max-width:900px;">
-<div style="background:var(--primary-blue,#0056b3);border-radius:12px;padding:28px 32px;">
-<p style="margin:0;font-size:16px;color:#fff;line-height:1.7;">If any of these sound familiar, the problem may not be the individual devices. <strong style="color:#fff;">The problem may be how the systems work together</strong> — or more precisely, that they were never designed to work together at all.</p>
-</div>
-<div style="text-align:center;margin-top:20px;">
-<a href="/contact.html" style="display:inline-block;padding:12px 32px;border:2px solid #94a3b8;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:#475569;text-decoration:none;background:transparent;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='var(--primary-blue)';this.style.color='var(--primary-blue)'" onmouseout="this.style.borderColor='#94a3b8';this.style.color='#475569'">Contact Us →</a>
-</div>
+<div class="max-800 center text-center mt-48">
+<p>Many properties operate with disconnected systems — CCTV, intercom, access control — each working on its own.</p>
+<p>When something happens, there’s no coordination. No clear picture. No real control.</p>
+<p><strong>This leads to delays, confusion, and increased reliance on manpower.</strong></p>
 </div>
 </div>
 </section>
@@ -358,7 +309,7 @@
 <img alt="Residential security Singapore" loading="lazy" src="/images/solutions/hero-solutions/landed-home-security-singapore-rel.webp"/>
 </div>
 <h3>Residential</h3>
-<p>Protect your family, monitor your property remotely, manage visitors at the gate, and control CCTV, alarms, intercom, and auto gate from a single integrated system.</p>
+<p>Bungalows, semi-detached, and terrace homes.</p>
 <div class="rel-card-footer">Explore →</div>
 </a>
 <a class="rel-card" href="/solutions/condominiums.html">
@@ -366,7 +317,7 @@
 <img alt="Condominium security Singapore" loading="lazy" src="/images/solutions/hero-solutions/condominium-estate-security-singapore-rel.webp"/>
 </div>
 <h3>Condominiums</h3>
-<p>Modernise ageing intercom systems, automate visitor and vehicle access, reduce dependence on manpower, and give residents a better experience at every entry point.</p>
+<p>MCSTs, managing agents, and strata estates.</p>
 <div class="rel-card-footer">Explore →</div>
 </a>
 <a class="rel-card" href="/solutions/commercial.html">
@@ -374,7 +325,7 @@
 <img alt="Commercial security Singapore" loading="lazy" src="/images/solutions/hero-solutions/commercial-security-singapore-rel.webp"/>
 </div>
 <h3>Commercial</h3>
-<p>Control who enters, when, and where. Protect staff and assets with integrated access control, CCTV, and visitor management designed around your operational workflow.</p>
+<p>Offices, hotels, retail shops, and buildings.</p>
 <div class="rel-card-footer">Explore →</div>
 </a>
 <a class="rel-card" href="/solutions/industrial.html">
@@ -382,7 +333,7 @@
 <img alt="Industrial security Singapore" loading="lazy" src="/images/solutions/hero-solutions/industrial-security-singapore-rel.webp"/>
 </div>
 <h3>Industrial</h3>
-<p>Control vehicle access, improve perimeter visibility, monitor contractor and staff movement, and reduce reliance on manual gatehouse checks across large-footprint sites.</p>
+<p>Factories, warehouses, and logistics hubs.</p>
 <div class="rel-card-footer">Explore →</div>
 </a>
 <a class="rel-card" href="/solutions/institutions.html">
@@ -390,7 +341,7 @@
 <img alt="Institutional security Singapore" loading="lazy" src="/images/solutions/hero-solutions/institutional-security-singapore-rel.webp"/>
 </div>
 <h3>Institutions</h3>
-<p>Manage controlled access, protect staff and students, monitor large campuses, and meet public sector security and compliance requirements across multiple entry points.</p>
+<p>Schools, government offices, and civic facilities.</p>
 <div class="rel-card-footer">Explore →</div>
 </a>
 <a class="rel-card" href="/solutions/healthcare.html">
@@ -398,7 +349,7 @@
 <img alt="Healthcare security Singapore" loading="lazy" src="/images/solutions/hero-solutions/healthcare-security-singapore-rel.webp"/>
 </div>
 <h3>Healthcare</h3>
-<p>Balance resident safety with a calm environment — controlled access to sensitive areas, discreet surveillance, and visitor management designed around vulnerable populations.</p>
+<p>Nursing homes, day care, and care facilities.</p>
 <div class="rel-card-footer">Explore →</div>
 </a>
 <a class="rel-card" href="/solutions/managed-living.html">
@@ -406,19 +357,20 @@
 <img alt="Managed living security Singapore" loading="lazy" src="/images/solutions/hero-solutions/managed-living-security-singapore-rel.webp"/>
 </div>
 <h3>Managed Living</h3>
-<p>Manage high-density resident populations, control common area access, automate visitor protocols, and maintain compliance with MOM dormitory security requirements.</p>
+<p>Worker dormitories and co-living apartments.</p>
 <div class="rel-card-footer">Explore →</div>
 </a>
+<!-- NEEDS IMAGE: replace with actual data centre photo -->
 <a class="rel-card" href="/solutions/data-centres.html">
 <div class="rel-card-img">
 <img alt="Data centre security Singapore" loading="lazy" src="/images/solutions/hero-solutions/data-centre-security-singapore-rel.webp"/>
 </div>
 <h3>Data Centres</h3>
-<p>Tiered access control with biometric verification, comprehensive CCTV across critical zones, and audit-ready access logs meeting data centre security standards.</p>
+<p>Colocation and enterprise data centres.</p>
 <div class="rel-card-footer">Explore →</div>
 </a>
 </div>
-<div class="text-center mt-48" style="padding-top:16px;">
+<div class="text-center mt-48">
 <a class="btn btn-outline-dark" href="/solutions/">View All Solutions →</a>
 </div>
 </div>
@@ -434,17 +386,17 @@
 <div class="factor-card">
 <div class="factor-num">🔗</div>
 <h3>Designed as a System</h3>
-<p>Every project starts with a system design, not a product selection. CCTV, access control, intercom, vehicle management, and alarm are specified to work together — sharing data, triggering each other, and managed from a single platform. Systems added separately over time almost always create problems that could have been avoided at the design stage.</p>
+<p>Not separate components — but a connected architecture that works together.</p>
 </div>
 <div class="factor-card">
 <div class="factor-num">⚙️</div>
 <h3>Built for Real Operations</h3>
-<p>A system that works in a demonstration room but creates friction in daily use is not a good system. We design around the actual workflows of the people who use the property — how guards move, how residents enter, how managing agents manage, how facility teams respond. The system should reduce operational burden, not add to it.</p>
+<p>Aligned with how guards, residents, and managers actually operate.</p>
 </div>
 <div class="factor-card">
 <div class="factor-num">📐</div>
 <h3>Engineered for Your Site</h3>
-<p>No two properties have the same layout, access patterns, or risk profile. A condominium with 300 units has different requirements from a factory with 50 workers, even if both need CCTV and access control. We assess the specific site before specifying anything — and the system we design reflects that specific site, not a standard package adapted to fit.</p>
+<p>Every solution is tailored based on your layout, risks, and priorities.</p>
 </div>
 </div>
 </div>
@@ -641,6 +593,7 @@
 </section>
 
 <!-- 11. FINAL CTA -->
+<!-- FINAL CTA -->
 <section class="cta-section cta-high-impact cta-property">
 <div class="container">
 <h2>Ready to Secure Your Property?</h2>
