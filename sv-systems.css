@@ -1871,3 +1871,84 @@ a.arch-card-link p {
 }
 
 /* ── END SECTION 46 ──────────────────────────────────────────── */
+
+/* ============================================================
+   FAQ Component
+   Defined in sv-solutions.css — duplicated here so
+   systems pages render it correctly.
+   ============================================================ */
+
+.faq-item {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.faq-item:hover {
+    border-color: var(--page-accent, var(--primary-blue));
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.faq-grid--single {
+    grid-template-columns: 1fr;
+}
+
+.faq-grid .faq-item {
+    padding: 28px 32px;
+}
+
+.faq-grid .faq-question {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.4;
+    padding-left: 34px;
+}
+
+.faq-grid .faq-question::before {
+    content: 'Q';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: var(--page-accent, var(--primary-blue));
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    line-height: 24px;
+    margin-left: -34px;
+    margin-right: 10px;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.faq-grid .faq-answer {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin: 0;
+    padding-left: 34px;
+}
+
+@media (max-width: 768px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    .faq-grid .faq-item {
+        padding: 24px;
+    }
+}
+
+/* ── END FAQ Component ──────────────────────────────────────── */

@@ -230,14 +230,6 @@
 
     /* ── HEALTHCARE ─────────────────────────────────────────────── */
     {
-      slug:     "/portfolio/healthcare/surya-home.html",
-      category: "healthcare",
-      image:    "/images/portfolio/healthcare/surya-home-rel.webp",
-      badge:    "Healthcare",
-      title:    "Surya Home",
-      text:     "Security installation for a residential care facility — access control and surveillance designed around the needs of a vulnerable resident population."
-    },
-    {
       slug:     "/portfolio/healthcare/sunlove-mental-wellness-centre-haig-road.html",
       category: "healthcare",
       image:    "/images/portfolio/healthcare/sunlove-rel.webp",
@@ -261,7 +253,6 @@
       image:    "/images/portfolio/industrial/cogent-1-logistics-hub-rel.webp",
       badge:    "Industrial",
       title:    "Cogent Logistics Hub",
-
       text:     "CCTV surveillance across a major Singapore logistics hub — wide-area coverage for a large-footprint industrial facility."
     },
     {
