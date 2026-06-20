@@ -155,31 +155,18 @@
   function buildArticleSchemas(page) {
     const schemas = [];
 
-    // Helper: append SGT timezone if only a date string (YYYY-MM-DD) is supplied
-    function toSGT(dateStr) {
-      if (!dateStr) return null;
-      if (dateStr.length > 10) return dateStr;
-      return dateStr + "T00:00:00+08:00";
-    }
-
-    // Derive article image from og:image meta tag if not explicitly supplied
-    var ogImageEl = document.querySelector('meta[property="og:image"]');
-    var articleImage = page.image || (ogImageEl ? ogImageEl.getAttribute("content") : null);
-
     // Article schema
     schemas.push({
       "@context": "https://schema.org",
       "@type": "Article",
       "headline": page.title,
       "description": page.description,
-      "image": articleImage,
-      "datePublished": toSGT(page.datePublished),
-      "dateModified": toSGT(page.dateModified || page.datePublished),
+      "datePublished": page.datePublished,
+      "dateModified": page.dateModified || page.datePublished,
       "author": {
         "@type": "Person",
         "name": SECUREVISION.authorName,
-        "jobTitle": SECUREVISION.authorTitle,
-        "url": "https://sg.linkedin.com/company/securevision-pte-ltd"
+        "jobTitle": SECUREVISION.authorTitle
       },
       "publisher": {
         "@type": "Organization",
