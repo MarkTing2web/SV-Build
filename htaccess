@@ -1,0 +1,159 @@
+# ============================================================
+# Securevision .htaccess — URL Redirects
+# Maps old WordPress URLs to new site structure
+# Apache mod_rewrite required (standard on Hostinger)
+# ============================================================
+
+Options -Indexes
+RewriteEngine On
+
+# ── FORCE HTTPS ──────────────────────────────────────────────
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ── FORCE WWW (optional — remove if you prefer non-www) ──────
+# RewriteCond %{HTTP_HOST} !^www\.
+# RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# ============================================================
+# BLOG / INSIGHTS REDIRECTS
+# Old WordPress posts → New insights articles
+# ============================================================
+
+# Burglar Alarm articles
+RewriteRule ^burglar-alarm/how-does-a-burglar-alarm-work/?$ /insights/how-alarm-works.html [R=301,L]
+RewriteRule ^burglar-alarm/know-your-detectors-and-sensors/?$ /insights/burglar-alarm-detectors-sensors.html [R=301,L]
+RewriteRule ^burglar-alarm/using-your-alarm/?$ /insights/alarm-usage-habits.html [R=301,L]
+RewriteRule ^burglar-alarm/reduce-false-alarm/?$ /insights/reduce-false-alarms.html [R=301,L]
+RewriteRule ^burglar-alarm/maintain-your-burglar-alarm/?$ /insights/maintain-burglar-alarm.html [R=301,L]
+RewriteRule ^burglar-alarm/understand-your-burglar-alarm-system-design/?$ /insights/how-alarm-works.html [R=301,L]
+RewriteRule ^burglar-alarm/10-tips-for-securing-your-premises/?$ /insights/security-assessment-10-things.html [R=301,L]
+
+# CCTV articles
+RewriteRule ^cctv/how-to-choose-a-cctv-system/?$ /insights/how-to-choose-cctv.html [R=301,L]
+RewriteRule ^cctv/understanding-cctv-system/?$ /insights/cctv-system-components.html [R=301,L]
+RewriteRule ^cctv/5-reasons-to-rackmount-your-nvr/?$ /insights/rackmount-nvr.html [R=301,L]
+
+# Door Access articles
+RewriteRule ^door-access/how-card-access-work/?$ /insights/how-card-access-works.html [R=301,L]
+RewriteRule ^door-access/choose-multi-door-access/?$ /insights/access-control-multi-door.html [R=301,L]
+RewriteRule ^door-access/how-to-choose-a-standalone-door-access/?$ /insights/standalone-door-access.html [R=301,L]
+RewriteRule ^door-access/unsecure-mechanical-locks/?$ /insights/mechanical-locks-not-enough.html [R=301,L]
+
+# Intercom articles
+RewriteRule ^intercom/choosing-intercom-for-your-home/?$ /insights/choose-intercom-for-home.html [R=301,L]
+RewriteRule ^intercom/upgrade-condo-intercom/?$ /insights/condo-intercom-upgrade.html [R=301,L]
+RewriteRule ^intercom/how-intercom-systems-work/?$ /insights/intercom-system-evolution-singapore.html [R=301,L]
+
+# Auto Gate articles
+RewriteRule ^auto-gate/choosing-your-auto-gate-motor/?$ /insights/auto-gate-motor.html [R=301,L]
+RewriteRule ^auto-gate/wifi-remote-control/?$ /insights/gate-remote-smartphone.html [R=301,L]
+
+# Blog index → Insights index
+RewriteRule ^blog/?$ /insights/ [R=301,L]
+RewriteRule ^blog/(.*)$ /insights/ [R=301,L]
+
+# Article category indexes → Insights index
+RewriteRule ^burglar-alarm-articles/?$ /insights/ [R=301,L]
+RewriteRule ^cctv-articles/?$ /insights/ [R=301,L]
+RewriteRule ^door-access-articles/?$ /insights/ [R=301,L]
+RewriteRule ^intercom-articles/?$ /insights/ [R=301,L]
+RewriteRule ^auto-gates-articles/?$ /insights/ [R=301,L]
+RewriteRule ^learn-about-burglar-alarm/?$ /insights/ [R=301,L]
+RewriteRule ^learn-about-cctv-cameras/?$ /insights/ [R=301,L]
+RewriteRule ^learn-about-door-access/?$ /insights/ [R=301,L]
+RewriteRule ^learn-about-intercom-and-phones/?$ /insights/ [R=301,L]
+RewriteRule ^learn-about-auto-gates-and-barriers/?$ /insights/ [R=301,L]
+
+# ============================================================
+# MAIN SERVICE PAGE REDIRECTS
+# Old WordPress service pages → New systems/solutions pages
+# ============================================================
+
+# Burglar Alarm
+RewriteRule ^burglar-alarm-system-for-home-offices/?$ /systems/premises-security.html [R=301,L]
+RewriteRule ^wired-burglar-alarm/?$ /systems/premises-security.html [R=301,L]
+RewriteRule ^wireless-burglar-alarm/?$ /systems/premises-security.html [R=301,L]
+RewriteRule ^wired-burglar-alarm/(.*)$ /systems/premises-security.html [R=301,L]
+RewriteRule ^wireless-burglar-alarm/(.*)$ /systems/premises-security.html [R=301,L]
+RewriteRule ^which-is-better-wired-or-wireless-alarm/?$ /systems/premises-security.html [R=301,L]
+RewriteRule ^burglar-alarm-accessories/?$ /systems/premises-security.html [R=301,L]
+RewriteRule ^burglar-alarm-services/?$ /systems/premises-security.html [R=301,L]
+
+# CCTV
+RewriteRule ^cctv-cameras-for-your-home-and-office/?$ /systems/premises-security.html [R=301,L]
+RewriteRule ^ip-network-cctv/?$ /systems/premises-security.html [R=301,L]
+RewriteRule ^ip-network-cctv/(.*)$ /systems/premises-security.html [R=301,L]
+RewriteRule ^hd-analogue-cctv/?$ /systems/premises-security.html [R=301,L]
+RewriteRule ^hd-analogue-cctv/(.*)$ /systems/premises-security.html [R=301,L]
+RewriteRule ^analogue-cctv/?$ /systems/premises-security.html [R=301,L]
+RewriteRule ^wired-or-wireless-cameras/?$ /systems/premises-security.html [R=301,L]
+RewriteRule ^cctv-accessories/?$ /systems/premises-security.html [R=301,L]
+RewriteRule ^cctv-accessories/(.*)$ /systems/premises-security.html [R=301,L]
+RewriteRule ^cctv-servicing/?$ /systems/premises-security.html [R=301,L]
+
+# Door Access
+RewriteRule ^door-access-for-office-and-building/?$ /systems/entry-access-control.html [R=301,L]
+RewriteRule ^single-door-access/?$ /systems/entry-access-control.html [R=301,L]
+RewriteRule ^multi-door-access/?$ /systems/entry-access-control.html [R=301,L]
+RewriteRule ^multi-door-access/(.*)$ /systems/entry-access-control.html [R=301,L]
+RewriteRule ^digital-door-locks/?$ /systems/entry-access-control.html [R=301,L]
+RewriteRule ^time-and-attendance/?$ /systems/entry-access-control.html [R=301,L]
+RewriteRule ^door-accessories/?$ /systems/entry-access-control.html [R=301,L]
+RewriteRule ^door-accessories/(.*)$ /systems/entry-access-control.html [R=301,L]
+RewriteRule ^door-access-servicing/?$ /systems/entry-access-control.html [R=301,L]
+
+# Intercom & Phones
+RewriteRule ^intercom-phone/?$ /systems/entry-access-control.html [R=301,L]
+RewriteRule ^residential-intercom/?$ /systems/entry-access-control.html [R=301,L]
+RewriteRule ^apartment-intercom/?$ /solutions/condominiums/condominium-security-systems.html [R=301,L]
+RewriteRule ^apartment-and-condominium-intercom/?$ /solutions/condominiums/condominium-security-systems.html [R=301,L]
+RewriteRule ^commercial-intercom/?$ /solutions/commercial/office.html [R=301,L]
+RewriteRule ^ip-phones-and-key-telephones/?$ /systems/ip-phone-communications.html [R=301,L]
+RewriteRule ^intercom-servicing/?$ /systems/entry-access-control.html [R=301,L]
+
+# Auto Gates & Barriers
+RewriteRule ^auto-gates-and-barriers/?$ /systems/vehicle-lpr-management.html [R=301,L]
+RewriteRule ^auto-gate-system/?$ /systems/vehicle-lpr-management.html [R=301,L]
+RewriteRule ^car-park-barriers/?$ /systems/vehicle-lpr-management.html [R=301,L]
+RewriteRule ^auto-gate-servicing/?$ /systems/vehicle-lpr-management.html [R=301,L]
+
+# ============================================================
+# UTILITY PAGE REDIRECTS
+# ============================================================
+
+RewriteRule ^about-us-security-solutions-provider/?$ /about.html [R=301,L]
+RewriteRule ^about-us/?$ /about.html [R=301,L]
+RewriteRule ^contact-us/?$ /contact.html [R=301,L]
+RewriteRule ^contact-us-security-systems-servicing/?$ /contact.html [R=301,L]
+RewriteRule ^security-enquiry-quote/?$ /request-site-assessment-singapore.html [R=301,L]
+RewriteRule ^burglar-alarm-enquiry-quote/?$ /request-site-assessment-singapore.html [R=301,L]
+RewriteRule ^cctv-system-enquiry-quote/?$ /request-site-assessment-singapore.html [R=301,L]
+RewriteRule ^door-access-system-enquiry-quote/?$ /request-site-assessment-singapore.html [R=301,L]
+RewriteRule ^intercom-phone-system-enquiry-quote/?$ /request-site-assessment-singapore.html [R=301,L]
+RewriteRule ^auto-gates-and-car-park-barriers-enquiry-quote/?$ /request-site-assessment-singapore.html [R=301,L]
+RewriteRule ^privacy-policy/?$ /privacy.html [R=301,L]
+RewriteRule ^terms-and-conditions/?$ /terms.html [R=301,L]
+RewriteRule ^site-map/?$ /sitemap.html [R=301,L]
+RewriteRule ^how-to-troubleshoot/?$ / [R=301,L]
+RewriteRule ^featured-articles/?$ /insights/ [R=301,L]
+
+# ============================================================
+# OLD WORDPRESS PRODUCT PAGES
+# No equivalent in new site — redirect to homepage
+# ============================================================
+RewriteRule ^\?p=.*$ / [R=301,L]
+
+# ============================================================
+# CLEAN URL HANDLING FOR NEW STATIC SITE
+# Allows URLs without .html extension to resolve correctly
+# ============================================================
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ /$1.html [L]
+
+# ============================================================
+# 404 FALLBACK
+# ============================================================
+ErrorDocument 404 /404.html
