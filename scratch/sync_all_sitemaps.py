@@ -75,6 +75,7 @@ html_content += '''    </ul>
   </div>
   <footer id="sv-footer"></footer>
   <script src="/nav-footer.js"></script>
+  <script src="/sv-search.js"></script>
 </body>
 </html>'''
 
