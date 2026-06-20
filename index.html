@@ -16,82 +16,11 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="/sv-shared.css" rel="stylesheet"/>
+<link href="/sv-homepage.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
 <script src="/site-config.js"></script>
   <script src="/sv-schema.js"></script>
-<style>
-/* ── Homepage inline styles — components not in sv-shared.css ── */
-
-/* callout-box (from sv-solutions.css) */
-.callout-box {
-  background: var(--bg-light, #f8fafc);
-  border: 1px solid var(--border-light, #e2e8f0);
-  border-left: 4px solid var(--primary-blue, #0056b3);
-  border-radius: 0 12px 12px 0;
-  padding: 36px 40px;
-  max-width: 860px;
-  margin: 0;
-}
-.callout-box h2 { font-size: 22px; margin-bottom: 14px; color: var(--text-dark, #0f172a); }
-.callout-box p  { font-size: 16px; color: var(--text-gray, #475569); line-height: 1.8; margin-bottom: 14px; }
-.callout-box p:last-child { margin-bottom: 0; }
-
-/* Response Loop (from sv-brands.css) */
-.loop-wrap  { position: relative; width: 500px; height: 500px; margin: 60px auto; }
-.loop-core  {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  width: 190px; height: 190px; background: var(--primary-blue, #0056b3);
-  border-radius: 50%; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; text-align: center;
-  box-shadow: 0 15px 35px rgba(0,86,179,0.3), inset 0 0 20px rgba(255,255,255,0.1);
-  z-index: 10; color: #fff; padding: 20px;
-}
-.loop-core strong { display: block; font-size: 18px; color: #fff; text-transform: uppercase; letter-spacing: 1.5px; line-height: 1.2; }
-.loop-core span   { font-size: 11px; color: rgba(255,255,255,0.9); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.8px; }
-.loop-node        { position: absolute; width: 140px; text-align: center; transition: all 0.4s ease; z-index: 5; }
-.node-1 { top: 2%;  left: 50%;  transform: translate(-50%, 0); }
-.node-2 { top: 30%; left: 102%; transform: translate(-100%, -50%); }
-.node-3 { top: 85%; left: 80%;  transform: translate(-50%, -100%); }
-.node-4 { top: 85%; left: 20%;  transform: translate(-50%, -100%); }
-.node-5 { top: 30%; left: -2%;  transform: translate(0, -50%); }
-.node-icon  { width: 60px; height: 60px; background: #fff; border: 1px solid #e2e8f0; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-dark, #0f172a); margin: 0 auto 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
-.node-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 13px; text-transform: uppercase; color: var(--text-dark, #0f172a); margin-bottom: 4px; }
-.node-desc  { font-size: 10px; color: var(--text-light, #94a3b8); line-height: 1.3; }
-.loop-svg   { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
-@media (max-width: 768px) {
-  .loop-wrap { width: 320px; height: 320px; }
-  .loop-core { width: 140px; height: 140px; }
-  .loop-core strong { font-size: 14px; }
-  .node-desc { display: none; }
-}
-
-/* What We've Learned cards */
-.learned-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
-.learned-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 32px; position: relative; transition: box-shadow 0.2s, transform 0.2s; }
-.learned-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,0.07); }
-.learned-num { font-family: 'Montserrat', sans-serif; font-size: 36px; font-weight: 800; color: #0056b3; line-height: 1; margin-bottom: 16px; }
-.learned-card p { font-size: 15px; color: #475569; line-height: 1.7; margin: 0; }
-@media (max-width: 860px) { .learned-grid { grid-template-columns: 1fr; } }
-
-/* sv-sys-card — from sv-systems.css, duplicated for homepage */
-.sv-sys-card { background: var(--bg-light, #f8fafc); border: 1px solid var(--border-light, #e2e8f0); border-radius: 10px; border-top: 3px solid var(--primary-blue, #0056b3); padding: 0; text-decoration: none; color: var(--text-dark, #0f172a); display: flex; flex-direction: column; transition: 0.3s; overflow: hidden; }
-.sv-sys-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.10); transform: translateY(-4px); background: #fff; }
-.sv-sys-img { width: 100%; aspect-ratio: 4/3; overflow: hidden; }
-.sv-sys-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.sv-sys-card h3 { font-size: 15px; font-family: 'Montserrat', sans-serif; font-weight: 700; margin: 16px 20px 8px; color: var(--text-dark, #0f172a); }
-.sv-sys-card p  { font-size: 15px; color: var(--text-light, #94a3b8); line-height: 1.7; flex: 1; margin: 0 20px 16px; }
-.sv-sys-link    { font-size: 12px; font-weight: 700; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 0.5px; color: var(--primary-blue, #0056b3); padding: 0 20px 20px; }
-.sys-card-icon  { font-size: 32px; margin-bottom: 16px; line-height: 1; display: block; }
-
-/* hero-full — video homepage hero */
-.hero.hero-full { min-height: 80vh; }
-
-@media (max-width: 768px) {
-  .hero.hero-full {
-    background-image: url('/images/hero-securevision-smart-systems-mobile.webp') !important;
-  }
-}
-</style>
+<!-- Page styles: sv-homepage.css -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -157,7 +86,7 @@
 <body>
 <!-- ═══ NAV — injected by nav-footer.js ═══ -->
 <nav id="sv-nav"></nav>
-<header class="hero hero-high-impact hero-full" style="background-image:url('/images/hero-securevision-smart-systems.webp');background-size:cover;background-position:center;">
+<header class="hero hero-high-impact hero-full hero-homepage">
 <picture>
   <source media="(max-width:768px)" srcset="/images/hero-securevision-smart-systems-mobile.webp"/>
 </picture>
@@ -187,57 +116,57 @@
 </div>
 <!-- 2b. IN SHORT -->
 <section class="sv-section-white">
-<div class="container" style="padding-top:56px;padding-bottom:56px;">
+<div class="container hp-container-padding">
 <div class="callout-box">
-<p style="font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--primary-blue);margin-bottom:10px;">In Short</p>
-<h2 style="font-size:22px;margin-bottom:16px;">Security Systems Designed to Work as One — Not Installed as Separate Parts</h2>
+<p class="hp-callout-label">In Short</p>
+<h2 class="hp-callout-h2">Security Systems Designed to Work as One — Not Installed as Separate Parts</h2>
 <p>Securevision helps property owners, managing agents, facility managers, and business operators design security systems that work together. From CCTV and access control to intercoms, vehicle management, networking, and integrated platforms, the focus is not simply installing devices — it is helping organisations gain visibility, improve operations, and reduce reliance on manual processes. Every project starts with a site assessment, not a product catalogue.</p>
 </div>
 </div>
 </section>
 
 <!-- 2c. START HERE -->
-<section class="sv-section-grey" style="padding:56px 0;">
+<section class="sv-section-grey hp-section-padding">
 <div class="container">
 <span class="eyebrow">Find Your Starting Point</span>
 <h2>Where Do You Fit?</h2>
-<p class="subtitle" style="margin-bottom:40px;">Most people arrive with a specific situation in mind. Find the one closest to yours.</p>
-<div class="grid-3" style="gap:20px;">
-<a href="/solutions/residential.html" style="display:block;padding:28px;background:#fff;border-radius:14px;border:1px solid #e2e8f0;text-decoration:none;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='var(--primary-blue)';this.style.boxShadow='0 8px 24px rgba(0,86,179,0.08)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'">
-<p style="font-size:24px;margin-bottom:10px;">🏠</p>
-<p style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#1e293b;margin:0 0 8px;">I own a landed home</p>
-<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.6;">CCTV cameras at the gate, driveway, and key exterior positions. Burglar alarm with door contacts and motion sensors. Video intercom so you can see and speak to visitors from anywhere. Auto gate integration. Systems designed to work together — not as separate installations.</p>
-<span style="font-size:13px;font-weight:700;color:var(--primary-blue);">Residential Solutions →</span>
+<p class="subtitle hp-subtitle-mb">Most people arrive with a specific situation in mind. Find the one closest to yours.</p>
+<div class="grid-3 hp-grid-gap">
+<a href="/solutions/residential.html" class="hp-start-card">
+<p class="hp-start-card-icon">🏠</p>
+<p class="hp-start-card-title">I own a landed home</p>
+<p class="hp-start-card-body">CCTV cameras at the gate, driveway, and key exterior positions. Burglar alarm with door contacts and motion sensors. Video intercom so you can see and speak to visitors from anywhere. Auto gate integration. Systems designed to work together — not as separate installations.</p>
+<span class="hp-start-card-link">Residential Solutions →</span>
 </a>
-<a href="/solutions/condominiums.html" style="display:block;padding:28px;background:#fff;border-radius:14px;border:1px solid #e2e8f0;text-decoration:none;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='var(--primary-blue)';this.style.boxShadow='0 8px 24px rgba(0,86,179,0.08)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'">
-<p style="font-size:24px;margin-bottom:10px;">🏢</p>
-<p style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#1e293b;margin:0 0 8px;">I manage a condominium</p>
-<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.6;">Video intercom upgrades, LPR vehicle management, estate-wide CCTV, and access control for common areas. Whether you are planning an AGM proposal, responding to a failing system, or managing a full estate upgrade — we have supported over 2,000 Singapore installations including condominiums of every size.</p>
-<span style="font-size:13px;font-weight:700;color:var(--primary-blue);">Condominium Solutions →</span>
+<a href="/solutions/condominiums.html" class="hp-start-card">
+<p class="hp-start-card-icon">🏢</p>
+<p class="hp-start-card-title">I manage a condominium</p>
+<p class="hp-start-card-body">Video intercom upgrades, LPR vehicle management, estate-wide CCTV, and access control for common areas. Whether you are planning an AGM proposal, responding to a failing system, or managing a full estate upgrade — we have supported over 2,000 Singapore installations including condominiums of every size.</p>
+<span class="hp-start-card-link">Condominium Solutions →</span>
 </a>
-<a href="/solutions/commercial.html" style="display:block;padding:28px;background:#fff;border-radius:14px;border:1px solid #e2e8f0;text-decoration:none;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='var(--primary-blue)';this.style.boxShadow='0 8px 24px rgba(0,86,179,0.08)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'">
-<p style="font-size:24px;margin-bottom:10px;">🏬</p>
-<p style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#1e293b;margin:0 0 8px;">I run a business or office</p>
-<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.6;">Card access and biometric door control, IP surveillance, IP telephony, and visitor management — all connected through a single management platform. Whether your priority is staff safety, compliance, or reducing the time spent on access administration, the system is designed around your operational workflow.</p>
-<span style="font-size:13px;font-weight:700;color:var(--primary-blue);">Commercial Solutions →</span>
+<a href="/solutions/commercial.html" class="hp-start-card">
+<p class="hp-start-card-icon">🏬</p>
+<p class="hp-start-card-title">I run a business or office</p>
+<p class="hp-start-card-body">Card access and biometric door control, IP surveillance, IP telephony, and visitor management — all connected through a single management platform. Whether your priority is staff safety, compliance, or reducing the time spent on access administration, the system is designed around your operational workflow.</p>
+<span class="hp-start-card-link">Commercial Solutions →</span>
 </a>
-<a href="/solutions/industrial.html" style="display:block;padding:28px;background:#fff;border-radius:14px;border:1px solid #e2e8f0;text-decoration:none;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='var(--primary-blue)';this.style.boxShadow='0 8px 24px rgba(0,86,179,0.08)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'">
-<p style="font-size:24px;margin-bottom:10px;">🏭</p>
-<p style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#1e293b;margin:0 0 8px;">I manage a factory or warehouse</p>
-<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.6;">Wide-area CCTV across loading bays, perimeters, and internal zones. LPR vehicle barriers for fast lorry clearance without a guardhouse queue. Access control across personnel entry points. Alarm systems for unmanned overnight periods. Designed for large-footprint sites where coverage and reliability are the priority.</p>
-<span style="font-size:13px;font-weight:700;color:var(--primary-blue);">Industrial Solutions →</span>
+<a href="/solutions/industrial.html" class="hp-start-card">
+<p class="hp-start-card-icon">🏭</p>
+<p class="hp-start-card-title">I manage a factory or warehouse</p>
+<p class="hp-start-card-body">Wide-area CCTV across loading bays, perimeters, and internal zones. LPR vehicle barriers for fast lorry clearance without a guardhouse queue. Access control across personnel entry points. Alarm systems for unmanned overnight periods. Designed for large-footprint sites where coverage and reliability are the priority.</p>
+<span class="hp-start-card-link">Industrial Solutions →</span>
 </a>
-<a href="/resources/guides.html" style="display:block;padding:28px;background:#fff;border-radius:14px;border:1px solid #e2e8f0;text-decoration:none;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='var(--primary-blue)';this.style.boxShadow='0 8px 24px rgba(0,86,179,0.08)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'">
-<p style="font-size:24px;margin-bottom:10px;">📚</p>
-<p style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#1e293b;margin:0 0 8px;">I need to understand security first</p>
-<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.6;">Nine technical guides covering CCTV, burglar alarms, access control, video intercoms, auto gates, network infrastructure, IP telephony, security renovation planning, and how to evaluate a contractor. Written for non-technical readers from direct Singapore installation experience. Free, no registration required.</p>
-<span style="font-size:13px;font-weight:700;color:var(--primary-blue);">Technical Guides →</span>
+<a href="/resources/guides.html" class="hp-start-card">
+<p class="hp-start-card-icon">📚</p>
+<p class="hp-start-card-title">I need to understand security first</p>
+<p class="hp-start-card-body">Nine technical guides covering CCTV, burglar alarms, access control, video intercoms, auto gates, network infrastructure, IP telephony, security renovation planning, and how to evaluate a contractor. Written for non-technical readers from direct Singapore installation experience. Free, no registration required.</p>
+<span class="hp-start-card-link">Technical Guides →</span>
 </a>
-<a href="/portfolio/" style="display:block;padding:28px;background:#fff;border-radius:14px;border:1px solid #e2e8f0;text-decoration:none;transition:border-color 0.2s,box-shadow 0.2s;" onmouseover="this.style.borderColor='var(--primary-blue)';this.style.boxShadow='0 8px 24px rgba(0,86,179,0.08)'" onmouseout="this.style.borderColor='#e2e8f0';this.style.boxShadow='none'">
-<p style="font-size:24px;margin-bottom:10px;">🗂️</p>
-<p style="font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;color:#1e293b;margin:0 0 8px;">I want to see real projects first</p>
-<p style="font-size:13px;color:#475569;margin:0 0 14px;line-height:1.6;">Completed installations across landed homes, condominiums, offices, factories, institutions, healthcare facilities, and data centres across Singapore. Each project shows the challenge that was solved — not just the equipment that was installed. Filter by property type or system to find the closest match to your situation.</p>
-<span style="font-size:13px;font-weight:700;color:var(--primary-blue);">View Portfolio →</span>
+<a href="/portfolio/" class="hp-start-card">
+<p class="hp-start-card-icon">🗂️</p>
+<p class="hp-start-card-title">I want to see real projects first</p>
+<p class="hp-start-card-body">Completed installations across landed homes, condominiums, offices, factories, institutions, healthcare facilities, and data centres across Singapore. Each project shows the challenge that was solved — not just the equipment that was installed. Filter by property type or system to find the closest match to your situation.</p>
+<span class="hp-start-card-link">View Portfolio →</span>
 </a>
 </div>
 </div>
@@ -250,7 +179,7 @@
 <span class="eyebrow">How Effective Security Works</span>
 <h2>What Happens When Something Goes Wrong?</h2>
 <p class="max-800 center">A visitor arrives. A vehicle enters. An alarm activates. A door opens unexpectedly. A crowd forms at the entrance. Someone needs to decide what happens next — and decide quickly.</p>
-<p class="max-800 center" style="margin-top:16px;">The most effective security systems do not simply record events after the fact. They help people see clearly, verify quickly, decide confidently, and act without delay. That is what the Securevision Response Loop is designed to achieve — a connected cycle where every system informs the next.</p>
+<p class="max-800 center hp-loop-para-2">The most effective security systems do not simply record events after the fact. They help people see clearly, verify quickly, decide confidently, and act without delay. That is what the Securevision Response Loop is designed to achieve — a connected cycle where every system informs the next.</p>
 </div>
 <div class="loop-wrap">
 <!-- SVG Connecting Cycle -->
@@ -302,8 +231,8 @@
 <div class="node-desc">Every event logged, searchable, and monitored in real-time</div>
 </div>
 </div>
-<div class="max-700 center text-center mt-32" style="text-align: center;">
-<div class="btn-group" style="justify-content: center;">
+<div class="max-700 center text-center mt-32">
+<div class="btn-group hp-btn-center">
 <a class="btn btn-primary" href="/systems/">Explore How Our Systems Work</a>
 </div>
 </div>
@@ -316,38 +245,38 @@
 <span class="eyebrow">The Operational Reality</span>
 <h2>Does Any of This Sound Familiar?</h2>
 </div>
-<div class="grid-2" style="gap:20px;margin-top:40px;max-width:900px;">
-<div style="display:flex;gap:14px;align-items:flex-start;background:#fff;padding:20px 24px;border-radius:10px;border:1px solid #e2e8f0;">
-<span style="font-size:18px;flex-shrink:0;margin-top:2px;">⚠️</span>
-<p style="margin:0;font-size:15px;color:#475569;line-height:1.6;">Residents complain the intercom app is unreliable — calls drop, doors do not release, nobody knows who to call.</p>
+<div class="grid-2 hp-problem-grid">
+<div class="hp-problem-card">
+<span class="hp-problem-icon">⚠️</span>
+<p class="hp-problem-body">Residents complain the intercom app is unreliable — calls drop, doors do not release, nobody knows who to call.</p>
 </div>
-<div style="display:flex;gap:14px;align-items:flex-start;background:#fff;padding:20px 24px;border-radius:10px;border:1px solid #e2e8f0;">
-<span style="font-size:18px;flex-shrink:0;margin-top:2px;">⚠️</span>
-<p style="margin:0;font-size:15px;color:#475569;line-height:1.6;">Visitors wait at the gate because no one can verify access quickly — queues form, frustration builds, guards are overwhelmed.</p>
+<div class="hp-problem-card">
+<span class="hp-problem-icon">⚠️</span>
+<p class="hp-problem-body">Visitors wait at the gate because no one can verify access quickly — queues form, frustration builds, guards are overwhelmed.</p>
 </div>
-<div style="display:flex;gap:14px;align-items:flex-start;background:#fff;padding:20px 24px;border-radius:10px;border:1px solid #e2e8f0;">
-<span style="font-size:18px;flex-shrink:0;margin-top:2px;">⚠️</span>
-<p style="margin:0;font-size:15px;color:#475569;line-height:1.6;">CCTV footage exists but finding the right clip takes too long. By the time it is found, the moment has passed.</p>
+<div class="hp-problem-card">
+<span class="hp-problem-icon">⚠️</span>
+<p class="hp-problem-body">CCTV footage exists but finding the right clip takes too long. By the time it is found, the moment has passed.</p>
 </div>
-<div style="display:flex;gap:14px;align-items:flex-start;background:#fff;padding:20px 24px;border-radius:10px;border:1px solid #e2e8f0;">
-<span style="font-size:18px;flex-shrink:0;margin-top:2px;">⚠️</span>
-<p style="margin:0;font-size:15px;color:#475569;line-height:1.6;">Guards spend most of their time on routine tasks — answering intercoms, logging visitors, monitoring screens — instead of actual security.</p>
+<div class="hp-problem-card">
+<span class="hp-problem-icon">⚠️</span>
+<p class="hp-problem-body">Guards spend most of their time on routine tasks — answering intercoms, logging visitors, monitoring screens — instead of actual security.</p>
 </div>
-<div style="display:flex;gap:14px;align-items:flex-start;background:#fff;padding:20px 24px;border-radius:10px;border:1px solid #e2e8f0;">
-<span style="font-size:18px;flex-shrink:0;margin-top:2px;">⚠️</span>
-<p style="margin:0;font-size:15px;color:#475569;line-height:1.6;">Different systems — CCTV, access control, intercom, alarm — do not share information. Each operates in isolation with no common view.</p>
+<div class="hp-problem-card">
+<span class="hp-problem-icon">⚠️</span>
+<p class="hp-problem-body">Different systems — CCTV, access control, intercom, alarm — do not share information. Each operates in isolation with no common view.</p>
 </div>
-<div style="display:flex;gap:14px;align-items:flex-start;background:#fff;padding:20px 24px;border-radius:10px;border:1px solid #e2e8f0;">
-<span style="font-size:18px;flex-shrink:0;margin-top:2px;">⚠️</span>
-<p style="margin:0;font-size:15px;color:#475569;line-height:1.6;">Upgrades are becoming harder because everything was installed at different times by different contractors with no integration in mind.</p>
+<div class="hp-problem-card">
+<span class="hp-problem-icon">⚠️</span>
+<p class="hp-problem-body">Upgrades are becoming harder because everything was installed at different times by different contractors with no integration in mind.</p>
 </div>
 </div>
-<div style="margin-top:32px;max-width:900px;">
-<div style="background:var(--primary-blue,#0056b3);border-radius:12px;padding:28px 32px;">
-<p style="margin:0;font-size:16px;color:#fff;line-height:1.7;">If any of these sound familiar, the problem may not be the individual devices. <strong style="color:#fff;">The problem may be how the systems work together</strong> — or more precisely, that they were never designed to work together at all.</p>
+<div class="hp-callout-wrap">
+<div class="hp-callout-blue">
+<p class="hp-callout-blue-text">If any of these sound familiar, the problem may not be the individual devices. <strong>The problem may be how the systems work together</strong> — or more precisely, that they were never designed to work together at all.</p>
 </div>
-<div style="text-align:center;margin-top:20px;">
-<a href="/contact.html" style="display:inline-block;padding:12px 32px;border:2px solid #94a3b8;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:#475569;text-decoration:none;background:transparent;transition:border-color 0.2s,color 0.2s;" onmouseover="this.style.borderColor='var(--primary-blue)';this.style.color='var(--primary-blue)'" onmouseout="this.style.borderColor='#94a3b8';this.style.color='#475569'">Contact Us →</a>
+<div class="hp-callout-blue-cta">
+<a href="/contact.html" onmouseover="this.style.borderColor='var(--primary-blue)';this.style.color='var(--primary-blue)'" onmouseout="this.style.borderColor='#94a3b8';this.style.color='#475569'">Contact Us →</a>
 </div>
 </div>
 </div>
@@ -426,7 +355,7 @@
 <div class="rel-card-footer">Explore →</div>
 </a>
 </div>
-<div class="text-center mt-48" style="padding-top:16px;">
+<div class="text-center mt-48 hp-pt-16">
 <a class="btn btn-outline-dark" href="/solutions/">View All Solutions →</a>
 </div>
 </div>
@@ -538,43 +467,43 @@
 <div class="container">
 <span class="eyebrow">Free Resources</span>
 <h2>Learn Before You Buy</h2>
-<p class="subtitle" style="margin-bottom:40px;">Every resource written from direct Singapore installation experience — no registration required.</p>
-<div class="grid-3" style="gap:20px;">
-<a href="/resources/guides.html" class="card card-clickable" style="padding:24px;text-decoration:none;">
-<div style="font-size:22px;margin-bottom:10px;">📖</div>
-<h3 style="font-size:16px;margin-bottom:8px;">Technical Guides</h3>
-<p style="font-size:13px;color:var(--text-gray);margin-bottom:12px;">CCTV, alarms, access control, intercoms, networking, and renovation planning — explained for non-technical readers.</p>
-<span style="font-size:13px;font-weight:700;color:var(--primary-blue);">9 guides →</span>
+<p class="subtitle hp-subtitle-mb">Every resource written from direct Singapore installation experience — no registration required.</p>
+<div class="grid-3 hp-grid-gap">
+<a href="/resources/guides.html" class="card card-clickable hp-resource-card">
+<div class="hp-resource-card-icon">📖</div>
+<h3 class="hp-resource-card-title">Technical Guides</h3>
+<p class="hp-resource-card-body">CCTV, alarms, access control, intercoms, networking, and renovation planning — explained for non-technical readers.</p>
+<span class="hp-start-card-link">9 guides →</span>
 </a>
-<a href="/resources/checklists.html" class="card card-clickable" style="padding:24px;text-decoration:none;">
-<div style="font-size:22px;margin-bottom:10px;">✅</div>
-<h3 style="font-size:16px;margin-bottom:8px;">Security Checklists</h3>
-<p style="font-size:13px;color:var(--text-gray);margin-bottom:12px;">Scored gap assessments for condominiums, commercial buildings, care facilities, and dormitories — suitable for AGM proposals.</p>
-<span style="font-size:13px;font-weight:700;color:var(--primary-blue);">6 checklists →</span>
+<a href="/resources/checklists.html" class="card card-clickable hp-resource-card">
+<div class="hp-resource-card-icon">✅</div>
+<h3 class="hp-resource-card-title">Security Checklists</h3>
+<p class="hp-resource-card-body">Scored gap assessments for condominiums, commercial buildings, care facilities, and dormitories — suitable for AGM proposals.</p>
+<span class="hp-start-card-link">6 checklists →</span>
 </a>
-<a href="/resources/calculators.html" class="card card-clickable" style="padding:24px;text-decoration:none;">
-<div style="font-size:22px;margin-bottom:10px;">🧮</div>
-<h3 style="font-size:16px;margin-bottom:8px;">Cost Calculators</h3>
-<p style="font-size:13px;color:var(--text-gray);margin-bottom:12px;">CCTV storage, camera coverage, CCTV cost, and access control cost — Singapore-calibrated, instant results.</p>
-<span style="font-size:13px;font-weight:700;color:var(--primary-blue);">4 calculators →</span>
+<a href="/resources/calculators.html" class="card card-clickable hp-resource-card">
+<div class="hp-resource-card-icon">🧮</div>
+<h3 class="hp-resource-card-title">Cost Calculators</h3>
+<p class="hp-resource-card-body">CCTV storage, camera coverage, CCTV cost, and access control cost — Singapore-calibrated, instant results.</p>
+<span class="hp-start-card-link">4 calculators →</span>
 </a>
-<a href="/resources/faq.html" class="card card-clickable" style="padding:24px;text-decoration:none;">
-<div style="font-size:22px;margin-bottom:10px;">❓</div>
-<h3 style="font-size:16px;margin-bottom:8px;">FAQ Library</h3>
-<p style="font-size:13px;color:var(--text-gray);margin-bottom:12px;">68 answered questions across CCTV, alarms, access control, intercoms, LPR, condominiums, and renovation planning.</p>
-<span style="font-size:13px;font-weight:700;color:var(--primary-blue);">Browse FAQs →</span>
+<a href="/resources/faq.html" class="card card-clickable hp-resource-card">
+<div class="hp-resource-card-icon">❓</div>
+<h3 class="hp-resource-card-title">FAQ Library</h3>
+<p class="hp-resource-card-body">68 answered questions across CCTV, alarms, access control, intercoms, LPR, condominiums, and renovation planning.</p>
+<span class="hp-start-card-link">Browse FAQs →</span>
 </a>
-<a href="/insights/" class="card card-clickable" style="padding:24px;text-decoration:none;">
-<div style="font-size:22px;margin-bottom:10px;">💡</div>
-<h3 style="font-size:16px;margin-bottom:8px;">Insights from the Field</h3>
-<p style="font-size:13px;color:var(--text-gray);margin-bottom:12px;">Practical articles on upgrade decisions, common mistakes, and operational lessons from Singapore security projects.</p>
-<span style="font-size:13px;font-weight:700;color:var(--primary-blue);">Read insights →</span>
+<a href="/insights/" class="card card-clickable hp-resource-card">
+<div class="hp-resource-card-icon">💡</div>
+<h3 class="hp-resource-card-title">Insights from the Field</h3>
+<p class="hp-resource-card-body">Practical articles on upgrade decisions, common mistakes, and operational lessons from Singapore security projects.</p>
+<span class="hp-start-card-link">Read insights →</span>
 </a>
-<a href="/resources/training-videos.html" class="card card-clickable" style="padding:24px;text-decoration:none;">
-<div style="font-size:22px;margin-bottom:10px;">🎬</div>
-<h3 style="font-size:16px;margin-bottom:8px;">Training Videos</h3>
-<p style="font-size:13px;color:var(--text-gray);margin-bottom:12px;">Step-by-step tutorials for Akuvox SmartPlus residents and managing agents — and manufacturer product videos.</p>
-<span style="font-size:13px;font-weight:700;color:var(--primary-blue);">Watch videos →</span>
+<a href="/resources/training-videos.html" class="card card-clickable hp-resource-card">
+<div class="hp-resource-card-icon">🎬</div>
+<h3 class="hp-resource-card-title">Training Videos</h3>
+<p class="hp-resource-card-body">Step-by-step tutorials for Akuvox SmartPlus residents and managing agents — and manufacturer product videos.</p>
+<span class="hp-start-card-link">Watch videos →</span>
 </a>
 </div>
 </div>
@@ -585,62 +514,62 @@
 <div class="container">
 <span class="eyebrow">Common Questions</span>
 <h2>Frequently Asked Questions</h2>
-<p class="subtitle" style="margin-bottom:40px;">Questions we hear most often from property owners and facility managers considering a security upgrade.</p>
-<div style="display:flex;flex-direction:column;gap:16px;">
+<p class="subtitle hp-subtitle-mb">Questions we hear most often from property owners and facility managers considering a security upgrade.</p>
+<div class="hp-faq-list">
 
-<div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start;">
-<div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--primary-blue,#0056b3);color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px;">1</div>
+<div class="hp-faq-item">
+<div class="hp-faq-num">1</div>
 <div>
-<p style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:#1e293b;margin:0 0 10px 0;text-align:left;">What security systems does Securevision provide?</p>
-<p style="font-size:15px;color:#475569;line-height:1.7;margin:0;text-align:left;">Securevision designs and installs CCTV and surveillance, burglar alarm systems, door access control, video intercom, vehicle management and LPR, IP telephony, network infrastructure, and integrated security management platforms. All systems are designed to work together as a single coordinated architecture rather than as separate independent products.</p>
-</div>
-</div>
-
-<div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start;">
-<div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--primary-blue,#0056b3);color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px;">2</div>
-<div>
-<p style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:#1e293b;margin:0 0 10px 0;text-align:left;">Which solution is right for my property?</p>
-<p style="font-size:15px;color:#475569;line-height:1.7;margin:0;text-align:left;">Start with your property type — the environment you manage determines the access patterns, visitor types, compliance obligations, and operational requirements that shape the system design. Use the "Where Do You Fit?" section above to find your starting point, or book a site assessment and we will identify the priorities before recommending any systems.</p>
+<p class="hp-faq-question">What security systems does Securevision provide?</p>
+<p class="hp-faq-answer">Securevision designs and installs CCTV and surveillance, burglar alarm systems, door access control, video intercom, vehicle management and LPR, IP telephony, network infrastructure, and integrated security management platforms. All systems are designed to work together as a single coordinated architecture rather than as separate independent products.</p>
 </div>
 </div>
 
-<div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start;">
-<div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--primary-blue,#0056b3);color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px;">3</div>
+<div class="hp-faq-item">
+<div class="hp-faq-num">2</div>
 <div>
-<p style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:#1e293b;margin:0 0 10px 0;text-align:left;">Can existing security systems be upgraded rather than replaced?</p>
-<p style="font-size:15px;color:#475569;line-height:1.7;margin:0;text-align:left;">Often yes. IP cameras in adequate condition, structured cabling, and managed network infrastructure can frequently be retained and integrated with new access control and management platforms. We assess existing infrastructure reuse potential during the site survey before agreeing any scope — and we present the honest case for what can be integrated and what genuinely needs replacing.</p>
+<p class="hp-faq-question">Which solution is right for my property?</p>
+<p class="hp-faq-answer">Start with your property type — the environment you manage determines the access patterns, visitor types, compliance obligations, and operational requirements that shape the system design. Use the "Where Do You Fit?" section above to find your starting point, or book a site assessment and we will identify the priorities before recommending any systems.</p>
 </div>
 </div>
 
-<div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start;">
-<div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--primary-blue,#0056b3);color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px;">4</div>
+<div class="hp-faq-item">
+<div class="hp-faq-num">3</div>
 <div>
-<p style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:#1e293b;margin:0 0 10px 0;text-align:left;">Does a property need all six system groups?</p>
-<p style="font-size:15px;color:#475569;line-height:1.7;margin:0;text-align:left;">No. Most properties use three or four system groups depending on their operational requirements. A residential home typically needs CCTV, burglar alarm, intercom, and auto gate. A large condominium typically uses all six. We specify only the groups that address the property's specific operational needs — not all six by default.</p>
+<p class="hp-faq-question">Can existing security systems be upgraded rather than replaced?</p>
+<p class="hp-faq-answer">Often yes. IP cameras in adequate condition, structured cabling, and managed network infrastructure can frequently be retained and integrated with new access control and management platforms. We assess existing infrastructure reuse potential during the site survey before agreeing any scope — and we present the honest case for what can be integrated and what genuinely needs replacing.</p>
 </div>
 </div>
 
-<div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start;">
-<div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--primary-blue,#0056b3);color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px;">5</div>
+<div class="hp-faq-item">
+<div class="hp-faq-num">4</div>
 <div>
-<p style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:#1e293b;margin:0 0 10px 0;text-align:left;">How does a site assessment work?</p>
-<p style="font-size:15px;color:#475569;line-height:1.7;margin:0;text-align:left;">A site assessment is a walkthrough of the property with our engineer — typically 60 to 90 minutes for a standard residential or commercial site, longer for large industrial or condominium properties. We review existing infrastructure, identify coverage gaps, understand the access patterns and visitor types, and discuss the operational priorities. The assessment is free and carries no obligation. It is the information-gathering step that allows us to design a system that fits the property rather than a standard package.</p>
+<p class="hp-faq-question">Does a property need all six system groups?</p>
+<p class="hp-faq-answer">No. Most properties use three or four system groups depending on their operational requirements. A residential home typically needs CCTV, burglar alarm, intercom, and auto gate. A large condominium typically uses all six. We specify only the groups that address the property's specific operational needs — not all six by default.</p>
 </div>
 </div>
 
-<div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start;">
-<div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--primary-blue,#0056b3);color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px;">6</div>
+<div class="hp-faq-item">
+<div class="hp-faq-num">5</div>
 <div>
-<p style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:#1e293b;margin:0 0 10px 0;text-align:left;">Can Securevision support systems installed by another contractor?</p>
-<p style="font-size:15px;color:#475569;line-height:1.7;margin:0;text-align:left;">Yes, subject to the system type and platform compatibility. For systems on compatible platforms — Hikvision, HikCentral, ZKTeco — we can take over maintenance and support. We do not refuse to support systems we did not install, but we will be honest about what level of support is practical before committing.</p>
+<p class="hp-faq-question">How does a site assessment work?</p>
+<p class="hp-faq-answer">A site assessment is a walkthrough of the property with our engineer — typically 60 to 90 minutes for a standard residential or commercial site, longer for large industrial or condominium properties. We review existing infrastructure, identify coverage gaps, understand the access patterns and visitor types, and discuss the operational priorities. The assessment is free and carries no obligation. It is the information-gathering step that allows us to design a system that fits the property rather than a standard package.</p>
 </div>
 </div>
 
-<div style="background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:28px 32px;display:flex;gap:20px;align-items:flex-start;">
-<div style="flex-shrink:0;width:32px;height:32px;border-radius:50%;background:var(--primary-blue,#0056b3);color:#fff;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px;">7</div>
+<div class="hp-faq-item">
+<div class="hp-faq-num">6</div>
 <div>
-<p style="font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:#1e293b;margin:0 0 10px 0;text-align:left;">How long does a typical security installation take?</p>
-<p style="font-size:15px;color:#475569;line-height:1.7;margin:0;text-align:left;">A standard residential home takes one day. A condominium estate upgrade typically takes one to three weeks. A large commercial or industrial project with extensive cabling takes three to six weeks. For occupied properties we phase the work to maintain full operations throughout and present a phased schedule as part of every proposal.</p>
+<p class="hp-faq-question">Can Securevision support systems installed by another contractor?</p>
+<p class="hp-faq-answer">Yes, subject to the system type and platform compatibility. For systems on compatible platforms — Hikvision, HikCentral, ZKTeco — we can take over maintenance and support. We do not refuse to support systems we did not install, but we will be honest about what level of support is practical before committing.</p>
+</div>
+</div>
+
+<div class="hp-faq-item">
+<div class="hp-faq-num">7</div>
+<div>
+<p class="hp-faq-question">How long does a typical security installation take?</p>
+<p class="hp-faq-answer">A standard residential home takes one day. A condominium estate upgrade typically takes one to three weeks. A large commercial or industrial project with extensive cabling takes three to six weeks. For occupied properties we phase the work to maintain full operations throughout and present a phased schedule as part of every proposal.</p>
 </div>
 </div>
 
