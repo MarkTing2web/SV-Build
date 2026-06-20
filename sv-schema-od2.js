@@ -179,7 +179,7 @@
         "@type": "Person",
         "name": SECUREVISION.authorName,
         "jobTitle": SECUREVISION.authorTitle,
-        "url": "https://sg.linkedin.com/in/lerweemeng"
+        "url": "https://sg.linkedin.com/company/securevision-pte-ltd"
       },
       "publisher": {
         "@type": "Organization",
