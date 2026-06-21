@@ -12,10 +12,7 @@
 <title>Book a Site Assessment in Singapore | Securevision</title>
 <meta content="Book a comprehensive security site assessment with Securevision Singapore. Our engineers will evaluate your property and recommend the right security systems." name="description"/>
 <link href="https://www.securevision.com.sg/request-site-assessment-singapore.html" rel="canonical"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="/sv-shared.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link href="/sv-forms.css" rel="stylesheet"/>
 <script src="/site-config.js"></script>
   <script src="/sv-schema.js"></script>
@@ -47,7 +44,7 @@
 
 .booking-page-header .eyebrow {
   display: inline-block;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--display-font);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -57,7 +54,7 @@
 }
 
 .booking-page-header h1 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--display-font);
   font-size: clamp(24px, 3vw, 36px);
   font-weight: 700;
   color: var(--text-dark);
@@ -66,7 +63,7 @@
 }
 
 .booking-page-header p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--body-font);
   font-size: 16px;
   color: var(--text-light);
   line-height: 1.7;
@@ -96,20 +93,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--display-font);
   font-size: 13px;
   font-weight: 700;
   background: #e5e7eb;
-  color: #9ca3af;
+  color: var(--text-light);
   transition: background 0.3s, color 0.3s;
   flex-shrink: 0;
 }
 
 .progress-step-label {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--body-font);
   font-size: 13px;
   font-weight: 500;
-  color: #9ca3af;
+  color: var(--text-light);
   transition: color 0.3s;
   white-space: nowrap;
 }
@@ -125,12 +122,12 @@
 }
 
 .progress-step.done .progress-step-num {
-  background: #10b981;
+  background: #25d366;
   color: #fff;
 }
 
 .progress-step.done .progress-step-label {
-  color: #6b7280;
+  color: var(--text-secondary);
 }
 
 .progress-connector {
@@ -143,15 +140,15 @@
 }
 
 .progress-connector.done {
-  background: #10b981;
+  background: #25d366;
 }
 
 /* ── Form card ── */
 .booking-form-card {
   background: #fff;
-  border-radius: 16px;
+  border-radius: 12px;
   border: 1px solid #e5e7eb;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  box-shadow: var(--shadow-card-hover);
   overflow: hidden;
 }
 
@@ -172,7 +169,7 @@
 }
 
 .booking-step-header h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--display-font);
   font-size: 18px;
   font-weight: 700;
   color: var(--text-dark);
@@ -180,7 +177,7 @@
 }
 
 .booking-step-header p {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--body-font);
   font-size: 14px;
   color: var(--text-light);
   margin: 0;
@@ -216,16 +213,16 @@
   background: #f9fafb;
   border: 2px solid #e5e7eb;
   border-radius: 12px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--display-font);
   font-weight: 600;
   font-size: 14px;
-  color: #6b7280;
+  color: var(--text-secondary);
   transition: all 0.2s;
   text-align: center;
 }
 
 .connection-label svg {
-  color: #9ca3af;
+  color: var(--text-light);
   transition: color 0.2s;
 }
 
@@ -237,6 +234,11 @@
 
 .connection-option input:checked + .connection-label svg {
   color: var(--primary-blue);
+}
+
+.connection-option input:focus-visible + .connection-label {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
 }
 
 /* ── Form fields ── */
@@ -258,7 +260,7 @@
 }
 
 .field-group label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--display-font);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -268,9 +270,9 @@
 
 .field-group input,
 .field-group select {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--body-font);
   padding: 11px 14px;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--border-subtle);
   border-radius: 8px;
   font-size: 15px;
   outline: none;
@@ -315,7 +317,7 @@
   background: #f9fafb;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--body-font);
   font-size: 13px;
   font-weight: 500;
   color: #374151;
@@ -326,8 +328,8 @@
   content: '';
   width: 16px;
   height: 16px;
-  border: 2px solid #d1d5db;
-  border-radius: 4px;
+  border: 2px solid var(--border-subtle);
+  border-radius: 8px;
   flex-shrink: 0;
   transition: all 0.15s;
   background: #fff;
@@ -347,6 +349,11 @@
   background-position: center;
 }
 
+.system-check input:focus-visible + .system-check-label {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
 /* ── Scheduling slots ── */
 .slot-block {
   background: #f9fafb;
@@ -364,7 +371,7 @@
 }
 
 .slot-block-label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--display-font);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -376,16 +383,16 @@
   background: none;
   border: none;
   font-size: 12px;
-  color: #9ca3af;
+  color: var(--text-light);
   cursor: pointer;
   padding: 2px 6px;
-  border-radius: 4px;
+  border-radius: 8px;
   transition: color 0.2s, background 0.2s;
 }
 
 .slot-remove:hover {
-  color: #ef4444;
-  background: #fef2f2;
+  color: var(--primary-blue);
+  background: var(--bg-light);
 }
 
 .add-slot-btn {
@@ -393,13 +400,13 @@
   align-items: center;
   gap: 8px;
   background: none;
-  border: 1px dashed #d1d5db;
+  border: 1px dashed var(--border-subtle);
   border-radius: 8px;
   padding: 11px 16px;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--body-font);
   font-size: 14px;
   font-weight: 500;
-  color: #6b7280;
+  color: var(--text-secondary);
   cursor: pointer;
   width: 100%;
   justify-content: center;
@@ -418,9 +425,9 @@
 
 /* ── Notes textarea ── */
 .field-group textarea {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--body-font);
   padding: 11px 14px;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--border-subtle);
   border-radius: 8px;
   font-size: 15px;
   outline: none;
@@ -455,11 +462,11 @@
 
 .btn-back {
   background: none;
-  border: 1px solid #d1d5db;
-  color: #6b7280;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
   padding: 11px 24px;
   border-radius: 8px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--display-font);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -481,7 +488,7 @@
   border: none;
   padding: 12px 32px;
   border-radius: 8px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--display-font);
   font-size: 14px;
   font-weight: 700;
   cursor: pointer;
@@ -497,7 +504,7 @@
 }
 
 .btn-submit:disabled {
-  background: #9ca3af;
+  background: var(--text-light);
   cursor: not-allowed;
 }
 
@@ -506,23 +513,36 @@
   text-align: center;
   padding: 16px 48px;
   border-top: 1px solid #f0f0f0;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--body-font);
   font-size: 12px;
-  color: #9ca3af;
+  color: var(--text-light);
   background: #fff;
 }
 
 /* ── Section label ── */
 .field-section-label {
-  font-family: 'Montserrat', sans-serif;
+  font-family: var(--display-font);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #9ca3af;
+  color: var(--text-light);
   margin-bottom: 14px;
   margin-top: 8px;
   display: block;
+}
+
+/* ── Form error styles ── */
+.field-error {
+  font-family: var(--body-font);
+  font-size: 13px;
+  color: #dc2626;
+  margin-top: 6px;
+  display: none;
+}
+.field-group input.error-border,
+.field-group select.error-border {
+  border-color: #dc2626;
 }
 
 /* ── Responsive ── */
@@ -555,7 +575,7 @@
   <div class="booking-page-header">
     <span class="eyebrow">Free · No Obligation</span>
     <h1 id="bookingPageTitle">Book a Site Assessment</h1>
-    <p>Tell us about your property and when to visit. We'll send the right engineer — no call centres, no guesswork.</p>
+    <p>Tell us about your property and when to visit. We'll send the right engineer - no call centres, no guesswork.</p>
   </div>
 
   <!-- Progress indicator -->
@@ -572,7 +592,7 @@
   </div>
 
   <!-- Form card -->
-  <div class="booking-form-card">
+  <form id="bookingForm" class="booking-form-card">
 
     <!-- ═══ STEP 1 ═══ -->
     <div class="booking-step active" id="step-1">
@@ -661,21 +681,21 @@
 
       <!-- Scheduling -->
       <span class="field-section-label">Preferred time slots</span>
-      <p style="font-family:'Inter',sans-serif;font-size:14px;color:#6b7280;margin-bottom:16px;margin-top:-8px;">We operate Monday to Friday. Suggest at least one slot — more options help us confirm faster.</p>
+      <p style="font-family: var(--body-font);font-size:14px;color:var(--text-secondary);margin-bottom:16px;margin-top:-8px;">We operate Monday to Friday. Suggest at least one slot - more options help us confirm faster.</p>
 
-      <!-- Slot 1 — always visible -->
+      <!-- Slot 1 - always visible -->
       <div class="slot-block" id="slot-1">
         <div class="slot-block-header">
           <span class="slot-block-label">Slot 1</span>
         </div>
-        <div class="field-row">
+        <div class="field-row" style="margin-bottom: 8px;">
           <div class="field-group">
-            <label>Date</label>
-            <input class="date-picker" name="slot_date_1" required="" type="date"/>
+            <label for="slot_date_1">Date</label>
+            <input id="slot_date_1" class="date-picker" name="slot_date_1" type="date"/>
           </div>
           <div class="field-group">
-            <label>Time Window</label>
-            <select name="slot_time_1" required="">
+            <label for="slot_time_1">Time Window</label>
+            <select id="slot_time_1" name="slot_time_1">
               <option disabled="" selected="" value="">Select time...</option>
               <option value="10:00 - 12:00">10:00 – 12:00</option>
               <option value="14:00 - 16:00">14:00 – 16:00</option>
@@ -683,9 +703,10 @@
             </select>
           </div>
         </div>
+        <div class="field-error" id="slot1-error">Please select both a date and a time slot.</div>
       </div>
 
-      <!-- Slot 2 — hidden by default -->
+      <!-- Slot 2 - hidden by default -->
       <div class="slot-block" id="slot-2" style="display:none;">
         <div class="slot-block-header">
           <span class="slot-block-label">Slot 2</span>
@@ -693,12 +714,12 @@
         </div>
         <div class="field-row">
           <div class="field-group">
-            <label>Date</label>
-            <input class="date-picker" name="slot_date_2" type="date"/>
+            <label for="slot_date_2">Date</label>
+            <input id="slot_date_2" class="date-picker" name="slot_date_2" type="date"/>
           </div>
           <div class="field-group">
-            <label>Time Window</label>
-            <select name="slot_time_2">
+            <label for="slot_time_2">Time Window</label>
+            <select id="slot_time_2" name="slot_time_2">
               <option selected="" value="">Select time...</option>
               <option value="10:00 - 12:00">10:00 – 12:00</option>
               <option value="14:00 - 16:00">14:00 – 16:00</option>
@@ -708,7 +729,7 @@
         </div>
       </div>
 
-      <!-- Slot 3 — hidden by default -->
+      <!-- Slot 3 - hidden by default -->
       <div class="slot-block" id="slot-3" style="display:none;">
         <div class="slot-block-header">
           <span class="slot-block-label">Slot 3</span>
@@ -716,12 +737,12 @@
         </div>
         <div class="field-row">
           <div class="field-group">
-            <label>Date</label>
-            <input class="date-picker" name="slot_date_3" type="date"/>
+            <label for="slot_date_3">Date</label>
+            <input id="slot_date_3" class="date-picker" name="slot_date_3" type="date"/>
           </div>
           <div class="field-group">
-            <label>Time Window</label>
-            <select name="slot_time_3">
+            <label for="slot_time_3">Time Window</label>
+            <select id="slot_time_3" name="slot_time_3">
               <option selected="" value="">Select time...</option>
               <option value="10:00 - 12:00">10:00 – 12:00</option>
               <option value="14:00 - 16:00">14:00 – 16:00</option>
@@ -740,7 +761,7 @@
       <!-- Notes -->
       <div class="field-row single" style="margin-top:24px;">
         <div class="field-group">
-          <label for="notes">Anything else we should know? <span style="font-weight:400;text-transform:none;letter-spacing:0;color:#9ca3af;">(optional)</span></label>
+          <label for="notes">Anything else we should know? <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--text-light);">(optional)</span></label>
           <textarea id="notes" name="notes" placeholder="e.g. it's a 12-storey condo, main entrance is at Jalan Bukit Ho Swee..."></textarea>
         </div>
       </div>
@@ -755,11 +776,11 @@
           Back
         </button>
       </div>
-      <button class="btn-next" id="btnNext" onclick="goNext()" type="button">
+      <button class="btn-next" id="btnNext" type="submit">
         Continue
         <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><line x1="5" x2="19" y1="12" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </button>
-      <button class="btn-submit" id="btnSubmit" onclick="handleSubmit()" style="display:none;" type="button">
+      <button class="btn-submit" id="btnSubmit" style="display:none;" type="submit">
         <span id="submitLabel">Send Booking Request</span>
         <svg fill="none" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><line x1="5" x2="19" y1="12" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
       </button>
@@ -770,7 +791,10 @@
       Police Licenced · bizSAFE Level 3 · Serving Singapore Since 2006 · No obligation, no spam.
     </div>
 
-  </div><!-- end booking-form-card -->
+    <!-- Hidden submit button for Enter key -->
+    <button type="submit" style="display:none;"></button>
+
+  </form><!-- end booking-form-card -->
 
 </div><!-- end booking-inner -->
 </main>
@@ -914,6 +938,32 @@
     }
   });
 
+  /* ── Form submit handler for Enter key ── */
+  document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('bookingForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (currentStep === 1) {
+        window.goNext();
+      } else if (currentStep === 2) {
+        window.handleSubmit();
+      }
+    });
+
+    /* ── Set min and max date ── */
+    var today = new Date();
+    var todayStr = today.toISOString().split('T')[0];
+    
+    var maxDate = new Date();
+    maxDate.setMonth(maxDate.getMonth() + 3);
+    var maxDateStr = maxDate.toISOString().split('T')[0];
+
+    var dateInputs = document.querySelectorAll('input[type="date"]');
+    dateInputs.forEach(function (input) {
+      input.setAttribute('min', todayStr);
+      input.setAttribute('max', maxDateStr);
+    });
+  });
+
   /* ── Supabase submit ── */
   var SUPABASE_URL  = 'https://bppajrzwqeysrnrucwka.supabase.co';
   var SUPABASE_ANON = 'sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT';
@@ -924,11 +974,21 @@
     if (document.querySelector('input[name="sv_human_verify"]').value !== '') return;
 
     /* Validate slot 1 */
-    var slot1Date = document.querySelector('input[name="slot_date_1"]').value;
-    var slot1Time = document.querySelector('select[name="slot_time_1"]').value;
+    var slot1DateInput = document.querySelector('input[name="slot_date_1"]');
+    var slot1TimeSelect = document.querySelector('select[name="slot_time_1"]');
+    var slot1Date = slot1DateInput.value;
+    var slot1Time = slot1TimeSelect.value;
+    var errorDiv = document.getElementById('slot1-error');
+    
     if (!slot1Date || !slot1Time) {
-      alert('Please select at least one preferred date and time slot.');
+      slot1DateInput.classList.add('error-border');
+      slot1TimeSelect.classList.add('error-border');
+      errorDiv.style.display = 'block';
       return;
+    } else {
+      slot1DateInput.classList.remove('error-border');
+      slot1TimeSelect.classList.remove('error-border');
+      errorDiv.style.display = 'none';
     }
 
     var btn   = document.getElementById('btnSubmit');
@@ -966,7 +1026,7 @@
 
     if (result.error) {
       console.error(result.error);
-      label.textContent = 'Something went wrong — please try again.';
+      label.textContent = 'Something went wrong - please try again.';
       btn.disabled = false;
       return;
     }
