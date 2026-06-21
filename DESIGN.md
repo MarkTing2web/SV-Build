@@ -13,6 +13,21 @@ colors:
   border-light: "#e8eaed"
   bg-nav: "#0a0f18"
   bg-dark: "#0e1a2b"
+  # Category card gradients (insights hub)
+  gradient-alarm-1: "#3b0a0a"
+  gradient-alarm-2: "#7f1d1d"
+  gradient-cctv-1: "#0a1628"
+  gradient-cctv-2: "#1e40af"
+  gradient-access-1: "#0a2620"
+  gradient-access-2: "#065f46"
+  gradient-vehicle-1: "#2a1a00"
+  gradient-vehicle-2: "#92400e"
+  gradient-ip-1: "#0a2626"
+  gradient-ip-2: "#0e7490"
+  gradient-platform-1: "#1a0a2e"
+  gradient-platform-2: "#4c1d95"
+  gradient-planning-1: "#1a1a2e"
+  gradient-planning-2: "#334155"
 typography:
   display:
     fontFamily: "Securevision-Display, sans-serif"
