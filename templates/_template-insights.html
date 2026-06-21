@@ -1,7 +1,7 @@
 SECUREVISION INSIGHTS ARTICLE TEMPLATE
 
 PAGE TYPE: Insights / Blog Articles
-VERSION: v2.0 — May 2026
+VERSION: v2.0: May 2026
 INSTRUCTION FILE: INSTRUCTION-insights.md v1.0
 
 This template is the authoritative HTML for all /insights/ articles.
@@ -10,32 +10,32 @@ issues found in the v1 article generation (April 2026 batch).
 
 ═══ WHAT CHANGED FROM THE OLD ARTICLES ═══════════════════════════════
 
-The April 2026 batch of insight articles had these problems — all fixed here:
+The April 2026 batch of insight articles had these problems: all fixed here:
 
-1. INLINE <style> BLOCK — all four old articles had one. It OVERRODE
+1. INLINE <style> BLOCK: all four old articles had one. It OVERRODE
    sv-shared's correct callout-box (dark navy) and verdict-box (left-border
    blue) with wrong colours. Every typography rule belongs in sv-shared.
    Section 38 (May 2026) adds .prose and .article-body to sv-shared.
    This template has NO inline <style> block.
 
-2. WRONG HEADER — all used class="hero-portfolio" with inline padding:140px
+2. WRONG HEADER: all used class="hero-portfolio" with inline padding:140px
    and inline background. INSTRUCTION says: gradient header, no image,
    badge badge-primary, publish date in byline.
 
-3. WRONG BREADCRUMB — all used <div class="sv-breadcrumb" style="...">
+3. WRONG BREADCRUMB: all used <div class="sv-breadcrumb" style="...">
    with inline style. Correct is <nav class="sv-breadcrumb"> with no inline style.
 
-4. WRONG CALLOUT/VERDICT — because the inline style block overrode sv-shared,
+4. WRONG CALLOUT/VERDICT: because the inline style block overrode sv-shared,
    callout was light-blue and verdict was orange. sv-shared has: callout=
    #f0f7ff with blue left border; verdict= dark navy #0E1A2B with white text.
 
-5. WRONG FINAL CTA — all used class="cta-sec-final" with fully inline styles.
+5. WRONG FINAL CTA: all used class="cta-sec-final" with fully inline styles.
    Correct is class="cta-section cta-high-impact cta-skyline". Buttons must
    use .btn .btn-primary and .btn .btn-outline-light.
 
-6. NO WA FLOAT — none of the old articles had the WhatsApp floating button.
+6. NO WA FLOAT: none of the old articles had the WhatsApp floating button.
 
-7. TAGS INCONSISTENT — some used <span>, some used <a>. Correct is <a> with
+7. TAGS INCONSISTENT: some used <span>, some used <a>. Correct is <a> with
    hrefs to the category or tag filter URL.
 
 8. NO CANONICAL, no Outfit font, no article:author/published_time meta,
@@ -45,11 +45,11 @@ The April 2026 batch of insight articles had these problems — all fixed here:
    Correct is class="article-image-box" + class="image-caption".
 
 10. FOUNDER CARD had inline style overrides (background:transparent etc).
-    These are not needed — sv-shared already styles founder-card correctly.
+    These are not needed: sv-shared already styles founder-card correctly.
 
 ═══ STRICT RULES ══════════════════════════════════════════════════════
 
-- NO inline <style> block — not even one line
+- NO inline <style> block: not even one line
 - NO inline style= on any element except:
     (a) hero header: background-image for the cover photo
     (b) final CTA section: background-image override if not using cta-skyline
@@ -62,20 +62,20 @@ The April 2026 batch of insight articles had these problems — all fixed here:
 ═══ ANTI-GRAVITY INSTRUCTION ══════════════════════════════════════════
 
 When building an insights article:
-1. Use _template-insights.html as the base — do not invent a new layout
+1. Use _template-insights.html as the base: do not invent a new layout
 2. Fill in all [PLACEHOLDER] values from the article brief
 3. Do NOT add any inline styles except the hero background-image
 4. Do NOT add any <style> block
-5. Callout boxes: use <div class="callout-box"> — label is <p class="callout-label">KEY POINT</p>
-6. Verdict boxes: use <div class="verdict-box"> — label is <p class="verdict-label">Securevision Verdict</p>
+5. Callout boxes: use <div class="callout-box">: label is <p class="callout-label">KEY POINT</p>
+6. Verdict boxes: use <div class="verdict-box">: label is <p class="verdict-label">Securevision Verdict</p>
 7. In-article images: use <div class="article-image-box"><img><p class="image-caption">
 8. Tags: use <a> elements with href to /insights/?category=[slug], not <span>
 9. Breadcrumb: use <nav class="sv-breadcrumb">, not <div>
-10. Final CTA: use class="cta-section cta-high-impact cta-skyline" — no inline style needed
+10. Final CTA: use class="cta-section cta-high-impact cta-skyline": no inline style needed
     unless overriding with an article-specific CTA image
 
 ---
-HTML TEMPLATE BELOW — START HERE
+HTML TEMPLATE BELOW: START HERE
 ---
 
 <!DOCTYPE html>
@@ -91,9 +91,9 @@ HTML TEMPLATE BELOW — START HERE
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
   <meta name="theme-color" content="#0056b3">
 
-  <!-- ═══ SEO — UPDATE ALL FIELDS PER ARTICLE ═══ -->
+  <!-- ═══ SEO: UPDATE ALL FIELDS PER ARTICLE ═══ -->
   <title>[Article Title] | Securevision Insights</title>
-  <meta name="description" content="[140–160 chars — a compelling reason to read, not a summary. Should create a knowledge gap or name a specific problem the reader has.]">
+  <meta name="description" content="[140–160 chars: a compelling reason to read, not a summary. Should create a knowledge gap or name a specific problem the reader has.]">
   <link rel="canonical" href="https://www.securevision.com.sg/insights/[slug].html">
   <meta property="og:title" content="[Article Title] | Securevision Insights">
   <meta property="og:description" content="[Same as meta description]">
@@ -108,7 +108,7 @@ HTML TEMPLATE BELOW — START HERE
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <!-- Both CSS files required on all insights pages -->
   <link rel="stylesheet" href="/sv-shared.css">
@@ -121,30 +121,30 @@ HTML TEMPLATE BELOW — START HERE
 </head>
 <body>
 
-<!-- NAV — injected by nav-footer.js -->
+<!-- NAV: injected by nav-footer.js -->
 <nav id="sv-nav"></nav>
 
 
 <!-- ═══════════════════════════════════════════════════════════
      ARTICLE HEADER
-     Dark gradient — no background image (image is for cover only).
+     Dark gradient: no background image (image is for cover only).
      Per INSTRUCTION-insights.md Section 5.
 
-     BADGE CATEGORY — use exactly one of:
+     BADGE CATEGORY: use exactly one of:
        Security Planning | Technology | Case Studies | Singapore Industry
 
-     BYLINE — exactly two lines:
+     BYLINE: exactly two lines:
        Line 1: Ler Wee Meng
        Line 2: Founder & CEO · Securevision · 37+ Years Experience · [DD Mon YYYY]
      ═══════════════════════════════════════════════════════════ -->
 <header class="insights-header">
   <div class="container" style="max-width:900px;">
 
-    <span class="badge badge-primary" style="margin-bottom:20px; display:inline-block;">[CATEGORY — e.g. Security Planning]</span>
+    <span class="badge badge-primary" style="margin-bottom:20px; display:inline-block;">[CATEGORY: e.g. Security Planning]</span>
 
     <h1 class="insights-header-title">[ARTICLE TITLE]</h1>
 
-    <p class="insights-header-intro">[Article intro — 1–2 sentences. The hook. First person or direct address. States the problem this article solves.]</p>
+    <p class="insights-header-intro">[Article intro: 1–2 sentences. The hook. First person or direct address. States the problem this article solves.]</p>
 
     <div class="hero-byline">
       <img src="/images/ler-wee-meng-bio.webp" alt="Ler Wee Meng" class="hero-byline-img">
@@ -167,7 +167,7 @@ HTML TEMPLATE BELOW — START HERE
       <li><a href="/">Home</a></li>
       <li><a href="/insights/">Insights</a></li>
       <li><a href="/insights/?category=[category-slug]">[Category Name]</a></li>
-      <li>[Short article title — max 40 chars]</li>
+      <li>[Short article title: max 40 chars]</li>
     </ul>
   </div>
 </nav>
@@ -193,13 +193,13 @@ HTML TEMPLATE BELOW — START HERE
 
         <section id="section1">
           <h2>1. [Section heading]</h2>
-          <p>[Body paragraph — writes as Ler Wee Meng speaking from 37 years of experience. Engineering-led, specific. Never generic or salesy. British English.]</p>
+          <p>[Body paragraph: writes as Ler Wee Meng speaking from 37 years of experience. Engineering-led, specific. Never generic or salesy. British English.]</p>
           <p>[Continue...]</p>
 
-          <!-- Callout box — use for KEY POINT, PLANNING POINT, COST DRIVERS, DESIGN RULE -->
+          <!-- Callout box: use for KEY POINT, PLANNING POINT, COST DRIVERS, DESIGN RULE -->
           <div class="callout-box">
             <p class="callout-label">KEY POINT</p>
-            <p>[The key takeaway — 1–3 sentences. Actionable and specific. Not generic advice.]</p>
+            <p>[The key takeaway: 1–3 sentences. Actionable and specific. Not generic advice.]</p>
           </div>
         </section>
 
@@ -207,10 +207,10 @@ HTML TEMPLATE BELOW — START HERE
           <h2>2. [Section heading]</h2>
           <p>[Body paragraph]</p>
 
-          <!-- In-article image — use article-image-box, never inline style -->
+          <!-- In-article image: use article-image-box, never inline style -->
           <div class="article-image-box">
-            <img src="/images/insight-[slug]-[desc].jpg" alt="[Descriptive alt text — what the image shows and why it is relevant]">
-            <p class="image-caption">[Caption — what this image shows. Italic, centred, 12px — handled by sv-shared.]</p>
+            <img src="/images/insight-[slug]-[desc].jpg" alt="[Descriptive alt text: what the image shows and why it is relevant]">
+            <p class="image-caption">[Caption: what this image shows. Italic, centred, 12px: handled by sv-shared.]</p>
           </div>
 
           <p>[Continue...]</p>
@@ -220,39 +220,39 @@ HTML TEMPLATE BELOW — START HERE
           <h2>3. [Section heading]</h2>
           <p>[Body paragraph]</p>
           <ul>
-            <li><strong>[Item label]</strong> — [description]</li>
-            <li><strong>[Item label]</strong> — [description]</li>
+            <li><strong>[Item label]</strong>: [description]</li>
+            <li><strong>[Item label]</strong>: [description]</li>
           </ul>
         </section>
 
         <!-- Add sections 4–N following the same pattern -->
         <!-- Each section: <section id="sectionN"><h2>N. Heading</h2>...</section> -->
 
-        <!-- VERDICT BOX — use for Securevision Verdict, Securevision View, Bottom Line -->
+        <!-- VERDICT BOX: use for Securevision Verdict, Securevision View, Bottom Line -->
         <!-- Appears at the end of the last or penultimate section -->
         <div class="verdict-box">
           <p class="verdict-label">Securevision Verdict</p>
-          <p>[Ler Wee Meng's professional position on this topic — 2–4 sentences. Engineering-led, specific to Singapore context. First person "we" or "I".]</p>
+          <p>[Ler Wee Meng's professional position on this topic: 2–4 sentences. Engineering-led, specific to Singapore context. First person "we" or "I".]</p>
         </div>
 
-        <!-- ═══ ARTICLE FOOTER ELEMENTS — order is fixed ═══ -->
+        <!-- ═══ ARTICLE FOOTER ELEMENTS: order is fixed ═══ -->
 
         <!-- 1. Divider -->
         <hr>
 
-        <!-- 2. Author bio — mandatory, 150–200 words -->
+        <!-- 2. Author bio: mandatory, 150–200 words -->
         <section id="author" class="author-bio-footer">
           <div class="abf-flex">
             <img src="/images/ler-wee-meng-bio.webp" alt="Ler Wee Meng" class="abf-img">
             <div class="abf-content">
               <h3>About the Author</h3>
               <p>Ler Wee Meng is the Founder and CEO of Securevision Pte Ltd, Singapore's integrated security systems specialist since 2006. He holds a Bachelor of Engineering (Electrical and Electronic) from the National University of Singapore and a Bachelor of Laws from the University of London, and brings over 37 years of hands-on experience spanning R&amp;D, engineering, project management, and systems integration.</p>
-              <p>Securevision has protected over 2,000 sites across Singapore — from Good Class Bungalows and MCST-managed condominiums to government institutions and industrial facilities. Ler is the architect of the Securevision SECURE™ Framework and the VESTA™ unified security management platform.</p>
+              <p>Securevision has protected over 2,000 sites across Singapore: from Good Class Bungalows and MCST-managed condominiums to government institutions and industrial facilities. Ler is the architect of the Securevision SECURE™ Framework and the VESTA™ unified security management platform.</p>
             </div>
           </div>
         </section>
 
-        <!-- 3. Tags — mandatory, 4–5 tags, use <a> not <span> -->
+        <!-- 3. Tags: mandatory, 4–5 tags, use <a> not <span> -->
         <div class="article-tags">
           <a href="/insights/?category=[category-slug]" class="tag-pill">[Category]</a>
           <a href="/insights/?tag=[tag-1]" class="tag-pill">[Tag 1]</a>
@@ -261,7 +261,7 @@ HTML TEMPLATE BELOW — START HERE
           <!-- Add 4th/5th tag if relevant -->
         </div>
 
-        <!-- 4. Prev/Next navigation — mandatory -->
+        <!-- 4. Prev/Next navigation: mandatory -->
         <nav class="prev-next-nav" aria-label="Article navigation">
           <a href="/insights/[prev-article-slug].html" class="nav-card">
             <span>← Previous Article</span>
@@ -281,17 +281,17 @@ HTML TEMPLATE BELOW — START HERE
       <aside>
         <div class="sticky-toc">
 
-          <!-- Table of contents — one entry per H2 section -->
+          <!-- Table of contents: one entry per H2 section -->
           <h3 class="toc-title">In this article</h3>
           <ul class="toc-list" id="tocList">
             <li><a href="#section1">1. [Section short label]</a></li>
             <li><a href="#section2">2. [Section short label]</a></li>
             <li><a href="#section3">3. [Section short label]</a></li>
-            <!-- One per H2 section — do NOT include author bio or tags -->
+            <!-- One per H2 section: do NOT include author bio or tags -->
             <li><a href="#author">Meet the Author</a></li>
           </ul>
 
-          <!-- Founder card — do NOT add inline styles, sv-shared handles styling -->
+          <!-- Founder card: do NOT add inline styles, sv-shared handles styling -->
           <div class="founder-card">
             <div class="fc-head">
               <img src="/images/ler-wee-meng-bio.webp" alt="Ler Wee Meng">
@@ -317,8 +317,8 @@ HTML TEMPLATE BELOW — START HERE
 
 <!-- ═══ RELATED INSIGHTS ═══ -->
 <!-- Outside layout wrapper, full width, sv-section-grey background -->
-<!-- ALWAYS exactly 3 nav-card links — no more, no fewer.
-     Uses .insights-related-grid (NOT .related-grid) — this class is
+<!-- ALWAYS exactly 3 nav-card links: no more, no fewer.
+     Uses .insights-related-grid (NOT .related-grid): this class is
      scoped to insights pages only and hard-caps at 3 columns.
      .related-grid uses auto-fit and could expand to 4+ columns.
      See sv-shared.css Section 38c for the definition and rationale. -->
@@ -349,7 +349,7 @@ HTML TEMPLATE BELOW — START HERE
 
 
 <!-- ═══ FINAL CTA ═══ -->
-<!-- Uses cta-skyline class — no inline style needed for background.
+<!-- Uses cta-skyline class: no inline style needed for background.
      If this article has a specific CTA image, add:
      style="background-image: linear-gradient(...), url('/images/insight-[slug]-cta.jpg');"
      to the section element. Otherwise leave the section element clean. -->
@@ -368,10 +368,10 @@ HTML TEMPLATE BELOW — START HERE
 <!-- ═══ END FINAL CTA ═══ -->
 
 
-<!-- FOOTER — injected by nav-footer.js -->
+<!-- FOOTER: injected by nav-footer.js -->
 <footer id="sv-footer"></footer>
 
-<!-- WHATSAPP FLOAT — mandatory on all pages -->
+<!-- WHATSAPP FLOAT: mandatory on all pages -->
 <a href="https://wa.me/6593860466" class="sv-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
@@ -382,7 +382,7 @@ HTML TEMPLATE BELOW — START HERE
 <script src="/nav-footer.js"></script>
 <script src="/sv-search.js"></script>
 
-<!-- TOC scroll-spy — highlights active section in sidebar TOC -->
+<!-- TOC scroll-spy: highlights active section in sidebar TOC -->
 <script>
 (function() {
   var tocLinks = document.querySelectorAll('.toc-list a');
@@ -418,25 +418,25 @@ HTML TEMPLATE BELOW — START HERE
      Confirm these are present before building insights pages.
 
      Section 38 also confirms these classes are already defined:
-     .callout-box / .callout-label — blue left-border panel
-     .verdict-box / .verdict-label — dark navy panel, white text
-     .article-image-box / .image-caption — image with caption bar
-     .layout-with-sidebar — 65/35 article + sidebar grid
-     .sticky-toc / .toc-title / .toc-list — sidebar TOC
-     .founder-card / .fc-head / .fc-wa-link — sidebar CTA card
+     .callout-box / .callout-label: blue left-border panel
+     .verdict-box / .verdict-label: dark navy panel, white text
+     .article-image-box / .image-caption: image with caption bar
+     .layout-with-sidebar: 65/35 article + sidebar grid
+     .sticky-toc / .toc-title / .toc-list: sidebar TOC
+     .founder-card / .fc-head / .fc-wa-link: sidebar CTA card
      .author-bio-footer / .abf-flex / .abf-img / .abf-content
-     .article-tags / .tag-pill — tag pills after author bio
-     .prev-next-nav / .nav-card — article navigation
-     .related-grid — 3-column related articles grid (portfolio pages)
-     .insights-related-grid — hard-capped 3-column grid for insights pages ONLY
-                              (Section 38c) — use this instead of .related-grid
-     .hero-byline / .hero-byline-img / .hero-byline-text — header byline
-     .sv-wa-float — WhatsApp floating button
+     .article-tags / .tag-pill: tag pills after author bio
+     .prev-next-nav / .nav-card: article navigation
+     .related-grid: 3-column related articles grid (portfolio pages)
+     .insights-related-grid: hard-capped 3-column grid for insights pages ONLY
+                              (Section 38c): use this instead of .related-grid
+     .hero-byline / .hero-byline-img / .hero-byline-text: header byline
+     .sv-wa-float: WhatsApp floating button
 
      The following classes are STILL NEEDED in sv-shared or sv-guides:
-     .insights-header — article header dark gradient block
-     .insights-header-title — H1 typography in header
-     .insights-header-intro — intro paragraph in header
+     .insights-header: article header dark gradient block
+     .insights-header-title: H1 typography in header
+     .insights-header-intro: intro paragraph in header
      If these are missing, add them:
 
      .insights-header {

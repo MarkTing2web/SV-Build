@@ -2,89 +2,167 @@
 name: Securevision Design System
 description: Smart Security & Integrated Systems Visual Design Tokens and Guidelines
 colors:
-  primary: "#0056b3"
+  primary-blue: "#0056b3"
   dark-blue: "#003d82"
   accent-green: "#25d366"
-  text-dark: "#1b1f23"
+  text-dark: "#1B1F23"
   text-gray: "#333333"
-  text-light: "#5f6368"
-  bg-light: "#f8f9fa"
+  text-light: "#5F6368"
+  bg-light: "#F8F9FA"
   white: "#ffffff"
-  border-light: "#e8eaed"
-  bg-nav: "#0a0f18"
-  bg-dark: "#0e1a2b"
-  # Category card gradients (insights hub)
-  gradient-alarm-1: "#3b0a0a"
-  gradient-alarm-2: "#7f1d1d"
-  gradient-cctv-1: "#0a1628"
-  gradient-cctv-2: "#1e40af"
-  gradient-access-1: "#0a2620"
-  gradient-access-2: "#065f46"
-  gradient-vehicle-1: "#2a1a00"
-  gradient-vehicle-2: "#92400e"
-  gradient-ip-1: "#0a2626"
-  gradient-ip-2: "#0e7490"
-  gradient-platform-1: "#1a0a2e"
-  gradient-platform-2: "#4c1d95"
-  gradient-planning-1: "#1a1a2e"
-  gradient-planning-2: "#334155"
+  border-light: "#E8EAED"
+  c-commercial-light: "#FF6D00"
+  c-commercial: "#B54E00"
+  c-condos-light: "#4361EE"
+  c-condos: "#2d45c4"
+  c-healthcare-light: "#17A2A7"
+  c-healthcare: "#0D7377"
+  c-homes-light: "#38B000"
+  c-homes: "#257000"
+  c-industrial-light: "#7209B7"
+  c-industrial: "#5a0892"
+  c-institutions-light: "#2471A3"
+  c-institutions: "#1B4F72"
+  c-people: "#319795"
+  c-platform: "#38a169"
+  c-surveillance: "#2b6cb0"
+  c-vehicle: "#dd6b20"
+  page-accent: "#0056b3"
+  primary-access: "#0056b3"
+  overlay-80: "rgba(0,0,0,0.80)"
+  overlay-50: "rgba(0,0,0,0.50)"
+  overlay-15: "rgba(0,0,0,0.15)"
+  overlay-08: "rgba(0,0,0,0.08)"
+  overlay-custom: "rgba(14,26,43,0.82)"
+  utility-gray-1: "rgb(107, 114, 128)"
+  utility-gray-2: "#9ca3af"
+  utility-gray-3: "rgb(154, 160, 166)"
+  utility-blue-1: "rgb(197, 216, 248)"
+  utility-dark-1: "rgb(17, 24, 39)"
+  utility-dark-2: "rgb(14, 26, 43)"
+  utility-green-1: "rgb(22, 101, 52)"
+  utility-green-2: "#dcfce7"
+  utility-green-3: "#f0fdf4"
+  utility-gold: "rgb(255, 215, 0)"
+  drift-1: "#1a2942"
+  drift-2: "#64748b"
+  drift-3: "#f0f7ff"
+  drift-4: "#e53e3e"
+  drift-5: "#2d4a6b"
+  drift-6: "#d1d5db"
+  drift-7: "#e11d48"
+  drift-8: "#c53030"
+  drift-9: "#475569"
+  drift-10: "#1f2937"
+  drift-11: "#e2e8f0"
+  drift-12: "#94a3b8"
+  drift-13: "#0A0F18"
+  drift-14: "#d0d0d0"
+  drift-15: "#1a1a1a"
+  drift-16: "#888888"
+  drift-17: "#111111"
+  drift-18: "#555555"
+  drift-22: "#374151"
+  drift-23: "#3182ce"
+  drift-24: "#1a0a0a"
+  drift-25: "#2d1515"
+  drift-26: "#0a1a1a"
+  drift-27: "#0d2626"
+  drift-28: "#1a0f00"
+  drift-29: "#2d1f00"
+  drift-30: "#0a1a14"
+  drift-31: "#0d2620"
+  drift-32: "#1a0d2b"
+  drift-33: "#fff7f0"
+  drift-34: "#b7791f"
+  drift-35: "#fffdf0"
+  drift-36: "#276749"
+  drift-37: "#fff9e6"
+  drift-38: "#ffeeba"
+  drift-39: "#856404"
+  drift-40: "#16a34a"
+  drift-41: "#444"
+  drift-42: "#22c55e"
+  drift-43: "#b45309"
+  drift-44: "#a0c4e8"
+  drift-45: "#3b0a0a"
+  drift-46: "#7f1d1d"
+  drift-47: "#1e40af"
+  drift-48: "#065f46"
+  drift-49: "#92400e"
+  drift-50: "#0e7490"
+  drift-51: "#4c1d95"
+  drift-52: "#1a1a2e"
+  drift-53: "#dc2626"
+  drift-54: "#c7d8ed"
+  drift-55: "rgba(39,160,110,.45)"
+  drift-56: "rgba(212,132,10,.35)"
+  drift-57: "#1a7a54"
+  drift-58: "#a0620a"
+  drift-59: "#2464a0"
+  drift-60: "#fde68a"
+  drift-61: "#92670c"
+  drift-62: "#d2e3fc"
+  drift-63: "#4a9eff"
+  drift-64: "#0047a0"
+  drift-65: "#d97706"
+  drift-66: "#b91c1c"
+  drift-67: "#1d4ed8"
+  drift-68: "#dbeafe"
+  drift-69: "#1e3a5f"
+  drift-70: "#1e3a8a"
+  drift-71: "rgba(91, 158, 225, 0.15)"
+  drift-72: "#5b9ee1"
+  drift-73: "#c6c6c6"
+  drift-74: "#63b3ed"
+  state-error-1: "#FF0000"
+  state-error-2: "#cc0000"
+  state-warning: "#c05621"
+  state-success: "#2e7d32"
+  brand-linkedin: "#0A66C2"
+overlays:
+  overlay-1: "rgba(0,0,0,0.80)"
+  overlay-2: "rgba(0,0,0,0.50)"
+  overlay-3: "rgba(0,0,0,0.15)"
+  overlay-4: "rgba(0,0,0,0.08)"
+  overlay-search: "rgba(10,18,32,0.92)"
 typography:
   display:
-    fontFamily: "Securevision-Display, sans-serif"
-    fontSize: "clamp(36px, 5.5vw, 60px)"
-    fontWeight: 700
-    lineHeight: 1.1
-  headline:
-    fontFamily: "Securevision-Display, sans-serif"
-    fontSize: "clamp(26px, 3.5vw, 40px)"
-    fontWeight: 700
-    lineHeight: 1.2
-  title:
-    fontFamily: "Securevision-Display, sans-serif"
-    fontSize: "20px"
-    fontWeight: 600
-    lineHeight: 1.3
+    fontFamily: "'Securevision-Display', Montserrat, sans-serif"
   body:
-    fontFamily: "Securevision-Body, sans-serif"
-    fontSize: "15px"
-    fontWeight: 400
-    lineHeight: 1.6
-  label:
-    fontFamily: "Securevision-Display, sans-serif"
-    fontSize: "14px"
-    fontWeight: 600
-    lineHeight: 1.4
+    fontFamily: "'Securevision-Body', Inter, sans-serif"
+  quote:
+    fontFamily: "Georgia, serif"
+  scale:
+    - "11px"
+    - "12px"
+    - "13px"
+    - "14px"
+    - "16px"
+    - "18px"
+    - "20px"
+    - "24px"
+    - "28px"
+    - "32px"
+    - "40px"
+    - "48px"
 rounded:
-  sm: "8px"
-  md: "12px"
-spacing:
-  section: "80px"
-  gap-4col: "24px"
-  gap-3col: "28px"
-  gap-2col: "32px"
-  card-padding: "32px"
-components:
-  button-primary:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.white}"
-    rounded: "{rounded.sm}"
-    padding: "14px 32px"
-  button-primary-hover:
-    backgroundColor: "{colors.dark-blue}"
-  button-outline:
-    backgroundColor: "transparent"
-    textColor: "{colors.white}"
-    rounded: "{rounded.sm}"
-    padding: "14px 32px"
-  button-whatsapp:
-    backgroundColor: "{colors.accent-green}"
-    textColor: "{colors.text-dark}"
-    rounded: "{rounded.sm}"
-    padding: "14px 32px"
-  card:
-    backgroundColor: "{colors.white}"
-    rounded: "{rounded.md}"
-    padding: "{spacing.card-padding}"
+  radius-1: "1px"
+  radius-2: "2px"
+  radius-3: "3px"
+  radius-4: "4px"
+  radius-5: "5px"
+  radius-6: "6px"
+  radius-8: "8px"
+  radius-10: "10px"
+  radius-12: "12px"
+  radius-14: "14px"
+  radius-16: "16px"
+  radius-20: "20px"
+  radius-24: "24px"
+  radius-40: "40px"
+  radius-50: "50px"
+  radius-100: "100px"
 ---
 
 # Design System: Securevision
@@ -93,98 +171,47 @@ components:
 
 **Creative North Star: "The Blueprint Registry"**
 
-Securevision's visual design mirrors its physical security integrations: highly organized, technical, precise, and compliant. The layout prioritizes data density, readable document structure, and clear visual division over floating layouts or decorative fluff. 
-
-The aesthetic is built on clean horizontal grids, strong line weights, authoritative typography, and a restrained color palette. We explicitly reject SaaS-style sand/cream backgrounds and generic floating designs, favoring structured document containers that look solid, engineered, and reliable.
-
-**Key Characteristics:**
-- High readability with balanced line length (65–75ch for body prose).
-- Technical density using tables, specification lists, and visual diagrams.
-- Solid visual layout with clear container dividers.
+Securevision's visual design mirrors its physical security integrations: highly organized, technical, precise, and compliant. The layout prioritizes data density, readable document structure, and clear visual division over floating layouts or decorative fluff.
 
 ## 2. Colors
 
 The color palette is restrained and professional, conveying security, engineering rigor, and safety compliance.
 
 ### Primary
-- **Primary Blue** (#0056b3): The core brand identifier. Used for solid interactive states, primary action buttons, and focal section titles.
-
-### Secondary
-- **Deep Navy** (#003d82): Used for primary hover states, active headers, and deep visual contrast.
-- **WhatsApp Green** (#25d366): Dedicated solely to real-time communication CTA actions. Must pair with dark text (#1B1F23) to meet WCAG AA requirements.
+- **Primary Blue** (#0056b3)
+- **Deep Navy** (#003d82)
+- **WhatsApp Green** (#25d366)
 
 ### Neutral
-- **Charcoal Ink** (#1b1f23): Canonical dark text color for supreme readability.
-- **Muted Gray** (#5f6368): Used for auxiliary descriptions, dates, and non-essential subtitles.
-- **Off-White Cool** (#f8f9fa): The default background for alternating light sections.
-- **Light Gray Divider** (#e8eaed): Standard border and horizontal rules.
+- **Charcoal Ink** (#1b1f23)
+- **Muted Gray** (#5f6368)
+- **Off-White Cool** (#f8f9fa)
+- **Light Gray Divider** (#e8eaed)
+- **White** (#ffffff)
 
-### Named Rules
-**The Single Accent Rule.** Only one primary accent color (Primary Blue) is used for interfaces. Do not override this accent on solution or landing pages with sector-specific styling; keep the interface unified.
+### Approved Overlays
+- rgba(0,0,0,0.80)
+- rgba(0,0,0,0.50)
+- rgba(0,0,0,0.15)
+- rgba(0,0,0,0.08)
 
-**The Contrast Safety Rule.** Never use white text on WhatsApp Green or light gray copy on white backgrounds. All text must pass a minimum contrast of 4.5:1.
+### Categories
+- Commercial: #B54E00 / #FF6D00
+- Condos: #2d45c4 / #4361EE
+- Healthcare: #0D7377 / #17A2A7
+- Homes: #257000 / #38B000
+- Industrial: #5a0892 / #7209B7
+- Institutions: #1B4F72 / #2471A3
 
 ## 3. Typography
 
-**Display Font:** Montserrat (sans-serif)
-**Body Font:** Inter (sans-serif)
+**Display Font:** Montserrat
+**Body Font:** Inter
 
-The combination of the geometric, bold Montserrat for headings with the highly legible Inter for body copy ensures an authoritative, highly readable layout.
+### Scale
+11px, 12px, 13px, 14px, 16px, 18px, 20px, 24px, 28px, 32px, 40px, 48px
 
-### Hierarchy
-- **Display** (Bold 700, clamp(36px, 5.5vw, 60px), 1.1): Used exclusively for page-level hero headings.
-- **Headline** (Bold 700, clamp(26px, 3.5vw, 40px), 1.2): For main sections.
-- **Title** (Semi-bold 600, 20px, 1.3): For subtitles, component cards, and widget headers.
-- **Body** (Regular 400, 15px, 1.6): For main readable prose. Cap line width at 75ch.
-- **Label** (Semi-bold 600, 14px, 1.4): For button labels, tags, breadcrumbs, and eyebrow chips.
+## 4. Border Radius
 
-### Named Rules
-**The Heading Balance Rule.** Display and headline components must use `text-wrap: balance` to prevent awkward word orphans on medium viewports.
-
-**The Prose Line Limit Rule.** Multi-line body copy must never exceed a maximum line length of 75ch to prevent eye fatigue across technical documents.
-
-## 4. Elevation
-
-The elevation style is flat-by-default, emphasizing structured grid boundaries. Depth is conveyed structurally using border dividers and background block offsets.
-
-### Shadow Vocabulary
-- **Ambient Card Rest** (`0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04)`): The resting shadow for card containers, providing a very subtle, sharp lift off the page.
-- **Ambient Card Hover** (`0 8px 24px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.06)`): Applied when an interactive card is hovered, matching the translateY(-4px) motion logic.
-
-### Named Rules
-**The Flat-At-Rest Rule.** All static surfaces remain flat. Shadow elevation is reserved exclusively for interactive elements responding to user hover or focus states.
-
-## 5. Components
-
-Every component is solid and confident, communicating structural durability.
-
-### Buttons
-- **Shape:** Gently curved edges (8px radius)
-- **Primary:** Primary Blue background, white text, 52px height.
-- **Hover / Focus:** Translate Y (-2px) with Deep Navy background transition.
-- **Outline Dark:** Transparent background, 2px Primary Blue border, Primary Blue text. Transitions to solid Primary Blue background on hover.
-- **WhatsApp:** WhatsApp Green background, Charcoal Ink text.
-
-### Cards / Containers
-- **Corner Style:** Rounded corners (12px radius).
-- **Background:** Solid white or Off-White Cool.
-- **Shadow Strategy:** Ambient Card Rest, transitioning to Ambient Card Hover on hover.
-- **Border:** 1px Light Gray Divider.
-- **Internal Padding:** Spacing card padding (32px).
-
-### Navigation
-- **Style:** Two-row fixed navigation. Row 1 (52px) for branding and logo, Row 2 (44px) for links. Row 1 slides up on scroll (`.scrolled` class) to compress height.
-
-## 6. Do's and Don'ts
-
-### Do:
-- **Do** align body paragraphs and lists to a maximum readable width of 65–75ch.
-- **Do** ensure all interactive card items use the `.card-clickable` class with transition and focus states.
-- **Do** maintain a strict 52px height for all primary and outline buttons to preserve vertical alignment.
-
-### Don't:
-- **Don't** use border-left greater than 1px as a colored stripe on cards, callouts, or warnings (e.g., no side-stripe borders).
-- **Don't** use text gradients under any circumstances. Keep headlines solid.
-- **Don't** use decorative blurs or glassmorphism backgrounds.
-- **Don't** use tiny tracked uppercase eyebrows above every section.
-- **Don't** use numbered section markers (01, 02, 03) unless describing a sequential timeline or step-by-step process.
+**Approved Scale:**
+4px, 6px, 8px, 12px, 16px, 20px, 24px
