@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<title>SV Lead Dashboard</title>
+<style>
+  :root {
+    --blue: #0056b3;
+    --dark-blue: #003d82;
+    --navy: #0E1A2B;
+    --green: #16a34a;
+    --amber: #d97706;
+    --red: #dc2626;
+    --bg: #f0f4f8;
+    --white: #ffffff;
+    --border: #e2e8f0;
+    --text: #1B1F23;
+    --muted: #64748b;
+    --tag-bg: #eff6ff;
+    --tag-text: #1d4ed8;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    min-height: 100vh;
+  }
+
+  /* ── LOGIN SCREEN ────────────────────────────── */
+  #login-screen {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--navy);
+  }
+
+  .login-box {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 48px 40px;
+    width: 380px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+
+  .login-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+
+  .login-logo span { color: var(--blue); }
+
+  .login-sub {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+
+  .login-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+
+  .login-field label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+  }
+
+  .login-field select,
+  .login-field input {
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    color: var(--text);
+    background: var(--white);
+    outline: none;
+    transition: 0.2s;
+    width: 100%;
+  }
+
+  .login-field input[type="password"] {
+    letter-spacing: 6px;
+    font-size: 18px;
+  }
+
+  .login-field select:focus,
+  .login-field input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(0,86,179,0.1);
+  }
+
+  .btn-login {
+    width: 100%;
+    padding: 13px;
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: 0.2s;
+  }
+
+  .btn-login:hover { background: var(--dark-blue); }
+
+  .login-error {
+    margin-top: 14px;
+    padding: 10px 14px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 8px;
+    color: var(--red);
+    font-size: 13px;
+    display: none;
+    text-align: center;
+  }
+
+  /* ── DASHBOARD ───────────────────────────────── */
+  #dashboard { display: none; }
+
+  .top-bar {
+    background: var(--navy);
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .top-bar-brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -0.3px;
+  }
+
+  .top-bar-brand span { color: #63b3ed; }
+
+  .top-bar-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .top-bar-user {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    padding: 4px 12px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 20px;
+  }
+
+  .top-bar-user strong { color: #fff; }
+
+  .refresh-btn {
+    padding: 6px 14px;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .refresh-btn:hover { background: rgba(255,255,255,0.2); }
+
+  .last-updated { font-size: 12px; color: rgba(255,255,255,0.4); }
+
+  .sign-out-btn {
+    padding: 6px 14px;
+    background: transparent;
+    color: rgba(255,255,255,0.5);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .sign-out-btn:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+
+  .main { padding: 28px 32px; max-width: 1600px; margin: 0 auto; }
+
+  /* ── STAT CARDS ──────────────────────────────── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+  }
+
+  .stat-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin-bottom: 8px; }
+  .stat-value { font-size: 32px; font-weight: 700; color: var(--navy); line-height: 1; margin-bottom: 4px; }
+  .stat-sub   { font-size: 12px; color: var(--muted); }
+
+  .stat-card.accent       { border-top: 3px solid var(--blue); }
+  .stat-card.accent-green { border-top: 3px solid var(--green); }
+  .stat-card.accent-amber { border-top: 3px solid var(--amber); }
+
+  /* ── TABS ────────────────────────────────────── */
+  .tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 2px solid var(--border); }
+
+  .tab-btn {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: 0.15s;
+  }
+
+  .tab-btn.active { color: var(--blue); border-bottom-color: var(--blue); }
+  .tab-btn:hover:not(.active) { color: var(--text); }
+
+  /* ── FILTERS ─────────────────────────────────── */
+  .filters-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+
+  .search-input {
+    flex: 1;
+    min-width: 220px;
+    padding: 9px 14px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text);
+    background: var(--white);
+    outline: none;
+    transition: 0.2s;
+  }
+
+  .search-input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,86,179,0.1); }
+
+  .filter-select {
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--text);
+    background: var(--white);
+    outline: none;
+    cursor: pointer;
+  }
+
+  .results-count { margin-left: auto; font-size: 12px; color: var(--muted); white-space: nowrap; }
+
+  /* ── TABLE ───────────────────────────────────── */
+  .table-wrap {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    overflow-x: auto;
+  }
+
+  table { width: 100%; border-collapse: collapse; min-width: 1100px; }
+
+  thead th {
+    padding: 12px 16px;
+    background: #f8fafc;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+
+  .th-sortable { cursor: pointer; user-select: none; transition: 0.15s; }
+  .th-sortable:hover { color: var(--blue); background: #f0f4f8; }
+
+  .sort-arrow { margin-left: 4px; font-size: 10px; }
+  .sort-arrow.inactive { opacity: 0.3; }
+  .sort-arrow.active { color: var(--blue); opacity: 1; }
+
+  tbody tr { border-bottom: 1px solid var(--border); transition: 0.15s; cursor: pointer; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: #f8fafc; }
+
+  td { padding: 13px 16px; vertical-align: top; font-size: 13px; }
+
+  .td-name    { font-weight: 600; color: var(--navy); }
+  .td-contact { font-size: 12px; color: var(--muted); }
+
+  .badge { display: inline-block; padding: 3px 8px; border-radius: 20px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+  .badge-green    { background: #f0fdf4; color: #15803d; }
+  .badge-purple   { background: #faf5ff; color: #7e22ce; }
+  .badge-slate    { background: #f8fafc; color: #475569; }
+  .badge-attended { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+  .badge-pending  { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+
+  .interests-list { display: flex; flex-wrap: wrap; gap: 4px; }
+  .interest-tag { padding: 2px 7px; background: var(--tag-bg); color: var(--tag-text); border-radius: 4px; font-size: 11px; font-weight: 500; }
+
+  .date-cell { font-size: 12px; color: var(--muted); }
+  .date-cell strong { display: block; font-weight: 600; color: var(--text); font-size: 13px; }
+
+  .action-row { display: flex; gap: 6px; }
+
+  .act-btn {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid;
+    cursor: pointer;
+    transition: 0.15s;
+    white-space: nowrap;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .act-email      { background: #eff6ff; color: var(--blue); border-color: #bfdbfe; }
+  .act-email:hover { background: var(--blue); color: #fff; }
+  .act-whatsapp      { background: #f0fdf4; color: #16a34a; border-color: #bbf7d0; }
+  .act-whatsapp:hover { background: #16a34a; color: #fff; }
+
+  /* ── EMPTY / LOADING ─────────────────────────── */
+  .empty-state { padding: 60px 20px; text-align: center; color: var(--muted); }
+  .empty-state .icon { font-size: 36px; margin-bottom: 12px; }
+  .loading-state { padding: 60px 20px; text-align: center; color: var(--muted); font-size: 14px; }
+
+  /* ── DRAWER ──────────────────────────────────── */
+  #drawer-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 200;
+  }
+
+  #drawer {
+    position: fixed;
+    top: 0;
+    right: -560px;
+    width: 520px;
+    height: 100vh;
+    background: var(--white);
+    z-index: 201;
+    box-shadow: -8px 0 40px rgba(0,0,0,0.15);
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #drawer.open { right: 0; }
+
+  .drawer-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    z-index: 1;
+  }
+
+  .drawer-title { font-size: 16px; font-weight: 700; color: var(--navy); }
+  .drawer-type  { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-top: 2px; }
+
+  .drawer-close {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--muted);
+    display: flex; align-items: center; justify-content: center;
+    transition: 0.15s;
+  }
+
+  .drawer-close:hover { background: var(--bg); color: var(--text); }
+
+  .drawer-body { padding: 24px; flex: 1; }
+
+  .drawer-actions { display: flex; gap: 10px; margin-bottom: 24px; }
+
+  .drawer-act-btn {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: 0.2s;
+    text-decoration: none;
+    text-align: center;
+    display: block;
+  }
+
+  .drawer-email      { background: var(--blue); color: #fff; }
+  .drawer-email:hover { background: var(--dark-blue); }
+  .drawer-whatsapp      { background: #16a34a; color: #fff; }
+  .drawer-whatsapp:hover { background: #15803d; }
+
+  .dl-section { margin-bottom: 20px; }
+
+  .dl-section-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: var(--muted);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .dl-row { display: flex; gap: 12px; margin-bottom: 8px; align-items: flex-start; }
+  .dl-label { width: 110px; flex-shrink: 0; font-size: 12px; font-weight: 600; color: var(--muted); padding-top: 1px; }
+  .dl-value { font-size: 13px; color: var(--text); flex: 1; line-height: 1.5; word-break: break-all; }
+
+  .slot-block { background: var(--bg); border-radius: 8px; padding: 10px 14px; margin-bottom: 8px; font-size: 12px; }
+  .slot-block strong { display: block; color: var(--navy); font-size: 13px; margin-bottom: 2px; }
+
+  .notes-block { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 12px 14px; font-size: 13px; color: #78350f; line-height: 1.6; }
+
+  .source-block { background: var(--bg); border-radius: 8px; padding: 12px 14px; font-size: 12px; color: var(--muted); line-height: 1.7; word-break: break-all; }
+
+  /* ── ATTENDANCE PANEL ────────────────────────── */
+  .attendance-section {
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid;
+  }
+
+  .attendance-section.editable  { background: #f0f9ff; border-color: #bae6fd; }
+  .attendance-section.readonly  { background: #f8fafc; border-color: var(--border); }
+  .attendance-section.locked    { background: #f8fafc; border-color: var(--border); }
+
+  .attendance-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .attendance-section.editable .attendance-title  { color: #0369a1; }
+  .attendance-section.readonly .attendance-title  { color: var(--muted); }
+
+  .att-field { display: flex; flex-direction: column; gap: 5px; margin-bottom: 12px; }
+
+  .att-field label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.4px; color: var(--muted); }
+
+  .att-field select,
+  .att-field input,
+  .att-field textarea {
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--text);
+    background: var(--white);
+    outline: none;
+    transition: 0.2s;
+    width: 100%;
+  }
+
+  .att-field select:focus,
+  .att-field input:focus,
+  .att-field textarea:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,86,179,0.1); }
+
+  .att-field textarea { resize: vertical; min-height: 72px; }
+
+  .att-field select:disabled,
+  .att-field input:disabled,
+  .att-field textarea:disabled {
+    background: #f8fafc;
+    color: var(--muted);
+    cursor: not-allowed;
+    border-color: var(--border);
+  }
+
+  .att-save-btn {
+    width: 100%;
+    padding: 10px;
+    background: var(--blue);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 4px;
+  }
+
+  .att-save-btn:hover    { background: var(--dark-blue); }
+  .att-save-btn:disabled { background: var(--muted); cursor: not-allowed; }
+
+  .att-locked-msg {
+    text-align: center;
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 10px;
+    padding: 8px;
+    background: #f1f5f9;
+    border-radius: 6px;
+  }
+
+  /* ── TOAST ───────────────────────────────────── */
+  #toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: var(--navy);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 500;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  #toast.show    { opacity: 1; transform: translateX(-50%) translateY(0); }
+  #toast.success { background: #15803d; }
+  #toast.error   { background: var(--red); }
+
+  @media (max-width: 900px) {
+    .main { padding: 20px 16px; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    #drawer { width: 100%; }
+    .top-bar { padding: 0 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LOGIN SCREEN
+═══════════════════════════════════════════════════════════ -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">SECURE<span>VISION</span></div>
+    <div class="login-sub">Lead Dashboard — Team Access</div>
+
+    <div class="login-field">
+      <label>Who are you?</label>
+      <select id="login-name">
+        <option value="">— Select your name —</option>
+        <option value="Wee Meng">Wee Meng</option>
+        <option value="Jan Ngew">Jan Ngew</option>
+        <option value="Jaw">Jaw</option>
+        <option value="Meyyar">Meyyar</option>
+      </select>
+    </div>
+
+    <div class="login-field">
+      <label>PIN</label>
+      <input type="password" id="login-pin" placeholder="••••" maxlength="4" inputmode="numeric" autocomplete="off">
+    </div>
+
+    <button class="btn-login" onclick="handleLogin()">Enter Dashboard</button>
+    <div class="login-error" id="login-error">Incorrect name or PIN. Please try again.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     DASHBOARD
+═══════════════════════════════════════════════════════════ -->
+<div id="dashboard">
+  <div class="top-bar">
+    <div class="top-bar-brand">SECURE<span>VISION</span> &nbsp;·&nbsp; <span style="font-weight:400;font-size:13px;color:rgba(255,255,255,0.5)">Lead Dashboard</span></div>
+    <div class="top-bar-right">
+      <div class="top-bar-user">Signed in as <strong id="topbar-name"></strong></div>
+      <span class="last-updated" id="last-updated"></span>
+      <button class="refresh-btn" onclick="loadData()">↻ Refresh</button>
+      <button class="sign-out-btn" onclick="signOut()">Sign Out</button>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="stats-row">
+      <div class="stat-card accent">
+        <div class="stat-label">Total Leads</div>
+        <div class="stat-value" id="stat-total">—</div>
+        <div class="stat-sub">All time</div>
+      </div>
+      <div class="stat-card accent-green">
+        <div class="stat-label">Bookings</div>
+        <div class="stat-value" id="stat-bookings">—</div>
+        <div class="stat-sub">Site assessments</div>
+      </div>
+      <div class="stat-card accent-amber">
+        <div class="stat-label">Proposals</div>
+        <div class="stat-value" id="stat-proposals">—</div>
+        <div class="stat-sub">Quote requests</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-label">This Month</div>
+        <div class="stat-value" id="stat-month">—</div>
+        <div class="stat-sub" id="stat-month-label">—</div>
+      </div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('all', this)">All Leads</button>
+      <button class="tab-btn" onclick="switchTab('bookings', this)">Bookings</button>
+      <button class="tab-btn" onclick="switchTab('proposals', this)">Proposals</button>
+    </div>
+
+    <div class="filters-bar">
+      <input class="search-input" type="text" id="search-input" placeholder="Search name, email, phone, interests…" oninput="applyFilters()">
+      <select class="filter-select" id="filter-proptype" onchange="applyFilters()">
+        <option value="">All property types</option>
+        <option>Private Home</option>
+        <option>Condominium</option>
+        <option>Commercial</option>
+        <option>Industrial</option>
+        <option>Institutions</option>
+        <option>Healthcare</option>
+      </select>
+      <select class="filter-select" id="filter-attended" onchange="applyFilters()">
+        <option value="">All statuses</option>
+        <option value="attended">Attended</option>
+        <option value="pending">Pending</option>
+      </select>
+      <span class="results-count" id="results-count"></span>
+    </div>
+
+    <div class="table-wrap">
+      <div class="loading-state" id="loading-msg">Loading leads…</div>
+      <table id="leads-table" style="display:none">
+        <thead><tr id="table-head"></tr></thead>
+        <tbody id="table-body"></tbody>
+      </table>
+      <div class="empty-state" id="empty-state" style="display:none">
+        <div class="icon">📭</div>
+        <p>No leads match your current filters.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DRAWER -->
+<div id="drawer-overlay" onclick="closeDrawer()"></div>
+<div id="drawer">
+  <div class="drawer-header">
+    <div>
+      <div class="drawer-title" id="drawer-name"></div>
+      <div class="drawer-type"  id="drawer-type"></div>
+    </div>
+    <button class="drawer-close" onclick="closeDrawer()">✕</button>
+  </div>
+  <div class="drawer-body" id="drawer-body"></div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+// ════════════════════════════════════════════════════════════
+// !! CONFIGURATION — EDIT THESE VALUES !!
+// ════════════════════════════════════════════════════════════
+const CONFIG = {
+  supabaseUrl: 'https://bppajrzwqeysrnrucwka.supabase.co',
+  supabaseKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwcGFqcnp3cWV5c3JucnVjd2thIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3Nzc5Mzg0MywiZXhwIjoyMDkzMzY5ODQzfQ.iJYB_80DXVXy22rmqn0wByztTrXokbbJslSdyNnGVME',
+  telegramToken: '8465462532:AAFPI-zWDxo6FN3nW5rLhOvDmQ5_1jKZ3kE',
+  telegramChat:  '5512812879',
+
+  // Team PINs — change these to update individual PINs
+  users: {
+    'Wee Meng': { pin: '1111', isMaster: true  },
+    'Jan Ngew': { pin: '1111', isMaster: false },
+    'Jaw':      { pin: '1111', isMaster: false },
+    'Meyyar':   { pin: '1111', isMaster: false },
+  }
+};
+
+// ════════════════════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════════════════════
+let state = {
+  loggedIn: false,
+  currentUser: null,
+  isMaster: false,
+  bookings: [], proposals: [],
+  statuses: {},
+  activeTab: 'all',
+  filtered: [],
+  sortCol: 'date', sortDir: 'desc',
+  currentRecord: null
+};
+
+// ════════════════════════════════════════════════════════════
+// LOGIN
+// ════════════════════════════════════════════════════════════
+document.getElementById('login-pin').addEventListener('keydown', e => {
+  if (e.key === 'Enter') handleLogin();
+});
+
+function handleLogin() {
+  const name = document.getElementById('login-name').value;
+  const pin  = document.getElementById('login-pin').value;
+  const errEl = document.getElementById('login-error');
+  errEl.style.display = 'none';
+
+  if (!name || !pin) { errEl.style.display = 'block'; return; }
+
+  const user = CONFIG.users[name];
+  if (!user || user.pin !== pin) {
+    errEl.style.display = 'block';
+    document.getElementById('login-pin').value = '';
+    return;
+  }
+
+  state.loggedIn   = true;
+  state.currentUser = name;
+  state.isMaster   = user.isMaster;
+
+  document.getElementById('topbar-name').textContent = name;
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('dashboard').style.display = 'block';
+
+  loadData();
+}
+
+function signOut() {
+  state.loggedIn = false;
+  state.currentUser = null;
+  state.isMaster = false;
+  state.bookings = []; state.proposals = []; state.statuses = {};
+  document.getElementById('dashboard').style.display = 'none';
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('login-pin').value = '';
+  document.getElementById('login-name').value = '';
+}
+
+// ════════════════════════════════════════════════════════════
+// HEADERS
+// ════════════════════════════════════════════════════════════
+function buildHeaders() {
+  const key = CONFIG.supabaseKey;
+  if (key.startsWith('sb_secret_') || key.startsWith('sb_publishable_')) {
+    return { 'Content-Type': 'application/json', 'Authorization': `Bearer ${key}` };
+  }
+  return { 'Content-Type': 'application/json', 'apikey': key, 'Authorization': `Bearer ${key}` };
+}
+
+// ════════════════════════════════════════════════════════════
+// DATA
+// ════════════════════════════════════════════════════════════
+async function fetchTable(table) {
+  const res = await fetch(`${CONFIG.supabaseUrl}/rest/v1/${table}?select=*&order=created_at.desc`, {
+    headers: buildHeaders()
+  });
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  return await res.json();
+}
+
+async function fetchStatuses() {
+  try {
+    const res = await fetch(`${CONFIG.supabaseUrl}/rest/v1/sv_lead_status?select=*`, { headers: buildHeaders() });
+    if (!res.ok) return;
+    const rows = await res.json();
+    state.statuses = {};
+    rows.forEach(r => { state.statuses[r.lead_id] = r; });
+  } catch(e) {}
+}
+
+async function loadData() {
+  document.getElementById('loading-msg').style.display = 'block';
+  document.getElementById('leads-table').style.display = 'none';
+  document.getElementById('empty-state').style.display = 'none';
+
+  try {
+    const [bookings, proposals] = await Promise.all([
+      fetchTable('booking_submissions'),
+      fetchTable('proposal_submissions')
+    ]);
+    await fetchStatuses();
+
+    state.bookings  = bookings.map(r  => ({ ...r,  _type: 'booking'  }));
+    state.proposals = proposals.map(r => ({ ...r,  _type: 'proposal' }));
+
+    updateStats();
+    applyFilters();
+    seedKnownIds();
+
+    document.getElementById('last-updated').textContent =
+      'Updated ' + new Date().toLocaleTimeString('en-SG', { hour:'2-digit', minute:'2-digit' });
+
+  } catch(e) {
+    document.getElementById('loading-msg').textContent = 'Error loading data: ' + e.message;
+  }
+}
+
+// ════════════════════════════════════════════════════════════
+// STATS
+// ════════════════════════════════════════════════════════════
+function updateStats() {
+  const total = state.bookings.length + state.proposals.length;
+  document.getElementById('stat-total').textContent    = total;
+  document.getElementById('stat-bookings').textContent = state.bookings.length;
+  document.getElementById('stat-proposals').textContent = state.proposals.length;
+
+  const now = new Date();
+  const ms  = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
+  const all = [...state.bookings, ...state.proposals];
+  document.getElementById('stat-month').textContent = all.filter(r => r.created_at?.startsWith(ms)).length;
+  document.getElementById('stat-month-label').textContent = now.toLocaleString('en-SG', { month:'long', year:'numeric' });
+}
+
+// ════════════════════════════════════════════════════════════
+// TABS & FILTERS
+// ════════════════════════════════════════════════════════════
+function switchTab(tab, el) {
+  state.activeTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  applyFilters();
+}
+
+function applyFilters() {
+  const q        = document.getElementById('search-input').value.toLowerCase();
+  const pt       = document.getElementById('filter-proptype').value;
+  const attended = document.getElementById('filter-attended').value;
+
+  let rows = state.activeTab === 'all'       ? [...state.bookings, ...state.proposals]
+           : state.activeTab === 'bookings'  ? [...state.bookings]
+           : [...state.proposals];
+
+  if (q)  rows = rows.filter(r =>
+    (r.name||'').toLowerCase().includes(q) ||
+    (r.email||'').toLowerCase().includes(q) ||
+    (r.phone||'').toString().includes(q) ||
+    (r.interests||'').toLowerCase().includes(q) ||
+    (r.postal_code||'').toString().includes(q)
+  );
+
+  if (pt)             rows = rows.filter(r => (r.prop_type||'') === pt);
+  if (attended === 'attended') rows = rows.filter(r =>  state.statuses[r.id]?.attended_by);
+  if (attended === 'pending')  rows = rows.filter(r => !state.statuses[r.id]?.attended_by);
+
+  rows.sort(sortRows);
+  state.filtered = rows;
+  document.getElementById('results-count').textContent = `${rows.length} lead${rows.length !== 1 ? 's' : ''}`;
+  renderTable(rows);
+}
+
+// ════════════════════════════════════════════════════════════
+// SORT
+// ════════════════════════════════════════════════════════════
+function sortTable(col) {
+  if (state.sortCol === col) {
+    state.sortDir = state.sortDir === 'asc' ? 'desc' : 'asc';
+  } else {
+    state.sortCol = col;
+    state.sortDir = col === 'date' ? 'desc' : 'asc';
+  }
+  applyFilters();
+}
+
+function sortRows(a, b) {
+  const d = state.sortDir === 'asc' ? 1 : -1;
+  switch (state.sortCol) {
+    case 'date':     return (new Date(a.created_at||0) - new Date(b.created_at||0)) * d;
+    case 'name':     return (a.name||'').localeCompare(b.name||'') * d;
+    case 'email':    return (a.email||'').localeCompare(b.email||'') * d;
+    case 'phone':    return (a.phone||'').localeCompare(b.phone||'') * d;
+    case 'type':     return (a._type||'').localeCompare(b._type||'') * d;
+    case 'property': return (a.prop_type||'').localeCompare(b.prop_type||'') * d;
+    default:         return 0;
+  }
+}
+
+function sortArrow(col) {
+  if (state.sortCol !== col) return '<span class="sort-arrow inactive">⇅</span>';
+  return state.sortDir === 'asc'
+    ? '<span class="sort-arrow active">↑</span>'
+    : '<span class="sort-arrow active">↓</span>';
+}
+
+// ════════════════════════════════════════════════════════════
+// TABLE RENDER
+// ════════════════════════════════════════════════════════════
+function renderTable(rows) {
+  document.getElementById('loading-msg').style.display = 'none';
+
+  if (!rows.length) {
+    document.getElementById('leads-table').style.display = 'none';
+    document.getElementById('empty-state').style.display = 'block';
+    return;
+  }
+
+  document.getElementById('empty-state').style.display = 'none';
+  document.getElementById('leads-table').style.display = 'table';
+
+  document.getElementById('table-head').innerHTML = `
+    <th class="th-sortable" onclick="sortTable('date')">Date ${sortArrow('date')}</th>
+    <th class="th-sortable" onclick="sortTable('name')">Name ${sortArrow('name')}</th>
+    <th class="th-sortable" onclick="sortTable('email')">Email ${sortArrow('email')}</th>
+    <th class="th-sortable" onclick="sortTable('phone')">Phone ${sortArrow('phone')}</th>
+    <th class="th-sortable" onclick="sortTable('type')">Type ${sortArrow('type')}</th>
+    <th class="th-sortable" onclick="sortTable('property')">Property ${sortArrow('property')}</th>
+    <th>Interests</th>
+    <th>Attended By</th>
+    <th>Actions</th>
+  `;
+
+  const tbody = document.getElementById('table-body');
+  tbody.innerHTML = '';
+
+  rows.forEach(r => {
+    const isBooking = r._type === 'booking';
+    const dt = r.created_at ? new Date(r.created_at) : null;
+    const dateStr = dt ? dt.toLocaleDateString('en-SG', { day:'numeric', month:'short', year:'numeric' }) : '—';
+    const timeStr = dt ? dt.toLocaleTimeString('en-SG', { hour:'2-digit', minute:'2-digit' }) : '';
+    const waNum = (r.phone||'').replace(/\D/g,'');
+    const waMsg = encodeURIComponent(`Hi ${r.name||'there'}, thank you for reaching out to Securevision. I am following up on your ${isBooking?'site assessment booking':'proposal request'}.`);
+    const interests = parseInterests(r.interests);
+    const intentBadge = isBooking
+      ? `<span class="badge badge-green">${r.interaction_type||'Assessment'}</span>`
+      : `<span class="badge badge-purple">Proposal</span>`;
+    const status = state.statuses[r.id];
+    const attendedCell = status?.attended_by
+      ? `<span class="badge badge-attended">✓ ${esc(status.attended_by)}</span><div style="font-size:11px;color:var(--muted);margin-top:4px;">${formatDate(status.attended_on)}</div>`
+      : `<span class="badge badge-pending">Pending</span>`;
+
+    const tr = document.createElement('tr');
+    tr.onclick = () => openDrawer(r);
+    tr.innerHTML = `
+      <td><div class="date-cell"><strong>${dateStr}</strong>${timeStr}</div></td>
+      <td><div class="td-name">${esc(r.name||'—')}</div></td>
+      <td><div class="td-contact">${esc(r.email||'—')}</div></td>
+      <td><div class="td-contact">${esc(r.phone||'—')}</div></td>
+      <td>${intentBadge}</td>
+      <td>
+        <span class="badge badge-slate">${esc(r.prop_type||'—')}</span>
+        ${r.postal_code ? `<div style="font-size:11px;color:var(--muted);margin-top:4px;">${r.postal_code}</div>` : ''}
+      </td>
+      <td><div class="interests-list">${interests.map(i=>`<span class="interest-tag">${esc(i)}</span>`).join('')}</div></td>
+      <td>${attendedCell}</td>
+      <td onclick="event.stopPropagation()">
+        <div class="action-row">
+          ${r.email ? `<a href="mailto:${esc(r.email)}?subject=Re: Your Securevision Enquiry&body=Dear ${esc(r.name||'Sir/Madam')},%0D%0A%0D%0AThank you for reaching out to Securevision." class="act-btn act-email">✉ Email</a>` : ''}
+          ${waNum   ? `<a href="https://wa.me/65${waNum}?text=${waMsg}" target="_blank" class="act-btn act-whatsapp">💬 WhatsApp</a>` : ''}
+        </div>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// ════════════════════════════════════════════════════════════
+// DRAWER
+// ════════════════════════════════════════════════════════════
+function openDrawer(r) {
+  state.currentRecord = r;
+  const isBooking = r._type === 'booking';
+  document.getElementById('drawer-name').textContent = r.name || 'Unknown';
+  document.getElementById('drawer-type').textContent = isBooking ? 'Site Assessment Booking' : 'Proposal Request';
+
+  const waNum = (r.phone||'').replace(/\D/g,'');
+  const waMsg = encodeURIComponent(`Hi ${r.name||'there'}, thank you for reaching out to Securevision. I am following up on your ${isBooking?'site assessment booking':'proposal request'}.`);
+  const emailBody = `Dear ${r.name||'Sir/Madam'},%0D%0A%0D%0AThank you for reaching out to Securevision. I am following up on your enquiry.%0D%0A%0D%0AKind regards,%0D%0AWee Meng%0D%0AFounder & Director, Securevision Pte Ltd`;
+  const dt = r.created_at ? new Date(r.created_at) : null;
+  const dateStr = dt ? dt.toLocaleString('en-SG', { day:'numeric', month:'long', year:'numeric', hour:'2-digit', minute:'2-digit' }) : '—';
+
+  const status   = state.statuses[r.id] || {};
+  const attBy    = status.attended_by || '';
+  const attOn    = status.attended_on  ? status.attended_on.slice(0,16) : '';
+  const attNotes = status.attendance_notes || '';
+  const hasRecord = !!status.attended_by;
+
+  // Determine edit permissions
+  // Master (Wee Meng): always editable
+  // Staff: editable only if no record exists yet
+  const canEdit = state.isMaster || !hasRecord;
+
+  const teamOptions = Object.keys(CONFIG.users).map(n =>
+    `<option value="${n}" ${attBy===n?'selected':''}>${n}</option>`
+  ).join('');
+
+  const attendanceHTML = canEdit ? `
+    <div class="attendance-section editable">
+      <div class="attendance-title">📋 Attendance Record${state.isMaster && hasRecord ? ' — Edit Mode' : ''}</div>
+      <div class="att-field">
+        <label>Attended By</label>
+        <select id="att-by">
+          <option value="">— Select team member —</option>
+          ${teamOptions}
+        </select>
+      </div>
+      <div class="att-field">
+        <label>Attended On</label>
+        <input type="datetime-local" id="att-on" value="${esc(attOn)}">
+      </div>
+      <div class="att-field">
+        <label>Notes</label>
+        <textarea id="att-notes" placeholder="What was discussed, next steps…">${esc(attNotes)}</textarea>
+      </div>
+      <button class="att-save-btn" id="att-save-btn" onclick="saveAttendance()">Save Attendance Record</button>
+    </div>
+  ` : `
+    <div class="attendance-section readonly">
+      <div class="attendance-title">📋 Attendance Record</div>
+      <div class="att-field"><label>Attended By</label><input disabled value="${esc(attBy||'—')}"></div>
+      <div class="att-field"><label>Attended On</label><input disabled value="${attOn ? formatDate(status.attended_on) : '—'}"></div>
+      <div class="att-field"><label>Notes</label><textarea disabled>${esc(attNotes||'—')}</textarea></div>
+      <div class="att-locked-msg">🔒 Record saved. Contact Wee Meng to make changes.</div>
+    </div>
+  `;
+
+  let html = `
+    <div class="drawer-actions">
+      ${r.email ? `<a href="mailto:${esc(r.email)}?subject=Re: Your Securevision Enquiry&body=${emailBody}" class="drawer-act-btn drawer-email">✉ Send Email</a>` : ''}
+      ${waNum   ? `<a href="https://wa.me/65${waNum}?text=${waMsg}" target="_blank" class="drawer-act-btn drawer-whatsapp">💬 WhatsApp</a>` : ''}
+    </div>
+
+    ${attendanceHTML}
+
+    <div class="dl-section">
+      <div class="dl-section-title">Contact Details</div>
+      <div class="dl-row"><span class="dl-label">Name</span><span class="dl-value">${esc(r.name||'—')}</span></div>
+      <div class="dl-row"><span class="dl-label">Email</span><span class="dl-value">${r.email?`<a href="mailto:${esc(r.email)}" style="color:var(--blue)">${esc(r.email)}</a>`:'—'}</span></div>
+      <div class="dl-row"><span class="dl-label">Phone</span><span class="dl-value">${r.phone?`<a href="tel:${esc(r.phone)}" style="color:var(--blue)">${esc(r.phone)}</a>`:'—'}</span></div>
+      <div class="dl-row"><span class="dl-label">Submitted</span><span class="dl-value">${dateStr}</span></div>
+    </div>
+
+    <div class="dl-section">
+      <div class="dl-section-title">Enquiry Details</div>
+      <div class="dl-row"><span class="dl-label">Property Type</span><span class="dl-value">${esc(r.prop_type||'—')}</span></div>
+      <div class="dl-row"><span class="dl-label">Postal Code</span><span class="dl-value">${esc(r.postal_code||r.location||'—')}</span></div>
+      <div class="dl-row"><span class="dl-label">Interests</span><span class="dl-value">${esc(r.interests||'—')}</span></div>
+  `;
+
+  if (isBooking) {
+    html += `<div class="dl-row"><span class="dl-label">Meeting Type</span><span class="dl-value">${esc(r.interaction_type||'—')}</span></div></div>`;
+    const slots = [
+      { date: r.slot_date_1, time: r.slot_time_1 },
+      { date: r.slot_date_2, time: r.slot_time_2 },
+      { date: r.slot_date_3, time: r.slot_time_3 },
+    ].filter(s => s.date);
+    if (slots.length) {
+      html += `<div class="dl-section"><div class="dl-section-title">Preferred Slots</div>`;
+      slots.forEach((s,i) => { html += `<div class="slot-block"><strong>Option ${i+1}</strong>${esc(s.date)} &nbsp;·&nbsp; ${esc(s.time||'')}</div>`; });
+      html += `</div>`;
+    }
+  } else {
+    if (r.site_details) html += `<div class="dl-row"><span class="dl-label">Site Details</span><span class="dl-value">${esc(r.site_details)}</span></div>`;
+    html += `</div>`;
+  }
+
+  if (r.notes) html += `<div class="dl-section"><div class="dl-section-title">Notes from Prospect</div><div class="notes-block">${esc(r.notes)}</div></div>`;
+
+  html += `
+    <div class="dl-section">
+      <div class="dl-section-title">Source Tracking</div>
+      <div class="source-block">
+        <strong>Page:</strong> ${esc(r.source_page||'—')}<br>
+        <strong>Intent:</strong> ${esc(r.intent||'—')}<br>
+        <strong>Referrer:</strong> ${esc(r.referrer||'—')}<br>
+        ${r.utm_source   ? `<strong>UTM Source:</strong> ${esc(r.utm_source)}<br>`   : ''}
+        ${r.utm_medium   ? `<strong>UTM Medium:</strong> ${esc(r.utm_medium)}<br>`   : ''}
+        ${r.utm_campaign ? `<strong>UTM Campaign:</strong> ${esc(r.utm_campaign)}`   : ''}
+      </div>
+    </div>
+  `;
+
+  document.getElementById('drawer-body').innerHTML = html;
+  document.getElementById('drawer').classList.add('open');
+  document.getElementById('drawer-overlay').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.getElementById('drawer-overlay').style.display = 'none';
+  document.body.style.overflow = '';
+  state.currentRecord = null;
+}
+
+// ════════════════════════════════════════════════════════════
+// SAVE ATTENDANCE
+// ════════════════════════════════════════════════════════════
+async function saveAttendance() {
+  const r = state.currentRecord;
+  if (!r) return;
+
+  const attendedBy    = document.getElementById('att-by').value;
+  const attendedOn    = document.getElementById('att-on').value;
+  const attendanceNotes = document.getElementById('att-notes').value;
+
+  if (!attendedBy) { showToast('Please select a team member.', 'error'); return; }
+
+  const btn = document.getElementById('att-save-btn');
+  btn.disabled = true;
+  btn.textContent = 'Saving…';
+
+  const payload = {
+    lead_id: r.id,
+    lead_type: r._type,
+    attended_by: attendedBy,
+    attended_on: attendedOn ? new Date(attendedOn).toISOString() : null,
+    attendance_notes: attendanceNotes,
+    updated_at: new Date().toISOString()
+  };
+
+  try {
+    const existing = state.statuses[r.id];
+    const res = existing
+      ? await fetch(`${CONFIG.supabaseUrl}/rest/v1/sv_lead_status?lead_id=eq.${r.id}`, {
+          method: 'PATCH',
+          headers: { ...buildHeaders(), 'Prefer': 'return=representation' },
+          body: JSON.stringify(payload)
+        })
+      : await fetch(`${CONFIG.supabaseUrl}/rest/v1/sv_lead_status`, {
+          method: 'POST',
+          headers: { ...buildHeaders(), 'Prefer': 'return=representation' },
+          body: JSON.stringify(payload)
+        });
+
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+    state.statuses[r.id] = payload;
+    showToast('Attendance record saved.', 'success');
+    btn.textContent = 'Save Attendance Record';
+    btn.disabled = false;
+    applyFilters();
+    // Re-open drawer to refresh lock state
+    openDrawer(r);
+
+  } catch(e) {
+    showToast('Save failed: ' + e.message, 'error');
+    btn.textContent = 'Save Attendance Record';
+    btn.disabled = false;
+  }
+}
+
+// ════════════════════════════════════════════════════════════
+// TELEGRAM
+// ════════════════════════════════════════════════════════════
+async function sendTelegramNotification(r) {
+  if (!CONFIG.telegramToken || CONFIG.telegramToken.includes('PASTE')) return;
+  const isBooking = r._type === 'booking';
+  const dt = r.created_at ? new Date(r.created_at).toLocaleString('en-SG') : '—';
+  let slots = '';
+  if (isBooking) {
+    const s = [
+      r.slot_date_1 ? `• ${r.slot_date_1} ${r.slot_time_1||''}` : null,
+      r.slot_date_2 ? `• ${r.slot_date_2} ${r.slot_time_2||''}` : null,
+      r.slot_date_3 ? `• ${r.slot_date_3} ${r.slot_time_3||''}` : null,
+    ].filter(Boolean).join('\n');
+    if (s) slots = `\n\n🗓 Preferred Slots:\n${s}`;
+  }
+  const msg =
+`🔔 New Lead — Securevision
+
+${isBooking ? '📅 Site Assessment Booking' : '📋 Proposal Request'}
+👤 ${r.name||'—'}
+📧 ${r.email||'—'}
+📱 ${r.phone||'—'}
+🏠 ${r.prop_type||'—'} · ${r.postal_code||r.location||'—'}
+🔧 ${r.interests||'—'}
+⏰ ${dt}${slots}${r.site_details?'\n📝 '+r.site_details:''}${r.notes?'\n💬 '+r.notes:''}
+
+Source: ${r.source_page||'—'}`;
+
+  try {
+    await fetch(`https://api.telegram.org/bot${CONFIG.telegramToken}/sendMessage`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chat_id: CONFIG.telegramChat, text: msg })
+    });
+  } catch(e) {}
+}
+
+let _knownIds = new Set();
+
+function seedKnownIds() {
+  const all = [...state.bookings, ...state.proposals];
+  if (_knownIds.size === 0) {
+    _knownIds = new Set(all.map(r => r.id));
+    startPolling();
+  }
+}
+
+function startPolling() {
+  setInterval(async () => {
+    if (!state.loggedIn) return;
+    try {
+      const [b, p] = await Promise.all([
+        fetchTable('booking_submissions'),
+        fetchTable('proposal_submissions')
+      ]);
+      const all = [
+        ...b.map(r => ({ ...r, _type: 'booking'  })),
+        ...p.map(r => ({ ...r, _type: 'proposal' }))
+      ];
+      for (const r of all) {
+        if (!_knownIds.has(r.id)) {
+          _knownIds.add(r.id);
+          sendTelegramNotification(r);
+          showToast(`New lead from ${r.name||'unknown'}!`, 'success');
+        }
+      }
+      state.bookings  = b.map(r => ({ ...r, _type: 'booking'  }));
+      state.proposals = p.map(r => ({ ...r, _type: 'proposal' }));
+      await fetchStatuses();
+      updateStats();
+      applyFilters();
+      document.getElementById('last-updated').textContent =
+        'Updated ' + new Date().toLocaleTimeString('en-SG', { hour:'2-digit', minute:'2-digit' });
+    } catch(e) {}
+  }, 120000);
+}
+
+// ════════════════════════════════════════════════════════════
+// HELPERS
+// ════════════════════════════════════════════════════════════
+function parseInterests(str) {
+  if (!str) return [];
+  return str.split(/,|;/).map(s => s.trim()).filter(Boolean);
+}
+
+function formatDate(iso) {
+  if (!iso) return '—';
+  return new Date(iso).toLocaleString('en-SG', { day:'numeric', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' });
+}
+
+function esc(str) {
+  return String(str||'')
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
+
+function showToast(msg, type='') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'show' + (type ? ' '+type : '');
+  setTimeout(() => { t.className = ''; }, 3000);
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+</script>
+</body>
+</html>
