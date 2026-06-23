@@ -969,14 +969,9 @@
   var SUPABASE_ANON = 'sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT';
   var db = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
-  var FORM_LOAD_TIME = Date.now();
-
   window.handleSubmit = async function () {
     /* Honeypot */
     if (document.querySelector('input[name="sv_human_verify"]').value !== '') return;
-
-    /* Time check — reject if submitted under 4 seconds */
-    if (Date.now() - FORM_LOAD_TIME < 4000) return;
 
     /* Validate slot 1 */
     var slot1DateInput = document.querySelector('input[name="slot_date_1"]');

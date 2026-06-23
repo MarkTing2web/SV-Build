@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     switch (intent) {
 
-        /* ── SECTOR / PERSONA INTENTS ── */
+        /* ── SECTOR / PERSONA INTENTS (from sector pages and persona sub-pages) ── */
         case 'condo-assessment':
             setTitle('Estate Advisory — Request a Proposal');
             if (propertySelect) propertySelect.value = 'Condominium';
@@ -295,13 +295,10 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ── SUPABASE CLIENT ──
+// Replace the two values below with your actual credentials from Supabase → Project Settings → API
 const SUPABASE_URL  = 'https://bppajrzwqeysrnrucwka.supabase.co';
 const SUPABASE_ANON = 'sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT';
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
-
-// ── FORM LOAD TIMESTAMP for time-check bot detection ──
-const FORM_LOAD_TIME = Date.now();
-const MIN_SUBMIT_MS  = 4000; // reject submissions under 4 seconds
 
 // ── PROPOSAL FORM SUBMISSION ──
 async function handleProposalSubmit(event) {
@@ -310,9 +307,6 @@ async function handleProposalSubmit(event) {
     // Honeypot check — bots fill this, humans don't
     const honeypot = document.querySelector('input[name="sv_human_verify"]');
     if (honeypot && honeypot.value !== '') return false;
-
-    // Time check — reject if submitted too quickly
-    if (Date.now() - FORM_LOAD_TIME < MIN_SUBMIT_MS) return false;
 
     const form      = document.getElementById('proposalForm');
     const submitBtn = form.querySelector('button[type="submit"]');
@@ -360,6 +354,6 @@ async function handleProposalSubmit(event) {
     }
 
     // Success — redirect to thank-you page
-    window.location.href = '/thank-you-proposal.html';
+    window.location.href = '/contact-success.html';
     return false;
 }
