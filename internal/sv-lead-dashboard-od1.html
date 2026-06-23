@@ -210,7 +210,7 @@
   /* ── STAT CARDS ──────────────────────────────── */
   .stats-row {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 16px;
     margin-bottom: 28px;
   }
@@ -228,8 +228,7 @@
 
   .stat-card.accent       { border-top: 3px solid var(--blue); }
   .stat-card.accent-green { border-top: 3px solid var(--green); }
-  .stat-card.accent-amber  { border-top: 3px solid var(--amber); }
-  .stat-card.accent-purple { border-top: 3px solid #7e22ce; }
+  .stat-card.accent-amber { border-top: 3px solid var(--amber); }
 
   /* ── TABS ────────────────────────────────────── */
   .tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 2px solid var(--border); }
@@ -640,11 +639,6 @@
         <div class="stat-value" id="stat-proposals">—</div>
         <div class="stat-sub">Quote requests</div>
       </div>
-      <div class="stat-card accent-purple">
-        <div class="stat-label">Enquiries</div>
-        <div class="stat-value" id="stat-contacts">—</div>
-        <div class="stat-sub">Contact form</div>
-      </div>
       <div class="stat-card">
         <div class="stat-label">This Month</div>
         <div class="stat-value" id="stat-month">—</div>
@@ -656,7 +650,6 @@
       <button class="tab-btn active" onclick="switchTab('all', this)">All Leads</button>
       <button class="tab-btn" onclick="switchTab('bookings', this)">Bookings</button>
       <button class="tab-btn" onclick="switchTab('proposals', this)">Proposals</button>
-      <button class="tab-btn" onclick="switchTab('contacts', this)">Contact Enquiries</button>
     </div>
 
     <div class="filters-bar">
@@ -712,9 +705,9 @@
 // !! CONFIGURATION — EDIT THESE VALUES !!
 // ════════════════════════════════════════════════════════════
 const CONFIG = {
-  supabaseUrl: 'PASTE_YOUR_SUPABASE_URL_HERE',
-  supabaseKey: 'PASTE_YOUR_SERVICE_ROLE_KEY_HERE',
-  telegramToken: 'PASTE_YOUR_TELEGRAM_BOT_TOKEN_HERE',
+  supabaseUrl: 'https://bppajrzwqeysrnrucwka.supabase.co',
+  supabaseKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwcGFqcnp3cWV5c3JucnVjd2thIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3Nzc5Mzg0MywiZXhwIjoyMDkzMzY5ODQzfQ.iJYB_80DXVXy22rmqn0wByztTrXokbbJslSdyNnGVME',
+  telegramToken: '8465462532:AAFPI-zWDxo6FN3nW5rLhOvDmQ5_1jKZ3kE',
   telegramChat:  '5512812879',
 
   // Team PINs — change these to update individual PINs
@@ -733,7 +726,7 @@ let state = {
   loggedIn: false,
   currentUser: null,
   isMaster: false,
-  bookings: [], proposals: [], contacts: [],
+  bookings: [], proposals: [],
   statuses: {},
   activeTab: 'all',
   filtered: [],
@@ -823,16 +816,14 @@ async function loadData() {
   document.getElementById('empty-state').style.display = 'none';
 
   try {
-    const [bookings, proposals, contacts] = await Promise.all([
+    const [bookings, proposals] = await Promise.all([
       fetchTable('booking_submissions'),
-      fetchTable('proposal_submissions'),
-      fetchTable('contact_enquiries')
+      fetchTable('proposal_submissions')
     ]);
     await fetchStatuses();
 
     state.bookings  = bookings.map(r  => ({ ...r,  _type: 'booking'  }));
     state.proposals = proposals.map(r => ({ ...r,  _type: 'proposal' }));
-    state.contacts  = contacts.map(r  => ({ ...r,  _type: 'contact'  }));
 
     updateStats();
     applyFilters();
@@ -850,15 +841,14 @@ async function loadData() {
 // STATS
 // ════════════════════════════════════════════════════════════
 function updateStats() {
-  const total = state.bookings.length + state.proposals.length + state.contacts.length;
+  const total = state.bookings.length + state.proposals.length;
   document.getElementById('stat-total').textContent    = total;
   document.getElementById('stat-bookings').textContent = state.bookings.length;
   document.getElementById('stat-proposals').textContent = state.proposals.length;
-  document.getElementById('stat-contacts').textContent = state.contacts.length;
 
   const now = new Date();
   const ms  = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}`;
-  const all = [...state.bookings, ...state.proposals, ...state.contacts];
+  const all = [...state.bookings, ...state.proposals];
   document.getElementById('stat-month').textContent = all.filter(r => r.created_at?.startsWith(ms)).length;
   document.getElementById('stat-month-label').textContent = now.toLocaleString('en-SG', { month:'long', year:'numeric' });
 }
@@ -878,10 +868,9 @@ function applyFilters() {
   const pt       = document.getElementById('filter-proptype').value;
   const attended = document.getElementById('filter-attended').value;
 
-  let rows = state.activeTab === 'all'       ? [...state.bookings, ...state.proposals, ...state.contacts]
+  let rows = state.activeTab === 'all'       ? [...state.bookings, ...state.proposals]
            : state.activeTab === 'bookings'  ? [...state.bookings]
-           : state.activeTab === 'proposals' ? [...state.proposals]
-           : [...state.contacts];
+           : [...state.proposals];
 
   if (q)  rows = rows.filter(r =>
     (r.name||'').toLowerCase().includes(q) ||
@@ -970,16 +959,11 @@ function renderTable(rows) {
     const dateStr = dt ? dt.toLocaleDateString('en-SG', { day:'numeric', month:'short', year:'numeric' }) : '—';
     const timeStr = dt ? dt.toLocaleTimeString('en-SG', { hour:'2-digit', minute:'2-digit' }) : '';
     const waNum = (r.phone||'').replace(/\D/g,'');
-    const typeStr = isBooking ? 'site assessment booking' : isContact ? (r.form_type === 'callback' ? 'callback request' : 'enquiry') : 'proposal request';
-  const waMsg = encodeURIComponent(`Hi ${r.name||'there'}, thank you for reaching out to Securevision. I am following up on your ${typeStr}.`);
+    const waMsg = encodeURIComponent(`Hi ${r.name||'there'}, thank you for reaching out to Securevision. I am following up on your ${isBooking?'site assessment booking':'proposal request'}.`);
     const interests = parseInterests(r.interests);
     const intentBadge = isBooking
       ? `<span class="badge badge-green">${r.interaction_type||'Assessment'}</span>`
-      : r._type === 'contact'
-        ? (r.form_type === 'callback'
-            ? `<span class="badge badge-amber">📞 Callback</span>`
-            : `<span class="badge badge-slate">✉️ Enquiry</span>`)
-        : `<span class="badge badge-purple">Proposal</span>`;
+      : `<span class="badge badge-purple">Proposal</span>`;
     const status = state.statuses[r.id];
     const attendedCell = status?.attended_by
       ? `<span class="badge badge-attended">✓ ${esc(status.attended_by)}</span><div style="font-size:11px;color:var(--muted);margin-top:4px;">${formatDate(status.attended_on)}</div>`
@@ -1016,12 +1000,8 @@ function renderTable(rows) {
 function openDrawer(r) {
   state.currentRecord = r;
   const isBooking = r._type === 'booking';
-  const isContact = r._type === 'contact';
   document.getElementById('drawer-name').textContent = r.name || 'Unknown';
-  const typeLabel = isBooking ? 'Site Assessment Booking'
-                  : isContact ? (r.form_type === 'callback' ? 'Callback Request' : 'Contact Enquiry')
-                  : 'Proposal Request';
-  document.getElementById('drawer-type').textContent = typeLabel;
+  document.getElementById('drawer-type').textContent = isBooking ? 'Site Assessment Booking' : 'Proposal Request';
 
   const waNum = (r.phone||'').replace(/\D/g,'');
   const waMsg = encodeURIComponent(`Hi ${r.name||'there'}, thank you for reaching out to Securevision. I am following up on your ${isBooking?'site assessment booking':'proposal request'}.`);
@@ -1109,11 +1089,6 @@ function openDrawer(r) {
       slots.forEach((s,i) => { html += `<div class="slot-block"><strong>Option ${i+1}</strong>${esc(s.date)} &nbsp;·&nbsp; ${esc(s.time||'')}</div>`; });
       html += `</div>`;
     }
-  } else if (isContact) {
-    if (r.enquiry_type)   html += `<div class="dl-row"><span class="dl-label">Enquiry Type</span><span class="dl-value">${esc(r.enquiry_type)}</span></div>`;
-    if (r.preferred_time) html += `<div class="dl-row"><span class="dl-label">Call Time</span><span class="dl-value">${esc(r.preferred_time)}</span></div>`;
-    html += `</div>`;
-    if (r.message) html += `<div class="dl-section"><div class="dl-section-title">Message</div><div class="notes-block">${esc(r.message)}</div></div>`;
   } else {
     if (r.site_details) html += `<div class="dl-row"><span class="dl-label">Site Details</span><span class="dl-value">${esc(r.site_details)}</span></div>`;
     html += `</div>`;
@@ -1210,14 +1185,10 @@ async function saveAttendance() {
 // ════════════════════════════════════════════════════════════
 async function sendTelegramNotification(r) {
   if (!CONFIG.telegramToken || CONFIG.telegramToken.includes('PASTE')) return;
+  const isBooking = r._type === 'booking';
   const dt = r.created_at ? new Date(r.created_at).toLocaleString('en-SG') : '—';
-
-  let typeLabel = '📋 Proposal Request';
-  if (r._type === 'booking')  typeLabel = '📅 Site Assessment Booking';
-  if (r._type === 'contact')  typeLabel = r.form_type === 'callback' ? '📞 Callback Request' : '✉️ Contact Enquiry';
-
   let slots = '';
-  if (r._type === 'booking') {
+  if (isBooking) {
     const s = [
       r.slot_date_1 ? `• ${r.slot_date_1} ${r.slot_time_1||''}` : null,
       r.slot_date_2 ? `• ${r.slot_date_2} ${r.slot_time_2||''}` : null,
@@ -1225,20 +1196,16 @@ async function sendTelegramNotification(r) {
     ].filter(Boolean).join('\n');
     if (s) slots = `\n\n🗓 Preferred Slots:\n${s}`;
   }
-
-  const preferredTime = r.preferred_time ? `\n🕐 Preferred Call Time: ${r.preferred_time}` : '';
-  const enquiryType   = r.enquiry_type   ? `\n📌 Enquiry Type: ${r.enquiry_type}`           : '';
-
   const msg =
 `🔔 New Lead — Securevision
 
-${typeLabel}
+${isBooking ? '📅 Site Assessment Booking' : '📋 Proposal Request'}
 👤 ${r.name||'—'}
 📧 ${r.email||'—'}
 📱 ${r.phone||'—'}
 🏠 ${r.prop_type||'—'} · ${r.postal_code||r.location||'—'}
 🔧 ${r.interests||'—'}
-⏰ ${dt}${slots}${preferredTime}${enquiryType}${r.site_details?'\n📝 '+r.site_details:''}${r.message?'\n💬 '+r.message:''}${r.notes?'\n📓 '+r.notes:''}
+⏰ ${dt}${slots}${r.site_details?'\n📝 '+r.site_details:''}${r.notes?'\n💬 '+r.notes:''}
 
 Source: ${r.source_page||'—'}`;
 
@@ -1254,7 +1221,7 @@ Source: ${r.source_page||'—'}`;
 let _knownIds = new Set();
 
 function seedKnownIds() {
-  const all = [...state.bookings, ...state.proposals, ...state.contacts];
+  const all = [...state.bookings, ...state.proposals];
   if (_knownIds.size === 0) {
     _knownIds = new Set(all.map(r => r.id));
     startPolling();
@@ -1265,15 +1232,13 @@ function startPolling() {
   setInterval(async () => {
     if (!state.loggedIn) return;
     try {
-      const [b, p, c] = await Promise.all([
+      const [b, p] = await Promise.all([
         fetchTable('booking_submissions'),
-        fetchTable('proposal_submissions'),
-        fetchTable('contact_enquiries')
+        fetchTable('proposal_submissions')
       ]);
       const all = [
         ...b.map(r => ({ ...r, _type: 'booking'  })),
-        ...p.map(r => ({ ...r, _type: 'proposal' })),
-        ...c.map(r => ({ ...r, _type: 'contact'  }))
+        ...p.map(r => ({ ...r, _type: 'proposal' }))
       ];
       for (const r of all) {
         if (!_knownIds.has(r.id)) {
@@ -1284,7 +1249,6 @@ function startPolling() {
       }
       state.bookings  = b.map(r => ({ ...r, _type: 'booking'  }));
       state.proposals = p.map(r => ({ ...r, _type: 'proposal' }));
-      state.contacts  = c.map(r => ({ ...r, _type: 'contact'  }));
       await fetchStatuses();
       updateStats();
       applyFilters();
