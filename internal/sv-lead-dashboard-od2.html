@@ -712,9 +712,9 @@
 // !! CONFIGURATION — EDIT THESE VALUES !!
 // ════════════════════════════════════════════════════════════
 const CONFIG = {
-  supabaseUrl: 'https://bppajrzwqeysrnrucwka.supabase.co',
-  supabaseKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJwcGFqcnp3cWV5c3JucnVjd2thIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3Nzc5Mzg0MywiZXhwIjoyMDkzMzY5ODQzfQ.iJYB_80DXVXy22rmqn0wByztTrXokbbJslSdyNnGVME',
-  telegramToken: '8465462532:AAFPI-zWDxo6FN3nW5rLhOvDmQ5_1jKZ3kE',
+  supabaseUrl: 'PASTE_YOUR_SUPABASE_URL_HERE',
+  supabaseKey: 'PASTE_YOUR_SERVICE_ROLE_KEY_HERE',
+  telegramToken: 'PASTE_YOUR_TELEGRAM_BOT_TOKEN_HERE',
   telegramChat:  '5512812879',
 
   // Team PINs — change these to update individual PINs
@@ -823,11 +823,10 @@ async function loadData() {
   document.getElementById('empty-state').style.display = 'none';
 
   try {
-    // Fetch each table independently so one failure does not blank the whole dashboard
     const [bookings, proposals, contacts] = await Promise.all([
-      fetchTable('booking_submissions').catch(() => []),
-      fetchTable('proposal_submissions').catch(() => []),
-      fetchTable('contact_enquiries').catch(() => [])
+      fetchTable('booking_submissions'),
+      fetchTable('proposal_submissions'),
+      fetchTable('contact_enquiries')
     ]);
     await fetchStatuses();
 
@@ -1267,9 +1266,9 @@ function startPolling() {
     if (!state.loggedIn) return;
     try {
       const [b, p, c] = await Promise.all([
-        fetchTable('booking_submissions').catch(() => []),
-        fetchTable('proposal_submissions').catch(() => []),
-        fetchTable('contact_enquiries').catch(() => [])
+        fetchTable('booking_submissions'),
+        fetchTable('proposal_submissions'),
+        fetchTable('contact_enquiries')
       ]);
       const all = [
         ...b.map(r => ({ ...r, _type: 'booking'  })),
