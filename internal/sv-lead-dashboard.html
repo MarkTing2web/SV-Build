@@ -1079,6 +1079,7 @@
       telegramToken: '8465462532:AAFPI-zWDxo6FN3nW5rLhOvDmQ5_1jKZ3kE',
       telegramChat: '5512812879',
 
+
       // Team PINs — change these to update individual PINs
       users: {
         'Wee Meng': { pin: '1111', isMaster: true },
@@ -1328,30 +1329,31 @@
       tbody.innerHTML = '';
 
       rows.forEach(r => {
-        const isBooking = r._type === 'booking';
-        const isContact = r._type === 'contact';
-        const dt = r.created_at ? new Date(r.created_at) : null;
-        const dateStr = dt ? dt.toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
-        const timeStr = dt ? dt.toLocaleTimeString('en-SG', { hour: '2-digit', minute: '2-digit' }) : '';
-        const waNum = (r.phone || '').replace(/\D/g, '');
-        const typeStr = isBooking ? 'site assessment booking' : isContact ? (r.form_type === 'callback' ? 'callback request' : 'enquiry') : 'proposal request';
-        const waMsg = encodeURIComponent(`Hi ${r.name || 'there'}, thank you for reaching out to Securevision. I am following up on your ${typeStr}.`);
-        const interests = parseInterests(r.interests);
-        const intentBadge = isBooking
-          ? `<span class="badge badge-green">${r.interaction_type || 'Assessment'}</span>`
-          : r._type === 'contact'
-            ? (r.form_type === 'callback'
-              ? `<span class="badge badge-amber">📞 Callback</span>`
-              : `<span class="badge badge-slate">✉️ Enquiry</span>`)
-            : `<span class="badge badge-purple">Proposal</span>`;
-        const status = state.statuses[r.id];
-        const attendedCell = status?.attended_by
-          ? `<span class="badge badge-attended">✓ ${esc(status.attended_by)}</span><div style="font-size:11px;color:var(--muted);margin-top:4px;">${formatDate(status.attended_on)}</div>`
-          : `<span class="badge badge-pending">Pending</span>`;
+        try {
+          const isBooking = r._type === 'booking';
+          const isContact = r._type === 'contact';
+          const dt = r.created_at ? new Date(r.created_at) : null;
+          const dateStr = dt ? dt.toLocaleDateString('en-SG', { day: 'numeric', month: 'short', year: 'numeric' }) : '—';
+          const timeStr = dt ? dt.toLocaleTimeString('en-SG', { hour: '2-digit', minute: '2-digit' }) : '';
+          const waNum = (r.phone || '').replace(/\D/g, '');
+          const typeStr = isBooking ? 'site assessment booking' : isContact ? (r.form_type === 'callback' ? 'callback request' : 'enquiry') : 'proposal request';
+          const waMsg = encodeURIComponent(`Hi ${r.name || 'there'}, thank you for reaching out to Securevision. I am following up on your ${typeStr}.`);
+          const interests = parseInterests(r.interests);
+          const intentBadge = isBooking
+            ? `<span class="badge badge-green">${r.interaction_type || 'Assessment'}</span>`
+            : r._type === 'contact'
+              ? (r.form_type === 'callback'
+                ? `<span class="badge badge-amber">📞 Callback</span>`
+                : `<span class="badge badge-slate">✉️ Enquiry</span>`)
+              : `<span class="badge badge-purple">Proposal</span>`;
+          const status = state.statuses[r.id];
+          const attendedCell = status?.attended_by
+            ? `<span class="badge badge-attended">✓ ${esc(status.attended_by)}</span><div style="font-size:11px;color:var(--muted);margin-top:4px;">${formatDate(status.attended_on)}</div>`
+            : `<span class="badge badge-pending">Pending</span>`;
 
-        const tr = document.createElement('tr');
-        tr.onclick = () => openDrawer(r);
-        tr.innerHTML = `
+          const tr = document.createElement('tr');
+          tr.onclick = () => openDrawer(r);
+          tr.innerHTML = `
       <td><div class="date-cell"><strong>${dateStr}</strong>${timeStr}</div></td>
       <td><div class="td-name">${esc(r.name || '—')}</div></td>
       <td><div class="td-contact">${esc(r.email || '—')}</div></td>
@@ -1370,7 +1372,8 @@
         </div>
       </td>
     `;
-        tbody.appendChild(tr);
+          tbody.appendChild(tr);
+        } catch (rowErr) { console.error('Row render error:', rowErr, r); }
       });
     }
 
