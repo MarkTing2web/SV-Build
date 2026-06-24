@@ -24,7 +24,7 @@
 
     /* ── COMMERCIAL ─────────────────────────────────────────────── */
     {
-      slug:     "/portfolio/commercial/altitudex-sentosa-commercial.html",
+      slug:     "/portfolio/commercial/altitudex-sentosa-commercial",
       category: "commercial",
       image:    "/images/portfolio/commercial/altitudex-sentosa-rel.webp",
       badge:    "Commercial",
@@ -32,7 +32,7 @@
       text:     "Migrating a decade-old EntryPass system to ZKTeco CV Security — 50 doors, mixed credentials, zero operational disruption."
     },
     {
-      slug:     "/portfolio/commercial/catholic-centre-security-partnership.html",
+      slug:     "/portfolio/commercial/catholic-centre-security-partnership",
       category: "commercial",
       image:    "/images/portfolio/commercial/catholic-centre-rel.webp",
       badge:    "Commercial",
@@ -40,7 +40,7 @@
       text:     "A decade-long security partnership — complete fit-out for a 9-storey institutional hub, followed by CCTV and access upgrades in 2022 and 2024."
     },
     {
-      slug:     "/portfolio/commercial/em-services-call-centre-redhill.html",
+      slug:     "/portfolio/commercial/em-services-call-centre-redhill",
       category: "commercial",
       image:    "/images/portfolio/commercial/em-engineering-at-jalan-kilang-rel.webp",
       badge:    "Commercial",
@@ -48,7 +48,7 @@
       text:     "Biometric access and high-definition surveillance protecting high-density call centre operations at One@Redhill Centre."
     },
     {
-      slug:     "/portfolio/commercial/hilton-singapore-orchard-fire-door.html",
+      slug:     "/portfolio/commercial/hilton-singapore-orchard-fire-door",
       category: "commercial",
       image:    "/images/portfolio/commercial/hilton-singapore-orchard-rel.webp",
       badge:    "Commercial",
@@ -56,7 +56,7 @@
       text:     "EM lock access control and fire alarm integration for 50+ emergency stairwell doors across Asia-Pacific's largest Hilton property."
     },
     {
-      slug:     "/portfolio/commercial/scape-commercial.html",
+      slug:     "/portfolio/commercial/scape-commercial",
       category: "commercial",
       image:    "/images/portfolio/commercial/scape-rel.webp",
       badge:    "Commercial",
@@ -64,7 +64,7 @@
       text:     "209 AI cameras, 37 biometric access points, and a Salesforce integration that automated credential management end-to-end across all six levels."
     },
     {
-      slug:     "/portfolio/commercial/scape-smart-booking-access.html",
+      slug:     "/portfolio/commercial/scape-smart-booking-access",
       category: "commercial",
       image:    "/images/portfolio/commercial/scape-rel.webp",
       badge:    "Commercial",
@@ -72,7 +72,7 @@
       text:     "Connecting an online booking platform to physical room access — a confirmed reservation automatically becomes a valid entry credential."
     },
     {
-      slug:     "/portfolio/commercial/st-engineering-mobility-cctv.html",
+      slug:     "/portfolio/commercial/st-engineering-mobility-cctv",
       category: "commercial",
       image:    "/images/portfolio/commercial/st-engineering-mobility-rel.webp",
       badge:    "Commercial",
@@ -82,7 +82,7 @@
 
     /* ── CONDOMINIUMS ───────────────────────────────────────────── */
     {
-      slug:     "/portfolio/condominiums/clearwater-access-salto-partnership.html",
+      slug:     "/portfolio/condominiums/clearwater-access-salto-partnership",
       category: "condominiums",
       image:    "/images/portfolio/condominiums/the-clearwater-rel.webp",
       badge:    "Condominium",
@@ -90,7 +90,7 @@
       text:     "Eight years of security partnership — from a Salto Virtual Network installation in 2017 to a cloud-based Akuvox access upgrade in progress."
     },
     {
-      slug:     "/portfolio/condominiums/clearwater-cctv-upgrade.html",
+      slug:     "/portfolio/condominiums/clearwater-cctv-upgrade",
       category: "condominiums",
       image:    "/images/portfolio/condominiums/the-clearwater-rel.webp",
       badge:    "Condominium",
@@ -98,7 +98,7 @@
       text:     "Full IP CCTV upgrade completing a long-term security modernisation programme at The Clearwater condominium."
     },
     {
-      slug:     "/portfolio/condominiums/country-grandeur-upper-thomson-condo.html",
+      slug:     "/portfolio/condominiums/country-grandeur-upper-thomson-condo",
       category: "condominiums",
       image:    "/images/portfolio/condominiums/country-grandeur-rel.webp",
       badge:    "Condominium",
@@ -106,7 +106,7 @@
       text:     "Restoring reliability to a boutique Upper Thomson estate with modernised visitor access and intercom infrastructure."
     },
     {
-      slug:     "/portfolio/condominiums/d-elias-pasir-ris-condo.html",
+      slug:     "/portfolio/condominiums/d-elias-pasir-ris-condo",
       category: "condominiums",
       image:    "/images/portfolio/condominiums/d-elias-rel.webp",
       badge:    "Condominium",
@@ -114,7 +114,7 @@
       text:     "Future-proofing residential security with cloud-ready access management for a mid-rise condominium in Pasir Ris."
     },
     {
-      slug:     "/portfolio/condominiums/high-oak-condominium-cctv.html",
+      slug:     "/portfolio/condominiums/high-oak-condominium-cctv",
       category: "condominiums",
       image:    "/images/portfolio/condominiums/high-oak-condominium-rel.webp",
       badge:    "Condominium",
@@ -122,7 +122,7 @@
       text:     "Full CCTV upgrade with colour night vision — super wide-angle cameras for the basement carpark and ColorVu for lobbies across a 194-unit Bukit Timah estate."
     },
     {
-      slug:     "/portfolio/condominiums/hillview-park-cctv-upgrade.html",
+      slug:     "/portfolio/condominiums/hillview-park-cctv-upgrade",
       category: "condominiums",
       image:    "/images/portfolio/condominiums/hillview-park-condo-rel.webp",
       badge:    "Condominium",
@@ -130,7 +130,7 @@
       text:     "48-camera surveillance upgrade replacing legacy analogue systems with HD colour-at-night IP technology across three towers."
     },
     {
-      slug:     "/portfolio/condominiums/idyllic-suites-geylang-condo.html",
+      slug:     "/portfolio/condominiums/idyllic-suites-geylang-condo",
       category: "condominiums",
       image:    "/images/portfolio/condominiums/idyllic-suites-rel.webp",
       badge:    "Condominium",
@@ -138,7 +138,7 @@
       text:     "Credential overhaul and access modernisation for a 71-unit condominium in Geylang."
     },
     {
-      slug:     "/portfolio/condominiums/light-cairnhill-condo.html",
+      slug:     "/portfolio/condominiums/light-cairnhill-condo",
       category: "condominiums",
       image:    "/images/portfolio/condominiums/light-cairnhill-rel.webp",
       badge:    "Condominium",
@@ -146,7 +146,7 @@
       text:     "Consolidating fragmented intercom and lift access systems into a single coordinated workflow for a 121-unit Cairnhill estate."
     },
     {
-      slug:     "/portfolio/condominiums/mergui-mansions-novena-condo.html",
+      slug:     "/portfolio/condominiums/mergui-mansions-novena-condo",
       category: "condominiums",
       image:    "/images/portfolio/condominiums/mergui-mansions-rel.webp",
       badge:    "Condominium",
@@ -154,7 +154,7 @@
       text:     "System recovery and security restoration for a boutique Novena condominium after infrastructure failure."
     },
     {
-      slug:     "/portfolio/condominiums/newton21-newton-condo.html",
+      slug:     "/portfolio/condominiums/newton21-newton-condo",
       category: "condominiums",
       image:    "/images/portfolio/condominiums/newton21-rel.webp",
       badge:    "Condominium",
@@ -162,7 +162,7 @@
       text:     "Dual-infrastructure modernisation — replacing legacy intercom and access protocols while expanding site-wide CCTV visibility at a 69-unit Newton estate."
     },
     {
-      slug:     "/portfolio/condominiums/rezi-3two-condo.html",
+      slug:     "/portfolio/condominiums/rezi-3two-condo",
       category: "condominiums",
       image:    "/images/portfolio/condominiums/rezi32-rel.webp",
       badge:    "Condominium",
@@ -170,7 +170,7 @@
       text:     "Complete new-build security installation — CCTV, card access, swing gate automation, and audio-video intercom for 65 freehold residents."
     },
     {
-      slug:     "/portfolio/condominiums/suites-cairnhill-intercom-lpr.html",
+      slug:     "/portfolio/condominiums/suites-cairnhill-intercom-lpr",
       category: "condominiums",
       image:    "/images/portfolio/condominiums/suites-cairnhill-rel.webp",
       badge:    "Condominium",
@@ -178,7 +178,7 @@
       text:     "Akuvox video intercoms, mobile app entry, custom Mifare credentials, and LPR-enabled vehicle management for a boutique District 9 condominium."
     },
     {
-      slug:     "/portfolio/condominiums/the-bale-intercom-cctv.html",
+      slug:     "/portfolio/condominiums/the-bale-intercom-cctv",
       category: "condominiums",
       image:    "/images/portfolio/condominiums/the-bale-telok-kurau-rel.webp",
       badge:    "Condominium",
@@ -186,7 +186,7 @@
       text:     "Replacing telephony intercom and upgrading CCTV for a 36-unit freehold estate in Bedok — new video access at every entry point and 15 fresh surveillance cameras."
     },
     {
-      slug:     "/portfolio/condominiums/the-lviv-newton-condo.html",
+      slug:     "/portfolio/condominiums/the-lviv-newton-condo",
       category: "condominiums",
       image:    "/images/portfolio/condominiums/the-lviv-rel.webp",
       badge:    "Condominium",
@@ -194,7 +194,7 @@
       text:     "Eliminating resident friction by replacing an obsolete intercom with a modern 2-wire retrofit — restoring reliable visitor communication at a 147-unit Newton estate."
     },
     {
-      slug:     "/portfolio/condominiums/the-verte-telok-kurau-condo.html",
+      slug:     "/portfolio/condominiums/the-verte-telok-kurau-condo",
       category: "condominiums",
       image:    "/images/portfolio/condominiums/the-verte-rel.webp",
       badge:    "Condominium",
@@ -202,7 +202,7 @@
       text:     "Upgrading from delayed telephony systems to instant visual access and mobile control for a boutique Telok Kurau condominium."
     },
     {
-      slug:     "/portfolio/condominiums/village-pasir-panjang-condo.html",
+      slug:     "/portfolio/condominiums/village-pasir-panjang-condo",
       category: "condominiums",
       image:    "/images/portfolio/condominiums/the-village-at-pasir-panjang-rel.webp",
       badge:    "Condominium",
@@ -212,7 +212,7 @@
 
     /* ── DATA CENTRES ───────────────────────────────────────────── */
     {
-      slug:     "/portfolio/data-centres/fort-data-centre-access-upgrade.html",
+      slug:     "/portfolio/data-centres/fort-data-centre-access-upgrade",
       category: "data-centres",
       image:    "/images/portfolio/data-centres/fort-data-centre-rel.webp",
       badge:    "Data Centre",
@@ -220,7 +220,7 @@
       text:     "Upgrading access control infrastructure for a mission-critical data centre facility — precision engineering in a zero-tolerance environment."
     },
     {
-      slug:     "/portfolio/data-centres/fort-st-engineering.html",
+      slug:     "/portfolio/data-centres/fort-st-engineering",
       category: "data-centres",
       image:    "/images/portfolio/data-centres/fort-st-engineering-rel.webp",
       badge:    "Data Centre",
@@ -230,7 +230,7 @@
 
     /* ── HEALTHCARE ─────────────────────────────────────────────── */
     {
-      slug:     "/portfolio/healthcare/surya-home.html",
+      slug:     "/portfolio/healthcare/surya-home",
       category: "healthcare",
       image:    "/images/portfolio/healthcare/surya-home-rel.webp",
       badge:    "Healthcare",
@@ -238,7 +238,7 @@
       text:     "Security installation for a residential care facility — access control and surveillance designed around the needs of a vulnerable resident population."
     },
     {
-      slug:     "/portfolio/healthcare/sunlove-mental-wellness-centre-haig-road.html",
+      slug:     "/portfolio/healthcare/sunlove-mental-wellness-centre-haig-road",
       category: "healthcare",
       image:    "/images/portfolio/healthcare/sunlove-rel.webp",
       badge:    "Healthcare",
@@ -248,7 +248,7 @@
 
     /* ── INDUSTRIAL ─────────────────────────────────────────────── */
     {
-      slug:     "/portfolio/industrial/sta-compliance-imaging.html",
+      slug:     "/portfolio/industrial/sta-compliance-imaging",
       category: "industrial",
       image:    "/images/portfolio/industrial/sta-compliance-imaging-rel.webp",
       badge:    "Industrial",
@@ -256,7 +256,7 @@
       text:     "Securevision helped STA Inspection eliminate manual undercarriage records by building an automated camera system triggered by vehicle entry."
     },
     {
-      slug:     "/portfolio/industrial/cogent-logistics-hub-cctv.html",
+      slug:     "/portfolio/industrial/cogent-logistics-hub-cctv",
       category: "industrial",
       image:    "/images/portfolio/industrial/cogent-1-logistics-hub-rel.webp",
       badge:    "Industrial",
@@ -265,7 +265,7 @@
       text:     "CCTV surveillance across a major Singapore logistics hub — wide-area coverage for a large-footprint industrial facility."
     },
     {
-      slug:     "/portfolio/industrial/cyrus-tech-industrial.html",
+      slug:     "/portfolio/industrial/cyrus-tech-industrial",
       category: "industrial",
       image:    "/images/portfolio/industrial/cyrus-tech-at-loyang-rel.webp",
       badge:    "Industrial",
@@ -273,7 +273,7 @@
       text:     "Industrial security upgrade at Loyang — access control and surveillance for a technology facility in the eastern industrial belt."
     },
     {
-      slug:     "/portfolio/industrial/hoy-san-industrial.html",
+      slug:     "/portfolio/industrial/hoy-san-industrial",
       category: "industrial",
       image:    "/images/portfolio/industrial/hoy-san-rel.webp",
       badge:    "Industrial",
@@ -281,7 +281,7 @@
       text:     "LPR-enabled vehicle barrier system and gate automation for an industrial facility — streamlining vehicle entry without a guardhouse queue."
     },
     {
-      slug:     "/portfolio/industrial/mitsubishi-elevator-face-access-bms.html",
+      slug:     "/portfolio/industrial/mitsubishi-elevator-face-access-bms",
       category: "industrial",
       image:    "/images/portfolio/industrial/mitsubishi-elevator-singapore-rel.webp",
       badge:    "Industrial",
@@ -289,7 +289,7 @@
       text:     "Facial recognition access control integrated with BMS for Mitsubishi Elevator's Singapore facility."
     },
     {
-      slug:     "/portfolio/industrial/multibase-construction-security-upgrade.html",
+      slug:     "/portfolio/industrial/multibase-construction-security-upgrade",
       category: "industrial",
       image:    "/images/portfolio/industrial/multibase-construction-rel.webp",
       badge:    "Industrial",
@@ -297,7 +297,7 @@
       text:     "Full security upgrade for a construction company facility — access control, surveillance, and perimeter protection."
     },
     {
-      slug:     "/portfolio/industrial/smartflex-tampines.html",
+      slug:     "/portfolio/industrial/smartflex-tampines",
       category: "industrial",
       image:    "/images/portfolio/industrial/smartflex-at-tampines-rel.webp",
       badge:    "Industrial",
@@ -305,7 +305,7 @@
       text:     "Security infrastructure for a Tampines industrial facility — CCTV and access control for a modern light industrial space."
     },
     {
-      slug:     "/portfolio/industrial/sta-inspection-industrial.html",
+      slug:     "/portfolio/industrial/sta-inspection-industrial",
       category: "industrial",
       image:    "/images/portfolio/industrial/sta-inspection-centre-sin-ming-rel.webp",
       badge:    "Industrial",
@@ -313,7 +313,7 @@
       text:     "Access control and surveillance for Singapore's vehicle inspection infrastructure — a critical public service facility at Sin Ming."
     },
     {
-      slug:     "/portfolio/industrial/stmicroelectronics-loyang-perimeter-alarm.html",
+      slug:     "/portfolio/industrial/stmicroelectronics-loyang-perimeter-alarm",
       category: "industrial",
       image:    "/images/portfolio/industrial/st-microelectronics-loyang-rel.webp",
       badge:    "Industrial",
@@ -323,7 +323,7 @@
 
     /* ── INSTITUTIONS ───────────────────────────────────────────── */
     {
-      slug:     "/portfolio/institutions/sengkang-interim-bus-interchange.html",
+      slug:     "/portfolio/institutions/sengkang-interim-bus-interchange",
       category: "institutions",
       image:    "/images/portfolio/institutions/sengkang-interim-bus-interchange-rel.webp",
       badge:    "Institution",
@@ -331,7 +331,7 @@
       text:     "Securevision delivered the design-and-build CCTV system for the LTA Sengkang Interim Bus Interchange under W'Ray — 53 IP cameras, 5 NVRs, and 28-day retention against tender specification."
     },
     {
-      slug:     "/portfolio/institutions/catholic-centre-waterloo.html",
+      slug:     "/portfolio/institutions/catholic-centre-waterloo",
       category: "institutions",
       image:    "/images/portfolio/institutions/catholic-centre-waterloo-rel.webp",
       badge:    "Institution",
@@ -339,7 +339,7 @@
       text:     "A decade-long security partnership for the Catholic Centre at 55 Waterloo Street — complete fit-out in 2014 followed by CCTV and access upgrades in 2022 and 2024."
     },
     {
-      slug:     "/portfolio/institutions/changi-airport-lpr-barriers.html",
+      slug:     "/portfolio/institutions/changi-airport-lpr-barriers",
       category: "institutions",
       image:    "/images/portfolio/institutions/changi-airside-rel.webp",
       badge:    "Institution",
@@ -347,7 +347,7 @@
       text:     "LPR-controlled vehicle barriers for airside access management at Changi Airport — precision vehicle flow control in a high-security environment."
     },
     {
-      slug:     "/portfolio/institutions/cpf-maxwell-institution.html",
+      slug:     "/portfolio/institutions/cpf-maxwell-institution",
       category: "institutions",
       image:    "/images/portfolio/institutions/cpf-maxwell-rel.webp",
       badge:    "Institution",
@@ -355,7 +355,7 @@
       text:     "Security infrastructure for a CPF Board facility at Maxwell — access control and surveillance for a high-footfall government service centre."
     },
     {
-      slug:     "/portfolio/institutions/das-learning-centre-woodlands.html",
+      slug:     "/portfolio/institutions/das-learning-centre-woodlands",
       category: "institutions",
       image:    "/images/portfolio/institutions/das-learning-centre-rel.webp",
       badge:    "Institution",
@@ -363,7 +363,7 @@
       text:     "Security design for a specialist learning centre — balancing open access for students with controlled entry for staff and restricted areas."
     },
     {
-      slug:     "/portfolio/institutions/my-world-preschool-cctv.html",
+      slug:     "/portfolio/institutions/my-world-preschool-cctv",
       category: "institutions",
       image:    "/images/portfolio/institutions/my-world-preschool-rel.webp",
       badge:    "Institution",
@@ -371,7 +371,7 @@
       text:     "CCTV surveillance for a preschool campus — child-safe camera placement and coverage designed around safeguarding requirements."
     },
     {
-      slug:     "/portfolio/institutions/sfx-retreat-centre-punggol.html",
+      slug:     "/portfolio/institutions/sfx-retreat-centre-punggol",
       category: "institutions",
       image:    "/images/portfolio/institutions/st-francis-xavier-retreat-centre-rel.webp",
       badge:    "Institution",
@@ -381,7 +381,7 @@
 
     /* ── MANAGED LIVING ─────────────────────────────────────────── */
     {
-      slug:     "/portfolio/managed-living/scb-worker-dormitory-jalan-papan.html",
+      slug:     "/portfolio/managed-living/scb-worker-dormitory-jalan-papan",
       category: "managed-living",
       image:    "/images/portfolio/managed-living/scb-worker-dormitory-rel.webp",
       badge:    "Managed Living",
@@ -389,7 +389,7 @@
       text:     "Securevision installed turnstile access control with ZKTeco SpeedFace terminals and CCTV for SCB's worker dormitory at Jalan Papan."
     },
     {
-      slug:     "/portfolio/managed-living/nursing-hostel-jalan-seh-chuan.html",
+      slug:     "/portfolio/managed-living/nursing-hostel-jalan-seh-chuan",
       category: "managed-living",
       image:    "/images/portfolio/managed-living/nursing-hostel-at-jln-seh-chuan-rel.webp",
       badge:    "Managed Living",
@@ -399,7 +399,7 @@
 
     /* ── RESIDENTIAL ────────────────────────────────────────────── */
     {
-      slug:     "/portfolio/residential/dunbar-walk-landed-home.html",
+      slug:     "/portfolio/residential/dunbar-walk-landed-home",
       category: "residential",
       image:    "/images/portfolio/residential/dunbar-walk-rel.webp",
       badge:    "Landed Home",
@@ -407,7 +407,7 @@
       text:     "Security upgrade for a Dunbar Walk landed property — driveway surveillance, gate automation, and perimeter coverage."
     },
     {
-      slug:     "/portfolio/residential/dyson-8-residences-landed-home.html",
+      slug:     "/portfolio/residential/dyson-8-residences-landed-home",
       category: "residential",
       image:    "/images/portfolio/residential/dyson-8-rel.webp",
       badge:    "Landed Home",
@@ -415,7 +415,7 @@
       text:     "Full residential security installation for a Dyson Road property — intercom, auto gate, and surveillance working as one system."
     },
     {
-      slug:     "/portfolio/residential/lengkok-mariam-landed-home.html",
+      slug:     "/portfolio/residential/lengkok-mariam-landed-home",
       category: "residential",
       image:    "/images/portfolio/residential/lengkok-mariam-rel.webp",
       badge:    "Landed Home",
@@ -423,7 +423,7 @@
       text:     "Residential security for a Lengkok Mariam landed home — camera coverage and access control designed around the property layout."
     },
     {
-      slug:     "/portfolio/residential/merryn-road-landed-home.html",
+      slug:     "/portfolio/residential/merryn-road-landed-home",
       category: "residential",
       image:    "/images/portfolio/residential/merryn-road-rel.webp",
       badge:    "Landed Home",
@@ -431,7 +431,7 @@
       text:     "Security upgrade for a Merryn Road property — replacing ageing infrastructure with a modern integrated system."
     },
     {
-      slug:     "/portfolio/residential/shelford-landed-home.html",
+      slug:     "/portfolio/residential/shelford-landed-home",
       category: "residential",
       image:    "/images/portfolio/residential/shelford-rel.webp",
       badge:    "Landed Home",
@@ -439,7 +439,7 @@
       text:     "Comprehensive security installation for a Shelford Road landed home — surveillance, intercom, and gate access working together."
     },
     {
-      slug:     "/portfolio/residential/siglap-bank-landed-home.html",
+      slug:     "/portfolio/residential/siglap-bank-landed-home",
       category: "residential",
       image:    "/images/portfolio/residential/siglap-bank-rel.webp",
       badge:    "Landed Home",
@@ -447,7 +447,7 @@
       text:     "Full security fit-out for a Siglap Bank landed property — camera positions designed around the driveway approach and perimeter."
     },
     {
-      slug:     "/portfolio/residential/upper-east-coast-road-landed-home.html",
+      slug:     "/portfolio/residential/upper-east-coast-road-landed-home",
       category: "residential",
       image:    "/images/portfolio/residential/upper-east-coast-landed-upgrade-rel.webp",
       badge:    "Landed Home",

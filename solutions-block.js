@@ -9,56 +9,56 @@
   ──────────────────────────────────────────────────────────────────── */
   var SOLUTIONS = {
     "residential": {
-      href: "/solutions/residential.html",
+      href: "/solutions/residential",
       img:  "/images/solutions/hero-solutions/landed-home-security-singapore-rel.webp",
       alt:  "Landed home security Singapore",
       name: "Landed & Residential",
       desc: "Bungalows, semi-detached, and terrace homes — integrated alarm and CCTV for perimeter and interior protection."
     },
     "condominiums": {
-      href: "/solutions/condominiums.html",
+      href: "/solutions/condominiums",
       img:  "/images/solutions/hero-solutions/condominium-estate-security-singapore-rel.webp",
       alt:  "Condominium estate security Singapore",
       name: "Condominiums & MCSTs",
       desc: "MCSTs, managing agents, and strata estates — estate-wide systems managed from a central operations layer."
     },
     "commercial": {
-      href: "/solutions/commercial.html",
+      href: "/solutions/commercial",
       img:  "/images/solutions/hero-solutions/commercial-security-singapore-rel.webp",
       alt:  "Commercial building security Singapore",
       name: "Offices & Commercial",
       desc: "Offices, hotels, retail shops, and commercial buildings — layered security across tenancies and common areas."
     },
     "industrial": {
-      href: "/solutions/industrial.html",
+      href: "/solutions/industrial",
       img:  "/images/solutions/hero-solutions/industrial-security-singapore-rel.webp",
       alt:  "Industrial estate security Singapore",
       name: "Industrial & Logistics",
       desc: "Factories, warehouses, logistics hubs, and tech parks — large-scale perimeter and operational security."
     },
     "institutions": {
-      href: "/solutions/institutions.html",
+      href: "/solutions/institutions",
       img:  "/images/solutions/hero-solutions/institutional-security-singapore-rel.webp",
       alt:  "Institutional building security Singapore",
       name: "Institutions & Government",
       desc: "Schools, government offices, churches, and civic facilities — compliance-grade systems for public environments."
     },
     "healthcare": {
-      href: "/solutions/healthcare.html",
+      href: "/solutions/healthcare",
       img:  "/images/solutions/hero-solutions/healthcare-security-singapore-rel.webp",
       alt:  "Healthcare and nursing home security Singapore",
       name: "Healthcare",
       desc: "Nursing homes, day care centres, and specialist care facilities — patient safety and duty-of-care systems."
     },
     "managed-living": {
-      href: "/solutions/managed-living.html",
+      href: "/solutions/managed-living",
       img:  "/images/solutions/hero-solutions/managed-living-security-singapore-rel.webp",
       alt:  "Managed living and dormitory security Singapore",
       name: "Managed Living",
       desc: "Worker dormitories, co-living apartments, and managed hostels — access control and monitoring for high-occupancy sites."
     },
     "data-centres": {
-      href: "/solutions/data-centres.html",
+      href: "/solutions/data-centres",
       img:  "/images/solutions/hero-solutions/data-centre-security-singapore-rel.webp",
       alt:  "Data centre physical security Singapore",
       name: "Data Centres",

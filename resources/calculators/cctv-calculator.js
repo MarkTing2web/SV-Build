@@ -297,11 +297,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 `${totalCams} camera${totalCams !== 1 ? 's' : ''} \u00b7 ${fmt(totDailyGB / 1000, 2)}\u00a0TB recorded per day.`;
         }
 
-        /* Proposal CTA — prefill query string for /contact-gateway.html */
+        /* Proposal CTA — prefill query string for /contact-gateway */
         const proposalBtn = document.getElementById('calc-proposal-btn');
         if (proposalBtn) {
             proposalBtn.href =
-                `/contact-gateway.html?intent=cctv-calculator`
+                `/contact-gateway?intent=cctv-calculator`
                 + `&cameras=${totalCams}`
                 + `&storage=${totalTB.toFixed(1)}TB`
                 + `&retention=${retention || ''}d`

@@ -15,7 +15,7 @@
   ──────────────────────────────────────────────────────────────────── */
   var SYSTEMS = {
     "premises": {
-      href:  "/systems/premises-security.html",
+      href:  "/systems/premises-security",
       img:   "/images/systems/premises-security-singapore-rel.webp",
       alt:   "Premises Security — CCTV, Alarms & Sensors",
       name:  "Premises Security",
@@ -23,7 +23,7 @@
       badge: ""
     },
     "entry-access": {
-      href:  "/systems/entry-access-control.html",
+      href:  "/systems/entry-access-control",
       img:   "/images/systems/entry-access-control-singapore-rel.webp",
       alt:   "Entry Access — Biometrics & Intercom",
       name:  "Entry Access",
@@ -31,7 +31,7 @@
       badge: ""
     },
     "vehicle-lpr": {
-      href:  "/systems/vehicle-lpr-management.html",
+      href:  "/systems/vehicle-lpr-management",
       img:   "/images/systems/vehicle-lpr-management-singapore-rel.webp",
       alt:   "Vehicle & LPR Management — Auto-gates & Barriers",
       name:  "Vehicle & LPR Management",
@@ -39,7 +39,7 @@
       badge: ""
     },
     "ip-telephony": {
-      href:  "/systems/ip-phone-communications.html",
+      href:  "/systems/ip-phone-communications",
       img:   "/images/systems/ip-phone-communications-singapore-rel.webp",
       alt:   "IP Telephony — IPPBX & Desk Phones",
       name:  "IP Telephony",
@@ -47,7 +47,7 @@
       badge: ""
     },
     "network": {
-      href:  "/systems/network-infrastructure.html",
+      href:  "/systems/network-infrastructure",
       img:   "/images/systems/network-infrastructure-singapore-rel.webp",
       alt:   "Network Infrastructure — Managed Switches & WiFi",
       name:  "Network Infrastructure",
@@ -55,7 +55,7 @@
       badge: ""
     },
     "platform": {
-      href:  "/systems/security-management-platform.html",
+      href:  "/systems/security-management-platform",
       img:   "/images/systems/security-management-platform-singapore-rel.webp",
       alt:   "Management Platforms — VESTA & HikCentral",
       name:  "Management Platforms",

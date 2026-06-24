@@ -360,6 +360,6 @@ async function handleProposalSubmit(event) {
     }
 
     // Success — redirect to thank-you page
-    window.location.href = '/thank-you-proposal.html';
+    window.location.href = '/thank-you-proposal';
     return false;
 }
