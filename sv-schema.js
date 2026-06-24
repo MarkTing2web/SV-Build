@@ -10,21 +10,27 @@
  * Schema types injected:
  *   1. LocalBusiness / ProfessionalService  — global identity (all pages)
  *   2. Person (founder)                     — global (all pages)
- *   3. FAQPage                              — insights articles only (opt-in)
- *   4. Article                              — insights articles only (opt-in)
+ *   3. Article                              — opt-in via SV_PAGE.type = "article"
+ *   4. TechArticle                          — opt-in via SV_PAGE.type = "guide"
+ *   5. WebApplication                       — opt-in via SV_PAGE.type = "tool"
+ *   6. FAQPage                              — opt-in via SV_PAGE.faqs array
+ *   7. BreadcrumbList                       — opt-in via SV_PAGE.breadcrumbs array
  *
- * To activate Article + FAQPage schema on an insights article, add this
- * to the page's own <script> block BEFORE sv-schema.js loads:
+ * To activate schema on a page, add this BEFORE sv-schema.js loads:
  *
  *   window.SV_PAGE = {
- *     type: "article",
+ *     type: "article",              // "article" | "guide" | "tool"
  *     title: "Page H1 title here",
  *     description: "Meta description text here",
- *     datePublished: "2025-10-01",   // ISO format
- *     dateModified: "2026-06-01",    // ISO format
- *     faqs: [                        // optional — omit if no FAQ section
- *       { q: "Question text here?", a: "Answer paragraph here." },
- *       { q: "Second question?",    a: "Second answer." }
+ *     datePublished: "2026-04-01",  // ISO format
+ *     dateModified: "2026-06-01",   // ISO format
+ *     faqs: [                       // optional
+ *       { q: "Question?", a: "Answer." }
+ *     ],
+ *     breadcrumbs: [                // optional — omit on homepage only
+ *       { name: "Home",     url: "https://www.securevision.com.sg/" },
+ *       { name: "Insights", url: "https://www.securevision.com.sg/insights/" },
+ *       { name: "Article Title Here" }  // last item: no url
  *     ]
  *   };
  */
@@ -150,26 +156,24 @@
     }
   };
 
-  // ── 3. ARTICLE + FAQPAGE SCHEMA (insights pages only) ───────────────────
+  // ── 3. ARTICLE / TECHARTICLE SCHEMA ─────────────────────────────────────
 
   function buildArticleSchemas(page) {
-    const schemas = [];
+    var schemas = [];
 
-    // Helper: append SGT timezone if only a date string (YYYY-MM-DD) is supplied
     function toSGT(dateStr) {
       if (!dateStr) return null;
       if (dateStr.length > 10) return dateStr;
       return dateStr + "T00:00:00+08:00";
     }
 
-    // Derive article image from og:image meta tag if not explicitly supplied
     var ogImageEl = document.querySelector('meta[property="og:image"]');
     var articleImage = page.image || (ogImageEl ? ogImageEl.getAttribute("content") : null);
+    var articleType = (page.type === "guide") ? "TechArticle" : "Article";
 
-    // Article schema
     schemas.push({
       "@context": "https://schema.org",
-      "@type": "Article",
+      "@type": articleType,
       "headline": page.title,
       "description": page.description,
       "image": articleImage,
@@ -191,11 +195,13 @@
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": window.location.href
+        "@id": (function () {
+          var canonical = document.querySelector('link[rel="canonical"]');
+          return canonical ? canonical.href : window.location.href;
+        }())
       }
     });
 
-    // FAQPage schema — only if faqs array is provided and non-empty
     if (page.faqs && page.faqs.length > 0) {
       schemas.push({
         "@context": "https://schema.org",
@@ -204,16 +210,65 @@
           return {
             "@type": "Question",
             "name": faq.q,
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": faq.a
-            }
+            "acceptedAnswer": { "@type": "Answer", "text": faq.a }
           };
         })
       });
     }
 
     return schemas;
+  }
+
+  // ── 4. WEB APPLICATION SCHEMA (calculators & tools) ──────────────────────
+
+  function buildToolSchema(page) {
+    var canonical = document.querySelector('link[rel="canonical"]');
+    var url = canonical ? canonical.href : window.location.href;
+    if (url && !url.endsWith(".html")) url = url + ".html";
+
+    var descEl = document.querySelector('meta[name="description"]');
+    var description = page.description || (descEl ? descEl.getAttribute("content") : "");
+
+    var titleEl = document.querySelector('title');
+    var name = page.title || (titleEl ? titleEl.textContent.replace(/\s*[|·].*$/, "").trim() : "");
+
+    return {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": name,
+      "description": description,
+      "url": url,
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "SGD"
+      },
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Securevision Pte Ltd",
+        "url": "https://www.securevision.com.sg"
+      }
+    };
+  }
+
+  // ── 5. BREADCRUMBLIST SCHEMA ─────────────────────────────────────────────
+
+  function buildBreadcrumbSchema(crumbs) {
+    return {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": crumbs.map(function (crumb, index) {
+        var item = {
+          "@type": "ListItem",
+          "position": index + 1,
+          "name": crumb.name
+        };
+        if (crumb.url) item.item = crumb.url;
+        return item;
+      })
+    };
   }
 
   // ── INJECTION UTILITY ────────────────────────────────────────────────────
@@ -231,12 +286,23 @@
   injectSchema(orgSchema);
   injectSchema(founderSchema);
 
-  // Inject article schemas only if this page has declared SV_PAGE
-  if (window.SV_PAGE && window.SV_PAGE.type === "article") {
-    var articleSchemas = buildArticleSchemas(window.SV_PAGE);
-    articleSchemas.forEach(function (schema) {
-      injectSchema(schema);
-    });
+  if (window.SV_PAGE) {
+
+    // Article or Guide
+    if (window.SV_PAGE.type === "article" || window.SV_PAGE.type === "guide") {
+      buildArticleSchemas(window.SV_PAGE).forEach(function (s) { injectSchema(s); });
+    }
+
+    // Tool (calculator or checklist)
+    if (window.SV_PAGE.type === "tool") {
+      injectSchema(buildToolSchema(window.SV_PAGE));
+    }
+
+    // Breadcrumbs — any page that declares them
+    if (window.SV_PAGE.breadcrumbs && window.SV_PAGE.breadcrumbs.length > 0) {
+      injectSchema(buildBreadcrumbSchema(window.SV_PAGE.breadcrumbs));
+    }
+
   }
 
 })();
