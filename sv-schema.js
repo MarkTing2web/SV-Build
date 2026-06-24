@@ -10,11 +10,12 @@
  * Schema types injected:
  *   1. LocalBusiness / ProfessionalService  — global identity (all pages)
  *   2. Person (founder)                     — global (all pages)
- *   3. Article                              — opt-in via SV_PAGE.type = "article"
- *   4. TechArticle                          — opt-in via SV_PAGE.type = "guide"
- *   5. WebApplication                       — opt-in via SV_PAGE.type = "tool"
- *   6. FAQPage                              — opt-in via SV_PAGE.faqs array
- *   7. BreadcrumbList                       — opt-in via SV_PAGE.breadcrumbs array
+ *   3. WebSite + SearchAction               — homepage only (auto-detected)
+ *   4. Article                              — opt-in via SV_PAGE.type = "article"
+ *   5. TechArticle                          — opt-in via SV_PAGE.type = "guide"
+ *   6. WebApplication                       — opt-in via SV_PAGE.type = "tool"
+ *   7. FAQPage                              — opt-in via SV_PAGE.faqs array
+ *   8. BreadcrumbList                       — opt-in via SV_PAGE.breadcrumbs array
  *
  * To activate schema on a page, add this BEFORE sv-schema.js loads:
  *
@@ -44,6 +45,7 @@
     "@type": ["LocalBusiness", "ProfessionalService"],
     "name": "Securevision",
     "legalName": "Securevision Pte Ltd",
+    "taxID": "200614644E",
     "url": "https://www.securevision.com.sg",
     "logo": "https://www.securevision.com.sg/assets/images/sv-logo.png",
     "image": "https://www.securevision.com.sg/assets/images/hero-securevision.jpg",
@@ -62,12 +64,21 @@
       "latitude": 1.3185,
       "longitude": 103.8927
     },
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "18:00"
-    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "13:00",
+        "description": "By appointment"
+      }
+    ],
     "areaServed": {
       "@type": "AdministrativeArea",
       "name": "Singapore"
@@ -135,7 +146,29 @@
       "IP Intercom Systems",
       "Access Control",
       "Licence Plate Recognition",
-      "Condominium Security Management"
+      "Condominium Security Management",
+      "MCST Security Procurement",
+      "Singapore Security Licensing"
+    ],
+    "hasCredential": [
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "Bachelor of Engineering",
+        "credentialCategory": "degree",
+        "recognizedBy": {
+          "@type": "CollegeOrUniversity",
+          "name": "National University of Singapore"
+        }
+      },
+      {
+        "@type": "EducationalOccupationalCredential",
+        "name": "Bachelor of Laws",
+        "credentialCategory": "degree",
+        "recognizedBy": {
+          "@type": "CollegeOrUniversity",
+          "name": "University of London"
+        }
+      }
     ],
     "alumniOf": [
       {
@@ -153,7 +186,8 @@
       "@type": "Organization",
       "name": "Securevision Pte Ltd",
       "url": "https://www.securevision.com.sg"
-    }
+    },
+    "url": "https://sg.linkedin.com/in/lerweemeng"
   };
 
   // ── 3. ARTICLE / TECHARTICLE SCHEMA ─────────────────────────────────────
@@ -271,6 +305,29 @@
     };
   }
 
+  // ── 6. WEBSITE + SEARCH ACTION SCHEMA (homepage only) ────────────────────
+
+  var websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Securevision",
+    "url": "https://www.securevision.com.sg",
+    "description": SECUREVISION.tagline,
+    "publisher": {
+      "@type": "Organization",
+      "name": "Securevision Pte Ltd",
+      "url": "https://www.securevision.com.sg"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://www.securevision.com.sg/?s={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   // ── INJECTION UTILITY ────────────────────────────────────────────────────
 
   function injectSchema(schemaObj) {
@@ -285,6 +342,12 @@
   // Always inject org + founder schema on every page
   injectSchema(orgSchema);
   injectSchema(founderSchema);
+
+  // WebSite schema — homepage only
+  var path = window.location.pathname;
+  if (path === "/" || path === "/index.html") {
+    injectSchema(websiteSchema);
+  }
 
   if (window.SV_PAGE) {
 
