@@ -145,6 +145,19 @@ RewriteRule ^featured-articles/?$ /insights/ [R=301,L]
 RewriteRule ^\?p=.*$ / [R=301,L]
 
 # ============================================================
+# RESOURCE HUB REDIRECTS
+# Catches folder-path requests and redirects to hub .html files
+# Prevents 404 when users hit /resources/library/ instead of
+# /resources/library.html (folder exists but has no index.html)
+# ============================================================
+RewriteRule ^resources/library/?$ /resources/library.html [R=301,L]
+RewriteRule ^resources/guides/?$ /resources/guides.html [R=301,L]
+RewriteRule ^resources/faq/?$ /resources/faq.html [R=301,L]
+RewriteRule ^resources/calculators/?$ /resources/calculators.html [R=301,L]
+RewriteRule ^resources/checklists/?$ /resources/checklists.html [R=301,L]
+RewriteRule ^resources/training-videos/?$ /resources/training-videos.html [R=301,L]
+
+# ============================================================
 # CLEAN URL HANDLING FOR NEW STATIC SITE
 # Allows URLs without .html extension to resolve correctly
 # ============================================================
