@@ -413,6 +413,7 @@ p:last-child {
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -421,6 +422,7 @@ body {
     line-height: 1.6;
     padding-top: 96px;
     /* Offset for fixed two-row nav (row1 52px + row2 44px) */
+    overflow-x: hidden;
     }
 
 img {
@@ -1348,7 +1350,9 @@ a.card {
 @media (max-width: 992px) {
     .grid-3,
     .grid-4,
-    .proof-grid {
+    .proof-grid,
+    .factors-grid,
+    .factors-4 {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -1358,7 +1362,9 @@ a.card {
     .grid-2,
     .grid-3,
     .grid-4,
-    .proof-grid {
+    .proof-grid,
+    .factors-grid,
+    .factors-4 {
         grid-template-columns: 1fr;
     }
 }
@@ -1590,3 +1596,30 @@ a.card {
 }
 
 
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE OVERRIDES — must come AFTER all base definitions
+══════════════════════════════════════════════════════════════ */
+
+/* 992px — 3 and 4 col grids collapse to 2 col */
+@media (max-width: 992px) {
+    .grid-3,
+    .grid-4,
+    .proof-grid,
+    .factors-grid,
+    .factors-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 768px — ALL grids collapse to single column */
+@media (max-width: 768px) {
+    .grid-2,
+    .grid-3,
+    .grid-4,
+    .proof-grid,
+    .factors-grid,
+    .factors-4 {
+        grid-template-columns: 1fr;
+    }
+}
