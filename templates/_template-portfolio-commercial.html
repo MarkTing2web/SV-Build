@@ -53,10 +53,10 @@ This is a project story showing how Securevision solved a real operational or se
 challenge for a commercial client: through engineering decisions, not product lists.
 
 STRICT TEMPLATE DISCIPLINE:
-- Nav and footer are injected by nav-footer.js. Use <nav id="sv-nav"></nav> and
+- Nav and footer are injected by nav-footer-v2.js. Use <nav id="sv-nav"></nav> and
   <footer id="sv-footer"></footer> as placeholders only. Never hardcode nav or footer HTML.
 - Do not include toggleMobileMenu, toggleSubmenu, scroll listener, or click-outside scripts.
-  nav-footer.js owns all of these.
+  nav-footer-v2.js owns all of these.
 - Use sv-shared.css as the only source for typography, spacing, colours, buttons, cards,
   nav, footer, breadcrumbs, trust bar, related project cards, and final CTA.
 - Do not add inline CSS or page-specific style blocks except:
@@ -88,7 +88,7 @@ STANDARD PAGE FLOW:
 17. Final CTA                (dark full-width image overlay)
 18. Footer: <footer id="sv-footer"></footer>
 19. DOMContentLoaded script
-20. <script src="/nav-footer.js"></script>
+20. <script src="/nav-footer-v2.js"></script>
 <script src="/sv-search.js"></script>
 
 SECTION EYEBROW NAMES: MANDATORY:
@@ -204,7 +204,7 @@ Maximum 3 chips. Examples:
 - Scope type: Platform Migration / New Installation / Phased Rollout
 
 DOMContentLoaded SCRIPT: MANDATORY:
-Add before </body>, before nav-footer.js:
+Add before </body>, before nav-footer-v2.js:
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     if (typeof SECUREVISION !== "undefined") {
@@ -215,7 +215,7 @@ Add before </body>, before nav-footer.js:
     }
   });
 </script>
-<script src="/nav-footer.js"></script>
+<script src="/nav-footer-v2.js"></script>
 <script src="/sv-search.js"></script>
 
 DISCOVERY PATH: APPROVED LINK DESTINATIONS:
@@ -268,9 +268,9 @@ Tell Anti-Gravity:
 "Use the commercial portfolio template v2. Do not invent a new layout. Fill the approved
 blocks with project content only.
 
-Nav: <nav id='sv-nav'></nav> injected by nav-footer.js.
-Footer: <footer id='sv-footer'></footer> injected by nav-footer.js.
-Scripts: Add <script src='/nav-footer.js'></script> before </body>.
+Nav: <nav id='sv-nav'></nav> injected by nav-footer-v2.js.
+Footer: <footer id='sv-footer'></footer> injected by nav-footer-v2.js.
+Scripts: Add <script src='/nav-footer-v2.js'></script> before </body>.
 Do not hardcode nav, footer, or JS.
 
 Hero: Use Variant A (background-image) if a project photo exists. Use Variant B
@@ -1288,7 +1288,7 @@ HTML TEMPLATE BELOW: START HERE
     }
   });
 </script>
-<script src="/nav-footer.js"></script>
+<script src="/nav-footer-v2.js"></script>
 <script src="/sv-search.js"></script>
 <!-- ═══ END SCRIPTS ═══ -->
 
