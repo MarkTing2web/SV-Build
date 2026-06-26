@@ -1,5 +1,7 @@
 /**
  * nav-footer.js — Securevision Global Navigation & Footer
+ * Version: 2.2 — June 2026
+ * Updated: UEN 200614644E added to footer copyright line
  * Version: 4.2 — May 2026
  * Changes: Portfolio dropdown updated to all 8 property types.
  *          Brands dropdown restructured to 5 system groups matching new taxonomy.

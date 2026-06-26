@@ -60,7 +60,7 @@
       alt:   "Management Platforms — VESTA & HikCentral",
       name:  "Management Platforms",
       desc:  "VESTA, Milestone, HikCentral — connect every system into one operational view across your property.",
-      badge: "Unifying Layer"
+      badge: ""
     }
   };
 
