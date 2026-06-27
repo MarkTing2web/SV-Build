@@ -1,0 +1,1348 @@
+/**
+ * sv-solutions-v2.css — Securevision Solutions Section Styles
+ * ─────────────────────────────────────────────────────────────
+ * Trimmed version of sv-solutions.css containing only classes
+ * actively used across the 8 solution sector hub pages.
+ * 
+ * Replaces: sv-solutions.css (retired after full migration)
+ * Works with: sv-base-v2.css + sv-nav-footer.css
+ * 
+ * Classes included: 67 (down from ~230 in sv-solutions.css)
+ * Orphaned classes dropped: 163
+ * 
+ * Version: v2.0 — June 2026
+ * ─────────────────────────────────────────────────────────────
+ */
+
+/* ============================================================
+
+/* ============================================================
+
+.step-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+}
+
+.step-row>div {
+    text-align: left;
+    padding: 32px 24px;
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+}
+
+.step-row>div .step-num {
+    margin: 0 0 20px 0;
+}
+
+.step-num {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background: var(--primary-blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin: 0 auto 28px;
+    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.20);
+}
+
+.step-num.step-num-sm {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 15px;
+    margin-bottom: 22px;
+}
+
+.step-row>div strong {
+    display: block;
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.step-row>div p {
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0;
+    flex-grow: 1;
+}
+
+/* ── END Section A ─────────────────────────────────────────── */
+
+/* ============================================================
+
+.rel-card {
+    background: white;
+    padding: 32px 28px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    transition: 0.3s;
+    text-decoration: none;
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.rel-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-blue);
+}
+
+.rel-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.rel-card strong {
+    display: block;
+    color: var(--primary-blue);
+    font-size: 13px;
+    margin-bottom: 8px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.rel-card p {
+    margin: 0;
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.rel-card-footer {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
+    font-size: 13px;
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*
+
+.rel-card-img {
+    width: calc(100% + 56px);
+    margin: -32px -28px 20px -28px;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+}
+
+.rel-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.rel-card:hover .rel-card-img img {
+    transform: scale(1.04);
+}
+
+/* ── END Section B ─────────────────────────────────────────── */
+
+/* ============================================================
+
+/* ── END Section C ─────────────────────────────────────────── */
+
+/* ============================================================
+
+/* ── END Section D ─────────────────────────────────────────── */
+
+/* ============================================================
+
+.pricing-card {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: 0.3s;
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 86, 179, 0.12);
+    border-color: var(--primary-blue);
+}
+
+.size-badge {
+    display: inline-block;
+    background: var(--bg-light);
+    color: var(--text-light);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.pricing-card h3 {
+    font-size: 20px !important;
+    margin-bottom: 8px !important;
+    color: var(--text-dark) !important;
+    line-height: 1.3 !important;
+    font-weight: 700 !important;
+}
+
+.prop-types {
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 24px;
+}
+
+.price-wrap {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.price-range {
+    font-size: 24px !important;
+    font-weight: 700 !important;
+    color: var(--primary-blue) !important;
+    font-family: 'Montserrat', sans-serif !important;
+    display: block;
+}
+
+.pricing-body {
+    flex-grow: 1;
+    margin-bottom: 32px;
+}
+
+.pricing-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pricing-body li {
+    font-size: 15px;
+    color: var(--text-gray);
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.pricing-body li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-green);
+    font-weight: bold;
+}
+
+/* ── END Section E ─────────────────────────────────────────── */
+
+/* ============================================================
+
+/* ── Shared item shell ── */
+
+.faq-item {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.faq-item:hover {
+    border-color: var(--page-accent, var(--primary-blue));
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Option A: Grid layout (static, all visible) ── */
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.faq-grid--single {
+    grid-template-columns: 1fr;
+}
+
+.faq-grid .faq-item {
+    padding: 28px 32px;
+}
+
+.faq-grid .faq-question {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.4;
+    padding-left: 34px;
+    /* badge width 24px + gap 10px — reserves space so wrap indents */
+}
+
+.faq-grid .faq-question::before {
+    content: 'Q';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background: var(--page-accent, var(--primary-blue));
+    color: #fff;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    line-height: 24px;
+    margin-left: -34px;
+    /* pulls badge back into the reserved padding space */
+    margin-right: 10px;
+    vertical-align: middle;
+    flex-shrink: 0;
+}
+
+.faq-grid .faq-answer {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin: 0;
+    padding-left: 34px;
+}
+
+/* ── Option B: Accordion list (native <details>) ── */
+
+.faq-list .faq-item {
+    overflow: hidden;
+}
+
+.faq-list summary.faq-question {
+    list-style: none;
+}
+
+.faq-list summary.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+.faq-list .faq-question {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+    padding: 20px 56px 20px 24px;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    line-height: 1.4;
+    display: block;
+    transition: color 0.2s;
+}
+
+.faq-list .faq-question::after {
+    content: '';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid var(--page-accent, var(--primary-blue));
+    border-bottom: 2px solid var(--page-accent, var(--primary-blue));
+    transform: translateY(-65%) rotate(45deg);
+    transition: transform 0.25s ease;
+}
+
+.faq-list details[open] .faq-question::after {
+    transform: translateY(-35%) rotate(225deg);
+}
+
+.faq-list details[open] .faq-question {
+    color: var(--page-accent, var(--primary-blue));
+}
+
+.faq-list .faq-answer {
+    padding: 0 24px 20px 24px;
+    border-top: 1px solid var(--border-light);
+}
+
+.faq-list .faq-answer p {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
+/* ── Responsive ── */
+
+@media (max-width: 768px) {
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-grid .faq-item {
+        padding: 24px;
+    }
+
+    .faq-list .faq-question {
+        padding: 16px 48px 16px 20px;
+        font-size: 15px;
+    }
+
+    .faq-list .faq-answer {
+        padding: 0 20px 16px 20px;
+    }
+}
+
+/* ── END Section F ─────────────────────────────────────────── */
+
+/* ============================================================
+
+@media (max-width: 992px) {
+
+    .solution-personas,
+    .solution-related,
+    .solution-lifecycle {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .proof-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .step-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) and (min-width: 769px) {
+    .solution-lifecycle {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .solution-personas,
+    .solution-pillars,
+    .solution-related,
+    .solution-lifecycle {
+        grid-template-columns: 1fr;
+    }
+
+    .solution-proof-card {
+        flex-direction: column !important;
+        gap: 24px !important;
+    }
+
+    .step-row {
+        grid-template-columns: 1fr;
+    }
+
+    .proof-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── END Section G ─────────────────────────────────────────── */
+
+/* ============================================================
+
+/* ── H1. Pain points grid (home-upgrade, reduce-manpower etc.) ── */
+
+/* ── H2. Framework choice grid (home-upgrade) ── */
+
+/* ── H3. Service upgrade grid (home-upgrade) ── */
+
+/* ── H4. Process steps (home-upgrade) ── */
+
+/* ── H5. Assessment split layout ── */
+
+/* ── H5b. Assessment image column
+
+/* ── H6. Tech spec mini (landed-home page) ── */
+
+/* ── H7. Testimonial (architects page) ── */
+
+/* ── H8. Card hover utility ── */
+
+/* ── H9. Responsive overrides for sub-page components ── */
+
+/* ── END Section H ─────────────────────────────────────────── */
+
+/* ============================================================
+
+/* ── END Section I ─────────────────────────────────────────── */
+
+/* ============================================================
+
+/* ── END Section J ──────────────────────────────────────────── */
+
+/* ============================================================
+
+/* Two-column split: prose left, image right */
+
+/* Prose column */
+
+/* Badge pill row */
+
+/* Centred variant — for pages without a split image */
+
+/* Individual badge pill — use <span> not <a>, no links */
+
+/* Image column */
+
+/* ── END Section K ──────────────────────────────────────────── */
+
+/* ============================================================
+
+/* ── L1. Callout box
+
+.callout-box {
+    background: var(--bg-light);
+    border: 1px solid var(--border-light);
+    border-left: 4px solid var(--page-accent, var(--primary-blue));
+    border-radius: 0 12px 12px 0;
+    padding: 36px 40px;
+    max-width: 860px;
+    margin-top: 40px;
+}
+
+.callout-box h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 14px;
+}
+
+.callout-box p {
+    font-size: 16px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin-bottom: 14px;
+}
+
+.callout-box p:last-child {
+    margin-bottom: 0;
+}
+
+/* ── L2. Proof card components
+
+/* ── L3. Pillar link — standalone "Explore →" anchor
+
+/* ── L4. Section intro
+
+/* ── L5. Floated images
+
+/* ── L6. Image utilities
+
+.img-fluid {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.img-rounded {
+    border-radius: 12px;
+}
+
+/* ── L7. Visibility utility
+
+/* ── L8. Card image wrap
+
+.card-body {
+    padding-top: 24px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body h3 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: var(--primary-blue);
+}
+
+.card-body p {
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.card-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: auto;
+}
+
+.card-body ul li {
+    font-size: 13px;
+    color: var(--text-gray);
+    padding: 5px 0 5px 16px;
+    position: relative;
+    border-top: 1px solid var(--border-light);
+    line-height: 1.6;
+}
+
+.card-body ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--page-accent, var(--primary-blue));
+    font-size: 11px;
+    top: 6px;
+}
+
+/* ── L9. Stat bar
+
+/* ── END Section L ──────────────────────────────────────────── */
+
+/* ============================================================
+
+/* ── M1. Card emoji
+
+/* ── M2. Card image placeholder
+
+/* ── M3. Impact list
+
+/* Used inside .callout-box — tighter spacing variant */
+
+.callout-box .impact-list li {
+    font-size: 13px;
+    padding: 8px 0 8px 20px;
+}
+
+/* ── M4. Outcome stat grid
+
+/* ── M5. Trust badge row
+
+/* ── M6. Card featured variant
+
+.card--featured {
+    border: 2px solid var(--page-accent, var(--primary-blue)) !important;
+    background: #f0f7ff !important;
+}
+
+.card--featured .card-body h3 {
+    color: var(--page-accent, var(--primary-blue));
+}
+
+.card--featured.card-clickable:hover {
+    background: var(--page-accent, var(--primary-blue)) !important;
+    color: #fff;
+}
+
+.card--featured.card-clickable:hover p {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.card--featured.card-clickable:hover .pillar-link {
+    color: #fff;
+}
+
+/* ── M7. Stat bar danger variant
+
+/* ── END Section M ──────────────────────────────────────────── */
+
+/* ============================================================
+
+/* ── N1. Solution lifecycle grid
+
+.solution-lifecycle {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+    text-align: center;
+}
+
+/* ── N2. Lifecycle step
+
+/* ── N3. Rel-card header
+
+/* ── N4. Checklist grid
+
+/* Standard item — spans 2 of 6 cols (3 cards per row) */
+
+/* Wide item — spans 3 of 6 cols (2 cards per row) */
+
+/* FAQ cards in checklist-grid (no .checklist-item — just span) */
+
+/* ── Responsive ── */
+
+@media (max-width: 992px) {
+    .solution-lifecycle {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .checklist-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .checklist-item,
+    .checklist-item--wide,
+    .checklist-grid .card:not(.checklist-item):not(.checklist-item--wide),
+    .checklist-grid .card.checklist-item--wide:not(.checklist-item) {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .solution-lifecycle {
+        grid-template-columns: 1fr;
+    }
+
+    .checklist-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── END Section N ──────────────────────────────────────────── */
+
+/* ============================================================
+
+/* ── END Section O ──────────────────────────────────────────── */
+
+/* ============================================================
+
+/* ── P1. Hero background rules
+
+/* Mobile swap — day-care and aged-care */
+
+/* ── P2. Split grid
+
+/* ── P3. Problem grid
+
+/* ── P4. Feature box grid + individual feature box
+
+/* ── P5. Numbered label
+
+/* ── P6. Bordered heading
+
+/* ── P7. Proof stat grid
+
+/* ── P8. Solution proof card — desktop definition
+
+/* ── P9. Stat number / stat label
+
+.stat-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--page-accent, var(--primary-blue));
+    margin-bottom: 8px;
+    display: block;
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+/* ── P10. Trust callout card
+
+/* ── P11. Callout highlight
+
+/* ── P12. sv-trust-note
+
+/* ── END Section P ──────────────────────────────────────────── */
+
+/* ============================================================
+
+/* ── Q1. Systems Deep-Dive Card
+
+.systems-deepdive-card {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    background: var(--white, #fff);
+    border-radius: 12px;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--border-light, #E8EAED);
+    transition: box-shadow 0.2s ease;
+}
+
+.systems-deepdive-card:hover {
+    box-shadow: 0 8px 32px rgba(0, 86, 179, 0.10);
+}
+
+.systems-deepdive-card__img {
+    flex: 0 0 340px;
+    height: 240px;
+    overflow: hidden;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.systems-deepdive-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.systems-deepdive-card__body {
+    flex: 1;
+    padding: 20px 20px 20px 0;
+}
+
+.systems-deepdive-card__body h3 {
+    margin: 12px 0 16px;
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.3;
+    color: var(--text-dark);
+}
+
+.systems-deepdive-card__body p {
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.systems-deepdive-card__cta {
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 15px;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .systems-deepdive-card {
+        flex-direction: column;
+    }
+
+    .systems-deepdive-card__img {
+        flex: 0 0 200px;
+        width: 100%;
+        height: 200px;
+    }
+
+    .systems-deepdive-card__body {
+        padding: 0;
+    }
+}
+
+/* ── Q2. Section Grids
+
+/* 3-column equal grid — gap 32px */
+
+.sol-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+/* 4-column equal grid — gap 32px */
+
+.sol-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+/* 4-column auto-fit — wraps at 260px min */
+
+/* 2-column equal grid — gap 28px (personas, pillars) */
+
+@media (max-width: 900px) {
+
+    .sol-grid-3,
+    .sol-grid-4,
+    .sol-grid-4-auto,
+    .sol-grid-2-pillars {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .sol-grid-3,
+    .sol-grid-4,
+    .sol-grid-4-auto,
+    .sol-grid-2-pillars {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Q3. Flush Card (card with full-bleed top image)
+
+.sol-card-flush {
+    background: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+.sol-card-flush:hover {
+    box-shadow: 0 8px 24px rgba(0, 86, 179, 0.10);
+    transform: translateY(-3px);
+}
+
+/* Standard flush card image — 200px */
+
+.sol-card-flush-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    flex-shrink: 0;
+}
+
+/* Taller variant — 220px (institutions) */
+
+.sol-card-flush-img--lg {
+    height: 220px;
+}
+
+.sol-card-body {
+    padding: 32px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.sol-card-body h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.sol-card-body p {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.sol-card-link {
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: auto;
+}
+
+.sol-card-link:hover {
+    text-decoration: underline;
+}
+
+/* Card contrast — flush cards follow section background rules */
+
+.sv-section-grey .sol-card-flush {
+    background: var(--white);
+}
+
+.sv-section-white .sol-card-flush {
+    background: var(--bg-light, #EEF2F7);
+}
+
+/* ── Q4. Large Step Number
+
+.sol-step-num-lg {
+    font-size: 40px;
+    font-weight: 700;
+    color: #d1d5db;
+    line-height: 1;
+    margin-bottom: 16px;
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+}
+
+/* ── Q5. Large Stat Display
+
+.sol-stat-display {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.sol-stat-display-label {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+/* ── Q6. Checklist Split
+
+.sol-checklist-split {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.sol-checklist-split p {
+    margin-bottom: 28px;
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.sol-checklist-img {
+    text-align: center;
+}
+
+.sol-checklist-img img {
+    max-width: 100%;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.10));
+}
+
+@media (max-width: 768px) {
+    .sol-checklist-split {
+        grid-template-columns: 1fr;
+        padding: 32px;
+        gap: 32px;
+    }
+
+    .sol-checklist-img {
+        display: none;
+    }
+}
+
+/* ── Q7. Compliance Badge Grid
+
+.sol-badge-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.sol-badge-item {
+    padding: 24px;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    background: var(--white);
+}
+
+.sol-badge-item strong {
+    display: block;
+    margin-bottom: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.4;
+}
+
+.sol-badge-item p {
+    font-size: 13px;
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .sol-badge-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .sol-badge-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── Q8. Numbered Approach Card
+
+.sol-approach-card {
+    background: var(--bg-light, #EEF2F7);
+    border: none;
+    border-radius: 12px;
+    padding: 40px;
+}
+
+.sol-approach-num {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    color: var(--primary-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.sol-approach-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.sol-approach-card p {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Card contrast */
+
+.sv-section-grey .sol-approach-card {
+    background: var(--white);
+}
+
+.sv-section-white .sol-approach-card {
+    background: var(--bg-light, #EEF2F7);
+}
+
+/* ── Q9. Mistake / Risk List
+
+/* ── Q10. Checklist Tick List
+
+/* ── Q11. Section Intro Wrapper
+
+.sol-section-intro {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    max-width: 800px;
+    margin-bottom: 48px;
+}
+
+/* ── Q12. section-intro line-height fix
+
+/* ── Q13. stat-label font size fix
+
+.stat-label {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
+/* ── Q14. Card contrast — approach and badge cards
+
+.sv-section-grey .sol-badge-item {
+    background: var(--white);
+}
+
+.sv-section-white .sol-badge-item {
+    background: var(--bg-light, #EEF2F7);
+    border-color: transparent;
+}
+
+/* ── END Section Q ──────────────────────────────────────────── */
+
+/* ── Q15. stat-bar-value colour variants
+
+/* ============================================================
+
+/* ── R1. Emoji icon block
+
+.sol-emoji-icon {
+    font-size: 32px;
+    display: block;
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
+/* ── R2. Numbered accent card heading
+
+/* ── R3. Lifecycle step (centred column)
+
+.sol-lifecycle-step {
+    text-align: center;
+}
+
+/* Fix solution-lifecycle desktop grid — was only 2-col, should be 4-col ── */
+
+.solution-lifecycle {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    margin-top: 0;
+}
+
+@media (max-width: 900px) {
+    .solution-lifecycle {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .solution-lifecycle {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ── R4. Stat flex row (data-centres proof section)
+
+.sol-stat-flex {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+}
+
+.sol-stat-item {
+    text-align: center;
+}
+
+/* ── R5. Bordered section accent
+
+.sv-section-grey.sol-bordered {
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+}
+
+/* ── R6. Constrained prose block
+
+.sol-constrained {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.sol-constrained-sm {
+    max-width: 860px;
+}
+
+/* ── R7. Split 2-col layout (commercial proof section)
+
+.sol-split-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.sol-split-2col-tight {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+@media (max-width: 768px) {
+
+    .sol-split-2col,
+    .sol-split-2col-tight {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+}
+
+/* ── R8. Image+text card (commercial)
+
+.sol-image-card {
+    background: var(--white);
+    padding: 0;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.sol-image-card-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.sol-image-card-body {
+    padding: 40px;
+}
+
+.sol-image-card-body h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+/* Card contrast */
+
+.sv-section-grey .sol-image-card {
+    background: var(--white);
+}
+
+.sv-section-white .sol-image-card {
+    background: var(--bg-light, #EEF2F7);
+}
+
+/* ── R9. Tick badge (institutions, healthcare)
+
+.sol-tick-badge {
+    background: var(--primary-blue);
+    color: #fff;
+    width: 28px;
+    height: 28px;
+    min-width: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* ── R10. Left-aligned hero btn-group
+
+.btn-group.btn-group-left {
+    justify-content: flex-start;
+}
+
+/* ── END Section R ──────────────────────────────────────────── */
+
+/* ── R11. Guide/cover image — constrained width ── */
+
+.sol-guide-img {
+    max-width: 300px;
+    width: 100%;
+}
+
+/* ── R12. Vertical Card Stack ── */
