@@ -37,6 +37,75 @@ window.SV_PAGE = {
 <script src="/sv-schema.js"></script>
 <style>
   :root { --page-accent: #0056b3; }
+  .pricing-card {
+    background: #EFF6FF;
+    border: 1px solid #d0d7e2;
+    border-top: 4px solid #0056b3;
+    border-radius: 12px;
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+  }
+  .pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0,86,179,0.12);
+  }
+  .size-badge {
+    display: inline-block;
+    background: #fff;
+    color: #0056b3;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .pricing-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #0E1A2B;
+  }
+  .prop-types {
+    font-size: 13px;
+    color: #6B7280;
+    margin-bottom: 20px;
+  }
+  .price-wrap {
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #d0d7e2;
+  }
+  .price-range {
+    font-size: 26px;
+    font-weight: 700;
+    color: #0056b3;
+    font-family: 'Montserrat', sans-serif;
+    display: block;
+  }
+  .pricing-body ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .pricing-body li {
+    font-size: 15px;
+    color: #374151;
+    padding: 8px 0 8px 24px;
+    border-bottom: 1px solid #e8eaed;
+    position: relative;
+  }
+  .pricing-body li:last-child { border-bottom: none; }
+  .pricing-body li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #0056b3;
+    font-weight: 700;
+  }
   /* Tier 3 sector page hero: 55vh */
   .hero-high-impact.hero-res {
     min-height: 55vh !important;
@@ -351,60 +420,53 @@ window.SV_PAGE = {
 <!-- 6. PRICING -->
 <section class="sv-section-white" id="pricing">
 <div class="container">
-<div class="text-left">
+<div class="section-header">
 <span class="eyebrow">Trust &amp; Transparency</span>
 <h2>Flexible Solutions to Fit Your Needs</h2>
-<div>
-<p>Every home is different: and so is the level of security required.</p>
-<p>We provide options that match your priorities, whether you are starting small or building a fully integrated system.</p>
-<p>Our focus is simple: <strong>deliver the right solution: without overengineering or overspending.</strong></p>
+<p class="section-intro">Every home is different, and so is the level of security required. We provide options that match your priorities, whether you are starting small or building a fully integrated system.</p>
 </div>
-</div>
-<div class="grid-3 mt-56">
+<div class="grid-3 mt-48">
+
 <div class="pricing-card">
-<div class="pricing-header">
 <span class="size-badge">2 - 3 Storey</span>
 <h3>Standard Landed</h3>
 <p class="prop-types">Terrace · Semi-D · Inter-Terrace</p>
-</div>
 <div class="price-wrap">
-<span class="price-range">$12,000 - $18,000</span>
+<span class="price-range">$12,000 – $18,000</span>
 </div>
 <div class="pricing-body">
 <ul>
-<li>8-12 IP Cameras (4K)</li>
+<li>8–12 IP Cameras (4K)</li>
 <li>Video Intercom (1 Station)</li>
 <li>Network &amp; Storage Hub</li>
 <li>Mobile App Config</li>
 </ul>
 </div>
 </div>
+
 <div class="pricing-card">
-<div class="pricing-header">
 <span class="size-badge">Integrated Tech</span>
 <h3>Premium Residence</h3>
 <p class="prop-types">Detached · A&amp;A Builds · Smart Homes</p>
-</div>
 <div class="price-wrap">
-<span class="price-range">$18,000 - $35,000</span>
+<span class="price-range">$18,000 – $35,000</span>
 </div>
 <div class="pricing-body">
 <ul>
-<li>12-24 AI Cameras</li>
+<li>12–24 AI Cameras</li>
 <li>Multi-Block Intercom</li>
 <li>Gate Automation Sync</li>
 <li>Full Platform Management</li>
 </ul>
 </div>
 </div>
+
 <div class="pricing-card">
-<div class="pricing-header">
 <span class="size-badge">Enterprise Home</span>
 <h3>GCB &amp; Estate</h3>
 <p class="prop-types">Large Estates · Multi-Building · GCB</p>
-</div>
 <div class="price-wrap">
-<span class="price-range">$35,000 - $80,000+</span>
+<span class="price-range">$35,000 – $80,000+</span>
 </div>
 <div class="pricing-body">
 <ul>
@@ -415,6 +477,7 @@ window.SV_PAGE = {
 </ul>
 </div>
 </div>
+
 </div>
 </div>
 </section>
