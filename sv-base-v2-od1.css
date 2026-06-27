@@ -1,0 +1,1630 @@
+/* ============================================================
+   sv-base.css — Securevision Foundation CSS
+   Version: 2.0 — June 2026
+
+   PURPOSE:
+   The complete foundation layer for all Securevision pages.
+   Contains everything every page needs — no page-specific styles.
+
+   Contents:
+   1. CSS variables (:root) + @font-face
+   2. CSS reset + base HTML elements
+   3. Layout — container, grid-2/3/4
+   4. Buttons — all variants
+   5. Breadcrumbs
+   6. Section layout + backgrounds
+   7. Hero base + tiers (full/standard/compact)
+   8. Hero high-impact variant
+   9. CTA section — base + high-impact variants
+  10. Card base
+  11. Utility classes
+
+   LOAD ORDER:
+   1. sv-base.css          ← this file
+   2. sv-nav-footer.css    ← nav, footer, trust bar
+   3. [section].css        ← page-specific styles
+
+   DO NOT add page-specific styles to this file.
+   DO NOT modify sv-shared.css — it remains active during migration.
+   ============================================================ */
+
+/* ══════════════════════════════════════════════════════════════
+   1. CSS VARIABLES + FONTS
+══════════════════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: 'Securevision-Body';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Securevision-Body';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Securevision-Body';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Securevision-Display';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtr6Ew-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Securevision-Display';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCtZ6Ew-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Securevision-Display';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCu170w-.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Securevision-Display';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUHjIg1_i6t8kCHKm4532VJOt5-QNFgpCuM70w-.ttf) format('truetype');
+}
+
+/* ==========================================================
+   sv-shared.css — Securevision Master Stylesheet
+
+   VERSION HISTORY
+   -------------------------------------------------------
+   v1.0  April 1 2026   Initial build — core styles, nav,
+                         hero, solutions, systems, brands,
+                         insights, portfolio base.
+
+   v1.1  April 2026     Portfolio additions block added:
+                         section-spacing, mt-16, mt-24,
+                         snapshot-tech-col/card,
+                         snapshot-systems-col/card,
+                         portfolio-tech-stack/item,
+                         tech-brand-name/desc,
+                         portfolio-layer-card,
+                         related-project-badge variants.
+
+   v1.2  April 2026     Discovery Path cards redesigned:
+                         portfolio-link-stack changed to
+                         4-col responsive grid (desktop),
+                         2-col (tablet), 1-col (mobile).
+                         portfolio-link-card-body added.
+                         Duplicate definitions removed.
+
+   v1.3  April 2026     Comparison table header fixed:
+                         th background dark-blue, white
+                         text. th.feature-col forced white
+                         to override specificity clash.
+
+   v1.4  April 2026     Result cards standardised:
+                         portfolio-result-card green top
+                         border, left-aligned.
+                         portfolio-result-title added —
+                         green, Montserrat 700, bottom
+                         padding and divider.
+                         portfolio-result-text added.
+
+   v1.5  April 2026     Related project card alignment:
+                         body left-aligned, badge/title/
+                         link centred explicitly.
+                         related-project-link margin-top
+                         auto + padding-top 20px.
+                         related-project-title !important
+                         centre override.
+
+   v1.6  April 2026     Section header fix:
+                         .section-header.text-center p
+                         gets explicit text-align: center.
+                         .section-header.text-center
+                         p.text-left exception added so
+                         Discovery Path and Related
+                         Projects intro paragraphs align
+                         left correctly.
+
+   v1.7  April 2026     CTA button group margin-top: 40px
+                         added for spacing between body
+                         text and CTA buttons.
+                         Hero overlay darkened:
+                         0.82/0.72/0.82 opacity.
+                         no-bottom-spacing utility added.
+
+   v1.9  April 2026     Global .container changed from 1200px
+                         to 1080px site-wide. Better reading width
+                         for 2026 screens. Portfolio-specific
+                         container override removed — redundant.
+                         portfolio-section-narrow class retained
+                         in CSS but no longer needed on pages.
+
+   v1.8  April 2026     portfolio-section-narrow set to
+                         max-width: 100% — removes narrow
+                         viewport from portfolio prose
+                         sections (Transformation, Decision
+                         Point, Our Approach, Solution).
+                         Full width now consistent across
+                         all portfolio sections.
+                         portfolio-insight redesigned as
+                         quiet editorial pullquote: no
+                         filled background, no left border,
+                         centred at 760px, smaller type,
+                         decorative quote mark via ::before.
+                         Duplicate definitions removed.
+
+   v2.0  April 2026     MAJOR: sv-forms.css and sv-guides.css merged
+                         into sv-shared. Both separate files deprecated.
+                         Single stylesheet for entire site.
+
+                         From sv-forms.css:
+                           Sections 29-32: Form system
+                           (proposal-form, form-group, form-section,
+                           checkbox-group, interaction-toggle,
+                           scheduling slots, submit-wrap).
+                           Fixed: --accent-green → --primary-blue
+                           on form section decorative border.
+
+                         From sv-guides.css:
+                           Section 33: Long-form content layout
+                           (blog-row, blog-row-wrap, blog-img-wrap,
+                           blog-table, stat-grid, stat-card,
+                           component-card, case-study-card,
+                           recommendation-box, layout-with-sidebar,
+                           sticky-toc, author-bio-strip).
+                           Fixed: --primary-access → --page-accent
+                           throughout. Global main p/li font-size
+                           overrides scoped to .guide-page wrapper.
+                           Conflicting .faq-grid/.faq-item removed —
+                           Section 28 (sv-shared) is canonical.
+                           .main-nav.scrolled override removed —
+                           handled by per-page --page-accent.
+
+                         Section 34: Checklist UI components added.
+                           (.cl-layout, .cl-section, .cl-question,
+                           .cl-score-bar, .cl-score-band,
+                           .cl-final-score, .cl-cta-strip)
+
+   v2.1  May 2026       Equipment Deployed spec-list rule added:
+                         .portfolio-system-card .spec-list — smaller
+                         font (0.9rem), lighter colour (var(--text-light)),
+                         18px left padding, 8px top margin, 4px item gap.
+                         Standardises a pattern previously achieved with
+                         inline styles on each <ul>. Scoped under
+                         portfolio-system-card so the .spec-list class
+                         cannot accidentally restyle other <ul> elements.
+                         Used in portfolio Equipment Deployed sections
+                         alongside <p><strong>Sub-category:</strong>
+                         description</p> pattern for inline sub-headings.
+
+   v2.2  May 2026       Systems page CSS extracted to systems.css.
+                         Sections 35-36 removed (818 lines).
+                         All 7 systems pages now load systems.css
+                         alongside sv-shared.css.
+
+   v2.3  May 2026       Solutions page CSS extracted to solutions.css.
+                         Removed from this file (892 lines total):
+                         - step-row / step-item / step-num
+                         - rel-card / rel-card-img / rel-card-footer
+                         - Section 23: Solutions hub components
+                           (featured-condo, badge-popular, grid-5,
+                           simple-card, icon-row)
+                         - Section 24: Solution detail components
+                           (pillar-card, pricing-card, pillar-closing-note)
+                         - Section 28: FAQ component (faq-grid, faq-list)
+                         - proof-grid / proof-card (two duplicate blocks)
+                         - Solution-specific responsive overrides
+                         All solutions pages now load solutions.css
+                         alongside sv-shared.css.
+                         NOTE: rel-card / rel-card-img retained in
+                         sv-shared — used on homepage and portfolio
+                         pages, not solutions-only.
+
+   v2.4  May 2026       Portfolio CSS extracted to sv-portfolio.css.
+                         Sections 27 and 37 removed (~1,493 lines).
+                         All portfolio classes now in sv-portfolio.css.
+                         All 51 portfolio pages updated to load
+                         sv-portfolio.css after sv-shared.css.
+
+   v2.5  May 2026       Insights CSS extracted to sv-insights.css.
+                         Sections 12, 13, 38, 38b, 38c removed
+                         (~743 lines). All insights classes now in
+                         sv-insights.css. All 40 insights pages
+                         updated to load sv-insights.css after
+                         sv-shared.css.
+                         Retained in sv-shared: .hidden (utility),
+                         .layout-with-sidebar, .sticky-toc (also
+                         used by guides/resources pages).
+
+   v2.6  May 2026       Systems CSS partially cleaned from sv-shared.
+                         Sections 35 + 36 removed (~817 lines).
+                         All classes confirmed present in sv-systems.css.
+
+   v2.7  May 2026       Section 34 (Checklist UI, ~490 lines) moved
+                         to sv-resources.css Section E.
+                         Section 39 (sv-sys-* injectable block, ~195
+                         lines) moved to sv-systems.css Section 37.
+                         Retained: Section 40 (.img-float-*, .clearfix).
+
+   v2.8  May 2026       Form system extracted to sv-forms.css.
+                         Section 29 (~286 lines) removed.
+                         Section 33 dead stub (~9 lines) deleted.
+                         sv-forms.css created fresh from Section 29
+                         content — load on all pages with forms.
+   ========================================================== */
+
+/* (Existing root and core styles remain) */
+
+/* COLOR SYSTEM */
+:root {
+    --display-font: 'Securevision-Display', sans-serif;
+    --body-font: 'Securevision-Body', sans-serif;
+    --primary-blue: #0056b3;
+    --dark-blue: #003d82;
+    --accent-green: #25d366;
+    --text-dark: #1B1F23;
+    --text-gray: #333333;
+    --text-light: #5F6368;
+    --bg-light: #F8F9FA;
+    --white: #ffffff;
+    --border-light: #E8EAED;
+    /* spacing & layout */
+    --spacing-lg: 80px;
+    --spacing-md: 40px;
+    --border-radius: 12px;
+
+    /* ── DESIGN TOKENS — canonical spacing system ────────────────
+       These variables are the authoritative source. All grids,
+       cards, and components reference these — do not hardcode.    */
+
+    /* Section padding */
+    --spacing-section: 80px;
+    /* top/bottom padding on every content section */
+
+    /* Card gaps by column count */
+    --gap-4col: 24px;
+    /* 4-column grids — narrower cards need tighter gap */
+    --gap-3col: 28px;
+    /* 3-column grids — default */
+    --gap-2col: 32px;
+    /* 2-column grids — more breathing room */
+    --spacing-card-gap: 28px;
+    /* legacy alias — use specific vars above */
+
+    /* Card internal spacing */
+    --card-padding: 32px;
+    /* icon/text cards */
+    --card-body-padding: 24px 28px 28px;
+    /* image cards — body below image */
+    --card-img-ratio: 4/3;
+    /* aspect ratio for all card images */
+
+    /* Step circles */
+    --step-circle-sm: 36px;
+    --step-circle-md: 48px;
+    /* default */
+    --step-circle-lg: 64px;
+
+    /* Buttons */
+    --btn-height: 52px;
+    /* min-height — all button variants */
+    --btn-min-width: 180px;
+    --btn-padding: 14px 32px;
+    --btn-gap: 16px;
+    /* gap between buttons in a btn-group */
+
+    /* Typography — card body */
+    --card-title-size: 18px;
+    --card-title-clamp: 2;
+    /* max lines before truncation */
+    --card-body-size: 15px;
+    --card-body-clamp: 3;
+    /* max lines before truncation */
+    --card-link-margin: 20px;
+    /* space above card link from body text */
+
+    /* Shadows */
+    --shadow-card-rest: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.06);
+
+    /* Paragraphs */
+    --spacing-para: 24px;
+    /* margin-bottom between paragraphs */
+    /* subsystem colors */
+    --c-surveillance: #2b6cb0;
+    --c-people: #319795;
+    --c-vehicle: #dd6b20;
+    --c-platform: #38a169;
+    /*
+      SECTOR COLOUR SYSTEM — WCAG 2.1 AA COMPLIANT
+      Each sector has two values:
+        -dark  = text, buttons, badges, card accents — passes AA on white, bg-light, and dark hero bg
+        -light = decorative hero tints, background elements only — NOT for text
+      All ratios verified. Do not change without re-running contrast check.
+
+      Private Homes    dark #257000 (6.18 AA)   light #38B000
+      Condominiums     dark #2d45c4 (7.61 AAA)  light #4361EE
+      Commercial       dark #B54E00 (5.18 AA)   light #FF6D00
+      Industrial       dark #5a0892 (11.1 AAA)  light #7209B7
+      Institutions     dark #1B4F72 (8.72 AAA)  light #2471A3
+      Healthcare       dark #0D7377 (5.62 AA)   light #17A2A7
+    */
+    --c-homes: #257000;
+    --c-homes-light: #38B000;
+    --c-condos: #2d45c4;
+    --c-condos-light: #4361EE;
+    --c-commercial: #B54E00;
+    --c-commercial-light: #FF6D00;
+    --c-industrial: #5a0892;
+    --c-industrial-light: #7209B7;
+    --c-institutions: #1B4F72;
+    --c-institutions-light: #2471A3;
+    --c-healthcare: #0D7377;
+    --c-healthcare-light: #17A2A7;
+    /* Copyright year (can be updated dynamically or manually) */
+    --current-year: "2026";
+    /* Per-page accent — override in each page <style> block */
+    --page-accent: #0056b3;
+    /* Always primary blue — one accent colour across all pages.
+                              Sector differentiation via photography and content, not colour.
+                              Do not override with sector colours on solution pages. */
+    /* Guide pages accent — maps to --page-accent */
+    --primary-access: var(--page-accent);
+}
+
+/* ── Base paragraph spacing ── */
+p {
+    margin-top: 0;
+    margin-bottom: var(--spacing-para, 20px);
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+.current-year::after {
+    content: var(--current-year);
+}
+
+
+
+/* ══════════════════════════════════════════════════════════════
+   2. CSS RESET + BASE HTML ELEMENTS
+══════════════════════════════════════════════════════════════ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--body-font);
+    color: var(--text-dark);
+    line-height: 1.6;
+    padding-top: 96px;
+    /* Offset for fixed two-row nav (row1 52px + row2 44px) */
+    overflow-x: hidden;
+    }
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--display-font);
+    font-weight: 700;
+}
+
+h3,
+h4 {
+    font-weight: 600;
+}
+
+h1 {
+    font-size: clamp(36px, 5.5vw, 60px);
+    line-height: 1.1;
+    margin-bottom: 24px;
+}
+
+h2 {
+    font-size: clamp(26px, 3.5vw, 40px);
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+h3 {
+    font-size: 20px;
+    line-height: 1.3;
+    margin-bottom: 16px;
+}
+
+h4 {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.container {
+    width: 100%;
+    max-width: 1080px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 24px;
+}
+
+/* CLICKABLE CARDS UTILITY */
+.card-clickable {
+    position: relative !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+    cursor: pointer;
+}
+
+.card-clickable:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-blue) !important;
+}
+
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    content: "";
+}
+
+/* Ensure buttons inside clickable cards still work and look right */
+.card-clickable .btn {
+    position: relative;
+    z-index: 15;
+}
+
+.feature-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--page-accent, var(--primary-blue));
+    display: block;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+}
+
+
+
+
+/* ══════════════════════════════════════════════════════════════
+   3. BUTTONS
+══════════════════════════════════════════════════════════════ */
+.btn {
+    font-family: var(--display-font);
+    font-weight: 600;
+    padding: 14px 32px;
+    min-height: 52px;
+    /* enforces equal height across all button variants */
+    min-width: 180px;
+    /* prevents very narrow buttons on short labels */
+    white-space: nowrap;
+    /* prevents label text wrapping inside button */
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    text-transform: none;
+    letter-spacing: 0.3px;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+/* -- UTILITIES -- */
+.text-center {
+    text-align: center !important;
+}
+
+.display-block {
+    display: block !important;
+}
+
+.pos-relative {
+    position: relative !important;
+}
+
+.z-2 {
+    z-index: 2 !important;
+}
+
+.opacity-60 {
+    opacity: 0.6 !important;
+}
+
+.bg-white {
+    background-color: var(--white) !important;
+}
+
+.bg-light {
+    background-color: var(--bg-light) !important;
+}
+
+.mt-32 {
+    margin-top: 32px !important;
+}
+
+.section-divider {
+    font-weight: 600;
+    color: var(--text-dark);
+    border-top: 1px solid var(--border-light);
+    padding-top: 40px;
+    margin-top: 64px;
+}
+
+.border-top {
+    border-top: 1px solid var(--border-light) !important;
+}
+
+.border-bottom {
+    border-bottom: 1px solid var(--border-light) !important;
+}
+
+
+
+/* ══════════════════════════════════════════════════════════════
+   4. BREADCRUMBS
+══════════════════════════════════════════════════════════════ */
+/* BREADCRUMBS */
+.sv-breadcrumb {
+    background: #ffffff;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-light);
+    overflow: hidden;
+}
+
+.sv-breadcrumb ul {
+    display: flex;
+    list-style: none;
+    gap: 8px;
+    font-size: 12px;
+    color: #888888;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.sv-breadcrumb li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Last item — current page — allowed to shrink and truncate */
+.sv-breadcrumb li:last-child {
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #111111;
+    font-weight: 600;
+}
+
+.sv-breadcrumb a {
+    color: #555555;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+    white-space: nowrap;
+}
+
+.sv-breadcrumb a:hover {
+    color: #111111;
+}
+
+.sv-breadcrumb li:not(:last-child)::after {
+    content: '\203A';
+    font-size: 16px;
+    color: #ccc;
+    font-weight: 400;
+}
+
+/* On small phones — hide current page breadcrumb, shrink font */
+@media (max-width: 480px) {
+    .sv-breadcrumb {
+        padding: 8px 0;
+    }
+
+    .sv-breadcrumb ul {
+        font-size: 11px;
+        gap: 4px;
+    }
+
+    /* Hide article title on small phones */
+    .sv-breadcrumb li:last-child {
+        display: none;
+    }
+
+    /* Remove separator after category (now last visible) */
+    .sv-breadcrumb li:nth-last-child(2)::after {
+        display: none;
+    }
+
+    /* All items can shrink */
+    .sv-breadcrumb li {
+        flex-shrink: 1;
+        min-width: 0;
+    }
+
+    /* Home and Insights — short enough to never need truncating */
+    .sv-breadcrumb li:first-child,
+    .sv-breadcrumb li:nth-child(2) {
+        flex-shrink: 0;
+    }
+
+    /* Category — last visible item, truncate if needed */
+    .sv-breadcrumb li:nth-last-child(2) {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: block;
+    }
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   5. SECTION LAYOUT + BACKGROUNDS
+══════════════════════════════════════════════════════════════ */
+/* ── SECTIONS ──
+   Global spacing: every content section uses --spacing-section.
+   Text alignment: LEFT by default everywhere except .cta-section (centred).
+   Hero and final CTA keep their own alignment rules — do not override them here.
+*/
+section {
+    padding: var(--spacing-section) 0;
+}
+
+/* ── CONTENT SECTION: left-align text by default ── */
+section .container,
+section .container h2,
+section .container h3,
+section .container p,
+section .container .eyebrow,
+section .container ul,
+section .container ol {
+    text-align: left;
+}
+
+/* Eyebrow inside sections always left */
+section .eyebrow {
+    text-align: left;
+}
+
+/* Subtitle inside sections: left-align, no auto-centering margin */
+section .subtitle {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+}
+
+/* ── FINAL CTA: stays centred ── */
+.cta-section {
+    text-align: center !important;
+}
+
+.cta-section .container,
+.cta-section .container h2,
+.cta-section .container p,
+.cta-section .container .eyebrow-light,
+.cta-section .container .subtitle {
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-section .btn-group {
+    justify-content: center !important;
+}
+
+/* ── ALTERNATING SECTION BACKGROUNDS ──
+   Rule: breadcrumb + section 1 = bg-light (#F8F9FA)
+         section 2 onwards alternates: white → bg-light → white …
+   Apply via .sv-section-white and .sv-section-grey utility classes on <section>.
+   The templates use these classes — do not override with inline styles.
+*/
+.sv-section-white {
+    background: var(--white) !important;
+}
+
+.sv-section-grey {
+    background: var(--bg-light) !important;
+}
+
+/* ── CARD DEFAULTS: light border always present ── */
+.card {
+    border: 1px solid var(--border-light);
+}
+
+/* ── LINKED CARDS: whole card is clickable — use card-clickable + stretched-link ──
+   Already defined in CLICKABLE CARDS UTILITY above. Reminder to templates:
+   wrap card in <a class="card card-clickable"> and put <span class="stretched-link"> 
+   on the inner link text.
+*/
+.eyebrow {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--primary-blue);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.eyebrow-light {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.9) !important;
+    margin-bottom: 10px;
+    display: block;
+}
+
+
+
+/* ══════════════════════════════════════════════════════════════
+   6. HERO BASE STYLES
+══════════════════════════════════════════════════════════════ */
+/* -- 1. HERO -- */
+.hero {
+    color: white;
+    padding: 160px 0 120px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    background: #0E1A2B;
+}
+
+.hero-video,
+.hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(7, 13, 22, 0.9) 0%,
+            rgba(7, 13, 22, 0.75) 50%,
+            rgba(7, 13, 22, 0.9) 100%);
+    z-index: 1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.7);
+}
+
+.hero h1 em {
+    font-style: normal;
+    color: #5b9ee1;
+}
+
+.hero-solid {
+    background: linear-gradient(rgba(14, 26, 43, 0.75), rgba(14, 26, 43, 0.75)), #0E1A2B;
+    background-size: cover;
+    background-position: center;
+    padding: 200px 0 140px;
+    text-align: left;
+    position: relative;
+    color: white;
+}
+
+.hero-solid .eyebrow-light {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 14px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero-solid h1 {
+    margin-bottom: 24px;
+}
+
+.hero-solid .subtitle {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.hero .subtitle {
+    font-size: 20px;
+    max-width: 750px;
+    margin: 0 0 40px 0;
+    color: #fff;
+    opacity: 1;
+    line-height: 1.8;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
+}
+
+.hero .eyebrow-light {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-family: var(--display-font);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: block;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* ══════════════════════════════════════════════════════════════
+   7. HERO TIERS — Tier 1 (full) / Tier 2 (standard) / Tier 3 (compact)
+══════════════════════════════════════════════════════════════ */
+/* ── HERO TIERS — Height by page type ──────────────────────
+   Tier 1: Homepage only — hero-full (80vh)
+   Tier 2: Hub/Index pages — hero-standard (60vh)
+   Tier 3: Article/Guide/Portfolio pages — hero-compact (45vh)
+   Assign by adding the tier class to <header class="hero ...">
+──────────────────────────────────────────────────────────── */
+.hero.hero-full {
+    min-height: 80vh;
+}
+
+.hero.hero-standard {
+    min-height: 60vh;
+    padding: 120px 0 100px;
+}
+
+.hero.hero-compact {
+    min-height: 45vh;
+    padding: 100px 0 80px;
+}
+
+@media (max-width: 768px) {
+    .hero.hero-full     { min-height: 60vh; }
+    .hero.hero-standard { min-height: 50vh; }
+    .hero.hero-compact  { min-height: 40vh; padding: 80px 0 60px; }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   8. HERO HIGH-IMPACT + TEXT STYLES
+══════════════════════════════════════════════════════════════ */
+.hero-high-impact {
+    position: relative;
+    padding: 160px 0 140px;
+    background-size: cover !important;
+    background-position: center !important;
+    color: #fff !important;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-high-impact .container {
+    position: relative;
+    z-index: 5;
+}
+
+.hero-title-main {
+    color: #ffffff !important;
+    font-size: clamp(36px, 5.5vw, 68px) !important;
+    font-weight: 800 !important;
+    line-height: 1.1 !important;
+    margin: 0 0 28px 0 !important;
+}
+
+.hero-subtitle-main {
+    color: rgba(255, 255, 255, 0.95) !important;
+    font-size: clamp(16px, 1.25vw, 21px) !important;
+    max-width: 850px;
+    line-height: 1.8 !important;
+    margin: 0 0 48px 0 !important;
+}
+
+.eyebrow-light {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 24px;
+    font-family: var(--display-font);
+}
+
+/* Master Overlay for All High-Impact Heroes */
+.hero-high-impact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(105deg, rgba(14, 26, 43, 0.45) 0%, rgba(14, 26, 43, 0.25) 50%, transparent 100%);
+    z-index: 1;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   9. BUTTON GROUPS
+══════════════════════════════════════════════════════════════ */
+.btn-group {
+    display: flex;
+    gap: 16px;
+    /* up from 14px — more breathing room between buttons */
+    justify-content: flex-start;
+    align-items: center;
+    /* equal-height buttons align on centre axis */
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.btn-group-left {
+    justify-content: flex-start !important;
+}
+
+/* Remove fixed 240px width — let content + padding determine width */
+.btn-group .btn {
+    width: auto;
+    min-width: 180px;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+.btn-primary:hover {
+    background: var(--dark-blue);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-outline-light {
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    color: #fff;
+    background: transparent;
+}
+
+.btn-outline-light:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Dark outline button — for use on white/light backgrounds */
+.btn-outline-dark {
+    border: 2px solid var(--primary-blue);
+    color: var(--primary-blue);
+    background: transparent;
+}
+
+.btn-outline-dark:hover {
+    background: var(--primary-blue);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+    background: #25d366;
+    color: var(--text-dark);
+    border-color: #25d366;
+}
+
+/* dark text on WA green — white fails WCAG at 1.98 */
+.btn-whatsapp:hover {
+    background: #1da851;
+    transform: translateY(-2px);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   10. CTA SECTIONS
+══════════════════════════════════════════════════════════════ */
+/* ── FINAL CTA — SITEWIDE BACKGROUND ──────────────────────────
+   Single shared background image used across all pages.
+   To update the CTA image sitewide, change the url() value here only.
+   Placeholder: replace PLACEHOLDER with your final image path.
+   Recommended: /images/cta-sitewide.webp (1920×1080px, 16:9)
+   Overlay: rgba(14, 26, 43, 0.85) — do not change.
+────────────────────────────────────────────────────────────── */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━
+   CTA HIGH-IMPACT (v2.1)
+   Used for sector conversion sections.
+   Centralised background-image (cta-sitewide.webp)
+   ━━━━━━━━━━━━━━━━━━━━━━━━ */
+.cta-high-impact {
+    background: linear-gradient(rgba(14, 26, 43, 0.88), rgba(14, 26, 43, 0.88)),
+        url('/images/cta-sitewide.webp') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    color: #fff !important;
+    padding: 120px 0 !important;
+    text-align: center !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ── CTA Persona Groups ──
+   Standardised visuals based on buyer psychology.
+   These replace all legacy sector-specific CTA classes. */
+
+/* GROUP A: Asset Protection / Property Managers (.cta-property) */
+.cta-property {
+    background-image: linear-gradient(rgba(14, 26, 43, 0.88), rgba(14, 26, 43, 0.88)), url('/images/cta-property.webp') !important;
+}
+
+/* GROUP B: Operations / Facilities / Engineering (.cta-facilities) */
+.cta-facilities {
+    background-image: linear-gradient(rgba(14, 26, 43, 0.88), rgba(14, 26, 43, 0.88)), url('/images/cta-facilities.webp') !important;
+}
+
+/* GROUP C: Compliance / Risk / Governance (.cta-compliance) */
+.cta-compliance {
+    background-image: linear-gradient(rgba(14, 26, 43, 0.88), rgba(14, 26, 43, 0.88)), url('/images/cta-compliance.webp') !important;
+}
+
+/* GROUP D: Healthcare / Senior Care / Social (.cta-care) */
+.cta-care {
+    background-image: linear-gradient(rgba(14, 26, 43, 0.88), rgba(14, 26, 43, 0.88)), url('/images/cta-care.webp') !important;
+}
+
+
+/* Hero High-Impact Component */
+
+
+/* ══════════════════════════════════════════════════════════════
+   11. CARD BASE
+══════════════════════════════════════════════════════════════ */
+/* ── CARD BASE — unified standard ─────────────────────────────────
+   Two card families:
+   A) Image cards  — .card with .card-img-wrap + .card-body inside
+   B) Icon cards   — .card.card-icon — padding:32px, SVG top-left
+   Whole card clickable: use <a class="card"> as the outer element.
+   Subgrid aligns image/title/body/link across all cards in a row.
+───────────────────────────────────────────────────────────────── */
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Whole-card anchor — no stretched-link needed */
+a.card {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.06);
+    border-color: var(--primary-blue);
+}
+
+/* Image wrapper — enforces 4:3 aspect ratio, bleeds to card edges */
+.card-img-wrap {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 12px 12px 0 0;
+    flex-shrink: 0;
+    background: var(--bg-light);
+}
+
+.card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.card:hover .card-img-wrap img {
+    transform: scale(1.04);
+}
+
+/* Card body — padding below image, subgrid for internal alignment */
+.card-body {
+    padding: 24px 28px 28px;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+    /* rows: title | body | link */
+    gap: 0;
+}
+
+/* Title — left-aligned, max 2 lines */
+.card-body h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-dark);
+    line-height: 1.4;
+    margin: 0 0 12px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Description — left-aligned, max 3 lines */
+.card-body p {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin: 0;
+    display: block;
+    overflow: visible;
+}
+
+/* Card link — pinned to bottom, arrow slides right on hover */
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: var(--display-font);
+    color: var(--primary-blue);
+    text-decoration: none;
+    transition: gap 0.2s ease;
+    white-space: nowrap;
+}
+
+.card-link:hover {
+    gap: 10px;
+}
+
+/* Icon card — no image, padding replaces image+body structure */
+.card.card-icon {
+    grid-row: span 3;
+    padding: 32px;
+    text-align: left;
+}
+
+.card.card-icon .card-icon-wrap {
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+/* Legacy: push last child to bottom when not using card-body subgrid */
+.card>*:last-child {
+    margin-top: auto;
+}
+
+
+
+/* ══════════════════════════════════════════════════════════════
+   12. UTILITY CLASSES
+══════════════════════════════════════════════════════════════ */
+/* ── UTILITY CLASSES ───────────────────────────────────────── */
+.mt-8  { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mt-24 { margin-top: 24px; }
+.mt-32 { margin-top: 32px; }
+.mt-48 { margin-top: 48px; }
+.mt-56 { margin-top: 56px; }
+.mt-64 { margin-top: 64px; }
+.mt-80 { margin-top: 80px; }
+.mb-8  { margin-bottom: 8px; }
+.mb-16 { margin-bottom: 16px; }
+.mb-24 { margin-bottom: 24px; }
+.mb-32 { margin-bottom: 32px; }
+.mb-48 { margin-bottom: 48px; }
+.mb-56 { margin-bottom: 56px; }
+.mb-64 { margin-bottom: 64px; }
+.mb-80 { margin-bottom: 80px; }
+.text-center { text-align: center !important; }
+.text-left   { text-align: left !important; }
+.pos-relative { position: relative; }
+.z-2  { z-index: 2; }
+.z-10 { z-index: 10; }
+.w-100 { width: 100%; }
+.hidden { display: none !important; }
+
+/* ══════════════════════════════════════════════════════════════
+   13. GRID SYSTEM
+   Rules: 2 items = grid-2 (1×2)
+          3 items = grid-3 (1×3)
+          4 items = grid-4 (2×2 or 1×4)
+          6 items = grid-3 (2×3)
+          8 items = grid-4 (2×4)
+══════════════════════════════════════════════════════════════ */
+.grid-2,
+.grid-3,
+.grid-4 {
+    display: grid;
+    gap: 28px;
+    margin-top: 40px;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Proof grid — 3 col used for case studies, results */
+.proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 56px;
+}
+
+/* ── CARD COMPONENT ─────────────────────────────────────────── */
+.card {
+    background: white;
+    padding: 36px 28px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-light);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card > *:last-child {
+    margin-top: auto;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 14px;
+    color: var(--primary-blue);
+}
+
+.card p {
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin: 0;
+    font-size: 15px;
+    flex-grow: 1;
+}
+
+/* ── RESPONSIVE GRID BREAKPOINTS ────────────────────────────── */
+/* 992px — 3/4 col grids collapse to 2 col */
+@media (max-width: 992px) {
+    .grid-3,
+    .grid-4,
+    .proof-grid,
+    .factors-grid,
+    .factors-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 768px — all grids stack to single column */
+@media (max-width: 768px) {
+    .grid-2,
+    .grid-3,
+    .grid-4,
+    .proof-grid,
+    .factors-grid,
+    .factors-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   13. CARD CLICKABLE UTILITY
+══════════════════════════════════════════════════════════════ */
+.card-clickable {
+    position: relative !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+    cursor: pointer;
+}
+
+.card-clickable:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary-blue) !important;
+}
+
+.stretched-link::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    content: "";
+}
+
+/* Ensure buttons inside clickable cards still work and look right */
+.card-clickable .btn {
+    position: relative;
+    z-index: 15;
+}
+
+.feature-icon {
+    width: 32px;
+    height: 32px;
+    color: var(--page-accent, var(--primary-blue));
+    display: block;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+}
+
+
+
+
+/* ══════════════════════════════════════════════════════════════
+   14. REL-CARD — Related / sector card
+══════════════════════════════════════════════════════════════ */
+.rel-card {
+    background: white;
+    padding: 32px 28px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    transition: 0.3s;
+    text-decoration: none;
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.rel-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-blue);
+}
+
+.rel-card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.rel-card strong {
+    display: block;
+    color: var(--primary-blue);
+    font-size: 13px;
+    margin-bottom: 8px;
+    font-family: var(--display-font);
+}
+
+.rel-card p {
+    margin: 0;
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.rel-card-footer {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
+    font-size: 13px;
+    color: var(--primary-blue);
+    font-weight: 600;
+    font-family: var(--display-font);
+}
+
+.rel-card-img {
+    width: calc(100% + 56px);
+    margin: -32px -28px 20px -28px;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+}
+
+.rel-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.rel-card:hover .rel-card-img img {
+    transform: scale(1.04);
+}
+
+/* ── END rel-card ─────────────────────────────────────────── */
+
+/* -- PRODUCTS SECTION -- */
+.products-section {
+    background: white;
+    padding: 100px 0;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   15. PROCESS CARD — numbered step card
+══════════════════════════════════════════════════════════════ */
+/* ── PROCESS CARD — numbered step card with accent top border ─────
+   Used on homepage Section 9 and anywhere a 4-step process is shown.
+   Structure: <div class="process-card">
+                <span class="process-num">1</span>
+                <h4>Title</h4>
+                <p>Description</p>
+              </div>
+   Grid: use inside .grid-4 (4-col) or .grid-2 (2-col for mobile)
+─────────────────────────────────────────────────────────────────── */
+.process-card {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    
+    border-radius: 12px;
+    padding: 32px 28px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.process-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.process-num {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background: var(--primary-blue);
+    color: #fff;
+    font-family: var(--display-font);
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-bottom: 28px;
+}
+
+.process-card p {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.65;
+    margin: 0;
+    flex-grow: 1;
+}
+
+
+
+/* ══════════════════════════════════════════════════════════════
+   16. FACTORS GRID + FACTOR CARD
+══════════════════════════════════════════════════════════════ */
+.factors-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.factors-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+}
+
+.factor-card {
+    padding: 48px 32px 32px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid var(--border-light);
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.factor-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-color: var(--accent-red);
+}
+
+.factor-num {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--accent-red);
+}
+
+
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE OVERRIDES — must come AFTER all base definitions
+══════════════════════════════════════════════════════════════ */
+
+/* 992px — 3 and 4 col grids collapse to 2 col */
+@media (max-width: 992px) {
+    .grid-3,
+    .grid-4,
+    .proof-grid,
+    .factors-grid,
+    .factors-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* 768px — ALL grids collapse to single column */
+@media (max-width: 768px) {
+    .grid-2,
+    .grid-3,
+    .grid-4,
+    .proof-grid,
+    .factors-grid,
+    .factors-4 {
+        grid-template-columns: 1fr;
+    }
+}

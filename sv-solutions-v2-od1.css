@@ -1,18 +1,88 @@
 /**
  * sv-solutions-v2.css — Securevision Solutions Section Styles
  * ─────────────────────────────────────────────────────────────
- * Solutions-specific components only.
- * Site-wide components (callout-box, faq, step-num, trust-bar,
- * systems-deepdive-card, img-fluid etc.) are now in sv-base-v3.css
- *
- * Works with: sv-base-v3.css + sv-nav-footer.css
- * Version: v2.1 — June 2026
+ * Trimmed version of sv-solutions.css containing only classes
+ * actively used across the 8 solution sector hub pages.
+ * 
+ * Replaces: sv-solutions.css (retired after full migration)
+ * Works with: sv-base-v2.css + sv-nav-footer.css
+ * 
+ * Classes included: 67 (down from ~230 in sv-solutions.css)
+ * Orphaned classes dropped: 163
+ * 
+ * Version: v2.0 — June 2026
  * ─────────────────────────────────────────────────────────────
  */
 
 /* ============================================================
 
 /* ============================================================
+
+.step-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    margin-top: 56px;
+}
+
+.step-row>div {
+    text-align: left;
+    padding: 32px 24px;
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+}
+
+.step-row>div .step-num {
+    margin: 0 0 20px 0;
+}
+
+.step-num {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 50%;
+    background: var(--primary-blue);
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin: 0 auto 28px;
+    box-shadow: 0 4px 12px rgba(0, 86, 179, 0.20);
+}
+
+.step-num.step-num-sm {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 15px;
+    margin-bottom: 22px;
+}
+
+.step-row>div strong {
+    display: block;
+    font-size: 17px;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.step-row>div p {
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0;
+    flex-grow: 1;
+}
 
 /* ── END Section A ─────────────────────────────────────────── */
 
@@ -214,6 +284,10 @@
     margin-top: 40px;
 }
 
+.faq-grid--single {
+    grid-template-columns: 1fr;
+}
+
 .faq-grid .faq-item {
     padding: 28px 32px;
 }
@@ -261,6 +335,62 @@
 
 .faq-list .faq-item {
     overflow: hidden;
+}
+
+.faq-list summary.faq-question {
+    list-style: none;
+}
+
+.faq-list summary.faq-question::-webkit-details-marker {
+    display: none;
+}
+
+.faq-list .faq-question {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-dark);
+    padding: 20px 56px 20px 24px;
+    cursor: pointer;
+    position: relative;
+    user-select: none;
+    line-height: 1.4;
+    display: block;
+    transition: color 0.2s;
+}
+
+.faq-list .faq-question::after {
+    content: '';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid var(--page-accent, var(--primary-blue));
+    border-bottom: 2px solid var(--page-accent, var(--primary-blue));
+    transform: translateY(-65%) rotate(45deg);
+    transition: transform 0.25s ease;
+}
+
+.faq-list details[open] .faq-question::after {
+    transform: translateY(-35%) rotate(225deg);
+}
+
+.faq-list details[open] .faq-question {
+    color: var(--page-accent, var(--primary-blue));
+}
+
+.faq-list .faq-answer {
+    padding: 0 24px 20px 24px;
+    border-top: 1px solid var(--border-light);
+}
+
+.faq-list .faq-answer p {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin-top: 16px;
+    margin-bottom: 0;
 }
 
 /* ── Responsive ── */
@@ -388,6 +518,35 @@
 
 /* ── L1. Callout box
 
+.callout-box {
+    background: var(--bg-light);
+    border: 1px solid var(--border-light);
+    border-left: 4px solid var(--page-accent, var(--primary-blue));
+    border-radius: 0 12px 12px 0;
+    padding: 36px 40px;
+    max-width: 860px;
+    margin-top: 40px;
+}
+
+.callout-box h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 14px;
+}
+
+.callout-box p {
+    font-size: 16px;
+    color: var(--text-gray);
+    line-height: 1.7;
+    margin-bottom: 14px;
+}
+
+.callout-box p:last-child {
+    margin-bottom: 0;
+}
+
 /* ── L2. Proof card components
 
 /* ── L3. Pillar link — standalone "Explore →" anchor
@@ -397,6 +556,16 @@
 /* ── L5. Floated images
 
 /* ── L6. Image utilities
+
+.img-fluid {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.img-rounded {
+    border-radius: 12px;
+}
 
 /* ── L7. Visibility utility
 
@@ -460,6 +629,11 @@
 /* ── M3. Impact list
 
 /* Used inside .callout-box — tighter spacing variant */
+
+.callout-box .impact-list li {
+    font-size: 13px;
+    padding: 8px 0 8px 20px;
+}
 
 /* ── M4. Outcome stat grid
 
@@ -574,6 +748,22 @@
 
 /* ── P9. Stat number / stat label
 
+.stat-number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--page-accent, var(--primary-blue));
+    margin-bottom: 8px;
+    display: block;
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
+
 /* ── P10. Trust callout card
 
 /* ── P11. Callout highlight
@@ -585,6 +775,80 @@
 /* ============================================================
 
 /* ── Q1. Systems Deep-Dive Card
+
+.systems-deepdive-card {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    background: var(--white, #fff);
+    border-radius: 12px;
+    padding: 20px;
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid var(--border-light, #E8EAED);
+    transition: box-shadow 0.2s ease;
+}
+
+.systems-deepdive-card:hover {
+    box-shadow: 0 8px 32px rgba(0, 86, 179, 0.10);
+}
+
+.systems-deepdive-card__img {
+    flex: 0 0 340px;
+    height: 240px;
+    overflow: hidden;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.systems-deepdive-card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.systems-deepdive-card__body {
+    flex: 1;
+    padding: 20px 20px 20px 0;
+}
+
+.systems-deepdive-card__body h3 {
+    margin: 12px 0 16px;
+    font-size: clamp(18px, 2vw, 24px);
+    line-height: 1.3;
+    color: var(--text-dark);
+}
+
+.systems-deepdive-card__body p {
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
+.systems-deepdive-card__cta {
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 15px;
+    display: inline-block;
+}
+
+@media (max-width: 768px) {
+    .systems-deepdive-card {
+        flex-direction: column;
+    }
+
+    .systems-deepdive-card__img {
+        flex: 0 0 200px;
+        width: 100%;
+        height: 200px;
+    }
+
+    .systems-deepdive-card__body {
+        padding: 0;
+    }
+}
 
 /* ── Q2. Section Grids
 
@@ -890,6 +1154,12 @@
 /* ── Q12. section-intro line-height fix
 
 /* ── Q13. stat-label font size fix
+
+.stat-label {
+    font-size: 15px;
+    color: var(--text-gray);
+    line-height: 1.6;
+}
 
 /* ── Q14. Card contrast — approach and badge cards
 
