@@ -405,7 +405,14 @@ Blk 1013 Geylang East Avenue 3<br/>#02-142 Singapore 389728
 </div>
 <a class="btn btn-primary" href="https://maps.google.com/?q=1013+Geylang+East+Avenue+3+Singapore" rel="noopener" target="_blank">Open in Google Maps →</a>
 </div>
-<iframe allowfullscreen="" class="contact-map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4617.198693800151!2d103.88816831114265!3d1.3190409616673124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da18228680cd4d%3A0x622bcfe15c5ad324!2s1013%20Geylang%20East%20Ave%203%2C%20Singapore%20389728!5e1!3m2!1sen!2ssg!4v1775108430282!5m2!1sen!2ssg" title="Securevision Office Location"></iframe>
+<div class="map-placeholder" id="mapPlaceholder">
+    <div class="map-placeholder-inner">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0056b3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        <p>1013 Geylang East Avenue 3, Singapore 389728</p>
+        <button class="btn btn-primary" onclick="loadMap()">Show Map</button>
+    </div>
+</div>
+<iframe class="contact-map" id="mapIframe" style="display:none;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" title="Securevision Office Location"></iframe>
 </div>
 </div>
 </section>
@@ -556,6 +563,14 @@ async function handleCallbackSubmit(event) {
 
   window.location.href = '/contact-success.html?type=callback';
   return false;
+}
+
+function loadMap() {
+    var placeholder = document.getElementById('mapPlaceholder');
+    var iframe = document.getElementById('mapIframe');
+    iframe.src = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4617.198693800151!2d103.88816831114265!3d1.3190409616673124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da18228680cd4d%3A0x622bcfe15c5ad324!2s1013%20Geylang%20East%20Ave%203%2C%20Singapore%20389728!5e1!3m2!1sen!2ssg!4v1775108430282!5m2!1sen!2ssg';
+    iframe.style.display = 'block';
+    placeholder.style.display = 'none';
 }
 </script>
 
