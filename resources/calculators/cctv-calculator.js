@@ -135,29 +135,29 @@ document.addEventListener('DOMContentLoaded', function () {
                     <div class="calc-field">
                         <label>Number of cameras</label>
                         <input type="number" min="1" max="2000" value="${g.qty}"
-                               data-f="qty" data-id="${g.id}" data-webmcp-param="camera_qty" data-webmcp-desc="Total number of cameras in this group.">
+                               data-f="qty" data-id="${g.id}" toolparamdescription="Total number of cameras in this group.">
                     </div>
                     <div class="calc-field">
                         <label>Resolution</label>
-                        <select data-f="res" data-id="${g.id}" data-webmcp-param="resolution" data-webmcp-desc="Resolution in Megapixels (1MP to 12MP).">
+                        <select data-f="res" data-id="${g.id}" toolparamdescription="Resolution in Megapixels (1MP to 12MP).">
                             ${selectHTML(RES, g.res, 'label', 'v')}
                         </select>
                     </div>
                     <div class="calc-field">
                         <label>Frame rate (fps)</label>
-                        <select data-f="fps" data-id="${g.id}" data-webmcp-param="fps" data-webmcp-desc="Frames per second (FPS) from 1 to 30.">
+                        <select data-f="fps" data-id="${g.id}" toolparamdescription="Frames per second (FPS) from 1 to 30.">
                             ${selectHTML(FPS_OPTIONS, g.fps)}
                         </select>
                     </div>
                     <div class="calc-field">
                         <label>Encoding / codec</label>
-                        <select data-f="codec" data-id="${g.id}" data-webmcp-param="codec" data-webmcp-desc="Compression standard: H.264, H.265, H.265+.">
+                        <select data-f="codec" data-id="${g.id}" toolparamdescription="Compression standard: H.264, H.265, H.265+.">
                             ${selectHTML(CODEC, g.codec, 'label', 'v')}
                         </select>
                     </div>
                     <div class="calc-field">
                         <label>Scene &amp; quality</label>
-                        <select data-f="quality" data-id="${g.id}" data-webmcp-param="scene_activity" data-webmcp-desc="Expected motion activity levels: Low, Medium, High.">
+                        <select data-f="quality" data-id="${g.id}" toolparamdescription="Expected motion activity levels: Low, Medium, High.">
                             ${selectHTML(QUALITY, g.quality, 'label', 'v')}
                         </select>
                     </div>
