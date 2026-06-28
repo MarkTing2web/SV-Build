@@ -76,7 +76,8 @@
         "wifi-network-guide":                  "/images/resources/guides/network/hero-wifi-network.webp",
         "office-telephone-guide":              "/images/resources/guides/telephony/fanvil-x6u-desk-phone.webp",
         "security-renovation-guide":           "/images/resources/guides/renovation/hero-security-renovation.webp",
-        "how-to-evaluate-security-contractor": "/images/insights/break-in-nearby-security-review-feature.webp"
+        "how-to-evaluate-security-contractor": "/images/insights/break-in-nearby-security-review-feature.webp",
+        "car-park-barrier-guide":              "/images/resources/guides/autogate/hero-auto-gate.webp"
       };
 
       grid.innerHTML = picks.map(function (g) {
@@ -303,7 +304,8 @@
         "wifi-network-guide":                  "/images/resources/guides/network/hero-wifi-network.webp",
         "office-telephone-guide":              "/images/resources/guides/telephony/fanvil-x6u-desk-phone.webp",
         "security-renovation-guide":           "/images/resources/guides/renovation/hero-security-renovation.webp",
-        "how-to-evaluate-security-contractor": "/images/insights/break-in-nearby-security-review-feature.webp"
+        "how-to-evaluate-security-contractor": "/images/insights/break-in-nearby-security-review-feature.webp",
+        "car-park-barrier-guide":              "/images/resources/guides/autogate/hero-auto-gate.webp"
       };
 
       grid.innerHTML = picks.map(function (g) {
