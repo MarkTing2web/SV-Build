@@ -30,10 +30,10 @@ exposure, vehicle movement, high-value asset risk, or process integrity requirem
 Products and brands are mentioned only in Equipment Deployed, never before Section 12.
 
 STRICT TEMPLATE DISCIPLINE:
-- Nav and footer are injected by nav-footer-v2.js. Use <nav id="sv-nav"></nav> and
+- Nav and footer are injected by nav-footer.js. Use <nav id="sv-nav"></nav> and
   <footer id="sv-footer"></footer> as placeholders only. Never hardcode nav or footer HTML.
 - Do not include toggleMobileMenu, toggleSubmenu, scroll listener, or click-outside scripts.
-  nav-footer-v2.js owns all of these.
+  nav-footer.js owns all of these.
 - Use sv-shared.css as the only source for typography, spacing, colours, buttons, cards,
   nav, footer, breadcrumbs, trust bar, related project cards, and final CTA.
 - Do not add inline CSS or page-specific style blocks except:
@@ -69,7 +69,7 @@ STANDARD PAGE FLOW:
 17. Final CTA                (dark full-width: cta-indus class)
 18. Footer: <footer id="sv-footer"></footer>
 19. DOMContentLoaded script
-20. <script src="/nav-footer-v2.js"></script>
+20. <script src="/nav-footer.js"></script>
 <script src="/sv-search.js"></script>
 
 SECTION EYEBROW NAMES: MANDATORY:
@@ -226,7 +226,7 @@ Common industrial technology combinations:
 - Alarm:           AJAX / RISCO / Paradox / DSC
 
 DOMContentLoaded SCRIPT: MANDATORY:
-Add before </body>, before nav-footer-v2.js:
+Add before </body>, before nav-footer.js:
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     if (typeof SECUREVISION !== "undefined") {
@@ -237,7 +237,7 @@ Add before </body>, before nav-footer-v2.js:
     }
   });
 </script>
-<script src="/nav-footer-v2.js"></script>
+<script src="/nav-footer.js"></script>
 <script src="/sv-search.js"></script>
 
 TONE:
@@ -265,9 +265,9 @@ Tell Anti-Gravity:
 "Use the industrial portfolio template v1. Do not invent a new layout. Fill the approved
 blocks with project content only.
 
-Nav: <nav id='sv-nav'></nav> injected by nav-footer-v2.js.
-Footer: <footer id='sv-footer'></footer> injected by nav-footer-v2.js.
-Scripts: Add DOMContentLoaded block then <script src='/nav-footer-v2.js'></script> before </body>.
+Nav: <nav id='sv-nav'></nav> injected by nav-footer.js.
+Footer: <footer id='sv-footer'></footer> injected by nav-footer.js.
+Scripts: Add DOMContentLoaded block then <script src='/nav-footer.js'></script> before </body>.
 Do not hardcode nav, footer, or JS.
 
 Hero: Use Variant A (background-image) if a project photo exists. Use Variant B
@@ -1350,9 +1350,10 @@ HTML TEMPLATE BELOW: START HERE
     }
   });
 </script>
-<script src="/nav-footer-v2.js"></script>
+<script src="/nav-footer.js"></script>
 <script src="/sv-search.js"></script>
 <!-- ═══ END SCRIPTS ═══ -->
 
 </body>
 </html>
+
