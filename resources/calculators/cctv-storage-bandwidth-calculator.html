@@ -471,56 +471,58 @@ window.SV_PAGE = {
 <section class="sv-section-white">
 <div class="container">
 <div class="calc-wrap">
-<!-- STEP 1: CAMERAS -->
-<div class="calc-panel">
-<div class="calc-panel-head">
-<h2>1 · Your cameras</h2>
-<span class="calc-panel-hint">Set the parameters that apply to your installation.</span>
-</div>
-<div id="calc-groups"></div>
-<label class="calc-adv-toggle">
-<input id="calc-adv" type="checkbox"/>
-                    Advanced: override estimated bitrate manually (Mbps per camera)
-                </label>
-</div>
-<!-- STEP 2: STORAGE -->
-<div class="calc-panel">
-<div class="calc-panel-head">
-<h2>2 · Storage: answer one or both</h2>
-<span class="calc-panel-hint">Fill in whichever question applies. Results appear independently.</span>
-</div>
-<div class="calc-storage-options">
-<div class="calc-storage-opt">
-<div class="calc-opt-icon">📅</div>
-<div class="calc-opt-question">I want to keep footage for how long?</div>
-<div class="calc-opt-result">→ We'll calculate the storage you need.</div>
-<div class="calc-field">
-<label>Retention period</label>
-<div class="calc-suffix-row">
-<input id="calc-retention" max="3650" min="1" placeholder="Default: 30 days" type="number"/>
-<span>days</span>
-</div>
-</div>
-</div>
-<div class="calc-or-mid"><span>or</span></div>
-<div class="calc-storage-opt">
-<div class="calc-opt-icon">💾</div>
-<div class="calc-opt-question">I have a recorder with this much usable storage.</div>
-<div class="calc-opt-result">→ We'll calculate how many days it will hold.</div>
-<div class="calc-field">
-<label>Usable capacity</label>
-<div class="calc-suffix-row">
-<input id="calc-hdd" min="0" placeholder="e.g. 40" step="0.5" type="number"/>
-<span>TB</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- CALCULATE -->
-<div class="calc-btn-row">
-<button class="calc-btn" id="calc-btn">Calculate →</button>
-</div>
+<form id="cctvStorageBandwidthForm" onsubmit="event.preventDefault(); document.getElementById('calc-btn').click();" data-webmcp-tool="calculate_cctv_storage_bandwidth" data-webmcp-desc="Calculate aggregate network recording bandwidth (Mbps) and storage space (TB) requirements for a CCTV system based on camera count, resolution, and codecs.">
+  <!-- STEP 1: CAMERAS -->
+  <div class="calc-panel">
+  <div class="calc-panel-head">
+  <h2>1 · Your cameras</h2>
+  <span class="calc-panel-hint">Set the parameters that apply to your installation.</span>
+  </div>
+  <div id="calc-groups"></div>
+  <label class="calc-adv-toggle">
+  <input id="calc-adv" type="checkbox"/>
+                      Advanced: override estimated bitrate manually (Mbps per camera)
+                  </label>
+  </div>
+  <!-- STEP 2: STORAGE -->
+  <div class="calc-panel">
+  <div class="calc-panel-head">
+  <h2>2 · Storage: answer one or both</h2>
+  <span class="calc-panel-hint">Fill in whichever question applies. Results appear independently.</span>
+  </div>
+  <div class="calc-storage-options">
+  <div class="calc-storage-opt">
+  <div class="calc-opt-icon">📅</div>
+  <div class="calc-opt-question">I want to keep footage for how long?</div>
+  <div class="calc-opt-result">→ We'll calculate the storage you need.</div>
+  <div class="calc-field">
+  <label>Retention period</label>
+  <div class="calc-suffix-row">
+  <input id="calc-retention" max="3650" min="1" placeholder="Default: 30 days" type="number" data-webmcp-param="retention_days" data-webmcp-desc="Desired footage retention period in days."/>
+  <span>days</span>
+  </div>
+  </div>
+  </div>
+  <div class="calc-or-mid"><span>or</span></div>
+  <div class="calc-storage-opt">
+  <div class="calc-opt-icon">💾</div>
+  <div class="calc-opt-question">I have a recorder with this much usable storage.</div>
+  <div class="calc-opt-result">→ We'll calculate how many days it will hold.</div>
+  <div class="calc-field">
+  <label>Usable capacity</label>
+  <div class="calc-suffix-row">
+  <input id="calc-hdd" min="0" placeholder="e.g. 40" step="0.5" type="number" data-webmcp-param="available_storage_tb" data-webmcp-desc="Existing or planned storage capacity in TB."/>
+  <span>TB</span>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <!-- CALCULATE -->
+  <div class="calc-btn-row">
+  <button class="calc-btn" id="calc-btn" type="submit">Calculate →</button>
+  </div>
+</form>
 <!-- RESULTS -->
 <div class="calc-results-area" id="calc-results-area">
 <div class="calc-results">

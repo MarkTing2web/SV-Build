@@ -274,76 +274,82 @@ window.SV_PAGE = {
 <section class="sv-section-white">
 <div class="container">
 <div class="ac-wrap">
-<!-- ── STEP 1: ACCESS POINTS ─────────────────── -->
-<div class="ac-panel">
-<h2>1 · Access points</h2>
-<p class="ac-hint">Enter how many doors you need for each technology. You can mix types in one system.</p>
-<div class="tech-grid">
-<div class="tech-card">
-<div class="tech-name">Card + PIN</div>
-<div class="tech-desc">Standard credential access: suitable for most internal and secondary doors.</div>
-<div class="qty-row">
-<input class="qty-input" id="q-card" max="64" min="0" oninput="onDoorChange()" type="number" value="0"/>
-<span class="qty-label">doors</span>
-</div>
-</div>
-<div class="tech-card">
-<div class="tech-name">Face recognition</div>
-<div class="tech-desc">Touchless biometric: for main entrances and higher-security areas.</div>
-<div class="qty-row">
-<input class="qty-input" id="q-face" max="64" min="0" oninput="onDoorChange()" type="number" value="0"/>
-<span class="qty-label">doors</span>
-</div>
-</div>
-</div>
-<!-- Video intercom toggle -->
-<div class="toggle-row">
-<span class="toggle-name">Video intercom at main entrance?</span>
-<div class="toggle-pills">
-<button class="toggle-pill" id="ic-yes" onclick="setIntercom(true)">Yes</button>
-<button class="toggle-pill on" id="ic-no" onclick="setIntercom(false)">No</button>
-</div>
-</div>
-<!-- Intercom sub-options -->
-<div class="intercom-sub" id="intercom-sub">
-<div class="intercom-sub-title">Indoor monitors</div>
-<p class="intercom-sub-note">One monitor is standard for most offices. Add more if you need viewing points in additional rooms (e.g. a manager's office as well as reception).</p>
-<div class="qty-row">
-<input class="qty-input" id="q-monitors" max="10" min="1" oninput="onDoorChange()" type="number" value="1"/>
-<span class="qty-label">monitor(s)</span>
-</div>
-<hr/>
-<div class="toggle-row">
-<span class="toggle-name">Also add mobile app access?</span>
-<div class="toggle-pills">
-<button class="toggle-pill on" id="app-yes" onclick="setApp(true)">Yes</button>
-<button class="toggle-pill" id="app-no" onclick="setApp(false)">No</button>
-</div>
-</div>
-<p>Answer the door from anywhere on your phone. One-time charge per system.</p>
-</div>
-<!-- Door total bar -->
-<div class="total-bar">
-<span>Total access points: <strong id="door-total">0</strong></span>
-<em id="panel-status"></em>
-</div>
-</div>
-<!-- ── STEP 2: ACCESS CARDS ───────────────────── -->
-<div class="ac-panel">
-<h2>2 · Access cards</h2>
-<p class="ac-hint">Mifare proximity cards: compatible with all major access control brands.</p>
-<div class="qty-row">
-<input class="qty-input" id="q-cards" max="1000" min="10" step="5" type="number" value="10"/>
-<span class="qty-label">cards</span>
-</div>
-<p class="cards-note"><b>Minimum order: 10 cards.</b> Estimate based on number of regular users. Allow extra for visitor cards and spares.</p>
-</div>
-<!-- ── CALCULATE BUTTON ───────────────────────── -->
-<div class="ac-btn-row">
-<button class="ac-btn" id="calc-btn" onclick="calculate()">
-                    Calculate budget →
-                </button>
-</div>
+<form id="accessControlCalculatorForm" onsubmit="event.preventDefault(); calculate();" data-webmcp-tool="calculate_access_control_cost" data-webmcp-desc="Calculate the estimated budget range for supply, cabling, installation, and setup of a door access control system in Singapore.">
+  <!-- Hidden inputs to expose WebMCP toggle pill selections -->
+  <input type="hidden" id="webmcp_intercom_enabled" name="webmcp_intercom_enabled" value="false" data-webmcp-param="intercom_enabled" data-webmcp-desc="Whether video intercom is included (true or false)."/>
+  <input type="hidden" id="webmcp_mobile_app_enabled" name="webmcp_mobile_app_enabled" value="true" data-webmcp-param="mobile_app_enabled" data-webmcp-desc="Whether mobile app access is enabled for the intercom (true or false)."/>
+
+  <!-- ── STEP 1: ACCESS POINTS ─────────────────── -->
+  <div class="ac-panel">
+  <h2>1 · Access points</h2>
+  <p class="ac-hint">Enter how many doors you need for each technology. You can mix types in one system.</p>
+  <div class="tech-grid">
+  <div class="tech-card">
+  <div class="tech-name">Card + PIN</div>
+  <div class="tech-desc">Standard credential access: suitable for most internal and secondary doors.</div>
+  <div class="qty-row">
+  <input class="qty-input" id="q-card" max="64" min="0" oninput="onDoorChange()" type="number" value="0" data-webmcp-param="card_pin_doors_qty" data-webmcp-desc="Quantity of standard Card + PIN controlled doors."/>
+  <span class="qty-label">doors</span>
+  </div>
+  </div>
+  <div class="tech-card">
+  <div class="tech-name">Face recognition</div>
+  <div class="tech-desc">Touchless biometric: for main entrances and higher-security areas.</div>
+  <div class="qty-row">
+  <input class="qty-input" id="q-face" max="64" min="0" oninput="onDoorChange()" type="number" value="0" data-webmcp-param="face_recognition_doors_qty" data-webmcp-desc="Quantity of biometric Face Recognition controlled doors."/>
+  <span class="qty-label">doors</span>
+  </div>
+  </div>
+  </div>
+  <!-- Video intercom toggle -->
+  <div class="toggle-row">
+  <span class="toggle-name">Video intercom at main entrance?</span>
+  <div class="toggle-pills">
+  <button type="button" class="toggle-pill" id="ic-yes" onclick="setIntercom(true)">Yes</button>
+  <button type="button" class="toggle-pill on" id="ic-no" onclick="setIntercom(false)">No</button>
+  </div>
+  </div>
+  <!-- Intercom sub-options -->
+  <div class="intercom-sub" id="intercom-sub">
+  <div class="intercom-sub-title">Indoor monitors</div>
+  <p class="intercom-sub-note">One monitor is standard for most offices. Add more if you need viewing points in additional rooms (e.g. a manager's office as well as reception).</p>
+  <div class="qty-row">
+  <input class="qty-input" id="q-monitors" max="10" min="1" oninput="onDoorChange()" type="number" value="1" data-webmcp-param="intercom_indoor_monitors_qty" data-webmcp-desc="Quantity of video intercom indoor monitors."/>
+  <span class="qty-label">monitor(s)</span>
+  </div>
+  <hr/>
+  <div class="toggle-row">
+  <span class="toggle-name">Also add mobile app access?</span>
+  <div class="toggle-pills">
+  <button type="button" class="toggle-pill on" id="app-yes" onclick="setApp(true)">Yes</button>
+  <button type="button" class="toggle-pill" id="app-no" onclick="setApp(false)">No</button>
+  </div>
+  </div>
+  <p>Answer the door from anywhere on your phone. One-time charge per system.</p>
+  </div>
+  <!-- Door total bar -->
+  <div class="total-bar">
+  <span>Total access points: <strong id="door-total">0</strong></span>
+  <em id="panel-status"></em>
+  </div>
+  </div>
+  <!-- ── STEP 2: ACCESS CARDS ───────────────────── -->
+  <div class="ac-panel">
+  <h2>2 · Access cards</h2>
+  <p class="ac-hint">Mifare proximity cards: compatible with all major access control brands.</p>
+  <div class="qty-row">
+  <input class="qty-input" id="q-cards" max="1000" min="10" step="5" type="number" value="10" data-webmcp-param="access_cards_qty" data-webmcp-desc="Quantity of Mifare proximity cards (minimum 10)."/>
+  <span class="qty-label">cards</span>
+  </div>
+  <p class="cards-note"><b>Minimum order: 10 cards.</b> Estimate based on number of regular users. Allow extra for visitor cards and spares.</p>
+  </div>
+  <!-- ── CALCULATE BUTTON ───────────────────────── -->
+  <div class="ac-btn-row">
+  <button class="ac-btn" id="calc-btn" type="submit">
+                      Calculate budget →
+                  </button>
+  </div>
+</form>
 <!-- ── RESULTS ────────────────────────────────── -->
 <div class="ac-results" id="results">
 <div class="budget-card">
@@ -454,6 +460,8 @@ window.SV_PAGE = {
         $('intercom-sub').classList.toggle('show', on);
         onDoorChange();
         $('results').style.display = 'none';
+        const mcpIc = $('webmcp_intercom_enabled');
+        if (mcpIc) mcpIc.value = on ? "true" : "false";
     }
 
     function setApp(on) {
@@ -461,6 +469,8 @@ window.SV_PAGE = {
         $('app-yes').classList.toggle('on', on);
         $('app-no').classList.toggle('on', !on);
         $('results').style.display = 'none';
+        const mcpApp = $('webmcp_mobile_app_enabled');
+        if (mcpApp) mcpApp.value = on ? "true" : "false";
     }
 
     /* ── Live total + panel hint ───────────────────────────── */

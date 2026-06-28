@@ -294,59 +294,65 @@ window.SV_PAGE = {
 <section class="sv-section-white">
 <div class="container">
 <div class="cost-wrap">
-<!-- NVR -->
-<div class="cost-panel">
-<div class="cost-panel-head">
-<h2>1 · Recorder (NVR)</h2>
-<span class="cost-panel-hint">How many camera channels do you need? We’ll step up automatically if your camera count exceeds the selection.</span>
-</div>
-<div class="pill-row" id="nvr-pills"></div>
-</div>
-<!-- CAMERAS -->
-<div class="cost-panel">
-<div class="cost-panel-head">
-<h2>2 · Cameras</h2>
-<span class="cost-panel-hint">Enter how many of each type. You can mix resolutions in one system.</span>
-</div>
-<div class="cam-grid">
-<div class="cam-card">
-<div class="cam-label">2MP cameras <span>(1080p)</span></div>
-<div class="cam-desc">General surveillance: corridors, car parks, open areas</div>
-<div class="cam-row">
-<input id="q2mp" max="64" min="0" oninput="onCamChange()" type="number" value="0"/>
-<span>cameras</span>
-</div>
-</div>
-<div class="cam-card">
-<div class="cam-label">4MP cameras</div>
-<div class="cam-desc">Higher detail: entrances, reception, high-value areas</div>
-<div class="cam-row">
-<input id="q4mp" max="64" min="0" oninput="onCamChange()" type="number" value="0"/>
-<span>cameras</span>
-</div>
-</div>
-</div>
-<div class="cam-total-bar">
-<span>Total cameras: <strong id="cam-total">0</strong></span>
-<span id="nvr-status"></span>
-</div>
-<div class="upgrade-notice" id="upgrade-notice"></div>
-</div>
-<!-- HDD -->
-<div class="cost-panel">
-<div class="cost-panel-head">
-<h2>3 · Storage</h2>
-<span class="cost-panel-hint">Surveillance-grade hard disk only: rated for 24/7 continuous recording.</span>
-</div>
-<div class="pill-row" id="hdd-pills"></div>
-<a class="hdd-helper" href="/resources/calculators/cctv-storage-bandwidth-calculator">
-                    Not sure how much storage you need? Use our Storage Calculator first →
-                </a>
-</div>
-<!-- CALCULATE -->
-<div class="cost-btn-row">
-<button class="cost-btn" onclick="calculate()">Calculate budget →</button>
-</div>
+<form id="cctvCalculatorForm" onsubmit="event.preventDefault(); calculate();" data-webmcp-tool="calculate_cctv_system_cost" data-webmcp-desc="Calculate the estimated budget range for supply, cabling, installation, and setup of a CCTV system in Singapore.">
+  <!-- Hidden inputs to expose WebMCP pill selections -->
+  <input type="hidden" id="webmcp_nvr_channels" name="webmcp_nvr_channels" value="4" data-webmcp-param="nvr_channels" data-webmcp-desc="Recorder channel capacity (4, 8, 16, 32). Defaults to 4, auto-upgrades if camera count exceeds NVR capacity."/>
+  <input type="hidden" id="webmcp_hdd_tb" name="webmcp_hdd_tb" value="2" data-webmcp-param="storage_hdd_tb" data-webmcp-desc="Surveillance-grade hard disk size in TB (1, 2, 4, 6, 8, 10)."/>
+
+  <!-- NVR -->
+  <div class="cost-panel">
+  <div class="cost-panel-head">
+  <h2>1 · Recorder (NVR)</h2>
+  <span class="cost-panel-hint">How many camera channels do you need? We’ll step up automatically if your camera count exceeds the selection.</span>
+  </div>
+  <div class="pill-row" id="nvr-pills"></div>
+  </div>
+  <!-- CAMERAS -->
+  <div class="cost-panel">
+  <div class="cost-panel-head">
+  <h2>2 · Cameras</h2>
+  <span class="cost-panel-hint">Enter how many of each type. You can mix resolutions in one system.</span>
+  </div>
+  <div class="cam-grid">
+  <div class="cam-card">
+  <div class="cam-label">2MP cameras <span>(1080p)</span></div>
+  <div class="cam-desc">General surveillance: corridors, car parks, open areas</div>
+  <div class="cam-row">
+  <input id="q2mp" max="64" min="0" oninput="onCamChange()" type="number" value="0" data-webmcp-param="camera_2mp_qty" data-webmcp-desc="Quantity of 2MP (1080p) general surveillance cameras."/>
+  <span>cameras</span>
+  </div>
+  </div>
+  <div class="cam-card">
+  <div class="cam-label">4MP cameras</div>
+  <div class="cam-desc">Higher detail: entrances, reception, high-value areas</div>
+  <div class="cam-row">
+  <input id="q4mp" max="64" min="0" oninput="onCamChange()" type="number" value="0" data-webmcp-param="camera_4mp_qty" data-webmcp-desc="Quantity of 4MP high-detail surveillance cameras."/>
+  <span>cameras</span>
+  </div>
+  </div>
+  </div>
+  <div class="cam-total-bar">
+  <span>Total cameras: <strong id="cam-total">0</strong></span>
+  <span id="nvr-status"></span>
+  </div>
+  <div class="upgrade-notice" id="upgrade-notice"></div>
+  </div>
+  <!-- HDD -->
+  <div class="cost-panel">
+  <div class="cost-panel-head">
+  <h2>3 · Storage</h2>
+  <span class="cost-panel-hint">Surveillance-grade hard disk only: rated for 24/7 continuous recording.</span>
+  </div>
+  <div class="pill-row" id="hdd-pills"></div>
+  <a class="hdd-helper" href="/resources/calculators/cctv-storage-bandwidth-calculator">
+                      Not sure how much storage you need? Use our Storage Calculator first →
+                  </a>
+  </div>
+  <!-- CALCULATE -->
+  <div class="cost-btn-row">
+  <button class="cost-btn" type="submit">Calculate budget →</button>
+  </div>
+</form>
 <!-- RESULTS -->
 <div class="cost-results-area" id="results">
 <div class="budget-card">
@@ -467,11 +473,15 @@ window.SV_PAGE = {
     function pickNVR(ch) {
         selNVRch = ch; renderNVR(); onCamChange();
         $('results').style.display = 'none';
+        const mcpNvr = $('webmcp_nvr_channels');
+        if (mcpNvr) mcpNvr.value = ch;
     }
 
     function pickHDD(tb) {
         selHDDtb = tb; renderHDD();
         $('results').style.display = 'none';
+        const mcpHdd = $('webmcp_hdd_tb');
+        if (mcpHdd) mcpHdd.value = tb;
     }
 
     /* ── Camera change: live upgrade notice ───────────────── */
@@ -491,9 +501,13 @@ window.SV_PAGE = {
                 + `${sel.label} NVR's capacity. We&rsquo;ve stepped up to a `
                 + `<strong>${needed.label} NVR</strong> automatically.`;
             status.textContent = `Using ${needed.label} NVR`;
+            const mcpNvr = $('webmcp_nvr_channels');
+            if (mcpNvr) mcpNvr.value = needed.ch;
         } else {
             notice.style.display = 'none';
             status.textContent   = '';
+            const mcpNvr = $('webmcp_nvr_channels');
+            if (mcpNvr) mcpNvr.value = selNVRch;
         }
     }
 
