@@ -1,6 +1,6 @@
 # Securevision Site Structure
 
-Last updated: 2026-06-20
+Last updated: 2026-06-29
 
 - [/](https://www.securevision.com.sg/)
 - [/about.html](https://www.securevision.com.sg/about)
@@ -129,6 +129,7 @@ Last updated: 2026-06-20
 - [/portfolio/condominiums/rezi-3two-condo.html](https://www.securevision.com.sg/portfolio/condominiums/rezi-3two-condo)
 - [/portfolio/condominiums/suites-cairnhill-intercom-lpr.html](https://www.securevision.com.sg/portfolio/condominiums/suites-cairnhill-intercom-lpr)
 - [/portfolio/condominiums/the-bale-intercom-cctv.html](https://www.securevision.com.sg/portfolio/condominiums/the-bale-intercom-cctv)
+- [/portfolio/condominiums/the-lviv-newton-condo.html](https://www.securevision.com.sg/portfolio/condominiums/the-lviv-newton-condo)
 - [/portfolio/condominiums/the-verte-telok-kurau-condo.html](https://www.securevision.com.sg/portfolio/condominiums/the-verte-telok-kurau-condo)
 - [/portfolio/condominiums/village-pasir-panjang-condo.html](https://www.securevision.com.sg/portfolio/condominiums/village-pasir-panjang-condo)
 - [/portfolio/data-centres/fort-data-centre-access-upgrade.html](https://www.securevision.com.sg/portfolio/data-centres/fort-data-centre-access-upgrade)
@@ -180,6 +181,7 @@ Last updated: 2026-06-20
 - [/resources/guides/auto-gate-guide.html](https://www.securevision.com.sg/resources/guides/auto-gate-guide)
 - [/resources/guides/burglar-alarm-guide.html](https://www.securevision.com.sg/resources/guides/burglar-alarm-guide)
 - [/resources/guides/car-park-barrier-guide.html](https://www.securevision.com.sg/resources/guides/car-park-barrier-guide)
+- [/resources/guides/cctv-guide.html](https://www.securevision.com.sg/resources/guides/cctv-guide)
 - [/resources/guides/door-access-guide.html](https://www.securevision.com.sg/resources/guides/door-access-guide)
 - [/resources/guides/how-to-evaluate-security-contractor.html](https://www.securevision.com.sg/resources/guides/how-to-evaluate-security-contractor)
 - [/resources/guides/intercom-guide.html](https://www.securevision.com.sg/resources/guides/intercom-guide)
