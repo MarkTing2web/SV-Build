@@ -345,7 +345,7 @@
 
   // WebSite schema — homepage only
   var path = window.location.pathname;
-  if (path === "/" || path === "/index.html") {
+  if (path === "/" || path === "/") {
     injectSchema(websiteSchema);
   }
 
