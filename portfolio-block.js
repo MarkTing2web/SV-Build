@@ -265,14 +265,6 @@
       text:     "CCTV surveillance across a major Singapore logistics hub — wide-area coverage for a large-footprint industrial facility."
     },
     {
-      slug:     "/portfolio/industrial/cyrus-tech-industrial",
-      category: "industrial",
-      image:    "/images/portfolio/industrial/cyrus-tech-at-loyang-rel.webp",
-      badge:    "Industrial",
-      title:    "Cyrus Tech",
-      text:     "Industrial security upgrade at Loyang — access control and surveillance for a technology facility in the eastern industrial belt."
-    },
-    {
       slug:     "/portfolio/industrial/hoy-san-industrial",
       category: "industrial",
       image:    "/images/portfolio/industrial/hoy-san-rel.webp",
