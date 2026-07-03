@@ -158,6 +158,21 @@ RewriteRule ^resources/checklists/?$ /resources/checklists.html [R=301,L]
 RewriteRule ^resources/training-videos/?$ /resources/training-videos.html [R=301,L]
 
 # ============================================================
+# LIBRARY SUB-PAGE REDIRECTS
+# Each library category has both a .html file AND a same-named
+# subfolder containing PDFs. LiteSpeed sees the folder first
+# and returns 403. These rules redirect explicitly to the .html.
+# ============================================================
+RewriteRule ^resources/library/burglar-alarm/?$ /resources/library/burglar-alarm.html [R=301,L]
+RewriteRule ^resources/library/access-control/?$ /resources/library/access-control.html [R=301,L]
+RewriteRule ^resources/library/cctv/?$ /resources/library/cctv.html [R=301,L]
+RewriteRule ^resources/library/intercom/?$ /resources/library/intercom.html [R=301,L]
+RewriteRule ^resources/library/ip-telephony/?$ /resources/library/ip-telephony.html [R=301,L]
+RewriteRule ^resources/library/network/?$ /resources/library/network.html [R=301,L]
+RewriteRule ^resources/library/platform/?$ /resources/library/platform.html [R=301,L]
+RewriteRule ^resources/library/vehicle/?$ /resources/library/vehicle.html [R=301,L]
+
+# ============================================================
 # CLEAN URL HANDLING FOR NEW STATIC SITE
 # Allows URLs without .html extension to resolve correctly
 # ============================================================
