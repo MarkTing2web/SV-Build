@@ -80,6 +80,16 @@ RewriteRule ^which-is-better-wired-or-wireless-alarm/?$ /systems/premises-securi
 RewriteRule ^burglar-alarm-accessories/?$ /systems/premises-security.html [R=301,L]
 RewriteRule ^burglar-alarm-services/?$ /systems/premises-security.html [R=301,L]
 
+# Burglar Alarm brand product pages
+RewriteRule ^paradox-spectra/?$ /brands/paradox-alarms.html [R=301,L]
+RewriteRule ^paradox-magellan/?$ /brands/paradox-alarms.html [R=301,L]
+RewriteRule ^dsc-powerseries/?$ /brands/dsc-alarms.html [R=301,L]
+RewriteRule ^dsc-powerseries-neo/?$ /brands/dsc-alarms.html [R=301,L]
+RewriteRule ^ge-networx/?$ /brands/ge-caddx-alarms.html [R=301,L]
+RewriteRule ^ajax-alarm/?$ /brands/ajax-alarms.html [R=301,L]
+RewriteRule ^risco-secuplace/?$ /brands/risco-alarms.html [R=301,L]
+
+
 # CCTV
 RewriteRule ^cctv-cameras-for-your-home-and-office/?$ /systems/premises-security.html [R=301,L]
 RewriteRule ^ip-network-cctv/?$ /systems/premises-security.html [R=301,L]
@@ -143,6 +153,37 @@ RewriteRule ^featured-articles/?$ /insights/ [R=301,L]
 # No equivalent in new site — redirect to homepage
 # ============================================================
 RewriteRule ^\?p=.*$ / [R=301,L]
+
+# ============================================================
+# LEGACY WORDPRESS PDF REDIRECTS
+# Old wp-content upload URLs → new library locations
+# NC flag = case-insensitive matching
+# ============================================================
+
+# GE Caddx
+RewriteRule ^wp-content/uploads/2021/09/GE-Caddx-NX8V2-Installation-Manual[^/]*\.pdf$ /resources/library/burglar-alarm/ge-caddx-nx8v2-installation-manual.pdf [R=301,L,NC]
+
+# RISCO
+RewriteRule ^wp-content/uploads/2021/09/LightSYS2-User-Manual[^/]*\.pdf$ /resources/library/burglar-alarm/risco-lightsys2-full-user-manual.pdf [R=301,L,NC]
+
+# Ajax — files we have
+RewriteRule ^wp-content/uploads/2021/09/Ajax-DoorProtect-User-Manual[^/]*\.pdf$ /resources/library/burglar-alarm/ajax-doorprotect-plus-user-manual.pdf [R=301,L,NC]
+RewriteRule ^wp-content/uploads/2021/09/Ajax-Wireless-DoorProtect[^/]*\.pdf$ /resources/library/burglar-alarm/ajax-doorprotect-plus-user-manual.pdf [R=301,L,NC]
+RewriteRule ^wp-content/uploads/2021/09/Ajax-Hub-Plus-User-Manual[^/]*\.pdf$ /resources/library/burglar-alarm/ajax-hub-2-plus-user-manual.pdf [R=301,L,NC]
+RewriteRule ^wp-content/uploads/2021/09/AJAX-HUB-Plus-control-Panel-brochure[^/]*\.pdf$ /resources/library/burglar-alarm/ajax-hub-2-brochure.pdf [R=301,L,NC]
+RewriteRule ^wp-content/uploads/2021/09/Ajax-MotionProtect-detector-brochure[^/]*\.pdf$ /resources/library/burglar-alarm/ajax-motioncam-outdoor-brochure.pdf [R=301,L,NC]
+RewriteRule ^wp-content/uploads/2021/09/AJAX-Product-brochure[^/]*\.pdf$ /resources/library/burglar-alarm/ajax-hub-2-brochure.pdf [R=301,L,NC]
+
+# Ajax — no file yet, send to library page
+RewriteRule ^wp-content/uploads/2021/09/Ajax-KeyPad-User-Manual[^/]*\.pdf$ /resources/library/burglar-alarm.html [R=301,L,NC]
+RewriteRule ^wp-content/uploads/2021/09/Ajax-MotionProtect-User-Manual[^/]*\.pdf$ /resources/library/burglar-alarm.html [R=301,L,NC]
+RewriteRule ^wp-content/uploads/2021/09/ajax-Panic-Button-brochure[^/]*\.pdf$ /resources/library/burglar-alarm.html [R=301,L,NC]
+RewriteRule ^wp-content/uploads/2021/09/ajax-SpaceControl[^/]*\.pdf$ /resources/library/burglar-alarm.html [R=301,L,NC]
+RewriteRule ^wp-content/uploads/2021/09/Ajax-StreetSiren[^/]*\.pdf$ /resources/library/burglar-alarm.html [R=301,L,NC]
+
+# Aiphone — no file yet, send to intercom library page
+RewriteRule ^wp-content/uploads/2021/12/AIphone-LEF-Series[^/]*\.pdf$ /resources/library/intercom.html [R=301,L,NC]
+
 
 # ============================================================
 # RESOURCE HUB REDIRECTS
