@@ -20,7 +20,7 @@ const SECUREVISION = {
 
   // ── AUTHOR ─────────────────────────────────────────────────────────
   authorName: 'Ler Wee Meng',
-  authorTitle: 'Founder & Director, Securevision Pte Ltd',
+  authorTitle: 'Founder & CEO, Securevision Pte Ltd',
   authorQuals: 'BEng (NUS) · LLB (UoL)',
   get authorDescription() {
     return `Ler Wee Meng has over ${this.yearsExperience} years of experience in security systems engineering and integration. He holds a Bachelor of Engineering from the National University of Singapore and a Bachelor of Laws from the University of London.`;
@@ -159,6 +159,7 @@ SECUREVISION.insights = [
   { slug: "false-alarm-causes", title: "The Most Common Causes of False Alarms", category: "Alarm & Intrusion", tags: ["alarm", "false-alarm", "causes", "pir", "singapore"], image: "false-alarm-causes-feature.webp" },
   { slug: "false-alarms", title: "Why False Alarms Matter", category: "Alarm & Intrusion", tags: ["alarm", "false-alarm", "monitoring", "police", "singapore"], image: "false-alarms-feature.webp" },
   { slug: "gate-remote-smartphone", title: "Do You Still Need a Gate Remote?", category: "Vehicle & Gates", tags: ["auto-gate", "remote", "smartphone", "app", "singapore"], image: "gate-remote-smartphone-feature.webp" },
+  { slug: "ge-caddx-networx-support-singapore", title: "GE-Caddx NetworX Alarm Systems: Support and Upgrade Guide for Singapore Properties", category: "Alarm & Intrusion", tags: ["ge-caddx", "networx", "nx8v2", "burglar-alarm", "upgrade", "singapore", "interlogix"], image: "ge-caddx-networx-support-singapore-feature.webp" },
   { slug: "guarding-technology-singapore", title: "How Technology Makes Your Guarding Team More Competitive", category: "Security Planning", tags: ["guarding", "technology", "manpower", "singapore", "operations"], image: "guarding-technology-singapore-feature.webp" },
   { slug: "hdb-landed-condo-security-differences", title: "HDB, Landed, or Condo — How Security Requirements Differ", category: "Security Planning", tags: ["residential", "hdb", "landed", "condo", "singapore"], image: "hdb-landed-condo-security-differences-feature.webp" },
   { slug: "home-security-system-cost-singapore", title: "How Much Does a Home Security System Cost in Singapore?", category: "Security Planning", tags: ["cost", "residential", "singapore", "homeowner", "budget"], image: "home-security-system-cost-singapore-feature.webp" },

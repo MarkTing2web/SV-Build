@@ -71,6 +71,7 @@ const staticPages = [
   { url: '/resources/checklists',          title: 'Security Planning Checklists',   section: 'Resources', excerpt: 'Scored gap assessments for condominiums, commercial buildings, care facilities, and dormitories.' },
   { url: '/resources/calculators',         title: 'Security System Calculators',    section: 'Resources', excerpt: 'CCTV storage, camera coverage, CCTV cost, and access control cost calculators — Singapore-calibrated.' },
   { url: '/resources/library',             title: 'Product Library',                section: 'Resources', excerpt: 'Datasheets, manuals, and specifications for every security brand Securevision installs in Singapore.' },
+  { url: '/resources/library/burglar-alarm.html', title: 'Burglar Alarm Product Library', section: 'Resources · Library', excerpt: 'Datasheets and specifications for RISCO, Ajax, Paradox, DSC, and GE Caddx alarm systems.', tags: ["alarm", "library", "datasheet", "risco", "ajax", "paradox", "dsc", "ge-caddx", "lightsys2", "agility4", "hub2plus", "motioncam", "doorprotect", "spectra", "evo", "powerseries", "nx8v2", "burglar-alarm", "singapore"] },
   { url: '/resources/training-videos',     title: 'Training Videos',                section: 'Resources', excerpt: 'Akuvox SmartPlus tutorials for residents and managing agents, plus manufacturer product videos.' },
   { url: '/resources/faq',                 title: 'Security FAQ',                   section: 'Resources', excerpt: '68 answered questions on CCTV, alarms, access control, intercoms, LPR, condominiums, and renovation planning.' },
   // Insights hub
@@ -87,12 +88,22 @@ staticPages.forEach(function (p) {
 
 // Articles from site-config.js
 articles.forEach(function (a) {
+  let url = '/insights/' + a.slug;
+  let excerpt = (a.category || 'Insights') + ' article from the Securevision field library.';
+  let tags = a.tags || [];
+
+  if (a.slug === 'ge-caddx-networx-support-singapore') {
+    url = '/insights/ge-caddx-networx-support-singapore.html';
+    excerpt = 'Interlogix ceased manufacturing in 2019. Here is what Securevision can still do for your NX4, NX6, NX8, or NX8E panel — and when it is time to upgrade.';
+    tags = ["ge-caddx", "networx", "nx8v2", "nx8", "nx4", "burglar-alarm", "upgrade", "interlogix", "singapore", "alarm"];
+  }
+
   index.push({
-    url:     '/insights/' + a.slug,
+    url:     url,
     title:   a.title,
     section: 'Insights · ' + (a.category || 'General'),
-    excerpt: (a.category || 'Insights') + ' article from the Securevision field library.',
-    tags:    a.tags || [],
+    excerpt: excerpt,
+    tags:    tags,
   });
 });
 
