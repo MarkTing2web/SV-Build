@@ -1,6 +1,6 @@
 # Securevision Site Structure
 
-Last updated: 2026-07-02
+Last updated: 2026-07-04
 
 - [/](https://www.securevision.com.sg/)
 - [/about.html](https://www.securevision.com.sg/about)
@@ -78,6 +78,7 @@ Last updated: 2026-07-02
 - [/insights/false-alarm-causes.html](https://www.securevision.com.sg/insights/false-alarm-causes)
 - [/insights/false-alarms.html](https://www.securevision.com.sg/insights/false-alarms)
 - [/insights/gate-remote-smartphone.html](https://www.securevision.com.sg/insights/gate-remote-smartphone)
+- [/insights/ge-caddx-networx-support-singapore.html](https://www.securevision.com.sg/insights/ge-caddx-networx-support-singapore)
 - [/insights/guarding-technology-singapore.html](https://www.securevision.com.sg/insights/guarding-technology-singapore)
 - [/insights/hdb-landed-condo-security-differences.html](https://www.securevision.com.sg/insights/hdb-landed-condo-security-differences)
 - [/insights/home-security-system-cost-singapore.html](https://www.securevision.com.sg/insights/home-security-system-cost-singapore)
