@@ -322,7 +322,7 @@ SECUREVISION.solutions = [
 ];
 
 SECUREVISION.library = [
-  { url: "/resources/library/burglar-alarm", title: "Burglar Alarm Product Library", section: "Resources · Library", excerpt: "Datasheets and specifications for RISCO, Ajax, Paradox, DSC, and GE Caddx alarm systems.", tags: ["alarm", "library", "datasheet", "risco", "ajax", "paradox"] },
+  { url: "/resources/library/burglar-alarm.html", title: "Burglar Alarm Product Library", section: "Resources · Library", excerpt: "Datasheets and specifications for RISCO, Ajax, Paradox, DSC, and GE Caddx alarm systems.", tags: ["alarm", "library", "datasheet", "risco", "ajax", "paradox", "dsc", "ge-caddx", "lightsys2", "agility4", "hub2plus", "motioncam", "doorprotect", "spectra", "evo", "powerseries", "nx8v2", "burglar-alarm", "singapore"] },
   { url: "/resources/library/cctv", title: "CCTV Product Library", section: "Resources · Library", excerpt: "Datasheets and specifications for Hikvision, Milesight, Hanwha, and Uniview cameras and NVRs.", tags: ["cctv", "library", "datasheet", "hikvision", "milesight", "hanwha"] },
   { url: "/resources/library/access-control", title: "Access Control Product Library", section: "Resources · Library", excerpt: "Datasheets for ZKTeco, Suprema, HID, EntryPass, MicroEngine, and Apollo access control products.", tags: ["access-control", "library", "datasheet", "zkteco", "suprema", "hid"] },
   { url: "/resources/library/intercom", title: "Intercom Product Library", section: "Resources · Library", excerpt: "Datasheets for Akuvox, Hikvision, Aiphone, Fanvil, and Kocom intercom products.", tags: ["intercom", "library", "datasheet", "akuvox", "hikvision", "aiphone"] },
