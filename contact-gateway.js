@@ -322,6 +322,37 @@ async function handleProposalSubmit(event) {
     const interests = [...document.querySelectorAll('input[name="interests"]:checked')]
         .map(cb => cb.value).join(', ');
 
+    // Phone validation — Singapore numbers only
+    const phoneVal = document.getElementById('phone').value.trim();
+    const phoneClean = phoneVal.replace(/[\s\-\(\)]/g, '');
+    if (!/^(\+65)?[689]\d{7}$/.test(phoneClean)) {
+        btnText.textContent = 'Send Proposal Request';
+        submitBtn.disabled = false;
+        const phoneEl = document.getElementById('phone');
+        phoneEl.style.borderColor = '#dc2626';
+        phoneEl.setCustomValidity('Please enter a valid Singapore number e.g. 91234567');
+        phoneEl.reportValidity();
+        return false;
+    }
+    document.getElementById('phone').style.borderColor = '';
+    document.getElementById('phone').setCustomValidity('');
+
+    // Email validation — must have valid TLD
+    const emailVal = document.getElementById('email').value.trim();
+    if (emailVal && !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailVal)) {
+        btnText.textContent = 'Send Proposal Request';
+        submitBtn.disabled = false;
+        const emailEl = document.getElementById('email');
+        emailEl.style.borderColor = '#dc2626';
+        emailEl.setCustomValidity('Please enter a valid email address e.g. name@email.com');
+        emailEl.reportValidity();
+        return false;
+    }
+    if (emailVal) {
+        document.getElementById('email').style.borderColor = '';
+        document.getElementById('email').setCustomValidity('');
+    }
+
     // Validate at least one system is selected
     if (!interests) {
         alert('Please select at least one system you are interested in.');

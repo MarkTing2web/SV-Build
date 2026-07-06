@@ -630,11 +630,11 @@
       <div class="field-row">
         <div class="field-group">
           <label for="email">Email Address</label>
-          <input id="email" name="email" placeholder="name@email.com" required="" type="email" toolparamdescription="Email address for confirmation."/>
+          <input id="email" name="email" placeholder="name@email.com" required="" type="email" maxlength="254" toolparamdescription="Email address for confirmation." oninvalid="this.setCustomValidity('Please enter a valid email address')" oninput="this.setCustomValidity('')"/>
         </div>
         <div class="field-group">
           <label for="phone">Phone / WhatsApp</label>
-          <input id="phone" name="phone" placeholder="+65 .... ...." required="" type="tel" toolparamdescription="Singapore phone or WhatsApp number."/>
+          <input id="phone" name="phone" placeholder="+65 9XXX XXXX" required="" type="tel" pattern="(\+65)?[\s-]?[689]\d{7}" maxlength="12" title="Please enter a valid Singapore number e.g. 91234567 or +6591234567" toolparamdescription="Singapore phone or WhatsApp number." oninvalid="this.setCustomValidity('Please enter a valid Singapore number e.g. 91234567')" oninput="this.setCustomValidity('')"/>
         </div>
       </div>
 
@@ -844,9 +844,34 @@
     var phone = document.getElementById('phone').value.trim();
     var prop  = document.getElementById('prop_type').value;
     var post  = document.getElementById('postal_code').value.trim();
+
     if (!name)  { document.getElementById('name').focus();  return false; }
+
+    // Email — must have valid TLD
     if (!email) { document.getElementById('email').focus(); return false; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) {
+      var emailEl = document.getElementById('email');
+      emailEl.style.borderColor = '#dc2626';
+      emailEl.setCustomValidity('Please enter a valid email address e.g. name@email.com');
+      emailEl.reportValidity();
+      return false;
+    }
+    document.getElementById('email').style.borderColor = '';
+    document.getElementById('email').setCustomValidity('');
+
+    // Phone — Singapore numbers only
     if (!phone) { document.getElementById('phone').focus(); return false; }
+    var phoneClean = phone.replace(/[\s\-\(\)]/g, '');
+    if (!/^(\+65)?[689]\d{7}$/.test(phoneClean)) {
+      var phoneEl = document.getElementById('phone');
+      phoneEl.style.borderColor = '#dc2626';
+      phoneEl.setCustomValidity('Please enter a valid Singapore number e.g. 91234567 or +6591234567');
+      phoneEl.reportValidity();
+      return false;
+    }
+    document.getElementById('phone').style.borderColor = '';
+    document.getElementById('phone').setCustomValidity('');
+
     if (!prop)  { document.getElementById('prop_type').focus(); return false; }
     if (!post || !/^\d{6}$/.test(post)) { document.getElementById('postal_code').focus(); return false; }
     return true;

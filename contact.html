@@ -271,12 +271,12 @@ window.SV_PAGE = {
   </div>
   <div class="form-group">
   <label>Phone / WhatsApp *</label>
-  <input id="enq_phone" name="phone" placeholder="+65 9XXX XXXX" required type="tel" toolparamdescription="Singapore phone or WhatsApp contact number (+65)."/>
+  <input id="enq_phone" name="phone" placeholder="+65 9XXX XXXX" required type="tel" pattern="(\+65)?[\s-]?[689]\d{7}" maxlength="12" title="Please enter a valid Singapore number e.g. 91234567 or +6591234567" toolparamdescription="Singapore phone or WhatsApp contact number (+65)." oninvalid="this.setCustomValidity('Please enter a valid Singapore number e.g. 91234567')" oninput="this.setCustomValidity('')"/>
   </div>
   </div>
   <div class="form-group">
   <label>Email</label>
-  <input id="enq_email" name="email" placeholder="your@email.com" type="email" toolparamdescription="Email address of the contact person."/>
+  <input id="enq_email" name="email" placeholder="your@email.com" type="email" maxlength="254" toolparamdescription="Email address of the contact person." oninvalid="this.setCustomValidity('Please enter a valid email address')" oninput="this.setCustomValidity('')"/>
   </div>
   <div class="form-group">
   <label for="enq_prop_type">Property Type *</label>
@@ -322,7 +322,7 @@ window.SV_PAGE = {
   </div>
   <div class="form-group">
   <label>WhatsApp / Phone *</label>
-  <input id="cb_phone" name="phone" placeholder="+65 9XXX XXXX" required type="tel" toolparamdescription="Singapore phone or WhatsApp number to call back."/>
+  <input id="cb_phone" name="phone" placeholder="+65 9XXX XXXX" required type="tel" pattern="(\+65)?[\s-]?[689]\d{7}" maxlength="12" title="Please enter a valid Singapore number e.g. 91234567 or +6591234567" toolparamdescription="Singapore phone or WhatsApp number to call back." oninvalid="this.setCustomValidity('Please enter a valid Singapore number e.g. 91234567')" oninput="this.setCustomValidity('')"/>
   </div>
   </div>
   <div class="form-row">
@@ -463,6 +463,28 @@ const _fields = {
   });
 });
 
+// ── VALIDATION HELPERS ──
+function isValidSGPhone(val) {
+  const cleaned = val.replace(/[\s\-\(\)]/g, '');
+  return /^(\+65)?[689]\d{7}$/.test(cleaned);
+}
+
+function isValidEmail(val) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(val);
+}
+
+function showFieldError(fieldEl, errorEl, msg) {
+  fieldEl.style.borderColor = '#dc2626';
+  errorEl.textContent = msg;
+  errorEl.style.display = 'block';
+  fieldEl.focus();
+}
+
+function clearFieldError(fieldEl, errorEl) {
+  fieldEl.style.borderColor = '';
+  errorEl.style.display = 'none';
+}
+
 // ── FORM LOAD TIMESTAMPS (time-check bot detection) ──
 const ENQ_LOAD_TIME = Date.now();
 const CB_LOAD_TIME  = Date.now();
@@ -482,6 +504,29 @@ async function handleEnquirySubmit(event) {
   const btn = event.target.querySelector('button[type="submit"]');
   const errEl = document.getElementById('enq-error');
   errEl.style.display = 'none';
+
+  // Phone validation
+  const enqPhone = document.getElementById('enq_phone').value.trim();
+  if (!isValidSGPhone(enqPhone)) {
+    errEl.textContent = 'Please enter a valid Singapore phone number e.g. 91234567 or +6591234567.';
+    errEl.style.display = 'block';
+    document.getElementById('enq_phone').style.borderColor = '#dc2626';
+    document.getElementById('enq_phone').focus();
+    return false;
+  }
+  document.getElementById('enq_phone').style.borderColor = '';
+
+  // Email validation (if provided)
+  const enqEmail = document.getElementById('enq_email').value.trim();
+  if (enqEmail && !isValidEmail(enqEmail)) {
+    errEl.textContent = 'Please enter a valid email address e.g. name@email.com.';
+    errEl.style.display = 'block';
+    document.getElementById('enq_email').style.borderColor = '#dc2626';
+    document.getElementById('enq_email').focus();
+    return false;
+  }
+  document.getElementById('enq_email').style.borderColor = '';
+
   btn.disabled = true;
   btn.textContent = 'Sending…';
 
@@ -529,6 +574,18 @@ async function handleCallbackSubmit(event) {
   const btn = document.getElementById('cb-submit-btn');
   const errEl = document.getElementById('cb-error');
   errEl.style.display = 'none';
+
+  // Phone validation
+  const cbPhone = document.getElementById('cb_phone').value.trim();
+  if (!isValidSGPhone(cbPhone)) {
+    errEl.textContent = 'Please enter a valid Singapore phone number e.g. 91234567 or +6591234567.';
+    errEl.style.display = 'block';
+    document.getElementById('cb_phone').style.borderColor = '#dc2626';
+    document.getElementById('cb_phone').focus();
+    return false;
+  }
+  document.getElementById('cb_phone').style.borderColor = '';
+
   btn.disabled = true;
   btn.textContent = 'Sending…';
 
