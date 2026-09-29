@@ -511,7 +511,7 @@
         sv_human_verify: ''
       }, u);
     });
-    var res = await db.from('nathan_place_registrations').insert([payload]);
+    var res = await db.from('nathan_place_registrations').insert(payload);
     if (res.error) {
       console.error('Supabase error:', res.error);
       submitBtn.disabled = false; submitBtn.textContent = 'Submit Registration';
