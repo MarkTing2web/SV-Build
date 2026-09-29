@@ -344,9 +344,35 @@
         </form>
       </div>
       <div class="np-success" id="np-success" role="status" tabindex="-1">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8 12.5 2.8 2.8L16 9.5"/></svg>
+        <svg class="np-success-tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8 12.5 2.8 2.8L16 9.5"/></svg>
         <h3>Thank you, your registration is received</h3>
-        <p>The Managing Agent will verify your details. Your SmartPlus account will be activated on 20 October 2026, and you can then download the app.</p>
+        <p class="np-success-lead">We have received your details. <strong>A confirmation email will be sent</strong> to the email address(es) you registered.</p>
+
+        <div class="np-summary">
+          <h4>Your registration</h4>
+          <dl class="np-summary-home">
+            <div><dt>Block</dt><dd id="np-sum-block"></dd></div>
+            <div><dt>Unit</dt><dd id="np-sum-unit"></dd></div>
+          </dl>
+          <ul class="np-summary-users" id="np-sum-users"></ul>
+        </div>
+
+        <div class="np-next">
+          <h4>What happens next</h4>
+          <ol>
+            <li><strong>10 Oct, 10:00 am and 15 Oct, 7:30 pm.</strong> Town hall briefings for residents.</li>
+            <li><strong>18 Oct.</strong> The Managing Agent verifies the registration details.</li>
+            <li><strong>20 Oct.</strong> Your SmartPlus account is activated and you can download the app.</li>
+            <li><strong>21 Oct, 6:00 pm to 9:00 pm.</strong> Securevision staff are on site to help anyone who has trouble downloading the app.</li>
+          </ol>
+          <p class="np-next-note"><strong>No SmartPlus app?</strong> Send a clear photo of your face, with your name, contact number and address, to the Managing Agent for facial recognition enrolment.</p>
+        </div>
+
+        <p class="np-success-help">Made a mistake or need help? Call Securevision on <a href="tel:+6562864796">+65 6286 4796</a>.</p>
+        <div class="np-success-links">
+          <a class="np-btn" href="/nathan-place/how-it-works">How It Works</a>
+          <a class="np-btn np-btn--outline" href="/nathan-place/faq">Read the FAQ</a>
+        </div>
       </div>
     </div>
   </div>
@@ -492,7 +518,17 @@
       return fail('Something went wrong. Please try again, or contact Securevision at +65 6286 4796.');
     }
     document.getElementById('np-form-wrap').style.display = 'none';
+    document.getElementById('np-sum-block').textContent = 'Blk ' + block.value;
+    document.getElementById('np-sum-unit').textContent = unit.value.trim();
+    var list = document.getElementById('np-sum-users'); list.textContent = '';
+    users.forEach(function (u) {
+      var li = document.createElement('li');
+      var t = document.createElement('strong'); t.textContent = 'App user ' + u.user_no + ': ' + u.full_name + ' (' + u.identity + ')';
+      var d = document.createElement('span'); d.textContent = u.email + ' · ' + u.contact_no;
+      li.appendChild(t); li.appendChild(d); list.appendChild(li);
+    });
     var ok = document.getElementById('np-success'); ok.style.display = 'block'; ok.focus();
+    ok.scrollIntoView({ behavior: 'smooth', block: 'start' });
     return false;
   });
 })();
