@@ -66,7 +66,7 @@
       </div>
       <div class="np-feature-media">
         <div class="np-feature-img"><img src="/images/nathan-place/akuvox-x915-smart-intercom-singapore.webp" alt="Akuvox X915 smart intercom" loading="lazy"></div>
-        <div class="np-video" data-youtube="" data-title="Akuvox X915 Smart Intercom video"></div>
+        <div class="np-video"><video controls preload="metadata" playsinline aria-label="Akuvox X915 Smart Intercom video"><source src="/images/videos/Akuvox%20X915.mp4" type="video/mp4">Your browser does not support video playback.</video></div>
       </div>
     </div>
   </div>
@@ -82,7 +82,7 @@
       </div>
       <div class="np-feature-media">
         <div class="np-feature-img"><img src="/images/nathan-place/akuvox-a05c-biometric-reader-singapore.webp" alt="Akuvox A05C biometric reader" loading="lazy"></div>
-        <div class="np-video" data-youtube="" data-title="Akuvox A05C Biometric Reader video"></div>
+        <div class="np-video"><video controls preload="metadata" playsinline aria-label="Akuvox A05C Biometric Reader video"><source src="/images/videos/Akuvox%20A05%20Biomtric%20Reader.mp4" type="video/mp4">Your browser does not support video playback.</video></div>
       </div>
     </div>
   </div>
@@ -98,7 +98,7 @@
       </div>
       <div class="np-feature-media">
         <div class="np-feature-img"><img src="/images/nathan-place/smartplus-mobile-app-remote-opening-singapore.webp" alt="SmartPlus mobile app used to open a door remotely" loading="lazy"></div>
-        <div class="np-video" data-youtube="" data-title="SmartPlus mobile app video"></div>
+        <div class="np-video"><video controls preload="metadata" playsinline aria-label="SmartPlus mobile app user instruction video"><source src="/images/videos/Smartplus-app-user-instruction.mp4" type="video/mp4">Your browser does not support video playback.</video></div>
       </div>
     </div>
   </div>
@@ -156,17 +156,6 @@
   var el = document.getElementById('sv-email-link'), addr = 'enquiry' + '@' + 'securevision.com.sg';
   el.href = 'mailto:' + addr; el.textContent = addr;
   document.getElementById('np-year').textContent = new Date().getFullYear();
-  // YouTube embeds: a slot with an empty data-youtube is removed, so nothing broken is shown
-  Array.prototype.forEach.call(document.querySelectorAll('.np-video'), function (v) {
-    var id = (v.getAttribute('data-youtube') || '').trim();
-    if (!id) { v.parentNode.removeChild(v); return; }
-    var f = document.createElement('iframe');
-    f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?rel=0';
-    f.title = v.getAttribute('data-title') || 'Video';
-    f.loading = 'lazy'; f.allowFullscreen = true;
-    f.allow = 'accelerometer; encrypted-media; gyroscope; picture-in-picture';
-    v.appendChild(f);
-  });
 })();
 </script>
 </body>
