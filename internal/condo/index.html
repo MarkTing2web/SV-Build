@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Condo Projects | Securevision Internal</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--fg:#14202b;--mut:#5d6b78;--line:#e2e6ea;--acc:#0b5cab}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1418;--card:#171e24;--fg:#e8edf1;--mut:#93a1ad;--line:#28323b;--acc:#6db3f2}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:1000px;margin:0 auto;padding:24px 16px 48px;visibility:hidden}
+main.on{visibility:visible}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+h1{margin:0;font-size:1.7rem}
+.sub{color:var(--mut);margin:4px 0 24px;font-size:.9rem}
+button{padding:9px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit;cursor:pointer}
+button:hover{border-color:var(--acc)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.card{display:block;padding:18px;background:var(--card);border:1px solid var(--line);border-radius:12px;color:inherit;text-decoration:none}
+.card:hover{border-color:var(--acc)}
+.card h2{margin:0 0 4px;font-size:1.15rem}
+.card p{margin:0;color:var(--mut);font-size:.88rem}
+</style>
+</head>
+<body>
+<main id="app">
+<div class="top">
+<div><h1>Condo Projects</h1><p class="sub">Internal information for condominium projects.</p></div>
+<button id="out" type="button">Sign out</button>
+</div>
+<div class="grid">
+<a class="card" href="/internal/condo/nathan-place/"><h2>Nathan Place</h2><p>Resident registrations for the intercom, SmartPlus and LPR upgrade.</p></a>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function(){
+var db=supabase.createClient("https://bppajrzwqeysrnrucwka.supabase.co","sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT");
+var LOGIN="/internal/condo/login/";
+db.auth.getSession().then(function(s){
+  if(!s.data||!s.data.session){location.replace(LOGIN);return}
+  document.getElementById("app").className="on"});
+document.getElementById("out").onclick=async function(){await db.auth.signOut();location.replace(LOGIN)};
+})();
+</script>
+</body>
+</html>

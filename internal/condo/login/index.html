@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Sign in | Securevision Internal</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--fg:#14202b;--mut:#5d6b78;--line:#d9dfe5;--acc:#0b5cab;--err:#b3261e}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1418;--card:#171e24;--fg:#e8edf1;--mut:#93a1ad;--line:#28323b;--acc:#4a9be0;--err:#f2867e}}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:16px}
+form{width:100%;max-width:380px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:28px}
+h1{margin:0 0 4px;font-size:1.4rem}
+p{margin:0 0 20px;color:var(--mut);font-size:.9rem}
+label{display:block;font-size:.85rem;margin:12px 0 4px}
+input{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);font:inherit}
+input:focus{outline:2px solid var(--acc);outline-offset:1px}
+button{width:100%;margin-top:20px;padding:11px;border:0;border-radius:8px;background:var(--acc);color:#fff;font:inherit;font-weight:600;cursor:pointer}
+button:disabled{opacity:.6;cursor:default}
+#err{color:var(--err);font-size:.85rem;margin-top:12px;min-height:1.2em}
+</style>
+</head>
+<body>
+<form id="f" autocomplete="on">
+<h1>Securevision Internal</h1>
+<p>Sign in to view the Nathan Place registrations.</p>
+<label for="em">Email</label>
+<input id="em" type="email" autocomplete="username" required>
+<label for="pw">Password</label>
+<input id="pw" type="password" autocomplete="current-password" required>
+<button id="go" type="submit">Sign in</button>
+<div id="err" role="alert"></div>
+</form>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function(){
+var db=supabase.createClient("https://bppajrzwqeysrnrucwka.supabase.co","sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT");
+var n=new URLSearchParams(location.search).get("next");
+var DEST=(n&&/^\/internal\/condo\/[a-z0-9\-\/]*$/.test(n))?n:"/internal/condo/";
+db.auth.getSession().then(function(r){if(r.data&&r.data.session)location.replace(DEST)});
+document.getElementById("f").addEventListener("submit",async function(e){
+  e.preventDefault();
+  var b=document.getElementById("go"),er=document.getElementById("err");
+  b.disabled=true;er.textContent="";
+  var r=await db.auth.signInWithPassword({email:document.getElementById("em").value.trim(),password:document.getElementById("pw").value});
+  if(r.error){er.textContent="Sign-in failed. Check your email and password.";b.disabled=false;return}
+  location.replace(DEST);
+});
+})();
+</script>
+</body>
+</html>

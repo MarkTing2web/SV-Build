@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Nathan Place</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--fg:#14202b;--mut:#5d6b78;--line:#e2e6ea;--acc:#0b5cab;--hd:#eef2f6;--err:#b3261e}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1418;--card:#171e24;--fg:#e8edf1;--mut:#93a1ad;--line:#28323b;--acc:#6db3f2;--hd:#1d262d;--err:#f2867e}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:24px 16px 48px;visibility:hidden}
+main.on{visibility:visible}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+h1{margin:0;font-size:1.7rem}
+.back{color:var(--mut);font-size:.85rem;text-decoration:none}
+.back:hover{color:var(--acc)}
+.sub{color:var(--mut);margin:4px 0 16px;font-size:.9rem}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.bar input{flex:1 1 220px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit}
+button{padding:9px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit;cursor:pointer}
+button:hover{border-color:var(--acc)}
+.stats{color:var(--mut);font-size:.85rem}
+.wrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:720px;font-variant-numeric:tabular-nums}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{background:var(--hd);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);user-select:none}
+th.s{cursor:pointer}
+th.s:hover{color:var(--fg)}
+th .ar{display:inline-block;width:1em;color:var(--acc)}
+tr:last-child td{border-bottom:0}
+td.n{color:var(--mut)}
+.msg{padding:28px 16px;text-align:center;color:var(--mut)}
+.msg.err{color:var(--err)}
+</style>
+</head>
+<body>
+<main id="app">
+<div class="top">
+<div><a class="back" href="/internal/condo/">&larr; All condos</a><h1>Nathan Place</h1><p class="sub" id="fresh">Resident registrations</p></div>
+<button id="out" type="button">Sign out</button>
+</div>
+<div class="bar">
+<input id="q" type="search" placeholder="Search name, unit, contact or email" aria-label="Search">
+<button id="rf" type="button">Refresh</button>
+<span class="stats" id="stats"></span>
+</div>
+<div class="wrap"><table><thead><tr id="hd"></tr></thead><tbody id="tb"></tbody></table><div class="msg" id="msg">Loading…</div></div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function(){
+var db=supabase.createClient("https://bppajrzwqeysrnrucwka.supabase.co","sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT");
+var LOGIN="/internal/condo/login/?next="+encodeURIComponent("/internal/condo/nathan-place/");
+var COLS=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no"},{k:"full_name",l:"Name",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1}];
+var rows=[],sortK="block_no",dir=1;
+var $=function(i){return document.getElementById(i)};
+var coll=new Intl.Collator(undefined,{numeric:true,sensitivity:"base"});
+function head(){
+  var h=$("hd");h.innerHTML="";
+  COLS.forEach(function(c){
+    var th=document.createElement("th");th.textContent=c.l;
+    if(c.s){th.className="s";th.setAttribute("aria-sort",sortK===c.k?(dir>0?"ascending":"descending"):"none");
+      var a=document.createElement("span");a.className="ar";a.textContent=sortK===c.k?(dir>0?" ▲":" ▼"):"";th.appendChild(a);
+      th.onclick=function(){if(sortK===c.k)dir=-dir;else{sortK=c.k;dir=1}render()}}
+    h.appendChild(th)});
+}
+function render(){
+  head();
+  var q=$("q").value.trim().toLowerCase();
+  var list=rows.filter(function(r){return !q||[r.block_no,r.unit_no,r.full_name,r.contact_no,r.email].join(" ").toLowerCase().indexOf(q)>-1});
+  list.sort(function(a,b){
+    var c=coll.compare(String(a[sortK]||""),String(b[sortK]||""));
+    if(!c&&sortK!=="block_no")c=coll.compare(a.block_no,b.block_no);
+    if(!c)c=coll.compare(a.unit_no,b.unit_no);
+    if(!c)c=(a.user_no||0)-(b.user_no||0);
+    return c*dir});
+  var tb=$("tb");tb.innerHTML="";
+  list.forEach(function(r,i){
+    var tr=document.createElement("tr");
+    [i+1,r.block_no,r.unit_no,r.user_no,r.full_name,r.contact_no,r.email].forEach(function(v,j){
+      var td=document.createElement("td");td.textContent=v==null?"":v;if(j===0)td.className="n";tr.appendChild(td)});
+    tb.appendChild(tr)});
+  var m=$("msg");
+  if(!list.length){m.className="msg";m.style.display="";m.textContent=rows.length?"No matches.":"No registrations yet."}else m.style.display="none";
+  $("stats").textContent=list.length+" of "+rows.length+" users";
+}
+function fail(t){var m=$("msg");m.className="msg err";m.style.display="";m.textContent=t;$("tb").innerHTML=""}
+async function load(){
+  var m=$("msg");m.className="msg";m.style.display="";m.textContent="Loading…";
+  var r=await db.from("nathan_place_registrations").select("block_no,unit_no,user_no,full_name,contact_no,email").order("block_no").order("unit_no").order("user_no");
+  if(r.error){
+    if(r.error.code==="PGRST301"||/JWT/i.test(r.error.message||"")){location.replace(LOGIN);return}
+    fail("Couldn't load data: "+r.error.message);return}
+  rows=r.data||[];
+  $("fresh").textContent="Resident registrations · updated "+new Date().toLocaleString();
+  render();
+}
+$("q").oninput=render;$("rf").onclick=load;
+$("out").onclick=async function(){await db.auth.signOut();location.replace(LOGIN)};
+db.auth.onAuthStateChange(function(ev){if(ev==="SIGNED_OUT")location.replace(LOGIN)});
+db.auth.getSession().then(function(s){
+  if(!s.data||!s.data.session){location.replace(LOGIN);return}
+  $("app").className="on";head();load();
+});
+})();
+</script>
+</body>
+</html>
