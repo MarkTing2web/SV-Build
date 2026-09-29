@@ -161,7 +161,7 @@
         <li class="np-step">
           <div class="np-step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4M8 14h2M12 14h2M8 17h2"/></svg></div>
           <div class="np-step-date">30 Sep – 18 Oct 2026</div>
-          <div class="np-step-name">Resident Registration</div>
+          <div class="np-step-name">Resident Registration*</div>
           <p>Please complete your email registration within this period.</p>
         </li>
         <li class="np-step">
@@ -179,7 +179,7 @@
         <li class="np-step">
           <div class="np-step-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"/></svg></div>
           <div class="np-step-date">21 – 26 Oct 2026</div>
-          <div class="np-step-name">Progressive Implementation</div>
+          <div class="np-step-name">Progressive Implementation**</div>
           <p>Removal of old intercom/reader and replacement of new intercom &amp; reader.</p>
         </li>
         <li class="np-step">
@@ -189,6 +189,10 @@
           <p>Licence plate recognition (LPR) will be implemented on this date.</p>
         </li>
       </ol>
+      <div class="np-footnotes">
+        <p>* Town hall briefings will be held on Saturday, 10 October 2026 at 10:00 am and Thursday, 15 October 2026 at 7:30 pm.</p>
+        <p>** On Wednesday, 21 October 2026, Securevision staff will be on site from 6:00 pm to 9:00 pm to help anyone who has trouble downloading the app.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -219,7 +223,6 @@
       <div id="np-form-wrap">
         <h2>Register Your Email</h2>
         <p class="np-sub" style="margin:0">One registration per household. Each household may register up to 4 mobile app users.</p>
-        <div class="np-status" id="np-status" role="status"></div>
         <form id="np-form" novalidate>
 <div class="np-form-grid">
             <div class="np-field">
@@ -408,20 +411,12 @@
   el.href = 'mailto:' + addr; el.textContent = addr;
   document.getElementById('np-year').textContent = new Date().getFullYear();
 
-  // ── Registration window (Singapore time) ──
-  var OPENS  = new Date('2026-09-30T00:00:00+08:00');
-  var CLOSES = new Date('2026-10-19T00:00:00+08:00'); // closes end of 18 Oct 2026
-  var now = new Date();
-  if (/[?&]preview=1/.test(location.search)) now = new Date('2026-10-01T12:00:00+08:00'); // internal testing only
+  // ── Registration form (always open) ──
   var form = document.getElementById('np-form');
-  var status = document.getElementById('np-status');
   var submitBtn = document.getElementById('np-submit');
-  function lockForm(msg) {
-    status.textContent = msg; status.style.display = 'block';
-    Array.prototype.forEach.call(form.elements, function (f) { f.disabled = true; });
-  }
-  if (now < OPENS) lockForm('Registration opens on 30 September 2026. Please come back then.');
-  else if (now >= CLOSES) lockForm('Registration closed on 18 October 2026. Please contact the Managing Agent if you have not registered.');
+
+  form.addEventListener('input', function (e) { e.target.classList.remove('has-error'); });
+  form.addEventListener('change', function (e) { e.target.classList.remove('has-error'); });
 
   // ── Add another app user ──
   var addBtn = document.getElementById('np-add-user');
