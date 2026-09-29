@@ -475,7 +475,9 @@
 
     var block = document.getElementById('np_block'), unit = document.getElementById('np_unit');
     if (!block.value) return fail('Please select your block.', block);
-    if (!unit.value.trim()) return fail('Please enter your unit number.', unit);
+    var unitVal = unit.value.replace(/[#\s]/g, '').toUpperCase();
+    if (!unitVal) return fail('Please enter your unit number.', unit);
+    unitVal = '#' + unitVal; // stored in one format, e.g. #05-12, whether or not the resident types the #
 
     var users = [], seen = {};
     for (var n = 1; n <= 4; n++) {
@@ -504,7 +506,7 @@
       return Object.assign({
         submission_id: submissionId,
         block_no: block.value,
-        unit_no: unit.value.trim(),
+        unit_no: unitVal,
         consent: true,
         source_page: window.location.pathname,
         referrer: document.referrer || '',
@@ -519,7 +521,7 @@
     }
     document.getElementById('np-form-wrap').style.display = 'none';
     document.getElementById('np-sum-block').textContent = 'Blk ' + block.value;
-    document.getElementById('np-sum-unit').textContent = unit.value.trim();
+    document.getElementById('np-sum-unit').textContent = unitVal;
     var list = document.getElementById('np-sum-users'); list.textContent = '';
     users.forEach(function (u) {
       var li = document.createElement('li');
