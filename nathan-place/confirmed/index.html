@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<meta name="theme-color" content="#0056b3">
+<title>Email Confirmation | Nathan Place</title>
+<meta name="description" content="Email confirmation for the Nathan Place intercom upgrade registration.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://www.securevision.com.sg/nathan-place/confirmed">
+<link rel="stylesheet" href="/sv-nathan-place.css?v=5">
+</head>
+<body class="np">
+<a class="np-skip" href="#main">Skip to content</a>
+
+<header class="np-header">
+  <div class="np-wrap">
+    <a class="np-logo" href="/nathan-place" aria-label="Securevision – Nathan Place home">
+      <img src="/images/securevision-logo-blue.png" alt="" width="44" height="44"><span class="np-wordmark"><strong>SECUREVISION</strong><small>Your Security Partner</small></span>
+    </a>
+    <nav class="np-nav" id="np-nav" aria-label="Nathan Place">
+      <a href="/nathan-place">Home</a>
+      <a href="/nathan-place#system-overview">System Overview</a>
+      <a href="/nathan-place#timeline">Project Schedule</a>
+      <a href="/nathan-place/how-it-works">How It Works</a>
+      <a href="/nathan-place/faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="np-btn" href="/nathan-place#register">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      Register Your Email
+    </a>
+    <button class="np-menu-toggle" id="np-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="np-nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+<section class="np-subhero">
+  <div class="np-wrap">
+    <h1 id="cf-title">Confirming your email…</h1>
+    <p id="cf-text">One moment please.</p>
+  </div>
+</section>
+<section class="np-section">
+  <div class="np-wrap">
+    <div class="np-next" id="cf-next" hidden>
+      <h2>What happens next</h2>
+      <ol>
+        <li>Attend one of the town hall briefings: Saturday, 10 October 2026 at 10:00 am or Thursday, 15 October 2026 at 7:30 pm.</li>
+        <li>On 18 October 2026 the Managing Agent verifies the registration details.</li>
+        <li>On 20 October 2026 your SmartPlus account is activated and we email you how to download the app.</li>
+        <li>On 21 October 2026, from 6:00 pm to 9:00 pm, Securevision staff are on site to help with the app.</li>
+      </ol>
+    </div>
+    <p><a class="np-btn" href="/nathan-place">Back to Nathan Place</a></p>
+  </div>
+</section>
+</main>
+<script>
+(function(){
+  var s=new URLSearchParams(location.search).get("s");
+  var t=document.getElementById("cf-title"),p=document.getElementById("cf-text");
+  if(s==="ok"||s==="already"){
+    t.textContent="Thank you. Your email is confirmed.";
+    p.textContent=s==="already"?"This email address was already confirmed. No further action is needed.":"We will keep you updated by email as the project progresses.";
+    document.getElementById("cf-next").hidden=false;
+  }else{
+    t.textContent="This confirmation link is not valid.";
+    p.textContent="The link may be incomplete or out of date. Please call Securevision on +65 6286 4796 and we will help you.";
+  }
+})();
+</script>
+
+<footer class="np-footer" id="contact">
+  <div class="np-wrap">
+    <div>
+      <h2>Contact</h2>
+      <p>Securevision Pte Ltd</p>
+      <p>Tel: <a href="tel:+6562864796">+65 6286 4796</a></p>
+      <p>Email: <a href="#" id="sv-email-link">enquiry [at] securevision.com.sg</a></p>
+    </div>
+    <div>
+      <small>This page is for residents of Nathan Place. Intercom, access and vehicle entry upgrade by Securevision Pte Ltd, PLRD-licensed security systems integrator.</small>
+      <small style="margin-top:10px">&copy; <span id="np-year">2026</span> Securevision Pte Ltd</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var toggle = document.getElementById('np-menu-toggle'), nav = document.getElementById('np-nav');
+  toggle.addEventListener('click', function () { var o = nav.classList.toggle('is-open'); toggle.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+  nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') nav.classList.remove('is-open'); });
+  var el = document.getElementById('sv-email-link'), addr = 'enquiry' + '@' + 'securevision.com.sg';
+  el.href = 'mailto:' + addr; el.textContent = addr;
+  document.getElementById('np-year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
