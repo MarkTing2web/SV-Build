@@ -467,82 +467,6 @@
     return false;
   }
 
-  // ── Live duplicate-email check: each app user needs a different email ──
-  function dupOf(n) {
-    var me = document.getElementById('np_email' + n).value.trim().toLowerCase();
-    if (!me) return 0;
-    for (var k = 1; k < n; k++) {
-      var box = document.getElementById('np_user' + k);
-      if (box.hidden) continue;
-      if (document.getElementById('np_email' + k).value.trim().toLowerCase() === me) return k;
-    }
-    return 0;
-  }
-  function checkDupes() {
-    for (var n = 2; n <= 4; n++) {
-      var input = document.getElementById('np_email' + n), holder = input.parentNode;
-      var note = holder.querySelector('.np-dup-note');
-      var box = document.getElementById('np_user' + n);
-      var k = box.hidden ? 0 : dupOf(n);
-      if (k) {
-        if (!note) {
-          note = document.createElement('p');
-          note.className = 'np-dup-note'; note.setAttribute('role', 'alert');
-          note.style.cssText = 'margin:6px 0 0;color:#b91c1c;font-size:.88rem';
-          holder.appendChild(note);
-        }
-        note.textContent = 'This is the same email as app user ' + k + '. Each app user needs a different email address.';
-        input.classList.add('has-error');
-      } else {
-        if (note) note.remove();
-        input.classList.remove('has-error');
-      }
-    }
-  }
-  for (var q = 1; q <= 4; q++) {
-    ['input', 'blur'].forEach(function (ev) { document.getElementById('np_email' + q).addEventListener(ev, checkDupes); });
-  }
-
-  // ── Check emails against existing registrations (server-side, booleans only) ──
-  var TAKEN_MSG = 'This email address has already been registered. Each app user needs a different email address. If you registered earlier and need help, please call Securevision at +65 6286 4796.';
-  var takenSet = {};   // lower-case email -> true once the server says it exists
-  async function fetchTaken(list) {
-    if (!db || !list.length) return [];
-    try {
-      var r = await db.rpc('nathan_place_emails_taken', { p_emails: list });
-      if (r.error || !Array.isArray(r.data)) return [];      // never block a resident if the check fails; the database still guards
-      return r.data.map(function (x) { return String(x).toLowerCase(); });
-    } catch (err) { return []; }
-  }
-  function setTakenNote(n, on) {
-    var input = document.getElementById('np_email' + n), holder = input.parentNode;
-    var note = holder.querySelector('.np-taken-note');
-    if (on) {
-      if (!note) {
-        note = document.createElement('p');
-        note.className = 'np-taken-note'; note.setAttribute('role', 'alert');
-        note.style.cssText = 'margin:6px 0 0;color:#b91c1c;font-size:.88rem';
-        holder.appendChild(note);
-      }
-      note.textContent = TAKEN_MSG;
-      input.classList.add('has-error');
-    } else if (note) { note.remove(); if (!holder.querySelector('.np-dup-note')) input.classList.remove('has-error'); }
-  }
-  async function checkTakenField(n) {
-    var input = document.getElementById('np_email' + n);
-    var v = input.value.trim().toLowerCase();
-    if (!v || !isEmail(v)) { setTakenNote(n, false); return; }
-    if (takenSet[v] === undefined) { var t = await fetchTaken([v]); takenSet[v] = t.indexOf(v) > -1; }
-    if (input.value.trim().toLowerCase() === v) setTakenNote(n, !!takenSet[v]);
-  }
-  for (var w = 1; w <= 4; w++) {
-    (function (n) {
-      var el = document.getElementById('np_email' + n);
-      el.addEventListener('blur', function () { checkTakenField(n); });
-      el.addEventListener('input', function () { setTakenNote(n, false); });
-    })(w);
-  }
-
   form.addEventListener('submit', async function (e) {
     e.preventDefault();
     errEl.style.display = 'none';
@@ -569,25 +493,15 @@
       var ev = em.value.trim();
       if (!ev) return fail('Please enter the email address for app user ' + n + '.', em);
       if (!isEmail(ev)) return fail('Please enter a valid email address for app user ' + n + ', e.g. name@email.com.', em);
-      if (seen[ev.toLowerCase()]) return fail('App user ' + n + ' has the same email as app user ' + seen[ev.toLowerCase()] + '. Each app user needs a different email address.', em);
-      seen[ev.toLowerCase()] = n;
+      if (seen[ev.toLowerCase()]) return fail('The same email address has been entered more than once.', em);
+      seen[ev.toLowerCase()] = true;
       if (!idn) return fail('Please select the identity for app user ' + n + '.');
       users.push({ user_no: n, full_name: nm.value.trim(), email: ev, contact_no: phoneVal, identity: idn.value });
     }
     if (!document.getElementById('np_consent').checked) return fail('Please tick the PDPA consent box to continue.');
 
     if (!db) return fail('Registration is temporarily unavailable. Please contact Securevision at +65 6286 4796.');
-    submitBtn.disabled = true; submitBtn.textContent = 'Checking…';
-    var takenList = await fetchTaken(users.map(function (u) { return u.email.toLowerCase(); }));
-    if (takenList.length) {
-      var firstBad = null;
-      users.forEach(function (u) {
-        if (takenList.indexOf(u.email.toLowerCase()) > -1) { takenSet[u.email.toLowerCase()] = true; setTakenNote(u.user_no, true); if (!firstBad) firstBad = u.user_no; }
-      });
-      submitBtn.disabled = false; submitBtn.textContent = 'Submit Registration';
-      return fail('One or more email addresses have already been registered. Please use a different email address for each app user, or call Securevision at +65 6286 4796 if you need help.', document.getElementById('np_email' + firstBad));
-    }
-    submitBtn.textContent = 'Submitting…';
+    submitBtn.disabled = true; submitBtn.textContent = 'Submitting…';
     var submissionId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) { var r = Math.random() * 16 | 0; return (c === 'x' ? r : (r & 3 | 8)).toString(16); });
     var payload = users.map(function (u) {
       return Object.assign({
@@ -604,7 +518,6 @@
     if (res.error) {
       console.error('Supabase error:', res.error);
       submitBtn.disabled = false; submitBtn.textContent = 'Submit Registration';
-      if (res.error.code === '23505') return fail('One of these email addresses has already been registered. Each app user needs a different email address. If you registered earlier or need help, please contact Securevision at +65 6286 4796.');
       return fail('Something went wrong. Please try again, or contact Securevision at +65 6286 4796.');
     }
     document.getElementById('np-form-wrap').style.display = 'none';
