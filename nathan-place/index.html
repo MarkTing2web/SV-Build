@@ -239,6 +239,9 @@
             </div>
             <fieldset class="np-user np-field--full" id="np_user1" data-user="1">
               <legend>App user 1</legend>
+              <div class="np-master-note" style="margin:0 0 14px;padding:12px 14px;border-left:4px solid #0b5cab;background:rgba(11,92,171,.08);border-radius:6px;font-size:.92rem;line-height:1.5">
+                <strong>App user 1 is the master account.</strong> The master account holder can enrol, change and remove the other app users in the household from their own SmartPlus app. Please enter the person who will manage the household's app here, usually the owner or the main occupant.
+              </div>
               <div class="np-user-grid">
                 <div class="np-field">
                   <label for="np_name1">Full name</label>
@@ -328,6 +331,13 @@
             <div class="np-field np-field--full">
               <button type="button" class="np-add" id="np-add-user">+ Add another app user</button>
             </div>
+            <div class="np-field np-field--full np-monitor" style="padding:12px 14px;border:1px solid rgba(128,128,128,.35);border-radius:8px">
+              <label class="np-consent" for="np_monitor" style="margin:0">
+                <input type="checkbox" id="np_monitor">
+                <span><strong>Optional:</strong> My household is interested in an indoor monitor (Akuvox S562W), for family members without a smartphone.</span>
+              </label>
+              <p style="margin:8px 0 0 26px;font-size:.88rem;opacity:.85"><strong>S$580 before GST</strong>, excluding installation. Installation is quoted after a site survey. Ticking this is not an order and no payment is needed now. Closer to the date, we will send you a confirmation and payment advice. <a href="/nathan-place/how-it-works#indoor-monitor">See what it looks like</a> or read the <a href="/nathan-place/faq">FAQ</a>.</p>
+            </div>
             <div class="np-hp" aria-hidden="true"><label>Leave this empty<input type="text" name="sv_human_verify" id="np_hp" tabindex="-1" autocomplete="off"></label></div>
             <div class="np-field np-field--full">
               <label class="np-consent" for="np_consent">
@@ -347,6 +357,7 @@
         <svg class="np-success-tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8 12.5 2.8 2.8L16 9.5"/></svg>
         <h3>Thank you, your registration is received</h3>
         <p class="np-success-lead">We have received your details. <strong>A confirmation email will be sent</strong> to the email address(es) you registered.</p>
+        <p class="np-success-monitor" id="np-success-monitor" style="display:none"><strong>You have selected the optional indoor monitor (Akuvox S562W).</strong> No payment is needed now. Closer to the date, we will send you a confirmation and payment advice, including the installation cost after the site survey.</p>
 
         <div class="np-summary">
           <h4>Your registration</h4>
@@ -435,7 +446,7 @@
   // ── Email obfuscation ──
   var el = document.getElementById('sv-email-link');
   var addr = 'enquiry' + '@' + 'securevision.com.sg';
-  el.href = 'mailto:' + addr; el.textContent = addr;
+  el.href = 'mailto:' + addr + '?subject=' + encodeURIComponent('Nathan Place Upgrade Enquiry'); el.textContent = addr;
   document.getElementById('np-year').textContent = new Date().getFullYear();
 
   // ── Registration form (always open) ──
@@ -595,6 +606,7 @@
         block_no: block.value,
         unit_no: unitVal,
         consent: true,
+        monitor_interest: document.getElementById('np_monitor').checked,
         source_page: window.location.pathname,
         referrer: document.referrer || '',
         sv_human_verify: ''
@@ -617,7 +629,7 @@
       var d = document.createElement('span'); d.textContent = u.email + ' · ' + u.contact_no;
       li.appendChild(t); li.appendChild(d); list.appendChild(li);
     });
-    var ok = document.getElementById('np-success'); ok.style.display = 'block'; ok.focus();
+    if (document.getElementById('np_monitor').checked) document.getElementById('np-success-monitor').style.display = 'block'; var ok = document.getElementById('np-success'); ok.style.display = 'block'; ok.focus();
     ok.scrollIntoView({ behavior: 'smooth', block: 'start' });
     return false;
   });

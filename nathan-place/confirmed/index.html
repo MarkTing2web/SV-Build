@@ -99,7 +99,7 @@
   toggle.addEventListener('click', function () { var o = nav.classList.toggle('is-open'); toggle.setAttribute('aria-expanded', o ? 'true' : 'false'); });
   nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') nav.classList.remove('is-open'); });
   var el = document.getElementById('sv-email-link'), addr = 'enquiry' + '@' + 'securevision.com.sg';
-  el.href = 'mailto:' + addr; el.textContent = addr;
+  el.href = 'mailto:' + addr + '?subject=' + encodeURIComponent('Nathan Place Upgrade Enquiry'); el.textContent = addr;
   document.getElementById('np-year').textContent = new Date().getFullYear();
 })();
 </script>

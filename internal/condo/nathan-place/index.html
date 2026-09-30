@@ -42,6 +42,7 @@ td.n{color:var(--mut)}
 <button id="out" type="button">Sign out</button>
 </div>
 <div class="bar">
+<select id="mf" aria-label="Filter by monitor status" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">All households</option><option value="any">Monitor: all interested</option><option value="interested">Interested</option><option value="quoted">Quoted</option><option value="ordered">Ordered</option><option value="paid">Paid</option><option value="installed">Installed</option></select>
 <input id="q" type="search" placeholder="Search name, unit, contact or email" aria-label="Search">
 <button id="rf" type="button">Refresh</button>
 <span class="stats" id="stats"></span>
@@ -53,7 +54,7 @@ td.n{color:var(--mut)}
 (function(){
 var db=supabase.createClient("https://bppajrzwqeysrnrucwka.supabase.co","sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT");
 var LOGIN="/internal/condo/login/?next="+encodeURIComponent("/internal/condo/nathan-place/");
-var COLS=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no"},{k:"full_name",l:"Name",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1}];
+var COLS=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no"},{k:"full_name",l:"Name",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"monitor_status",l:"Monitor",s:1}];
 var rows=[],sortK="block_no",dir=1;
 var $=function(i){return document.getElementById(i)};
 var coll=new Intl.Collator(undefined,{numeric:true,sensitivity:"base"});
@@ -69,7 +70,7 @@ function head(){
 function render(){
   head();
   var q=$("q").value.trim().toLowerCase();
-  var list=rows.filter(function(r){return !q||[r.block_no,r.unit_no,r.full_name,r.contact_no,r.email].join(" ").toLowerCase().indexOf(q)>-1});
+  var list=rows.filter(function(r){var mf=$("mf").value;if(mf==="any"?r.monitor_status==="none":(mf&&r.monitor_status!==mf))return false;return !q||[r.block_no,r.unit_no,r.full_name,r.contact_no,r.email,r.monitor_status].join(" ").toLowerCase().indexOf(q)>-1});
   list.sort(function(a,b){
     var c=coll.compare(String(a[sortK]||""),String(b[sortK]||""));
     if(!c&&sortK!=="block_no")c=coll.compare(a.block_no,b.block_no);
@@ -79,7 +80,7 @@ function render(){
   var tb=$("tb");tb.innerHTML="";
   list.forEach(function(r,i){
     var tr=document.createElement("tr");
-    [i+1,r.block_no,r.unit_no,r.user_no,r.full_name,r.contact_no,r.email].forEach(function(v,j){
+    [i+1,r.block_no,r.unit_no,r.user_no,r.full_name,r.contact_no,r.email,r.monitor_status==="none"?"":r.monitor_status].forEach(function(v,j){
       var td=document.createElement("td");td.textContent=v==null?"":v;if(j===0)td.className="n";tr.appendChild(td)});
     tb.appendChild(tr)});
   var m=$("msg");
@@ -89,7 +90,7 @@ function render(){
 function fail(t){var m=$("msg");m.className="msg err";m.style.display="";m.textContent=t;$("tb").innerHTML=""}
 async function load(){
   var m=$("msg");m.className="msg";m.style.display="";m.textContent="Loading…";
-  var r=await db.from("nathan_place_registrations").select("block_no,unit_no,user_no,full_name,contact_no,email").order("block_no").order("unit_no").order("user_no");
+  var r=await db.from("nathan_place_registrations").select("block_no,unit_no,user_no,full_name,contact_no,email,monitor_status").order("block_no").order("unit_no").order("user_no");
   if(r.error){
     if(r.error.code==="PGRST301"||/JWT/i.test(r.error.message||"")){location.replace(LOGIN);return}
     fail("Couldn't load data: "+r.error.message);return}
@@ -97,7 +98,7 @@ async function load(){
   $("fresh").textContent="Resident registrations · updated "+new Date().toLocaleString();
   render();
 }
-$("q").oninput=render;$("rf").onclick=load;
+$("q").oninput=render;$("mf").onchange=render;$("rf").onclick=load;
 $("out").onclick=async function(){await db.auth.signOut();location.replace(LOGIN)};
 db.auth.onAuthStateChange(function(ev){if(ev==="SIGNED_OUT")location.replace(LOGIN)});
 db.auth.getSession().then(function(s){
