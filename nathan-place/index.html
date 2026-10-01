@@ -190,7 +190,7 @@
         </li>
       </ol>
       <div class="np-footnotes">
-        <p>* Briefings will be held on Saturday, 10 October 2026 at 10:00 am and Thursday, 15 October 2026 at 7:30 pm.</p>
+        <p>* Town hall briefings will be held on Saturday, 10 October 2026 at 10:00 am and Thursday, 15 October 2026 at 7:30 pm.</p>
         <p>** On Wednesday, 21 October 2026, Securevision staff will be on site from 6:00 pm to 9:00 pm to help anyone who has trouble downloading the app.</p>
       </div>
     </div>
@@ -237,11 +237,12 @@
               <label for="np_unit">Unit number</label>
               <input type="text" id="np_unit" name="unit" placeholder="e.g. #05-12" maxlength="20" required>
             </div>
+            <div class="np-field np-field--full" id="np-slots-wrap" hidden>
+              <p id="np-slots-status" role="status" style="margin:0;font-weight:600"></p>
+              <p style="margin:6px 0 0"><button type="button" id="np-skip-master" hidden style="background:none;border:0;padding:0;color:inherit;font:inherit;text-decoration:underline;cursor:pointer"></button></p>
+            </div>
             <fieldset class="np-user np-field--full" id="np_user1" data-user="1">
-              <legend>App user 1</legend>
-              <div class="np-master-note" style="margin:0 0 14px;padding:12px 14px;border-left:4px solid #0b5cab;background:rgba(11,92,171,.08);border-radius:6px;font-size:.92rem;line-height:1.5">
-                <strong>App user 1 is the master account.</strong> The master account holder can enrol, change and remove the other app users in the household from their own SmartPlus app. Please enter the person who will manage the household's app here, usually the owner or the main occupant.
-              </div>
+              <legend>App user 1 <span>(master user)</span></legend>
               <div class="np-user-grid">
                 <div class="np-field">
                   <label for="np_name1">Full name</label>
@@ -331,13 +332,6 @@
             <div class="np-field np-field--full">
               <button type="button" class="np-add" id="np-add-user">+ Add another app user</button>
             </div>
-            <div class="np-field np-field--full np-monitor" style="padding:12px 14px;border:1px solid rgba(128,128,128,.35);border-radius:8px">
-              <label class="np-consent" for="np_monitor" style="margin:0">
-                <input type="checkbox" id="np_monitor">
-                <span><strong>Optional:</strong> My household is interested in an indoor monitor (Akuvox S562W), for family members without a smartphone.</span>
-              </label>
-              <p style="margin:8px 0 0 26px;font-size:.88rem;opacity:.85"><strong>S$580 before GST</strong>, excluding installation. Installation is quoted after a site survey. Ticking this is not an order and no payment is needed now. Closer to the date, we will send you a confirmation and payment advice. <a href="/nathan-place/how-it-works#indoor-monitor">See what it looks like</a> or read the <a href="/nathan-place/faq">FAQ</a>.</p>
-            </div>
             <div class="np-hp" aria-hidden="true"><label>Leave this empty<input type="text" name="sv_human_verify" id="np_hp" tabindex="-1" autocomplete="off"></label></div>
             <div class="np-field np-field--full">
               <label class="np-consent" for="np_consent">
@@ -357,7 +351,6 @@
         <svg class="np-success-tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8 12.5 2.8 2.8L16 9.5"/></svg>
         <h3>Thank you, your registration is received</h3>
         <p class="np-success-lead">We have received your details. <strong>A confirmation email will be sent</strong> to the email address(es) you registered.</p>
-        <p class="np-success-monitor" id="np-success-monitor" style="display:none"><strong>You have selected the optional indoor monitor (Akuvox S562W).</strong> No payment is needed now. Closer to the date, we will send you a confirmation and payment advice, including the installation cost after the site survey.</p>
 
         <div class="np-summary">
           <h4>Your registration</h4>
@@ -371,7 +364,7 @@
         <div class="np-next">
           <h4>What happens next</h4>
           <ol>
-            <li><strong>10 Oct, 10:00 am and 15 Oct, 7:30 pm.</strong> Briefings for residents.</li>
+            <li><strong>10 Oct, 10:00 am and 15 Oct, 7:30 pm.</strong> Town hall briefings for residents.</li>
             <li><strong>18 Oct.</strong> The Managing Agent verifies the registration details.</li>
             <li><strong>20 Oct.</strong> Your SmartPlus account is activated and you can download the app.</li>
             <li><strong>21 Oct, 6:00 pm to 9:00 pm.</strong> Securevision staff are on site to help anyone who has trouble downloading the app.</li>
@@ -446,7 +439,7 @@
   // ── Email obfuscation ──
   var el = document.getElementById('sv-email-link');
   var addr = 'enquiry' + '@' + 'securevision.com.sg';
-  el.href = 'mailto:' + addr + '?subject=' + encodeURIComponent('Nathan Place Upgrade Enquiry'); el.textContent = addr;
+  el.href = 'mailto:' + addr; el.textContent = addr;
   document.getElementById('np-year').textContent = new Date().getFullYear();
 
   // ── Registration form (always open) ──
@@ -456,19 +449,89 @@
   form.addEventListener('input', function (e) { e.target.classList.remove('has-error'); });
   form.addEventListener('change', function (e) { e.target.classList.remove('has-error'); });
 
-  // ── Add another app user ──
-  var addBtn = document.getElementById('np-add-user');
-  addBtn.addEventListener('click', function () {
-    for (var n = 2; n <= 4; n++) {
-      var box = document.getElementById('np_user' + n);
-      if (box.hidden) { box.hidden = false; document.getElementById('np_name' + n).focus(); break; }
-    }
-    if (!document.getElementById('np_user4').hidden) addBtn.style.display = 'none';
-  });
-
   // ── Supabase ──
   var db = null;
   try { db = supabase.createClient('https://bppajrzwqeysrnrucwka.supabase.co', 'sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT'); } catch (err) { console.error('Supabase SDK failed to load', err); }
+
+  // ── App user slots: one person per slot per unit (1 = master, max 4) ──
+  var blockEl = document.getElementById('np_block'), unitEl = document.getElementById('np_unit');
+  var addBtn = document.getElementById('np-add-user');
+  var slotsWrap = document.getElementById('np-slots-wrap'), slotsStatus = document.getElementById('np-slots-status'), skipBtn = document.getElementById('np-skip-master');
+  var SLOTS = { known: false, taken: [], extra: 0, skipMaster: false };
+  var FULL_MSG = 'All 4 app users have already been registered for this unit. If this is a mistake, please call Securevision at +65 6286 4796.';
+  function slotBox(n) { return document.getElementById('np_user' + n); }
+  function currentUnit() {
+    var u = unitEl.value.replace(/[#\s]/g, '').toUpperCase();
+    return (blockEl.value && u) ? { block: blockEl.value, unit: '#' + u } : null;
+  }
+  function renderSlots() {
+    var free = [];
+    for (var n = 1; n <= 4; n++) if (SLOTS.taken.indexOf(n) < 0) free.push(n);
+    var list = SLOTS.skipMaster ? free.filter(function (x) { return x !== 1; }) : free;
+    var shownCount = Math.min(list.length, 1 + SLOTS.extra), shown = list.slice(0, shownCount);
+    for (var i = 1; i <= 4; i++) {
+      var box = slotBox(i), grid = box.querySelector('.np-user-grid'), note = box.querySelector('.np-slot-note');
+      if (SLOTS.taken.indexOf(i) > -1) {
+        box.hidden = false; box.disabled = true;
+        box.style.opacity = '.55'; box.style.background = '#f1f1f1';
+        grid.style.display = 'none';
+        if (!note) { note = document.createElement('p'); note.className = 'np-slot-note'; note.style.cssText = 'margin:8px 0 0'; box.appendChild(note); }
+        note.textContent = 'Already registered for this unit.';
+      } else {
+        box.disabled = false; box.style.opacity = ''; box.style.background = '';
+        grid.style.display = '';
+        if (note) note.remove();
+        box.hidden = shown.indexOf(i) < 0;
+      }
+    }
+    addBtn.style.display = (shownCount < list.length) ? '' : 'none';
+    var cu = currentUnit();
+    if (SLOTS.known && cu) {
+      var t = SLOTS.taken.length, left = 4 - t;
+      slotsWrap.hidden = false;
+      slotsStatus.textContent = t === 0
+        ? 'Blk ' + cu.block + ' ' + cu.unit + ': no app users registered yet. Up to 4 per household.'
+        : 'Blk ' + cu.block + ' ' + cu.unit + ': ' + t + ' of 4 app users already registered, ' + left + (left === 1 ? ' place' : ' places') + ' left. ' +
+          (SLOTS.taken.indexOf(1) > -1 ? 'The master user (App user 1) has registered.' : 'The master user (App user 1) has not registered yet.');
+      if (left === 0) { slotsStatus.textContent = 'Blk ' + cu.block + ' ' + cu.unit + ': ' + FULL_MSG; }
+      submitBtn.disabled = (left === 0);
+      var canSkip = free.indexOf(1) > -1 && free.length > 1;
+      skipBtn.hidden = !canSkip;
+      skipBtn.textContent = SLOTS.skipMaster ? 'Register the master user (App user 1) instead' : 'Not the master user? Register as App user 2, 3 or 4 instead';
+    } else {
+      slotsWrap.hidden = true; skipBtn.hidden = true; submitBtn.disabled = false;
+    }
+  }
+  async function fetchSlots(blockV, unitV) {
+    if (!db) return null;
+    try {
+      var r = await db.rpc('nathan_place_unit_slots', { p_block: blockV, p_unit: unitV });
+      if (r.error || !Array.isArray(r.data)) return null;   // never block a resident if the lookup fails; the database still guards
+      return r.data.map(Number);
+    } catch (err) { return null; }
+  }
+  var slotTimer = null;
+  async function refreshSlots() {
+    var cu = currentUnit();
+    if (!cu) { SLOTS = { known: false, taken: [], extra: 0, skipMaster: false }; renderSlots(); return; }
+    var key = cu.block + cu.unit, t = await fetchSlots(cu.block, cu.unit);
+    var now = currentUnit(); if (!now || now.block + now.unit !== key) return;   // unit changed while waiting
+    var same = SLOTS.known && SLOTS.key === key;
+    SLOTS = { known: t !== null, key: key, taken: t || [], extra: same ? SLOTS.extra : 0, skipMaster: same ? SLOTS.skipMaster : false };
+    renderSlots();
+  }
+  function queueRefresh() { clearTimeout(slotTimer); slotTimer = setTimeout(refreshSlots, 450); }
+  blockEl.addEventListener('change', queueRefresh);
+  unitEl.addEventListener('input', queueRefresh);
+  unitEl.addEventListener('blur', function () { clearTimeout(slotTimer); refreshSlots(); });
+  function focusFirstVisible() {
+    for (var n = 1; n <= 4; n++) { var b = slotBox(n); if (!b.hidden && !b.disabled) { document.getElementById('np_name' + n).focus(); return; } }
+  }
+  addBtn.addEventListener('click', function () { SLOTS.extra++; renderSlots(); focusFirstVisible(); });
+  skipBtn.addEventListener('click', function () { SLOTS.skipMaster = !SLOTS.skipMaster; SLOTS.extra = 0; renderSlots(); focusFirstVisible(); });
+  var SLOT_TAKEN_MSG = function (list) {
+    return (list.length > 1 ? 'App users ' : 'App user ') + list.join(', ') + (list.length > 1 ? ' have' : ' has') + ' just been registered for this unit by someone else. The form has been updated. Please choose another app user number and submit again.';
+  };
   var LOAD_TIME = Date.now(), MIN_MS = 4000;
   var errEl = document.getElementById('np-error');
   function isEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
@@ -570,7 +633,7 @@
     var users = [], seen = {};
     for (var n = 1; n <= 4; n++) {
       var box = document.getElementById('np_user' + n);
-      if (box.hidden) continue;
+      if (box.hidden || SLOTS.taken.indexOf(n) > -1) continue;
       var nm = document.getElementById('np_name' + n), em = document.getElementById('np_email' + n), ph = document.getElementById('np_phone' + n);
       var idn = form.querySelector('input[name="identity' + n + '"]:checked');
       if (n > 1 && !(nm.value.trim() || em.value.trim() || ph.value.trim() || idn)) continue; // empty optional user is skipped
@@ -585,6 +648,7 @@
       if (!idn) return fail('Please select the identity for app user ' + n + '.');
       users.push({ user_no: n, full_name: nm.value.trim(), email: ev, contact_no: phoneVal, identity: idn.value });
     }
+    if (!users.length) return fail('Please enter the details of at least one app user.');
     if (!document.getElementById('np_consent').checked) return fail('Please tick the PDPA consent box to continue.');
 
     if (!db) return fail('Registration is temporarily unavailable. Please contact Securevision at +65 6286 4796.');
@@ -598,6 +662,17 @@
       submitBtn.disabled = false; submitBtn.textContent = 'Submit Registration';
       return fail('One or more email addresses have already been registered. Please use a different email address for each app user, or call Securevision at +65 6286 4796 if you need help.', document.getElementById('np_email' + firstBad));
     }
+    // Re-check slots right before inserting: someone else from the same unit may have registered meanwhile
+    var freshSlots = await fetchSlots(block.value, unitVal);
+    if (freshSlots) {
+      var clash = users.filter(function (u) { return freshSlots.indexOf(u.user_no) > -1; }).map(function (u) { return u.user_no; });
+      if (clash.length) {
+        SLOTS = { known: true, key: block.value + unitVal, taken: freshSlots, extra: 0, skipMaster: false };
+        renderSlots();
+        submitBtn.disabled = (freshSlots.length >= 4); submitBtn.textContent = 'Submit Registration';
+        return fail(SLOT_TAKEN_MSG(clash));
+      }
+    }
     submitBtn.textContent = 'Submitting…';
     var submissionId = (window.crypto && crypto.randomUUID) ? crypto.randomUUID() : 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) { var r = Math.random() * 16 | 0; return (c === 'x' ? r : (r & 3 | 8)).toString(16); });
     var payload = users.map(function (u) {
@@ -606,7 +681,6 @@
         block_no: block.value,
         unit_no: unitVal,
         consent: true,
-        monitor_interest: document.getElementById('np_monitor').checked,
         source_page: window.location.pathname,
         referrer: document.referrer || '',
         sv_human_verify: ''
@@ -616,6 +690,11 @@
     if (res.error) {
       console.error('Supabase error:', res.error);
       submitBtn.disabled = false; submitBtn.textContent = 'Submit Registration';
+      if (res.error.code === '23505' && /unit_slot/.test(res.error.message || '')) {
+        var again = await fetchSlots(block.value, unitVal);
+        if (again) { SLOTS = { known: true, key: block.value + unitVal, taken: again, extra: 0, skipMaster: false }; renderSlots(); }
+        return fail(SLOT_TAKEN_MSG(users.map(function (u) { return u.user_no; })));
+      }
       if (res.error.code === '23505') return fail('One of these email addresses has already been registered. Each app user needs a different email address. If you registered earlier or need help, please contact Securevision at +65 6286 4796.');
       return fail('Something went wrong. Please try again, or contact Securevision at +65 6286 4796.');
     }
@@ -629,7 +708,7 @@
       var d = document.createElement('span'); d.textContent = u.email + ' · ' + u.contact_no;
       li.appendChild(t); li.appendChild(d); list.appendChild(li);
     });
-    if (document.getElementById('np_monitor').checked) document.getElementById('np-success-monitor').style.display = 'block'; var ok = document.getElementById('np-success'); ok.style.display = 'block'; ok.focus();
+    var ok = document.getElementById('np-success'); ok.style.display = 'block'; ok.focus();
     ok.scrollIntoView({ behavior: 'smooth', block: 'start' });
     return false;
   });
