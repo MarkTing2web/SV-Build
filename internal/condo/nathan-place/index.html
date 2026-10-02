@@ -60,7 +60,7 @@ td.n{color:var(--mut)}
 (function(){
 var db=supabase.createClient("https://bppajrzwqeysrnrucwka.supabase.co","sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT");
 var LOGIN="/internal/condo/login/?next="+encodeURIComponent("/internal/condo/nathan-place/");
-var COLS=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no"},{k:"full_name",l:"Name",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"monitor_status",l:"Monitor",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
+var COLS=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Name",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"monitor_status",l:"Monitor",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
 var rows=[],sortK="block_no",dir=1,canApprove=false,shown=[];
 var $=function(i){return document.getElementById(i)};
 var coll=new Intl.Collator(undefined,{numeric:true,sensitivity:"base"});
@@ -69,7 +69,7 @@ function head(){
   COLS.forEach(function(c){
     var th=document.createElement("th");th.textContent=c.l;
     if(c.s){th.className="s";th.setAttribute("aria-sort",sortK===c.k?(dir>0?"ascending":"descending"):"none");
-      var a=document.createElement("span");a.className="ar";a.textContent=sortK===c.k?(dir>0?" ▲":" ▼"):"";th.appendChild(a);
+      var a=document.createElement("span");a.className="ar";a.textContent=sortK===c.k?(dir>0?" ▲":" ▼"):" ↕";if(sortK!==c.k)a.style.opacity=".35";th.appendChild(a);
       th.onclick=function(){if(sortK===c.k)dir=-dir;else{sortK=c.k;dir=1}render()}}
     h.appendChild(th)});
 }
