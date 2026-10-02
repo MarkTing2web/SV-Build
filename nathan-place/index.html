@@ -223,6 +223,9 @@
       <div id="np-form-wrap">
         <h2>Register Your Email</h2>
         <p class="np-sub" style="margin:0">Each household may register up to 4 mobile App Users. You can register everyone together, or each person can register separately.</p>
+        <div class="np-master-intro" style="margin:16px 0 20px;padding:14px 16px;border-left:4px solid #0b5cab;background:rgba(11,92,171,.08);border-radius:6px;font-size:.95rem;line-height:1.55">
+          <strong>Who is the Master User?</strong> App User 1 is the Master User. The Master User should be the <strong>Owner, Main Occupant or Main Tenant</strong> of the unit. The Master User has <strong>administrative rights over the other 3 App Users</strong>: they can add, change or remove them from their own SmartPlus app. Please choose App User 1 carefully.
+        </div>
         <form id="np-form" novalidate>
 <div class="np-form-grid">
             <div class="np-field">
@@ -244,7 +247,7 @@
             <fieldset class="np-user np-field--full" id="np_user1" data-user="1">
               <legend>App User 1 of 4 <span>(Master User)</span></legend>
               <div class="np-master-note" style="margin:0 0 14px;padding:12px 14px;border-left:4px solid #0b5cab;background:rgba(11,92,171,.08);border-radius:6px;font-size:.92rem;line-height:1.5">
-                <strong>App User 1 is the Master User.</strong> The Master User can enrol, change and remove the other App Users in the household from their own SmartPlus app. The Master User should be the Owner, the Main Occupant or the Master Tenant of the unit.
+                <strong>App User 1 is the Master User.</strong> Please enter the Owner, Main Occupant or Main Tenant of the unit here.
               </div>
               <div class="np-user-grid">
                 <div class="np-field">
@@ -351,10 +354,10 @@
             </div>
           </div>
           <div id="np-master-confirm" role="alertdialog" aria-live="polite" hidden style="margin:0 0 16px;padding:14px 16px;border:2px solid #0b5cab;border-radius:8px;background:rgba(11,92,171,.07)">
-            <p id="np-mc-msg" style="margin:0 0 12px;line-height:1.5"><strong>You are registering as the Master User (App User 1).</strong> The Master User should be the Owner, the Main Occupant or the Master Tenant of this unit. Do you confirm?</p>
+            <p id="np-mc-msg" style="margin:0 0 12px;line-height:1.5"><strong>Are you the Master User (App User 1)?</strong> The Master User should be the Owner, Main Occupant or Main Tenant of this unit, and has administrative rights over the other 3 App Users.</p>
             <div id="np-mc-actions" style="display:flex;flex-wrap:wrap;gap:10px">
-              <button type="button" class="np-btn" id="np-mc-yes">Yes, I confirm</button>
-              <button type="button" class="np-btn" id="np-mc-no" style="background:#fff;color:#0b5cab;border:2px solid #0b5cab">No, register me as another App User</button>
+              <button type="button" class="np-btn" id="np-mc-yes">Yes, I am the Master User</button>
+              <button type="button" class="np-btn" id="np-mc-no" style="background:#fff;color:#0b5cab;border:2px solid #0b5cab">No, register me as App User 2, 3 or 4</button>
             </div>
           </div>
           <div class="np-error" id="np-error" role="alert"></div>
@@ -476,7 +479,8 @@
   var addBtn = document.getElementById('np-add-user');
   var slotsWrap = document.getElementById('np-slots-wrap'), slotsStatus = document.getElementById('np-slots-status'), skipBtn = document.getElementById('np-skip-master');
   var SLOTS = { known: false, taken: [], extra: 0, skipMaster: false };
-  var FULL_MSG = 'All 4 App Users have already been registered for this unit. If this is a mistake, please call Securevision at +65 6286 4796.';
+  var FULL_MSG = 'All 4 App Users are already registered for this unit. No more App Users can be added. If this is a mistake, please call Securevision at +65 6286 4796.';
+  var fullShown = false;
   function slotBox(n) { return document.getElementById('np_user' + n); }
   function currentUnit() {
     var u = unitEl.value.replace(/[#\s]/g, '').toUpperCase();
@@ -511,13 +515,17 @@
         ? 'Blk ' + cu.block + ' ' + cu.unit + ': no App Users registered yet. Up to 4 per household.'
         : 'Blk ' + cu.block + ' ' + cu.unit + ': ' + t + ' of 4 App Users already registered, ' + left + (left === 1 ? ' place' : ' places') + ' left. ' +
           (SLOTS.taken.indexOf(1) > -1 ? 'The Master User (App User 1) has registered.' : 'The Master User (App User 1) has not registered yet.');
-      if (left === 0) { slotsStatus.textContent = 'Blk ' + cu.block + ' ' + cu.unit + ': ' + FULL_MSG; }
+      if (left === 0) {
+        slotsStatus.textContent = 'Blk ' + cu.block + ' ' + cu.unit + ': 4 of 4 App Users already registered.';
+        errEl.textContent = FULL_MSG; errEl.style.display = 'block'; fullShown = true;
+      } else if (fullShown) { errEl.style.display = 'none'; fullShown = false; }
       submitBtn.disabled = (left === 0);
       var canSkip = free.indexOf(1) > -1 && free.length > 1;
       skipBtn.hidden = !canSkip;
       skipBtn.textContent = SLOTS.skipMaster ? 'Register the Master User (App User 1) instead' : 'Not the Master User? Register as App User 2, 3 or 4 instead';
     } else {
       slotsWrap.hidden = true; skipBtn.hidden = true; submitBtn.disabled = false;
+      if (fullShown) { errEl.style.display = 'none'; fullShown = false; }
     }
   }
   async function fetchSlots(blockV, unitV) {
@@ -547,7 +555,7 @@
   }
   addBtn.addEventListener('click', function () { SLOTS.extra++; renderSlots(); focusFirstVisible(); });
   skipBtn.addEventListener('click', function () { resetMasterConfirm(); SLOTS.skipMaster = !SLOTS.skipMaster; SLOTS.extra = 0; renderSlots(); focusFirstVisible(); });
-  // ── Master User confirmation: App User 1 must be the Owner, Main Occupant or Master Tenant ──
+  // ── Master User confirmation: App User 1 must be the Owner, Main Occupant or Main Tenant ──
   var mcBox = document.getElementById('np-master-confirm'), mcMsg = document.getElementById('np-mc-msg'), mcActions = document.getElementById('np-mc-actions');
   var MC_DEFAULT = mcMsg.innerHTML, masterConfirmed = false;
   function resetMasterConfirm() { masterConfirmed = false; mcBox.hidden = true; mcMsg.innerHTML = MC_DEFAULT; mcActions.style.display = 'flex'; }
