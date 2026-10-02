@@ -39,8 +39,18 @@ button:hover{border-color:var(--acc)}
 (function(){
 var db=supabase.createClient("https://bppajrzwqeysrnrucwka.supabase.co","sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT");
 var LOGIN="/internal/condo/login/";
-db.auth.getSession().then(function(s){
+db.auth.getSession().then(async function(s){
   if(!s.data||!s.data.session){location.replace(LOGIN);return}
+  var a=await db.rpc("internal_my_access");
+  var acc=a.data||[];
+  var wide=acc.some(function(x){return x.role==="superadmin"||x.role==="admin"});
+  if(!wide){
+    var pm=acc.filter(function(x){return x.role==="property_manager"&&x.condo_slug});
+    if(pm.length===1){location.replace("/internal/condo/"+pm[0].condo_slug+"/");return}
+    var g=document.querySelector(".grid");
+    if(g)g.innerHTML=pm.length?"":"<p>Your account does not have access to any condo. Please contact Securevision.</p>";
+    if(pm.length){pm.forEach(function(x){var l=document.createElement("a");l.className="card";l.href="/internal/condo/"+x.condo_slug+"/";l.innerHTML="<h2></h2>";l.firstChild.textContent=x.condo_slug;g.appendChild(l)})}
+  }
   document.getElementById("app").className="on"});
 document.getElementById("out").onclick=async function(){await db.auth.signOut();location.replace(LOGIN)};
 })();

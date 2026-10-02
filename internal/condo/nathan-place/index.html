@@ -23,7 +23,7 @@ button{padding:9px 14px;border:1px solid var(--line);border-radius:8px;backgroun
 button:hover{border-color:var(--acc)}
 .stats{color:var(--mut);font-size:.85rem}
 .wrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:10px}
-table{border-collapse:collapse;width:100%;min-width:720px;font-variant-numeric:tabular-nums}
+table{border-collapse:collapse;width:100%;min-width:900px;font-variant-numeric:tabular-nums}
 th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
 th{background:var(--hd);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);user-select:none}
 th.s{cursor:pointer}
@@ -54,8 +54,8 @@ td.n{color:var(--mut)}
 (function(){
 var db=supabase.createClient("https://bppajrzwqeysrnrucwka.supabase.co","sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT");
 var LOGIN="/internal/condo/login/?next="+encodeURIComponent("/internal/condo/nathan-place/");
-var COLS=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no"},{k:"full_name",l:"Name",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"monitor_status",l:"Monitor",s:1}];
-var rows=[],sortK="block_no",dir=1;
+var COLS=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no"},{k:"full_name",l:"Name",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"monitor_status",l:"Monitor",s:1},{k:"certified",l:"Certified",s:1},{k:"approved_by",l:"Approved by",s:1}];
+var rows=[],sortK="block_no",dir=1,canApprove=false;
 var $=function(i){return document.getElementById(i)};
 var coll=new Intl.Collator(undefined,{numeric:true,sensitivity:"base"});
 function head(){
@@ -82,15 +82,26 @@ function render(){
     var tr=document.createElement("tr");
     [i+1,r.block_no,r.unit_no,r.user_no,r.full_name,r.contact_no,r.email,r.monitor_status==="none"?"":r.monitor_status].forEach(function(v,j){
       var td=document.createElement("td");td.textContent=v==null?"":v;if(j===0)td.className="n";tr.appendChild(td)});
+    var tc=document.createElement("td");
+    if(canApprove){var cb=document.createElement("input");cb.type="checkbox";cb.checked=!!r.certified;cb.style.cssText="width:18px;height:18px;cursor:pointer";cb.setAttribute("aria-label","Certified: "+r.full_name);cb.onchange=function(){setCert(r,cb)};tc.appendChild(cb)}
+    else tc.textContent=r.certified?"Yes":"";
+    tr.appendChild(tc);
+    var ta=document.createElement("td");ta.textContent=r.approved_by?r.approved_by+(r.approved_at?" · "+new Date(r.approved_at).toLocaleDateString():""):"";tr.appendChild(ta);
     tb.appendChild(tr)});
   var m=$("msg");
   if(!list.length){m.className="msg";m.style.display="";m.textContent=rows.length?"No matches.":"No registrations yet."}else m.style.display="none";
-  $("stats").textContent=list.length+" of "+rows.length+" users";
+  $("stats").textContent=list.length+" of "+rows.length+" users · "+rows.filter(function(r){return r.certified}).length+" certified";
+}
+async function setCert(r,cb){
+  cb.disabled=true;
+  var res=await db.rpc("nathan_place_set_certified",{p_id:r.id,p_certified:cb.checked});
+  if(res.error||!res.data||!res.data.length){cb.checked=!cb.checked;cb.disabled=false;$("stats").textContent="Could not save: "+(res.error?res.error.message:"not allowed");return}
+  var d=res.data[0];r.certified=d.certified;r.approved_by=d.approved_by;r.approved_at=d.approved_at;render();
 }
 function fail(t){var m=$("msg");m.className="msg err";m.style.display="";m.textContent=t;$("tb").innerHTML=""}
 async function load(){
   var m=$("msg");m.className="msg";m.style.display="";m.textContent="Loading…";
-  var r=await db.from("nathan_place_registrations").select("block_no,unit_no,user_no,full_name,contact_no,email,monitor_status").order("block_no").order("unit_no").order("user_no");
+  var r=await db.from("nathan_place_registrations").select("id,block_no,unit_no,user_no,full_name,contact_no,email,monitor_status,certified,approved_by,approved_at").order("block_no").order("unit_no").order("user_no");
   if(r.error){
     if(r.error.code==="PGRST301"||/JWT/i.test(r.error.message||"")){location.replace(LOGIN);return}
     fail("Couldn't load data: "+r.error.message);return}
@@ -101,8 +112,15 @@ async function load(){
 $("q").oninput=render;$("mf").onchange=render;$("rf").onclick=load;
 $("out").onclick=async function(){await db.auth.signOut();location.replace(LOGIN)};
 db.auth.onAuthStateChange(function(ev){if(ev==="SIGNED_OUT")location.replace(LOGIN)});
-db.auth.getSession().then(function(s){
+db.auth.getSession().then(async function(s){
   if(!s.data||!s.data.session){location.replace(LOGIN);return}
+  var a=await db.rpc("internal_my_access");
+  var acc=(a.data||[]);
+  var ok=acc.some(function(x){return x.role==="superadmin"||x.role==="admin"||(x.role==="property_manager"&&x.condo_slug==="nathan-place")});
+  if(!ok){$("app").className="on";$("fresh").textContent="";$("hd").innerHTML="";$("stats").textContent="";fail("Your account does not have access to this site. Please contact Securevision.");return}
+  canApprove=acc.some(function(x){return x.role==="property_manager"&&x.condo_slug==="nathan-place"});
+  var wide=acc.some(function(x){return x.role==="superadmin"||x.role==="admin"});
+  if(!wide){var b=document.querySelector(".back");if(b)b.style.display="none"}
   $("app").className="on";head();load();
 });
 })();
