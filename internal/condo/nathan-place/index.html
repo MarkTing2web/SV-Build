@@ -31,6 +31,10 @@ th.s:hover{color:var(--fg)}
 th .ar{display:inline-block;width:1em;color:var(--acc)}
 tr:last-child td{border-bottom:0}
 td.n{color:var(--mut)}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.8rem;font-weight:600}
+.pill.p{background:#fff1d6;color:#8a5a00}
+.pill.v{background:#dff5e3;color:#176b2c}
+@media (prefers-color-scheme:dark){.pill.p{background:#3a2d12;color:#f0c36a}.pill.v{background:#14341d;color:#7fd99a}}
 .msg{padding:28px 16px;text-align:center;color:var(--mut)}
 .msg.err{color:var(--err)}
 </style>
@@ -43,8 +47,10 @@ td.n{color:var(--mut)}
 </div>
 <div class="bar">
 <select id="mf" aria-label="Filter by monitor status" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">All households</option><option value="any">Monitor: all interested</option><option value="interested">Interested</option><option value="quoted">Quoted</option><option value="ordered">Ordered</option><option value="paid">Paid</option><option value="installed">Installed</option></select>
+<select id="vf" aria-label="Filter by verification" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">All verification</option><option value="pending">Pending</option><option value="verified">Verified</option></select>
 <input id="q" type="search" placeholder="Search name, unit, contact or email" aria-label="Search">
 <button id="rf" type="button">Refresh</button>
+<button id="ex" type="button">Export list (CSV)</button>
 <span class="stats" id="stats"></span>
 </div>
 <div class="wrap"><table><thead><tr id="hd"></tr></thead><tbody id="tb"></tbody></table><div class="msg" id="msg">Loading…</div></div>
@@ -55,7 +61,7 @@ td.n{color:var(--mut)}
 var db=supabase.createClient("https://bppajrzwqeysrnrucwka.supabase.co","sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT");
 var LOGIN="/internal/condo/login/?next="+encodeURIComponent("/internal/condo/nathan-place/");
 var COLS=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no"},{k:"full_name",l:"Name",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"monitor_status",l:"Monitor",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
-var rows=[],sortK="block_no",dir=1,canApprove=false;
+var rows=[],sortK="block_no",dir=1,canApprove=false,shown=[];
 var $=function(i){return document.getElementById(i)};
 var coll=new Intl.Collator(undefined,{numeric:true,sensitivity:"base"});
 function head(){
@@ -70,19 +76,20 @@ function head(){
 function render(){
   head();
   var q=$("q").value.trim().toLowerCase();
-  var list=rows.filter(function(r){var mf=$("mf").value;if(mf==="any"?r.monitor_status==="none":(mf&&r.monitor_status!==mf))return false;return !q||[r.block_no,r.unit_no,r.full_name,r.contact_no,r.email,r.monitor_status].join(" ").toLowerCase().indexOf(q)>-1});
+  var list=rows.filter(function(r){var vf=$("vf").value;if(vf&&(r.verification_status||"pending")!==vf)return false;var mf=$("mf").value;if(mf==="any"?r.monitor_status==="none":(mf&&r.monitor_status!==mf))return false;return !q||[r.block_no,r.unit_no,r.full_name,r.contact_no,r.email,r.monitor_status].join(" ").toLowerCase().indexOf(q)>-1});
   list.sort(function(a,b){
     var c=coll.compare(String(a[sortK]||""),String(b[sortK]||""));
     if(!c&&sortK!=="block_no")c=coll.compare(a.block_no,b.block_no);
     if(!c)c=coll.compare(a.unit_no,b.unit_no);
     if(!c)c=(a.user_no||0)-(b.user_no||0);
     return c*dir});
+  shown=list;
   var tb=$("tb");tb.innerHTML="";
   list.forEach(function(r,i){
     var tr=document.createElement("tr");
     [i+1,r.block_no,r.unit_no,r.user_no,r.full_name,r.contact_no,r.email,r.monitor_status==="none"?"":r.monitor_status].forEach(function(v,j){
       var td=document.createElement("td");td.textContent=v==null?"":v;if(j===0)td.className="n";tr.appendChild(td)});
-    var tv=document.createElement("td");tv.textContent=r.verification_status==="verified"?"Verified":"Pending";tv.style.fontWeight=r.verification_status==="verified"?"600":"400";tr.appendChild(tv);
+    var tv=document.createElement("td");var vp=document.createElement("span"),ver=r.verification_status==="verified";vp.className="pill "+(ver?"v":"p");vp.textContent=ver?"Verified":"Pending";tv.appendChild(vp);tr.appendChild(tv);
     var tc=document.createElement("td");
     if(canApprove){var cb=document.createElement("input");cb.type="checkbox";cb.checked=!!r.certified;cb.style.cssText="width:18px;height:18px;cursor:pointer";cb.setAttribute("aria-label","Certified: "+r.full_name);cb.onchange=function(){setCert(r,cb)};tc.appendChild(cb)}
     else tc.textContent=r.certified?"Yes":"";
@@ -110,6 +117,22 @@ async function load(){
   $("fresh").textContent="Resident registrations · updated "+new Date().toLocaleString();
   render();
 }
+function csvCell(v){
+  v=v==null?"":String(v);
+  if(/^[=@\t\r]/.test(v)||(/^[+\-]/.test(v)&&!/^[+\-]?[\d\s]+$/.test(v)))v="'"+v;
+  return '"'+v.replace(/"/g,'""')+'"';
+}
+function exportCsv(){
+  var H=["Blk","Unit","User no","Name","Contact","Email","Monitor","Verification","Approved by","Approved at"];
+  var out=[H.map(csvCell).join(",")];
+  shown.forEach(function(r){
+    out.push([r.block_no,r.unit_no,r.user_no,r.full_name,r.contact_no,r.email,r.monitor_status==="none"?"":r.monitor_status,r.verification_status==="verified"?"Verified":"Pending",r.approved_by||"",r.approved_at?new Date(r.approved_at).toLocaleString():""].map(csvCell).join(","))});
+  var blob=new Blob(["\ufeff"+out.join("\r\n")],{type:"text/csv;charset=utf-8"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  a.download="nathan-place-registrations-"+new Date().toISOString().slice(0,10)+".csv";
+  document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(function(){URL.revokeObjectURL(a.href)},1000);
+}
+$("ex").onclick=exportCsv;$("vf").onchange=render;
 $("q").oninput=render;$("mf").onchange=render;$("rf").onclick=load;
 $("out").onclick=async function(){await db.auth.signOut();location.replace(LOGIN)};
 db.auth.onAuthStateChange(function(ev){if(ev==="SIGNED_OUT")location.replace(LOGIN)});
