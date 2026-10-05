@@ -338,12 +338,13 @@
             <div class="np-field np-field--full">
               <button type="button" class="np-add" id="np-add-user">+ Add another App User</button>
             </div>
-            <div class="np-field np-field--full np-monitor" style="padding:12px 14px;border:1px solid rgba(128,128,128,.35);border-radius:8px">
+            <div class="np-field np-field--full np-monitor" id="np-monitor-wrap" style="padding:12px 14px;border:1px solid rgba(128,128,128,.35);border-radius:8px">
               <label class="np-consent" for="np_monitor" style="margin:0">
                 <input type="checkbox" id="np_monitor">
-                <span><strong>Optional:</strong> My household is interested in an indoor monitor (Akuvox S562W), for family members without a smartphone.</span>
+                <span><strong>Optional (Master User only):</strong> My household is interested in an indoor monitor (Akuvox S562W), for family members without a smartphone.</span>
               </label>
-              <p style="margin:8px 0 0 26px;font-size:.88rem;opacity:.85"><strong>S$580 before GST</strong>, excluding installation. Installation is quoted after a site survey. Ticking this is not an order and no payment is needed now. Closer to the date, we will send you a confirmation and payment advice. <a href="/nathan-place/how-it-works#indoor-monitor">See what it looks like</a> or read the <a href="/nathan-place/faq">FAQ</a>.</p>
+              <p style="margin:8px 0 0 26px;font-size:.88rem;opacity:.85"><strong>S$580 before GST</strong>, excluding installation. Installation is usually about S$150 to S$300 before GST. All cabling is surface-run with trunking, with no hacking of walls, and we do not do touching up or making good. Ticking this places your order for the monitor. No payment is needed now. We will email the details to the Master User, and our sales team will follow up later to invoice the equipment. <a href="/nathan-place/how-it-works#indoor-monitor">See what it looks like</a> or read the <a href="/nathan-place/faq">FAQ</a>.</p>
+              <p id="np-monitor-note" role="alert" style="display:none;margin:10px 0 0;padding:10px 12px;border-radius:6px;background:#fff4e5;border:1px solid #f0b35a;color:#7a4300;font-size:.9rem;font-weight:600;line-height:1.45">Only the Master User (App User 1) can order the monitor. Please ask the Master User to tick this box, or call Securevision at +65 6286 4796.</p>
             </div>
             <div class="np-hp" aria-hidden="true"><label>Leave this empty<input type="text" name="sv_human_verify" id="np_hp" tabindex="-1" autocomplete="off"></label></div>
             <div class="np-field np-field--full">
@@ -371,7 +372,7 @@
         <svg class="np-success-tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="m8 12.5 2.8 2.8L16 9.5"/></svg>
         <h3>Thank you, your registration is received</h3>
         <p class="np-success-lead">We have received your details. <strong>A confirmation email will be sent</strong> to the email address(es) you registered.</p>
-        <p class="np-success-monitor" id="np-success-monitor" style="display:none"><strong>You have selected the optional indoor monitor (Akuvox S562W).</strong> No payment is needed now. Closer to the date, we will send you a confirmation and payment advice, including the installation cost after the site survey.</p>
+        <p class="np-success-monitor" id="np-success-monitor" style="display:none"><strong>You have selected the optional indoor monitor (Akuvox S562W).</strong> You have placed your monitor order. No payment is needed now. We will email the details to the Master User, and our sales team will follow up later to invoice the equipment.</p>
 
         <div class="np-summary">
           <h4>Your registration</h4>
@@ -479,6 +480,16 @@
   var addBtn = document.getElementById('np-add-user');
   var slotsWrap = document.getElementById('np-slots-wrap'), slotsStatus = document.getElementById('np-slots-status'), skipBtn = document.getElementById('np-skip-master');
   var SLOTS = { known: false, taken: [], extra: 0, skipMaster: false };
+  var npMasterShown = true;   // true while App User 1 is the one being registered
+  (function () {
+    var cb = document.getElementById('np_monitor'), note = document.getElementById('np-monitor-note');
+    if (cb) cb.addEventListener('change', function () {
+      if (cb.checked && !npMasterShown) {
+        cb.checked = false;
+        if (note) { note.style.display = 'block'; note.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+      }
+    });
+  })();
   var FULL_MSG = 'All 4 App Users are already registered for this unit. No more App Users can be added. If this is a mistake, please call Securevision at +65 6286 4796.';
   var fullShown = false;
   function slotBox(n) { return document.getElementById('np_user' + n); }
@@ -507,6 +518,11 @@
       }
     }
     addBtn.style.display = (shownCount < list.length) ? '' : 'none';
+    // The monitor box is visible to everyone, but only the Master User (App User 1) can request it.
+    npMasterShown = shown.indexOf(1) > -1;
+    var mBox = document.getElementById('np_monitor'), mNote = document.getElementById('np-monitor-note');
+    if (mBox && !npMasterShown) mBox.checked = false;
+    if (mNote) mNote.style.display = npMasterShown ? 'none' : 'block';   // shown whenever App User 1 is not the one registering
     var cu = currentUnit();
     if (SLOTS.known && cu) {
       var t = SLOTS.taken.length, left = 4 - t;
@@ -751,7 +767,7 @@
         block_no: block.value,
         unit_no: unitVal,
         consent: true,
-        monitor_interest: document.getElementById('np_monitor').checked,
+        monitor_interest: (u.user_no === 1 && document.getElementById('np_monitor').checked),
         source_page: window.location.pathname,
         referrer: document.referrer || '',
         sv_human_verify: ''
@@ -779,7 +795,7 @@
       var d = document.createElement('span'); d.textContent = u.email + ' · ' + u.contact_no;
       li.appendChild(t); li.appendChild(d); list.appendChild(li);
     });
-    if (document.getElementById('np_monitor').checked) document.getElementById('np-success-monitor').style.display = 'block'; var ok = document.getElementById('np-success'); ok.style.display = 'block'; ok.focus();
+    if (document.getElementById('np_monitor').checked && users.some(function (x) { return x.user_no === 1; })) document.getElementById('np-success-monitor').style.display = 'block'; var ok = document.getElementById('np-success'); ok.style.display = 'block'; ok.focus();
     ok.scrollIntoView({ behavior: 'smooth', block: 'start' });
     return false;
   });
