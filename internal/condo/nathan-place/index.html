@@ -49,7 +49,7 @@ td.n{color:var(--mut)}
 <main id="app">
 <div class="top">
 <div><a class="back" href="/internal/condo/">&larr; All condos</a><h1>Nathan Place</h1><p class="sub" id="fresh">Resident registrations</p></div>
-<button id="out" type="button">Sign out</button>
+<div style="display:flex;gap:8px;align-items:center"><select id="va" hidden aria-label="View as" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">View as: Superadmin (me)</option><option value="admin">View as: Staff</option><option value="property_manager">View as: Property manager</option></select><button id="out" type="button">Sign out</button></div>
 </div>
 <div class="bar">
 <select id="mf" aria-label="Filter by monitor status" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">All households</option><option value="any">Monitor: all interested</option><option value="interested">Interested</option><option value="quoted">Quoted</option><option value="followup">Quoted: follow up (3+ days)</option><option value="ordered">Ordered</option><option value="paid">Paid</option><option value="installed">Installed</option></select>
@@ -69,10 +69,11 @@ td.n{color:var(--mut)}
 (function(){
 var db=supabase.createClient("https://bppajrzwqeysrnrucwka.supabase.co","sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT");
 var LOGIN="/internal/condo/login/?next="+encodeURIComponent("/internal/condo/nathan-place/");
-var COLS_STAFF=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Name",s:1},{k:"identity",l:"Identity",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"created_at",l:"Registered",s:1},{k:"confirmed_at",l:"Email confirmed",s:1},{k:"monitor_status",l:"Monitor",s:1},{k:"quotation_no",l:"Quote",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
+var COLS_STAFF=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Name",s:1},{k:"identity",l:"Identity",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"created_at",l:"Registered",s:1},{k:"confirmed_at",l:"Email confirmed",s:1},{k:"monitor_emailed_at",l:"Monitor emailed",s:1},{k:"briefing_emailed_at",l:"Briefing emailed",s:1},{k:"welcome_emailed_at",l:"Verify emailed",s:1},{k:"monitor_status",l:"Monitor",s:1},{k:"quotation_no",l:"Quote",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
 var COLS_PM=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Name",s:1},{k:"identity",l:"Identity",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"confirmed_at",l:"Email confirmed",s:1},{k:"monitor_ordered",l:"Monitor ordered",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
 var COLS=COLS_PM;
 var rows=[],sortK="block_no",dir=1,canApprove=false,canStaff=false,shown=[];
+var viewAs="",realSuper=false,realWide=false,realPM=false,MF_STAFF="";
 var FU_DAYS=3,ST=["interested","quoted","ordered","paid","installed","declined"];
 function qDays(r){return r.quotation_sent_at?Math.floor((Date.now()-new Date(r.quotation_sent_at).getTime())/86400000):null}
 function isFU(r){if(r.monitor_status!=="quoted")return false;var d=qDays(r);return d===null||d>=FU_DAYS}
@@ -97,6 +98,8 @@ function cell(r,c,i){
     case "sn":td.className="n";td.textContent=i+1;break;
     case "created_at":td.textContent=fmtD(r.created_at);break;
     case "confirmed_at":if(r.confirmed_at)td.textContent=fmtD(r.confirmed_at);else td.appendChild(pill("p","Not yet"));break;
+    case "monitor_emailed_at":case "briefing_emailed_at":case "welcome_emailed_at":
+      td.textContent=r[c.k]?fmtD(r[c.k]):((c.k==="monitor_emailed_at"&&!r.monitor_interest)?"":"–");break;
     case "monitor_ordered":td.textContent=r.monitor_ordered?"Ordered":"";break;
     case "monitor_status":
       if(r.monitor_status&&r.monitor_status!=="none"){
@@ -168,15 +171,22 @@ async function load(){
   var m=$("msg");m.className="msg";m.style.display="";m.textContent="Loading…";
   var all=[],from=0,size=1000;
   for(;;){
-    var r=await db.rpc("nathan_place_dashboard_rows").range(from,from+size-1);
+    var r=await db.rpc("nathan_place_dashboard_rows_v2",viewAs?{p_view_as:viewAs}:{}).range(from,from+size-1);
     if(r.error){
       if(r.error.code==="PGRST301"||/JWT/i.test(r.error.message||"")){location.replace(LOGIN);return}
       fail("Couldn't load data: "+r.error.message);return}
     var d=r.data||[];all=all.concat(d);
     if(d.length<size)break;
     from+=size}
+  if(canStaff){
+    var sg=[],sf=0;
+    for(;;){var st=await db.rpc("nathan_place_dashboard_email_stages").range(sf,sf+999);
+      if(st.error){sg=null;break}
+      var sd=st.data||[];sg=sg.concat(sd);if(sd.length<1000)break;sf+=1000}
+    if(sg){var mp={};sg.forEach(function(x){mp[x.registration_id]=x});
+      all.forEach(function(r){var x=mp[r.id];if(x){r.monitor_emailed_at=x.monitor_emailed_at;r.briefing_emailed_at=x.briefing_emailed_at;r.welcome_emailed_at=x.welcome_emailed_at}})}}
   rows=all;
-  $("fresh").textContent="Resident registrations · updated "+new Date().toLocaleString();
+  $("fresh").textContent="Resident registrations · updated "+new Date().toLocaleString()+(viewAs?" · previewing as "+(viewAs==="admin"?"Staff":"Property manager"):"");
   render();
 }
 function csvCell(v){
@@ -185,14 +195,15 @@ function csvCell(v){
   return '"'+v.replace(/"/g,'""')+'"';
 }
 function exportCsv(){
+  if(!canStaff)return;
   var S=canStaff;
-  var H=S?["Blk","Unit","User no","Name","Identity","Contact","Email","Registered","Email confirmed","Consent","Monitor","Quote no","Quote sent","Verification","Approved by","Approved at"]
+  var H=S?["Blk","Unit","User no","Name","Identity","Contact","Email","Registered","Email confirmed","Monitor emailed","Briefing emailed","Verify emailed","Consent","Monitor","Quote no","Quote sent","Verification","Approved by","Approved at"]
          :["Blk","Unit","User no","Name","Identity","Contact","Email","Email confirmed","Monitor ordered","Verification","Approved by","Approved at"];
   var out=[H.map(csvCell).join(",")];
   shown.forEach(function(r){
     var base=[r.block_no,r.unit_no,r.user_no,r.full_name,r.identity,r.contact_no,r.email];
     var ver=[r.verification_status==="verified"?"Verified":"Pending",r.approved_by||"",r.approved_at?new Date(r.approved_at).toLocaleString():""];
-    var row=S?base.concat([fmtD(r.created_at),fmtD(r.confirmed_at),r.consent?"Yes":"No",r.monitor_status==="none"?"":r.monitor_status,r.quotation_no||"",fmtD(r.quotation_sent_at)],ver)
+    var row=S?base.concat([fmtD(r.created_at),fmtD(r.confirmed_at),fmtD(r.monitor_emailed_at),fmtD(r.briefing_emailed_at),fmtD(r.welcome_emailed_at),r.consent?"Yes":"No",r.monitor_status==="none"?"":r.monitor_status,r.quotation_no||"",fmtD(r.quotation_sent_at)],ver)
              :base.concat([fmtD(r.confirmed_at),r.monitor_ordered?"Ordered":""],ver);
     out.push(row.map(csvCell).join(","))});
   var blob=new Blob(["﻿"+out.join("\r\n")],{type:"text/csv;charset=utf-8"});
@@ -210,10 +221,21 @@ db.auth.getSession().then(async function(s){
   var acc=(a.data||[]);
   var ok=acc.some(function(x){return x.role==="superadmin"||x.role==="admin"||(x.role==="property_manager"&&x.condo_slug==="nathan-place")});
   if(!ok){$("app").className="on";$("fresh").textContent="";$("hd").innerHTML="";$("stats").textContent="";fail("Your account does not have access to this site. Please contact Securevision.");return}
-  canApprove=acc.some(function(x){return x.role==="property_manager"&&x.condo_slug==="nathan-place"});
-  var wide=acc.some(function(x){return x.role==="superadmin"||x.role==="admin"});canStaff=wide;
-  COLS=canStaff?COLS_STAFF:COLS_PM;
-  if(!canStaff){$("mf").innerHTML='<option value="">All households</option><option value="ordered_any">Monitor ordered</option>';var b=document.querySelector(".back");if(b)b.style.display="none"}
+  realPM=acc.some(function(x){return x.role==="property_manager"&&x.condo_slug==="nathan-place"});
+  realWide=acc.some(function(x){return x.role==="superadmin"||x.role==="admin"});
+  realSuper=acc.some(function(x){return x.role==="superadmin"});
+  MF_STAFF=$("mf").innerHTML;
+  function applyRole(){
+    var pmView=viewAs?viewAs==="property_manager":!realWide;
+    canStaff=!pmView;
+    canApprove=pmView&&realPM&&!viewAs;
+    COLS=canStaff?COLS_STAFF:COLS_PM;
+    $("mf").innerHTML=canStaff?MF_STAFF:'<option value="">All households</option><option value="ordered_any">Monitor ordered</option>';
+    var b=document.querySelector(".back");if(b)b.style.display=pmView?"none":"";
+    $("ex").style.display=canStaff?"":"none";
+  }
+  applyRole();
+  if(realSuper){var va=$("va");va.hidden=false;va.onchange=function(){viewAs=va.value;sortK="block_no";dir=1;applyRole();load()}}
   $("app").className="on";head();load();
 });
 })();
