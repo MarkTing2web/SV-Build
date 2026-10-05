@@ -35,6 +35,12 @@ td.n{color:var(--mut)}
 .pill.p{background:#fff1d6;color:#8a5a00}
 .pill.v{background:#dff5e3;color:#176b2c}
 @media (prefers-color-scheme:dark){.pill.p{background:#3a2d12;color:#f0c36a}.pill.v{background:#14341d;color:#7fd99a}}
+.pill.f{background:#ffe0cc;color:#9a3300}
+.fu{margin:0 0 12px;padding:10px 14px;border-radius:8px;background:#fff1d6;color:#7a4e00;border:1px solid #f0d9a8;font-size:.9rem}
+.fu button{margin-left:8px;padding:4px 10px;font-size:.85rem}
+.sub2{display:block;color:var(--mut);font-size:.78rem;margin-top:2px}
+.ms{padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--fg);font:inherit}
+@media (prefers-color-scheme:dark){.pill.f{background:#43230f;color:#f5a870}.fu{background:#3a2d12;color:#f0c36a;border-color:#5a4a22}}
 .msg{padding:28px 16px;text-align:center;color:var(--mut)}
 .msg.err{color:var(--err)}
 </style>
@@ -46,13 +52,14 @@ td.n{color:var(--mut)}
 <button id="out" type="button">Sign out</button>
 </div>
 <div class="bar">
-<select id="mf" aria-label="Filter by monitor status" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">All households</option><option value="any">Monitor: all interested</option><option value="interested">Interested</option><option value="quoted">Quoted</option><option value="ordered">Ordered</option><option value="paid">Paid</option><option value="installed">Installed</option></select>
+<select id="mf" aria-label="Filter by monitor status" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">All households</option><option value="any">Monitor: all interested</option><option value="interested">Interested</option><option value="quoted">Quoted</option><option value="followup">Quoted: follow up (3+ days)</option><option value="ordered">Ordered</option><option value="paid">Paid</option><option value="installed">Installed</option></select>
 <select id="vf" aria-label="Filter by verification" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">All verification</option><option value="pending">Pending</option><option value="verified">Verified</option></select>
 <input id="q" type="search" placeholder="Search name, unit, contact or email" aria-label="Search">
 <button id="rf" type="button">Refresh</button>
 <button id="ex" type="button">Export list (CSV)</button>
 <span class="stats" id="stats"></span>
 </div>
+<div class="fu" id="fu" hidden></div>
 <div class="wrap"><table><thead><tr id="hd"></tr></thead><tbody id="tb"></tbody></table><div class="msg" id="msg">Loading…</div></div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
@@ -60,8 +67,12 @@ td.n{color:var(--mut)}
 (function(){
 var db=supabase.createClient("https://bppajrzwqeysrnrucwka.supabase.co","sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT");
 var LOGIN="/internal/condo/login/?next="+encodeURIComponent("/internal/condo/nathan-place/");
-var COLS=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Name",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"monitor_status",l:"Monitor",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
-var rows=[],sortK="block_no",dir=1,canApprove=false,shown=[];
+var COLS=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Name",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"monitor_status",l:"Monitor",s:1},{k:"quotation_no",l:"Quote",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
+var rows=[],sortK="block_no",dir=1,canApprove=false,canStaff=false,shown=[];
+var FU_DAYS=3,ST=["interested","quoted","ordered","paid","installed","declined"];
+function qDays(r){return r.quotation_sent_at?Math.floor((Date.now()-new Date(r.quotation_sent_at).getTime())/86400000):null}
+function isFU(r){if(r.monitor_status!=="quoted")return false;var d=qDays(r);return d===null||d>=FU_DAYS}
+function cap(t){return t.charAt(0).toUpperCase()+t.slice(1)}
 var $=function(i){return document.getElementById(i)};
 var coll=new Intl.Collator(undefined,{numeric:true,sensitivity:"base"});
 function head(){
@@ -76,7 +87,7 @@ function head(){
 function render(){
   head();
   var q=$("q").value.trim().toLowerCase();
-  var list=rows.filter(function(r){var vf=$("vf").value;if(vf&&(r.verification_status||"pending")!==vf)return false;var mf=$("mf").value;if(mf==="any"?r.monitor_status==="none":(mf&&r.monitor_status!==mf))return false;return !q||[r.block_no,r.unit_no,r.full_name,r.contact_no,r.email,r.monitor_status].join(" ").toLowerCase().indexOf(q)>-1});
+  var list=rows.filter(function(r){var vf=$("vf").value;if(vf&&(r.verification_status||"pending")!==vf)return false;var mf=$("mf").value;if(mf==="followup"){if(!isFU(r))return false}else if(mf==="any"?r.monitor_status==="none":(mf&&r.monitor_status!==mf))return false;return !q||[r.block_no,r.unit_no,r.full_name,r.contact_no,r.email,r.monitor_status].join(" ").toLowerCase().indexOf(q)>-1});
   list.sort(function(a,b){
     var c=coll.compare(String(a[sortK]||""),String(b[sortK]||""));
     if(!c&&sortK!=="block_no")c=coll.compare(a.block_no,b.block_no);
@@ -87,8 +98,20 @@ function render(){
   var tb=$("tb");tb.innerHTML="";
   list.forEach(function(r,i){
     var tr=document.createElement("tr");
-    [i+1,r.block_no,r.unit_no,r.user_no,r.full_name,r.contact_no,r.email,r.monitor_status==="none"?"":r.monitor_status].forEach(function(v,j){
+    [i+1,r.block_no,r.unit_no,r.user_no,r.full_name,r.contact_no,r.email].forEach(function(v,j){
       var td=document.createElement("td");td.textContent=v==null?"":v;if(j===0)td.className="n";tr.appendChild(td)});
+    var tm=document.createElement("td");
+    if(r.monitor_status!=="none"){
+      if(canStaff){var sel=document.createElement("select");sel.className="ms";sel.setAttribute("aria-label","Monitor status: "+r.full_name);
+        ST.forEach(function(o){var op=document.createElement("option");op.value=o;op.textContent=cap(o);if(o===r.monitor_status)op.selected=true;sel.appendChild(op)});
+        sel.onchange=function(){setMon(r,sel)};tm.appendChild(sel)}
+      else tm.textContent=r.monitor_status}
+    tr.appendChild(tm);
+    var tq=document.createElement("td");
+    if(r.quotation_no){tq.textContent=r.quotation_no;var sb=document.createElement("span");sb.className="sub2";var dd=qDays(r);
+      sb.textContent=r.quotation_sent_at?("Sent "+new Date(r.quotation_sent_at).toLocaleDateString()+(dd!==null?" · "+dd+"d ago":"")):"";tq.appendChild(sb);
+      if(isFU(r)){var fp=document.createElement("span");fp.className="pill f";fp.style.marginTop="4px";fp.textContent="Follow up";tq.appendChild(document.createElement("br"));tq.appendChild(fp)}}
+    tr.appendChild(tq);
     var tv=document.createElement("td");var vp=document.createElement("span"),ver=r.verification_status==="verified";vp.className="pill "+(ver?"v":"p");vp.textContent=ver?"Verified":"Pending";tv.appendChild(vp);tr.appendChild(tv);
     var tc=document.createElement("td");
     if(canApprove){var cb=document.createElement("input");cb.type="checkbox";cb.checked=!!r.certified;cb.style.cssText="width:18px;height:18px;cursor:pointer";cb.setAttribute("aria-label","Certified: "+r.full_name);cb.onchange=function(){setCert(r,cb)};tc.appendChild(cb)}
@@ -99,6 +122,10 @@ function render(){
   var m=$("msg");
   if(!list.length){m.className="msg";m.style.display="";m.textContent=rows.length?"No matches.":"No registrations yet."}else m.style.display="none";
   $("stats").textContent=list.length+" of "+rows.length+" users · "+rows.filter(function(r){return r.verification_status==="verified"}).length+" verified";
+  var nfu=rows.filter(isFU).length,fu=$("fu");
+  if(canStaff&&nfu){fu.hidden=false;fu.textContent=nfu+(nfu===1?" quotation was":" quotations were")+" sent "+FU_DAYS+"+ days ago and not yet marked Ordered. Please follow up with the resident, then set the status to Ordered (or Declined).";
+    var fb=document.createElement("button");fb.type="button";fb.textContent="Show them";fb.onclick=function(){$("mf").value="followup";render()};fu.appendChild(fb)}
+  else fu.hidden=true;
 }
 async function setCert(r,cb){
   cb.disabled=true;
@@ -106,10 +133,16 @@ async function setCert(r,cb){
   if(res.error||!res.data||!res.data.length){cb.checked=!cb.checked;cb.disabled=false;$("stats").textContent="Could not save: "+(res.error?res.error.message:"not allowed");return}
   var d=res.data[0];r.certified=d.certified;r.verification_status=d.certified?"verified":"pending";r.approved_by=d.approved_by;r.approved_at=d.approved_at;render();
 }
+async function setMon(r,sel){
+  var prev=r.monitor_status;sel.disabled=true;
+  var res=await db.rpc("nathan_place_staff_set_monitor",{p_id:r.id,p_status:sel.value});
+  if(res.error||!res.data||!res.data.length){sel.value=prev;sel.disabled=false;$("stats").textContent="Could not save: "+(res.error?res.error.message:"not allowed");return}
+  r.monitor_status=res.data[0].monitor_status;render();
+}
 function fail(t){var m=$("msg");m.className="msg err";m.style.display="";m.textContent=t;$("tb").innerHTML=""}
 async function load(){
   var m=$("msg");m.className="msg";m.style.display="";m.textContent="Loading…";
-  var r=await db.from("nathan_place_registrations").select("id,block_no,unit_no,user_no,full_name,contact_no,email,monitor_status,certified,verification_status,approved_by,approved_at").order("block_no").order("unit_no").order("user_no");
+  var r=await db.from("nathan_place_registrations").select("id,block_no,unit_no,user_no,full_name,contact_no,email,monitor_status,quotation_no,quotation_sent_at,certified,verification_status,approved_by,approved_at").order("block_no").order("unit_no").order("user_no");
   if(r.error){
     if(r.error.code==="PGRST301"||/JWT/i.test(r.error.message||"")){location.replace(LOGIN);return}
     fail("Couldn't load data: "+r.error.message);return}
@@ -123,10 +156,10 @@ function csvCell(v){
   return '"'+v.replace(/"/g,'""')+'"';
 }
 function exportCsv(){
-  var H=["Blk","Unit","User no","Name","Contact","Email","Monitor","Verification","Approved by","Approved at"];
+  var H=["Blk","Unit","User no","Name","Contact","Email","Monitor","Quote no","Quote sent","Verification","Approved by","Approved at"];
   var out=[H.map(csvCell).join(",")];
   shown.forEach(function(r){
-    out.push([r.block_no,r.unit_no,r.user_no,r.full_name,r.contact_no,r.email,r.monitor_status==="none"?"":r.monitor_status,r.verification_status==="verified"?"Verified":"Pending",r.approved_by||"",r.approved_at?new Date(r.approved_at).toLocaleString():""].map(csvCell).join(","))});
+    out.push([r.block_no,r.unit_no,r.user_no,r.full_name,r.contact_no,r.email,r.monitor_status==="none"?"":r.monitor_status,r.quotation_no||"",r.quotation_sent_at?new Date(r.quotation_sent_at).toLocaleDateString():"",r.verification_status==="verified"?"Verified":"Pending",r.approved_by||"",r.approved_at?new Date(r.approved_at).toLocaleString():""].map(csvCell).join(","))});
   var blob=new Blob(["\ufeff"+out.join("\r\n")],{type:"text/csv;charset=utf-8"});
   var a=document.createElement("a");a.href=URL.createObjectURL(blob);
   a.download="nathan-place-registrations-"+new Date().toISOString().slice(0,10)+".csv";
@@ -143,7 +176,7 @@ db.auth.getSession().then(async function(s){
   var ok=acc.some(function(x){return x.role==="superadmin"||x.role==="admin"||(x.role==="property_manager"&&x.condo_slug==="nathan-place")});
   if(!ok){$("app").className="on";$("fresh").textContent="";$("hd").innerHTML="";$("stats").textContent="";fail("Your account does not have access to this site. Please contact Securevision.");return}
   canApprove=acc.some(function(x){return x.role==="property_manager"&&x.condo_slug==="nathan-place"});
-  var wide=acc.some(function(x){return x.role==="superadmin"||x.role==="admin"});
+  var wide=acc.some(function(x){return x.role==="superadmin"||x.role==="admin"});canStaff=wide;
   if(!wide){var b=document.querySelector(".back");if(b)b.style.display="none"}
   $("app").className="on";head();load();
 });
