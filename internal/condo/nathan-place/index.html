@@ -22,6 +22,10 @@ h1{margin:0;font-size:1.7rem}
 button{padding:9px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit;cursor:pointer}
 button:hover{border-color:var(--acc)}
 .stats{color:var(--mut);font-size:.85rem}
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 14px}
+.sum div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.sum b{display:block;font-size:1.7rem;line-height:1.2}
+.sum span{color:var(--mut);font-size:.8rem}
 .wrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:10px}
 table{border-collapse:collapse;width:100%;min-width:0;font-variant-numeric:tabular-nums}
 th,td{padding:10px 10px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
@@ -51,6 +55,7 @@ td.n{color:var(--mut)}
 <div><a class="back" href="/internal/condo/">&larr; All condos</a><h1>Nathan Place</h1><p class="sub" id="fresh">Resident registrations</p></div>
 <div style="display:flex;gap:8px;align-items:center"><select id="va" hidden aria-label="View as" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">View as: Superadmin (me)</option><option value="admin">View as: Staff</option><option value="property_manager">View as: Property manager</option></select><button id="out" type="button">Sign out</button></div>
 </div>
+<div class="sum" id="sum"></div>
 <div class="bar">
 <select id="mf" aria-label="Filter by monitor status" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">All households</option><option value="any">Monitor: all interested</option><option value="interested">Interested</option><option value="quoted">Quoted</option><option value="followup">Quoted: follow up (3+ days)</option><option value="ordered">Ordered</option><option value="paid">Paid</option><option value="installed">Installed</option></select>
 <select id="vf" aria-label="Filter by verification" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">All verification</option><option value="pending">Pending</option><option value="verified">Verified</option></select>
@@ -121,8 +126,18 @@ function cell(r,c,i){
     default:td.textContent=r[c.k]==null?"":r[c.k]}
   return td;
 }
+var TOTAL_UNITS=45;
+function summary(){
+  var seen={};rows.forEach(function(r){seen[(r.block_no||"")+"|"+(r.unit_no||"")]=1});
+  var u=Object.keys(seen).length,pct=Math.round(u/TOTAL_UNITS*100);
+  function t(n,l){return "<div><b>"+n+"</b><span>"+l+"</span></div>"}
+  $("sum").innerHTML=t(TOTAL_UNITS,"Total units in Nathan Place")+t(u,"Units registered")+t(pct+"%","of units registered")+t(TOTAL_UNITS-u,"Units not yet registered")+t(rows.length,"Total registrations (users)");
+  var ordU={},intU={};rows.forEach(function(r){var k=(r.block_no||"")+"|"+(r.unit_no||"");if(r.monitor_ordered)ordU[k]=1;if(r.monitor_interest||(r.monitor_status&&r.monitor_status!=="none"))intU[k]=1});
+  if(canStaff)$("sum").innerHTML+=t(Object.keys(intU).length,"Monitors interested (units)");
+  $("sum").innerHTML+=t(Object.keys(ordU).length,"Monitors ordered (units)");
+}
 function render(){
-  head();
+  head();summary();
   var q=$("q").value.trim().toLowerCase(),vf=$("vf").value,mf=$("mf").value,idf=$("idf").value,ef=$("ef").value;
   var list=rows.filter(function(r){
     if(vf&&(r.verification_status||"pending")!==vf)return false;
