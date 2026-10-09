@@ -64,6 +64,7 @@ td.n{color:var(--mut)}
 <input id="q" type="search" placeholder="Search name, unit, contact or email" aria-label="Search">
 <button id="rf" type="button">Refresh</button>
 <button id="ex" type="button">Export list (CSV)</button>
+<button id="exa" type="button" title="Verified residents, in the Akuvox Cloud Community import format">Export for Akuvox (.xlsx)</button>
 <span class="stats" id="stats"></span>
 </div>
 <div class="fu" id="fu" hidden></div>
@@ -226,7 +227,30 @@ function exportCsv(){
   a.download="nathan-place-registrations-"+new Date().toISOString().slice(0,10)+".csv";
   document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(function(){URL.revokeObjectURL(a.href)},1000);
 }
-$("ex").onclick=exportCsv;$("vf").onchange=render;$("idf").onchange=render;$("ef").onchange=render;
+$("ex").onclick=exportCsv;
+var AK_HEAD=["Building","Floor","Apt","AptName","Landline Service","With Indoor Monitor","Device","FirstName","LastName","Email","MobileNumber","TelephoneCallingCode","1stPhone","2ndPhone","3rdPhone","CallType","Web Relay ID","akubela Smart Home","Analog Handset","Video Storage"];
+function akUnit(u){var m=String(u||"").trim().match(/^#?([A-Za-z]*)(\d+)-(\d+)$/);if(!m)return null;var pre=m[1].toUpperCase(),fl=m[2],un=m[3];
+  return{floor:pre==="B"?String(-parseInt(fl,10)):String(parseInt(fl,10)),apt:pre?(pre+fl+un.padStart(2,"0")):(fl.padStart(2,"0")+un.padStart(2,"0"))}}
+function akMobile(v){var d=String(v||"").replace(/\D/g,"");if(d.length===10&&d.indexOf("65")===0)d=d.slice(2);return d}
+function loadXlsx(cb){if(window.XLSX)return cb();var sc=document.createElement("script");sc.src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js";sc.onload=cb;sc.onerror=function(){$("stats").textContent="Could not load the Excel library. Check your internet connection and try again."};document.head.appendChild(sc)}
+function exportAkuvox(){
+  if(!canStaff)return;
+  var ver=rows.filter(function(r){return r.verification_status==="verified"}),bad=[],ord={};
+  ver.forEach(function(r){if(r.monitor_ordered)ord[r.block_no+"|"+r.unit_no]=1});
+  var items=[];ver.forEach(function(r){var u=akUnit(r.unit_no);if(!u){bad.push(r.block_no+" "+r.unit_no);return}items.push({r:r,u:u})});
+  items.sort(function(a,b){return (parseInt(a.r.block_no,10)-parseInt(b.r.block_no,10))||(parseInt(a.u.floor,10)-parseInt(b.u.floor,10))||(a.u.apt<b.u.apt?-1:a.u.apt>b.u.apt?1:0)||((a.r.user_no||0)-(b.r.user_no||0))});
+  var aoa=[AK_HEAD];
+  items.forEach(function(x){var r=x.r,m=akMobile(r.contact_no);
+    aoa.push([String(r.block_no),x.u.floor,x.u.apt,x.u.apt,"0",ord[r.block_no+"|"+r.unit_no]?"1":"0","",String(r.full_name||"").trim(),"-",String(r.email||"").trim(),m,m?"65":"","","","",0,12,"","",""])});
+  loadXlsx(function(){
+    var ws=XLSX.utils.aoa_to_sheet(aoa,{cellDates:false});
+    Object.keys(ws).forEach(function(a){if(a[0]==="!")return;var c=ws[a],row=XLSX.utils.decode_cell(a).r;if(row>0&&c.t==="s")c.z="@"});
+    var wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"upload_device_Com");
+    XLSX.writeFile(wb,"akuvox-community-import-nathan-place-"+new Date().toISOString().slice(0,10)+".xlsx");
+    $("stats").textContent="Akuvox file: "+items.length+" verified residents exported"+(bad.length?" · skipped (unit format not recognised): "+bad.join(", "):"");
+  })
+}
+$("exa").onclick=exportAkuvox;$("vf").onchange=render;$("idf").onchange=render;$("ef").onchange=render;
 $("q").oninput=render;$("mf").onchange=render;$("rf").onclick=load;
 $("out").onclick=async function(){await db.auth.signOut();location.replace(LOGIN)};
 db.auth.onAuthStateChange(function(ev){if(ev==="SIGNED_OUT")location.replace(LOGIN)});
@@ -247,7 +271,7 @@ db.auth.getSession().then(async function(s){
     COLS=canStaff?COLS_STAFF:COLS_PM;
     $("mf").innerHTML=canStaff?MF_STAFF:'<option value="">All households</option><option value="ordered_any">Monitor ordered</option>';
     var b=document.querySelector(".back");if(b)b.style.display=pmView?"none":"";
-    $("ex").style.display=canStaff?"":"none";
+    $("ex").style.display=canStaff?"":"none";$("exa").style.display=canStaff?"":"none";
   }
   applyRole();
   if(realSuper){var va=$("va");va.hidden=false;va.onchange=function(){viewAs=va.value;sortK="block_no";dir=1;applyRole();load()}}
