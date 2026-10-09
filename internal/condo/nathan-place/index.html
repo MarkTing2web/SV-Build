@@ -75,7 +75,7 @@ td.n{color:var(--mut)}
 (function(){
 var db=supabase.createClient("https://bppajrzwqeysrnrucwka.supabase.co","sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT");
 var LOGIN="/internal/condo/login/?next="+encodeURIComponent("/internal/condo/nathan-place/");
-var COLS_STAFF=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Name",s:1},{k:"identity",l:"Identity",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"created_at",l:"Registered",s:1},{k:"confirmed_at",l:"Email confirmed",s:1},{k:"monitor_emailed_at",l:"Monitor emailed",s:1},{k:"briefing_emailed_at",l:"Briefing emailed",s:1},{k:"welcome_emailed_at",l:"Verify emailed",s:1},{k:"monitor_status",l:"Monitor",s:1},{k:"quotation_no",l:"Quote",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
+var COLS_STAFF=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Full name",s:1},{k:"first_name",l:"First name",s:1},{k:"last_name",l:"Last name",s:1},{k:"identity",l:"Identity",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"created_at",l:"Registered",s:1},{k:"confirmed_at",l:"Email confirmed",s:1},{k:"monitor_emailed_at",l:"Monitor emailed",s:1},{k:"briefing_emailed_at",l:"Briefing emailed",s:1},{k:"welcome_emailed_at",l:"Verify emailed",s:1},{k:"monitor_status",l:"Monitor",s:1},{k:"quotation_no",l:"Quote",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
 var COLS_PM=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Name",s:1},{k:"identity",l:"Identity",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"confirmed_at",l:"Email confirmed",s:1},{k:"monitor_ordered",l:"Monitor ordered",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
 var COLS=COLS_PM;
 var rows=[],sortK="block_no",dir=1,canApprove=false,canStaff=false,shown=[];
@@ -187,7 +187,7 @@ async function load(){
   var m=$("msg");m.className="msg";m.style.display="";m.textContent="Loading…";
   var all=[],from=0,size=1000;
   for(;;){
-    var r=await db.rpc("nathan_place_dashboard_rows_v2",viewAs?{p_view_as:viewAs}:{}).range(from,from+size-1);
+    var r=await db.rpc("nathan_place_dashboard_rows_v3",viewAs?{p_view_as:viewAs}:{}).range(from,from+size-1);
     if(r.error){
       if(r.error.code==="PGRST301"||/JWT/i.test(r.error.message||"")){location.replace(LOGIN);return}
       fail("Couldn't load data: "+r.error.message);return}
@@ -213,11 +213,11 @@ function csvCell(v){
 function exportCsv(){
   if(!canStaff)return;
   var S=canStaff;
-  var H=S?["Blk","Unit","User no","Name","Identity","Contact","Email","Registered","Email confirmed","Monitor emailed","Briefing emailed","Verify emailed","Consent","Monitor","Quote no","Quote sent","Verification","Approved by","Approved at"]
+  var H=S?["Blk","Unit","User no","Full name","First name","Last name","Identity","Contact","Email","Registered","Email confirmed","Monitor emailed","Briefing emailed","Verify emailed","Consent","Monitor","Quote no","Quote sent","Verification","Approved by","Approved at"]
          :["Blk","Unit","User no","Name","Identity","Contact","Email","Email confirmed","Monitor ordered","Verification","Approved by","Approved at"];
   var out=[H.map(csvCell).join(",")];
   shown.forEach(function(r){
-    var base=[r.block_no,r.unit_no,r.user_no,r.full_name,r.identity,r.contact_no,r.email];
+    var base=S?[r.block_no,r.unit_no,r.user_no,r.full_name,r.first_name||"",r.last_name||"",r.identity,r.contact_no,r.email]:[r.block_no,r.unit_no,r.user_no,r.full_name,r.identity,r.contact_no,r.email];
     var ver=[r.verification_status==="verified"?"Verified":"Pending",r.approved_by||"",r.approved_at?new Date(r.approved_at).toLocaleString():""];
     var row=S?base.concat([fmtD(r.created_at),fmtD(r.confirmed_at),fmtD(r.monitor_emailed_at),fmtD(r.briefing_emailed_at),fmtD(r.welcome_emailed_at),r.consent?"Yes":"No",r.monitor_status==="none"?"":r.monitor_status,r.quotation_no||"",fmtD(r.quotation_sent_at)],ver)
              :base.concat([fmtD(r.confirmed_at),r.monitor_ordered?"Ordered":""],ver);
@@ -233,6 +233,11 @@ function akUnit(u){var m=String(u||"").trim().match(/^#?([A-Za-z]*)(\d+)-(\d+)$/
   return{floor:pre==="B"?String(-parseInt(fl,10)):String(parseInt(fl,10)),apt:pre?(pre+fl+un.padStart(2,"0")):(fl.padStart(2,"0")+un.padStart(2,"0"))}}
 function akMobile(v){var d=String(v||"").replace(/\D/g,"");if(d.length===10&&d.indexOf("65")===0)d=d.slice(2);return d}
 function loadXlsx(cb){if(window.XLSX)return cb();var sc=document.createElement("script");sc.src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js";sc.onload=cb;sc.onerror=function(){$("stats").textContent="Could not load the Excel library. Check your internet connection and try again."};document.head.appendChild(sc)}
+var AK_VN=["nguyen","tran","pham","hoang","huynh","phan","vo","vu","dang","bui","ngo","dinh","truong","trinh","quach","trieu","doan","luong"];
+function akName(r){var f=String(r.first_name||"").trim(),l=String(r.last_name||"").trim(),w=String(r.full_name||"").trim().split(/\s+/);
+  /* Akuvox needs a last name. Vietnamese family name comes first in the full name and is the last name here, even though Vantage addresses by the given name. */
+  if(!l&&w.length>1&&AK_VN.indexOf(w[0].toLowerCase())>-1){return[w.slice(1).join(" "),w[0]]}
+  return[f||w.join(" "),l||"-"]}
 function exportAkuvox(){
   if(!canStaff)return;
   var ver=rows.filter(function(r){return r.verification_status==="verified"}),bad=[],ord={};
@@ -241,7 +246,7 @@ function exportAkuvox(){
   items.sort(function(a,b){return (parseInt(a.r.block_no,10)-parseInt(b.r.block_no,10))||(parseInt(a.u.floor,10)-parseInt(b.u.floor,10))||(a.u.apt<b.u.apt?-1:a.u.apt>b.u.apt?1:0)||((a.r.user_no||0)-(b.r.user_no||0))});
   var aoa=[AK_HEAD];
   items.forEach(function(x){var r=x.r,m=akMobile(r.contact_no);
-    aoa.push([String(r.block_no),x.u.floor,x.u.apt,x.u.apt,"0",ord[r.block_no+"|"+r.unit_no]?"1":"0","",String(r.full_name||"").trim(),"-",String(r.email||"").trim(),m,m?"65":"","","","",0,12,"","",""])});
+    var nm=akName(r);aoa.push([String(r.block_no),x.u.floor,x.u.apt,x.u.apt,"0",ord[r.block_no+"|"+r.unit_no]?"1":"0","",nm[0],nm[1],String(r.email||"").trim(),m,m?"65":"","","","",0,12,"","",""])});
   loadXlsx(function(){
     var ws=XLSX.utils.aoa_to_sheet(aoa,{cellDates:false});
     Object.keys(ws).forEach(function(a){if(a[0]==="!")return;var c=ws[a],row=XLSX.utils.decode_cell(a).r;if(row>0&&c.t==="s")c.z="@"});
