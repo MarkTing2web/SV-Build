@@ -22,6 +22,12 @@ h1{margin:0;font-size:1.7rem}
 button{padding:9px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit;cursor:pointer}
 button:hover{border-color:var(--acc)}
 .stats{color:var(--mut);font-size:.85rem}
+[hidden]{display:none!important}
+.tabs{display:flex;gap:6px;margin:0 0 14px}
+.tabs button{padding:8px 16px}
+.tabs button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.bad{color:var(--err);font-weight:700}
+#fbv td.cm{max-width:300px;white-space:normal}
 .sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 14px}
 .sum div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
 .sum b{display:block;font-size:1.7rem;line-height:1.2}
@@ -55,6 +61,8 @@ td.n{color:var(--mut)}
 <div><a class="back" href="/internal/condo/">&larr; All condos</a><h1>Nathan Place</h1><p class="sub" id="fresh">Resident registrations</p></div>
 <div style="display:flex;gap:8px;align-items:center"><select id="va" hidden aria-label="View as" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">View as: Superadmin (me)</option><option value="admin">View as: Staff</option><option value="property_manager">View as: Property manager</option></select><button id="out" type="button">Sign out</button></div>
 </div>
+<div class="tabs" id="tabs" hidden><button type="button" id="tabR" class="on">Residents</button><button type="button" id="tabF">Feedback</button></div>
+<div id="resv">
 <div class="sum" id="sum"></div>
 <div class="bar">
 <select id="mf" aria-label="Filter by monitor status" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">All households</option><option value="any">Monitor: all interested</option><option value="interested">Interested</option><option value="quoted">Quoted</option><option value="followup">Quoted: follow up (3+ days)</option><option value="ordered">Ordered</option><option value="paid">Paid</option><option value="installed">Installed</option></select>
@@ -69,6 +77,11 @@ td.n{color:var(--mut)}
 </div>
 <div class="fu" id="fu" hidden></div>
 <div class="wrap"><table><thead><tr id="hd"></tr></thead><tbody id="tb"></tbody></table><div class="msg" id="msg">Loading…</div></div>
+</div>
+<div id="fbv" hidden>
+<div class="sum" id="fsum"></div>
+<div class="wrap"><table><thead><tr id="fhd"></tr></thead><tbody id="ftb"></tbody></table><div class="msg" id="fmsg">Loading…</div></div>
+</div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
@@ -227,6 +240,39 @@ function exportCsv(){
   a.download="nathan-place-registrations-"+new Date().toISOString().slice(0,10)+".csv";
   document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(function(){URL.revokeObjectURL(a.href)},1000);
 }
+
+var FB=[],fbLoaded=false;
+function showTab(t){var f=t==="f"&&canStaff;$("resv").hidden=f;$("fbv").hidden=!f;$("tabR").className=f?"":"on";$("tabF").className=f?"on":"";if(f&&!fbLoaded)loadFb()}
+async function loadFb(){
+  $("fmsg").textContent="Loading…";$("fmsg").hidden=false;
+  var res=await db.rpc("nathan_place_feedback_rows");
+  if(res.error){$("fmsg").textContent="Could not load feedback: "+res.error.message;return}
+  FB=res.data||[];fbLoaded=true;renderFb();
+}
+function renderFb(){
+  var h=["Blk","Unit","Name","Sent","Rating","Worked well","To improve","Contact me","OK to publish","Show as","Publish"];
+  $("fhd").innerHTML="";h.forEach(function(x){var th=document.createElement("th");th.textContent=x;$("fhd").appendChild(th)});
+  var done=FB.filter(function(r){return r.submitted_at}),avg=done.length?(done.reduce(function(a,r){return a+r.rating},0)/done.length).toFixed(1):"–";
+  function t(n,l){return "<div><b>"+n+"</b><span>"+l+"</span></div>"}
+  $("fsum").innerHTML=t(FB.length,"Review requests sent")+t(done.length,"Replied")+t(avg,"Average rating (of 5)")+t(done.filter(function(r){return r.wants_contact}).length,"Asked us to contact them")+t(FB.filter(function(r){return r.published}).length,"Published on the website");
+  var tb=$("ftb");tb.innerHTML="";
+  FB.forEach(function(r){
+    var tr=document.createElement("tr");
+    function td(txt,cls){var c=document.createElement("td");c.textContent=txt;if(cls)c.className=cls;tr.appendChild(c);return c}
+    td(r.block_no);td(r.unit_no);td(r.full_name);td(fmtD(r.created_at));
+    if(!r.submitted_at){td("No reply yet");for(var i=0;i<6;i++)td("");tb.appendChild(tr);return}
+    td(r.rating+" / 5",r.rating<=2?"bad":"");td(r.worked_well||"","cm");td(r.to_improve||"","cm");
+    td(r.wants_contact?"Yes, call back":"",r.wants_contact?"bad":"");
+    td(r.ok_publish?"Yes":"No");td(r.ok_publish?(r.show_name?(r.first_name||r.full_name)+", Blk "+r.block_no:"Nathan Place resident"):"");
+    var c=document.createElement("td");
+    if(r.ok_publish&&r.worked_well){var cb=document.createElement("input");cb.type="checkbox";cb.checked=r.published;cb.setAttribute("aria-label","Publish this comment");
+      cb.onchange=async function(){cb.disabled=true;var x=await db.rpc("nathan_place_feedback_set_publish",{p_id:r.id,p_publish:cb.checked});
+        if(x.error||x.data!==true){cb.checked=!cb.checked;cb.disabled=false;$("fmsg").textContent="Could not save: "+(x.error?x.error.message:"not allowed");$("fmsg").hidden=false;return}
+        r.published=cb.checked;cb.disabled=false;renderFb()};c.appendChild(cb)}
+    tr.appendChild(c);tb.appendChild(tr)});
+  $("fmsg").hidden=FB.length>0;if(!FB.length)$("fmsg").textContent="No review requests have been sent yet.";
+}
+$("tabR").onclick=function(){showTab("r")};$("tabF").onclick=function(){showTab("f")};
 $("ex").onclick=exportCsv;
 var AK_HEAD=["Building","Floor","Apt","AptName","Landline Service","With Indoor Monitor","Device","FirstName","LastName","Email","MobileNumber","TelephoneCallingCode","1stPhone","2ndPhone","3rdPhone","CallType","Web Relay ID","akubela Smart Home","Analog Handset","Video Storage"];
 function akUnit(u){var m=String(u||"").trim().match(/^#?([A-Za-z]*)(\d+)-(\d+)$/);if(!m)return null;var pre=m[1].toUpperCase(),fl=m[2],un=m[3];
@@ -256,7 +302,7 @@ function exportAkuvox(){
   })
 }
 $("exa").onclick=exportAkuvox;$("vf").onchange=render;$("idf").onchange=render;$("ef").onchange=render;
-$("q").oninput=render;$("mf").onchange=render;$("rf").onclick=load;
+$("q").oninput=render;$("mf").onchange=render;$("rf").onclick=function(){load();if(!$("fbv").hidden)loadFb()};
 $("out").onclick=async function(){await db.auth.signOut();location.replace(LOGIN)};
 db.auth.onAuthStateChange(function(ev){if(ev==="SIGNED_OUT")location.replace(LOGIN)});
 db.auth.getSession().then(async function(s){
@@ -276,7 +322,7 @@ db.auth.getSession().then(async function(s){
     COLS=canStaff?COLS_STAFF:COLS_PM;
     $("mf").innerHTML=canStaff?MF_STAFF:'<option value="">All households</option><option value="ordered_any">Monitor ordered</option>';
     var b=document.querySelector(".back");if(b)b.style.display=pmView?"none":"";
-    $("ex").style.display=canStaff?"":"none";$("exa").style.display=canStaff?"":"none";
+    $("ex").style.display=canStaff?"":"none";$("tabs").hidden=!canStaff;if(!canStaff)showTab("r");$("exa").style.display=canStaff?"":"none";
   }
   applyRole();
   if(realSuper){var va=$("va");va.hidden=false;va.onchange=function(){viewAs=va.value;sortK="block_no";dir=1;applyRole();load()}}
