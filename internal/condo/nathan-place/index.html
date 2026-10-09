@@ -245,32 +245,47 @@ var FB=[],fbLoaded=false;
 function showTab(t){var f=t==="f"&&canStaff;$("resv").hidden=f;$("fbv").hidden=!f;$("tabR").className=f?"":"on";$("tabF").className=f?"on":"";if(f&&!fbLoaded)loadFb()}
 async function loadFb(){
   $("fmsg").textContent="Loading…";$("fmsg").hidden=false;
-  var res=await db.rpc("nathan_place_feedback_rows");
+  var res=await db.rpc("nathan_place_feedback_rows_v2");
   if(res.error){$("fmsg").textContent="Could not load feedback: "+res.error.message;return}
   FB=res.data||[];fbLoaded=true;renderFb();
 }
+function fbErr(x){$("fmsg").textContent="Could not save: "+(x&&x.error?x.error.message:"not allowed");$("fmsg").hidden=false}
 function renderFb(){
-  var h=["Blk","Unit","Name","Sent","Rating","Worked well","To improve","Contact me","OK to publish","Show as","Publish"];
+  var h=["Blk","Unit","Name","Sent","Rating","Experience","To improve","Contact me","OK to publish","Show as","Publish","Follow-up","Handled by"];
   $("fhd").innerHTML="";h.forEach(function(x){var th=document.createElement("th");th.textContent=x;$("fhd").appendChild(th)});
-  var done=FB.filter(function(r){return r.submitted_at}),avg=done.length?(done.reduce(function(a,r){return a+r.rating},0)/done.length).toFixed(1):"–";
+  var done=FB.filter(function(r){return r.submitted_at}),rated=done.filter(function(r){return r.rating}),avg=rated.length?(rated.reduce(function(a,r){return a+r.rating},0)/rated.length).toFixed(1):"–";
+  var open=FB.filter(function(r){return r.submitted_at&&(r.wants_contact||(r.rating&&r.rating<=2))&&r.follow_up_status!=="resolved"}).length;
   function t(n,l){return "<div><b>"+n+"</b><span>"+l+"</span></div>"}
-  $("fsum").innerHTML=t(FB.length,"Review requests sent")+t(done.length,"Replied")+t(avg,"Average rating (of 5)")+t(done.filter(function(r){return r.wants_contact}).length,"Asked us to contact them")+t(FB.filter(function(r){return r.published}).length,"Published on the website");
+  $("fsum").innerHTML=t(FB.length,"Review requests sent")+t(done.length,"Replied")+t(avg,"Average rating (of 5)")+t(open,"Needing follow-up")+t(FB.filter(function(r){return r.published}).length,"Published on the website");
   var tb=$("ftb");tb.innerHTML="";
   FB.forEach(function(r){
     var tr=document.createElement("tr");
     function td(txt,cls){var c=document.createElement("td");c.textContent=txt;if(cls)c.className=cls;tr.appendChild(c);return c}
     td(r.block_no);td(r.unit_no);td(r.full_name);td(fmtD(r.created_at));
-    if(!r.submitted_at){td("No reply yet");for(var i=0;i<6;i++)td("");tb.appendChild(tr);return}
-    td(r.rating+" / 5",r.rating<=2?"bad":"");td(r.worked_well||"","cm");td(r.to_improve||"","cm");
+    if(!r.submitted_at){td("No reply yet");for(var i=0;i<8;i++)td("");tb.appendChild(tr);return}
+    td(r.rating?r.rating+" / 5":"–",r.rating&&r.rating<=2?"bad":"");td(r.worked_well||"","cm");td(r.to_improve||"","cm");
     td(r.wants_contact?"Yes, call back":"",r.wants_contact?"bad":"");
-    td(r.ok_publish?"Yes":"No");td(r.ok_publish?(r.show_name?(r.first_name||r.full_name)+", Blk "+r.block_no:"Nathan Place resident"):"");
+    td(r.ok_publish?"Yes":"No");
+    var sc=document.createElement("td");
+    if(r.ok_publish){var inp=document.createElement("input");inp.type="text";inp.maxLength=80;inp.value=r.show_as||"";inp.placeholder=r.show_name?"Name, Blk "+r.block_no:"Nathan Place resident";inp.setAttribute("aria-label","Show as");inp.style.width="170px";
+      inp.onchange=async function(){var x=await db.rpc("nathan_place_feedback_set_show_as",{p_id:r.id,p_text:inp.value});if(x.error||x.data!==true){fbErr(x);return}r.show_as=inp.value.trim()||null};sc.appendChild(inp)}
+    tr.appendChild(sc);
     var c=document.createElement("td");
     if(r.ok_publish&&r.worked_well){var cb=document.createElement("input");cb.type="checkbox";cb.checked=r.published;cb.setAttribute("aria-label","Publish this comment");
       cb.onchange=async function(){cb.disabled=true;var x=await db.rpc("nathan_place_feedback_set_publish",{p_id:r.id,p_publish:cb.checked});
-        if(x.error||x.data!==true){cb.checked=!cb.checked;cb.disabled=false;$("fmsg").textContent="Could not save: "+(x.error?x.error.message:"not allowed");$("fmsg").hidden=false;return}
+        if(x.error||x.data!==true){cb.checked=!cb.checked;cb.disabled=false;fbErr(x);return}
         r.published=cb.checked;cb.disabled=false;renderFb()};c.appendChild(cb)}
-    tr.appendChild(c);tb.appendChild(tr)});
+    tr.appendChild(c);
+    var fc=document.createElement("td"),oc=document.createElement("td");
+    var sel=document.createElement("select");[["new","New"],["contacted","Contacted"],["resolved","Resolved"]].forEach(function(o){var op=document.createElement("option");op.value=o[0];op.textContent=o[1];if(o[0]===r.follow_up_status)op.selected=true;sel.appendChild(op)});
+    var ow=document.createElement("input");ow.type="text";ow.maxLength=80;ow.value=r.follow_up_owner||"";ow.placeholder="Staff name";ow.style.width="110px";ow.setAttribute("aria-label","Handled by");
+    async function saveFu(){var x=await db.rpc("nathan_place_feedback_set_followup",{p_id:r.id,p_status:sel.value,p_owner:ow.value});if(x.error||x.data!==true){fbErr(x);return}r.follow_up_status=sel.value;r.follow_up_owner=ow.value.trim()||null;renderFbSummary()}
+    sel.onchange=saveFu;ow.onchange=saveFu;fc.appendChild(sel);oc.appendChild(ow);tr.appendChild(fc);tr.appendChild(oc);tb.appendChild(tr)});
   $("fmsg").hidden=FB.length>0;if(!FB.length)$("fmsg").textContent="No review requests have been sent yet.";
+}
+function renderFbSummary(){
+  var open=FB.filter(function(r){return r.submitted_at&&(r.wants_contact||(r.rating&&r.rating<=2))&&r.follow_up_status!=="resolved"}).length;
+  var bs=$("fsum").querySelectorAll("b");if(bs[3])bs[3].textContent=open;
 }
 $("tabR").onclick=function(){showTab("r")};$("tabF").onclick=function(){showTab("f")};
 $("ex").onclick=exportCsv;

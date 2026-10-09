@@ -32,6 +32,10 @@
 .fb .err{color:#b3261e;margin-top:12px;min-height:1.2em}
 .fb button.np-btn{border:0;cursor:pointer;font:inherit}
 .fb .np-btn.ghost{background:#fff;color:#0056b3;border:1.5px solid #0056b3}
+.fb .gcard{margin-top:26px;padding:18px 20px;background:#eaf3fc;border:1px solid #dbe6f3;border-radius:12px}
+.fb .gcard p{margin:0 0 12px;line-height:1.55}
+.fb .gcard.big{padding:24px 26px}
+.fb .gcard h3{margin:0 0 8px}
 </style>
 </head>
 <body class="np">
@@ -64,7 +68,7 @@
 <section class="np-subhero">
   <div class="np-wrap">
     <h1>Your feedback</h1>
-    <p>Nathan Place SmartPlus upgrade</p>
+    <p>Nathan Place access system upgrade (SmartPlus)</p>
   </div>
 </section>
 <section class="np-section">
@@ -72,38 +76,47 @@
     <p id="fb-msg" class="lead">One moment please.</p>
 
     <form id="fb-form" hidden novalidate>
-      <h2 id="fb-hi">How is SmartPlus working for you?</h2>
-      <p class="lead">Thank you for taking a minute. Your answers go to our team.</p>
+      <h2>How is the new access system working for you?</h2>
+      <p class="lead">Thank you for taking a minute. Your answers go to our team at Securevision. Every question is optional, so answer only what you like.</p>
 
-      <label class="q" id="lbl-rate">Your overall experience</label>
+      <label class="q" id="lbl-rate">How would you rate your experience with the upgrade and Securevision&rsquo;s support?</label>
       <div class="stars" id="stars" role="group" aria-labelledby="lbl-rate">
         <button type="button" aria-label="1 star">&#9733;</button><button type="button" aria-label="2 stars">&#9733;</button><button type="button" aria-label="3 stars">&#9733;</button><button type="button" aria-label="4 stars">&#9733;</button><button type="button" aria-label="5 stars">&#9733;</button>
       </div>
       <div class="sl"><span>Not good</span><span>Very good</span></div>
 
-      <label class="q" for="fb-well">What has worked well?</label>
-      <textarea id="fb-well" maxlength="1000" placeholder="For example: opening the gate with the app, the face reader, the installation team"></textarea>
+      <label class="q" for="fb-well">Tell us about your experience</label>
+      <textarea id="fb-well" maxlength="1000" placeholder="For example: registration and the briefing, the installation, the app, the face reader, everyday use, and our support"></textarea>
 
-      <label class="q" for="fb-fix">Is there anything we should fix or improve?</label>
+      <label class="q" for="fb-fix">Is there anything we should improve, or help you with?</label>
       <textarea id="fb-fix" maxlength="1000" placeholder="Optional"></textarea>
 
       <div class="chk"><input type="checkbox" id="fb-contact"><label for="fb-contact">Please contact me about my comments, so that you can help me with an issue.</label></div>
-      <div class="chk"><input type="checkbox" id="fb-pub"><label for="fb-pub">You may publish my &ldquo;worked well&rdquo; comment on the Securevision website.</label></div>
+      <div class="chk"><input type="checkbox" id="fb-pub"><label for="fb-pub">You may publish my comment about my experience on the Securevision website.</label></div>
       <div class="opt" id="fb-name" hidden>
-        <label><input type="radio" name="nm" value="1" checked> Show my first name and block (<span id="fb-ex"></span>)</label>
-        <label><input type="radio" name="nm" value="0"> Show &ldquo;Nathan Place resident&rdquo; only</label>
+        <p style="margin:0 0 4px">If published, show me as:</p>
+        <label><input type="radio" name="nm" value="1" checked> My name and block (our team will confirm how it reads before it goes live)</label>
+        <label><input type="radio" name="nm" value="0"> &ldquo;Nathan Place resident&rdquo; only</label>
+        <p style="margin:6px 0 0">Your unit number and contact details are never shown.</p>
       </div>
 
       <p style="margin-top:22px"><button class="np-btn" type="submit" id="fb-send">Send feedback</button></p>
       <p class="err" id="fb-err" role="alert"></p>
-      <p class="fine">We use your answers to improve the service. We only publish a comment if you tick the box above, after our team has read it, and you can ask us to remove it at any time by emailing support@securevision.com.sg.</p>
+      <p class="fine">We use your answers to improve the service. We only publish a comment if you tick the box above and after our team has read it, and you can ask us to remove it at any time by emailing support@securevision.com.sg.</p>
+      <div class="gcard">
+        <p><strong>Prefer to share your experience publicly?</strong> You are welcome to leave a Google review at any time, whether or not you send this form.</p>
+        <p style="margin:0"><a class="np-btn ghost" href="https://g.page/r/CbQj4PB7SeojEBM/review" target="_blank" rel="noopener">Write a Google review</a></p>
+      </div>
     </form>
 
     <div id="fb-thanks" hidden>
       <h2 id="fb-thx-h">Thank you</h2>
-      <p class="lead" id="fb-thx-p">Your feedback has gone to our team. If you asked us to contact you, we will be in touch.</p>
-      <p class="lead">If you would also like to share your experience publicly, you can leave a Google review.</p>
-      <p><a class="np-btn ghost" href="https://g.page/r/CbQj4PB7SeojEBM/review" target="_blank" rel="noopener">Write a Google review</a></p>
+      <p class="lead" id="fb-thx-p">Your feedback has gone to our team.</p>
+      <div class="gcard big">
+        <h3>Would you also share your experience on Google?</h3>
+        <p>It helps other residents and neighbours who are thinking about a similar upgrade, and it takes about a minute. Please write it in your own words, whatever your experience has been.</p>
+        <p style="margin:0"><a class="np-btn" href="https://g.page/r/CbQj4PB7SeojEBM/review" target="_blank" rel="noopener">Write a Google review</a></p>
+      </div>
     </div>
   </div>
 </section>
@@ -117,32 +130,40 @@
   var msg=$("fb-msg"),form=$("fb-form"),thanks=$("fb-thanks"),stars=[].slice.call($("stars").children);
   function bad(){msg.textContent="This feedback link is not valid. It may be incomplete or out of date. Please call Securevision on +65 6286 4796 and we will help you."}
   function paint(){stars.forEach(function(s,i){s.classList.toggle("on",i<rating);s.setAttribute("aria-pressed",i<rating?"true":"false")})}
-  stars.forEach(function(s,i){s.onclick=function(){rating=i+1;paint()}});
+  stars.forEach(function(s,i){s.onclick=function(){rating=(rating===i+1)?0:i+1;paint()}});
   $("fb-pub").onchange=function(){$("fb-name").hidden=!this.checked};
   var db;
   try{db=supabase.createClient("https://bppajrzwqeysrnrucwka.supabase.co","sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT")}catch(e){}
   if(!db||!UUID.test(tok)){bad();return}
-  var who="",blk="";
-  db.rpc("nathan_place_feedback_get",{p_token:tok}).then(function(r){
+  var who="";
+  function thank(already,contact){
+    form.hidden=true;msg.hidden=true;thanks.hidden=false;
+    $("fb-thx-h").textContent="Thank you"+(who?", "+who:"");
+    $("fb-thx-p").textContent=already?"We already have your feedback. Thank you.":(contact?"Your feedback has gone to our team, and we will be in touch about the help you asked for.":"Your feedback has gone to our team.");
+    window.scrollTo(0,0);
+  }
+  db.rpc("nathan_place_feedback_start",{p_token:tok}).then(function(r){
     var d=r.data&&r.data[0];
     if(r.error||!d){bad();return}
-    who=d.first_name||"";blk=d.block_no||"";
-    if(d.already){msg.hidden=true;thanks.hidden=false;$("fb-thx-h").textContent="Thank you"+(who?", "+who:"");$("fb-thx-p").textContent="We already have your feedback. Thank you.";return}
+    who=d.display_name||"";
+    if(d.already){thank(true,false);return}
     msg.hidden=true;form.hidden=false;paint();
-    $("fb-ex").textContent=(who||"Your name")+", Blk "+blk;
   },bad);
   form.onsubmit=function(e){
     e.preventDefault();var err=$("fb-err");err.textContent="";
-    if(!rating){err.textContent="Please tap a star to rate your experience.";return}
+    var well=$("fb-well").value.trim(),fix=$("fb-fix").value.trim(),contact=$("fb-contact").checked,pub=$("fb-pub").checked;
+    if(pub&&!well){err.textContent="You ticked the publish box, so please write your comment in \u201cTell us about your experience\u201d, or untick the box.";return}
+    if(!rating&&!well&&!fix&&!contact){err.textContent="Please tap a star, write a few words, or tick the contact box before sending.";return}
     var btn=$("fb-send");btn.disabled=true;
     var nm=form.querySelector("input[name=nm]:checked");
-    db.rpc("nathan_place_feedback_submit",{p_token:tok,p_rating:rating,p_well:$("fb-well").value,p_improve:$("fb-fix").value,p_contact:$("fb-contact").checked,p_publish:$("fb-pub").checked,p_show_name:nm?nm.value==="1":true}).then(function(r){
+    db.rpc("nathan_place_feedback_submit",{p_token:tok,p_rating:rating||null,p_well:well,p_improve:fix,p_contact:contact,p_publish:pub,p_show_name:nm?nm.value==="1":true}).then(function(r){
       if(r.error||(r.data!=="ok"&&r.data!=="already")){btn.disabled=false;err.textContent="Sorry, we could not save your feedback. Please try again, or call us on +65 6286 4796.";return}
-      form.hidden=true;thanks.hidden=false;$("fb-thx-h").textContent="Thank you"+(who?", "+who:"");window.scrollTo(0,0);
+      thank(r.data==="already",contact);
     },function(){btn.disabled=false;err.textContent="Sorry, we could not save your feedback. Please try again, or call us on +65 6286 4796."});
   };
 })();
 </script>
+
 <footer class="np-footer" id="contact">
   <div class="np-wrap">
     <div>
