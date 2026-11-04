@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<meta name="theme-color" content="#0056b3">
+<title>Smart Video Intercom Upgrade for Condominiums | Securevision</title>
+<meta name="description" content="Planning a condominium intercom upgrade? Tell us about your estate and get a tailored plan: mobile video intercom, what can be kept, upfront and ongoing costs, and phasing options.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://www.securevision.com.sg/smart-intercom-access">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Securevision">
+<meta property="og:title" content="Smart Video Intercom Upgrade for Condominiums | Securevision">
+<meta property="og:description" content="Tell us about your estate and get a tailored intercom plan, with upfront and ongoing costs explained clearly.">
+<meta property="og:url" content="https://www.securevision.com.sg/smart-intercom-access">
+<meta property="og:image" content="https://www.securevision.com.sg/images/portfolio/condominiums/light-cairnhill-hero.webp">
+<link rel="stylesheet" href="/sv-smart-intercom.css?v=1">
+<script src="/site-config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body class="si">
+<a class="si-skip" href="#main">Skip to content</a>
+
+<header class="si-header">
+  <div class="si-wrap">
+    <a class="si-logo" href="/" aria-label="Securevision home">
+      <img src="/images/securevision-logo-blue.png" alt="" width="40" height="40">
+      <span class="si-wordmark"><strong>Secure<span>vision</span></strong><small>Connecting People, Securing Places</small></span>
+    </a>
+    <nav class="si-nav" aria-label="Page sections">
+      <a href="#how-it-works">How it works</a>
+      <a href="#approach">Our approach</a>
+      <a href="#process">What happens next</a>
+      <a href="#faq">FAQ</a>
+      <a class="si-btn si-btn--primary" href="#enquire">Enquire now</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO + ENQUIRY FORM -->
+<section class="si-hero">
+  <div class="si-wrap si-hero-grid">
+    <div>
+      <div class="si-eyebrow">For condominiums &amp; apartment blocks</div>
+      <h1>Welcome visitors.<span>Without the wait.</span></h1>
+      <p class="si-lead">Tell us about your estate and we will show you what a modern mobile intercom could look like for it: what can be kept, what should change, and what it will cost.</p>
+      <ul class="si-ticks">
+        <li>Residents answer visitors and unlock entrances from their phones, with no monitor needed in every home</li>
+        <li>We assess existing cabling, readers and gates first, and reuse what makes sense</li>
+        <li>Upfront and ongoing costs explained side by side, with phasing options for your council</li>
+      </ul>
+      <ul class="si-trust">
+        <li><b>Since 2006</b>Serving Singapore</li>
+        <li><b>Licensed</b>Police Licensed · BCA Registered</li>
+      </ul>
+    </div>
+
+    <div class="si-card" id="enquire">
+      <div class="si-card-head">
+        <h2>Tell us about your estate</h2>
+        <p>3 short steps · about 2 minutes · free, no obligation</p>
+        <div class="si-prog" aria-hidden="true"><i class="is-on"></i><i></i><i></i></div>
+        <div class="si-steplbl"><span id="si-stepname">Step 1 · About you</span><span id="si-stepcount">1 of 3</span></div>
+      </div>
+
+      <form class="si-form" id="enquiryForm" novalidate>
+        <input class="si-hp" name="sv_human_verify" id="sv_human_verify" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <fieldset class="si-step" data-title="About you">
+          <div class="si-grid">
+            <div class="si-full">
+              <label class="si-label" for="role">I am a <em>*</em></label>
+              <select class="si-select" id="role" name="role" required>
+                <option value="">Select your role</option>
+                <option>MCST council member</option>
+                <option>Managing agent</option>
+                <option>Security contractor / guarding company</option>
+                <option>Resident / unit owner</option>
+                <option>Other</option>
+              </select>
+              <p class="si-hint" id="si-reshint" hidden>Decisions on shared systems rest with your MCST council, so we are happy to speak with you, your managing agent or your council together. Tell us about the estate below.</p>
+            </div>
+            <div>
+              <label class="si-label" for="name">Your name <em>*</em></label>
+              <input class="si-input" id="name" name="name" type="text" autocomplete="name" required>
+            </div>
+            <div>
+              <label class="si-label" for="phone">Phone / WhatsApp <em>*</em></label>
+              <input class="si-input" id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="e.g. 91234567" required>
+            </div>
+            <div class="si-full">
+              <label class="si-label" for="email">Email <small>(optional)</small></label>
+              <input class="si-input" id="email" name="email" type="email" autocomplete="email">
+            </div>
+            <div class="si-full">
+              <label class="si-label" for="dev">Development name <em>*</em></label>
+              <input class="si-input" id="dev" name="development" type="text" autocomplete="organization" placeholder="e.g. name of your condominium" required>
+            </div>
+            <div>
+              <label class="si-label" for="units">Number of units <em>*</em></label>
+              <input class="si-input" id="units" name="units" type="number" min="1" inputmode="numeric" placeholder="e.g. 148" required>
+            </div>
+            <div>
+              <label class="si-label" for="blocks">Number of blocks <small>(approx.)</small></label>
+              <input class="si-input" id="blocks" name="blocks" type="number" min="1" inputmode="numeric" placeholder="e.g. 5">
+            </div>
+          </div>
+          <p class="si-error" data-error role="alert" hidden></p>
+          <div class="si-fnav"><span></span><button type="button" class="si-btn si-btn--primary" data-next>Next: your current system →</button></div>
+        </fieldset>
+
+        <fieldset class="si-step" data-title="Your system today" hidden>
+          <div class="si-grid">
+            <div class="si-full">
+              <label class="si-label" for="itype">Current intercom</label>
+              <select class="si-select" id="itype" name="current_intercom">
+                <option value="">Select if you know</option>
+                <option>Audio-only intercom</option>
+                <option>Video intercom with in-home monitors (2-wire)</option>
+                <option>IP video intercom / mobile app</option>
+                <option>No intercom today</option>
+                <option>Not sure</option>
+              </select>
+            </div>
+            <div>
+              <label class="si-label" for="ibrand">Brand <small>(if known)</small></label>
+              <input class="si-input" id="ibrand" name="intercom_brand" type="text">
+            </div>
+            <div>
+              <label class="si-label" for="iyear">Approx. year installed</label>
+              <input class="si-input" id="iyear" name="year_installed" type="number" min="1980" max="2030" inputmode="numeric" placeholder="e.g. 2012">
+            </div>
+          </div>
+          <div class="si-group">
+            <span class="si-label">Also on site <small>(tick any)</small></span>
+            <div class="si-chips">
+              <label class="si-chip"><input type="checkbox" name="on_site" value="Access cards / readers"><span>Access cards / readers</span></label>
+              <label class="si-chip"><input type="checkbox" name="on_site" value="Barrier / LPR"><span>Barrier / LPR</span></label>
+              <label class="si-chip"><input type="checkbox" name="on_site" value="Lift access control"><span>Lift access control</span></label>
+              <label class="si-chip"><input type="checkbox" name="on_site" value="CCTV"><span>CCTV</span></label>
+            </div>
+          </div>
+          <div class="si-group">
+            <span class="si-label">What is not working? <small>(tick any)</small></span>
+            <div class="si-chips">
+              <label class="si-chip"><input type="checkbox" name="issues" value="Calls drop / unreliable"><span>Calls drop / unreliable</span></label>
+              <label class="si-chip"><input type="checkbox" name="issues" value="Ageing, hard to repair"><span>Ageing, hard to repair</span></label>
+              <label class="si-chip"><input type="checkbox" name="issues" value="Residents want a mobile app"><span>Residents want a mobile app</span></label>
+              <label class="si-chip"><input type="checkbox" name="issues" value="Visitor delays at entrances"><span>Visitor delays</span></label>
+              <label class="si-chip"><input type="checkbox" name="issues" value="Guard workload"><span>Guard workload</span></label>
+              <label class="si-chip"><input type="checkbox" name="issues" value="Other"><span>Other</span></label>
+            </div>
+          </div>
+          <div class="si-group">
+            <label class="si-label" for="mc">Existing maintenance contract?</label>
+            <select class="si-select" id="mc" name="maintenance_contract">
+              <option value="">Select</option>
+              <option>Yes</option>
+              <option>No</option>
+              <option>Not sure</option>
+            </select>
+          </div>
+          <div class="si-fnav"><button type="button" class="si-btn si-btn--ghost" data-prev>← Back</button><button type="button" class="si-btn si-btn--primary" data-next>Next: what you need →</button></div>
+        </fieldset>
+
+        <fieldset class="si-step" data-title="What you are looking for" hidden>
+          <div class="si-group si-group--first">
+            <span class="si-label">Interested in <small>(tick any)</small></span>
+            <div class="si-chips">
+              <label class="si-chip"><input type="checkbox" name="interested_in" value="Mobile app calls &amp; unlock"><span>Mobile app calls &amp; unlock</span></label>
+              <label class="si-chip"><input type="checkbox" name="interested_in" value="QR visitor passes"><span>QR visitor passes</span></label>
+              <label class="si-chip"><input type="checkbox" name="interested_in" value="Lift access integration"><span>Lift access</span></label>
+              <label class="si-chip"><input type="checkbox" name="interested_in" value="Facial recognition"><span>Facial recognition</span></label>
+              <label class="si-chip"><input type="checkbox" name="interested_in" value="Vehicle entry / LPR"><span>Vehicle entry / LPR</span></label>
+              <label class="si-chip"><input type="checkbox" name="interested_in" value="Reuse existing cabling"><span>Reuse existing cabling</span></label>
+            </div>
+          </div>
+          <div class="si-group">
+            <label class="si-label" for="when">Where are you in the process?</label>
+            <select class="si-select" id="when" name="timeline">
+              <option value="">Select</option>
+              <option>Just exploring options</option>
+              <option>Preparing a proposal for the AGM / council</option>
+              <option>Budget approved, ready to proceed</option>
+              <option>System failing, need help soon</option>
+            </select>
+          </div>
+          <div class="si-group">
+            <span class="si-label">How do you prefer to pay?</span>
+            <div class="si-chips si-chips--stack">
+              <label class="si-chip"><input type="radio" name="cost_preference" value="One-time purchase preferred"><span>One-time purchase preferred</span></label>
+              <label class="si-chip"><input type="radio" name="cost_preference" value="Open to subscription if it adds value"><span>Open to a subscription if it adds value</span></label>
+              <label class="si-chip"><input type="radio" name="cost_preference" value="Not sure yet"><span>Not sure yet, please explain the options</span></label>
+            </div>
+          </div>
+          <div class="si-group">
+            <label class="si-label" for="msg">Anything else we should know? <small>(optional)</small></label>
+            <textarea class="si-textarea" id="msg" name="notes"></textarea>
+          </div>
+          <label class="si-consent"><input type="checkbox" id="consent" name="consent" required><span>I agree that Securevision may contact me about this enquiry and use these details to prepare a recommendation. <a href="/privacy" target="_blank" rel="noopener">Privacy policy</a>.</span></label>
+          <p class="si-error" data-error role="alert" hidden></p>
+          <div class="si-fnav"><button type="button" class="si-btn si-btn--ghost" data-prev>← Back</button><button type="submit" class="si-btn si-btn--primary" id="si-send">Send my enquiry</button></div>
+          <p class="si-fnote">We will review your answers and get in touch to arrange a free site assessment.</p>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="si-section si-section--alt" id="how-it-works">
+  <div class="si-wrap si-split">
+    <figure class="si-visual-wrap">
+      <div class="si-visual">
+        <img src="/images/nathan-place/akuvox-x915-smart-intercom-lobby-singapore.webp" width="580" height="246" alt="Smart video intercom station at a condominium lobby entrance in Singapore" loading="lazy">
+        <figcaption>Entrance intercom station</figcaption>
+      </div>
+    </figure>
+    <div>
+      <div class="si-head">
+        <div class="si-eyebrow">How it works</div>
+        <h2>One simple visitor journey</h2>
+        <p>Everyday access should be intuitive, even where there is no guard at every entrance.</p>
+      </div>
+      <ol class="si-journey">
+        <li><span class="si-n">1</span><div><h3>Visitor calls</h3><p>The visitor selects the unit at the entrance intercom.</p></div></li>
+        <li><span class="si-n">2</span><div><h3>Resident answers</h3><p>The resident sees and speaks to the visitor on a compatible mobile app, at home or away.</p></div></li>
+        <li><span class="si-n">3</span><div><h3>Access granted</h3><p>The resident unlocks the designated entrance remotely after confirming who it is.</p></div></li>
+      </ol>
+      <p class="si-note"><b>Expecting guests?</b> Where the system supports it, residents or management can issue a time-limited QR credential so visitors can enter without a call. Features depend on the equipment selected, network connectivity and integration.</p>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="si-section si-section--night" id="approach">
+  <div class="si-wrap">
+    <div class="si-head">
+      <div class="si-eyebrow">Our approach</div>
+      <h2>We design around your estate, not a fixed package</h2>
+      <p>No two condominiums share the same layout, cabling or resident expectations, so we start by understanding yours.</p>
+    </div>
+    <div class="si-cards4">
+      <div class="si-pcard"><div class="si-num">01</div><h3>Understand the challenge</h3><p>We start with residents' needs, visitor flow and the conditions on site, not with a product.</p></div>
+      <div class="si-pcard"><div class="si-num">02</div><h3>Retain what works</h3><p>We assess existing equipment and cabling, and reuse what can reliably stay.</p></div>
+      <div class="si-pcard"><div class="si-num">03</div><h3>Explain the trade-offs</h3><p>Installation cost, maintenance, cloud services and any recurring licences, laid out side by side.</p></div>
+      <div class="si-pcard"><div class="si-num">04</div><h3>Plan for the future</h3><p>Room to add entrances, lift integration, visitor management or LPR later without redoing the work.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT HAPPENS NEXT -->
+<section class="si-section" id="process">
+  <div class="si-wrap">
+    <div class="si-head">
+      <div class="si-eyebrow">After you enquire</div>
+      <h2>What happens next</h2>
+      <p>A clear path from first conversation to a working system, without disrupting residents.</p>
+    </div>
+    <div class="si-proc">
+      <ol class="si-tl">
+        <li><h3>We review your answers</h3><p>An engineer looks at your estate size, current system and priorities before contacting you.</p></li>
+        <li><h3>Site assessment</h3><p>A walkthrough of the property with our engineer. It is free, with no obligation.</p></li>
+        <li><h3>Options and costs</h3><p>What can be kept, what should be replaced, upfront and ongoing costs side by side, and phasing options. We can provide an assessment report and cost estimate in a format suitable for council presentation.</p></li>
+        <li><h3>Phased installation</h3><p>The old system stays active while new hardware goes in, block by block for larger estates. We confirm the timeline for your estate in the proposal.</p></li>
+        <li><h3>Handover and resident onboarding</h3><p>Training for guardhouse and management teams, and a resident communication plan that starts before installation, not after.</p></li>
+      </ol>
+      <aside class="si-ready">
+        <h3>Helpful to have ready</h3>
+        <p class="si-sub">Not required, but it speeds things up.</p>
+        <ul>
+          <li>Number of units and car park lots</li>
+          <li>Current intercom, CCTV and access brands, and roughly when they were installed</li>
+          <li>Known problems: where guards spend the most effort, recurring complaints</li>
+          <li>Whether a maintenance contract exists and who holds it</li>
+          <li>Whether a budget is approved or this is for an upcoming AGM</li>
+        </ul>
+        <a class="si-btn si-btn--primary si-btn--block" href="#enquire">Start your enquiry</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- COSTS -->
+<section class="si-section si-section--flush">
+  <div class="si-wrap">
+    <div class="si-band">
+      <div>
+        <div class="si-eyebrow">Costs, plainly</div>
+        <h2>Prefer a one-time investment?</h2>
+        <p>Tell us. We will evaluate suitable system architectures and make clear which features, if any, depend on ongoing subscriptions or cloud services, so your council knows the full picture before deciding.</p>
+      </div>
+      <a class="si-btn si-btn--primary si-btn--lg" href="#enquire">Talk through the options</a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="si-section si-section--alt" id="experience">
+  <div class="si-wrap">
+    <div class="si-head">
+      <div class="si-eyebrow">Track record</div>
+      <h2>Relevant residential experience</h2>
+      <p>Selected Singapore estates where we have delivered intercom and access systems.</p>
+    </div>
+    <div class="si-projects">
+      <div class="si-proj">
+        <img src="/images/nathan-place/nathan-place-condominium-exterior-singapore.webp" width="1008" height="760" alt="Nathan Place condominium, 18 Nathan Road, Singapore" loading="lazy">
+        <div class="si-cap"><h3>Nathan Place</h3><p>Smart intercom, facial recognition and licence plate recognition.</p></div>
+      </div>
+      <a class="si-proj" href="/portfolio/condominiums/light-cairnhill-condo">
+        <img src="/images/portfolio/condominiums/light-cairnhill-hero.webp" width="1920" height="1080" alt="Light at Cairnhill condominium, Singapore" loading="lazy">
+        <div class="si-cap"><h3>Light@Cairnhill</h3><p>Intercom and lift-access integration.</p></div>
+      </a>
+      <a class="si-proj" href="/portfolio/condominiums/village-pasir-panjang-condo">
+        <img src="/images/portfolio/condominiums/the-village-at-pasir-panjang-hero.webp" width="1920" height="1080" alt="Village at Pasir Panjang condominium, Singapore" loading="lazy">
+        <div class="si-cap"><h3>Village@Pasir Panjang</h3><p>Residential intercom solution.</p></div>
+      </a>
+      <a class="si-proj" href="/portfolio/condominiums/the-lviv-newton-condo">
+        <img src="/images/portfolio/condominiums/the-lviv-hero.webp" width="1920" height="1080" alt="L'viv Residences, Newton Road, Singapore" loading="lazy">
+        <div class="si-cap"><h3>L'viv</h3><p>Residential security systems.</p></div>
+      </a>
+    </div>
+    <p class="si-linkrow"><a href="/portfolio/">View all projects →</a></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="si-section" id="faq">
+  <div class="si-wrap">
+    <div class="si-head">
+      <div class="si-eyebrow">Common questions</div>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="si-faq">
+      <details><summary>Do residents need an intercom monitor in every home?</summary><div class="si-ans">No. Residents can receive calls and open doors from the mobile app. For households that prefer one, an in-home monitor can be offered as an option, depending on the system selected.</div></details>
+      <details><summary>Can our existing intercom wiring be reused?</summary><div class="si-ans">Often yes. Many modern IP intercoms can run on existing 2-wire or Cat5 cabling. Whether that is feasible depends on cable condition, distances and the system chosen, so we assess the wiring during the site survey before recommending any recabling.</div></details>
+      <details><summary>What happens to residents during the upgrade?</summary><div class="si-ans">We phase the work so the old system stays active while new hardware is installed, and for larger estates we proceed block by block. Residents are told in advance when their unit changes over, and we plan the changeover so guard coverage is not interrupted.</div></details>
+      <details><summary>Is it a one-time cost or a subscription?</summary><div class="si-ans">It depends on the system. Some mobile app platforms involve a licence or ongoing service fee, while other architectures do not. We explain upfront and ongoing costs side by side so you can choose with the full picture.</div></details>
+      <details><summary>Can visitor management, lifts or vehicle entry be added?</summary><div class="si-ans">Yes. Visitor management, lift access and licence plate recognition can be integrated now or in a later phase, as long as the infrastructure is planned to support them.</div></details>
+      <details><summary>I am a resident. Can I enquire?</summary><div class="si-ans">You are welcome to. Decisions on shared systems rest with the MCST council, so the managing agent or council is usually the right starting point. We are happy to speak with you, your managing agent or your council together.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="si-section si-section--night si-final">
+  <div class="si-wrap">
+    <h2>Ready to talk about your estate?</h2>
+    <p class="si-lead2">Tell us what is not working today. We will assess your site and suggest a practical way forward.</p>
+    <div class="si-cta-row">
+      <a class="si-btn si-btn--white si-btn--lg" href="#enquire">Fill in the enquiry form</a>
+      <a class="si-btn si-btn--wa si-btn--lg sv-wa-link" href="https://wa.me/6593860466" target="_blank" rel="noopener">WhatsApp us</a>
+    </div>
+    <p class="si-contact">Or call <a href="tel:+6562864796">+65 6286 4796</a> · <a href="#" id="sv-email-link">enquiry [at] securevision.com.sg</a></p>
+  </div>
+</section>
+
+</main>
+
+<footer class="si-footer">
+  <div class="si-wrap">
+    <span>&copy; <span id="si-year">2026</span> Securevision Pte Ltd (UEN: 200614644E) · Police Licence <span class="sv-licence">L/PS/001568/2026P</span> · BCA Registered</span>
+    <span><a href="/">securevision.com.sg</a> · <a href="/privacy">Privacy Policy</a></span>
+  </div>
+</footer>
+
+<div class="si-mbar">
+  <a class="si-btn si-btn--primary" href="#enquire">Enquire now</a>
+  <a class="si-btn si-btn--wa" href="https://wa.me/6593860466" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+
+<script>
+(function () {
+  // ── Supabase (same project and publishable key as contact.html) ──
+  var SUPABASE_URL  = 'https://bppajrzwqeysrnrucwka.supabase.co';
+  var SUPABASE_ANON = 'sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT';
+  var db = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON) : null;
+
+  // ── Footer year + email obfuscation (restores mailto on click) ──
+  document.getElementById('si-year').textContent = new Date().getFullYear();
+  var em = document.getElementById('sv-email-link');
+  if (em) { em.href = 'mailto:' + 'enquiry' + '@' + 'securevision.com.sg'; em.textContent = 'enquiry' + '@' + 'securevision.com.sg'; }
+
+  // ── Source tracking (same fields as contact.html, read by sv-leads) ──
+  var params = new URLSearchParams(window.location.search);
+  var tracking = {
+    source_page:  window.location.pathname,
+    referrer:     document.referrer || '',
+    utm_source:   params.get('utm_source')   || '',
+    utm_medium:   params.get('utm_medium')   || '',
+    utm_campaign: params.get('utm_campaign') || ''
+  };
+
+  // ── Multi-step form ──
+  var form = document.getElementById('enquiryForm');
+  var steps = [].slice.call(form.querySelectorAll('.si-step'));
+  var bars = document.querySelectorAll('.si-prog i');
+  var nameEl = document.getElementById('si-stepname');
+  var countEl = document.getElementById('si-stepcount');
+  var card = document.getElementById('enquire');
+  var LOAD_TIME = Date.now();
+  var MIN_MS = 4000; // time-check: reject if submitted in under 4 seconds
+  var cur = 0;
+
+  function show(i, scroll) {
+    cur = i;
+    steps.forEach(function (s, j) { s.hidden = j !== i; });
+    bars.forEach(function (b, j) { b.className = j <= i ? 'is-on' : ''; });
+    nameEl.textContent = 'Step ' + (i + 1) + ' · ' + steps[i].getAttribute('data-title');
+    countEl.textContent = (i + 1) + ' of 3';
+    if (scroll) {
+      var r = card.getBoundingClientRect();
+      if (r.top < 0 || r.top > window.innerHeight * 0.5) card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function setError(i, msg, field) {
+    var box = steps[i].querySelector('[data-error]');
+    if (field) field.classList.add('is-invalid');
+    if (box) { box.textContent = msg; box.hidden = false; }
+    if (field) field.focus();
+  }
+  function clearErrors(i) {
+    var box = steps[i].querySelector('[data-error]');
+    if (box) box.hidden = true;
+    [].forEach.call(steps[i].querySelectorAll('.is-invalid'), function (f) { f.classList.remove('is-invalid'); });
+  }
+
+  function isValidSGPhone(v) { return /^(\+65)?[689]\d{7}$/.test(v.replace(/[\s\-\(\)]/g, '')); }
+  function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); }
+
+  function valid(i) {
+    clearErrors(i);
+    var els = steps[i].querySelectorAll('input,select,textarea');
+    for (var k = 0; k < els.length; k++) {
+      if (!els[k].checkValidity()) { els[k].reportValidity(); return false; }
+    }
+    if (i === 0) {
+      var ph = document.getElementById('phone'), em2 = document.getElementById('email');
+      if (!isValidSGPhone(ph.value.trim())) { setError(0, 'Please enter a valid Singapore phone number e.g. 91234567 or +6591234567.', ph); return false; }
+      if (em2.value.trim() && !isValidEmail(em2.value.trim())) { setError(0, 'Please enter a valid email address e.g. name@email.com.', em2); return false; }
+    }
+    return true;
+  }
+
+  form.addEventListener('click', function (e) {
+    var n = e.target.closest('[data-next]'), p = e.target.closest('[data-prev]');
+    if (n && valid(cur)) show(cur + 1, true);
+    if (p) show(cur - 1, true);
+  });
+  form.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && e.target.tagName === 'INPUT' && cur < 2) {
+      e.preventDefault();
+      if (valid(cur)) show(cur + 1, true);
+    }
+  });
+  document.getElementById('role').addEventListener('change', function () {
+    document.getElementById('si-reshint').hidden = this.value.indexOf('Resident') !== 0;
+  });
+
+  function checked(name) {
+    return [].map.call(form.querySelectorAll('input[name="' + name + '"]:checked'), function (c) { return c.value; }).join(', ');
+  }
+  function val(id) { return document.getElementById(id).value.trim(); }
+
+  // ── Submit: same table, form_type and payload shape as the main contact form ──
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    if (document.getElementById('sv_human_verify').value !== '') return;   // honeypot
+    if (Date.now() - LOAD_TIME < MIN_MS) return;                            // time check
+    if (!valid(2)) return;
+
+    var btn = document.getElementById('si-send');
+    var intercom = val('itype');
+    var parts = [
+      'Smart Intercom brochure page enquiry',
+      'Role: ' + val('role'),
+      'Development: ' + val('dev'),
+      'Units: ' + val('units') + (val('blocks') ? ', Blocks: ' + val('blocks') : ''),
+      intercom && 'Current intercom: ' + intercom,
+      val('ibrand') && 'Brand: ' + val('ibrand'),
+      val('iyear') && 'Installed: ' + val('iyear'),
+      checked('on_site') && 'Also on site: ' + checked('on_site'),
+      checked('issues') && 'Issues: ' + checked('issues'),
+      val('mc') && 'Maintenance contract: ' + val('mc'),
+      checked('interested_in') && 'Interested in: ' + checked('interested_in'),
+      val('when') && 'Stage: ' + val('when'),
+      checked('cost_preference') && 'Payment preference: ' + checked('cost_preference'),
+      val('msg') && 'Notes: ' + val('msg'),
+      'PDPA consent: Yes'
+    ].filter(Boolean);
+
+    var payload = {
+      form_type:    'enquiry',
+      name:         val('name'),
+      phone:        val('phone'),
+      email:        val('email'),
+      prop_type:    'Condominium / MCST (Estate Management)',
+      enquiry_type: intercom === 'No intercom today' ? 'New Installation' : 'Upgrade Existing System',
+      message:      parts.join(' | '),
+      source_page:  tracking.source_page,
+      referrer:     tracking.referrer,
+      utm_source:   tracking.utm_source,
+      utm_medium:   tracking.utm_medium,
+      utm_campaign: tracking.utm_campaign
+    };
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    try {
+      if (!db) throw new Error('no client');
+      var res = await db.from('contact_enquiries').insert([payload]);
+      if (res.error) throw res.error;
+      window.location.href = '/contact-success.html?type=enquiry';
+    } catch (err) {
+      console.error('Enquiry error:', err);
+      btn.disabled = false;
+      btn.textContent = 'Send my enquiry';
+      var box = steps[2].querySelector('[data-error]');
+      box.innerHTML = 'Something went wrong. Please try again, or reach us on <a href="https://wa.me/6593860466">WhatsApp</a> or <a href="tel:+6562864796">+65 6286 4796</a>.';
+      box.hidden = false;
+    }
+  });
+})();
+</script>
+</body>
+</html>
