@@ -16,6 +16,17 @@ RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 # RewriteRule ^(.*)$ https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # ============================================================
+# SHORT URL: BROCHURE QR CODE
+# /intercom -> Smart Intercom landing page (noindex, tagged for the QR)
+# 302 (temporary) on purpose: browsers do not cache it, so the tags
+# can be changed later without reprinting the brochure.
+# Never remove /intercom or /smart-intercom-access: both are printed/shared.
+# No QSA flag: the QR tags below always win. Other channels (email,
+# LinkedIn, Google Business, PDF button) use the long URL with their own tags.
+# ============================================================
+RewriteRule ^intercom/?$ https://www.securevision.com.sg/smart-intercom-access?utm_source=brochure&utm_medium=qr&utm_campaign=smart-intercom [R=302,L]
+
+# ============================================================
 # BLOG / INSIGHTS REDIRECTS
 # Old WordPress posts → New insights articles
 # ============================================================
