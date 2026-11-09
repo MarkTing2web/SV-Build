@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<meta name="theme-color" content="#0056b3">
+<title>Email Confirmation | {{CONDO_NAME}}</title>
+<meta name="description" content="Email confirmation for the {{CONDO_NAME}} intercom upgrade registration.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://www.securevision.com.sg/{{CONDO_SLUG}}/confirmed">
+<link rel="stylesheet" href="/sv-{{CONDO_SLUG}}.css?v=5">
+<style>.np-next{padding:26px 28px;margin-bottom:28px}.np-next h2{margin:0 0 20px}.np-next ol{padding-left:24px}.np-next li{margin-bottom:20px;line-height:1.65}.np-next li:last-child{margin-bottom:0}</style>
+</head>
+<body class="np">
+<a class="np-skip" href="#main">Skip to content</a>
+
+<header class="np-header">
+  <div class="np-wrap">
+    <a class="np-logo" href="/{{CONDO_SLUG}}" aria-label="Securevision – {{CONDO_NAME}} home">
+      <img src="/images/securevision-logo-blue.png" alt="" width="44" height="44"><span class="np-wordmark"><strong>SECUREVISION</strong><small>Your Security Partner</small></span>
+    </a>
+    <nav class="np-nav" id="np-nav" aria-label="{{CONDO_NAME}}">
+      <a href="/{{CONDO_SLUG}}">Home</a>
+      <a href="/{{CONDO_SLUG}}#system-overview">System Overview</a>
+      <a href="/{{CONDO_SLUG}}#timeline">Project Schedule</a>
+      <a href="/{{CONDO_SLUG}}/how-it-works">How It Works</a>
+      <a href="/{{CONDO_SLUG}}/faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="np-btn" href="/{{CONDO_SLUG}}#register">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+      Register Your Email
+    </a>
+    <button class="np-menu-toggle" id="np-menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="np-nav">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+<section class="np-subhero">
+  <div class="np-wrap">
+    <h1 id="cf-title">Confirming your email…</h1>
+    <p id="cf-text">One moment please.</p>
+  </div>
+</section>
+<section class="np-section">
+  <div class="np-wrap">
+    <div class="np-next" id="cf-next" hidden>
+      <h2>What happens next</h2>
+      <ol>
+        <li>Attend one of the briefings: {{BRIEFING_1}} or {{BRIEFING_2}}.</li>
+        <li>On {{VERIFY_DATE_LONG}} the Managing Agent verifies the registration details.</li>
+        <li>On {{ACTIVATE_DATE_LONG}} your SmartPlus account is activated and we email you how to download the app.</li>
+        <li>On {{HELP_DATE_LONG}}, from 6:00 pm to 9:00 pm, Securevision staff are on site to help with the app.</li>
+      </ol>
+    </div>
+    <p><a class="np-btn" href="/{{CONDO_SLUG}}">Back to {{CONDO_NAME}}</a></p>
+  </div>
+</section>
+</main>
+<script>
+(function(){
+  var s=new URLSearchParams(location.search).get("s");
+  var t=document.getElementById("cf-title"),p=document.getElementById("cf-text");
+  if(s==="ok"||s==="already"){
+    t.textContent="Thank you. Your email is confirmed.";
+    p.textContent=s==="already"?"This email address was already confirmed. No further action is needed.":"We will keep you updated by email as the project progresses.";
+    document.getElementById("cf-next").hidden=false;
+  }else{
+    t.textContent="This confirmation link is not valid.";
+    p.textContent="The link may be incomplete or out of date. Please call Securevision on +65 6286 4796 and we will help you.";
+  }
+})();
+</script>
+
+<footer class="np-footer" id="contact">
+  <div class="np-wrap">
+    <div>
+      <h2>Contact</h2>
+      <p>Securevision Pte Ltd</p>
+      <p>Tel: <a href="tel:+6562864796">+65 6286 4796</a></p>
+      <p>Email: <a href="#" id="sv-email-link">enquiry [at] securevision.com.sg</a></p>
+    </div>
+    <div>
+      <small>This page is for residents of {{CONDO_NAME}}. Intercom, access and vehicle entry upgrade by Securevision Pte Ltd, PLRD-licensed security systems integrator.</small>
+      <small style="margin-top:10px">&copy; <span id="np-year">2026</span> Securevision Pte Ltd</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var toggle = document.getElementById('np-menu-toggle'), nav = document.getElementById('np-nav');
+  toggle.addEventListener('click', function () { var o = nav.classList.toggle('is-open'); toggle.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+  nav.addEventListener('click', function (e) { if (e.target.tagName === 'A') nav.classList.remove('is-open'); });
+  var el = document.getElementById('sv-email-link'), addr = 'enquiry' + '@' + 'securevision.com.sg';
+  el.href = 'mailto:' + addr + '?subject=' + encodeURIComponent('{{CONDO_NAME}} Upgrade Enquiry'); el.textContent = addr;
+  document.getElementById('np-year').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
