@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Suites 123</title>
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--fg:#14202b;--mut:#5d6b78;--line:#e2e6ea;--acc:#0b5cab;--hd:#eef2f6;--err:#b3261e}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1418;--card:#171e24;--fg:#e8edf1;--mut:#93a1ad;--line:#28323b;--acc:#6db3f2;--hd:#1d262d;--err:#f2867e}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:none;margin:0;padding:24px 24px 48px;visibility:hidden}
+main.on{visibility:visible}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+h1{margin:0;font-size:1.7rem}
+.back{color:var(--mut);font-size:.85rem;text-decoration:none}
+.back:hover{color:var(--acc)}
+.sub{color:var(--mut);margin:4px 0 16px;font-size:.9rem}
+.bar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.bar input{flex:1 1 220px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit}
+button{padding:9px 14px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit;cursor:pointer}
+button:hover{border-color:var(--acc)}
+.stats{color:var(--mut);font-size:.85rem}
+[hidden]{display:none!important}
+.tabs{display:flex;gap:6px;margin:0 0 14px}
+.tabs button{padding:8px 16px}
+.tabs button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.bad{color:var(--err);font-weight:700}
+#fbv td.cm{max-width:300px;white-space:normal}
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:0 0 14px}
+.sum div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.sum b{display:block;font-size:1.7rem;line-height:1.2}
+.sum span{color:var(--mut);font-size:.8rem}
+.wrap{overflow-x:auto;background:var(--card);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:0;font-variant-numeric:tabular-nums}
+th,td{padding:10px 10px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+th{background:var(--hd);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em;color:var(--mut);user-select:none}
+th.s{cursor:pointer}
+th.s:hover{color:var(--fg)}
+th .ar{display:inline-block;width:1em;color:var(--acc)}
+tr:last-child td{border-bottom:0}
+td.n{color:var(--mut)}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:.8rem;font-weight:600}
+.pill.p{background:#fff1d6;color:#8a5a00}
+.pill.v{background:#dff5e3;color:#176b2c}
+@media (prefers-color-scheme:dark){.pill.p{background:#3a2d12;color:#f0c36a}.pill.v{background:#14341d;color:#7fd99a}}
+.pill.f{background:#ffe0cc;color:#9a3300}
+.fu{margin:0 0 12px;padding:10px 14px;border-radius:8px;background:#fff1d6;color:#7a4e00;border:1px solid #f0d9a8;font-size:.9rem}
+.fu button{margin-left:8px;padding:4px 10px;font-size:.85rem}
+.sub2{display:block;color:var(--mut);font-size:.78rem;margin-top:2px}
+.ms{padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--fg);font:inherit}
+@media (prefers-color-scheme:dark){.pill.f{background:#43230f;color:#f5a870}.fu{background:#3a2d12;color:#f0c36a;border-color:#5a4a22}}
+.msg{padding:28px 16px;text-align:center;color:var(--mut)}
+.msg.err{color:var(--err)}
+</style>
+</head>
+<body>
+<main id="app">
+<div class="top">
+<div><a class="back" href="/internal/condo/">&larr; All condos</a><h1>Suites 123</h1><p class="sub" id="fresh">Resident registrations</p></div>
+<div style="display:flex;gap:8px;align-items:center"><select id="va" hidden aria-label="View as" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">View as: Superadmin (me)</option><option value="admin">View as: Staff</option><option value="property_manager">View as: Property manager</option></select><button id="out" type="button">Sign out</button></div>
+</div>
+<div class="tabs" id="tabs" hidden><button type="button" id="tabR" class="on">Residents</button><button type="button" id="tabF">Feedback</button></div>
+<div id="resv">
+<div class="sum" id="sum"></div>
+<div class="bar">
+<select id="mf" aria-label="Filter by monitor status" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">All households</option><option value="any">Monitor: all interested</option><option value="interested">Interested</option><option value="quoted">Quoted</option><option value="followup">Quoted: follow up (3+ days)</option><option value="ordered">Ordered</option><option value="paid">Paid</option><option value="installed">Installed</option></select>
+<select id="vf" aria-label="Filter by verification" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">All verification</option><option value="pending">Pending</option><option value="verified">Verified</option></select>
+<select id="idf" aria-label="Filter by identity" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">All identities</option><option value="Owner">Owner</option><option value="Tenant">Tenant</option><option value="Family">Family</option></select>
+<select id="ef" aria-label="Filter by email confirmation" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">Email: all</option><option value="yes">Email confirmed</option><option value="no">Email not confirmed</option></select>
+<input id="q" type="search" placeholder="Search name, unit, contact or email" aria-label="Search">
+<button id="rf" type="button">Refresh</button>
+<button id="ex" type="button">Export list (CSV)</button>
+<button id="exa" type="button" title="Verified residents, in the Akuvox Cloud Community import format">Export for Akuvox (.xlsx)</button>
+<span class="stats" id="stats"></span>
+</div>
+<div class="fu" id="fu" hidden></div>
+<div class="wrap"><table><thead><tr id="hd"></tr></thead><tbody id="tb"></tbody></table><div class="msg" id="msg">Loading…</div></div>
+</div>
+<div id="fbv" hidden>
+<div class="sum" id="fsum"></div>
+<div class="wrap"><table><thead><tr id="fhd"></tr></thead><tbody id="ftb"></tbody></table><div class="msg" id="fmsg">Loading…</div></div>
+</div>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(function(){
+var db=supabase.createClient("https://bppajrzwqeysrnrucwka.supabase.co","sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT");
+var LOGIN="/internal/condo/login/?next="+encodeURIComponent("/internal/condo/suites123/");
+var COLS_STAFF=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Full name",s:1},{k:"first_name",l:"First name",s:1},{k:"last_name",l:"Last name",s:1},{k:"identity",l:"Identity",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"created_at",l:"Registered",s:1},{k:"confirmed_at",l:"Email confirmed",s:1},{k:"monitor_emailed_at",l:"Monitor emailed",s:1},{k:"briefing_emailed_at",l:"Briefing emailed",s:1},{k:"welcome_emailed_at",l:"Verify emailed",s:1},{k:"monitor_status",l:"Monitor",s:1},{k:"quotation_no",l:"Quote",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
+var COLS_PM=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Name",s:1},{k:"identity",l:"Identity",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"confirmed_at",l:"Email confirmed",s:1},{k:"monitor_ordered",l:"Monitor ordered",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
+var COLS=COLS_PM;
+var rows=[],sortK="block_no",dir=1,canApprove=false,canStaff=false,shown=[];
+var viewAs="",realSuper=false,realWide=false,realPM=false,MF_STAFF="";
+var FU_DAYS=3,ST=["interested","quoted","ordered","paid","installed","declined"];
+function qDays(r){return r.quotation_sent_at?Math.floor((Date.now()-new Date(r.quotation_sent_at).getTime())/86400000):null}
+function isFU(r){if(r.monitor_status!=="quoted")return false;var d=qDays(r);return d===null||d>=FU_DAYS}
+function isOrd(s){return s==="ordered"||s==="paid"||s==="installed"}
+function cap(t){return t.charAt(0).toUpperCase()+t.slice(1)}
+function fmtD(v){return v?new Date(v).toLocaleDateString("en-GB",{day:"2-digit",month:"short",year:"numeric"}):""}
+var $=function(i){return document.getElementById(i)};
+var coll=new Intl.Collator(undefined,{numeric:true,sensitivity:"base"});
+function head(){
+  var h=$("hd");h.innerHTML="";
+  COLS.forEach(function(c){
+    var th=document.createElement("th");th.textContent=c.l;
+    if(c.s){th.className="s";th.setAttribute("aria-sort",sortK===c.k?(dir>0?"ascending":"descending"):"none");
+      var a=document.createElement("span");a.className="ar";a.textContent=sortK===c.k?(dir>0?" ▲":" ▼"):" ↕";if(sortK!==c.k)a.style.opacity=".35";th.appendChild(a);
+      th.onclick=function(){if(sortK===c.k)dir=-dir;else{sortK=c.k;dir=1}render()}}
+    h.appendChild(th)});
+}
+function pill(cls,txt){var p=document.createElement("span");p.className="pill "+cls;p.textContent=txt;return p}
+function cell(r,c,i){
+  var td=document.createElement("td");
+  switch(c.k){
+    case "sn":td.className="n";td.textContent=i+1;break;
+    case "created_at":td.textContent=fmtD(r.created_at);break;
+    case "confirmed_at":if(r.confirmed_at)td.textContent=fmtD(r.confirmed_at);else td.appendChild(pill("p","Not yet"));break;
+    case "monitor_emailed_at":case "briefing_emailed_at":case "welcome_emailed_at":
+      td.textContent=r[c.k]?fmtD(r[c.k]):((c.k==="monitor_emailed_at"&&!r.monitor_interest)?"":"–");break;
+    case "monitor_ordered":td.textContent=r.monitor_ordered?"Ordered":"";break;
+    case "monitor_status":
+      if(r.monitor_status&&r.monitor_status!=="none"){
+        var sel=document.createElement("select");sel.className="ms";sel.setAttribute("aria-label","Monitor status: "+r.full_name);
+        ST.forEach(function(o){var op=document.createElement("option");op.value=o;op.textContent=cap(o);if(o===r.monitor_status)op.selected=true;sel.appendChild(op)});
+        sel.onchange=function(){setMon(r,sel)};td.appendChild(sel)}
+      break;
+    case "quotation_no":
+      if(r.quotation_no){td.textContent=r.quotation_no;var sb=document.createElement("span");sb.className="sub2";var dd=qDays(r);
+        sb.textContent=r.quotation_sent_at?("Sent "+fmtD(r.quotation_sent_at)+(dd!==null?" · "+dd+"d ago":"")):"";td.appendChild(sb);
+        if(isFU(r)){var fp=pill("f","Follow up");fp.style.marginTop="4px";td.appendChild(document.createElement("br"));td.appendChild(fp)}}
+      break;
+    case "verification_status":td.appendChild(r.verification_status==="verified"?pill("v","Verified"):pill("p","Pending"));break;
+    case "certified":
+      if(canApprove){var cb=document.createElement("input");cb.type="checkbox";cb.checked=!!r.certified;cb.style.cssText="width:18px;height:18px;cursor:pointer";cb.setAttribute("aria-label","Certified: "+r.full_name);cb.onchange=function(){setCert(r,cb)};td.appendChild(cb)}
+      else td.textContent=r.certified?"Yes":"";
+      break;
+    case "approved_by":td.textContent=r.approved_by?r.approved_by+(r.approved_at?" · "+fmtD(r.approved_at):""):"";break;
+    default:td.textContent=r[c.k]==null?"":r[c.k]}
+  return td;
+}
+var TOTAL_UNITS=37;
+function summary(){
+  var seen={};rows.forEach(function(r){seen[(r.block_no||"")+"|"+(r.unit_no||"")]=1});
+  var u=Object.keys(seen).length,pct=Math.round(u/TOTAL_UNITS*100);
+  function t(n,l){return "<div><b>"+n+"</b><span>"+l+"</span></div>"}
+  $("sum").innerHTML=t(TOTAL_UNITS,"Total units in Suites 123")+t(u,"Units registered")+t(pct+"%","of units registered")+t(TOTAL_UNITS-u,"Units not yet registered")+t(rows.length,"Total registrations (users)");
+  var ordU={},intU={};rows.forEach(function(r){var k=(r.block_no||"")+"|"+(r.unit_no||"");if(r.monitor_ordered)ordU[k]=1;if(r.monitor_interest||(r.monitor_status&&r.monitor_status!=="none"))intU[k]=1});
+  if(canStaff)$("sum").innerHTML+=t(Object.keys(intU).length,"Monitors interested (units)");
+  $("sum").innerHTML+=t(Object.keys(ordU).length,"Monitors ordered (units)");
+}
+function render(){
+  head();summary();
+  var q=$("q").value.trim().toLowerCase(),vf=$("vf").value,mf=$("mf").value,idf=$("idf").value,ef=$("ef").value;
+  var list=rows.filter(function(r){
+    if(vf&&(r.verification_status||"pending")!==vf)return false;
+    if(idf&&r.identity!==idf)return false;
+    if(ef==="yes"&&!r.confirmed_at)return false;
+    if(ef==="no"&&r.confirmed_at)return false;
+    if(mf==="followup"){if(!isFU(r))return false}
+    else if(mf==="ordered_any"){if(!r.monitor_ordered)return false}
+    else if(mf==="any"){if(!r.monitor_status||r.monitor_status==="none")return false}
+    else if(mf&&r.monitor_status!==mf)return false;
+    return !q||[r.block_no,r.unit_no,r.full_name,r.contact_no,r.email,r.identity,canStaff?r.monitor_status:""].join(" ").toLowerCase().indexOf(q)>-1});
+  list.sort(function(a,b){
+    var c=coll.compare(String(a[sortK]||""),String(b[sortK]||""));
+    if(!c&&sortK!=="block_no")c=coll.compare(a.block_no,b.block_no);
+    if(!c)c=coll.compare(a.unit_no,b.unit_no);
+    if(!c)c=(a.user_no||0)-(b.user_no||0);
+    return c*dir});
+  shown=list;
+  var tb=$("tb");tb.innerHTML="";
+  list.forEach(function(r,i){
+    var tr=document.createElement("tr");
+    COLS.forEach(function(c){tr.appendChild(cell(r,c,i))});
+    tb.appendChild(tr)});
+  var m=$("msg");
+  if(!list.length){m.className="msg";m.style.display="";m.textContent=rows.length?"No matches.":"No registrations yet."}else m.style.display="none";
+  $("stats").textContent=list.length+" of "+rows.length+" users · "+rows.filter(function(r){return r.confirmed_at}).length+" email confirmed · "+rows.filter(function(r){return r.verification_status==="verified"}).length+" verified";
+  var nfu=rows.filter(isFU).length,fu=$("fu");
+  if(canStaff&&nfu){fu.hidden=false;fu.textContent=nfu+(nfu===1?" quotation was":" quotations were")+" sent "+FU_DAYS+"+ days ago and not yet marked Ordered. Please follow up with the resident, then set the status to Ordered (or Declined).";
+    var fb=document.createElement("button");fb.type="button";fb.textContent="Show them";fb.onclick=function(){$("mf").value="followup";render()};fu.appendChild(fb)}
+  else fu.hidden=true;
+}
+async function setCert(r,cb){
+  cb.disabled=true;
+  var res=await db.rpc("suites123_set_certified",{p_id:r.id,p_certified:cb.checked});
+  if(res.error||!res.data||!res.data.length){cb.checked=!cb.checked;cb.disabled=false;$("stats").textContent="Could not save: "+(res.error?res.error.message:"not allowed");return}
+  var d=res.data[0];r.certified=d.certified;r.verification_status=d.certified?"verified":"pending";r.approved_by=d.approved_by;r.approved_at=d.approved_at;render();
+}
+async function setMon(r,sel){
+  var prev=r.monitor_status;sel.disabled=true;
+  var res=await db.rpc("suites123_staff_set_monitor",{p_id:r.id,p_status:sel.value});
+  if(res.error||!res.data||!res.data.length){sel.value=prev;sel.disabled=false;$("stats").textContent="Could not save: "+(res.error?res.error.message:"not allowed");return}
+  r.monitor_status=res.data[0].monitor_status;r.monitor_ordered=isOrd(r.monitor_status);render();
+}
+function fail(t){var m=$("msg");m.className="msg err";m.style.display="";m.textContent=t;$("tb").innerHTML=""}
+async function load(){
+  var m=$("msg");m.className="msg";m.style.display="";m.textContent="Loading…";
+  var all=[],from=0,size=1000;
+  for(;;){
+    var r=await db.rpc("suites123_dashboard_rows_v3",viewAs?{p_view_as:viewAs}:{}).range(from,from+size-1);
+    if(r.error){
+      if(r.error.code==="PGRST301"||/JWT/i.test(r.error.message||"")){location.replace(LOGIN);return}
+      fail("Couldn't load data: "+r.error.message);return}
+    var d=r.data||[];all=all.concat(d);
+    if(d.length<size)break;
+    from+=size}
+  if(canStaff){
+    var sg=[],sf=0;
+    for(;;){var st=await db.rpc("suites123_dashboard_email_stages").range(sf,sf+999);
+      if(st.error){sg=null;break}
+      var sd=st.data||[];sg=sg.concat(sd);if(sd.length<1000)break;sf+=1000}
+    if(sg){var mp={};sg.forEach(function(x){mp[x.registration_id]=x});
+      all.forEach(function(r){var x=mp[r.id];if(x){r.monitor_emailed_at=x.monitor_emailed_at;r.briefing_emailed_at=x.briefing_emailed_at;r.welcome_emailed_at=x.welcome_emailed_at}})}}
+  rows=all;
+  $("fresh").textContent="Resident registrations · updated "+new Date().toLocaleString()+(viewAs?" · previewing as "+(viewAs==="admin"?"Staff":"Property manager"):"");
+  render();
+}
+function csvCell(v){
+  v=v==null?"":String(v);
+  if(/^[=@\t\r]/.test(v)||(/^[+\-]/.test(v)&&!/^[+\-]?[\d\s]+$/.test(v)))v="'"+v;
+  return '"'+v.replace(/"/g,'""')+'"';
+}
+function exportCsv(){
+  if(!canStaff)return;
+  var S=canStaff;
+  var H=S?["Blk","Unit","User no","Full name","First name","Last name","Identity","Contact","Email","Registered","Email confirmed","Monitor emailed","Briefing emailed","Verify emailed","Consent","Monitor","Quote no","Quote sent","Verification","Approved by","Approved at"]
+         :["Blk","Unit","User no","Name","Identity","Contact","Email","Email confirmed","Monitor ordered","Verification","Approved by","Approved at"];
+  var out=[H.map(csvCell).join(",")];
+  shown.forEach(function(r){
+    var base=S?[r.block_no,r.unit_no,r.user_no,r.full_name,r.first_name||"",r.last_name||"",r.identity,r.contact_no,r.email]:[r.block_no,r.unit_no,r.user_no,r.full_name,r.identity,r.contact_no,r.email];
+    var ver=[r.verification_status==="verified"?"Verified":"Pending",r.approved_by||"",r.approved_at?new Date(r.approved_at).toLocaleString():""];
+    var row=S?base.concat([fmtD(r.created_at),fmtD(r.confirmed_at),fmtD(r.monitor_emailed_at),fmtD(r.briefing_emailed_at),fmtD(r.welcome_emailed_at),r.consent?"Yes":"No",r.monitor_status==="none"?"":r.monitor_status,r.quotation_no||"",fmtD(r.quotation_sent_at)],ver)
+             :base.concat([fmtD(r.confirmed_at),r.monitor_ordered?"Ordered":""],ver);
+    out.push(row.map(csvCell).join(","))});
+  var blob=new Blob(["﻿"+out.join("\r\n")],{type:"text/csv;charset=utf-8"});
+  var a=document.createElement("a");a.href=URL.createObjectURL(blob);
+  a.download="suites123-registrations-"+new Date().toISOString().slice(0,10)+".csv";
+  document.body.appendChild(a);a.click();document.body.removeChild(a);setTimeout(function(){URL.revokeObjectURL(a.href)},1000);
+}
+
+var FB=[],fbLoaded=false;
+function showTab(t){var f=t==="f"&&canStaff;$("resv").hidden=f;$("fbv").hidden=!f;$("tabR").className=f?"":"on";$("tabF").className=f?"on":"";if(f&&!fbLoaded)loadFb()}
+async function loadFb(){
+  $("fmsg").textContent="Loading…";$("fmsg").hidden=false;
+  var res=await db.rpc("suites123_feedback_rows_v2");
+  if(res.error){$("fmsg").textContent="Could not load feedback: "+res.error.message;return}
+  FB=res.data||[];fbLoaded=true;renderFb();
+}
+function fbErr(x){$("fmsg").textContent="Could not save: "+(x&&x.error?x.error.message:"not allowed");$("fmsg").hidden=false}
+function renderFb(){
+  var h=["Blk","Unit","Name","Sent","Rating","Experience","To improve","Contact me","OK to publish","Show as","Publish","Follow-up","Handled by"];
+  $("fhd").innerHTML="";h.forEach(function(x){var th=document.createElement("th");th.textContent=x;$("fhd").appendChild(th)});
+  var done=FB.filter(function(r){return r.submitted_at}),rated=done.filter(function(r){return r.rating}),avg=rated.length?(rated.reduce(function(a,r){return a+r.rating},0)/rated.length).toFixed(1):"–";
+  var open=FB.filter(function(r){return r.submitted_at&&(r.wants_contact||(r.rating&&r.rating<=2))&&r.follow_up_status!=="resolved"}).length;
+  function t(n,l){return "<div><b>"+n+"</b><span>"+l+"</span></div>"}
+  $("fsum").innerHTML=t(FB.length,"Review requests sent")+t(done.length,"Replied")+t(avg,"Average rating (of 5)")+t(open,"Needing follow-up")+t(FB.filter(function(r){return r.published}).length,"Published on the website");
+  var tb=$("ftb");tb.innerHTML="";
+  FB.forEach(function(r){
+    var tr=document.createElement("tr");
+    function td(txt,cls){var c=document.createElement("td");c.textContent=txt;if(cls)c.className=cls;tr.appendChild(c);return c}
+    td(r.block_no);td(r.unit_no);td(r.full_name);td(fmtD(r.created_at));
+    if(!r.submitted_at){td("No reply yet");for(var i=0;i<8;i++)td("");tb.appendChild(tr);return}
+    td(r.rating?r.rating+" / 5":"–",r.rating&&r.rating<=2?"bad":"");td(r.worked_well||"","cm");td(r.to_improve||"","cm");
+    td(r.wants_contact?"Yes, call back":"",r.wants_contact?"bad":"");
+    td(r.ok_publish?"Yes":"No");
+    var sc=document.createElement("td");
+    if(r.ok_publish){var inp=document.createElement("input");inp.type="text";inp.maxLength=80;inp.value=r.show_as||"";inp.placeholder=r.show_name?"Name, Blk "+r.block_no:"Suites 123 resident";inp.setAttribute("aria-label","Show as");inp.style.width="170px";
+      inp.onchange=async function(){var x=await db.rpc("suites123_feedback_set_show_as",{p_id:r.id,p_text:inp.value});if(x.error||x.data!==true){fbErr(x);return}r.show_as=inp.value.trim()||null};sc.appendChild(inp)}
+    tr.appendChild(sc);
+    var c=document.createElement("td");
+    if(r.ok_publish&&r.worked_well){var cb=document.createElement("input");cb.type="checkbox";cb.checked=r.published;cb.setAttribute("aria-label","Publish this comment");
+      cb.onchange=async function(){cb.disabled=true;var x=await db.rpc("suites123_feedback_set_publish",{p_id:r.id,p_publish:cb.checked});
+        if(x.error||x.data!==true){cb.checked=!cb.checked;cb.disabled=false;fbErr(x);return}
+        r.published=cb.checked;cb.disabled=false;renderFb()};c.appendChild(cb)}
+    tr.appendChild(c);
+    var fc=document.createElement("td"),oc=document.createElement("td");
+    var sel=document.createElement("select");[["new","New"],["contacted","Contacted"],["resolved","Resolved"]].forEach(function(o){var op=document.createElement("option");op.value=o[0];op.textContent=o[1];if(o[0]===r.follow_up_status)op.selected=true;sel.appendChild(op)});
+    var ow=document.createElement("input");ow.type="text";ow.maxLength=80;ow.value=r.follow_up_owner||"";ow.placeholder="Staff name";ow.style.width="110px";ow.setAttribute("aria-label","Handled by");
+    async function saveFu(){var x=await db.rpc("suites123_feedback_set_followup",{p_id:r.id,p_status:sel.value,p_owner:ow.value});if(x.error||x.data!==true){fbErr(x);return}r.follow_up_status=sel.value;r.follow_up_owner=ow.value.trim()||null;renderFbSummary()}
+    sel.onchange=saveFu;ow.onchange=saveFu;fc.appendChild(sel);oc.appendChild(ow);tr.appendChild(fc);tr.appendChild(oc);tb.appendChild(tr)});
+  $("fmsg").hidden=FB.length>0;if(!FB.length)$("fmsg").textContent="No review requests have been sent yet.";
+}
+function renderFbSummary(){
+  var open=FB.filter(function(r){return r.submitted_at&&(r.wants_contact||(r.rating&&r.rating<=2))&&r.follow_up_status!=="resolved"}).length;
+  var bs=$("fsum").querySelectorAll("b");if(bs[3])bs[3].textContent=open;
+}
+$("tabR").onclick=function(){showTab("r")};$("tabF").onclick=function(){showTab("f")};
+$("ex").onclick=exportCsv;
+var AK_HEAD=["Building","Floor","Apt","AptName","Landline Service","With Indoor Monitor","Device","FirstName","LastName","Email","MobileNumber","TelephoneCallingCode","1stPhone","2ndPhone","3rdPhone","CallType","Web Relay ID","akubela Smart Home","Analog Handset","Video Storage"];
+function akUnit(u){var m=String(u||"").trim().match(/^#?([A-Za-z]*)(\d+)-(\d+)$/);if(!m)return null;var pre=m[1].toUpperCase(),fl=m[2],un=m[3];
+  return{floor:pre==="B"?String(-parseInt(fl,10)):String(parseInt(fl,10)),apt:pre?(pre+fl+un.padStart(2,"0")):(fl.padStart(2,"0")+un.padStart(2,"0"))}}
+function akMobile(v){var d=String(v||"").replace(/\D/g,"");if(d.length===10&&d.indexOf("65")===0)d=d.slice(2);return d}
+function loadXlsx(cb){if(window.XLSX)return cb();var sc=document.createElement("script");sc.src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js";sc.onload=cb;sc.onerror=function(){$("stats").textContent="Could not load the Excel library. Check your internet connection and try again."};document.head.appendChild(sc)}
+var AK_VN=["nguyen","tran","pham","hoang","huynh","phan","vo","vu","dang","bui","ngo","dinh","truong","trinh","quach","trieu","doan","luong"];
+function akName(r){var f=String(r.first_name||"").trim(),l=String(r.last_name||"").trim(),w=String(r.full_name||"").trim().split(/\s+/);
+  /* Akuvox needs a last name. Vietnamese family name comes first in the full name and is the last name here, even though Vantage addresses by the given name. */
+  if(!l&&w.length>1&&AK_VN.indexOf(w[0].toLowerCase())>-1){return[w.slice(1).join(" "),w[0]]}
+  return[f||w.join(" "),l||"-"]}
+function exportAkuvox(){
+  if(!canStaff)return;
+  var ver=rows.filter(function(r){return r.verification_status==="verified"}),bad=[],ord={};
+  ver.forEach(function(r){if(r.monitor_ordered)ord[r.block_no+"|"+r.unit_no]=1});
+  var items=[];ver.forEach(function(r){var u=akUnit(r.unit_no);if(!u){bad.push(r.block_no+" "+r.unit_no);return}items.push({r:r,u:u})});
+  items.sort(function(a,b){return (parseInt(a.r.block_no,10)-parseInt(b.r.block_no,10))||(parseInt(a.u.floor,10)-parseInt(b.u.floor,10))||(a.u.apt<b.u.apt?-1:a.u.apt>b.u.apt?1:0)||((a.r.user_no||0)-(b.r.user_no||0))});
+  var aoa=[AK_HEAD];
+  items.forEach(function(x){var r=x.r,m=akMobile(r.contact_no);
+    var nm=akName(r);aoa.push([String(r.block_no),x.u.floor,x.u.apt,x.u.apt,"0",ord[r.block_no+"|"+r.unit_no]?"1":"0","",nm[0],nm[1],String(r.email||"").trim(),m,m?"65":"","","","",0,12,"","",""])});
+  loadXlsx(function(){
+    var ws=XLSX.utils.aoa_to_sheet(aoa,{cellDates:false});
+    Object.keys(ws).forEach(function(a){if(a[0]==="!")return;var c=ws[a],row=XLSX.utils.decode_cell(a).r;if(row>0&&c.t==="s")c.z="@"});
+    var wb=XLSX.utils.book_new();XLSX.utils.book_append_sheet(wb,ws,"upload_device_Com");
+    XLSX.writeFile(wb,"akuvox-community-import-suites123-"+new Date().toISOString().slice(0,10)+".xlsx");
+    $("stats").textContent="Akuvox file: "+items.length+" verified residents exported"+(bad.length?" · skipped (unit format not recognised): "+bad.join(", "):"");
+  })
+}
+$("exa").onclick=exportAkuvox;$("vf").onchange=render;$("idf").onchange=render;$("ef").onchange=render;
+$("q").oninput=render;$("mf").onchange=render;$("rf").onclick=function(){load();if(!$("fbv").hidden)loadFb()};
+$("out").onclick=async function(){await db.auth.signOut();location.replace(LOGIN)};
+db.auth.onAuthStateChange(function(ev){if(ev==="SIGNED_OUT")location.replace(LOGIN)});
+db.auth.getSession().then(async function(s){
+  if(!s.data||!s.data.session){location.replace(LOGIN);return}
+  var a=await db.rpc("internal_my_access");
+  var acc=(a.data||[]);
+  var ok=acc.some(function(x){return x.role==="superadmin"||x.role==="admin"||(x.role==="property_manager"&&x.condo_slug==="suites123")});
+  if(!ok){$("app").className="on";$("fresh").textContent="";$("hd").innerHTML="";$("stats").textContent="";fail("Your account does not have access to this site. Please contact Securevision.");return}
+  realPM=acc.some(function(x){return x.role==="property_manager"&&x.condo_slug==="suites123"});
+  realWide=acc.some(function(x){return x.role==="superadmin"||x.role==="admin"});
+  realSuper=acc.some(function(x){return x.role==="superadmin"});
+  MF_STAFF=$("mf").innerHTML;
+  function applyRole(){
+    var pmView=viewAs?viewAs==="property_manager":!realWide;
+    canStaff=!pmView;
+    canApprove=pmView&&realPM&&!viewAs;
+    COLS=canStaff?COLS_STAFF:COLS_PM;
+    $("mf").innerHTML=canStaff?MF_STAFF:'<option value="">All households</option><option value="ordered_any">Monitor ordered</option>';
+    var b=document.querySelector(".back");if(b)b.style.display=pmView?"none":"";
+    $("ex").style.display=canStaff?"":"none";$("tabs").hidden=!canStaff;if(!canStaff)showTab("r");$("exa").style.display=canStaff?"":"none";
+  }
+  applyRole();
+  if(realSuper){var va=$("va");va.hidden=false;va.onchange=function(){viewAs=va.value;sortK="block_no";dir=1;applyRole();load()}}
+  $("app").className="on";head();load();
+});
+})();
+</script>
+</body>
+</html>
