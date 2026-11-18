@@ -89,7 +89,7 @@ td.n{color:var(--mut)}
 var db=supabase.createClient("https://bppajrzwqeysrnrucwka.supabase.co","sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT");
 var LOGIN="/internal/condo/login/?next="+encodeURIComponent("/internal/condo/suites123/");
 var COLS_STAFF=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Full name",s:1},{k:"first_name",l:"First name",s:1},{k:"last_name",l:"Last name",s:1},{k:"identity",l:"Identity",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"created_at",l:"Registered",s:1},{k:"confirmed_at",l:"Email confirmed",s:1},{k:"monitor_emailed_at",l:"Monitor emailed",s:1},{k:"briefing_emailed_at",l:"Briefing emailed",s:1},{k:"welcome_emailed_at",l:"Verify emailed",s:1},{k:"monitor_status",l:"Monitor",s:1},{k:"quotation_no",l:"Quote",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
-var COLS_PM=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Name",s:1},{k:"identity",l:"Identity",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"confirmed_at",l:"Email confirmed",s:1},{k:"monitor_ordered",l:"Monitor ordered",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
+var COLS_PM=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Name",s:1},{k:"identity",l:"Identity",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"confirmed_at",l:"Email confirmed",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
 var COLS=COLS_PM;
 var rows=[],sortK="block_no",dir=1,canApprove=false,canStaff=false,shown=[];
 var viewAs="",realSuper=false,realWide=false,realPM=false,MF_STAFF="";
@@ -148,7 +148,7 @@ function summary(){
   $("sum").innerHTML=t(TOTAL_UNITS,"Total units in Suites 123")+t(u,"Units registered")+t(pct+"%","of units registered")+t(TOTAL_UNITS-u,"Units not yet registered")+t(rows.length,"Total registrations (users)");
   var ordU={},intU={};rows.forEach(function(r){var k=(r.block_no||"")+"|"+(r.unit_no||"");if(r.monitor_ordered)ordU[k]=1;if(r.monitor_interest||(r.monitor_status&&r.monitor_status!=="none"))intU[k]=1});
   if(canStaff)$("sum").innerHTML+=t(Object.keys(intU).length,"Monitors interested (units)");
-  $("sum").innerHTML+=t(Object.keys(ordU).length,"Monitors ordered (units)");
+  if(canStaff)$("sum").innerHTML+=t(Object.keys(ordU).length,"Monitors ordered (units)");
 }
 function render(){
   head();summary();
@@ -335,7 +335,7 @@ db.auth.getSession().then(async function(s){
     canStaff=!pmView;
     canApprove=pmView&&realPM&&!viewAs;
     COLS=canStaff?COLS_STAFF:COLS_PM;
-    $("mf").innerHTML=canStaff?MF_STAFF:'<option value="">All households</option><option value="ordered_any">Monitor ordered</option>';
+    $("mf").innerHTML=canStaff?MF_STAFF:'<option value="">All households</option>';$("mf").style.display=canStaff?"":"none";
     var b=document.querySelector(".back");if(b)b.style.display=pmView?"none":"";
     $("ex").style.display=canStaff?"":"none";$("tabs").hidden=!canStaff;if(!canStaff)showTab("r");$("exa").style.display=canStaff?"":"none";
   }
