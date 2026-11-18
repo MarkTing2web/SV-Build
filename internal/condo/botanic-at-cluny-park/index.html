@@ -65,11 +65,11 @@ td.n{color:var(--mut)}
 <div id="resv">
 <div class="sum" id="sum"></div>
 <div class="bar">
-<select id="mf" aria-label="Filter by monitor status" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">All households</option><option value="any">Monitor: all interested</option><option value="interested">Interested</option><option value="quoted">Quoted</option><option value="followup">Quoted: follow up (3+ days)</option><option value="ordered">Ordered</option><option value="paid">Paid</option><option value="installed">Installed</option></select>
+<select id="mf" hidden aria-label="Filter by monitor status" style="display:none;padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">All households</option><option value="any">Monitor: all interested</option><option value="interested">Interested</option><option value="quoted">Quoted</option><option value="followup">Quoted: follow up (3+ days)</option><option value="ordered">Ordered</option><option value="paid">Paid</option><option value="installed">Installed</option></select>
 <select id="vf" aria-label="Filter by verification" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">All verification</option><option value="pending">Pending</option><option value="verified">Verified</option></select>
 <select id="idf" aria-label="Filter by identity" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">All identities</option><option value="Owner">Owner</option><option value="Tenant">Tenant</option><option value="Family">Family</option></select>
 <select id="ef" aria-label="Filter by email confirmation" style="padding:9px 12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg);font:inherit"><option value="">Email: all</option><option value="yes">Email confirmed</option><option value="no">Email not confirmed</option></select>
-<input id="q" type="search" placeholder="Search name, unit, contact or email" aria-label="Search">
+<input id="q" type="search" placeholder="Search name, house, contact or email" aria-label="Search">
 <button id="rf" type="button">Refresh</button>
 <button id="ex" type="button">Export list (CSV)</button>
 <button id="exa" type="button" title="Verified residents, in the Akuvox Cloud Community import format">Export for Akuvox (.xlsx)</button>
@@ -88,10 +88,10 @@ td.n{color:var(--mut)}
 (function(){
 var db=supabase.createClient("https://bppajrzwqeysrnrucwka.supabase.co","sb_publishable_vYPT4DLGgdCKutxGFAHSNA_K-IbcOdT");
 var LOGIN="/internal/condo/login/?next="+encodeURIComponent("/internal/condo/botanic-at-cluny-park/");
-var COLS_STAFF=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Full name",s:1},{k:"first_name",l:"First name",s:1},{k:"last_name",l:"Last name",s:1},{k:"identity",l:"Identity",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"created_at",l:"Registered",s:1},{k:"confirmed_at",l:"Email confirmed",s:1},{k:"monitor_emailed_at",l:"Monitor emailed",s:1},{k:"briefing_emailed_at",l:"Briefing emailed",s:1},{k:"welcome_emailed_at",l:"Verify emailed",s:1},{k:"monitor_status",l:"Monitor",s:1},{k:"quotation_no",l:"Quote",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
-var COLS_PM=[{k:"sn",l:"S/N"},{k:"block_no",l:"Blk",s:1},{k:"unit_no",l:"Unit",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Name",s:1},{k:"identity",l:"Identity",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"confirmed_at",l:"Email confirmed",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
+var COLS_STAFF=[{k:"sn",l:"S/N"},{k:"unit_no",l:"House",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Full name",s:1},{k:"first_name",l:"First name",s:1},{k:"last_name",l:"Last name",s:1},{k:"identity",l:"Identity",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"created_at",l:"Registered",s:1},{k:"confirmed_at",l:"Email confirmed",s:1},{k:"welcome_emailed_at",l:"Verify emailed",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
+var COLS_PM=[{k:"sn",l:"S/N"},{k:"unit_no",l:"House",s:1},{k:"user_no",l:"User no",s:1},{k:"full_name",l:"Name",s:1},{k:"identity",l:"Identity",s:1},{k:"contact_no",l:"Contact",s:1},{k:"email",l:"Email",s:1},{k:"confirmed_at",l:"Email confirmed",s:1},{k:"verification_status",l:"Verification",s:1},{k:"certified",l:"Certified"},{k:"approved_by",l:"Approved by",s:1}];
 var COLS=COLS_PM;
-var rows=[],sortK="block_no",dir=1,canApprove=false,canStaff=false,shown=[];
+var rows=[],sortK="unit_no",dir=1,canApprove=false,canStaff=false,shown=[];
 var viewAs="",realSuper=false,realWide=false,realPM=false,MF_STAFF="";
 var FU_DAYS=3,ST=["interested","quoted","ordered","paid","installed","declined"];
 function qDays(r){return r.quotation_sent_at?Math.floor((Date.now()-new Date(r.quotation_sent_at).getTime())/86400000):null}
@@ -145,10 +145,8 @@ function summary(){
   var seen={};rows.forEach(function(r){seen[(r.block_no||"")+"|"+(r.unit_no||"")]=1});
   var u=Object.keys(seen).length,pct=Math.round(u/TOTAL_UNITS*100);
   function t(n,l){return "<div><b>"+n+"</b><span>"+l+"</span></div>"}
-  $("sum").innerHTML=t(TOTAL_UNITS,"Total units in Botanic @ Cluny Park")+t(u,"Units registered")+t(pct+"%","of units registered")+t(TOTAL_UNITS-u,"Units not yet registered")+t(rows.length,"Total registrations (users)");
+  $("sum").innerHTML=t(TOTAL_UNITS,"Total houses in Botanic @ Cluny Park")+t(u,"Houses registered")+t(pct+"%","of houses registered")+t(TOTAL_UNITS-u,"Houses not yet registered")+t(rows.length,"Total registrations (users)");
   var ordU={},intU={};rows.forEach(function(r){var k=(r.block_no||"")+"|"+(r.unit_no||"");if(r.monitor_ordered)ordU[k]=1;if(r.monitor_interest||(r.monitor_status&&r.monitor_status!=="none"))intU[k]=1});
-  if(canStaff)$("sum").innerHTML+=t(Object.keys(intU).length,"Monitors interested (units)");
-  if(canStaff)$("sum").innerHTML+=t(Object.keys(ordU).length,"Monitors ordered (units)");
 }
 function render(){
   head();summary();
@@ -226,8 +224,8 @@ function csvCell(v){
 function exportCsv(){
   if(!canStaff)return;
   var S=canStaff;
-  var H=S?["Blk","Unit","User no","Full name","First name","Last name","Identity","Contact","Email","Registered","Email confirmed","Monitor emailed","Briefing emailed","Verify emailed","Consent","Monitor","Quote no","Quote sent","Verification","Approved by","Approved at"]
-         :["Blk","Unit","User no","Name","Identity","Contact","Email","Email confirmed","Monitor ordered","Verification","Approved by","Approved at"];
+  var H=S?["Estate","House","User no","Full name","First name","Last name","Identity","Contact","Email","Registered","Email confirmed","Monitor emailed","Briefing emailed","Verify emailed","Consent","Monitor","Quote no","Quote sent","Verification","Approved by","Approved at"]
+         :["Estate","House","User no","Name","Identity","Contact","Email","Email confirmed","Monitor ordered","Verification","Approved by","Approved at"];
   var out=[H.map(csvCell).join(",")];
   shown.forEach(function(r){
     var base=S?[r.block_no,r.unit_no,r.user_no,r.full_name,r.first_name||"",r.last_name||"",r.identity,r.contact_no,r.email]:[r.block_no,r.unit_no,r.user_no,r.full_name,r.identity,r.contact_no,r.email];
@@ -251,7 +249,7 @@ async function loadFb(){
 }
 function fbErr(x){$("fmsg").textContent="Could not save: "+(x&&x.error?x.error.message:"not allowed");$("fmsg").hidden=false}
 function renderFb(){
-  var h=["Blk","Unit","Name","Sent","Rating","Experience","To improve","Contact me","OK to publish","Show as","Publish","Follow-up","Handled by"];
+  var h=["House","Name","Sent","Rating","Experience","To improve","Contact me","OK to publish","Show as","Publish","Follow-up","Handled by"];
   $("fhd").innerHTML="";h.forEach(function(x){var th=document.createElement("th");th.textContent=x;$("fhd").appendChild(th)});
   var done=FB.filter(function(r){return r.submitted_at}),rated=done.filter(function(r){return r.rating}),avg=rated.length?(rated.reduce(function(a,r){return a+r.rating},0)/rated.length).toFixed(1):"–";
   var open=FB.filter(function(r){return r.submitted_at&&(r.wants_contact||(r.rating&&r.rating<=2))&&r.follow_up_status!=="resolved"}).length;
@@ -261,13 +259,13 @@ function renderFb(){
   FB.forEach(function(r){
     var tr=document.createElement("tr");
     function td(txt,cls){var c=document.createElement("td");c.textContent=txt;if(cls)c.className=cls;tr.appendChild(c);return c}
-    td(r.block_no);td(r.unit_no);td(r.full_name);td(fmtD(r.created_at));
+    td(r.unit_no);td(r.full_name);td(fmtD(r.created_at));
     if(!r.submitted_at){td("No reply yet");for(var i=0;i<8;i++)td("");tb.appendChild(tr);return}
     td(r.rating?r.rating+" / 5":"–",r.rating&&r.rating<=2?"bad":"");td(r.worked_well||"","cm");td(r.to_improve||"","cm");
     td(r.wants_contact?"Yes, call back":"",r.wants_contact?"bad":"");
     td(r.ok_publish?"Yes":"No");
     var sc=document.createElement("td");
-    if(r.ok_publish){var inp=document.createElement("input");inp.type="text";inp.maxLength=80;inp.value=r.show_as||"";inp.placeholder=r.show_name?"Name, Blk "+r.block_no:"Botanic @ Cluny Park resident";inp.setAttribute("aria-label","Show as");inp.style.width="170px";
+    if(r.ok_publish){var inp=document.createElement("input");inp.type="text";inp.maxLength=80;inp.value=r.show_as||"";inp.placeholder=r.show_name?"Name, House "+r.unit_no:"Botanic @ Cluny Park resident";inp.setAttribute("aria-label","Show as");inp.style.width="170px";
       inp.onchange=async function(){var x=await db.rpc("botanic_at_cluny_park_feedback_set_show_as",{p_id:r.id,p_text:inp.value});if(x.error||x.data!==true){fbErr(x);return}r.show_as=inp.value.trim()||null};sc.appendChild(inp)}
     tr.appendChild(sc);
     var c=document.createElement("td");
@@ -340,7 +338,7 @@ db.auth.getSession().then(async function(s){
     $("ex").style.display=canStaff?"":"none";$("tabs").hidden=!canStaff;if(!canStaff)showTab("r");$("exa").style.display=canStaff?"":"none";
   }
   applyRole();
-  if(realSuper){var va=$("va");va.hidden=false;va.onchange=function(){viewAs=va.value;sortK="block_no";dir=1;applyRole();load()}}
+  if(realSuper){var va=$("va");va.hidden=false;va.onchange=function(){viewAs=va.value;sortK="unit_no";dir=1;applyRole();load()}}
   $("app").className="on";head();load();
 });
 })();
