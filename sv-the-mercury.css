@@ -285,6 +285,12 @@ body.np{margin:0;font-family:var(--np-body);color:var(--np-text);background:var(
 .np-btn--outline{background:#fff;color:var(--np-blue);border:1.5px solid var(--np-blue)}
 .np-btn--outline:hover{background:var(--np-tint)}
 
-/* Product photos in the change cards: show the whole product on white, never cropped */
+/* Product photos in the change cards */
 .np-card .np-photo-wrap--product{display:flex;gap:12px}
 .np-card .np-photo-wrap--product img{flex:1 1 0;min-width:0;width:100%;height:170px;aspect-ratio:auto;object-fit:contain;background:#fff;border:1px solid #dfe8f5;border-radius:10px;padding:8px}
+
+/* Header on one line: no wrapping in the menu or the button */
+.np-nav a,.np-header .np-btn,.np-wordmark{white-space:nowrap}
+.np-nav{flex-wrap:nowrap;gap:22px}
+@media (max-width:1240px){.np-nav{gap:16px}.np-nav a{font-size:.88rem}.np-header .np-btn{padding:11px 16px;font-size:.9rem}.np-header .np-wrap{gap:14px}}
+@media (max-width:1060px) and (min-width:901px){.np-nav{gap:12px}.np-nav a{font-size:.84rem}.np-header .np-btn{padding:10px 12px;font-size:.84rem}.np-header .np-btn svg{display:none}}
